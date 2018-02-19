@@ -202,10 +202,10 @@ jenkins_whitelist = [
 ## ctrl
 ctrl_peers = [
   { # tars NON-PROD
-    account_id         = "174362052724"
-    vpc_id             = "vpc-977e5df0"
-    cidr_block         = "10.20.0.0/16"
-    jenkinsnode_subnet = "10.20.2.0/24"
+    account_id         = "652856684323"
+    vpc_id             = "vpc-2903d84f"
+    cidr_block         = "10.210.0.0/16"
+    jenkinsnode_subnet = "10.210.2.0/24"
   }
 ]
 

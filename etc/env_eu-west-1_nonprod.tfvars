@@ -1,82 +1,72 @@
 ##########
 # GENERAL
 ##############################################################################
-project     = "cvs"
+project     = "tars"
 environment = "nonprod"
 aws_region  = "eu-west-1"
 
-tf_state_bucket_prefix = "dvsa.cvs.tf"
+tf_state_bucket_prefix = "tars-terraformscaffold"
 
 default_tags = {
-  Project     = "cvs"
+  Project     = "tars"
   Environment = "nonprod"
 }
 
-private_domain_name = "cvs.dvsa.aws"
+private_domain_name = "tars.dvsa.aws"
 
 ##########
 # ACCOUNT
 ###############################################################################
-aws_account_alias = "dvsacvsnonprod"
+aws_account_alias = "tarsnonprod"
 
-public_domain_name = "nonprod.cvs.dvsacloud.uk"
+public_domain_name = "nonprod.tars.dvsacloud.uk"
 
 users = [
-  #"s.mincewicz@kainos.com", # created by Account Owner
-  "c.junk@kainos.com",
   "rob.hart@dvsa.gov.uk",
-  "ross.faulds@bjss.com",
-  "ammar.haider@bjss.com",
-  "daniel.childs@bjss.com",
-  "simon.coope@bjss.com",
+  "karl.gharios@bjss.com",
 ]
 
 administrators = [
-  #"s.mincewicz@kainos.com", # created by Account Owner
-  "c.junk@kainos.com",
-  "rob.hart@dvsa.gov.uk",
-  "simon.coope@bjss.com",
+  "mark.thompson@bjss.com",
 ]
 
 power_users = [
-  "ross.faulds@bjss.com",
-  "ammar.haider@bjss.com",
-  "daniel.childs@bjss.com",
+  "karl.gharios@bjss.com",
 ]
 
 ##########
 # CONTROL
 ###############################################################################
-ctrl_vpc_cidr = "10.20.0.0/16"
+ctrl_vpc_cidr = "10.210.0.0/16"
 
 ctrl_nat_subnets_cidrs = [
-  "10.20.1.0/28",
+  "10.210.1.0/28",
 ]
 
 mgmt = {
-  aws_account_id         = "086658912680"
+  aws_account_id         = "645711882182"
   aws_region             = "eu-west-1"
-  project                = "cvs"
+  project                = "tars"
   environment            = "mgmt"
   component              = "mgmt"
-  vpc_id                 = "vpc-59eab63e"  # TODO: use remote state
-  vpc_cidr_block         = "10.1.0.0/16"   # TODO: use remote state
-  tf_state_bucket_prefix = "dvsa.cvs.tf"   # TODO: use remote state
-  jenkins_elb_subnet     = "10.1.3.32/28"  # TODO: use remote state
-  gitlab_subnet          = "10.1.2.128/28" # TODO: use remote state
+  vpc_id                 = "vpc-e303d285"  # TODO: use remote state
+  vpc_cidr_block         = "10.200.0.0/16"   # TODO: use remote state
+  tf_state_bucket_prefix = "tars-terraformscaffold"   # TODO: use remote state
+  jenkins_elb_subnet     = "10.200.3.32/28"  # TODO: use remote state
+  gitlab_subnet          = "10.200.2.128/28" # TODO: use remote state
 }
 
 # TODO: use remote state
 mgmt_bastion_subnets = [
-  "10.1.1.96/28",
-  "10.1.1.112/28",
-  "10.1.1.128/28",
+  "10.200.1.96/28",
+  "10.200.1.112/28",
+  "10.200.1.128/28",
 ]
 
 ## jenkinsnode
 jenkinsnode = {
   instance_type        = "m4.large"
-  ami_build_id         = "2"
+  ami_build_id         = "1"
   executors            = 5
   asg_min_size         = 0
   asg_max_size         = 3
@@ -87,7 +77,7 @@ jenkinsnode = {
 }
 
 jenkinsnode_subnets_cidrs = [
-  "10.20.2.0/28",
-  "10.20.2.16/28",
-  "10.20.2.32/28",
+  "10.210.2.0/28",
+  "10.210.2.16/28",
+  "10.210.2.32/28",
 ]

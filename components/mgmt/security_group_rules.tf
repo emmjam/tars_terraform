@@ -230,16 +230,16 @@ resource "aws_security_group_rule" "jenkins_elb_ingress_ctrl_jenkinsnode_49187" 
 }
 
 # gitlab-ctrl_jenkinsnodes
-# resource "aws_security_group_rule" "gitlab_elb_private_ingress_ctrl_jenkinsnode_ssh" {
-#   count             = "${length(var.ctrl_peers)}"
-#   description       = "Allow TCP/22 from CTRL JenkinsNodes"
-#   type              = "ingress"
-#   from_port         = 22
-#   to_port           = 22
-#   protocol          = "tcp"
-#   security_group_id = "${module.gitlab.elb_private_sg_id}"
-#   cidr_blocks       = ["${lookup(var.ctrl_peers[count.index],"jenkinsnode_subnet")}"]
-# }
+resource "aws_security_group_rule" "gitlab_elb_private_ingress_ctrl_jenkinsnode_ssh" {
+  count             = "${length(var.ctrl_peers)}"
+  description       = "Allow TCP/22 from CTRL JenkinsNodes"
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  security_group_id = "${module.gitlab.elb_private_sg_id}"
+  cidr_blocks       = ["${lookup(var.ctrl_peers[count.index],"jenkinsnode_subnet")}"]
+}
 
 # gitlab-internet_ntp
 resource "aws_security_group_rule" "gitlab_egress_internet_ntp" {
