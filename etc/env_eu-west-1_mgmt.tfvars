@@ -146,10 +146,14 @@ gitlab_redis_subnets_cidrs = [
 ]
 
 gitlab_whitelist = [
-  "90.152.126.166/32",     # DVSA VPN??
   "135.196.73.204/32",  # DVSA Notts
   "213.160.121.250/32", # DVSA Notts Corp & Wifi
   "77.86.30.4/32",      # BJSS VPN
+  "195.205.13.211/32",  # Capita (WM Proxy)
+  "195.27.53.211/32",   # Capita (LD Proxy)
+  "85.115.52.201/32",   # Capita (Cloud Proxy)
+  "82.203.33.128/28",   # Capita (Cloud NAT Pool1)
+  "82.203.33.112/28",   # Capita (Cloud NAT Pool2)
 ]
 
 ## jenkins
@@ -193,10 +197,14 @@ jenkinsnode_subnets_cidrs = [
 ]
 
 jenkins_whitelist = [
-  "90.152.126.166/32",     # DVSA VPN??
   "135.196.73.204/32",  # DVSA Notts Corp
   "213.160.121.250/32", # DVSA Notts Wifi
   "77.86.30.4/32",      # BJSS VPN
+  "195.205.13.211/32",  # Capita (WM Proxy)
+  "195.27.53.211/32",   # Capita (LD Proxy)
+  "85.115.52.201/32",   # Capita (Cloud Proxy)
+  "82.203.33.128/28",   # Capita (Cloud NAT Pool1)
+  "82.203.33.112/28",   # Capita (Cloud NAT Pool2)
 ]
 
 ## ctrl
