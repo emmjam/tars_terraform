@@ -8,7 +8,7 @@
 ##
 # Set Script Version
 ##
-readonly script_ver="1.3.1";
+readonly script_ver="1.4.2";
 
 ##
 # Standardised failure function
@@ -318,7 +318,21 @@ case "${action}" in
     ;;
 esac;
 
-# Clear cache
+# Tell terraform to moderate its output to be a little
+# more friendly to automation wrappers
+# Value is irrelavant, just needs to be non-null
+export TF_IN_AUTOMATION="true";
+
+# Configure the plugin-cache location so plugins are not
+# downloaded to individual components
+declare default_plugin_cache_dir="$(pwd)/plugin-cache";
+export TF_PLUGIN_CACHE_DIR="${TF_PLUGIN_CACHE_DIR:-${default_plugin_cache_dir}}"
+mkdir -p "${TF_PLUGIN_CACHE_DIR}" \
+  || error_and_die "Failed to created the plugin-cache directory (${TF_PLUGIN_CACHE_DIR})";
+[ -w ${TF_PLUGIN_CACHE_DIR} ] \
+  || error_and_die "plugin-cache directory (${TF_PLUGIN_CACHE_DIR}) not writable";
+
+# Clear cache, safe enough as we enforce plugin cache
 rm -rf ${component_path}/.terraform;
 
 # Make sure we're running in the component directory
@@ -508,30 +522,19 @@ declare backend_filename;
 if [ "${bootstrap}" == "true" ]; then
   backend_prefix="${project}/${aws_account_id}/${region}/bootstrap";
   backend_filename="bootstrap.tfstate";
-
-  readonly backend_key="${backend_prefix}/${backend_filename}";
-  readonly backend_config="terraform {
-    backend \"s3\" {
-      region = \"${region}\"
-      bucket = \"${bucket}\"
-      key    = \"${backend_key}\"
-    }
-  }";
 else
   backend_prefix="${project}/${aws_account_id}/${region}/${environment}";
   backend_filename="${component_name}.tfstate";
-  dynamodb_table="${bucket}";
-
-  readonly backend_key="${backend_prefix}/${backend_filename}";
-  readonly backend_config="terraform {
-    backend \"s3\" {
-      region         = \"${region}\"
-      bucket         = \"${bucket}\"
-      key            = \"${backend_key}\"
-      dynamodb_table = \"${dynamodb_table}\"
-    }
-  }";
 fi;
+
+readonly backend_key="${backend_prefix}/${backend_filename}";
+readonly backend_config="terraform {
+  backend \"s3\" {
+    region = \"${region}\"
+    bucket = \"${bucket}\"
+    key    = \"${backend_key}\"
+  }
+}";
 
 # We're now all ready to go. All that's left is to:
 #   * Write the backend config
@@ -569,7 +572,13 @@ if [ "${bootstrapped}" == "true" ]; then
  
   # Configure remote state storage
   echo "Setting up S3 remote state from s3://${bucket}/${backend_key}";
+  # TODO: Add -upgrade to init when we drop support for <0.10
   terraform init \
+    || error_and_die "Terraform init failed";
+else
+  # We are bootstrapping. Download the providers, skip the backend config.
+  terraform init \
+    -backend=false \
     || error_and_die "Terraform init failed";
 fi;
 
@@ -610,6 +619,15 @@ case "${action}" in
     exit 0;
     ;;
   'apply'|'destroy')
+
+    # This is pretty nasty, but then so is Hashicorp's approach to backwards compatibility
+    # at some point in the future we can deprecate support for <0.10 and remove this in favour
+    # of always having auto-approve set to true
+    if [ "${action}" == "apply" -a $(terraform version | head -n1 | cut -d" " -f2 | cut -d"." -f2) -gt 9 ]; then
+      echo "Compatibility: Adding to terraform arguments: -auto-approve=true";
+      extra_args+=" -auto-approve=true";
+    fi;
+
     if [ -n "${build_id}" ]; then
       mkdir -p build;
       plan_file_name="${component_name}_${build_id}.tfplan";
@@ -620,9 +638,6 @@ case "${action}" in
 
       apply_plan="build/${plan_file_name}";
 
-      # required from Terraform v. 0.10
-      terraform init
-
       terraform "${action}" \
         -input=false \
         ${refresh} \
@@ -632,9 +647,6 @@ case "${action}" in
         ${apply_plan};
       exit_code=$?;
     else
-      # required from Terraform v. 0.10
-      terraform init
-
       terraform "${action}" \
         -input=false \
         ${refresh} \
@@ -655,6 +667,7 @@ case "${action}" in
         trap "rm -f $(pwd)/backend_terraformscaffold.tf" EXIT;
 
         # Push Terraform Remote State to S3
+        # TODO: Add -upgrade to init when we drop support for <0.10
         echo "yes" | terraform init || error_and_die "Terraform init failed";
 
         # Hard cleanup
