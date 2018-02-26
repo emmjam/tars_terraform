@@ -21,3 +21,7 @@ output "subnets_tars_backend" {
 output "subnets_tars_db" {
   value = "${module.subnets_rds.subnet_ids}"
 }
+
+output "vpc_id" {
+  value = "${aws_vpc.vpc.id}"
+}
