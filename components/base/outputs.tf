@@ -7,7 +7,7 @@ output "tars_core_iam_instance_profile_name" {
 }
 
 output "subnets_alb_public" {
-  value = "${module.elb_public_subnets.subnet_ids}"
+  value = "${module.alb_public_subnets.subnet_ids}"
 }
 
 output "subnets_tars_backend" {
