@@ -14,9 +14,9 @@ output "subnets_tars_backend" {
   value = "${module.tars_backend_nat_subnets.subnet_ids}"
 }
 
-output "route_table_private_nat" {
-  value = "${aws_route_table.private_nat.id}"
-}
+# output "route_table_private_nat" {
+#   value = "${aws_route_table.private_nat.id}"
+# }
 
 output "subnets_tars_db" {
   value = "${module.subnets_rds.subnet_ids}"
