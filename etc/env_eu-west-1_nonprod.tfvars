@@ -92,9 +92,7 @@ vpc_cidr = "10.211.0.0/16"
 mgmt_component = "mgmt"
 mgmt_env       = "mgmt"
 
-domain_name_suffix = ".mot.aws.dvsa"
-
-nat_subnets_cidrs = [
+backend_nat_subnets_cidrs = [
   "10.211.1.0/28",
   "10.211.1.16/28",
   "10.211.1.32/28",
@@ -113,6 +111,51 @@ rds_subnets_cidrs = [
   "10.211.2.16/28",
   "10.211.2.32/28",
 ]
+
+tars_core_whitelist = [
+  "135.196.73.204/32",  # DVSA Notts Corp
+  "213.160.121.250/32", # DVSA Notts Wifi
+  "77.86.30.4/32",      # BJSS VPN
+  "195.205.13.211/32",  # Capita (WM Proxy)
+  "195.27.53.211/32",   # Capita (LD Proxy)
+  "85.115.52.201/32",   # Capita (Cloud Proxy)
+  "82.203.33.128/28",   # Capita (Cloud NAT Pool1)
+  "82.203.33.112/28",   # Capita (Cloud NAT Pool2)
+  "85.115.54.201/32",   # Capita (Bury St Edmunds)
+  "85.115.54.202/32",   # Capita (Bury St Edmunds)
+  "85.115.54.203/32",   # Capita (Bury St Edmunds)
+  "85.115.54.204/32",   # Capita (Bury St Edmunds)
+  "85.115.54.205/32",   # Capita (Bury St Edmunds)
+  "85.115.54.206/32",   # Capita (Bury St Edmunds)
+]
+
+## wildfly-back
+wildfly-back = {
+  instance_type        = "t2.small"
+  ami_build_id         = "17"
+  asg_min_size         = 0
+  asg_max_size         = 2
+  scaledown_desired    = 0
+  scaledown_recurrence = "00 19 * * 1-5"
+  scaleup_desired      = 2
+  scaleup_recurrence   = "00 07 * * 1-5"
+}
+
+## wildfly-front
+wildfly-front = {
+  instance_type        = "t2.small"
+  ami_build_id         = "17"
+  asg_min_size         = 0
+  asg_max_size         = 2
+  scaledown_desired    = 0
+  scaledown_recurrence = "00 19 * * 1-5"
+  scaleup_desired      = 2
+  scaleup_recurrence   = "00 07 * * 1-5"
+}
+
+# TARSDB
+tars_rds_username = "tars_admin"
+tars_rds_password = "password"
 
 # # Bootstrapped
 # terraform_state_bucket = "mot2-terraformscaffold-719728721003-eu-west-1"

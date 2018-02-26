@@ -38,7 +38,7 @@ variable "private_domain_name" {
   description = ""
 }
 
-variable "nat_subnets_cidrs" {
+variable "backend_nat_subnets_cidrs" {
   type        = "list"
   description = ""
 }

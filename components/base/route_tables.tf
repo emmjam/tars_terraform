@@ -16,7 +16,7 @@ resource "aws_route_table" "public" {
 }
 
 resource "aws_route_table" "private_nat" {
-  count  = "${length(var.nat_subnets_cidrs)}"
+  count  = "${length(var.backend_nat_subnets_cidrs)}"
   vpc_id = "${aws_vpc.vpc.id}"
 
   tags = "${merge(
