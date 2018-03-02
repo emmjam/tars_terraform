@@ -206,3 +206,9 @@ variable "deployer_pub_key" {
   type        = "string"
   description = "Pub SSH ky for deployer"
 }
+
+variable "nonprod_peers" {
+  type        = "list"
+  description = ""
+  default     = []
+}

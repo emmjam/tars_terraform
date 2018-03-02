@@ -4,12 +4,12 @@ resource "aws_route" "internet_public" {
   gateway_id             = "${aws_internet_gateway.tars.id}"
 }
 
-resource "aws_route" "internet_private" {
-  count                  = "${length(var.backend_nat_subnets_cidrs)}"
-  route_table_id         = "${element(aws_route_table.private_nat.*.id,count.index)}"
-  destination_cidr_block = "0.0.0.0/0"
-  nat_gateway_id         = "${element(aws_nat_gateway.tars.*.id,count.index)}"
-}
+# resource "aws_route" "internet_private" {
+#   count                  = "${length(var.backend_nat_subnets_cidrs)}"
+#   route_table_id         = "${element(aws_route_table.private_nat.*.id,count.index)}"
+#   destination_cidr_block = "0.0.0.0/0"
+#   nat_gateway_id         = "${element(aws_nat_gateway.tars.*.id,count.index)}"
+# }
 
 # # ctrl-pcx
 # resource "aws_route" "ctrl_pcx_private" {

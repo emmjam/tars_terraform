@@ -92,7 +92,7 @@ vpc_cidr = "10.211.0.0/16"
 mgmt_component = "mgmt"
 mgmt_env       = "mgmt"
 
-backend_nat_subnets_cidrs = [
+backend_subnets_cidrs = [
   "10.211.1.0/28",
   "10.211.1.16/28",
   "10.211.1.32/28",
@@ -100,9 +100,9 @@ backend_nat_subnets_cidrs = [
 
 ## alb public
 alb_public_subnets_cidrs = [
-  "10.211.1.144/28",
-  "10.211.1.160/28",
-  "10.211.1.176/28",
+  "10.211.3.144/28",
+  "10.211.3.160/28",
+  "10.211.3.176/28",
 ]
 
 ## rds
@@ -131,8 +131,8 @@ tars_core_whitelist = [
 
 ## wildfly-back
 wildfly-back = {
-  instance_type        = "t2.small"
-  ami_build_id         = "17"
+  instance_type        = "t2.medium"
+#  ami_build_id         = "27"
   asg_min_size         = 0
   asg_max_size         = 2
   scaledown_desired    = 0
@@ -143,8 +143,8 @@ wildfly-back = {
 
 ## wildfly-front
 wildfly-front = {
-  instance_type        = "t2.small"
-  ami_build_id         = "17"
+  instance_type        = "t2.medium"
+#  ami_build_id         = "27"
   asg_min_size         = 0
   asg_max_size         = 2
   scaledown_desired    = 0
@@ -153,9 +153,44 @@ wildfly-front = {
   scaleup_recurrence   = "00 07 * * 1-5"
 }
 
+ami_build_id         = "27"
+
 # TARSDB
-tars_rds_username = "tars_admin"
+tars_rds_username = "tarsdevadmin"
 tars_rds_password = "password"
+
+# TARSDB
+tars_rds_allocated_storage   = "20" # 20 Gigabyte - was 1500GB
+tars_rds_storage_type        = "gp2"
+tars_rds_engine              = "oracle-se2"
+tars_rds_engine_version      = "12.1.0.2.v11"
+tars_rds_instance_class      = "db.t2.micro" # was "db.m4.4xlarge"
+tars_rds_port                = "1521"
+tars_rds_public              = "false"
+tars_rds_multi_az            = "false" # it takes an age to build if true
+tars_rds_backup_retention    = "0"
+tars_rds_backup_window       = "02:38-03:08"
+tars_rds_maint_window        = "sun:03:16-sun:03:46"
+tars_rds_skip_final_snapshot = true
+tars_rds_apply_immediately   = "true"
+tars_rds_license_model       = "license-included"
+tars_rds_snapshot            = "tars-testdb-210218"
+
+# Deployer pub key
+deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVSO8uKpdbwww94azylwjnFxsFGcmXG4ObL1oOFibHMN0x+SsSwjfC1DEziWPK3m/Crmar0+ad/68nQC+iWo/MYclh8h3bkKlv9dO4Xtv/0H6uDRW3l3bBO0rWYbt46fMAOCqX96N3LRTfUlPuzsVAd0NGZZlSSAZF0AMl4xE/tZl2m+Dqylrjp3qLT4UxEIrAuvPW06PqkGy63hZznjCjQDaadOAUpY19ZaA71JBueyGBnZ8pSVzr5hT1TpNw/cXxA6WLj4CCipIVm0M64OT/ArqcnQMX9Htf4Gp5apXZ3f6MerfjgHnkrm1t6JNuhSjVB deployer@mgmt.tars.dvsa.aws"
+
+
+# Default
+# ns-619.awsdns-13.net
+# ns-1293.awsdns-33.org
+# ns-1979.awsdns-55.co.uk
+# ns-144.awsdns-18.com
+
+# ns-1126.awsdns-12.org.
+# ns-388.awsdns-48.com.
+# ns-560.awsdns-06.net.
+# ns-1997.awsdns-57.co.uk.
+
 
 # # Bootstrapped
 # terraform_state_bucket = "mot2-terraformscaffold-719728721003-eu-west-1"

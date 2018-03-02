@@ -38,7 +38,7 @@ variable "private_domain_name" {
   description = ""
 }
 
-variable "backend_nat_subnets_cidrs" {
+variable "backend_subnets_cidrs" {
   type        = "list"
   description = ""
 }
@@ -50,6 +50,16 @@ variable "alb_public_subnets_cidrs" {
 
 variable "rds_subnets_cidrs" {
   type        = "list"
+  description = ""
+}
+
+variable "deployer_pub_key" {
+  type        = "string"
+  description = "Pub SSH ky for deployer"
+}
+
+variable "mgmt" {
+  type        = "map"
   description = ""
 }
 
