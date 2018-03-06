@@ -25,5 +25,5 @@ resource "aws_iam_role" "tars-core" {
 
 resource "aws_iam_role_policy_attachment" "hieradata" {
   role       = "${aws_iam_role.tars-core.name}"
-  policy_arn = "${module.kms_hieradata.user_policy_arn}"
+  policy_arn = "${data.terraform_remote_state.acc.hieradata_kms_key_user_policy_arn}"
 }

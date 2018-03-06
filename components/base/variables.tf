@@ -63,10 +63,10 @@ variable "mgmt" {
   description = ""
 }
 
-# variable "tf_state_bucket_prefix" {
-#   type        = "string"
-#   description = ""
-# }
+variable "tf_state_bucket_prefix" {
+  type        = "string"
+  description = ""
+}
 
 # variable "users" {
 #   type        = "list"

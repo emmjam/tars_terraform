@@ -17,3 +17,15 @@ output "account_alias" {
 output "notify_ops_sns_arn" {
   value = "${aws_sns_topic.notify_ops.arn}"
 }
+
+output "hieradata_kms_key_id" {
+  value = "${module.kms_hieradata.key_id}"
+}
+
+output "hieradata_kms_key_arn" {
+  value = "${module.kms_hieradata.key_arn}"
+}
+
+output "hieradata_kms_key_user_policy_arn" {
+  value = "${module.kms_hieradata.user_policy_arn}"
+}
