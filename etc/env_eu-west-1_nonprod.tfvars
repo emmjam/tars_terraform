@@ -132,7 +132,7 @@ tars_core_whitelist = [
 ## wildfly-back
 wildfly-back = {
   instance_type        = "t2.medium"
-  puppet_env           = "dev"
+  puppet_env           = "dev01"
   puppet_node          = "wildfly"
   puppet_type          = "back"
 #  ami_build_id         = "27"
@@ -147,7 +147,7 @@ wildfly-back = {
 ## wildfly-front
 wildfly-front = {
   instance_type        = "t2.medium"
-  puppet_env           = "dev"
+  puppet_env           = "dev01"
   puppet_node          = "wildfly"
   puppet_type          = "front"
 #  ami_build_id         = "27"
