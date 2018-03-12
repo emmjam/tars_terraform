@@ -1,19 +1,20 @@
 data "template_file" "wildfly-front-common" {
   template = "${file("${path.module}/templates/cloudinit_common.yaml.tmpl")}"
 
-  vars {
-    nodetype    = "wildlfy-front"
-    domain_name = "${var.environment}.${var.private_domain_name}"
-  }
+  # vars {
+  #   nodetype    = "wildlfy-front"
+  #   domain_name = "${var.environment}.${var.private_domain_name}"
+  # }
 }
 
 data "template_file" "wildfly-front-config" {
   template = "${file("${path.module}/templates/wildfly_front_setup.sh.tmpl")}"
 
+  # Set puppet factors
   vars {
-    # master_url    = "${module.jenkins.elb_fqdn}"
-    # account_alias = "${data.terraform_remote_state.acc.account_alias}"
-    # executors     = "${lookup(var.jenkinsnode,"executors")}"
+    env    = "dev"
+    node   = "wildfly"
+    type   = "front"
   }
 }
 

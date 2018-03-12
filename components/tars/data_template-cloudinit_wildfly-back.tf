@@ -1,20 +1,21 @@
 data "template_file" "wildfly-back-common" {
   template = "${file("${path.module}/templates/cloudinit_common.yaml.tmpl")}"
 
-  vars {
-    nodetype    = "wildlfy-back"
-    domain_name = "${var.environment}.${var.private_domain_name}"
-  }
+  # vars {
+  #   nodetype    = "wildlfy-back"
+  #   domain_name = "${var.environment}.${var.private_domain_name}"
+  # }
 }
 
 data "template_file" "wildfly-back-config" {
   template = "${file("${path.module}/templates/wildfly_back_setup.sh.tmpl")}"
 
-  # vars {
-    # master_url    = "${module.jenkins.elb_fqdn}"
-    # account_alias = "${data.terraform_remote_state.acc.account_alias}"
-    # executors     = "${lookup(var.jenkinsnode,"executors")}"
-  # }
+  # Set puppet factors
+  vars {
+    env    = "dev"
+    node   = "wildfly"
+    type   = "back"
+  }
 }
 
 data "template_cloudinit_config" "wildfly-back" {
