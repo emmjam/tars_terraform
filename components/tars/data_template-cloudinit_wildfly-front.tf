@@ -12,9 +12,9 @@ data "template_file" "wildfly-front-config" {
 
   # Set puppet factors
   vars {
-    env    = "dev"
-    node   = "wildfly"
-    type   = "front"
+    env    = "${lookup(var.wildfly-front,"puppet_env")}"
+    node   = "${lookup(var.wildfly-front,"puppet_node")}"
+    type   = "${lookup(var.wildfly-front,"puppet_type")}"
   }
 }
 
