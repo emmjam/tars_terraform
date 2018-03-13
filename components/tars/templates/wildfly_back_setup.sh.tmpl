@@ -6,6 +6,10 @@ function log() {
 
 log '[INFO] Running puppet to configure wildfly environment'
 
+
+sed -E -i "s/'[a-z0-9]{8}\-[a-z0-9]{4}\-[a-z0-9]{4}\-[a-f0-9]{4}\-[a-z0-9]{12}'/'${kms_key}'/g" /etc/eyaml/config.yaml
+
+
 cd /tmp/packer-puppet-masterless
 export FACTER_env='${env}'
 export FACTER_node='${node}'

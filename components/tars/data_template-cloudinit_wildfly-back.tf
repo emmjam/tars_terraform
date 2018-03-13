@@ -15,6 +15,7 @@ data "template_file" "wildfly-back-config" {
     env    = "${lookup(var.wildfly-back,"puppet_env")}"
     node   = "${lookup(var.wildfly-back,"puppet_node")}"
     type   = "${lookup(var.wildfly-back,"puppet_type")}"
+    kms_key = "${lookup(var.wildfly-back,"puppet_kms_key")}"
   }
 }
 
