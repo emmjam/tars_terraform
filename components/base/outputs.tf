@@ -30,3 +30,7 @@ output "key_name" {
 output "private_zone_id" {
   value = "${aws_route53_zone.tars.zone_id}"
 }
+
+output "kms_sg_id" {
+  value = "${aws_security_group.kms_endpoint.id}"
+}
