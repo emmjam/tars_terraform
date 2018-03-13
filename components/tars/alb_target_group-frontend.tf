@@ -1,16 +1,22 @@
-resource "aws_alb_target_group" "tars-frontend-8080" {
-  name     = "tars-frontend-8080"
-  port     = "8080"
-  protocol = "HTTP"
+resource "aws_alb_target_group" "tars-frontend-8443" {
+  name     = "tars-frontend-8443"
+  port     = "8443"
+  protocol = "HTTPS"
   vpc_id   = "${data.terraform_remote_state.base.vpc_id}"
 
   health_check {
     path                = "/"
+    protocol            = "HTTPS"
     timeout             = 5
     interval            = 10
     healthy_threshold   = 3
     unhealthy_threshold = 3
     matcher             = 200
+  }
+
+  stickiness {
+    type = "lb_cookie"
+    enabled = true
   }
 
 }
@@ -30,4 +36,8 @@ resource "aws_alb_target_group" "tars-frontend-9990" {
     matcher             = 200
   }
 
+  stickiness {
+    type = "lb_cookie"
+    enabled = true
+  }
 }
