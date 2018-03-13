@@ -1,10 +1,6 @@
 data "template_file" "wildfly-back-common" {
   template = "${file("${path.module}/templates/cloudinit_common.yaml.tmpl")}"
 
-  # vars {
-  #   nodetype    = "wildlfy-back"
-  #   domain_name = "${var.environment}.${var.private_domain_name}"
-  # }
 }
 
 data "template_file" "wildfly-back-config" {
