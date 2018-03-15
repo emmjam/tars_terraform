@@ -138,10 +138,10 @@ wildfly-back = {
   puppet_kms_key       = "791140e3-1c70-4d21-943f-007c92c1e17d"
 #  ami_build_id         = "27"
   asg_min_size         = 0
-  asg_max_size         = 2
+  asg_max_size         = 1
   scaledown_desired    = 0
   scaledown_recurrence = "00 19 * * 1-5"
-  scaleup_desired      = 2
+  scaleup_desired      = 1
   scaleup_recurrence   = "00 07 * * 1-5"
 }
 
@@ -154,10 +154,10 @@ wildfly-front = {
   puppet_kms_key       = "791140e3-1c70-4d21-943f-007c92c1e17d"
 #  ami_build_id         = "27"
   asg_min_size         = 0
-  asg_max_size         = 2
+  asg_max_size         = 1
   scaledown_desired    = 0
   scaledown_recurrence = "00 19 * * 1-5"
-  scaleup_desired      = 2
+  scaleup_desired      = 1
   scaleup_recurrence   = "00 07 * * 1-5"
 }
 

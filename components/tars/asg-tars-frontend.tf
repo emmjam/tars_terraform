@@ -48,6 +48,6 @@ resource "aws_autoscaling_group" "tars-frontend" {
   ]
 
   provisioner "local-exec" {
-    command = "aws autoscaling update-auto-scaling-group --auto-scaling-group-name ${aws_autoscaling_group.tars-frontend.name} --desired-capacity ${lookup(var.wildfly-front,"asg_min_size")} --region ${var.aws_region}"
+    command = "aws autoscaling update-auto-scaling-group --auto-scaling-group-name ${aws_autoscaling_group.tars-frontend.name} --desired-capacity ${lookup(var.wildfly-front,"asg_max_size")} --region ${var.aws_region}"
   }
 }
