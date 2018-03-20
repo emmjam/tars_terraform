@@ -212,3 +212,9 @@ variable "nonprod_peers" {
   description = ""
   default     = []
 }
+
+variable "opsdev_peers" {
+  type        = "list"
+  description = ""
+  default     = []
+}

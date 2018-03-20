@@ -9,8 +9,8 @@ data "terraform_remote_state" "acc" {
       var.project,
       data.aws_caller_identity.current.account_id,
       var.aws_region,
-      var.environment,
-      "acc"
+      var.account_environment,
+      var.account_component_name
     )}"
 
     region = "${var.aws_region}"

@@ -9,6 +9,9 @@ resource "aws_alb" "public" {
 
   internal = "false"
 
+  enable_cross_zone_load_balancing = true
+  enable_http2 = true
+
   security_groups = [
     "${aws_security_group.alb_public.id}",
   ]

@@ -67,3 +67,8 @@ variable "subdomains_name_servers" {
   description = "Map of accounts with NS records in a form: '<record_name> = <comma seperated list of NS addresses>'"
   default     = {}
 }
+
+variable "deployer_pub_key" {
+  type        = "string"
+  description = "Pub SSH ky for deployer"
+}

@@ -4,9 +4,16 @@ function log() {
   echo "[$(date)]$1" | tee -a /var/log/wildfly_back_cloudinit.log
 }
 
-log '[INFO] Preparing configuration variables'
+log '[INFO] Running puppet to configure wildfly environment'
 
-# log '[INFO] Starting JenkinsNode'
-# /etc/init.d/jenkinsnode start
+
+sed -E -i "s/'[a-z0-9]{8}\-[a-z0-9]{4}\-[a-z0-9]{4}\-[a-f0-9]{4}\-[a-z0-9]{12}'/'${kms_key}'/g" /etc/eyaml/config.yaml
+
+
+cd /tmp/packer-puppet-masterless
+export FACTER_env='${env}'
+export FACTER_node='${node}'
+export FACTER_type='${type}'
+/opt/puppetlabs/bin/puppet apply --verbose --modulepath='/tmp/packer-puppet-masterless/module-0:/tmp/packer-puppet-masterless/module-1' --hiera_config='/tmp/packer-puppet-masterless/hiera.yaml' --detailed-exitcodes /tmp/packer-puppet-masterless/manifests/site.pp
 
 log '[INFO] Wildfly backend configuration finished'

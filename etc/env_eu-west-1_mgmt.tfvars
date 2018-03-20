@@ -31,6 +31,7 @@ users = [
 
 administrators = [
   "mark.thompson@bjss.com",
+  "karl.gharios@bjss.com",
 ]
 
 ########
@@ -111,7 +112,7 @@ gitlab_db = {
   db_name                 = "gitlab"
   allocated_storage       = "20"
   storage_type            = "gp2"
-  engine_version          = "9.6.3"
+  engine_version          = "9.6.6"
   instance_class          = "db.t2.medium"
   multi_az                = true
   username                = "gitLabAdmin"
@@ -160,6 +161,12 @@ gitlab_whitelist = [
   "85.115.54.204/32",   # Capita (Bury St Edmunds)
   "85.115.54.205/32",   # Capita (Bury St Edmunds)
   "85.115.54.206/32",   # Capita (Bury St Edmunds)
+  "92.54.181.130/32",   # Informed Solutions
+  "92.54.181.131/32",   # Informed Solutions
+  "92.54.181.132/32",   # Informed Solutions
+  "92.54.181.133/32",   # Informed Solutions
+  "92.54.181.134/32",   # Informed Solutions
+  "87.81.132.117/32",   # Informed Solutions
 ]
 
 ## jenkins
@@ -186,7 +193,7 @@ jenkins_elb_subnets_cidrs = ["10.200.3.32/28"]
 ## jenkinsnode
 jenkinsnode = {
   instance_type        = "m4.large"
-  ami_build_id         = "1"
+  ami_build_id         = "32"
   executors            = 5
   asg_min_size         = 0
   asg_max_size         = 3
@@ -217,6 +224,12 @@ jenkins_whitelist = [
   "85.115.54.204/32",   # Capita (Bury St Edmunds)
   "85.115.54.205/32",   # Capita (Bury St Edmunds)
   "85.115.54.206/32",   # Capita (Bury St Edmunds)
+  "92.54.181.130/32",   # Informed Solutions
+  "92.54.181.131/32",   # Informed Solutions
+  "92.54.181.132/32",   # Informed Solutions
+  "92.54.181.133/32",   # Informed Solutions
+  "92.54.181.134/32",   # Informed Solutions
+  "87.81.132.117/32",   # Informed Solutions
 ]
 
 ## ctrl
@@ -236,6 +249,16 @@ nonprod_peers = [
     vpc_id              = "vpc-98953bfe"
     cidr_block          = "10.211.0.0/16"
     tars_backend_subnet = "10.211.1.0/24"
+  }
+]
+
+## nonprod/opsdev
+opsdev_peers = [
+  { # tars tars/nonprod
+    account_id          = "652856684323"
+    vpc_id              = "vpc-6b3fbb0d"
+    cidr_block          = "10.212.0.0/16"
+    jenkinsnode_subnet  = "10.212.4.0/24"
   }
 ]
 

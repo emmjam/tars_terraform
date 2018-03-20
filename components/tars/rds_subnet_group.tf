@@ -5,7 +5,7 @@ resource "aws_db_subnet_group" "tarsdb" {
     var.project,
     var.environment,
     var.component,
-    "tarsfb"
+    "tarsdb"
   )}"
 
   description = "${format(

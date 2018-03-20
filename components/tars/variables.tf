@@ -19,6 +19,17 @@ variable "component" {
   default     = "tars"
 }
 
+variable "account_component_name" {
+  type        = "string"
+  description = "The name of the account-level component as used in remote state"
+  default     = "acc"
+}
+
+variable "account_environment" {
+  type        = "string"
+  description = "The environment name for the account level scope for the account in which this component is deployed"
+}
+
 variable "default_tags" {
   type        = "map"
   description = ""
@@ -145,6 +156,11 @@ variable "tars_rds_snapshot" {
   description = ""
 }
 
+variable "rds_subnets_cidrs" {
+  type        = "list"
+  description = ""
+}
+
 variable "asg_termination_policies" {
   type        = "list"
   description = "A list of policies to decide how the instances in the auto scale group should be terminated"
@@ -194,6 +210,12 @@ variable "ami_build_id" {
   type        = "string"
   description = ""
 }
+
+variable "mgmt" {
+  type        = "map"
+  description = ""
+}
+
 # variable "api_gateway_dns_alias" {
 #   type        = "string"
 #   description = ""

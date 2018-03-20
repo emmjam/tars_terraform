@@ -1,5 +1,11 @@
 resource "aws_alb_target_group" "tars-backend-8080" {
-  name     = "tars-backend-8080"
+  name = "${format(
+    "%s-%s-%s-%s",
+    var.project,
+    var.environment,
+    var.component,
+    "backend-8080"
+  )}"
   port     = "8080"
   protocol = "HTTP"
   vpc_id   = "${data.terraform_remote_state.base.vpc_id}"

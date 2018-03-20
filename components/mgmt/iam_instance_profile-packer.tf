@@ -27,3 +27,14 @@ resource "aws_iam_role_policy_attachment" "packer_hieradata" {
   role       = "${aws_iam_role.packer.name}"
   policy_arn = "${module.kms_hieradata.user_policy_arn}"
 }
+
+resource "aws_iam_policy" "s3-packer" {
+  name        = "${var.project}-${var.environment}-${var.component}-s3-packer"
+  description = "IAM policy for ${var.project}-${var.environment}-${var.component}-s3-packer"
+  policy      = "${data.aws_iam_policy_document.s3-packer.json}"
+}
+
+resource "aws_iam_role_policy_attachment" "s3-packer" {
+  role       = "${aws_iam_role.packer.name}"
+  policy_arn = "${aws_iam_policy.s3-packer.arn}"
+}

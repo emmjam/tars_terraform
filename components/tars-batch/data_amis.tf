@@ -1,0 +1,17 @@
+data "aws_ami" "wildfly-batch" {
+  name_regex = "${format(
+    "%s-%s-%s/%s",
+    var.project,
+    "rhel",
+    "wildfly-batch",
+    "${var.ami_build_id}"
+  )}"
+
+  most_recent = "true"
+  #owners      = ["${data.aws_caller_identity.current.account_id}"]
+
+  filter {
+    name   = "state"
+    values = ["available"]
+  }
+}

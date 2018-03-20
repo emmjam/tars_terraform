@@ -38,6 +38,16 @@ variable "private_domain_name" {
   description = ""
 }
 
+variable "jenkinsnode_subnets_cidrs" {
+  type        = "list"
+  description = ""
+}
+
+variable "jenkins_nat_subnets_cidrs" {
+  type        = "list"
+  description = ""
+}
+
 variable "backend_subnets_cidrs" {
   type        = "list"
   description = ""
@@ -53,11 +63,6 @@ variable "rds_subnets_cidrs" {
   description = ""
 }
 
-variable "deployer_pub_key" {
-  type        = "string"
-  description = "Pub SSH ky for deployer"
-}
-
 variable "mgmt" {
   type        = "map"
   description = ""
@@ -65,8 +70,35 @@ variable "mgmt" {
 
 variable "tf_state_bucket_prefix" {
   type        = "string"
+  description = "TF State bucket prefix"
+}
+
+variable "account_component_name" {
+  type        = "string"
+  description = "The name of the account-level component as used in remote state"
+  default     = "acc"
+}
+
+variable "account_environment" {
+  type        = "string"
+  description = "The environment name for the account level scope for the account in which this component is deployed"
+}
+
+variable "jenkinsnode" {
+  type        = "map"
   description = ""
 }
+
+variable "mgmt_bastion_subnets" {
+  type        = "list"
+  description = ""
+  default     = []
+}
+
+# variable "tf_state_bucket_prefix" {
+#   type        = "string"
+#   description = ""
+# }
 
 # variable "users" {
 #   type        = "list"

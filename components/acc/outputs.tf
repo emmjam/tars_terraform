@@ -29,3 +29,7 @@ output "hieradata_kms_key_arn" {
 output "hieradata_kms_key_user_policy_arn" {
   value = "${module.kms_hieradata.user_policy_arn}"
 }
+
+output "key_name" {
+  value = "${aws_key_pair.deployer.key_name}"
+}

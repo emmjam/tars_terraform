@@ -1,5 +1,11 @@
 resource "aws_route53_record" "tarsdb" {
-  name = "tars-core-db"
+  name = "${format(
+    "%s-%s-%s-%s",
+    var.project,
+    var.environment,
+    var.component,
+    "core-db"
+  )}"
 
   zone_id = "${data.terraform_remote_state.base.private_zone_id}"
   type    = "A"
@@ -12,7 +18,13 @@ resource "aws_route53_record" "tarsdb" {
 }
 
 resource "aws_route53_record" "tars-backend" {
-  name = "tars-backend"
+  name = "${format(
+    "%s-%s-%s-%s",
+    var.project,
+    var.environment,
+    var.component,
+    "backend"
+  )}"
 
   zone_id = "${data.terraform_remote_state.base.private_zone_id}"
   type    = "A"

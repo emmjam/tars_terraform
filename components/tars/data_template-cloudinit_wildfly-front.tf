@@ -10,10 +10,12 @@ data "template_file" "wildfly-front-common" {
 data "template_file" "wildfly-front-config" {
   template = "${file("${path.module}/templates/wildfly_front_setup.sh.tmpl")}"
 
+  # Set puppet factors
   vars {
-    # master_url    = "${module.jenkins.elb_fqdn}"
-    # account_alias = "${data.terraform_remote_state.acc.account_alias}"
-    # executors     = "${lookup(var.jenkinsnode,"executors")}"
+    env    = "${lookup(var.wildfly-front,"puppet_env")}"
+    node   = "${lookup(var.wildfly-front,"puppet_node")}"
+    type   = "${lookup(var.wildfly-front,"puppet_type")}"
+    kms_key = "${lookup(var.wildfly-front,"puppet_kms_key")}"
   }
 }
 
