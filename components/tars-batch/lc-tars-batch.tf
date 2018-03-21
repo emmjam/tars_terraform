@@ -14,7 +14,7 @@ resource "aws_launch_configuration" "tars-batch" {
   user_data            = "${data.template_cloudinit_config.wildfly-batch.rendered}"
   iam_instance_profile = "${data.terraform_remote_state.base.tars_core_iam_instance_profile_name}"
 
-  security_groups = ["${aws_security_group.tars-core-batch.id}"]
+  security_groups = ["${aws_security_group.tars-batch.id}"]
 
   lifecycle {
     create_before_destroy = true

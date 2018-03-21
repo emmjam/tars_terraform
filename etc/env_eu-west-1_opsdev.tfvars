@@ -154,6 +154,23 @@ tars_core_whitelist = [
   "85.115.54.206/32",   # Capita (Bury St Edmunds)
 ]
 
+messaging_whitelist = [
+  "135.196.73.204/32",  # DVSA Notts Corp
+  "213.160.121.250/32", # DVSA Notts Wifi
+  "77.86.30.4/32",      # BJSS VPN
+  "195.205.13.211/32",  # Capita (WM Proxy)
+  "195.27.53.211/32",   # Capita (LD Proxy)
+  "85.115.52.201/32",   # Capita (Cloud Proxy)
+  "82.203.33.128/28",   # Capita (Cloud NAT Pool1)
+  "82.203.33.112/28",   # Capita (Cloud NAT Pool2)
+  "85.115.54.201/32",   # Capita (Bury St Edmunds)
+  "85.115.54.202/32",   # Capita (Bury St Edmunds)
+  "85.115.54.203/32",   # Capita (Bury St Edmunds)
+  "85.115.54.204/32",   # Capita (Bury St Edmunds)
+  "85.115.54.205/32",   # Capita (Bury St Edmunds)
+  "85.115.54.206/32",   # Capita (Bury St Edmunds)
+]
+
 ## wildfly-back
 wildfly-back = {
   instance_type        = "t2.medium"
@@ -163,10 +180,10 @@ wildfly-back = {
   puppet_kms_key       = "791140e3-1c70-4d21-943f-007c92c1e17d"
 #  ami_build_id         = "27"
   asg_min_size         = 0
-  asg_max_size         = 2
+  asg_max_size         = 1
   scaledown_desired    = 0
   scaledown_recurrence = "00 19 * * 1-5"
-  scaleup_desired      = 2
+  scaleup_desired      = 1
   scaleup_recurrence   = "00 07 * * 1-5"
 }
 
@@ -179,10 +196,10 @@ wildfly-batch = {
   puppet_kms_key       = "791140e3-1c70-4d21-943f-007c92c1e17d"
 #  ami_build_id         = "27"
   asg_min_size         = 0
-  asg_max_size         = 2
+  asg_max_size         = 1
   scaledown_desired    = 0
   scaledown_recurrence = "00 19 * * 1-5"
-  scaleup_desired      = 2
+  scaleup_desired      = 1
   scaleup_recurrence   = "00 07 * * 1-5"
 }
 
@@ -195,13 +212,28 @@ wildfly-front = {
   puppet_kms_key       = "791140e3-1c70-4d21-943f-007c92c1e17d"
 #  ami_build_id         = "27"
   asg_min_size         = 0
-  asg_max_size         = 2
+  asg_max_size         = 1
   scaledown_desired    = 0
   scaledown_recurrence = "00 19 * * 1-5"
-  scaleup_desired      = 2
+  scaleup_desired      = 1
   scaleup_recurrence   = "00 07 * * 1-5"
 }
 
+## wildfly-front
+wildfly-messaging = {
+  instance_type        = "t2.medium"
+  puppet_env           = "opsdev"
+  puppet_node          = ""
+  puppet_type          = ""
+  puppet_kms_key       = "791140e3-1c70-4d21-943f-007c92c1e17d"
+#  ami_build_id         = "27"
+  asg_min_size         = 0
+  asg_max_size         = 1
+  scaledown_desired    = 0
+  scaledown_recurrence = "00 19 * * 1-5"
+  scaleup_desired      = 1
+  scaleup_recurrence   = "00 07 * * 1-5"
+}
 ami_build_id         = "27"
 
 # Deployer pub key

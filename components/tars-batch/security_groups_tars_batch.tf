@@ -1,6 +1,6 @@
-resource "aws_security_group" "tars-core-batch" {
-  name        = "${var.project}-${var.environment}-${var.component}-tars-core-batch"
-  description = "TARS Core Batch"
+resource "aws_security_group" "tars-batch" {
+  name        = "${var.project}-${var.environment}-${var.component}-tars-batch"
+  description = "TARS Batch"
   vpc_id      = "${data.terraform_remote_state.base.vpc_id}"
 
   tags = "${merge(
@@ -11,7 +11,7 @@ resource "aws_security_group" "tars-core-batch" {
         var.project,
         var.environment,
         var.component,
-        "tars-core-batch"
+        "tars-batch"
       ),
     )
   )}"
