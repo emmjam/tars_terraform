@@ -53,6 +53,11 @@ variable "backend_subnets_cidrs" {
   description = ""
 }
 
+variable "awsmq_subnets_cidrs" {
+  type        = "list"
+  description = ""
+}
+
 variable "alb_public_subnets_cidrs" {
   type        = "list"
   description = ""

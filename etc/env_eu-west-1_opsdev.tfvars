@@ -119,6 +119,12 @@ backend_subnets_cidrs = [
   "10.212.1.64/27",
 ]
 
+# AWS MQ SINGLE_INSTANCE only requires 1 subnets
+# ACTIVE_STANDBY_MULTI_AZ requires 2
+awsmq_subnets_cidrs = [
+  "10.212.6.0/27",
+]
+
 jenkins_nat_subnets_cidrs = [
   "10.212.5.0/28"
 ]
@@ -170,6 +176,11 @@ messaging_whitelist = [
   "85.115.54.205/32",   # Capita (Bury St Edmunds)
   "85.115.54.206/32",   # Capita (Bury St Edmunds)
 ]
+
+mq_console_whitelist = [
+  "77.86.30.4/32",      # BJSS VPN
+]
+
 
 ## wildfly-back
 wildfly-back = {
@@ -235,6 +246,24 @@ wildfly-messaging = {
   scaleup_recurrence   = "00 07 * * 1-5"
 }
 ami_build_id         = "27"
+
+## AWS MQ
+aws_mq = {
+  engine_type          = "ActiveMQ"
+  engine_version       = "5.15.0"
+  host_instance_type   = "mq.t2.micro"
+  username             = "admin"
+  password             = "admin123456789"
+  deployment_mode      = "SINGLE_INSTANCE"
+}
+
+aws_mq_config = {
+  description    = "TARS MQ Configuration"
+  name           = "tars-awsmq"
+  engine_type    = "ActiveMQ"
+  engine_version = "5.15.0"
+}
+
 
 # Deployer pub key
 deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVSO8uKpdbwww94azylwjnFxsFGcmXG4ObL1oOFibHMN0x+SsSwjfC1DEziWPK3m/Crmar0+ad/68nQC+iWo/MYclh8h3bkKlv9dO4Xtv/0H6uDRW3l3bBO0rWYbt46fMAOCqX96N3LRTfUlPuzsVAd0NGZZlSSAZF0AMl4xE/tZl2m+Dqylrjp3qLT4UxEIrAuvPW06PqkGy63hZznjCjQDaadOAUpY19ZaA71JBueyGBnZ8pSVzr5hT1TpNw/cXxA6WLj4CCipIVm0M64OT/ArqcnQMX9Htf4Gp5apXZ3f6MerfjgHnkrm1t6JNuhSjVB deployer@mgmt.tars.dvsa.aws"

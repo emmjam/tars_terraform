@@ -45,7 +45,23 @@ variable "messaging_whitelist" {
   default     = []
 }
 
+variable "mq_console_whitelist" {
+  type        = "list"
+  description = ""
+  default     = []
+}
+
 variable "wildfly-messaging" {
+  type        = "map"
+  description = ""
+}
+
+variable "aws_mq" {
+  type        = "map"
+  description = ""
+}
+
+variable "aws_mq_config" {
   type        = "map"
   description = ""
 }

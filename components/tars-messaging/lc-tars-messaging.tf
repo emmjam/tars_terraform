@@ -20,5 +20,5 @@ resource "aws_launch_configuration" "tars-messaging" {
     create_before_destroy = true
   }
   # Debugging
-  associate_public_ip_address = true 
+  # associate_public_ip_address = true 
 }
