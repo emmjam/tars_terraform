@@ -1,3 +1,4 @@
+# AGS for TARS Batch server
 resource "aws_autoscaling_group" "tars-batch" {
   name_prefix = "${format(
     "%s-%s-%s-%s-",
@@ -46,6 +47,7 @@ resource "aws_autoscaling_group" "tars-batch" {
     )}",
   ]
 
+  # Spin up batch servers to the max defined
   provisioner "local-exec" {
     command = "aws autoscaling update-auto-scaling-group --auto-scaling-group-name ${aws_autoscaling_group.tars-batch.name} --desired-capacity ${lookup(var.wildfly-batch,"asg_max_size")} --region ${var.aws_region}"
   }

@@ -21,6 +21,7 @@ resource "aws_security_group_rule" "jenkinsnode_egress_jenkins_elb_http" {
   cidr_blocks       = ["${lookup(var.mgmt,"jenkins_elb_subnet")}"]
 }
 
+# jenkinsnode-swarm
 resource "aws_security_group_rule" "jenkinsnode_egress_jenkins_elb_49187" {
   description       = "Allow TCP/49187 to Jenkins ELB"
   type              = "egress"
@@ -42,7 +43,7 @@ resource "aws_security_group_rule" "jenkinsnode_egress_gitlab_ssh" {
   cidr_blocks       = ["${lookup(var.mgmt,"gitlab_subnet")}"]
 }
 
-# jenkinsnode-internet
+# jenkinsnode-internet-https
 resource "aws_security_group_rule" "jenkinsnode_egress_internet_https" {
   description       = "Allow TCP/443 to Internet"
   type              = "egress"
@@ -53,6 +54,7 @@ resource "aws_security_group_rule" "jenkinsnode_egress_internet_https" {
   cidr_blocks       = ["0.0.0.0/0"]
 }
 
+# jenkinsnode-internet-http
 resource "aws_security_group_rule" "jenkinsnode_egress_internet_http" {
   description       = "Allow TCP/80 to Internet"
   type              = "egress"
@@ -63,6 +65,7 @@ resource "aws_security_group_rule" "jenkinsnode_egress_internet_http" {
   cidr_blocks       = ["0.0.0.0/0"]
 }
 
+# jenkinsnode-internet-ssh
 resource "aws_security_group_rule" "jenkinsnode_egress_internet_ssh" {
   description       = "Allow TCP/22 to Internet"
   type              = "egress"

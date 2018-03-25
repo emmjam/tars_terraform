@@ -64,25 +64,6 @@ mgmt_bastion_subnets = [
   "10.200.1.128/28",
 ]
 
-# ## jenkinsnode
-# jenkinsnode = {
-#   instance_type        = "m4.large"
-#   ami_build_id         = "1"
-#   executors            = 5
-#   asg_min_size         = 0
-#   asg_max_size         = 3
-#   scaledown_desired    = 0
-#   scaledown_recurrence = "00 19 * * 1-5"
-#   scaleup_desired      = 1
-#   scaleup_recurrence   = "15 07 * * 1-5"
-# }
-
-# jenkinsnode_subnets_cidrs = [
-#   "10.210.2.0/28",
-#   "10.210.2.16/28",
-#   "10.210.2.32/28",
-# ]
-
 ###############################################################################
 # opsdev
 ###############################################################################

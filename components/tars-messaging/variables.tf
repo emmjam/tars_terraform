@@ -5,17 +5,17 @@ variable "aws_region" {
 
 variable "project" {
   type        = "string"
-  description = ""
+  description = "TF Scaffold project"
 }
 
 variable "environment" {
   type        = "string"
-  description = ""
+  description = "TF Scaffold environment"
 }
 
 variable "component" {
   type        = "string"
-  description = ""
+  description = "TF Scaffold component"
   default     = "tars"
 }
 
@@ -32,7 +32,7 @@ variable "account_environment" {
 
 variable "default_tags" {
   type        = "map"
-  description = ""
+  description = "Default tags"
 
   default = {
     Component = "tars"
@@ -41,29 +41,29 @@ variable "default_tags" {
 
 variable "messaging_whitelist" {
   type        = "list"
-  description = ""
+  description = "TARS Messsaging Servers inbound whitelisted IP's"
   default     = []
 }
 
 variable "mq_console_whitelist" {
   type        = "list"
-  description = ""
+  description = "TARS AWS MQ console inbound whitelisted IP's"
   default     = []
 }
 
 variable "wildfly-messaging" {
   type        = "map"
-  description = ""
+  description = "TARS Messaging server config"
 }
 
 variable "aws_mq" {
   type        = "map"
-  description = ""
+  description = "TARS AWS MQ Service config"
 }
 
 variable "aws_mq_config" {
   type        = "map"
-  description = ""
+  description = "TARS AWS MQ Service config"
 }
 
 variable "tf_state_bucket_prefix" {
@@ -73,14 +73,8 @@ variable "tf_state_bucket_prefix" {
 
 variable "private_domain_name" {
   type        = "string"
-  description = ""
+  description = "TARS VPC private R53 domain name"
 }
-
-variable "backend_subnets_cidrs" {
-  type        = "list"
-  description = ""
-}
-
 
 variable "asg_termination_policies" {
   type        = "list"
@@ -123,16 +117,16 @@ variable "lc_key_name" {
 
 variable "mgmt_bastion_subnets" {
   type        = "list"
-  description = ""
+  description = "MGMT Management subnet CIDR's"
   default     = []
 }
 
 variable "ami_build_id" {
   type        = "string"
-  description = ""
+  description = "TARS Messaging AMI build ID"
 }
 
 variable "mgmt" {
   type        = "map"
-  description = ""
+  description = "MGMT Account config"
 }

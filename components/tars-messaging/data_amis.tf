@@ -1,3 +1,4 @@
+# Get the Messaging server AMI ID
 data "aws_ami" "wildfly-messaging" {
   name_regex = "${format(
     "%s-%s-%s/%s",

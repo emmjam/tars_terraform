@@ -1,3 +1,4 @@
+# ALB Target Group for Wildfly private backend on port 8080
 resource "aws_alb_target_group" "tars-backend-8080" {
   name = "${format(
     "%s-%s-%s-%s",
@@ -20,20 +21,3 @@ resource "aws_alb_target_group" "tars-backend-8080" {
   }
 
 }
-
-# resource "aws_alb_target_group" "tars-backend-9990" {
-#   name     = "tars-backend-9990"
-#   port     = "9990"
-#   protocol = "HTTP"
-#   vpc_id   = "${data.terraform_remote_state.base.vpc_id}"
-
-#   health_check {
-#     path                = "/console/App.html"
-#     timeout             = 5
-#     interval            = 10
-#     healthy_threshold   = 3
-#     unhealthy_threshold = 3
-#     matcher             = 200
-#   }
-
-# }

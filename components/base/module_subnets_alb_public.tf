@@ -1,3 +1,4 @@
+# Define some publci facing ALB subnets
 module "alb_public_subnets" {
   source             = "../../modules/subnets"
   name               = "alb-public"

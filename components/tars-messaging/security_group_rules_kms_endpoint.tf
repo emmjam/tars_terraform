@@ -1,3 +1,5 @@
+# SG rules for the KMS endpoint
+# Allow the tars messaging to use the KMS endpoint
 resource "aws_security_group_rule" "kms_endpoint_ingress_tars_batch" {
   description              = "Allow use of KMS endpoint"
   type                     = "ingress"

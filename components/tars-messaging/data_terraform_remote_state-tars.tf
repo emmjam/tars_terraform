@@ -1,3 +1,4 @@
+# Get the remote state for the tars component
 data "terraform_remote_state" "tars" {
   backend = "s3"
 

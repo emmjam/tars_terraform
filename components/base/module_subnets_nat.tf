@@ -1,3 +1,4 @@
+# NAT subnets
 module "nat_subnets" {
   source             = "../../modules/subnets"
   name               = "nat"

@@ -1,3 +1,4 @@
+# TARS Batch ALB Listener for port 8080
 resource "aws_alb_listener" "tars-batch-8080" {
   load_balancer_arn = "${aws_alb.tars-alb-batch-private.arn}"
   port              = "8080"

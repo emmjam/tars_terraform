@@ -1,3 +1,4 @@
+# ALB target group for messaging port 8080
 resource "aws_alb_target_group" "tars-messaging-8080" {
   name = "${format(
     "%s-%s-%s-%s",

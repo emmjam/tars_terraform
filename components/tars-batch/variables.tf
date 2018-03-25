@@ -5,17 +5,17 @@ variable "aws_region" {
 
 variable "project" {
   type        = "string"
-  description = ""
+  description = "TF Scaffold project"
 }
 
 variable "environment" {
   type        = "string"
-  description = ""
+  description = "TF Scaffold environment"
 }
 
 variable "component" {
   type        = "string"
-  description = ""
+  description = "TF Scaffold component"
   default     = "tars"
 }
 
@@ -32,22 +32,16 @@ variable "account_environment" {
 
 variable "default_tags" {
   type        = "map"
-  description = ""
+  description = "Default tags"
 
   default = {
     Component = "tars"
   }
 }
 
-variable "tars_core_whitelist" {
-  type        = "list"
-  description = ""
-  default     = []
-}
-
 variable "wildfly-batch" {
   type        = "map"
-  description = ""
+  description = "TARS Wildfly batch server config"
 }
 
 variable "tf_state_bucket_prefix" {
@@ -57,14 +51,8 @@ variable "tf_state_bucket_prefix" {
 
 variable "private_domain_name" {
   type        = "string"
-  description = ""
+  description = "TARS VPC private R53 domain name"
 }
-
-variable "backend_subnets_cidrs" {
-  type        = "list"
-  description = ""
-}
-
 
 variable "asg_termination_policies" {
   type        = "list"
@@ -107,16 +95,16 @@ variable "lc_key_name" {
 
 variable "mgmt_bastion_subnets" {
   type        = "list"
-  description = ""
+  description = "MGMT Bastion Subnets"
   default     = []
 }
 
 variable "ami_build_id" {
   type        = "string"
-  description = ""
+  description = "TARS Batch AMI build ID"
 }
 
 variable "mgmt" {
   type        = "map"
-  description = ""
+  description = "MGMT Account config"
 }

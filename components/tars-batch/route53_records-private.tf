@@ -1,3 +1,4 @@
+# R53 record for the TARS batch ALB
 resource "aws_route53_record" "tars-batch" {
   name = "${format(
     "%s-%s-%s-%s",

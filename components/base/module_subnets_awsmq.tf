@@ -1,3 +1,4 @@
+# Define the AWS MQ subnets
 module "tars_awsmq_subnets" {
   source             = "../../modules/subnets"
   name               = "tars_awsmq"

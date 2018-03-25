@@ -1,3 +1,4 @@
+# Create the TARS RDS DB
 resource "aws_db_instance" "tarsdb" {
   #identifier = "${var.environment}-${var.project}-tars-rds-instance"
 
@@ -59,33 +60,3 @@ resource "aws_db_instance" "tarsdb" {
     )
   )}"
 }
-
-# resource "aws_db_instance" "motdb_replica" {
-#   identifier = "${format(
-#         "%s-%s-%s-%s",
-#         var.project,
-#         var.environment,
-#         var.component,
-#         "motdb-replica"
-#         )}"
-
-#   count               = "${var.motdb_readrep_count}"
-#   replicate_source_db = "${aws_db_instance.motdb.id}"
-
-#   instance_class      = "${var.main_rds_instance_class}"
-#   skip_final_snapshot = "${var.main_rds_skip_final_snapshot}"
-
-#   tags = "${merge(
-#     var.default_tags,
-#     map(
-#       "Name", format(
-#         "%s-%s-%s-%s",
-#         var.project,
-#         var.environment,
-#         var.component,
-#         "motdb-replica"
-#       ),
-#       "Component", var.component
-#     )
-#   )}"
-# }

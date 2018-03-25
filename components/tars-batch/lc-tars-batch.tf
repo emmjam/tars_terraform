@@ -1,3 +1,4 @@
+# Create LC for the TARS batch server
 resource "aws_launch_configuration" "tars-batch" {
   name_prefix = "${format(
     "%s-%s-%s-%s-",

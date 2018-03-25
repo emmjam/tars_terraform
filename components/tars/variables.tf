@@ -15,7 +15,7 @@ variable "environment" {
 
 variable "component" {
   type        = "string"
-  description = ""
+  description = "TF Scaffold component"
   default     = "tars"
 }
 
@@ -32,7 +32,7 @@ variable "account_environment" {
 
 variable "default_tags" {
   type        = "map"
-  description = ""
+  description = "Defautl tags to use"
 
   default = {
     Component = "tars"
@@ -41,18 +41,18 @@ variable "default_tags" {
 
 variable "tars_core_whitelist" {
   type        = "list"
-  description = ""
+  description = "TARS Core Servers inbound whitelisted IP's"
   default     = []
 }
 
 variable "wildfly-back" {
   type        = "map"
-  description = ""
+  description = "TARS Core backend configuration"
 }
 
 variable "wildfly-front" {
   type        = "map"
-  description = ""
+  description = "TARS Core frontend configuration"
 }
 
 variable "tf_state_bucket_prefix" {
@@ -62,103 +62,103 @@ variable "tf_state_bucket_prefix" {
 
 variable "private_domain_name" {
   type        = "string"
-  description = ""
+  description = "R53 private domain for TARS"
 }
 
 variable "backend_subnets_cidrs" {
   type        = "list"
-  description = ""
+  description = "TARS backend server subnet CIDR's"
 }
 
 variable "tars_rds_allocated_storage" {
   type        = "string"
-  description = ""
+  description = "TARS RDS DB Allocated Storage"
 }
 
 variable "tars_rds_storage_type" {
   type        = "string"
-  description = ""
+  description = "TARS RDS DB Storage Type"
 }
 
 variable "tars_rds_engine" {
   type        = "string"
-  description = ""
+  description = "TARS RDS DB Engine"
 }
 
 variable "tars_rds_engine_version" {
   type        = "string"
-  description = ""
+  description = "TARS RDS DB Engine Version"
 }
 
 variable "tars_rds_instance_class" {
   type        = "string"
-  description = ""
+  description = "TARS RDS DB Instance Class"
 }
 
 variable "tars_rds_port" {
   type        = "string"
-  description = ""
+  description = "TARS RDS DB Port"
 }
 
 variable "tars_rds_public" {
   type        = "string"
-  description = ""
+  description = "Is TARS RDS DB Publically Accessible"
 }
 
 variable "tars_rds_multi_az" {
   type        = "string"
-  description = ""
+  description = "TARS DB Multi AZ"
 }
 
 variable "tars_rds_backup_retention" {
   type        = "string"
-  description = ""
+  description = "TARS RDS Backup Rentention"
 }
 
 variable "tars_rds_backup_window" {
   type        = "string"
-  description = ""
+  description = "TARS RDS Backup Window"
 }
 
 variable "tars_rds_maint_window" {
   type        = "string"
-  description = ""
+  description = "TARS RDS Maintenance Window"
 }
 
 variable "tars_rds_skip_final_snapshot" {
   type        = "string"
-  description = ""
+  description = "TARS RDS Final Snapshot required"
 }
 
 variable "tars_rds_password" {
   type        = "string"
-  description = ""
+  description = "TARS RDS Password"
 }
 
 variable "tars_rds_username" {
   type        = "string"
-  description = ""
+  description = "TARS RDS Username"
 }
 
 variable "tars_rds_apply_immediately" {
   type        = "string"
-  description = ""
+  description = "TARS RDS Apply changes immediately"
   default = "false"
 }
 
 variable "tars_rds_license_model" {
   type        = "string"
-  description = ""
+  description = "TARS RDS License Model"
 }
 
 variable "tars_rds_snapshot" {
   type        = "string"
-  description = ""
+  description = "TARS RDS Snapshot to use to restore data"
 }
 
 variable "rds_subnets_cidrs" {
   type        = "list"
-  description = ""
+  description = "TARS RDS Subnet CIDR's"
 }
 
 variable "asg_termination_policies" {
@@ -202,68 +202,16 @@ variable "lc_key_name" {
 
 variable "mgmt_bastion_subnets" {
   type        = "list"
-  description = ""
+  description = "MGMT Bastion Subnets"
   default     = []
 }
 
 variable "ami_build_id" {
   type        = "string"
-  description = ""
+  description = "TARS Core AMI build ID"
 }
 
 variable "mgmt" {
   type        = "map"
-  description = ""
+  description = "MGMT Account config"
 }
-
-# variable "api_gateway_dns_alias" {
-#   type        = "string"
-#   description = ""
-#   default     = ""
-# }
-
-# variable "public_domain_name" {
-#   type        = "string"
-#   description = ""
-#   default     = ""
-# }
-
-# variable "acm_cert_prefix" {
-#   type        = "string"
-#   description = ""
-#   default     = "*"
-# }
-
-# variable "vts_s3_bucket" {
-#   type        = "map"
-#   description = ""
-#   default     = {}
-# }
-
-# variable "vts_s3_key" {
-#   type        = "string"
-#   description = ""
-# }
-
-# variable "vts" {
-#   type        = "map"
-#   description = ""
-#   default     = {}
-# }
-
-# variable "vts_env_vars" {
-#   type        = "map"
-#   description = ""
-#   default     = {}
-# }
-
-# variable "vts_auth_env_vars" {
-#   type        = "map"
-#   description = ""
-#   default     = {}
-# }
-
-# variable "vts_authorizer_id" {
-#   type        = "string"
-#   description = "The authorizer id to be used."
-# }

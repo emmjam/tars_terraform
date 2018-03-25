@@ -1,3 +1,4 @@
+# SG for TARS Batch ALB
 resource "aws_security_group" "tars-alb-batch" {
   name        = "${var.project}-${var.environment}-${var.component}-tars-alb-batch"
   description = "TARS ALB Batch"

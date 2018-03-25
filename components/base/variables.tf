@@ -1,27 +1,27 @@
 variable "aws_region" {
   type        = "string"
-  description = ""
+  description = "AWS Region"
 }
 
 variable "project" {
   type        = "string"
-  description = ""
+  description = "TF Scaffold project"
 }
 
 variable "environment" {
   type        = "string"
-  description = ""
+  description = "TF Scaffold environment"
 }
 
 variable "component" {
   type        = "string"
-  description = ""
+  description = "TF Scaffold component"
   default     = "base"
 }
 
 variable "default_tags" {
   type        = "map"
-  description = ""
+  description = "Default tag map"
 
   default = {
     Component = "base"
@@ -30,47 +30,47 @@ variable "default_tags" {
 
 variable "vpc_cidr" {
   type        = "string"
-  description = ""
+  description = "VPC CIDR Range"
 }
 
 variable "private_domain_name" {
   type        = "string"
-  description = ""
+  description = "R53 Private Domain Name"
 }
 
 variable "jenkinsnode_subnets_cidrs" {
   type        = "list"
-  description = ""
+  description = "Jenkinsnode subnet CIDR's"
 }
 
 variable "jenkins_nat_subnets_cidrs" {
   type        = "list"
-  description = ""
+  description = "Jenkinsnode NAT subnet CIDR's"
 }
 
 variable "backend_subnets_cidrs" {
   type        = "list"
-  description = ""
+  description = "TARS backend tier subnet CIDR's"
 }
 
 variable "awsmq_subnets_cidrs" {
   type        = "list"
-  description = ""
+  description = "AWS MQ Subnet CIDR's"
 }
 
 variable "alb_public_subnets_cidrs" {
   type        = "list"
-  description = ""
+  description = "TARS Public Facing ALB Subnet CIDR's"
 }
 
 variable "rds_subnets_cidrs" {
   type        = "list"
-  description = ""
+  description = "TARS RDS Subnet CIDR's"
 }
 
 variable "mgmt" {
   type        = "map"
-  description = ""
+  description = "MGMT Account Subnets"
 }
 
 variable "tf_state_bucket_prefix" {
@@ -91,190 +91,11 @@ variable "account_environment" {
 
 variable "jenkinsnode" {
   type        = "map"
-  description = ""
+  description = "Jenkinsnode configuration"
 }
 
 variable "mgmt_bastion_subnets" {
   type        = "list"
-  description = ""
+  description = "MGMT Bastion server subnets"
   default     = []
 }
-
-# variable "tf_state_bucket_prefix" {
-#   type        = "string"
-#   description = ""
-# }
-
-# variable "users" {
-#   type        = "list"
-#   description = "List of IAM Users"
-#   default     = []
-# }
-
-# variable "administrators" {
-#   type        = "list"
-#   description = "List of IAM Users from the 'users' list with Admin rights"
-#   default     = []
-# }
-
-# variable "vpc_cidr" {
-#   type        = "string"
-#   description = ""
-# }
-
-# variable "private_domain_name" {
-#   type        = "string"
-#   description = ""
-# }
-
-# variable "nat_subnets_cidrs" {
-#   type        = "list"
-#   description = ""
-# }
-
-# variable "bastion" {
-#   type        = "map"
-#   description = ""
-# }
-
-# variable "bastion_subnets_cidrs" {
-#   type        = "list"
-#   description = ""
-# }
-
-# variable "bastion_elb_subnets_cidrs" {
-#   type        = "list"
-#   description = ""
-# }
-
-# variable "bastion_whitelist" {
-#   type        = "list"
-#   description = ""
-#   default     = []
-# }
-
-# variable "jenkins_whitelist" {
-#   type        = "list"
-#   description = ""
-#   default     = []
-# }
-
-# variable "jenkins" {
-#   type        = "map"
-#   description = ""
-# }
-
-# variable "jenkins_blue_subnets_cidrs" {
-#   type        = "list"
-#   description = ""
-# }
-
-# variable "jenkins_blue_version" {
-#   type        = "string"
-#   description = ""
-# }
-
-# variable "jenkins_green_subnets_cidrs" {
-#   type        = "list"
-#   description = ""
-#   default     = []
-# }
-
-# variable "jenkins_green_version" {
-#   type        = "string"
-#   description = ""
-#   default     = "latest"
-# }
-
-# variable "jenkins_elb_subnets_cidrs" {
-#   type        = "list"
-#   description = ""
-# }
-
-# variable "jenkinsnode" {
-#   type        = "map"
-#   description = ""
-# }
-
-# variable "jenkinsnode_subnets_cidrs" {
-#   type        = "list"
-#   description = ""
-# }
-
-# variable "gitlab" {
-#   type        = "map"
-#   description = ""
-# }
-
-# variable "gitlab_subnets_cidrs" {
-#   type        = "list"
-#   description = ""
-# }
-
-# variable "gitlab_elb_public" {
-#   type        = "map"
-#   description = ""
-# }
-
-# variable "gitlab_elb_private_subnets_cidrs" {
-#   type        = "list"
-#   description = ""
-# }
-
-# variable "gitlab_elb_subnets_cidrs" {
-#   type        = "list"
-#   description = ""
-# }
-
-# variable "gitlab_db" {
-#   type        = "map"
-#   description = ""
-# }
-
-# variable "gitlab_db_subnets_cidrs" {
-#   type        = "list"
-#   description = ""
-# }
-
-# variable "gitlab_redis" {
-#   type        = "map"
-#   description = ""
-# }
-
-# variable "gitlab_redis_subnets_cidrs" {
-#   type        = "list"
-#   description = ""
-# }
-
-# variable "gitlab_whitelist" {
-#   type        = "list"
-#   description = ""
-# }
-
-# variable "alb_public_subnets_cidrs" {
-#   type        = "list"
-#   description = ""
-# }
-
-# variable "ctrl_peers" {
-#   type        = "list"
-#   description = ""
-#   default     = []
-# }
-
-# variable "ebs_snapshot" {
-#   type        = "map"
-#   description = "Map of variables for configuring the EBS snapshot Lambda and associated resources."
-#   default     = {}
-# }
-
-# variable "ebs_snapshot_cleanup" {
-#   type        = "map"
-#   description = "Map of variables for configuring the EBS snapshot cleanup Lambda and associated resources."
-#   default     = {}
-# }
-
-# variable "deployer_pub_key" {
-#   type        = "string"
-#   description = "Pub SSH ky for deployer"
-# }

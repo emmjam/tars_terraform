@@ -1,3 +1,4 @@
+# Get the remote state for the acc component
 data "terraform_remote_state" "acc" {
   backend = "s3"
 

@@ -1,3 +1,4 @@
+# Create the common cloud init template
 data "template_file" "jenkinsnode" {
   template = "${file("${path.module}/templates/cloudinit_common.yaml.tmpl")}"
 
@@ -7,6 +8,7 @@ data "template_file" "jenkinsnode" {
   }
 }
 
+# Create the jenkinsnode specific cloudinit script
 data "template_file" "jenkinsnode_config" {
   template = "${file("${path.module}/templates/jenkinsnode_setup.sh.tmpl")}"
 
@@ -18,6 +20,7 @@ data "template_file" "jenkinsnode_config" {
   }
 }
 
+# Render the templates ready for the Launch Config
 data "template_cloudinit_config" "jenkinsnode" {
   gzip          = true
   base64_encode = true

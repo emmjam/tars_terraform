@@ -1,3 +1,4 @@
+# Create the KMS endpoint for the VPC
 resource "aws_vpc_endpoint" "kms" {
   vpc_id            = "${aws_vpc.vpc.id}"
   service_name      = "com.amazonaws.eu-west-1.kms"

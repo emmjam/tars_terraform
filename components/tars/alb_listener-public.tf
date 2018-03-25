@@ -1,3 +1,4 @@
+# TARS Public ALB Listener for port 8443
 resource "aws_alb_listener" "tars-public-8443" {
   load_balancer_arn = "${aws_alb.tars-public-facing.arn}"
   port              = "8443"
@@ -11,6 +12,8 @@ resource "aws_alb_listener" "tars-public-8443" {
   }
 }
 
+# TARS Public ALB Listener for port 9990 - Wildfly Admin Console
+# Not needed long term
 resource "aws_alb_listener" "tars-public-9990" {
   load_balancer_arn = "${aws_alb.tars-public-facing.arn}"
   port              = "9990"

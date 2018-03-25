@@ -1,3 +1,4 @@
+# TARS Batch AB target group for port 8080
 resource "aws_alb_target_group" "tars-batch-8080" {
   name = "${format(
     "%s-%s-%s-%s",

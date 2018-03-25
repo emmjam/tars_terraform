@@ -1,3 +1,4 @@
+# Create the cloud init template for common config
 data "template_file" "wildfly-back-common" {
   template = "${file("${path.module}/templates/cloudinit_common.yaml.tmpl")}"
 
@@ -7,6 +8,7 @@ data "template_file" "wildfly-back-common" {
   }
 }
 
+# Create the cloud init template for the wildfly backend core server
 data "template_file" "wildfly-back-config" {
   template = "${file("${path.module}/templates/wildfly_back_setup.sh.tmpl")}"
 
@@ -19,6 +21,7 @@ data "template_file" "wildfly-back-config" {
   }
 }
 
+# Render the templates ready for the LC
 data "template_cloudinit_config" "wildfly-back" {
   gzip          = true
   base64_encode = true

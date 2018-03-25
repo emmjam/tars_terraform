@@ -1,3 +1,4 @@
+# Get the jenkinsnode AMI id
 data "aws_ami" "jenkinsnode" {
   name_regex = "${format(
     "%s-%s-%s/%s",

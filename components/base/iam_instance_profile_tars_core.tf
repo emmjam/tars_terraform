@@ -1,3 +1,4 @@
+# Create the tars core server instance profile
 resource "aws_iam_instance_profile" "tars-core" {
   name = "${format(
      "%s-%s-%s-%s",
@@ -23,6 +24,7 @@ resource "aws_iam_role" "tars-core" {
   assume_role_policy = "${data.aws_iam_policy_document.ec2_assumerole.json}"
 }
 
+# Allow the use of the hiera KMS key
 resource "aws_iam_role_policy_attachment" "hieradata" {
   role       = "${aws_iam_role.tars-core.name}"
   policy_arn = "${data.terraform_remote_state.acc.hieradata_kms_key_user_policy_arn}"

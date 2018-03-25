@@ -1,3 +1,4 @@
+# SG for the TARS Public ALB
 resource "aws_security_group" "tars-alb-public" {
   name        = "${var.project}-${var.environment}-${var.component}-tars-alb-public"
   description = "TARS ALB Public Facing"

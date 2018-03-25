@@ -1,3 +1,5 @@
+# TODO: We should be using a microservice module for the TARS backend server
+
 # module "wildfly-frontend" {
 #   source = "../../modules/microservice"
 

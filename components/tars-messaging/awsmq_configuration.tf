@@ -1,3 +1,6 @@
+# Create the config for the AWS MQ Broker
+# Define all the TARS msg queue's required
+
 resource "aws_mq_configuration" "tars-awsmq" {
   description    = "${lookup(var.aws_mq_config,"description")}"
   name           = "${lookup(var.aws_mq_config,"name")}"

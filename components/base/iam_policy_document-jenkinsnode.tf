@@ -1,4 +1,5 @@
 # TODO: adjust permissions based on real usage
+# Give the Jenkinsnode God like privs
 data "aws_iam_policy_document" "jenkinsnode" {
   statement {
     sid    = "AllowAccountManagement"

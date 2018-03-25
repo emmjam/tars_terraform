@@ -1,3 +1,4 @@
+# ALB Listener for TARS Messaging port 8080
 resource "aws_alb_listener" "tars-messaging-8080" {
   load_balancer_arn = "${aws_alb.tars-alb-messaging-private.arn}"
   port              = "8080"

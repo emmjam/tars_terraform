@@ -1,3 +1,4 @@
+# ASG for the tars core frontend server
 resource "aws_autoscaling_group" "tars-frontend" {
   name_prefix = "${format(
     "%s-%s-%s-%s-",
@@ -46,7 +47,8 @@ resource "aws_autoscaling_group" "tars-frontend" {
       )
     )}",
   ]
-
+  
+  # Spin up the max specified in the config
   provisioner "local-exec" {
     command = "aws autoscaling update-auto-scaling-group --auto-scaling-group-name ${aws_autoscaling_group.tars-frontend.name} --desired-capacity ${lookup(var.wildfly-front,"asg_max_size")} --region ${var.aws_region}"
   }

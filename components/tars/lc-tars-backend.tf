@@ -1,3 +1,4 @@
+# Define the LC for the tars backend core server
 resource "aws_launch_configuration" "tars-backend" {
   name_prefix = "${format(
     "%s-%s-%s-%s-",

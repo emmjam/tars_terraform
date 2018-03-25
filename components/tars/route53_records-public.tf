@@ -1,3 +1,4 @@
+# Create the R53 record for the public ALB
 resource "aws_route53_record" "tars-core-public" {
   name = "${format(
     "%s-%s-%s",

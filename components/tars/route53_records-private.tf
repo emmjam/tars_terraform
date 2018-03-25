@@ -1,3 +1,4 @@
+# Create the R53 record for the TARS DB
 resource "aws_route53_record" "tarsdb" {
   name = "${format(
     "%s-%s-%s-%s",
@@ -17,6 +18,7 @@ resource "aws_route53_record" "tarsdb" {
   }
 }
 
+# Create the R53 record for the TARS Backend ALB
 resource "aws_route53_record" "tars-backend" {
   name = "${format(
     "%s-%s-%s-%s",

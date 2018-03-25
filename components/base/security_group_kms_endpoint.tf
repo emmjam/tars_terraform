@@ -1,3 +1,4 @@
+# Create an SG for the KMS endpoint
 resource "aws_security_group" "kms_endpoint" {
   name        = "${var.project}-${var.environment}-${var.component}-kms-endpoint"
   description = "KMS Endpoint"

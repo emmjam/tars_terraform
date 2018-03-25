@@ -1,3 +1,4 @@
+# TARS VPC DHCP options
 resource "aws_vpc_dhcp_options" "tars" {
   domain_name         = "${var.environment}.${var.private_domain_name}"
   domain_name_servers = ["AmazonProvidedDNS"]

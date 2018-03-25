@@ -1,3 +1,4 @@
+# LC for the messaging server
 resource "aws_launch_configuration" "tars-messaging" {
   name_prefix = "${format(
     "%s-%s-%s-%s-",

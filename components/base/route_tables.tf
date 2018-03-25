@@ -14,7 +14,7 @@ resource "aws_route_table" "public" {
     )
   )}"
 }
-
+# Route table for the Jenkinsnode
 resource "aws_route_table" "jenkins_nat" {
   count  = "${length(var.jenkins_nat_subnets_cidrs)}"
   vpc_id = "${aws_vpc.vpc.id}"
@@ -33,6 +33,7 @@ resource "aws_route_table" "jenkins_nat" {
   )}"
 }
 
+# Route table for the TARS backend servers
 resource "aws_route_table" "backend" {
   vpc_id = "${aws_vpc.vpc.id}"
 
@@ -50,6 +51,7 @@ resource "aws_route_table" "backend" {
   )}"
 }
 
+# Route table for the RDS DB's
 resource "aws_route_table" "rds" {
   vpc_id = "${aws_vpc.vpc.id}"
 
@@ -67,6 +69,7 @@ resource "aws_route_table" "rds" {
   )}"
 }
 
+# Route table for AWS MQ
 resource "aws_route_table" "awsmq" {
   vpc_id = "${aws_vpc.vpc.id}"
 

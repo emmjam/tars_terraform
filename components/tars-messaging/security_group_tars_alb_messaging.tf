@@ -1,3 +1,4 @@
+# SG for the tars messaging ALB
 resource "aws_security_group" "tars-alb-messaging" {
   name        = "${var.project}-${var.environment}-${var.component}-tars-alb-messaging"
   description = "TARS ALB Messaging"

@@ -1,3 +1,4 @@
+# Get the remote state for the base component
 data "terraform_remote_state" "base" {
   backend = "s3"
 

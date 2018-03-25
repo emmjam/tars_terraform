@@ -1,3 +1,4 @@
+# Create the internet gateway
 resource "aws_internet_gateway" "tars" {
   vpc_id = "${aws_vpc.vpc.id}"
 

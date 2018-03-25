@@ -1,3 +1,4 @@
+# SG for the messaging server
 resource "aws_security_group" "tars-messaging" {
   name        = "${var.project}-${var.environment}-${var.component}-tars-messaging"
   description = "TARS Messaging"

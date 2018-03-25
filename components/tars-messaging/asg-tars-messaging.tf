@@ -1,3 +1,4 @@
+# ASG for tars messaging server
 resource "aws_autoscaling_group" "tars-messaging" {
   name_prefix = "${format(
     "%s-%s-%s-%s-",
@@ -46,6 +47,7 @@ resource "aws_autoscaling_group" "tars-messaging" {
     )}",
   ]
 
+  # Spin up max desired messaging servers
   provisioner "local-exec" {
     command = "aws autoscaling update-auto-scaling-group --auto-scaling-group-name ${aws_autoscaling_group.tars-messaging.name} --desired-capacity ${lookup(var.wildfly-messaging,"asg_max_size")} --region ${var.aws_region}"
   }

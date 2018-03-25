@@ -1,3 +1,4 @@
+# Create the AWS MQ Broker
 resource "aws_mq_broker" "tars-awsmq" {
   broker_name = "${format(
     "%s-%s-%s-%s",

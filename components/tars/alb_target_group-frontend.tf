@@ -1,3 +1,4 @@
+# ALB Target group for TARS frontend port 8443
 resource "aws_alb_target_group" "tars-frontend-8443" {
   name = "${format(
     "%s-%s-%s-%s",
@@ -28,6 +29,7 @@ resource "aws_alb_target_group" "tars-frontend-8443" {
   
 }
 
+# ALB Target Group for TARS frontend port 9990 - Wildfly Admin GUI
 resource "aws_alb_target_group" "tars-frontend-9990" {
   name = "${format(
     "%s-%s-%s-%s",
