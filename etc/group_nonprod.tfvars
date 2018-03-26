@@ -27,7 +27,6 @@ tars_rds_apply_immediately   = "true"
 tars_rds_license_model       = "license-included"
 tars_rds_snapshot            = "tars-testdb-210218"
 
-<<<<<<< HEAD
 
 ###############################################################################
 # CONTROL
@@ -76,6 +75,4 @@ jenkinsnode_subnets_cidrs = [
   "10.167.0.32/28",
   "10.167.0.64/28",
 ]
-=======
 ops_team_email = "mark.thompson@bjss.com"
->>>>>>> release
