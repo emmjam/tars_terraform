@@ -25,7 +25,7 @@ resource "aws_iam_role" "packer" {
 
 resource "aws_iam_role_policy_attachment" "packer_hieradata" {
   role       = "${aws_iam_role.packer.name}"
-  policy_arn = "${module.kms_hieradata.user_policy_arn}"
+  policy_arn = "${data.terraform_remote_state.acc.hieradata_kms_key_user_policy_arn}"
 }
 
 resource "aws_iam_policy" "s3-packer" {
