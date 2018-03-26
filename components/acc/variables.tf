@@ -72,3 +72,8 @@ variable "deployer_pub_key" {
   type        = "string"
   description = "Pub SSH ky for deployer"
 }
+
+variable "ops_team_email" {
+  type        = "string"
+  description = "Email for the ops team alerts"
+}

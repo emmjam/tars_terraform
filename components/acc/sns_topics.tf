@@ -23,7 +23,7 @@ resource "aws_sns_topic" "notify_ops" {
 
   display_name = "Notify OpsTeam"
 
-  # provisioner "local-exec" {
-  #   command = "aws sns subscribe --topic-arn ${self.arn} --protocol email --notification-endpoint ${var.???}"
-  # }
+  provisioner "local-exec" {
+    command = "aws sns subscribe --topic-arn ${self.arn} --protocol email --notification-endpoint ${var.ops_team_email}"
+  }
 }

@@ -27,4 +27,4 @@ tars_rds_apply_immediately   = "true"
 tars_rds_license_model       = "license-included"
 tars_rds_snapshot            = "tars-testdb-210218"
 
-
+ops_team_email = "mark.thompson@bjss.com"

@@ -1,0 +1,15 @@
+# MacOS 
+.DS_Store
+
+# Compiled files
+*.tfstate
+*.tfstate.backup
+
+# Module directory
+.terraform
+
+# Artefacts directory
+artefacts/
+
+# VS Code
+.vscode

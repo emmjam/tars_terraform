@@ -23,15 +23,15 @@ public_domain_name = "nonprod.tars.dvsacloud.uk"
 
 users = [
   "rob.hart@dvsa.gov.uk",
-  "karl.gharios@bjss.com",
 ]
 
 administrators = [
   "mark.thompson@bjss.com",
+  "karl.gharios@bjss.com",
 ]
 
 power_users = [
-  "karl.gharios@bjss.com",
+  "allan.todd@bjss.com",
 ]
 
 ###############################################################################
@@ -157,7 +157,8 @@ wildfly-back = {
   instance_type        = "t2.medium"
   puppet_env           = "dev"
   puppet_node          = "wildfly"
-  puppet_type          = "back"  
+  puppet_type          = "back"
+  puppet_kms_key       = "791140e3-1c70-4d21-943f-007c92c1e17d"  
 #  ami_build_id         = "27"
   asg_min_size         = 0
   asg_max_size         = 2
@@ -172,7 +173,8 @@ wildfly-front = {
   instance_type        = "t2.medium"
   puppet_env           = "dev"
   puppet_node          = "wildfly"
-  puppet_type          = "front"  
+  puppet_type          = "front"
+  puppet_kms_key       = "791140e3-1c70-4d21-943f-007c92c1e17d"
 #  ami_build_id         = "27"
   asg_min_size         = 0
   asg_max_size         = 2
