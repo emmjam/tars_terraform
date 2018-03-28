@@ -218,3 +218,15 @@ variable "opsdev_peers" {
   description = ""
   default     = []
 }
+
+variable "sit01_peers" {
+  type        = "list"
+  description = ""
+  default     = []
+}
+
+variable "uat01_peers" {
+  type        = "list"
+  description = ""
+  default     = []
+}

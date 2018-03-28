@@ -262,6 +262,26 @@ opsdev_peers = [
   }
 ]
 
+## sit01
+sit01_peers = [
+  { # tars tars/dev01
+    account_id          = "652856684323"
+    vpc_id              = "vpc-57179931"
+    cidr_block          = "10.167.8.0/22"
+    jenkinsnode_subnet  = "10.167.8.0/26"
+  }
+]
+
+## uat01
+uat01_peers = [
+  { # tars tars/dev01
+    account_id          = "652856684323"
+    vpc_id              = "vpc-411b9527"
+    cidr_block          = "10.167.12.0/22"
+    jenkinsnode_subnet  = "10.167.12.0/26"
+  }
+]
+
 # EBS backup lambda
 ebs_snapshot = {
   is_enabled                       = true

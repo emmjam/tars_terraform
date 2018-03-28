@@ -2,14 +2,14 @@
 # GENERAL
 ##############################################################################
 project     = "tars"
-environment = "dev01"
+environment = "sit01"
 aws_region  = "eu-west-1"
 
 tf_state_bucket_prefix = "tars-terraformscaffold"
 
 default_tags = {
   Project     = "tars"
-  Environment = "dev01"
+  Environment = "sit01"
 }
 
 private_domain_name = "private.tars.dvsa.aws"
@@ -59,11 +59,11 @@ mgmt_bastion_subnets = [
 ]
 
 ###############################################################################
-# dev01
+# sit01
 ###############################################################################
 
 # The VPC CIDR Block for this environment
-vpc_cidr = "10.167.4.0/22"
+vpc_cidr = "10.167.8.0/22"
 
 ## jenkinsnode
 jenkinsnode = {
@@ -79,9 +79,9 @@ jenkinsnode = {
 }
 
 jenkinsnode_subnets_cidrs = [
-  "10.167.4.0/28",
-  "10.167.4.16/28",
-  "10.167.4.32/28",
+  "10.167.8.0/28",
+  "10.167.8.16/28",
+  "10.167.8.32/28",
 ]
 
 # Environment & Component for Accessing mgmt_prd remote state
@@ -89,33 +89,33 @@ mgmt_component = "mgmt"
 mgmt_env       = "mgmt"
 
 backend_subnets_cidrs = [
-  "10.167.5.0/27",
-  "10.167.5.32/27",
-  "10.167.5.64/27",
+  "10.167.9.0/27",
+  "10.167.9.32/27",
+  "10.167.9.64/27",
 ]
 
 # AWS MQ SINGLE_INSTANCE only requires 1 subnets
 # ACTIVE_STANDBY_MULTI_AZ requires 2
 awsmq_subnets_cidrs = [
-  "10.167.4.160/28",
+  "10.167.8.160/28",
 ]
 
 jenkins_nat_subnets_cidrs = [
-  "10.167.4.176/28"
+  "10.167.8.176/28"
 ]
 
 ## alb public
 alb_public_subnets_cidrs = [
-  "10.167.4.64/28",
-  "10.167.4.80/28",
-  "10.167.4.96/28",
+  "10.167.8.64/28",
+  "10.167.8.80/28",
+  "10.167.8.96/28",
 ]
 
 ## rds
 rds_subnets_cidrs = [
-  "10.167.4.112/28",
-  "10.167.4.128/28",
-  "10.167.4.144/28",
+  "10.167.8.112/28",
+  "10.167.8.128/28",
+  "10.167.8.144/28",
 ]
 
 tars_core_whitelist = [
@@ -159,7 +159,7 @@ mq_console_whitelist = [
 ## wildfly-back
 wildfly-back = {
   instance_type        = "t2.medium"
-  puppet_env           = "dev01"
+  puppet_env           = "sit01"
   puppet_node          = ""
   puppet_type          = ""
   puppet_kms_key       = "791140e3-1c70-4d21-943f-007c92c1e17d"
@@ -175,7 +175,7 @@ wildfly-back = {
 ## wildfly-batch
 wildfly-batch = {
   instance_type        = "t2.medium"
-  puppet_env           = "dev01"
+  puppet_env           = "sit01"
   puppet_node          = ""
   puppet_type          = ""
   puppet_kms_key       = "791140e3-1c70-4d21-943f-007c92c1e17d"
@@ -191,7 +191,7 @@ wildfly-batch = {
 ## wildfly-front
 wildfly-front = {
   instance_type        = "t2.medium"
-  puppet_env           = "dev01"
+  puppet_env           = "sit01"
   puppet_node          = ""
   puppet_type          = ""
   puppet_kms_key       = "791140e3-1c70-4d21-943f-007c92c1e17d"
@@ -207,7 +207,7 @@ wildfly-front = {
 ## wildfly-messaging
 wildfly-messaging = {
   instance_type        = "t2.medium"
-  puppet_env           = "dev01"
+  puppet_env           = "sit01"
   puppet_node          = ""
   puppet_type          = ""
   puppet_kms_key       = "791140e3-1c70-4d21-943f-007c92c1e17d"
@@ -240,17 +240,16 @@ aws_mq_config = {
 # Deployer pub key
 deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVSO8uKpdbwww94azylwjnFxsFGcmXG4ObL1oOFibHMN0x+SsSwjfC1DEziWPK3m/Crmar0+ad/68nQC+iWo/MYclh8h3bkKlv9dO4Xtv/0H6uDRW3l3bBO0rWYbt46fMAOCqX96N3LRTfUlPuzsVAd0NGZZlSSAZF0AMl4xE/tZl2m+Dqylrjp3qLT4UxEIrAuvPW06PqkGy63hZznjCjQDaadOAUpY19ZaA71JBueyGBnZ8pSVzr5hT1TpNw/cXxA6WLj4CCipIVm0M64OT/ArqcnQMX9Htf4Gp5apXZ3f6MerfjgHnkrm1t6JNuhSjVB deployer@mgmt.tars.dvsa.aws"
 
-
 ##
 # RDS
 ##
 
 # TARSDB
-tars_rds_username = "tarsdevadmin"
-tars_rds_password = "password"
+tars_rds_username = "tarsuatadmin"
+tars_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 
 # TARSDB
-tars_rds_allocated_storage   = "20" # 20 Gigabyte - was 1500GB
+tars_rds_allocated_storage   = "300"
 tars_rds_storage_type        = "gp2"
 tars_rds_engine              = "oracle-se2"
 tars_rds_engine_version      = "12.1.0.2.v11"
@@ -264,4 +263,4 @@ tars_rds_maint_window        = "sun:03:16-sun:03:46"
 tars_rds_skip_final_snapshot = true
 tars_rds_apply_immediately   = "true"
 tars_rds_license_model       = "license-included"
-tars_rds_snapshot            = "tars-testdb-210218"
+tars_rds_snapshot            = "tarsuat01-13032018"
