@@ -41,34 +41,34 @@ resource "aws_route" "ctrl_pcx_private_nat_2" {
   vpc_peering_connection_id = "${element(data.aws_vpc_peering_connection.ctrl_peers.*.id, count.index)}"
 }
 
-# base-nonprod-pcx
-resource "aws_route" "base-nonprod-pcx_private" {
-  count                     = "${length(var.nonprod_peers)}"
+# base-dev01-pcx
+resource "aws_route" "base-dev01-pcx_private" {
+  count                     = "${length(var.dev01_peers)}"
   route_table_id            = "${aws_route_table.private.id}"
-  destination_cidr_block    = "${element(data.aws_vpc_peering_connection.nonprod_peers.*.cidr_block, count.index)}"
-  vpc_peering_connection_id = "${element(data.aws_vpc_peering_connection.nonprod_peers.*.id, count.index)}"
+  destination_cidr_block    = "${element(data.aws_vpc_peering_connection.dev01_peers.*.cidr_block, count.index)}"
+  vpc_peering_connection_id = "${element(data.aws_vpc_peering_connection.dev01_peers.*.id, count.index)}"
 }
 
 # TODO: replace with one declaration
-resource "aws_route" "base_nonprod_pcx_private_nat_0" {
-  count                     = "${length(var.nonprod_peers)}"
+resource "aws_route" "base_dev01_pcx_private_nat_0" {
+  count                     = "${length(var.dev01_peers)}"
   route_table_id            = "${aws_route_table.private_nat.0.id}"
-  destination_cidr_block    = "${element(data.aws_vpc_peering_connection.nonprod_peers.*.cidr_block, count.index)}"
-  vpc_peering_connection_id = "${element(data.aws_vpc_peering_connection.nonprod_peers.*.id, count.index)}"
+  destination_cidr_block    = "${element(data.aws_vpc_peering_connection.dev01_peers.*.cidr_block, count.index)}"
+  vpc_peering_connection_id = "${element(data.aws_vpc_peering_connection.dev01_peers.*.id, count.index)}"
 }
 
-resource "aws_route" "base_nonprod_ctrl_pcx_private_nat_1" {
-  count                     = "${length(var.nonprod_peers)}"
+resource "aws_route" "base_dev01_ctrl_pcx_private_nat_1" {
+  count                     = "${length(var.dev01_peers)}"
   route_table_id            = "${aws_route_table.private_nat.1.id}"
-  destination_cidr_block    = "${element(data.aws_vpc_peering_connection.nonprod_peers.*.cidr_block, count.index)}"
-  vpc_peering_connection_id = "${element(data.aws_vpc_peering_connection.nonprod_peers.*.id, count.index)}"
+  destination_cidr_block    = "${element(data.aws_vpc_peering_connection.dev01_peers.*.cidr_block, count.index)}"
+  vpc_peering_connection_id = "${element(data.aws_vpc_peering_connection.dev01_peers.*.id, count.index)}"
 }
 
-resource "aws_route" "base_nonprod_ctrl_pcx_private_nat_2" {
-  count                     = "${length(var.nonprod_peers)}"
+resource "aws_route" "base_dev01_ctrl_pcx_private_nat_2" {
+  count                     = "${length(var.dev01_peers)}"
   route_table_id            = "${aws_route_table.private_nat.2.id}"
-  destination_cidr_block    = "${element(data.aws_vpc_peering_connection.nonprod_peers.*.cidr_block, count.index)}"
-  vpc_peering_connection_id = "${element(data.aws_vpc_peering_connection.nonprod_peers.*.id, count.index)}"
+  destination_cidr_block    = "${element(data.aws_vpc_peering_connection.dev01_peers.*.cidr_block, count.index)}"
+  vpc_peering_connection_id = "${element(data.aws_vpc_peering_connection.dev01_peers.*.id, count.index)}"
 }
 
 # base-opsdev-pcx

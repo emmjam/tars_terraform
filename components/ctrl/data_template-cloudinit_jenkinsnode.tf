@@ -13,7 +13,7 @@ data "template_file" "jenkinsnode_config" {
   vars {
     master_url    = "jenkins.mgmt.tars.dvsa.aws"                        # TODO: use remote state
     account_alias = "${data.terraform_remote_state.acc.account_alias}"
-    executors     = "${lookup(var.jenkinsnode,"executors")}"
+    executors     = "${lookup(var.ctrl_jenkinsnode,"executors")}"
   }
 }
 

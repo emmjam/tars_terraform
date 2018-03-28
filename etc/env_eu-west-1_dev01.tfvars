@@ -12,14 +12,14 @@ default_tags = {
   Environment = "dev01"
 }
 
-private_domain_name = "tars.dvsa.aws"
+private_domain_name = "private.tars.dvsa.aws"
 
 ##########
 # ACCOUNT
 ###############################################################################
-aws_account_alias = "tarsnonprod"
+# aws_account_alias = "tarsnonprod"
 
-public_domain_name = "dvsa.tars.dev-dvsacloud.uk"
+# public_domain_name = "dvsa.tars.dev-dvsacloud.uk"
 
 users = [
   "rob.hart@dvsa.gov.uk",
@@ -66,7 +66,7 @@ mgmt_bastion_subnets = [
 vpc_cidr = "10.167.4.0/22"
 
 ## jenkinsnode
-tars_jenkinsnode = {
+jenkinsnode = {
   instance_type        = "m4.large"
   ami_build_id         = "32"
   executors            = 5
@@ -78,7 +78,7 @@ tars_jenkinsnode = {
   scaleup_recurrence   = "15 07 * * 1-5"
 }
 
-tars_jenkinsnode_subnets_cidrs = [
+jenkinsnode_subnets_cidrs = [
   "10.167.4.0/28",
   "10.167.4.16/28",
   "10.167.4.32/28",
@@ -89,9 +89,9 @@ mgmt_component = "mgmt"
 mgmt_env       = "mgmt"
 
 backend_subnets_cidrs = [
-  "10.167.4.64/27",
-  "10.167.4.96/27",
-  "10.167.4.128/27",
+  "10.167.5.0/27",
+  "10.167.5.32/27",
+  "10.167.5.64/27",
 ]
 
 # AWS MQ SINGLE_INSTANCE only requires 1 subnets
@@ -101,21 +101,21 @@ awsmq_subnets_cidrs = [
 ]
 
 jenkins_nat_subnets_cidrs = [
-  "10.167.1.176/28"
+  "10.167.4.176/28"
 ]
 
 ## alb public
 alb_public_subnets_cidrs = [
-  "10.167.4.192/28",
-  "10.167.4.208/28",
-  "10.167.4.224/28",
+  "10.167.4.64/28",
+  "10.167.4.80/28",
+  "10.167.4.96/28",
 ]
 
 ## rds
 rds_subnets_cidrs = [
-  "10.211.5.0/28",
-  "10.211.5.16/28",
-  "10.211.5.32/28",
+  "10.167.4.112/28",
+  "10.167.4.128/28",
+  "10.167.4.144/28",
 ]
 
 tars_core_whitelist = [

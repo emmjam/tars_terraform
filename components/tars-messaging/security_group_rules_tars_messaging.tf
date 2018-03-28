@@ -16,7 +16,7 @@ resource "aws_security_group_rule" "tars_messaging_egress_oracle_db" {
   to_port                  = 1521
   protocol                 = "tcp"
   security_group_id        = "${aws_security_group.tars-messaging.id}"
-  source_security_group_id = "${data.terraform_remote_state.tars.tars-core-db-sg-id}"
+  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-db-sg-id}"
 }
 
 resource "aws_security_group_rule" "tars_messaging_ingress_bastion" {
@@ -46,7 +46,7 @@ resource "aws_security_group_rule" "oracle_db_ingress_tars_messaging" {
   from_port                = 1521
   to_port                  = 1521
   protocol                 = "tcp"
-  security_group_id        = "${data.terraform_remote_state.tars.tars-core-db-sg-id}"
+  security_group_id        = "${data.terraform_remote_state.tars-core.tars-core-db-sg-id}"
   source_security_group_id = "${aws_security_group.tars-messaging.id}"
 }
 
@@ -68,7 +68,7 @@ resource "aws_security_group_rule" "tars_messaging_egress_tars_core_backend_alb_
   to_port                  = 8080
   protocol                 = "tcp"
   security_group_id        = "${aws_security_group.tars-messaging.id}"
-  source_security_group_id = "${data.terraform_remote_state.tars.tars-core-backend-alb-sg-id}"
+  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-backend-alb-sg-id}"
 }
 
 resource "aws_security_group_rule" "tars_core_backend_alb_ingres_tars_messaging_8080" {
@@ -77,6 +77,6 @@ resource "aws_security_group_rule" "tars_core_backend_alb_ingres_tars_messaging_
   from_port                = 8080
   to_port                  = 8080
   protocol                 = "tcp"
-  security_group_id        = "${data.terraform_remote_state.tars.tars-core-backend-alb-sg-id}"
+  security_group_id        = "${data.terraform_remote_state.tars-core.tars-core-backend-alb-sg-id}"
   source_security_group_id = "${aws_security_group.tars-messaging.id}"
 }

@@ -12,14 +12,14 @@ default_tags = {
   Environment = "opsdev"
 }
 
-private_domain_name = "tars.dvsa.aws"
+private_domain_name = "private.tars.dvsa.aws"
 
 ##########
 # ACCOUNT
 ###############################################################################
-aws_account_alias = "tarsnonprod"
+# aws_account_alias = "tarsnonprod"
 
-public_domain_name = "dvsa.tars.dev-dvsacloud.uk"
+# public_domain_name = "dvsa.tars.dev-dvsacloud.uk"
 
 users = [
   "rob.hart@dvsa.gov.uk",
@@ -68,7 +68,7 @@ vpc_cidr = "10.167.0.0/22"
 ## jenkinsnode
 jenkinsnode = {
   instance_type        = "m4.large"
-  ami_build_id         = "32"
+  ami_build_id         = "1"
   executors            = 5
   asg_min_size         = 0
   asg_max_size         = 3
@@ -79,9 +79,9 @@ jenkinsnode = {
 }
 
 jenkinsnode_subnets_cidrs = [
-  "10.167.0.96/28",
-  "10.167.0.112/28",
-  "10.167.0.128/28",
+  "10.167.0.0/28",
+  "10.167.0.16/28",
+  "10.167.0.32/28",
 ]
 
 # Environment & Component for Accessing mgmt_prd remote state
@@ -89,33 +89,33 @@ mgmt_component = "mgmt"
 mgmt_env       = "mgmt"
 
 backend_subnets_cidrs = [
-  "10.167.0.160/27",
-  "10.167.0.192/27",
-  "10.167.0.224/27",
+  "10.167.1.0/27",
+  "10.167.1.32/27",
+  "10.167.1.64/27",
 ]
 
 # AWS MQ SINGLE_INSTANCE only requires 1 subnets
 # ACTIVE_STANDBY_MULTI_AZ requires 2
 awsmq_subnets_cidrs = [
-  "10.167.1.0/28",
+  "10.167.0.160/28",
 ]
 
 jenkins_nat_subnets_cidrs = [
-  "10.167.1.16/28"
+  "10.167.0.176/28"
 ]
 
 ## alb public
 alb_public_subnets_cidrs = [
-  "10.167.1.32/28",
-  "10.167.1.48/28",
-  "10.167.1.64/28",
+  "10.167.0.64/28",
+  "10.167.0.80/28",
+  "10.167.0.96/28",
 ]
 
 ## rds
 rds_subnets_cidrs = [
-  "10.167.1.80/28",
-  "10.167.1.96/28",
-  "10.167.1.112/28",
+  "10.167.0.112/28",
+  "10.167.0.128/28",
+  "10.167.0.144/28",
 ]
 
 tars_core_whitelist = [

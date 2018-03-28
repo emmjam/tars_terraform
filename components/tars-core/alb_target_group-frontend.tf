@@ -5,7 +5,7 @@ resource "aws_alb_target_group" "tars-frontend-8443" {
     var.project,
     var.environment,
     var.component,
-    "frontend-8443"
+    "wff-8443"
   )}"
 
   port     = "8443"
@@ -36,7 +36,7 @@ resource "aws_alb_target_group" "tars-frontend-9990" {
     var.project,
     var.environment,
     var.component,
-    "frontend-9990"
+    "wff-9990"
   )}"  
   port     = "9990"
   protocol = "HTTP"

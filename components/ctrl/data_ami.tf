@@ -4,7 +4,7 @@ data "aws_ami" "jenkinsnode" {
     var.project,
     "amzn",
     "jenkinsnode",
-    "${lookup(var.jenkinsnode,"ami_build_id")}"
+    "${lookup(var.ctrl_jenkinsnode,"ami_build_id")}"
   )}"
 
   most_recent = "true"

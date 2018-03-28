@@ -236,19 +236,19 @@ jenkins_whitelist = [
 ctrl_peers = [
   { # tars ctrl/nonprod
     account_id         = "652856684323"
-    vpc_id             = "vpc-2903d84f"
-    cidr_block         = "10.210.0.0/16"
-    jenkinsnode_subnet = "10.210.2.0/24"
+    vpc_id             = "vpc-9f2ba7f9"
+    cidr_block         = "10.167.60.0/22"
+    jenkinsnode_subnet = "10.167.60.0/26"
   }
 ]
 
-## nonprod
-nonprod_peers = [
-  { # tars tars/nonprod
+## dev01
+dev01_peers = [
+  { # tars tars/dev01
     account_id          = "652856684323"
-    vpc_id              = "vpc-98953bfe"
-    cidr_block          = "10.211.0.0/16"
-    tars_backend_subnet = "10.211.1.0/24"
+    vpc_id              = "vpc-61ce4107"
+    cidr_block          = "10.167.4.0/22"
+    jenkinsnode_subnet  = "10.167.4.0/26"
   }
 ]
 
@@ -256,9 +256,9 @@ nonprod_peers = [
 opsdev_peers = [
   { # tars tars/nonprod
     account_id          = "652856684323"
-    vpc_id              = "vpc-6b3fbb0d"
-    cidr_block          = "10.212.0.0/16"
-    jenkinsnode_subnet  = "10.212.4.0/24"
+    vpc_id              = "vpc-e560ef83"
+    cidr_block          = "10.167.0.0/22"
+    jenkinsnode_subnet  = "10.167.0.0/26"
   }
 ]
 

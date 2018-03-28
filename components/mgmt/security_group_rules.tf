@@ -276,40 +276,40 @@ resource "aws_security_group_rule" "gitlab_elb_private_ingress_opsdev_jenkinsnod
   cidr_blocks       = ["${lookup(var.opsdev_peers[count.index],"jenkinsnode_subnet")}"]
 }
 
-# ### jenkins-nonprod_jenkinsnodes
-# resource "aws_security_group_rule" "jenkins_elb_ingress_nonprod_jenkinsnode_http" {
-#   count             = "${length(var.nonprod_peers)}"
-#   description       = "Allow TCP/80 from nonprod JenkinsNodes"
-#   type              = "ingress"
-#   from_port         = 80
-#   to_port           = 80
-#   protocol          = "tcp"
-#   security_group_id = "${module.jenkins.elb_sg_id}"
-#   cidr_blocks       = ["${lookup(var.nonprod_peers[count.index],"jenkinsnode_subnet")}"]
-# }
+### jenkins-dev01_jenkinsnodes
+resource "aws_security_group_rule" "jenkins_elb_ingress_dev01_jenkinsnode_http" {
+  count             = "${length(var.dev01_peers)}"
+  description       = "Allow TCP/80 from dev01 JenkinsNodes"
+  type              = "ingress"
+  from_port         = 80
+  to_port           = 80
+  protocol          = "tcp"
+  security_group_id = "${module.jenkins.elb_sg_id}"
+  cidr_blocks       = ["${lookup(var.dev01_peers[count.index],"jenkinsnode_subnet")}"]
+}
 
-# resource "aws_security_group_rule" "jenkins_elb_ingress_nonprod_jenkinsnode_49187" {
-#   count             = "${length(var.nonprod_peers)}"
-#   description       = "Allow TCP/49187 from nonprod JenkinsNodes"
-#   type              = "ingress"
-#   from_port         = 49187
-#   to_port           = 49187
-#   protocol          = "tcp"
-#   security_group_id = "${module.jenkins.elb_sg_id}"
-#   cidr_blocks       = ["${lookup(var.nonprod_peers[count.index],"jenkinsnode_subnet")}"]
-# }
+resource "aws_security_group_rule" "jenkins_elb_ingress_dev01_jenkinsnode_49187" {
+  count             = "${length(var.dev01_peers)}"
+  description       = "Allow TCP/49187 from dev01 JenkinsNodes"
+  type              = "ingress"
+  from_port         = 49187
+  to_port           = 49187
+  protocol          = "tcp"
+  security_group_id = "${module.jenkins.elb_sg_id}"
+  cidr_blocks       = ["${lookup(var.dev01_peers[count.index],"jenkinsnode_subnet")}"]
+}
 
-# # gitlab-nonprod_jenkinsnodes
-# resource "aws_security_group_rule" "gitlab_elb_private_ingress_nonprod_jenkinsnode_ssh" {
-#   count             = "${length(var.nonprod_peers)}"
-#   description       = "Allow TCP/22 from nonprod JenkinsNodes"
-#   type              = "ingress"
-#   from_port         = 22
-#   to_port           = 22
-#   protocol          = "tcp"
-#   security_group_id = "${module.gitlab.elb_private_sg_id}"
-#   cidr_blocks       = ["${lookup(var.nonprod_peers[count.index],"jenkinsnode_subnet")}"]
-# }
+# gitlab-dev01_jenkinsnodes
+resource "aws_security_group_rule" "gitlab_elb_private_ingress_dev01_jenkinsnode_ssh" {
+  count             = "${length(var.dev01_peers)}"
+  description       = "Allow TCP/22 from dev01 JenkinsNodes"
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  security_group_id = "${module.gitlab.elb_private_sg_id}"
+  cidr_blocks       = ["${lookup(var.dev01_peers[count.index],"jenkinsnode_subnet")}"]
+}
 
 # gitlab-internet_ntp
 resource "aws_security_group_rule" "gitlab_egress_internet_ntp" {

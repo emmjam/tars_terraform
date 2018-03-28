@@ -59,12 +59,12 @@ variable "mgmt_bastion_subnets" {
   default     = []
 }
 
-variable "jenkinsnode" {
+variable "ctrl_jenkinsnode" {
   type        = "map"
   description = ""
 }
 
-variable "jenkinsnode_subnets_cidrs" {
+variable "ctrl_jenkinsnode_subnets_cidrs" {
   type        = "list"
   description = ""
 }

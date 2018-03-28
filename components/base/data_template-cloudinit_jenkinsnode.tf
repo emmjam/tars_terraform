@@ -4,7 +4,7 @@ data "template_file" "jenkinsnode" {
 
   vars {
     nodetype    = "jenkinsnode"
-    domain_name = "${var.component}.${var.environment}.${var.private_domain_name}"
+    domain_name = "${var.environment}.${var.private_domain_name}"
   }
 }
 

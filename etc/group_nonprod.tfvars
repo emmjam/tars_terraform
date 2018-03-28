@@ -31,10 +31,10 @@ tars_rds_snapshot            = "tars-testdb-210218"
 ###############################################################################
 # CONTROL
 ###############################################################################
-ctrl_vpc_cidr = "10.167.0.0/26"
+ctrl_vpc_cidr = "10.167.60.0/22"
 
 ctrl_nat_subnets_cidrs = [
-  "10.167.0.0/28",
+  "10.167.60.0/28",
 ]
 
 mgmt = {
@@ -58,7 +58,7 @@ mgmt_bastion_subnets = [
 ]
 
 ## jenkinsnode
-jenkinsnode = {
+ctrl_jenkinsnode = {
   instance_type        = "m4.large"
   ami_build_id         = "1"
   executors            = 5
@@ -70,9 +70,16 @@ jenkinsnode = {
   scaleup_recurrence   = "15 07 * * 1-5"
 }
 
-jenkinsnode_subnets_cidrs = [
-  "10.167.0.16/28",
-  "10.167.0.32/28",
-  "10.167.0.64/28",
+ctrl_jenkinsnode_subnets_cidrs = [
+  "10.167.60.16/28",
+  "10.167.60.32/28",
+  "10.167.60.48/28",
 ]
 ops_team_email = "mark.thompson@bjss.com"
+
+public_domain_name = "dvsa.tars.dev-dvsacloud.uk"
+
+aws_account_alias = "tarsnonprod"
+
+# Deployer pub key
+deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVSO8uKpdbwww94azylwjnFxsFGcmXG4ObL1oOFibHMN0x+SsSwjfC1DEziWPK3m/Crmar0+ad/68nQC+iWo/MYclh8h3bkKlv9dO4Xtv/0H6uDRW3l3bBO0rWYbt46fMAOCqX96N3LRTfUlPuzsVAd0NGZZlSSAZF0AMl4xE/tZl2m+Dqylrjp3qLT4UxEIrAuvPW06PqkGy63hZznjCjQDaadOAUpY19ZaA71JBueyGBnZ8pSVzr5hT1TpNw/cXxA6WLj4CCipIVm0M64OT/ArqcnQMX9Htf4Gp5apXZ3f6MerfjgHnkrm1t6JNuhSjVB deployer@mgmt.tars.dvsa.aws"

@@ -1,5 +1,5 @@
 # Get the remote state for the tars component
-data "terraform_remote_state" "tars" {
+data "terraform_remote_state" "tars-core" {
   backend = "s3"
 
   config {
@@ -11,7 +11,7 @@ data "terraform_remote_state" "tars" {
       data.aws_caller_identity.current.account_id,
       var.aws_region,
       var.environment,
-      "tars"
+      "tars-core"
     )}"
 
     region = "${var.aws_region}"

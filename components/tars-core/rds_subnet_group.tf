@@ -4,7 +4,7 @@ resource "aws_db_subnet_group" "tarsdb" {
     "%s-%s-%s-%s",
     var.project,
     var.environment,
-    var.component,
+    "tars",
     "tarsdb"
   )}"
 
@@ -12,7 +12,7 @@ resource "aws_db_subnet_group" "tarsdb" {
     "%s-%s-%s-%s",
     var.project,
     var.environment,
-    var.component,
+    "tars",
     "tars"
   )}"
 
