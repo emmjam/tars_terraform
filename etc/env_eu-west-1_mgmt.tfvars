@@ -1,9 +1,11 @@
 ##########
 # GENERAL
 ##############################################################################
-project     = "tars"
+project = "tars"
+
 environment = "mgmt"
-aws_region  = "eu-west-1"
+
+aws_region = "eu-west-1"
 
 tf_state_bucket_prefix = "tars-terraformscaffold"
 
@@ -32,6 +34,7 @@ users = [
 administrators = [
   "mark.thompson@bjss.com",
   "karl.gharios@bjss.com",
+  "callum.massey@bjss.com",
 ]
 
 ########
@@ -48,7 +51,7 @@ nat_subnets_cidrs = [
 ## bastion
 bastion = {
   instance_type        = "t2.micro"
-  ami_build_id         = "1"
+  ami_build_id         = "38"
   asg_min_size         = 0
   asg_max_size         = 3
   scaledown_desired    = 0
@@ -70,11 +73,12 @@ bastion_subnets_cidrs = [
 ]
 
 bastion_whitelist = [
-  "77.86.30.4/32",      # BJSS VPN
+  "77.86.30.4/32", # BJSS VPN
+]
+
 #  "195.89.171.5/32",   # Kainos VPN 1
 #  "195.89.171.144/32", # Kainos VPN 2
 #  "91.222.71.98/32",   # Kainos GDN
-]
 
 ## alb public
 alb_public_subnets_cidrs = [
@@ -136,7 +140,7 @@ gitlab_redis = {
   node_type                = "cache.m3.medium"
   maintenance_window       = "sun:04:00-sun:07:00"
   snapshot_window          = "00:00-03:00"
-  snapshot_retention_limit = 0 # backups turned off
+  snapshot_retention_limit = 0                                                           # backups turned off
   endpoint_address         = "rsp-mgmt-mgmt-gitlab.ow39bf.0001.euw1.cache.amazonaws.com" # endpoint address is not revealable yet
 }
 
@@ -185,8 +189,9 @@ jenkins = {
 }
 
 jenkins_blue_subnets_cidrs = ["10.200.3.0/28"]
+
 #jenkins_blue_version       = "2.73.2-1.1"
-jenkins_blue_version       = "2.89.3-1.1"
+jenkins_blue_version = "2.89.3-1.1"
 
 jenkins_elb_subnets_cidrs = ["10.200.3.32/28"]
 
@@ -234,52 +239,52 @@ jenkins_whitelist = [
 
 ## ctrl
 ctrl_peers = [
-  { # tars ctrl/nonprod
-    account_id         = "652856684323"
+  {
+    account_id         = "652856684323"   # tars ctrl/nonprod
     vpc_id             = "vpc-9f2ba7f9"
     cidr_block         = "10.167.60.0/22"
     jenkinsnode_subnet = "10.167.60.0/26"
-  }
+  },
 ]
 
 ## dev01
 dev01_peers = [
-  { # tars tars/dev01
-    account_id          = "652856684323"
-    vpc_id              = "vpc-61ce4107"
-    cidr_block          = "10.167.4.0/22"
-    jenkinsnode_subnet  = "10.167.4.0/26"
-  }
+  {
+    account_id         = "652856684323"  # tars tars/dev01
+    vpc_id             = "vpc-61ce4107"
+    cidr_block         = "10.167.4.0/22"
+    jenkinsnode_subnet = "10.167.4.0/26"
+  },
 ]
 
 ## nonprod/opsdev
 opsdev_peers = [
-  { # tars tars/nonprod
-    account_id          = "652856684323"
-    vpc_id              = "vpc-e560ef83"
-    cidr_block          = "10.167.0.0/22"
-    jenkinsnode_subnet  = "10.167.0.0/26"
-  }
+  {
+    account_id         = "652856684323"  # tars tars/nonprod
+    vpc_id             = "vpc-e560ef83"
+    cidr_block         = "10.167.0.0/22"
+    jenkinsnode_subnet = "10.167.0.0/26"
+  },
 ]
 
 ## sit01
 sit01_peers = [
-  { # tars tars/dev01
-    account_id          = "652856684323"
-    vpc_id              = "vpc-57179931"
-    cidr_block          = "10.167.8.0/22"
-    jenkinsnode_subnet  = "10.167.8.0/26"
-  }
+  {
+    account_id         = "652856684323"  # tars tars/dev01
+    vpc_id             = "vpc-57179931"
+    cidr_block         = "10.167.8.0/22"
+    jenkinsnode_subnet = "10.167.8.0/26"
+  },
 ]
 
 ## uat01
 uat01_peers = [
-  { # tars tars/dev01
-    account_id          = "652856684323"
-    vpc_id              = "vpc-411b9527"
-    cidr_block          = "10.167.12.0/22"
-    jenkinsnode_subnet  = "10.167.12.0/26"
-  }
+  {
+    account_id         = "652856684323"   # tars tars/dev01
+    vpc_id             = "vpc-411b9527"
+    cidr_block         = "10.167.12.0/22"
+    jenkinsnode_subnet = "10.167.12.0/26"
+  },
 ]
 
 # EBS backup lambda

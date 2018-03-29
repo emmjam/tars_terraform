@@ -1,9 +1,11 @@
 ##########
 # GENERAL
 ##############################################################################
-project     = "tars"
+project = "tars"
+
 environment = "dev01"
-aws_region  = "eu-west-1"
+
+aws_region = "eu-west-1"
 
 tf_state_bucket_prefix = "tars-terraformscaffold"
 
@@ -11,28 +13,6 @@ default_tags = {
   Project     = "tars"
   Environment = "dev01"
 }
-
-private_domain_name = "private.tars.dvsa.aws"
-
-##########
-# ACCOUNT
-###############################################################################
-# aws_account_alias = "tarsnonprod"
-
-# public_domain_name = "dvsa.tars.dev-dvsacloud.uk"
-
-users = [
-  "rob.hart@dvsa.gov.uk",
-]
-
-administrators = [
-  "mark.thompson@bjss.com",
-  "karl.gharios@bjss.com",
-]
-
-power_users = [
-  "allan.todd@bjss.com",
-]
 
 ###############################################################################
 # MGMT
@@ -44,11 +24,11 @@ mgmt = {
   project                = "tars"
   environment            = "mgmt"
   component              = "mgmt"
-  vpc_id                 = "vpc-e303d285"  # TODO: use remote state
-  vpc_cidr_block         = "10.200.0.0/16"   # TODO: use remote state
-  tf_state_bucket_prefix = "tars-terraformscaffold"   # TODO: use remote state
-  jenkins_elb_subnet     = "10.200.3.32/28"  # TODO: use remote state
-  gitlab_subnet          = "10.200.2.128/28" # TODO: use remote state
+  vpc_id                 = "vpc-e303d285"           # TODO: use remote state
+  vpc_cidr_block         = "10.200.0.0/16"          # TODO: use remote state
+  tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote state
+  jenkins_elb_subnet     = "10.200.3.32/28"         # TODO: use remote state
+  gitlab_subnet          = "10.200.2.128/28"        # TODO: use remote state
 }
 
 # TODO: use remote state
@@ -86,7 +66,8 @@ jenkinsnode_subnets_cidrs = [
 
 # Environment & Component for Accessing mgmt_prd remote state
 mgmt_component = "mgmt"
-mgmt_env       = "mgmt"
+
+mgmt_env = "mgmt"
 
 backend_subnets_cidrs = [
   "10.167.5.0/27",
@@ -101,7 +82,7 @@ awsmq_subnets_cidrs = [
 ]
 
 jenkins_nat_subnets_cidrs = [
-  "10.167.4.176/28"
+  "10.167.4.176/28",
 ]
 
 ## alb public
@@ -153,17 +134,18 @@ messaging_whitelist = [
 ]
 
 mq_console_whitelist = [
-  "77.86.30.4/32",      # BJSS VPN
+  "77.86.30.4/32", # BJSS VPN
 ]
 
 ## wildfly-back
 wildfly-back = {
-  instance_type        = "t2.medium"
-  puppet_env           = "dev01"
-  puppet_node          = ""
-  puppet_type          = ""
-  puppet_kms_key       = "791140e3-1c70-4d21-943f-007c92c1e17d"
-#  ami_build_id         = "27"
+  instance_type  = "t2.medium"
+  puppet_env     = "dev01"
+  puppet_node    = ""
+  puppet_type    = ""
+  puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+
+  #  ami_build_id         = "27"
   asg_min_size         = 0
   asg_max_size         = 1
   scaledown_desired    = 0
@@ -174,12 +156,13 @@ wildfly-back = {
 
 ## wildfly-batch
 wildfly-batch = {
-  instance_type        = "t2.medium"
-  puppet_env           = "dev01"
-  puppet_node          = ""
-  puppet_type          = ""
-  puppet_kms_key       = "791140e3-1c70-4d21-943f-007c92c1e17d"
-#  ami_build_id         = "27"
+  instance_type  = "t2.medium"
+  puppet_env     = "dev01"
+  puppet_node    = ""
+  puppet_type    = ""
+  puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+
+  #  ami_build_id         = "27"
   asg_min_size         = 0
   asg_max_size         = 1
   scaledown_desired    = 0
@@ -190,12 +173,13 @@ wildfly-batch = {
 
 ## wildfly-front
 wildfly-front = {
-  instance_type        = "t2.medium"
-  puppet_env           = "dev01"
-  puppet_node          = ""
-  puppet_type          = ""
-  puppet_kms_key       = "791140e3-1c70-4d21-943f-007c92c1e17d"
-#  ami_build_id         = "27"
+  instance_type  = "t2.medium"
+  puppet_env     = "dev01"
+  puppet_node    = ""
+  puppet_type    = ""
+  puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+
+  #  ami_build_id         = "27"
   asg_min_size         = 0
   asg_max_size         = 1
   scaledown_desired    = 0
@@ -206,12 +190,13 @@ wildfly-front = {
 
 ## wildfly-messaging
 wildfly-messaging = {
-  instance_type        = "t2.medium"
-  puppet_env           = "dev01"
-  puppet_node          = ""
-  puppet_type          = ""
-  puppet_kms_key       = "791140e3-1c70-4d21-943f-007c92c1e17d"
-#  ami_build_id         = "27"
+  instance_type  = "t2.medium"
+  puppet_env     = "dev01"
+  puppet_node    = ""
+  puppet_type    = ""
+  puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+
+  #  ami_build_id         = "27"
   asg_min_size         = 0
   asg_max_size         = 1
   scaledown_desired    = 0
@@ -222,12 +207,12 @@ wildfly-messaging = {
 
 ## AWS MQ
 aws_mq = {
-  engine_type          = "ActiveMQ"
-  engine_version       = "5.15.0"
-  host_instance_type   = "mq.t2.micro"
-  username             = "admin"
-  password             = "admin123456789"
-  deployment_mode      = "SINGLE_INSTANCE"
+  engine_type        = "ActiveMQ"
+  engine_version     = "5.15.0"
+  host_instance_type = "mq.t2.micro"
+  username           = "admin"
+  password           = "admin123456789"
+  deployment_mode    = "SINGLE_INSTANCE"
 }
 
 aws_mq_config = {
@@ -240,28 +225,42 @@ aws_mq_config = {
 # Deployer pub key
 deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVSO8uKpdbwww94azylwjnFxsFGcmXG4ObL1oOFibHMN0x+SsSwjfC1DEziWPK3m/Crmar0+ad/68nQC+iWo/MYclh8h3bkKlv9dO4Xtv/0H6uDRW3l3bBO0rWYbt46fMAOCqX96N3LRTfUlPuzsVAd0NGZZlSSAZF0AMl4xE/tZl2m+Dqylrjp3qLT4UxEIrAuvPW06PqkGy63hZznjCjQDaadOAUpY19ZaA71JBueyGBnZ8pSVzr5hT1TpNw/cXxA6WLj4CCipIVm0M64OT/ArqcnQMX9Htf4Gp5apXZ3f6MerfjgHnkrm1t6JNuhSjVB deployer@mgmt.tars.dvsa.aws"
 
-
 ##
 # RDS
 ##
 
 # TARSDB
 tars_rds_username = "tarsdevadmin"
+
 tars_rds_password = "password"
 
 # TARSDB
-tars_rds_allocated_storage   = "20" # 20 Gigabyte - was 1500GB
-tars_rds_storage_type        = "gp2"
-tars_rds_engine              = "oracle-se2"
-tars_rds_engine_version      = "12.1.0.2.v11"
-tars_rds_instance_class      = "db.t2.micro" # was "db.m4.4xlarge"
-tars_rds_port                = "1521"
-tars_rds_public              = "false"
-tars_rds_multi_az            = "false" # it takes an age to build if true
-tars_rds_backup_retention    = "0"
-tars_rds_backup_window       = "02:38-03:08"
-tars_rds_maint_window        = "sun:03:16-sun:03:46"
+tars_rds_allocated_storage = "20" # 20 Gigabyte - was 1500GB
+
+tars_rds_storage_type = "gp2"
+
+tars_rds_engine = "oracle-se2"
+
+tars_rds_engine_version = "12.1.0.2.v11"
+
+tars_rds_instance_class = "db.t2.micro" # was "db.m4.4xlarge"
+
+tars_rds_port = "1521"
+
+tars_rds_public = "false"
+
+tars_rds_multi_az = "false" # it takes an age to build if true
+
+tars_rds_backup_retention = "0"
+
+tars_rds_backup_window = "02:38-03:08"
+
+tars_rds_maint_window = "sun:03:16-sun:03:46"
+
 tars_rds_skip_final_snapshot = true
-tars_rds_apply_immediately   = "true"
-tars_rds_license_model       = "license-included"
-tars_rds_snapshot            = "tars-testdb-210218"
+
+tars_rds_apply_immediately = "true"
+
+tars_rds_license_model = "license-included"
+
+tars_rds_snapshot = "tars-testdb-210218"
