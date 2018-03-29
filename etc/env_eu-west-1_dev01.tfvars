@@ -2,14 +2,14 @@
 # GENERAL
 ##############################################################################
 project     = "tars"
-environment = "opsdev"
+environment = "dev01"
 aws_region  = "eu-west-1"
 
 tf_state_bucket_prefix = "tars-terraformscaffold"
 
 default_tags = {
   Project     = "tars"
-  Environment = "opsdev"
+  Environment = "dev01"
 }
 
 private_domain_name = "private.tars.dvsa.aws"
@@ -59,16 +59,16 @@ mgmt_bastion_subnets = [
 ]
 
 ###############################################################################
-# opsdev
+# dev01
 ###############################################################################
 
 # The VPC CIDR Block for this environment
-vpc_cidr = "10.167.0.0/22"
+vpc_cidr = "10.167.4.0/22"
 
 ## jenkinsnode
 jenkinsnode = {
   instance_type        = "m4.large"
-  ami_build_id         = "1"
+  ami_build_id         = "32"
   executors            = 5
   asg_min_size         = 0
   asg_max_size         = 3
@@ -79,9 +79,9 @@ jenkinsnode = {
 }
 
 jenkinsnode_subnets_cidrs = [
-  "10.167.0.0/28",
-  "10.167.0.16/28",
-  "10.167.0.32/28",
+  "10.167.4.0/28",
+  "10.167.4.16/28",
+  "10.167.4.32/28",
 ]
 
 # Environment & Component for Accessing mgmt_prd remote state
@@ -89,33 +89,33 @@ mgmt_component = "mgmt"
 mgmt_env       = "mgmt"
 
 backend_subnets_cidrs = [
-  "10.167.1.0/27",
-  "10.167.1.32/27",
-  "10.167.1.64/27",
+  "10.167.5.0/27",
+  "10.167.5.32/27",
+  "10.167.5.64/27",
 ]
 
 # AWS MQ SINGLE_INSTANCE only requires 1 subnets
 # ACTIVE_STANDBY_MULTI_AZ requires 2
 awsmq_subnets_cidrs = [
-  "10.167.0.160/28",
+  "10.167.4.160/28",
 ]
 
 jenkins_nat_subnets_cidrs = [
-  "10.167.0.176/28"
+  "10.167.4.176/28"
 ]
 
 ## alb public
 alb_public_subnets_cidrs = [
-  "10.167.0.64/28",
-  "10.167.0.80/28",
-  "10.167.0.96/28",
+  "10.167.4.64/28",
+  "10.167.4.80/28",
+  "10.167.4.96/28",
 ]
 
 ## rds
 rds_subnets_cidrs = [
-  "10.167.0.112/28",
-  "10.167.0.128/28",
-  "10.167.0.144/28",
+  "10.167.4.112/28",
+  "10.167.4.128/28",
+  "10.167.4.144/28",
 ]
 
 tars_core_whitelist = [
@@ -156,11 +156,10 @@ mq_console_whitelist = [
   "77.86.30.4/32",      # BJSS VPN
 ]
 
-
 ## wildfly-back
 wildfly-back = {
   instance_type        = "t2.medium"
-  puppet_env           = "opsdev"
+  puppet_env           = "dev01"
   puppet_node          = ""
   puppet_type          = ""
   puppet_kms_key       = "791140e3-1c70-4d21-943f-007c92c1e17d"
@@ -169,14 +168,14 @@ wildfly-back = {
   asg_max_size         = 1
   scaledown_desired    = 0
   scaledown_recurrence = "00 19 * * 1-5"
-  scaleup_desired      = 1
+  scaleup_desired      = 2
   scaleup_recurrence   = "00 07 * * 1-5"
 }
 
 ## wildfly-batch
 wildfly-batch = {
   instance_type        = "t2.medium"
-  puppet_env           = "opsdev"
+  puppet_env           = "dev01"
   puppet_node          = ""
   puppet_type          = ""
   puppet_kms_key       = "791140e3-1c70-4d21-943f-007c92c1e17d"
@@ -192,7 +191,7 @@ wildfly-batch = {
 ## wildfly-front
 wildfly-front = {
   instance_type        = "t2.medium"
-  puppet_env           = "opsdev"
+  puppet_env           = "dev01"
   puppet_node          = ""
   puppet_type          = ""
   puppet_kms_key       = "791140e3-1c70-4d21-943f-007c92c1e17d"
@@ -208,7 +207,7 @@ wildfly-front = {
 ## wildfly-messaging
 wildfly-messaging = {
   instance_type        = "t2.medium"
-  puppet_env           = "opsdev"
+  puppet_env           = "dev01"
   puppet_node          = ""
   puppet_type          = ""
   puppet_kms_key       = "791140e3-1c70-4d21-943f-007c92c1e17d"

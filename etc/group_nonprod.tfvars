@@ -1,30 +1,58 @@
 
 account_environment    = "nonprod"
 
+###############################################################################
+# CONTROL
+###############################################################################
+ctrl_vpc_cidr = "10.167.60.0/22"
 
-##
-# RDS
-##
+ctrl_nat_subnets_cidrs = [
+  "10.167.60.0/28",
+]
 
-# TARSDB
-tars_rds_username = "tarsdevadmin"
-tars_rds_password = "password"
+mgmt = {
+  aws_account_id         = "645711882182"
+  aws_region             = "eu-west-1"
+  project                = "tars"
+  environment            = "mgmt"
+  component              = "mgmt"
+  vpc_id                 = "vpc-e303d285"  # TODO: use remote state
+  vpc_cidr_block         = "10.200.0.0/16"   # TODO: use remote state
+  tf_state_bucket_prefix = "tars-terraformscaffold"   # TODO: use remote state
+  jenkins_elb_subnet     = "10.200.3.32/28"  # TODO: use remote state
+  gitlab_subnet          = "10.200.2.128/28" # TODO: use remote state
+}
 
-# TARSDB
-tars_rds_allocated_storage   = "20" # 20 Gigabyte - was 1500GB
-tars_rds_storage_type        = "gp2"
-tars_rds_engine              = "oracle-se2"
-tars_rds_engine_version      = "12.1.0.2.v11"
-tars_rds_instance_class      = "db.t2.micro" # was "db.m4.4xlarge"
-tars_rds_port                = "1521"
-tars_rds_public              = "false"
-tars_rds_multi_az            = "false" # it takes an age to build if true
-tars_rds_backup_retention    = "0"
-tars_rds_backup_window       = "02:38-03:08"
-tars_rds_maint_window        = "sun:03:16-sun:03:46"
-tars_rds_skip_final_snapshot = true
-tars_rds_apply_immediately   = "true"
-tars_rds_license_model       = "license-included"
-tars_rds_snapshot            = "tars-testdb-210218"
+# TODO: use remote state
+mgmt_bastion_subnets = [
+  "10.200.1.96/28",
+  "10.200.1.112/28",
+  "10.200.1.128/28",
+]
 
+## jenkinsnode
+ctrl_jenkinsnode = {
+  instance_type        = "m4.large"
+  ami_build_id         = "1"
+  executors            = 5
+  asg_min_size         = 0
+  asg_max_size         = 3
+  scaledown_desired    = 0
+  scaledown_recurrence = "00 19 * * 1-5"
+  scaleup_desired      = 1
+  scaleup_recurrence   = "15 07 * * 1-5"
+}
+
+ctrl_jenkinsnode_subnets_cidrs = [
+  "10.167.60.16/28",
+  "10.167.60.32/28",
+  "10.167.60.48/28",
+]
 ops_team_email = "mark.thompson@bjss.com"
+
+public_domain_name = "dvsa.tars.dev-dvsacloud.uk"
+
+aws_account_alias = "tarsnonprod"
+
+# Deployer pub key
+deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVSO8uKpdbwww94azylwjnFxsFGcmXG4ObL1oOFibHMN0x+SsSwjfC1DEziWPK3m/Crmar0+ad/68nQC+iWo/MYclh8h3bkKlv9dO4Xtv/0H6uDRW3l3bBO0rWYbt46fMAOCqX96N3LRTfUlPuzsVAd0NGZZlSSAZF0AMl4xE/tZl2m+Dqylrjp3qLT4UxEIrAuvPW06PqkGy63hZznjCjQDaadOAUpY19ZaA71JBueyGBnZ8pSVzr5hT1TpNw/cXxA6WLj4CCipIVm0M64OT/ArqcnQMX9Htf4Gp5apXZ3f6MerfjgHnkrm1t6JNuhSjVB deployer@mgmt.tars.dvsa.aws"

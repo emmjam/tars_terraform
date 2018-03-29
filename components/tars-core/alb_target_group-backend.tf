@@ -5,7 +5,7 @@ resource "aws_alb_target_group" "tars-backend-8080" {
     var.project,
     var.environment,
     var.component,
-    "backend-8080"
+    "wfb-8080"
   )}"
   port     = "8080"
   protocol = "HTTP"

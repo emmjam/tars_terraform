@@ -9,10 +9,9 @@ resource "aws_vpc" "vpc" {
     var.default_tags,
     map(
       "Name", format(
-        "%s-%s-%s",
+        "%s-%s",
         var.project,
-        var.environment,
-        var.component
+        var.environment
       ),
     )
   )}"

@@ -16,7 +16,7 @@ variable "environment" {
 variable "component" {
   type        = "string"
   description = "TF Scaffold component"
-  default     = "tars"
+  default     = "tars-core"
 }
 
 variable "account_component_name" {
@@ -35,7 +35,7 @@ variable "default_tags" {
   description = "Defautl tags to use"
 
   default = {
-    Component = "tars"
+    Component = "tars-core"
   }
 }
 

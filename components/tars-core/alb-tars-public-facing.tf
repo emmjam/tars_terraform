@@ -5,7 +5,7 @@ resource "aws_alb" "tars-public-facing" {
     var.project,
     var.environment,
     var.component,
-    "tars-public"
+    "public"
   )}"
 
   internal = "false"
@@ -22,7 +22,7 @@ resource "aws_alb" "tars-public-facing" {
         var.project,
         var.environment,
         var.component,
-        "tars-public"
+        "public"
       ),
     )
   )}"
