@@ -53,7 +53,7 @@ mgmt_bastion_subnets = [
 ]
 
 ## jenkinsnode
-ctrl_jenkinsnode = {
+jenkinsctrl = {
   instance_type        = "m4.large"
   ami_build_id         = "1"
   executors            = 5
@@ -65,7 +65,7 @@ ctrl_jenkinsnode = {
   scaleup_recurrence   = "15 07 * * 1-5"
 }
 
-ctrl_jenkinsnode_subnets_cidrs = [
+jenkinsctrl_subnets_cidrs = [
   "10.167.60.16/28",
   "10.167.60.32/28",
   "10.167.60.48/28",
