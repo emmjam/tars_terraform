@@ -118,6 +118,8 @@ rds_subnets_cidrs = [
   "10.167.4.144/28",
 ]
 
+## tardis RDS subnets - 10.167.5.96/28, 10.167.5.112/28, 10.167.5.128/28
+
 tars_core_whitelist = [
   "135.196.73.204/32",  # DVSA Notts Corp
   "213.160.121.250/32", # DVSA Notts Wifi
@@ -265,3 +267,9 @@ tars_rds_skip_final_snapshot = true
 tars_rds_apply_immediately   = "true"
 tars_rds_license_model       = "license-included"
 tars_rds_snapshot            = "tars-testdb-210218"
+
+#############################################################################
+# Gridlastic Selenium
+#############################################################################
+
+gridlastic_peering_id = ["pcx-5b043e32"]
