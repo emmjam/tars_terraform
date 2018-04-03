@@ -1,5 +1,27 @@
+account_environment = "nonprod"
 
-account_environment    = "nonprod"
+private_domain_name = "tars.dvsa.aws"
+
+###############################################################################
+# ACCOUNT
+###############################################################################
+# aws_account_alias = "tarsnonprod"
+
+# public_domain_name = "dvsa.tars.dev-dvsacloud.uk"
+
+users = [
+  "rob.hart@dvsa.gov.uk",
+]
+
+administrators = [
+  "mark.thompson@bjss.com",
+  "karl.gharios@bjss.com",
+  "callum.massey@bjss.com",
+]
+
+power_users = [
+  "allan.todd@bjss.com",
+]
 
 ###############################################################################
 # CONTROL
@@ -16,11 +38,11 @@ mgmt = {
   project                = "tars"
   environment            = "mgmt"
   component              = "mgmt"
-  vpc_id                 = "vpc-e303d285"  # TODO: use remote state
-  vpc_cidr_block         = "10.200.0.0/16"   # TODO: use remote state
-  tf_state_bucket_prefix = "tars-terraformscaffold"   # TODO: use remote state
-  jenkins_elb_subnet     = "10.200.3.32/28"  # TODO: use remote state
-  gitlab_subnet          = "10.200.2.128/28" # TODO: use remote state
+  vpc_id                 = "vpc-e303d285"           # TODO: use remote state
+  vpc_cidr_block         = "10.200.0.0/16"          # TODO: use remote state
+  tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote state
+  jenkins_elb_subnet     = "10.200.3.32/28"         # TODO: use remote state
+  gitlab_subnet          = "10.200.2.128/28"        # TODO: use remote state
 }
 
 # TODO: use remote state
@@ -31,9 +53,9 @@ mgmt_bastion_subnets = [
 ]
 
 ## jenkinsnode
-ctrl_jenkinsnode = {
+jenkinsctrl = {
   instance_type        = "m4.large"
-  ami_build_id         = "1"
+  ami_build_id         = "39"
   executors            = 5
   asg_min_size         = 0
   asg_max_size         = 3
@@ -43,11 +65,12 @@ ctrl_jenkinsnode = {
   scaleup_recurrence   = "15 07 * * 1-5"
 }
 
-ctrl_jenkinsnode_subnets_cidrs = [
+jenkinsctrl_subnets_cidrs = [
   "10.167.60.16/28",
   "10.167.60.32/28",
   "10.167.60.48/28",
 ]
+
 ops_team_email = "mark.thompson@bjss.com"
 
 public_domain_name = "dvsa.tars.dev-dvsacloud.uk"
