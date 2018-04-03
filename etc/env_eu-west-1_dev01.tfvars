@@ -266,3 +266,9 @@ tars_rds_apply_immediately = "true"
 tars_rds_license_model = "license-included"
 
 tars_rds_snapshot = "tars-testdb-210218"
+
+#############################################################################
+# Gridlastic Selenium
+#############################################################################
+
+gridlastic_peering_id = ["pcx-5b043e32"]
