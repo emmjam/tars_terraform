@@ -7,10 +7,10 @@ resource "aws_autoscaling_schedule" "jenkinsnode_down" {
     "jenkinsnode-down"
   )}"
 
-  min_size               = "${lookup(var.ctrl_jenkinsnode,"asg_min_size")}"
-  max_size               = "${lookup(var.ctrl_jenkinsnode,"asg_max_size")}"
-  desired_capacity       = "${lookup(var.ctrl_jenkinsnode,"scaledown_desired")}"
-  recurrence             = "${lookup(var.ctrl_jenkinsnode,"scaledown_recurrence")}"
+  min_size               = "${lookup(var.jenkinsctrl,"asg_min_size")}"
+  max_size               = "${lookup(var.jenkinsctrl,"asg_max_size")}"
+  desired_capacity       = "${lookup(var.jenkinsctrl,"scaledown_desired")}"
+  recurrence             = "${lookup(var.jenkinsctrl,"scaledown_recurrence")}"
   autoscaling_group_name = "${module.jenkinsnode.autoscaling_group_id}"
 }
 
@@ -23,9 +23,9 @@ resource "aws_autoscaling_schedule" "jenkinsnode_up" {
     "jenkinsnode-up"
   )}"
 
-  min_size               = "${lookup(var.ctrl_jenkinsnode,"asg_min_size")}"
-  max_size               = "${lookup(var.ctrl_jenkinsnode,"asg_max_size")}"
-  desired_capacity       = "${lookup(var.ctrl_jenkinsnode,"scaleup_desired")}"
-  recurrence             = "${lookup(var.ctrl_jenkinsnode,"scaleup_recurrence")}"
+  min_size               = "${lookup(var.jenkinsctrl,"asg_min_size")}"
+  max_size               = "${lookup(var.jenkinsctrl,"asg_max_size")}"
+  desired_capacity       = "${lookup(var.jenkinsctrl,"scaleup_desired")}"
+  recurrence             = "${lookup(var.jenkinsctrl,"scaleup_recurrence")}"
   autoscaling_group_name = "${module.jenkinsnode.autoscaling_group_id}"
 }

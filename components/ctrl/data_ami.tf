@@ -1,10 +1,10 @@
-data "aws_ami" "jenkinsnode" {
+data "aws_ami" "jenkinsctrl" {
   name_regex = "${format(
     "%s-%s-%s/%s",
     var.project,
     "amzn",
     "jenkinsnode",
-    "${lookup(var.ctrl_jenkinsnode,"ami_build_id")}"
+    "${lookup(var.jenkinsctrl,"ami_build_id")}"
   )}"
 
   most_recent = "true"
