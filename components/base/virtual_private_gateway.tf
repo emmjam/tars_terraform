@@ -3,9 +3,19 @@ resource "aws_vpn_gateway" "vpn_gw" {
     count = "${var.transit_peering_enabled}"
     vpc_id = "${aws_vpc.vpc.id}"
 
-    tags {
+    tags = "${merge(
+        var.default_tags,
+        map(
+        "Name", format(
+            "%s-%s-%s/%s",
+            var.project,
+            var.environment,
+            var.component,
+            "transit_vpg"
+        ),
         "transitvpc:spoke" = "true"
-    }
+        )
+    )}"
 }
 
 # Enable route propagation
