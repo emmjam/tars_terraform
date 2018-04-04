@@ -108,12 +108,9 @@ tars_core_whitelist = [
   "85.115.52.201/32",   # Capita (Cloud Proxy)
   "82.203.33.128/28",   # Capita (Cloud NAT Pool1)
   "82.203.33.112/28",   # Capita (Cloud NAT Pool2)
-  "85.115.54.201/32",   # Capita (Bury St Edmunds)
-  "85.115.54.202/32",   # Capita (Bury St Edmunds)
-  "85.115.54.203/32",   # Capita (Bury St Edmunds)
-  "85.115.54.204/32",   # Capita (Bury St Edmunds)
-  "85.115.54.205/32",   # Capita (Bury St Edmunds)
-  "85.115.54.206/32",   # Capita (Bury St Edmunds)
+  "85.115.54.200/29",   # Capita (Bury St Edmunds)
+  "92.54.181.130/29",   # Informed Solutions
+  "87.81.132.117/32",   # Informed Solutions
 ]
 
 messaging_whitelist = [
@@ -125,12 +122,9 @@ messaging_whitelist = [
   "85.115.52.201/32",   # Capita (Cloud Proxy)
   "82.203.33.128/28",   # Capita (Cloud NAT Pool1)
   "82.203.33.112/28",   # Capita (Cloud NAT Pool2)
-  "85.115.54.201/32",   # Capita (Bury St Edmunds)
-  "85.115.54.202/32",   # Capita (Bury St Edmunds)
-  "85.115.54.203/32",   # Capita (Bury St Edmunds)
-  "85.115.54.204/32",   # Capita (Bury St Edmunds)
-  "85.115.54.205/32",   # Capita (Bury St Edmunds)
-  "85.115.54.206/32",   # Capita (Bury St Edmunds)
+  "85.115.54.200/29",   # Capita (Bury St Edmunds)
+  "92.54.181.130/29",   # Informed Solutions
+  "87.81.132.117/32",   # Informed Solutions
 ]
 
 mq_console_whitelist = [
