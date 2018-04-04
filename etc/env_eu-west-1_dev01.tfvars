@@ -267,16 +267,3 @@ tars_rds_snapshot = "tars-testdb-210218"
 
 gridlastic_peering_id = ["pcx-5b043e32"]
 
-To get connectivity to the transit network, you will need to create a Virtual Private Gateway, attach to your VPC (whatever VPC you need connecting) and tag it with the following Key/Value pair:
-
-Key - transitvpc:spoke
-
-Value - true
-
- 
-
-Then enable route propagation in the Route Table for that VPC.
-
- 
-
-VPN Connections will automatically be established and routes will be advertised automatically.
