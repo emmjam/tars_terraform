@@ -99,3 +99,13 @@ variable "mgmt_bastion_subnets" {
   description = "MGMT Bastion server subnets"
   default     = []
 }
+
+variable "gridlastic_cidr" {
+  type        = "string"
+  description = "The Gridlastic Selenium VPC CIDR"
+}
+
+variable "gridlastic_peering_id" {
+  type        = "list"
+  description = "The Gridlastic Selenium VPC peering id"
+}
