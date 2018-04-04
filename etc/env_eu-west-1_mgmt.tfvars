@@ -160,7 +160,7 @@ gitlab_whitelist = [
   "82.203.33.128/28",   # Capita (Cloud NAT Pool1)
   "82.203.33.112/28",   # Capita (Cloud NAT Pool2)
   "85.115.54.200/29",   # Capita (Bury St Edmunds)
-  "92.54.181.130/29",   # Informed Solutions
+  "92.54.181.128/29",   # Informed Solutions
   "87.81.132.117/32",   # Informed Solutions
 ]
 
@@ -215,7 +215,7 @@ jenkins_whitelist = [
   "82.203.33.128/28",   # Capita (Cloud NAT Pool1)
   "82.203.33.112/28",   # Capita (Cloud NAT Pool2)
   "85.115.54.200/29",   # Capita (Bury St Edmunds)
-  "92.54.181.130/29",   # Informed Solutions
+  "92.54.181.128/29",   # Informed Solutions
   "87.81.132.117/32",   # Informed Solutions
 ]
 
