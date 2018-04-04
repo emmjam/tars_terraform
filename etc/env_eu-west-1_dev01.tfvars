@@ -113,6 +113,7 @@ tars_core_whitelist = [
   "85.115.54.200/29",   # Capita (Bury St Edmunds)
   "92.54.181.128/29",   # Informed Solutions
   "87.81.132.117/32",   # Informed Solutions
+  "54.72.37.158/32",    # Selenium Elasticgrid Proxy
 ]
 
 messaging_whitelist = [
