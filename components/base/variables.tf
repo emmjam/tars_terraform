@@ -108,6 +108,7 @@ variable "gridlastic_cidr" {
 variable "gridlastic_peering_id" {
   type        = "list"
   description = "The Gridlastic Selenium VPC peering id"
+  default     = []
 }
 
 variable "transit_peering_enabled" {
