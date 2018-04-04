@@ -13,7 +13,7 @@ resource "aws_vpn_gateway" "vpn_gw" {
             var.component,
             "transit_vpg"
         ),
-        "transitvpc:spoke" = "true"
+        "transitvpc:spoke", "true"
         )
     )}"
 }
