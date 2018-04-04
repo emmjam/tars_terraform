@@ -258,3 +258,9 @@ tars_rds_apply_immediately = "true"
 tars_rds_license_model = "license-included"
 
 tars_rds_snapshot = "tarsuat01-13032018"
+
+#############################################################################
+# Transit VPC peering
+#############################################################################
+
+transit_peering_enabled = true
