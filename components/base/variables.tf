@@ -109,3 +109,9 @@ variable "gridlastic_peering_id" {
   type        = "list"
   description = "The Gridlastic Selenium VPC peering id"
 }
+
+variable "transit_peering_enabled" {
+  type        = "string"
+  description = "Enable Transit VPC peering to West Malling"
+  default     = false
+}

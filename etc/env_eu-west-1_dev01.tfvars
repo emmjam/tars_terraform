@@ -267,3 +267,8 @@ tars_rds_snapshot = "tars-testdb-210218"
 
 gridlastic_peering_id = ["pcx-5b043e32"]
 
+#############################################################################
+# Transit VPC peering
+#############################################################################
+
+transit_peering_enabled = true
