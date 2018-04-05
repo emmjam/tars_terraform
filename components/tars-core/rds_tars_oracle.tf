@@ -56,7 +56,8 @@ resource "aws_db_instance" "tarsdb" {
         var.component,
         "tarsdb"
       ),
-      "Component", var.component
+      "Component", var.component,
+      "AutoScale", var.tars_rds_autoscale
     )
   )}"
 }

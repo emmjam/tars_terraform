@@ -85,3 +85,5 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 #############################################################################
 
 gridlastic_cidr = "10.199.0.0/16"
+
+tars_rds_autoscale = "True"

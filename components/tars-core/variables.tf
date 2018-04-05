@@ -156,6 +156,11 @@ variable "tars_rds_snapshot" {
   description = "TARS RDS Snapshot to use to restore data"
 }
 
+variable "tars_rds_autoscale" {
+  type        = "string"
+  description = "Auto shutdown/restart RDS Instances tag"
+}
+
 variable "rds_subnets_cidrs" {
   type        = "list"
   description = "TARS RDS Subnet CIDR's"
