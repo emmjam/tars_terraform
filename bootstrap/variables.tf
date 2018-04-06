@@ -35,7 +35,7 @@ variable "ro_principals" {
   description = "A list of Principals permitted to ListBucket and GetObject for Remote State purposes"
 
   default = [
-    "arn:aws:iam::972284022441:root", # dvsarspmgmt
-    "arn:aws:iam::174362052724:root", # dvsarspnonprod
+    "arn:aws:iam::645711882182:root", # dvsatarsmgmt
+    "arn:aws:iam::652856684323:root", # dvsatarsnonprod
   ]
 }

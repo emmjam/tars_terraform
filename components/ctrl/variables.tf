@@ -53,6 +53,10 @@ variable "mgmt" {
   description = ""
 }
 
+variable "mgmt_account_id" {
+  type = "string"
+}
+
 variable "mgmt_bastion_subnets" {
   type        = "list"
   description = ""

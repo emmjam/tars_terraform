@@ -90,7 +90,7 @@ alb_public_subnets_cidrs = [
 ## gitlab
 gitlab = {
   instance_type        = "m4.large"
-  ami_build_id         = "1"
+  ami_build_id         = "2"
   asg_min_size         = 0
   asg_max_size         = 1
   ebs_volume_type      = "gp2"
@@ -226,6 +226,12 @@ ctrl_peers = [
     vpc_id             = "vpc-9f2ba7f9"
     cidr_block         = "10.167.60.0/22"
     jenkinsnode_subnet = "10.167.60.0/26"
+  },
+  {
+    account_id         = "645711882182" # tars ctrl/mgmt
+    vpc_id             = "vpc-ff970799"
+    cidr_block         = "10.167.64.0/22"
+    jenkinsnode_subnet = "10.167.64.0/26"
   },
 ]
 

@@ -31,7 +31,7 @@ ctrl_vpc_cidr = "10.167.60.0/22"
 ctrl_nat_subnets_cidrs = [
   "10.167.60.0/28",
 ]
-
+mgmt_account_id = "645711882182"
 mgmt = {
   aws_account_id         = "645711882182"
   aws_region             = "eu-west-1"

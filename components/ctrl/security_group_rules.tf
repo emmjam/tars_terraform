@@ -18,7 +18,7 @@ resource "aws_security_group_rule" "jenkinsnode_egress_jenkins_elb_http" {
   to_port           = 80
   protocol          = "tcp"
   security_group_id = "${module.jenkinsnode.security_group_id}"
-  cidr_blocks       = ["${lookup(var.mgmt,"jenkins_elb_subnet")}"]
+  source_security_group_id = "${data.terraform_remote_state.mgmt.jenkins_elb_sg_id}"
 }
 
 resource "aws_security_group_rule" "jenkinsnode_egress_jenkins_elb_49187" {
@@ -28,7 +28,7 @@ resource "aws_security_group_rule" "jenkinsnode_egress_jenkins_elb_49187" {
   to_port           = 49187
   protocol          = "tcp"
   security_group_id = "${module.jenkinsnode.security_group_id}"
-  cidr_blocks       = ["${lookup(var.mgmt,"jenkins_elb_subnet")}"]
+  source_security_group_id = "${data.terraform_remote_state.mgmt.jenkins_elb_sg_id}"
 }
 
 # jenkinsnode-gitlab
@@ -39,7 +39,7 @@ resource "aws_security_group_rule" "jenkinsnode_egress_gitlab_ssh" {
   to_port           = 22
   protocol          = "tcp"
   security_group_id = "${module.jenkinsnode.security_group_id}"
-  cidr_blocks       = ["${lookup(var.mgmt,"gitlab_subnet")}"]
+  source_security_group_id = "${data.terraform_remote_state.mgmt.gitlab_elb_sg_id}"
 }
 
 # jenkinsnode-internet
