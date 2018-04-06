@@ -13,7 +13,7 @@ data "template_file" "jenkinsnode_config" {
   template = "${file("${path.module}/templates/jenkinsnode_setup.sh.tmpl")}"
 
   vars {
-    master_url    = "jenkins.mgmt.tars.dvsa.aws"                        # TODO: use remote state
+    master_url    = "jenkins.mgmt.mgmt.tars.dvsa.aws"                        # TODO: use remote state
     # account_alias = "${data.terraform_remote_state.acc.account_alias}"
     account_alias = "${var.environment}"
     executors     = "${lookup(var.jenkinsnode,"executors")}"

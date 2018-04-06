@@ -7,7 +7,7 @@ module "gitlab" {
   vpc_id             = "${aws_vpc.mgmt.id}"
   availability_zones = "${data.aws_availability_zones.available.names}"
   hosted_zone_id     = "${aws_route53_zone.mgmt.zone_id}"
-  domain_name        = "${var.environment}.${var.private_domain_name}"
+  domain_name        = "${var.component}.${var.environment}.${var.private_domain_name}"
 
   lc_instance_type = "${lookup(var.gitlab,"instance_type")}"
   lc_ami_id        = "${data.aws_ami.gitlab.image_id}"
