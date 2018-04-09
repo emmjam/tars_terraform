@@ -94,12 +94,6 @@ variable "jenkinsnode" {
   description = "Jenkinsnode configuration"
 }
 
-variable "mgmt_bastion_subnets" {
-  type        = "list"
-  description = "MGMT Bastion server subnets"
-  default     = []
-}
-
 variable "gridlastic_cidr" {
   type        = "string"
   description = "The Gridlastic Selenium VPC CIDR"

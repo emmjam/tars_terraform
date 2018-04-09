@@ -36,25 +36,6 @@ resource "aws_security_group" "mgmt" {
   )}"
 }
 
-resource "aws_security_group" "bastion_elb" {
-  name        = "${var.project}-${var.environment}-${var.component}-bastion-elb"
-  description = "SG for Bastion ELB"
-  vpc_id      = "${aws_vpc.mgmt.id}"
-
-  tags = "${merge(
-    var.default_tags,
-    map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "bastion-elb"
-      ),
-    )
-  )}"
-}
-
 resource "aws_security_group" "alb_public" {
   name        = "${var.project}-${var.environment}-${var.component}-alb-public"
   description = "Common SG for public ALB"

@@ -60,27 +60,6 @@ variable "nat_subnets_cidrs" {
   description = ""
 }
 
-variable "bastion" {
-  type        = "map"
-  description = ""
-}
-
-variable "bastion_subnets_cidrs" {
-  type        = "list"
-  description = ""
-}
-
-variable "bastion_elb_subnets_cidrs" {
-  type        = "list"
-  description = ""
-}
-
-variable "bastion_whitelist" {
-  type        = "list"
-  description = ""
-  default     = []
-}
-
 variable "jenkins_whitelist" {
   type        = "list"
   description = ""

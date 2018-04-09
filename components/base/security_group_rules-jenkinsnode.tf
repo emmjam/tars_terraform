@@ -1,13 +1,13 @@
 # jenkinsnode-bastion
 resource "aws_security_group_rule" "jenkinsnode_ingress_bastion_ssh" {
-  count             = "${length(var.mgmt_bastion_subnets)}"
+  count             = "${length(var.ctrl_bastion_subnets)}"
   description       = "Allow TCP/22 from Bastion"
   type              = "ingress"
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
   security_group_id = "${module.jenkinsnode.security_group_id}"
-  cidr_blocks       = ["${element(var.mgmt_bastion_subnets,count.index)}"]
+  cidr_blocks       = ["${element(var.ctrl_bastion_subnets,count.index)}"]
 }
 
 # jenkinsnode-jenkins_elb

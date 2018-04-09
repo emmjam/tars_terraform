@@ -115,12 +115,6 @@ variable "lc_key_name" {
   default     = ""
 }
 
-variable "mgmt_bastion_subnets" {
-  type        = "list"
-  description = "MGMT Management subnet CIDR's"
-  default     = []
-}
-
 variable "ami_build_id" {
   type        = "string"
   description = "TARS Messaging AMI build ID"
