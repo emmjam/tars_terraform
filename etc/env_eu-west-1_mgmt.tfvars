@@ -37,16 +37,46 @@ administrators = [
   "callum.massey@bjss.com",
 ]
 
+###########################################
+# Peering
+###########################################
+
+ctrl_peers_xacct = [
+  { # tarsnonprod/ctrl
+    vpc_id     = "vpc-9f2ba7f9"
+    cidr_block = "10.167.60.0/22"
+    account_id = "652856684323"
+  }
+]
+
+# Peers created by the ctrl component, in the same AWS account
+ctrl_peers_local = [
+  { # tarsmgmt/ctrl
+    vpc_id     = "vpc-ff970799"
+    cidr_block = "10.167.64.0/22"
+    account_id = "645711882182"
+  }
+]
+
+base_peers_local = []
+
+# Peers created by the base component, in a different AWS account
+base_peers_xacct = [
+  { # tarsnonprod/opsdev
+    vpc_id     = "vpc-e560ef83"
+    cidr_block = "10.167.0.0/22"
+    account_id = "652856684323"
+  }
+]
+
+
 ########
 # MGMT
 ###############################################################################
 vpc_cidr = "10.200.0.0/16"
 
-nat_subnets_cidrs = [
-  "10.200.1.0/28",
-  "10.200.1.16/28",
-  "10.200.1.32/28",
-]
+nat_subnets_cidr = "10.200.1.0/28"
+
 
 ## bastion
 bastion = {
@@ -59,18 +89,6 @@ bastion = {
   scaleup_desired      = 1
   scaleup_recurrence   = "00 07 * * 1-5"
 }
-
-bastion_elb_subnets_cidrs = [
-  "10.200.1.48/28",
-  "10.200.1.64/28",
-  "10.200.1.80/28",
-]
-
-ctrl_bastion_subnets = [
-  "10.200.1.96/28",
-  "10.200.1.112/28",
-  "10.200.1.128/28",
-]
 
 bastion_whitelist = [
   "135.196.73.204/32",  # DVSA Notts

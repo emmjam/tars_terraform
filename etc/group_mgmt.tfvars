@@ -2,6 +2,8 @@
 
 account_environment = "mgmt"
 
+aws_account_id = "645711882182"
+
 default_tags = {
   "Project" = "tars"
   "Group"   = "mgmt"
@@ -12,6 +14,19 @@ ctrl_vpc_cidr = "10.167.64.0/22"
 ctrl_nat_subnets_cidrs = [
   "10.167.64.0/28",
 ]
+
+bastion_elb_subnets_cidrs = [
+  "10.167.64.64/28",
+  "10.167.64.80/28",
+  "10.167.64.96/28",
+]
+
+ctrl_bastion_subnets = [
+  "10.167.64.112/28",
+  "10.167.64.128/28",
+  "10.167.64.144/28",
+]
+
 mgmt_account_id = "645711882182"
 mgmt = {
   aws_account_id         = "645711882182"

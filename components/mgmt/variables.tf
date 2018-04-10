@@ -28,6 +28,20 @@ variable "default_tags" {
   }
 }
 
+variable "mgmt" {
+  type       = "map"
+}
+
+variable "account_environment" {
+  type = "string"
+  description = "Test shortname of current AWS account"
+}
+
+variable "aws_account_id" {
+  type = "string"
+  description = "AWS Account ID of current account"
+}
+
 variable "tf_state_bucket_prefix" {
   type        = "string"
   description = ""
@@ -55,8 +69,8 @@ variable "private_domain_name" {
   description = ""
 }
 
-variable "nat_subnets_cidrs" {
-  type        = "list"
+variable "nat_subnets_cidr" {
+  type        = "string"
   description = ""
 }
 
@@ -209,3 +223,23 @@ variable "uat01_peers" {
   description = ""
   default     = []
 }
+
+variable "ctrl_peers_xacct" {
+  type = "list"
+  description = ""
+}
+variable "ctrl_peers_local" {
+  type = "list"
+  description = ""
+}
+variable "base_peers_xacct" {
+  type = "list"
+  description = ""
+}
+
+variable "base_peers_local" {
+  type = "list"
+  description = ""
+}
+
+
