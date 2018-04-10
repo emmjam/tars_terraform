@@ -1,7 +1,6 @@
 resource "aws_nat_gateway" "mgmt" {
-  count         = "${length(var.nat_subnets_cidrs)}"
-  allocation_id = "${element(aws_eip.nat.*.id,count.index)}"
-  subnet_id     = "${element(module.nat_subnets.subnet_ids,count.index)}"
+  allocation_id = "${aws_eip.nat.id}"
+  subnet_id     = "${element(module.nat_subnets.subnet_ids,0)}"
 
   tags = "${merge(
     var.default_tags,
