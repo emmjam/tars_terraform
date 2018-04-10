@@ -30,7 +30,7 @@ resource "aws_vpc_peering_connection" "ctrl" {
 # Routes to the CTRL VPC
 resource "aws_route" "private_ctrl" {
   route_table_id            = "${aws_route_table.backend.id}"
-  destination_cidr_block    = "${lookup(var.mgmt,"vpc_cidr_block")}"
+  destination_cidr_block    = "${data.terraform_remote_state.ctrl.vpc_cidr_block}"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ctrl.id}"
 }
 
