@@ -28,6 +28,16 @@ variable "default_tags" {
   }
 }
 
+variable "account_environment" {
+  type = "string"
+  description = "Test shortname of current AWS account"
+}
+
+variable "aws_account_id" {
+  type = "string"
+  description = "AWS Account ID of current account"
+}
+
 variable "tf_state_bucket_prefix" {
   type        = "string"
   description = ""

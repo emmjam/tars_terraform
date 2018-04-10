@@ -60,18 +60,6 @@ bastion = {
   scaleup_recurrence   = "00 07 * * 1-5"
 }
 
-bastion_elb_subnets_cidrs = [
-  "10.200.1.48/28",
-  "10.200.1.64/28",
-  "10.200.1.80/28",
-]
-
-ctrl_bastion_subnets = [
-  "10.200.1.96/28",
-  "10.200.1.112/28",
-  "10.200.1.128/28",
-]
-
 bastion_whitelist = [
   "135.196.73.204/32",  # DVSA Notts
   "213.160.121.250/32", # DVSA Notts Corp & Wifi
