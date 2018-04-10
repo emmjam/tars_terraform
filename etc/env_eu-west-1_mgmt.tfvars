@@ -66,7 +66,7 @@ bastion_elb_subnets_cidrs = [
   "10.200.1.80/28",
 ]
 
-bastion_subnets_cidrs = [
+ctrl_bastion_subnets = [
   "10.200.1.96/28",
   "10.200.1.112/28",
   "10.200.1.128/28",

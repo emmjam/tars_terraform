@@ -110,3 +110,13 @@ variable "transit_peering_enabled" {
   description = "Enable Transit VPC peering to West Malling"
   default     = false
 }
+
+variable "ctrl_mgmt" {
+  type        = "map"
+  description = "CTRL MGMT Account Subnets"
+}
+
+variable "ctrl_nonprod" {
+  type        = "map"
+  description = "CTRL Nonprod Account Subnets"
+}

@@ -87,3 +87,28 @@ variable "bastion_whitelist" {
   description = ""
   default     = []
 }
+
+variable "dev01_peers" {
+  type        = "list"
+  description = ""
+  default     = []
+}
+
+variable "opsdev_peers" {
+  type        = "list"
+  description = ""
+  default     = []
+}
+
+variable "sit01_peers" {
+  type        = "list"
+  description = ""
+  default     = []
+}
+
+variable "uat01_peers" {
+  type        = "list"
+  description = ""
+  default     = []
+}
+

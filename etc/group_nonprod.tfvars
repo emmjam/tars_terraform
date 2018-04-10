@@ -24,9 +24,20 @@ power_users = [
 ]
 
 ###############################################################################
-# CONTROL
+# CONTROL NONPROD
 ###############################################################################
 ctrl_vpc_cidr = "10.167.60.0/22"
+
+ctrl_nonprod = {
+  aws_account_id         = "652856684323"
+  aws_region             = "eu-west-1"
+  project                = "tars"
+  environment            = "nonprod"
+  component              = "ctrl"
+  vpc_id                 = "vpc-9f2ba7f9"           # TODO: use remote state
+  vpc_cidr_block         = "10.167.60.0/22"          # TODO: use remote state
+  tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote state
+}
 
 ctrl_nat_subnets_cidrs = [
   "10.167.60.0/28",
@@ -44,6 +55,22 @@ mgmt = {
   jenkins_elb_subnet     = "10.200.3.32/28"         # TODO: use remote state
   gitlab_subnet          = "10.200.2.128/28"        # TODO: use remote state
 }
+
+###############################################################################
+# CONTROL MGMT
+###############################################################################
+
+ctrl_mgmt = {
+  aws_account_id         = "645711882182"
+  aws_region             = "eu-west-1"
+  project                = "tars"
+  environment            = "mgmt"
+  component              = "ctrl"
+  vpc_id                 = "vpc-ff970799"           # TODO: use remote state
+  vpc_cidr_block         = "10.167.64.0/22"          # TODO: use remote state
+  tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote state
+}
+
 
 # TODO: use remote state
 # mgmt_bastion_subnets = [
