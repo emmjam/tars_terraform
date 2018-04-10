@@ -9,3 +9,7 @@ output "bastion_elb_sg_id" {
 output "vpc_id" {
   value = "${aws_vpc.ctrl.id}"
 }
+
+output "vpc_cidr_block" {
+  value = "${aws_vpc.ctrl.cidr_block}"
+}
