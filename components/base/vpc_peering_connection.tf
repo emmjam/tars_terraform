@@ -1,15 +1,17 @@
-# Peer with the MGMT account in mgmt
-resource "aws_vpc_peering_connection" "mgmt" {
+# Peer with the CTRL vpc
+resource "aws_vpc_peering_connection" "ctrl" {
   vpc_id        = "${aws_vpc.vpc.id}"
-  peer_owner_id = "${lookup(var.mgmt,"aws_account_id")}"
-  peer_vpc_id   = "${lookup(var.mgmt,"vpc_id")}"
+  peer_owner_id = "${var.aws_account_id}"                      # Always the same account.
+  peer_vpc_id   = "${data.terraform_remote_state.ctrl.vpc_id}"
 
-  auto_accept = false
+  auto_accept = "true" # Always true. Ctrl is always in the same account.
 
   requester {
-    "allow_remote_vpc_dns_resolution" = true
+    "allow_remote_vpc_dns_resolution" = "true"
   }
 
+  # Requester is grammatically incorrect, but is the
+  # form terraform uses and so we standardise on it
   tags = "${merge(
     var.default_tags,
     map(
@@ -18,102 +20,16 @@ resource "aws_vpc_peering_connection" "mgmt" {
         var.project,
         var.environment,
         var.component,
-        "mgmt"
+        "ctrl"
       ),
-      "Side", "Requester"
+      "Component", var.component
     )
   )}"
 }
 
-# Routes to the MGMT Account
-resource "aws_route" "private_mgmt" {
+# Routes to the CTRL VPC
+resource "aws_route" backend_ctrl" {
   route_table_id            = "${aws_route_table.backend.id}"
-  destination_cidr_block    = "${lookup(var.mgmt,"vpc_cidr_block")}"
-  vpc_peering_connection_id = "${aws_vpc_peering_connection.mgmt.id}"
-}
-
-resource "aws_route" "jenkins_mgmt" {
-  route_table_id            = "${aws_route_table.jenkins_nat.id}"
-  destination_cidr_block    = "${lookup(var.mgmt,"vpc_cidr_block")}"
-  vpc_peering_connection_id = "${aws_vpc_peering_connection.mgmt.id}"
-}
-
-# Peer with the CTRL account in mgmt
-resource "aws_vpc_peering_connection" "ctrl_mgmt" {
-  vpc_id        = "${aws_vpc.vpc.id}"
-  peer_owner_id = "${lookup(var.ctrl_mgmt,"aws_account_id")}"
-  peer_vpc_id   = "${lookup(var.ctrl_mgmt,"vpc_id")}"
-
-  auto_accept = false
-
-  requester {
-    "allow_remote_vpc_dns_resolution" = true
-  }
-
-  tags = "${merge(
-    var.default_tags,
-    map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "ctrl-mgmt"
-      ),
-      "Side", "Requester"
-    )
-  )}"
-}
-
-# Routes to the CTRL MGMT Account
-resource "aws_route" "private_ctrl_mgmt" {
-  route_table_id            = "${aws_route_table.backend.id}"
-  destination_cidr_block    = "${lookup(var.ctrl_mgmt,"vpc_cidr_block")}"
-  vpc_peering_connection_id = "${aws_vpc_peering_connection.mgmt.id}"
-}
-
-resource "aws_route" "jenkins_ctrl_mgmt" {
-  route_table_id            = "${aws_route_table.jenkins_nat.id}"
-  destination_cidr_block    = "${lookup(var.ctrl_mgmt,"vpc_cidr_block")}"
-  vpc_peering_connection_id = "${aws_vpc_peering_connection.mgmt.id}"
-}
-
-# Peer with the CTRL account in nonprod
-resource "aws_vpc_peering_connection" "ctrl_nonprod" {
-  vpc_id        = "${aws_vpc.vpc.id}"
-  peer_owner_id = "${lookup(var.ctrl_nonprod,"aws_account_id")}"
-  peer_vpc_id   = "${lookup(var.ctrl_nonprod,"vpc_id")}"
-
-  auto_accept = false
-
-  requester {
-    "allow_remote_vpc_dns_resolution" = true
-  }
-
-  tags = "${merge(
-    var.default_tags,
-    map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "ctrl-nonprod"
-      ),
-      "Side", "Requester"
-    )
-  )}"
-}
-
-# Routes to the Nonprod MGMT Account
-resource "aws_route" "private_ctrl_nonprod" {
-  route_table_id            = "${aws_route_table.backend.id}"
-  destination_cidr_block    = "${lookup(var.ctrl_nonprod,"vpc_cidr_block")}"
-  vpc_peering_connection_id = "${aws_vpc_peering_connection.mgmt.id}"
-}
-
-resource "aws_route" "jenkins_ctrl_nonprod" {
-  route_table_id            = "${aws_route_table.jenkins_nat.id}"
-  destination_cidr_block    = "${lookup(var.ctrl_nonprod,"vpc_cidr_block")}"
-  vpc_peering_connection_id = "${aws_vpc_peering_connection.mgmt.id}"
+  destination_cidr_block    = "${lookup(var.ctrl,"vpc_cidr_block")}"
+  vpc_peering_connection_id = "${aws_vpc_peering_connection.ctrl.id}"
 }

@@ -17,6 +17,7 @@ administrators = [
   "mark.thompson@bjss.com",
   "karl.gharios@bjss.com",
   "callum.massey@bjss.com",
+  "steve.wilson@bjss.com",
 ]
 
 power_users = [
@@ -136,6 +137,35 @@ bastion_whitelist = [
   "92.54.181.128/29",   # Informed Solutions
   "87.81.132.117/32",   # Informed Solutions
 ]
+
+# ## ctrl peers
+# ctrl_peers = [
+#   {
+#     account_id         = "652856684323"  # tars tars/dev01
+#     vpc_id             = "vpc-61ce4107"
+#     cidr_block         = "10.167.4.0/22"
+#     jenkinsnode_subnet = "10.167.4.0/26"
+#   },
+#   {
+#     account_id         = "652856684323"  # tars tars/nonprod
+#     vpc_id             = "vpc-e560ef83"
+#     cidr_block         = "10.167.0.0/22"
+#     jenkinsnode_subnet = "10.167.0.0/26"
+#   },
+#   {
+#     account_id         = "652856684323"  # tars tars/sit01
+#     vpc_id             = "vpc-57179931"
+#     cidr_block         = "10.167.8.0/22"
+#     jenkinsnode_subnet = "10.167.8.0/26"
+#   },
+#   {
+#     account_id         = "652856684323"   # tars tars/uat01
+#     vpc_id             = "vpc-411b9527"
+#     cidr_block         = "10.167.12.0/22"
+#     jenkinsnode_subnet = "10.167.12.0/26"
+#   },
+# ]
+
 
 ops_team_email = "mark.thompson@bjss.com"
 
