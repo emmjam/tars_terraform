@@ -94,12 +94,6 @@ variable "jenkinsnode" {
   description = "Jenkinsnode configuration"
 }
 
-variable "mgmt_bastion_subnets" {
-  type        = "list"
-  description = "MGMT Bastion server subnets"
-  default     = []
-}
-
 variable "gridlastic_cidr" {
   type        = "string"
   description = "The Gridlastic Selenium VPC CIDR"
@@ -115,4 +109,19 @@ variable "transit_peering_enabled" {
   type        = "string"
   description = "Enable Transit VPC peering to West Malling"
   default     = false
+}
+
+variable "ctrl_mgmt" {
+  type        = "map"
+  description = "CTRL MGMT Account Subnets"
+}
+
+variable "ctrl_nonprod" {
+  type        = "map"
+  description = "CTRL Nonprod Account Subnets"
+}
+
+variable "aws_account_id" {
+  type        = "string"
+  description = "Account ID"
 }

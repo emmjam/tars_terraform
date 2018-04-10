@@ -19,15 +19,14 @@ resource "aws_security_group_rule" "tars_batch_egress_oracle_db" {
   source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-db-sg-id}"
 }
 
-resource "aws_security_group_rule" "tars_backend_ingress_bastion" {
-  count                    = "${length(var.mgmt_bastion_subnets)}"
+resource "aws_security_group_rule" "tars_batch_ingress_bastion" {
   description              = "Allow TCP/22 from bastion"
   type                     = "ingress"
   from_port                = 22
   to_port                  = 22
   protocol                 = "tcp"
   security_group_id        = "${aws_security_group.tars-batch.id}"
-  cidr_blocks              = ["${element(var.mgmt_bastion_subnets,count.index)}"]
+  source_security_group_id = "${data.terraform_remote_state.ctrl.bastion_sg_id}"
 }
 
 resource "aws_security_group_rule" "tars_batch_egress_kms_endpoint" {

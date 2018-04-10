@@ -93,12 +93,6 @@ variable "lc_key_name" {
   default     = ""
 }
 
-variable "mgmt_bastion_subnets" {
-  type        = "list"
-  description = "MGMT Bastion Subnets"
-  default     = []
-}
-
 variable "ami_build_id" {
   type        = "string"
   description = "TARS Batch AMI build ID"

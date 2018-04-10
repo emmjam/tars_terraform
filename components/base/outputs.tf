@@ -35,8 +35,8 @@ output "jenkins_net_route_table_id" {
   value = "${aws_route_table.jenkins_nat.*.id}"
 }
  
-output "mgmt_peering_id" {
-  value = "${aws_vpc_peering_connection.mgmt.id}"
+output "ctrl_peering_id" {
+  value = "${aws_vpc_peering_connection.ctrl.id}"
 }
 
 output "kms_sg_id" {

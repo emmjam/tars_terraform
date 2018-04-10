@@ -57,12 +57,6 @@ variable "mgmt_account_id" {
   type = "string"
 }
 
-variable "mgmt_bastion_subnets" {
-  type        = "list"
-  description = ""
-  default     = []
-}
-
 variable "jenkinsctrl" {
   type        = "map"
   description = ""
@@ -72,3 +66,49 @@ variable "jenkinsctrl_subnets_cidrs" {
   type        = "list"
   description = ""
 }
+
+variable "bastion" {
+  type        = "map"
+  description = ""
+}
+
+variable "ctrl_bastion_subnets" {
+  type        = "list"
+  description = ""
+}
+
+variable "bastion_elb_subnets_cidrs" {
+  type        = "list"
+  description = ""
+}
+
+variable "bastion_whitelist" {
+  type        = "list"
+  description = ""
+  default     = []
+}
+
+variable "dev01_peers" {
+  type        = "list"
+  description = ""
+  default     = []
+}
+
+variable "opsdev_peers" {
+  type        = "list"
+  description = ""
+  default     = []
+}
+
+variable "sit01_peers" {
+  type        = "list"
+  description = ""
+  default     = []
+}
+
+variable "uat01_peers" {
+  type        = "list"
+  description = ""
+  default     = []
+}
+

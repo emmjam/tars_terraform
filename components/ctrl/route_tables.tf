@@ -32,3 +32,20 @@ resource "aws_route_table" "private_nat" {
     )
   )}"
 }
+
+resource "aws_route_table" "private" {
+  vpc_id = "${aws_vpc.ctrl.id}"
+
+  tags = "${merge(
+    var.default_tags,
+    map(
+      "Name", format(
+        "%s-%s-%s/%s",
+        var.project,
+        var.environment,
+        var.component,
+        "private",
+      ),
+    )
+  )}"
+}
