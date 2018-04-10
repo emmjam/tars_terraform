@@ -9,7 +9,7 @@ data "terraform_remote_state" "ctrl" {
       var.project,
       var.aws_account_id,
       var.aws_region,
-      var.environment,
+      var.account_environment,
       "ctrl"
     )}"
 
