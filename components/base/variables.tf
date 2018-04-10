@@ -120,3 +120,8 @@ variable "ctrl_nonprod" {
   type        = "map"
   description = "CTRL Nonprod Account Subnets"
 }
+
+variable "aws_account_id" {
+  type        = "string"
+  description = "Account ID"
+}

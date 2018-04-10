@@ -3,5 +3,9 @@ output "bastion_sg_id" {
 }
 
 output "bastion_elb_sg_id" {
-    value = "${aws_security_group.bastion_elb.id}"
+  value = "${aws_security_group.bastion_elb.id}"
+}
+
+output "vpc_id" {
+  value = "${aws_vpc.ctrl.id}"
 }

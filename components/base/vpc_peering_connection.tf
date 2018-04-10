@@ -28,8 +28,8 @@ resource "aws_vpc_peering_connection" "ctrl" {
 }
 
 # Routes to the CTRL VPC
-resource "aws_route" backend_ctrl" {
-  route_table_id            = "${aws_route_table.backend.id}"
-  destination_cidr_block    = "${lookup(var.ctrl,"vpc_cidr_block")}"
-  vpc_peering_connection_id = "${aws_vpc_peering_connection.ctrl.id}"
-}
+# resource "aws_route" backend_ctrl" {
+#   route_table_id            = "${aws_route_table.backend.id}"
+#   destination_cidr_block    = "${lookup(var.ctrl,"vpc_cidr_block")}"
+#   vpc_peering_connection_id = "${aws_vpc_peering_connection.ctrl.id}"
+# }
