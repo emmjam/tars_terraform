@@ -46,3 +46,7 @@ output "kms_sg_id" {
 output "subnets_tars_awsmq" {
   value = "${module.tars_awsmq_subnets.subnet_ids}"
 }
+
+output "jenkinsnode_sg_id" {
+  value = "${module.jenkinsnode.security_group_id}"
+}
