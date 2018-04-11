@@ -22,7 +22,7 @@ module "gitlab" {
 
   gitlab_subnet_cidrs            = ["${var.gitlab_subnets_cidrs}"]
   gitlab_private_route_table_ids = ["${aws_route_table.private_nat.*.id}"]
-  gitlab_whitelist               = "${var.gitlab_whitelist}"
+  gitlab_whitelist               = "${var.whitelist}"
 
   elb_private_subnets_cidrs     = "${var.gitlab_elb_private_subnets_cidrs}"
   elb_private_route_table_ids   = ["${aws_route_table.private.*.id}"]

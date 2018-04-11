@@ -162,7 +162,7 @@ resource "aws_security_group_rule" "alb_public_ingress_whitelist_https" {
   to_port           = 443
   protocol          = "tcp"
   security_group_id = "${aws_security_group.alb_public.id}"
-  cidr_blocks       = ["${var.jenkins_whitelist}"]
+  cidr_blocks       = ["${var.whitelist}"]
 }
 
 # jenkins-ctrl_jenkinsnodes

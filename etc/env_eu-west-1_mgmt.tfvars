@@ -90,7 +90,7 @@ bastion = {
   scaleup_recurrence   = "00 07 * * 1-5"
 }
 
-bastion_whitelist = [
+whitelist = [
   "135.196.73.204/32",  # DVSA Notts
   "213.160.121.250/32", # DVSA Notts Corp & Wifi
   "77.86.30.4/32",      # BJSS VPN (Decom ~06/18)
@@ -175,20 +175,6 @@ gitlab_redis_subnets_cidrs = [
   "10.200.2.112/28",
 ]
 
-gitlab_whitelist = [
-  "135.196.73.204/32",  # DVSA Notts
-  "213.160.121.250/32", # DVSA Notts Corp & Wifi
-  "77.86.30.4/32",      # BJSS VPN
-  "195.205.13.211/32",  # Capita (WM Proxy)
-  "195.27.53.211/32",   # Capita (LD Proxy)
-  "85.115.52.201/32",   # Capita (Cloud Proxy)
-  "82.203.33.128/28",   # Capita (Cloud NAT Pool1)
-  "82.203.33.112/28",   # Capita (Cloud NAT Pool2)
-  "85.115.54.200/29",   # Capita (Bury St Edmunds)
-  "92.54.181.128/29",   # Informed Solutions
-  "87.81.132.117/32",   # Informed Solutions
-]
-
 ## jenkins
 jenkins = {
   instance_type        = "m4.large"
@@ -228,20 +214,6 @@ jenkinsnode_subnets_cidrs = [
   "10.200.3.48/28",
   "10.200.3.64/28",
   "10.200.3.80/28",
-]
-
-jenkins_whitelist = [
-  "135.196.73.204/32",  # DVSA Notts Corp
-  "213.160.121.250/32", # DVSA Notts Wifi
-  "77.86.30.4/32",      # BJSS VPN
-  "195.205.13.211/32",  # Capita (WM Proxy)
-  "195.27.53.211/32",   # Capita (LD Proxy)
-  "85.115.52.201/32",   # Capita (Cloud Proxy)
-  "82.203.33.128/28",   # Capita (Cloud NAT Pool1)
-  "82.203.33.112/28",   # Capita (Cloud NAT Pool2)
-  "85.115.54.200/29",   # Capita (Bury St Edmunds)
-  "92.54.181.128/29",   # Informed Solutions
-  "87.81.132.117/32",   # Informed Solutions
 ]
 
 ## ctrl
