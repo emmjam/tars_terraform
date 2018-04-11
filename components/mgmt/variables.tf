@@ -74,7 +74,7 @@ variable "nat_subnets_cidr" {
   description = ""
 }
 
-variable "jenkins_whitelist" {
+variable "whitelist" {
   type        = "list"
   description = ""
   default     = []
@@ -163,11 +163,6 @@ variable "gitlab_redis" {
 }
 
 variable "gitlab_redis_subnets_cidrs" {
-  type        = "list"
-  description = ""
-}
-
-variable "gitlab_whitelist" {
   type        = "list"
   description = ""
 }
