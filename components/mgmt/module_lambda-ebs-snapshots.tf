@@ -12,7 +12,7 @@ module "ebs-snapshots" {
   publish     = "${lookup(var.ebs_snapshot,"publish")}"
   timeout     = "${lookup(var.ebs_snapshot,"timeout")}"
 
-  snapshot_s3_bucket = "${aws_s3_bucket.artefacts.bucket}"
+  snapshot_s3_bucket = "${module.snapshots_bucket.id}"
   snapshot_s3_key    = "${lookup(var.ebs_snapshot,"s3_key")}"
 
   cwlg_retention     = "${lookup(var.ebs_snapshot,"cloudwatch_log_retention_in_days")}"
@@ -43,7 +43,7 @@ module "ebs-snapshots" {
   cleanup_publish     = "${lookup(var.ebs_snapshot_cleanup,"publish")}"
   cleanup_timeout     = "${lookup(var.ebs_snapshot_cleanup,"timeout")}"
 
-  cleanup_s3_bucket      = "${aws_s3_bucket.artefacts.bucket}"
+  cleanup_s3_bucket      = "${module.snapshots_bucket.id}"
   cleanup_s3_key         = "${lookup(var.ebs_snapshot_cleanup,"s3_key")}"
 
   cleanup_cwlg_retention = "${lookup(var.ebs_snapshot_cleanup,"cloudwatch_log_retention_in_days")}"
