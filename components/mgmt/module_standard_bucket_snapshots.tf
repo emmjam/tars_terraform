@@ -1,4 +1,4 @@
-module "artefacts_bucket" {
+module "snapshots_bucket" {
   source = "../../modules/standard-bucket"
 
   log_bucket = "${aws_s3_bucket.bucketlogs.id}"
@@ -10,7 +10,7 @@ module "artefacts_bucket" {
     data.aws_region.current.name,
     var.environment,
     var.component,
-    "artefacts"
+    "snapshots"
   )}"
 
   tags = "${merge(
@@ -23,7 +23,7 @@ module "artefacts_bucket" {
         data.aws_region.current.name,
         var.environment,
         var.component,
-        "artefacts" 
+        "snapshots" 
       ),
     )
   )}"
