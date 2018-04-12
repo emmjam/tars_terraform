@@ -61,7 +61,7 @@ vpc_cidr = "10.167.0.0/22"
 ## jenkinsnode
 jenkinsnode = {
   instance_type        = "m4.large"
-  ami_build_id         = "1"
+  ami_build_id         = "39"
   executors            = 5
   asg_min_size         = 0
   asg_max_size         = 3

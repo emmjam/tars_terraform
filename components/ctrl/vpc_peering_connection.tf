@@ -26,7 +26,7 @@ resource "aws_vpc_peering_connection" "mgmt" {
 
 resource "aws_route" "private_nat_mgmt" {
   count                     = "${length(var.ctrl_nat_subnets_cidrs)}"
-  route_table_id            = "${element(aws_route_table.private_nat.*.id,count.index)}"
+  route_table_id            = "${aws_route_table.private_nat.id}"
   destination_cidr_block    = "${data.terraform_remote_state.mgmt.vpc_cidr_block}"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.mgmt.id}"
 }
