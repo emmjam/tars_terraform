@@ -48,9 +48,19 @@ variable "jenkins_nat_subnets_cidrs" {
   description = "Jenkinsnode NAT subnet CIDR's"
 }
 
-variable "backend_subnets_cidrs" {
+variable "tars_backend_subnets_cidrs" {
   type        = "list"
   description = "TARS backend tier subnet CIDR's"
+}
+
+variable "tars_web_subnets_cidrs" {
+  type        = "list"
+  description = "TARS web tier subnet CIDR's"
+}
+
+variable "tars_messaging_subnets_cidrs" {
+  type        = "list"
+  description = "TARS messaging tier subnet CIDR's"
 }
 
 variable "awsmq_subnets_cidrs" {

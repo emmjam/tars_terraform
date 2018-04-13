@@ -5,7 +5,7 @@ resource "aws_alb_target_group" "tars-messaging-8080" {
     var.project,
     var.environment,
     var.component,
-    "messaging-8080"
+    "msg"
   )}"
   port     = "8080"
   protocol = "HTTP"

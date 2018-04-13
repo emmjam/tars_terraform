@@ -12,7 +12,7 @@ resource "aws_autoscaling_group" "tars-messaging" {
   max_size             = "${lookup(var.wildfly-messaging,"asg_max_size")}"
   min_size             = "${lookup(var.wildfly-messaging,"asg_min_size")}"
   termination_policies = ["${var.asg_termination_policies}"]
-  vpc_zone_identifier  = ["${data.terraform_remote_state.base.subnets_tars_backend}"]
+  vpc_zone_identifier  = ["${data.terraform_remote_state.base.subnets_tars_messaging}"]
   target_group_arns    = [
     "${aws_alb_target_group.tars-messaging-8080.arn}",
     ]

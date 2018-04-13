@@ -33,7 +33,7 @@ resource "aws_route_table" "jenkins_nat" {
   )}"
 }
 
-# Route table for the TARS backend servers
+# Route table for the TARS backend/batch servers
 resource "aws_route_table" "backend" {
   vpc_id = "${aws_vpc.vpc.id}"
 
@@ -46,6 +46,42 @@ resource "aws_route_table" "backend" {
         var.environment,
         var.component,
         "backend",
+      ),
+    )
+  )}"
+}
+
+# Route table for the TARS web servers
+resource "aws_route_table" "web" {
+  vpc_id = "${aws_vpc.vpc.id}"
+
+  tags = "${merge(
+    var.default_tags,
+    map(
+      "Name", format(
+        "%s-%s-%s/%s",
+        var.project,
+        var.environment,
+        var.component,
+        "web",
+      ),
+    )
+  )}"
+}
+
+# Route table for the TARS messaging servers
+resource "aws_route_table" "messaging" {
+  vpc_id = "${aws_vpc.vpc.id}"
+
+  tags = "${merge(
+    var.default_tags,
+    map(
+      "Name", format(
+        "%s-%s-%s/%s",
+        var.project,
+        var.environment,
+        var.component,
+        "messaging",
       ),
     )
   )}"

@@ -65,11 +65,6 @@ variable "private_domain_name" {
   description = "R53 private domain for TARS"
 }
 
-variable "backend_subnets_cidrs" {
-  type        = "list"
-  description = "TARS backend server subnet CIDR's"
-}
-
 variable "tars_rds_allocated_storage" {
   type        = "string"
   description = "TARS RDS DB Allocated Storage"

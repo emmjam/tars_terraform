@@ -31,13 +31,6 @@ mgmt = {
   gitlab_subnet          = "10.200.2.128/28"        # TODO: use remote state
 }
 
-# TODO: use remote state
-# mgmt_bastion_subnets = [
-#   "10.200.1.96/28",
-#   "10.200.1.112/28",
-#   "10.200.1.128/28",
-# ]
-
 ###############################################################################
 # CTRL
 ###############################################################################
@@ -82,10 +75,25 @@ mgmt_component = "mgmt"
 
 mgmt_env = "mgmt"
 
-backend_subnets_cidrs = [
+# TARS backend core/batch subnets
+tars_backend_subnets_cidrs = [
   "10.167.1.0/27",
   "10.167.1.32/27",
   "10.167.1.64/27",
+]
+
+# TARS Frontend/IBS/OBS Web subnets
+tars_web_subnets_cidrs = [
+  "10.167.2.0/26",
+  "10.167.2.64/26",
+  "10.167.2.128/26",
+]
+
+# TARS Messaging subnets
+tars_messaging_subnets_cidrs = [
+  "10.167.1.96/28",
+  "10.167.1.112/28",
+  "10.167.1.128/28",
 ]
 
 # AWS MQ SINGLE_INSTANCE only requires 1 subnets
