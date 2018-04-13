@@ -82,7 +82,7 @@ variable "bastion_elb_subnets_cidrs" {
   description = ""
 }
 
-variable "bastion_whitelist" {
+variable "whitelist" {
   type        = "list"
   description = ""
   default     = []
