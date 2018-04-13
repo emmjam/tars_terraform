@@ -128,7 +128,7 @@ ctrl_bastion_subnets = [
   "10.167.60.144/28",
 ]
 
-bastion_whitelist = [
+whitelist = [
   "135.196.73.204/32",  # DVSA Notts
   "213.160.121.250/32", # DVSA Notts Corp & Wifi
   "77.86.30.4/32",      # BJSS VPN (Decom ~06/18)
