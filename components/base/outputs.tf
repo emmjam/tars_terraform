@@ -11,6 +11,14 @@ output "subnets_tars_backend" {
   value = "${module.tars_backend_subnets.subnet_ids}"
 }
 
+output "subnets_tars_web" {
+  value = "${module.tars_web_subnets.subnet_ids}"
+}
+
+output "subnets_tars_messaging" {
+  value = "${module.tars_messaging_subnets.subnet_ids}"
+}
+
 output "route_table_jenkins_nat" {
   value = "${aws_route_table.jenkins_nat.*.id}"
 }

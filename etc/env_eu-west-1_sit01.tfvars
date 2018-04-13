@@ -31,11 +31,17 @@ mgmt = {
   gitlab_subnet          = "10.200.2.128/28"        # TODO: use remote state
 }
 
-# TODO: use remote state
-mgmt_bastion_subnets = [
-  "10.200.1.96/28",
-  "10.200.1.112/28",
-  "10.200.1.128/28",
+###############################################################################
+# CTRL
+###############################################################################
+## ctrl
+ctrl_peers = [
+  {
+    account_id         = "652856684323"   # tars ctrl/nonprod
+    vpc_id             = "vpc-9f2ba7f9"
+    cidr_block         = "10.167.60.0/22"
+    jenkinsnode_subnet = "10.167.60.0/26"
+  },
 ]
 
 ###############################################################################
@@ -48,7 +54,7 @@ vpc_cidr = "10.167.8.0/22"
 ## jenkinsnode
 jenkinsnode = {
   instance_type        = "m4.large"
-  ami_build_id         = "32"
+  ami_build_id         = "39"
   executors            = 5
   asg_min_size         = 0
   asg_max_size         = 3
@@ -69,10 +75,25 @@ mgmt_component = "mgmt"
 
 mgmt_env = "mgmt"
 
-backend_subnets_cidrs = [
+# TARS backend core/batch subnets
+tars_backend_subnets_cidrs = [
   "10.167.9.0/27",
   "10.167.9.32/27",
   "10.167.9.64/27",
+]
+
+# TARS Frontend/IBS/OBS Web subnets
+tars_web_subnets_cidrs = [
+  "10.167.10.0/26",
+  "10.167.10.64/26",
+  "10.167.10.128/26",
+]
+
+# TARS Messaging subnets
+tars_messaging_subnets_cidrs = [
+  "10.167.9.96/28",
+  "10.167.9.112/28",
+  "10.167.9.128/28",
 ]
 
 # AWS MQ SINGLE_INSTANCE only requires 1 subnets

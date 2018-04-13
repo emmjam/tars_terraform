@@ -12,7 +12,7 @@ resource "aws_autoscaling_group" "tars-frontend" {
   max_size             = "${lookup(var.wildfly-front,"asg_max_size")}"
   min_size             = "${lookup(var.wildfly-front,"asg_min_size")}"
   termination_policies = ["${var.asg_termination_policies}"]
-  vpc_zone_identifier  = ["${data.terraform_remote_state.base.subnets_tars_backend}"]
+  vpc_zone_identifier  = ["${data.terraform_remote_state.base.subnets_tars_web}"]
   target_group_arns    = [
     "${aws_alb_target_group.tars-frontend-8443.arn}",
     "${aws_alb_target_group.tars-frontend-9990.arn}",
