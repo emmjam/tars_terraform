@@ -72,6 +72,27 @@ resource "aws_security_group_rule" "jenkinsnode_egress_internet_ssh" {
   cidr_blocks       = ["0.0.0.0/0"]
 }
 
+#jenkinsnode-jenkinsnode -> required to allow SSH comms w/ Packer builder instance inside jenkinsnode sg
+resource "aws_security_group_rule" "jenkinsnode_egress_self_ssh" {
+  description       = "Allow TCP/22 to JenkinsNode"
+  type              = "egress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  self              = "true"
+  security_group_id = "${module.jenkinsnode.security_group_id}"
+}
+
+resource "aws_security_group_rule" "jenkinsnode_ingress_self_ssh" {
+  description       = "Allow TCP/22 from JenkinsNode"
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  self              = "true"
+  security_group_id = "${module.jenkinsnode.security_group_id}"
+}
+
 # bastion
 resource "aws_security_group_rule" "bastion_ingress_elb" {
   description              = "Allow TCP/22 from Bastion ELB"
@@ -100,7 +121,7 @@ resource "aws_security_group_rule" "bastion_elb_ingress_whitelist_ssh" {
   to_port           = 22
   protocol          = "tcp"
   security_group_id = "${aws_security_group.bastion_elb.id}"
-  cidr_blocks       = ["${var.bastion_whitelist}"]
+  cidr_blocks       = ["${var.whitelist}"]
 }
 
 resource "aws_security_group_rule" "bastion_elb_egress_bastion" {
