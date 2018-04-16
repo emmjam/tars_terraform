@@ -17,3 +17,7 @@ output "vpc_cidr_block" {
 output "rt_private_nat_id" {
   value = "${aws_route_table.private_nat.id}"
 }
+
+output "rt_private_id" {
+  value = "${aws_route_table.private.id}"
+}

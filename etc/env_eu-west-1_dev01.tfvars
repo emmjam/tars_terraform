@@ -91,9 +91,9 @@ tars_web_subnets_cidrs = [
 
 # TARS Messaging subnets
 tars_messaging_subnets_cidrs = [
-  "10.167.5.96/28",
-  "10.167.5.112/28",
-  "10.167.5.128/28",
+  "10.167.5.144/28",
+  "10.167.5.160/28",
+  "10.167.5.176/28",
 ]
 
 # AWS MQ SINGLE_INSTANCE only requires 1 subnets
