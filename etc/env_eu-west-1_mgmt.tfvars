@@ -163,7 +163,7 @@ gitlab_redis_subnets_cidrs = [
 ## jenkins
 jenkins = {
   instance_type        = "m4.large"
-  ami_build_id         = "1"
+  ami_build_id         = "43"
   asg_min_size         = 0
   asg_max_size         = 1
   ebs_volume_type      = "gp2"
