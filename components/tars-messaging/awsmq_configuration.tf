@@ -13,6 +13,16 @@ resource "aws_mq_configuration" "tars-awsmq" {
     <forcePersistencyModeBrokerPlugin persistenceFlag="true"/>
     <statisticsBrokerPlugin/>
     <timeStampingBrokerPlugin ttlCeiling="86400000" zeroExpirationOverride="86400000"/>
+    <authorizationPlugin>
+      <map>
+        <authorizationMap>
+          <authorizationEntries>
+            <authorizationEntry admin="admins"
+            read="admins" write="admins" queue=">"/>
+          </authorizationEntries>
+        </authorizationMap>
+      </map>
+    </authorizationPlugin> 
   </plugins>
   <destinations>
     <queue physicalName="ExpiryQueue" />
