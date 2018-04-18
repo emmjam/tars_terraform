@@ -66,6 +66,21 @@ base_peers_xacct = [
     vpc_id     = "vpc-e560ef83"
     cidr_block = "10.167.0.0/22"
     account_id = "652856684323"
+  },
+  { # tarsnonprod/dev01
+    vpc_id     = "vpc-61ce4107"
+    cidr_block = "10.167.4.0/22"
+    account_id = "652856684323"
+  },
+  { # tarsnonprod/sit01
+    vpc_id     = "vpc-57179931"
+    cidr_block = "10.167.8.0/22"
+    account_id = "652856684323"
+  },
+  { # tarsnonprod/uat01
+    vpc_id     = "vpc-411b9527"
+    cidr_block = "10.167.12.0/22"
+    account_id = "652856684323"
   }
 ]
 
