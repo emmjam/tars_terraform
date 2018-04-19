@@ -266,7 +266,7 @@ tars_rds_public = "false"
 
 tars_rds_multi_az = "false" # it takes an age to build if true
 
-tars_rds_backup_retention = "0"
+tars_rds_backup_retention = "7"
 
 tars_rds_backup_window = "02:38-03:08"
 
