@@ -222,12 +222,21 @@ wildfly-messaging = {
 
 ## AWS MQ
 aws_mq = {
-  engine_type        = "ActiveMQ"
-  engine_version     = "5.15.0"
-  host_instance_type = "mq.t2.micro"
-  username           = "admin"
-  password           = "admin123456789"
-  deployment_mode    = "SINGLE_INSTANCE"
+  engine_type             = "ActiveMQ"
+  engine_version          = "5.15.0"
+  host_instance_type      = "mq.t2.micro"
+  deployment_mode         = "SINGLE_INSTANCE"
+}
+
+aws_mq_users = {
+  admin_user              = "admin"
+  admin_password          = "admin123456789"
+  tars_batch_user         = "tars_batch"
+  tars_batch_password     = "password123456"
+  tars_batch_group        = "admins"
+  tars_messaging_user     = "tars_messaging"
+  tars_messaging_password = "password123456"
+  tars_messaging_group    = "admins"
 }
 
 aws_mq_config = {
