@@ -61,6 +61,11 @@ variable "aws_mq" {
   description = "TARS AWS MQ Service config"
 }
 
+variable "aws_mq_users" {
+  type        = "map"
+  description = "TARS AWS MQ Users"
+}
+
 variable "aws_mq_config" {
   type        = "map"
   description = "TARS AWS MQ Service config"

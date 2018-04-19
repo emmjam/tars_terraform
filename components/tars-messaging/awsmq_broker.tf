@@ -17,10 +17,22 @@ resource "aws_mq_broker" "tars-awsmq" {
   deployment_mode = "${lookup(var.aws_mq,"deployment_mode")}"
   security_groups = ["${aws_security_group.tars-awsmq.id}"]
   user {
-    username = "${lookup(var.aws_mq,"username")}"
-    password = "${lookup(var.aws_mq,"password")}"
+    username = "${lookup(var.aws_mq_users,"admin_user")}"
+    password = "${lookup(var.aws_mq_users,"admin_password")}"
     console_access = true
   }
+  user {
+    username = "${lookup(var.aws_mq_users,"tars_batch_user")}"
+    password = "${lookup(var.aws_mq_users,"tars_batch_password")}"
+    groups   = ["${lookup(var.aws_mq_users,"tars_batch_group")}"]
+    console_access = false
+  }
+  user {
+    username = "${lookup(var.aws_mq_users,"tars_messaging_user")}"
+    password = "${lookup(var.aws_mq_users,"tars_messaging_password")}"
+    groups   = ["${lookup(var.aws_mq_users,"tars_batch_group")}"]
+    console_access = false
+  } 
   subnet_ids = ["${data.terraform_remote_state.base.subnets_tars_awsmq}"]
   publicly_accessible = true
 }
