@@ -34,6 +34,18 @@ resource "aws_route" "private_ctrl_backend" {
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ctrl.id}"
 }
 
+resource "aws_route" "private_ctrl_web" {
+  route_table_id            = "${aws_route_table.web.id}"
+  destination_cidr_block    = "${data.terraform_remote_state.ctrl.vpc_cidr_block}"
+  vpc_peering_connection_id = "${aws_vpc_peering_connection.ctrl.id}"
+}
+
+resource "aws_route" "private_ctrl_messaging" {
+  route_table_id            = "${aws_route_table.messaging.id}"
+  destination_cidr_block    = "${data.terraform_remote_state.ctrl.vpc_cidr_block}"
+  vpc_peering_connection_id = "${aws_vpc_peering_connection.ctrl.id}"
+}
+
 # Peer with the MGMT account
 resource "aws_vpc_peering_connection" "mgmt" {
   vpc_id        = "${aws_vpc.vpc.id}"
