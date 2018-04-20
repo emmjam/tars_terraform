@@ -86,8 +86,6 @@ resource "aws_iam_user_policy" "ses_allow_send" {
 }
 
 
-
-
 data "aws_iam_policy_document" "ses_user" {
   statement {
     effect = "Allow"

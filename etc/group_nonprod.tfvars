@@ -22,6 +22,7 @@ administrators = [
   "karl.gharios@bjss.com",
   "callum.massey@bjss.com",
   "steve.wilson@bjss.com",
+  "brian.collinson@bjss.com",
 ]
 
 power_users = [
@@ -40,14 +41,16 @@ ctrl_nonprod = {
   environment            = "nonprod"
   component              = "ctrl"
   vpc_id                 = "vpc-9f2ba7f9"           # TODO: use remote state
-  vpc_cidr_block         = "10.167.60.0/22"          # TODO: use remote state
+  vpc_cidr_block         = "10.167.60.0/22"         # TODO: use remote state
   tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote state
 }
 
 ctrl_nat_subnets_cidrs = [
   "10.167.60.0/28",
 ]
+
 mgmt_account_id = "645711882182"
+
 mgmt = {
   aws_account_id         = "645711882182"
   aws_region             = "eu-west-1"
@@ -72,10 +75,9 @@ ctrl_mgmt = {
   environment            = "mgmt"
   component              = "ctrl"
   vpc_id                 = "vpc-ff970799"           # TODO: use remote state
-  vpc_cidr_block         = "10.167.64.0/22"          # TODO: use remote state
+  vpc_cidr_block         = "10.167.64.0/22"         # TODO: use remote state
   tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote state
 }
-
 
 # TODO: use remote state
 # mgmt_bastion_subnets = [
@@ -114,7 +116,6 @@ bastion = {
   scaleup_desired      = 1
   scaleup_recurrence   = "00 07 * * 1-5"
 }
-
 
 bastion_elb_subnets_cidrs = [
   "10.167.60.64/28",
@@ -170,7 +171,6 @@ whitelist = [
 #     jenkinsnode_subnet = "10.167.12.0/26"
 #   },
 # ]
-
 
 ops_team_email = "mark.thompson@bjss.com"
 
