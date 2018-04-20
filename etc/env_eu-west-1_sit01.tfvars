@@ -15,23 +15,6 @@ default_tags = {
 }
 
 ###############################################################################
-# MGMT
-###############################################################################
-
-mgmt = {
-  aws_account_id         = "645711882182"
-  aws_region             = "eu-west-1"
-  project                = "tars"
-  environment            = "mgmt"
-  component              = "mgmt"
-  vpc_id                 = "vpc-e303d285"           # TODO: use remote state
-  vpc_cidr_block         = "10.200.0.0/16"          # TODO: use remote state
-  tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote state
-  jenkins_elb_subnet     = "10.200.3.32/28"         # TODO: use remote state
-  gitlab_subnet          = "10.200.2.128/28"        # TODO: use remote state
-}
-
-###############################################################################
 # CTRL
 ###############################################################################
 ## ctrl
@@ -118,6 +101,13 @@ rds_subnets_cidrs = [
   "10.167.8.112/28",
   "10.167.8.128/28",
   "10.167.8.144/28",
+]
+
+#SquidNAT CIDR Range
+squidnat_subnets_cidrs = [
+  "10.167.8.160/28",
+  "10.167.8.176/28",
+  "10.167.8.192/28",
 ]
 
 tars_core_whitelist = [

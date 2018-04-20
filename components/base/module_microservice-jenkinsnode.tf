@@ -10,7 +10,7 @@ module "jenkinsnode" {
   vpc_id               = "${aws_vpc.vpc.id}"
   availability_zones   = "${data.aws_availability_zones.available.names}"
   subnets_cidrs        = "${var.jenkinsnode_subnets_cidrs}"
-  subnets_route_tables = ["${aws_route_table.jenkins_nat.*.id}"]
+  subnets_route_tables = ["${aws_route_table.private_nat.*.id}"]
 
   lc_ami_id        = "${data.aws_ami.jenkinsnode.image_id}"
   lc_instance_type = "${lookup(var.jenkinsnode,"instance_type")}"

@@ -1,6 +1,8 @@
+# Public Route Table for any public subnet within the VPC
 resource "aws_route_table" "public" {
   vpc_id = "${aws_vpc.vpc.id}"
 
+  # Apply default tags, and merge with additional tags
   tags = "${merge(
     var.default_tags,
     map(
@@ -9,34 +11,18 @@ resource "aws_route_table" "public" {
         var.project,
         var.environment,
         var.component,
-        "public",
+        "public"
       ),
-    )
-  )}"
-}
-# Route table for the Jenkinsnode
-resource "aws_route_table" "jenkins_nat" {
-  count  = "${length(var.jenkins_nat_subnets_cidrs)}"
-  vpc_id = "${aws_vpc.vpc.id}"
-
-  tags = "${merge(
-    var.default_tags,
-    map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "jenkins-nat",
-      ),
+      "Component", var.component
     )
   )}"
 }
 
-# Route table for the TARS backend/batch servers
-resource "aws_route_table" "backend" {
+resource "aws_route_table" "private_nat" {
+  count  = "${length(var.squidnat_subnets_cidrs)}"
   vpc_id = "${aws_vpc.vpc.id}"
 
+  # Apply default tags, and merge with additional tags
   tags = "${merge(
     var.default_tags,
     map(
@@ -45,16 +31,17 @@ resource "aws_route_table" "backend" {
         var.project,
         var.environment,
         var.component,
-        "backend",
+        "private_nat"
       ),
+      "Component", var.component
     )
   )}"
 }
 
-# Route table for the TARS web servers
-resource "aws_route_table" "web" {
+resource "aws_route_table" "private_nonat" {
   vpc_id = "${aws_vpc.vpc.id}"
 
+  # Apply default tags, and merge with additional tags
   tags = "${merge(
     var.default_tags,
     map(
@@ -63,62 +50,9 @@ resource "aws_route_table" "web" {
         var.project,
         var.environment,
         var.component,
-        "web",
+        "private_nonat"
       ),
-    )
-  )}"
-}
-
-# Route table for the TARS messaging servers
-resource "aws_route_table" "messaging" {
-  vpc_id = "${aws_vpc.vpc.id}"
-
-  tags = "${merge(
-    var.default_tags,
-    map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "messaging",
-      ),
-    )
-  )}"
-}
-
-# Route table for the RDS DB's
-resource "aws_route_table" "rds" {
-  vpc_id = "${aws_vpc.vpc.id}"
-
-  tags = "${merge(
-    var.default_tags,
-    map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "rds",
-      ),
-    )
-  )}"
-}
-
-# Route table for AWS MQ
-resource "aws_route_table" "awsmq" {
-  vpc_id = "${aws_vpc.vpc.id}"
-
-  tags = "${merge(
-    var.default_tags,
-    map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "awsmq",
-      ),
+      "Component", var.component
     )
   )}"
 }

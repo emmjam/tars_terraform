@@ -83,6 +83,41 @@ variable "mgmt" {
   description = "MGMT Account Subnets"
 }
 
+variable "mgmt_aws_region" {
+  type = "string"
+  description = ""
+}
+
+variable "mgmt_aws_account_id" {
+  type = "string"
+  description = ""
+}
+
+variable "mgmt_project" {
+  type = "string"
+  description = ""
+}
+
+variable "mgmt_environment" {
+  type = "string"
+  description = ""
+}
+
+variable "squidnat_subnets_cidrs" {
+  type = "list"
+  description = ""
+}
+
+variable "squidnat_instance_type" {
+  type = "string"
+  description = ""
+}
+
+variable "mgmt_component" {
+  type = "string"
+  description = ""
+}
+
 variable "tf_state_bucket_prefix" {
   type        = "string"
   description = "TF State bucket prefix"
@@ -102,17 +137,6 @@ variable "account_environment" {
 variable "jenkinsnode" {
   type        = "map"
   description = "Jenkinsnode configuration"
-}
-
-variable "gridlastic_cidr" {
-  type        = "string"
-  description = "The Gridlastic Selenium VPC CIDR"
-}
-
-variable "gridlastic_peering_id" {
-  type        = "list"
-  description = "The Gridlastic Selenium VPC peering id"
-  default     = []
 }
 
 variable "transit_peering_enabled" {

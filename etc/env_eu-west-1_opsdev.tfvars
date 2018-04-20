@@ -15,23 +15,6 @@ default_tags = {
 }
 
 ###############################################################################
-# MGMT
-###############################################################################
-
-mgmt = {
-  aws_account_id         = "645711882182"
-  aws_region             = "eu-west-1"
-  project                = "tars"
-  environment            = "mgmt"
-  component              = "mgmt"
-  vpc_id                 = "vpc-e303d285"           # TODO: use remote state
-  vpc_cidr_block         = "10.200.0.0/16"          # TODO: use remote state
-  tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote state
-  jenkins_elb_subnet     = "10.200.3.32/28"         # TODO: use remote state
-  gitlab_subnet          = "10.200.2.128/28"        # TODO: use remote state
-}
-
-###############################################################################
 # CTRL
 ###############################################################################
 ## ctrl
@@ -70,42 +53,6 @@ jenkinsnode_subnets_cidrs = [
   "10.167.0.32/28",
 ]
 
-# Environment & Component for Accessing mgmt_prd remote state
-mgmt_component = "mgmt"
-
-mgmt_env = "mgmt"
-
-# TARS backend core/batch subnets
-tars_backend_subnets_cidrs = [
-  "10.167.1.0/27",
-  "10.167.1.32/27",
-  "10.167.1.64/27",
-]
-
-# TARS Frontend/IBS/OBS Web subnets
-tars_web_subnets_cidrs = [
-  "10.167.2.0/26",
-  "10.167.2.64/26",
-  "10.167.2.128/26",
-]
-
-# TARS Messaging subnets
-tars_messaging_subnets_cidrs = [
-  "10.167.1.96/28",
-  "10.167.1.112/28",
-  "10.167.1.128/28",
-]
-
-# AWS MQ SINGLE_INSTANCE only requires 1 subnets
-# ACTIVE_STANDBY_MULTI_AZ requires 2
-awsmq_subnets_cidrs = [
-  "10.167.0.160/28",
-]
-
-jenkins_nat_subnets_cidrs = [
-  "10.167.0.176/28",
-]
-
 ## alb public
 alb_public_subnets_cidrs = [
   "10.167.0.64/28",
@@ -118,6 +65,44 @@ rds_subnets_cidrs = [
   "10.167.0.112/28",
   "10.167.0.128/28",
   "10.167.0.144/28",
+]
+
+# AWS MQ SINGLE_INSTANCE only requires 1 subnets
+# ACTIVE_STANDBY_MULTI_AZ requires 2
+awsmq_subnets_cidrs = [
+  "10.167.0.160/28",
+]
+
+jenkins_nat_subnets_cidrs = [
+  "10.167.0.176/28",
+]
+
+# TARS backend core/batch subnets
+tars_backend_subnets_cidrs = [
+  "10.167.1.0/27",
+  "10.167.1.32/27",
+  "10.167.1.64/27",
+]
+
+# TARS Messaging subnets
+tars_messaging_subnets_cidrs = [
+  "10.167.1.96/28",
+  "10.167.1.112/28",
+  "10.167.1.128/28",
+]
+
+#SquidNAT CIDR Range
+squidnat_subnets_cidrs = [
+  "10.167.1.160/28",
+  "10.167.1.176/28",
+  "10.167.1.192/28",
+]
+
+# TARS Frontend/IBS/OBS Web subnets
+tars_web_subnets_cidrs = [
+  "10.167.2.0/26",
+  "10.167.2.64/26",
+  "10.167.2.128/26",
 ]
 
 tars_core_whitelist = [

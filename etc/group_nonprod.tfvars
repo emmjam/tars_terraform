@@ -30,6 +30,31 @@ power_users = [
 ]
 
 ###############################################################################
+# MGMT
+###############################################################################
+
+mgmt = {
+  aws_account_id         = "645711882182"
+  aws_region             = "eu-west-1"
+  project                = "tars"
+  environment            = "mgmt"
+  component              = "mgmt"
+  vpc_id                 = "vpc-e303d285"           # TODO: use remote state
+  vpc_cidr_block         = "10.200.0.0/16"          # TODO: use remote state
+  tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote state
+  jenkins_elb_subnet     = "10.200.3.32/28"         # TODO: use remote state
+  gitlab_subnet          = "10.200.2.128/28"        # TODO: use remote state
+}
+
+mgmt_aws_account_id = "645711882182"
+mgmt_account_id     = "645711882182"
+mgmt_aws_region     = "eu-west-1"
+mgmt_project        = "tars"
+mgmt_environment    = "mgmt"
+mgmt_component      = "mgmt"
+
+
+###############################################################################
 # CONTROL NONPROD
 ###############################################################################
 ctrl_vpc_cidr = "10.167.60.0/22"
@@ -48,21 +73,6 @@ ctrl_nonprod = {
 ctrl_nat_subnets_cidrs = [
   "10.167.60.0/28",
 ]
-
-mgmt_account_id = "645711882182"
-
-mgmt = {
-  aws_account_id         = "645711882182"
-  aws_region             = "eu-west-1"
-  project                = "tars"
-  environment            = "mgmt"
-  component              = "mgmt"
-  vpc_id                 = "vpc-e303d285"           # TODO: use remote state
-  vpc_cidr_block         = "10.200.0.0/16"          # TODO: use remote state
-  tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote state
-  jenkins_elb_subnet     = "10.200.3.32/28"         # TODO: use remote state
-  gitlab_subnet          = "10.200.2.128/28"        # TODO: use remote state
-}
 
 ###############################################################################
 # CONTROL MGMT
@@ -144,6 +154,9 @@ whitelist = [
   "87.81.132.117/32",   # Informed Solutions
 ]
 
+# squidnat
+squidnat_instance_type = "m5.large"
+
 # ## ctrl peers
 # ctrl_peers = [
 #   {
@@ -180,11 +193,5 @@ aws_account_alias = "tarsnonprod"
 
 # Deployer pub key
 deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVSO8uKpdbwww94azylwjnFxsFGcmXG4ObL1oOFibHMN0x+SsSwjfC1DEziWPK3m/Crmar0+ad/68nQC+iWo/MYclh8h3bkKlv9dO4Xtv/0H6uDRW3l3bBO0rWYbt46fMAOCqX96N3LRTfUlPuzsVAd0NGZZlSSAZF0AMl4xE/tZl2m+Dqylrjp3qLT4UxEIrAuvPW06PqkGy63hZznjCjQDaadOAUpY19ZaA71JBueyGBnZ8pSVzr5hT1TpNw/cXxA6WLj4CCipIVm0M64OT/ArqcnQMX9Htf4Gp5apXZ3f6MerfjgHnkrm1t6JNuhSjVB deployer@mgmt.tars.dvsa.aws"
-
-#############################################################################
-# Gridlastic Selenium
-#############################################################################
-
-gridlastic_cidr = "10.199.0.0/16"
 
 tars_rds_autoscale = "True"
