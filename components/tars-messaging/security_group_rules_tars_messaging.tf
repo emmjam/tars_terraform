@@ -9,6 +9,16 @@ resource "aws_security_group_rule" "tars_messaging_ingress_private_alb_port_8080
   source_security_group_id = "${aws_security_group.tars-alb-messaging.id}"
 }
 
+resource "aws_security_group_rule" "tars_messaging_ingress_public_alb_port_80" {
+  description              = "Allow TCP/80 from messaging public ALB"
+  type                     = "ingress"
+  from_port                = 80
+  to_port                  = 80
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.tars-messaging.id}"
+  source_security_group_id = "${aws_security_group.tars-messaging-alb-public.id}"
+}
+
 resource "aws_security_group_rule" "tars_messaging_egress_oracle_db" {
   description              = "Allow TCP/1521 to the Oracle DB"
   type                     = "egress"
@@ -67,7 +77,7 @@ resource "aws_security_group_rule" "tars_messaging_ingress_whitelist_RDP" {
   to_port                  = 3389
   protocol                 = "tcp"
   security_group_id        = "${aws_security_group.tars-messaging.id}"
-  cidr_blocks              = ["${var.messaging_whitelist}"]
+  cidr_blocks              = ["${var.whitelist}"]
 }
 
 resource "aws_security_group_rule" "tars_messaging_egress_tars_core_backend_alb_8080" {
