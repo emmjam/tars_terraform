@@ -105,9 +105,9 @@ rds_subnets_cidrs = [
 
 #SquidNAT CIDR Range
 squidnat_subnets_cidrs = [
-  "10.167.8.160/28",
-  "10.167.8.176/28",
-  "10.167.8.192/28",
+  "10.167.9.160/28",
+  "10.167.9.176/28",
+  "10.167.9.192/28",
 ]
 
 tars_core_whitelist = [
