@@ -5,7 +5,7 @@ resource "aws_alb" "tars-alb-messaging-private" {
     var.project,
     var.environment,
     var.component,
-    "msg"
+    "tars-msg"
   )}"
 
   internal = true

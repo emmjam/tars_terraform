@@ -15,6 +15,7 @@ resource "aws_autoscaling_group" "tars-messaging" {
   vpc_zone_identifier  = ["${data.terraform_remote_state.base.subnets_tars_messaging}"]
   target_group_arns    = [
     "${aws_alb_target_group.tars-messaging-8080.arn}",
+    "${aws_alb_target_group.tars-messaging-80.arn}",
     ]
   enabled_metrics      = ["${var.asg_enabled_metrics}"]
 

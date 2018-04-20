@@ -4,7 +4,7 @@ resource "aws_alb_target_group" "tars-messaging-8080" {
     "%s-%s-%s-%s",
     var.project,
     var.environment,
-    "msg",
+    "tars-msg",
     "8080"
   )}"
   port     = "8080"
@@ -28,7 +28,7 @@ resource "aws_alb_target_group" "tars-messaging-80" {
     "%s-%s-%s-%s",
     var.project,
     var.environment,
-    "msg",
+    "tars-msg",
     "80"
   )}"
   port     = "80"
