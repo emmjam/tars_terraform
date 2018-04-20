@@ -35,6 +35,7 @@ administrators = [
   "mark.thompson@bjss.com",
   "karl.gharios@bjss.com",
   "callum.massey@bjss.com",
+  "brian.collinson@bjss.com",
 ]
 
 ###########################################
@@ -42,48 +43,47 @@ administrators = [
 ###########################################
 
 ctrl_peers_xacct = [
-  { # tarsnonprod/ctrl
-    vpc_id     = "vpc-9f2ba7f9"
+  {
+    vpc_id     = "vpc-9f2ba7f9"   # tarsnonprod/ctrl
     cidr_block = "10.167.60.0/22"
     account_id = "652856684323"
-  }
+  },
 ]
 
 # Peers created by the ctrl component, in the same AWS account
 ctrl_peers_local = [
-  { # tarsmgmt/ctrl
-    vpc_id     = "vpc-ff970799"
+  {
+    vpc_id     = "vpc-ff970799"   # tarsmgmt/ctrl
     cidr_block = "10.167.64.0/22"
     account_id = "645711882182"
-  }
+  },
 ]
 
 base_peers_local = []
 
 # Peers created by the base component, in a different AWS account
 base_peers_xacct = [
-  { # tarsnonprod/opsdev
-    vpc_id     = "vpc-e560ef83"
+  {
+    vpc_id     = "vpc-e560ef83"  # tarsnonprod/opsdev
     cidr_block = "10.167.0.0/22"
     account_id = "652856684323"
   },
-  { # tarsnonprod/dev01
-    vpc_id     = "vpc-61ce4107"
+  {
+    vpc_id     = "vpc-61ce4107"  # tarsnonprod/dev01
     cidr_block = "10.167.4.0/22"
     account_id = "652856684323"
   },
-  { # tarsnonprod/sit01
-    vpc_id     = "vpc-57179931"
+  {
+    vpc_id     = "vpc-57179931"  # tarsnonprod/sit01
     cidr_block = "10.167.8.0/22"
     account_id = "652856684323"
   },
-  { # tarsnonprod/uat01
-    vpc_id     = "vpc-411b9527"
+  {
+    vpc_id     = "vpc-411b9527"   # tarsnonprod/uat01
     cidr_block = "10.167.12.0/22"
     account_id = "652856684323"
-  }
+  },
 ]
-
 
 ########
 # MGMT
@@ -91,7 +91,6 @@ base_peers_xacct = [
 vpc_cidr = "10.200.0.0/16"
 
 nat_subnets_cidr = "10.200.1.0/28"
-
 
 ## bastion
 bastion = {
@@ -225,7 +224,7 @@ ctrl_peers = [
     jenkinsnode_subnet = "10.167.60.0/26"
   },
   {
-    account_id         = "645711882182" # tars ctrl/mgmt
+    account_id         = "645711882182"   # tars ctrl/mgmt
     vpc_id             = "vpc-ff970799"
     cidr_block         = "10.167.64.0/22"
     jenkinsnode_subnet = "10.167.64.0/26"
