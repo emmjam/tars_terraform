@@ -112,3 +112,8 @@ variable "uat01_peers" {
   default     = []
 }
 
+
+variable "public_domain_name" {
+  type = "string"
+  description = "public domain name for the hosted zone"
+}
