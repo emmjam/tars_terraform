@@ -155,7 +155,7 @@ whitelist = [
 ]
 
 # squidnat
-squidnat_instance_type = "m5.large"
+squidnat_instance_type = "t2.micro"
 
 # ## ctrl peers
 # ctrl_peers = [
