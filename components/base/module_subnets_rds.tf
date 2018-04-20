@@ -16,7 +16,7 @@ module "subnets_rds" {
   ]
 
   route_tables = [
-    "${aws_route_table.rds.id}"
+    "${aws_route_table.private_nonat.id}"
   ]
 
   vpc_id = "${aws_vpc.vpc.id}"

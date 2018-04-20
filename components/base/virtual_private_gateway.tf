@@ -22,5 +22,5 @@ resource "aws_vpn_gateway" "vpn_gw" {
 resource "aws_vpn_gateway_route_propagation" "backend_to_transit_vpc" {
     count = "${var.transit_peering_enabled}"
     vpn_gateway_id = "${aws_vpn_gateway.vpn_gw.id}"
-    route_table_id = "${aws_route_table.backend.id}"
+    route_table_id = "${aws_route_table.private_nonat.id}"
 }

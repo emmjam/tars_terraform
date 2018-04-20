@@ -20,7 +20,7 @@ output "subnets_tars_messaging" {
 }
 
 output "route_table_jenkins_nat" {
-  value = "${aws_route_table.jenkins_nat.*.id}"
+  value = "${aws_route_table.private_nat.*.id}"
 }
 
 output "subnets_tars_db" {
@@ -32,7 +32,7 @@ output "vpc_id" {
 }
 
 output "private_zone_id" {
-  value = "${aws_route53_zone.tars.zone_id}"
+  value = "${aws_route53_zone.vpc.zone_id}"
 }
 
 output "public_route_table_id" {
@@ -40,7 +40,7 @@ output "public_route_table_id" {
 }
 
 output "jenkins_net_route_table_id" {
-  value = "${aws_route_table.jenkins_nat.*.id}"
+  value = "${aws_route_table.private_nat.*.id}"
 }
  
 output "ctrl_peering_id" {
