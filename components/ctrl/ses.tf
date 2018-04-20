@@ -4,9 +4,9 @@ resource "aws_ses_domain_identity" "tars" {
 }
 
 
-resource "aws_route53_record" "domain_amazonses_verification_record" {
-  zone_id = "${aws_ses_domain_identity.tars.id}"
-  name    = "_amazonses.${aws_ses_domain_identity.tars.domain}"
+resource "aws_route53_record" "amazonses_verification_record" {
+  zone_id = "${data.aws_route53_zone.public.id}"
+  name    = "_amazonses"
   type    = "TXT"
   ttl     = "3600"
   records = ["${aws_ses_domain_identity.tars.verification_token}"]
@@ -23,7 +23,7 @@ resource "aws_ses_domain_mail_from" "tars" {
 
 # Example Route53 TXT record for SPF
 resource "aws_route53_record" "ses_domain_mail_from_txt" {
-  zone_id = "${aws_ses_domain_identity.tars.id}"
+  zone_id = "${data.aws_route53_zone.public.id}"
   name    = "${aws_ses_domain_mail_from.tars.mail_from_domain}"
   type    = "TXT"
   ttl     = "600"
@@ -32,7 +32,7 @@ resource "aws_route53_record" "ses_domain_mail_from_txt" {
 
 
 resource "aws_route53_record" "ses_domain_mail_from_mx" {
-  zone_id = "${aws_ses_domain_identity.tars.id}"
+  zone_id = "${data.aws_route53_zone.public.id}"
   name    = "${aws_ses_domain_mail_from.tars.mail_from_domain}"
   type    = "MX"
   ttl     = "600"
@@ -49,8 +49,8 @@ resource "aws_ses_domain_dkim" "tars" {
 
 resource "aws_route53_record" "amazonses_dkim_record" {
   count   = "3"
-  zone_id = "${aws_ses_domain_identity.tars.id}"
-  name    = "${element(aws_ses_domain_dkim.tars.dkim_tokens, count.index)}._domainkey.dvsa.tars.dev-dvsacloud.uk"
+  zone_id = "${data.aws_route53_zone.public.id}"
+  name    = "${element(aws_ses_domain_dkim.tars.dkim_tokens, count.index)}"
   type    = "CNAME"
   ttl     = "600"
   records = ["${element(aws_ses_domain_dkim.tars.dkim_tokens, count.index)}.dkim.amazonses.com"]
