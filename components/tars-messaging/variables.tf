@@ -39,9 +39,9 @@ variable "default_tags" {
   }
 }
 
-variable "messaging_whitelist" {
+variable "whitelist" {
   type        = "list"
-  description = "TARS Messsaging Servers inbound whitelisted IP's"
+  description = "TARS Servers inbound whitelisted IP's"
   default     = []
 }
 
