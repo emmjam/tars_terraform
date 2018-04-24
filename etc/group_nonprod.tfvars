@@ -29,6 +29,12 @@ power_users = [
   "allan.todd@bjss.com",
 ]
 
+dms_users = [
+  "ana.rotstein@bjss.com",
+  "david.giles@bjss.com",
+]
+
+
 ###############################################################################
 # MGMT
 ###############################################################################
@@ -195,3 +201,21 @@ aws_account_alias = "tarsnonprod"
 deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVSO8uKpdbwww94azylwjnFxsFGcmXG4ObL1oOFibHMN0x+SsSwjfC1DEziWPK3m/Crmar0+ad/68nQC+iWo/MYclh8h3bkKlv9dO4Xtv/0H6uDRW3l3bBO0rWYbt46fMAOCqX96N3LRTfUlPuzsVAd0NGZZlSSAZF0AMl4xE/tZl2m+Dqylrjp3qLT4UxEIrAuvPW06PqkGy63hZznjCjQDaadOAUpY19ZaA71JBueyGBnZ8pSVzr5hT1TpNw/cXxA6WLj4CCipIVm0M64OT/ArqcnQMX9Htf4Gp5apXZ3f6MerfjgHnkrm1t6JNuhSjVB deployer@mgmt.tars.dvsa.aws"
 
 tars_rds_autoscale = "True"
+
+# DMS Replication instance
+
+tars_dms_allocated_storage = "50"
+
+tars_dms_apply_immediately = true
+
+tars_dms_auto_minor_version_upgrade = true
+
+tars_dms_engine_version = "2.4.1"
+
+tars_dms_multi_az = false
+
+tars_dms_maint_window = "sun:03:16-sun:03:46"
+
+tars_dms_publicly_accessible = false
+
+tars_dms_replication_instance_class = "dms.t2.micro"
