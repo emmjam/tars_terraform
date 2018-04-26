@@ -24,7 +24,6 @@ module "squidnat" {
   ]
 
   whitelist_cidrs = [
-    "${var.jenkinsnode_subnets_cidrs}",
   ]
 
   default_tags = "${merge(
