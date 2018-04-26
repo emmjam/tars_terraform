@@ -81,3 +81,9 @@ variable "ops_team_email" {
   type        = "string"
   description = "Email for the ops team alerts"
 }
+
+variable "capita_users" {
+  type        = "list"
+  description = "List of IAM Users from Capita, that have rights to manage events/monitoring from Messaging server"
+  default     = []
+}

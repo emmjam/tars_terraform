@@ -34,6 +34,9 @@ dms_users = [
   "david.giles@bjss.com",
 ]
 
+capita_users = [
+  "paul.hepple@capita.co.uk",
+]
 
 ###############################################################################
 # MGMT
