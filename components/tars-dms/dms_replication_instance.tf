@@ -12,7 +12,7 @@ resource "aws_dms_replication_instance" "tars_dms_replication_instance" {
   apply_immediately            = "${var.tars_dms_apply_immediately}"
   auto_minor_version_upgrade   = "${var.tars_dms_auto_minor_version_upgrade}"
   engine_version               = "${var.tars_dms_engine_version}"
-  kms_key_arn                  = "${data.aws_kms_alias.dms.arn}"
+  kms_key_arn                  = "${data.aws_kms_alias.dms.target_key_arn}"
   multi_az                     = "${var.tars_dms_multi_az}"
   preferred_maintenance_window = "${var.tars_dms_maint_window}"
   publicly_accessible          = "${var.tars_dms_publicly_accessible}"
