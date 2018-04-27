@@ -9,7 +9,7 @@ resource "aws_launch_configuration" "tars-backend" {
   )}"
 
   image_id             = "${data.aws_ami.wildfly-back.image_id}"
-  instance_type        = "${lookup(var.wildfly-back,"instance_type")}"
+  instance_type        = "${var.wildfly-back_instance_type}"
   spot_price           = "${var.lc_spot_price}"
   key_name             = "${data.terraform_remote_state.acc.key_name}"
   user_data            = "${data.template_cloudinit_config.wildfly-back.rendered}"

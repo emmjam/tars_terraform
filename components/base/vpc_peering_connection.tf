@@ -30,8 +30,8 @@ resource "aws_vpc_peering_connection" "ctrl" {
 # Peer with the MGMT account
 resource "aws_vpc_peering_connection" "mgmt" {
   vpc_id        = "${aws_vpc.vpc.id}"
-  peer_owner_id = "${lookup(var.mgmt,"aws_account_id")}"
-  peer_vpc_id   = "${lookup(var.mgmt,"vpc_id")}"
+  peer_owner_id = "${var.mgmt_aws_account_id}"
+  peer_vpc_id   = "${var.mgmt_vpc_id}"
 
   auto_accept = false
 
@@ -57,7 +57,7 @@ resource "aws_vpc_peering_connection" "mgmt" {
 resource "aws_route" "jenkins_mgmt" {
   count                     = "${length(var.squidnat_subnets_cidrs)}"
   route_table_id            = "${element(aws_route_table.private_nat.*.id,count.index)}"
-  destination_cidr_block    = "${lookup(var.mgmt,"vpc_cidr_block")}"
+  destination_cidr_block    = "${var.mgmt_vpc_cidr_block}"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.mgmt.id}"
 }
 

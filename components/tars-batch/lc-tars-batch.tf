@@ -9,7 +9,7 @@ resource "aws_launch_configuration" "tars-batch" {
   )}"
 
   image_id             = "${data.aws_ami.wildfly-batch.image_id}"
-  instance_type        = "${lookup(var.wildfly-batch,"instance_type")}"
+  instance_type        = "${var.wildfly-batch_instance_type}"
   spot_price           = "${var.lc_spot_price}"
   key_name             = "${data.terraform_remote_state.acc.key_name}"
   user_data            = "${data.template_cloudinit_config.wildfly-batch.rendered}"

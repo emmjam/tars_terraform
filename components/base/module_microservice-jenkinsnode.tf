@@ -14,12 +14,12 @@ module "jenkinsnode" {
   lc_additional_sg_ids = [ "${aws_security_group.core.id}" ]
 
   lc_ami_id        = "${data.aws_ami.jenkinsnode.image_id}"
-  lc_instance_type = "${lookup(var.jenkinsnode,"instance_type")}"
+  lc_instance_type = "${var.jenkinsnode_instance_type}"
   lc_user_data     = "${data.template_cloudinit_config.jenkinsnode.rendered}"
 
-  asg_size_min               = "${lookup(var.jenkinsnode,"asg_min_size")}"
-  asg_size_desired_on_create = "${lookup(var.jenkinsnode,"asg_min_size")}"
-  asg_size_max               = "${lookup(var.jenkinsnode,"asg_max_size")}"
+  asg_size_min               = "${var.jenkinsnode_asg_min_size}"
+  asg_size_desired_on_create = "${var.jenkinsnode_asg_min_size}"
+  asg_size_max               = "${var.jenkinsnode_asg_max_size}"
 
   default_tags = "${var.default_tags}"
 }

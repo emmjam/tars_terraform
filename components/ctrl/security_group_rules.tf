@@ -30,6 +30,27 @@ resource "aws_security_group_rule" "jenkinsnode_egress_jenkins_elb_49187" {
   source_security_group_id = "${data.terraform_remote_state.mgmt.jenkins_elb_sg_id}"
 }
 
+# jenkins-ctrl_jenkinsnodes
+resource "aws_security_group_rule" "jenkins_elb_ingress_ctrl_jenkinsnode_http" {
+  description       = "Allow TCP/80 from CTRL JenkinsNodes"
+  type              = "ingress"
+  from_port         = 80
+  to_port           = 80
+  protocol          = "tcp"
+  source_security_group_id = "${module.jenkinsnode.security_group_id}"
+  security_group_id = "${data.terraform_remote_state.mgmt.jenkins_elb_sg_id}"
+}
+
+resource "aws_security_group_rule" "jenkins_elb_ingress_ctrl_jenkinsnode_49187" {
+  description       = "Allow TCP/49187 from CTRL JenkinsNodes"
+  type              = "ingress"
+  from_port         = 49187
+  to_port           = 49187
+  protocol          = "tcp"
+  security_group_id = "${data.terraform_remote_state.mgmt.jenkins_elb_sg_id}"
+  source_security_group_id = "${module.jenkinsnode.security_group_id}"
+}
+
 # jenkinsnode-gitlab
 resource "aws_security_group_rule" "jenkinsnode_egress_gitlab_ssh" {
   description       = "Allow TCP/22 to GitLab"
@@ -39,6 +60,17 @@ resource "aws_security_group_rule" "jenkinsnode_egress_gitlab_ssh" {
   protocol          = "tcp"
   security_group_id = "${module.jenkinsnode.security_group_id}"
   source_security_group_id = "${data.terraform_remote_state.mgmt.gitlab_elb_sg_id}"
+}
+
+# gitlab-ctrl_jenkinsnodes
+resource "aws_security_group_rule" "gitlab_elb_private_ingress_ctrl_jenkinsnode_ssh" {
+  description       = "Allow TCP/22 from CTRL JenkinsNodes"
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  security_group_id = "${data.terraform_remote_state.mgmt.gitlab_elb_sg_id}"
+  source_security_group_id = "${module.jenkinsnode.security_group_id}"
 }
 
 # jenkinsnode-internet

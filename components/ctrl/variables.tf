@@ -48,36 +48,7 @@ variable "ctrl_nat_subnets_cidrs" {
   description = ""
 }
 
-variable "mgmt" {
-  type        = "map"
-  description = ""
-}
-
-variable "mgmt_account_id" {
-  type = "string"
-}
-
-variable "jenkinsctrl" {
-  type        = "map"
-  description = ""
-}
-
-variable "jenkinsctrl_subnets_cidrs" {
-  type        = "list"
-  description = ""
-}
-
-variable "bastion" {
-  type        = "map"
-  description = ""
-}
-
 variable "ctrl_bastion_subnets" {
-  type        = "list"
-  description = ""
-}
-
-variable "bastion_elb_subnets_cidrs" {
   type        = "list"
   description = ""
 }
@@ -88,32 +59,112 @@ variable "whitelist" {
   default     = []
 }
 
-variable "dev01_peers" {
-  type        = "list"
-  description = ""
-  default     = []
-}
-
-variable "opsdev_peers" {
-  type        = "list"
-  description = ""
-  default     = []
-}
-
-variable "sit01_peers" {
-  type        = "list"
-  description = ""
-  default     = []
-}
-
-variable "uat01_peers" {
-  type        = "list"
-  description = ""
-  default     = []
-}
-
-
 variable "public_domain_name" {
   type = "string"
   description = "public domain name for the hosted zone"
 }
+
+## Jenkinsctrl
+
+variable "jenkinsctrl_ami_build_id" {
+  type = "string"
+  description = ""
+}
+
+variable "jenkinsctrl_scaledown_desired" {
+  type = "string"
+  description = ""
+}
+
+variable "jenkinsctrl_subnets_cidrs" {
+  type        = "list"
+  description = ""
+}
+
+variable "jenkinsctrl_scaledown_recurrence" {
+  type = "string"
+  description = ""
+}
+
+variable "jenkinsctrl_executors" {
+  type = "string"
+  description = ""
+}
+
+variable "jenkinsctrl_instance_type" {
+  type = "string"
+  description = ""
+}
+
+variable "jenkinsctrl_asg_min_size" {
+  type = "string"
+  description = ""
+}
+
+variable "jenkinsctrl_asg_max_size" {
+  type = "string"
+  description = ""
+}
+
+variable "jenkinsctrl_scaleup_desired" {
+  type = "string"
+  description = ""
+}
+
+variable "jenkinsctrl_scaleup_recurrence" {
+  type = "string"
+  description = ""
+}
+
+variable "mgmt_aws_account_id" {
+  type = "string"
+  description = ""
+}
+
+## Bastion
+
+variable "bastion_scaleup_desired" {
+  type = "string"
+  description = ""
+}
+
+variable "bastion_scaledown_desired" {
+  type = "string"
+  description = ""
+}
+
+variable "bastion_scaledown_recurrence" {
+  type = "string"
+  description = ""
+}
+
+variable "bastion_ami_build_id" {
+  type = "string"
+  description = ""
+}
+
+variable "bastion_asg_max_size" {
+  type = "string"
+  description = ""
+}
+
+variable "bastion_instance_type" {
+  type = "string"
+  description = ""
+}
+
+variable "bastion_asg_min_size" {
+  type = "string"
+  description = ""
+}
+
+variable "bastion_scaleup_recurrence" {
+  type = "string"
+  description = ""
+}
+
+variable "bastion_elb_subnets_cidrs" {
+  type        = "list"
+  description = ""
+}
+

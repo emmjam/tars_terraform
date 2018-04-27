@@ -9,8 +9,8 @@ resource "aws_autoscaling_group" "tars-frontend" {
   )}"
 
   launch_configuration = "${aws_launch_configuration.tars-frontend.id}"
-  max_size             = "${lookup(var.wildfly-front,"asg_max_size")}"
-  min_size             = "${lookup(var.wildfly-front,"asg_min_size")}"
+  max_size             = "${var.wildfly-front_asg_max_size}"
+  min_size             = "${var.wildfly-front_asg_min_size}"
   termination_policies = ["${var.asg_termination_policies}"]
   vpc_zone_identifier  = ["${data.terraform_remote_state.base.subnets_tars_web}"]
   target_group_arns    = [
@@ -50,6 +50,6 @@ resource "aws_autoscaling_group" "tars-frontend" {
   
   # Spin up the max specified in the config
   provisioner "local-exec" {
-    command = "aws autoscaling update-auto-scaling-group --auto-scaling-group-name ${aws_autoscaling_group.tars-frontend.name} --desired-capacity ${lookup(var.wildfly-front,"asg_max_size")} --region ${var.aws_region}"
+    command = "aws autoscaling update-auto-scaling-group --auto-scaling-group-name ${aws_autoscaling_group.tars-frontend.name} --desired-capacity ${var.wildfly-front_asg_max_size} --region ${var.aws_region}"
   }
 }

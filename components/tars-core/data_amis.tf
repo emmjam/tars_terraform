@@ -10,7 +10,7 @@ data "aws_ami" "wildfly-back" {
   most_recent = "true"
   owners = [
     "${data.aws_caller_identity.current.account_id}",
-    "${lookup(var.mgmt,"aws_account_id")}",
+    "${var.mgmt_aws_account_id}",
   ]
 
   filter {
@@ -25,13 +25,13 @@ data "aws_ami" "wildfly-front" {
     var.project,
     "rhel",
     "wildfly11-front",
-    "${var.ami_build_id}"
+    var.ami_build_id
   )}"
 
   most_recent = "true"
   owners = [
     "${data.aws_caller_identity.current.account_id}",
-    "${lookup(var.mgmt,"aws_account_id")}",
+    "${var.mgmt_aws_account_id}",
   ]
 
   filter {

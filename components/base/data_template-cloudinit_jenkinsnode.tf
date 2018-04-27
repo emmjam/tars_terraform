@@ -16,7 +16,7 @@ data "template_file" "jenkinsnode_config" {
     master_url    = "jenkins.mgmt.mgmt.tars.dvsa.aws"                        # TODO: use remote state
     # account_alias = "${data.terraform_remote_state.acc.account_alias}"
     account_alias = "${var.environment}"
-    executors     = "${lookup(var.jenkinsnode,"executors")}"
+    executors     = "${var.jenkinsnode_executors}"
   }
 }
 

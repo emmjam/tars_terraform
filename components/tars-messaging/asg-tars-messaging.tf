@@ -9,8 +9,8 @@ resource "aws_autoscaling_group" "tars-messaging" {
   )}"
 
   launch_configuration = "${aws_launch_configuration.tars-messaging.id}"
-  max_size             = "${lookup(var.wildfly-messaging,"asg_max_size")}"
-  min_size             = "${lookup(var.wildfly-messaging,"asg_min_size")}"
+  max_size             = "${var.wildfly-messaging_asg_max_size}"
+  min_size             = "${var.wildfly-messaging_asg_min_size}"
   termination_policies = ["${var.asg_termination_policies}"]
   vpc_zone_identifier  = ["${data.terraform_remote_state.base.subnets_tars_messaging}"]
   target_group_arns    = [
@@ -50,6 +50,6 @@ resource "aws_autoscaling_group" "tars-messaging" {
 
   # Spin up max desired messaging servers
   provisioner "local-exec" {
-    command = "aws autoscaling update-auto-scaling-group --auto-scaling-group-name ${aws_autoscaling_group.tars-messaging.name} --desired-capacity ${lookup(var.wildfly-messaging,"asg_max_size")} --region ${var.aws_region}"
+    command = "aws autoscaling update-auto-scaling-group --auto-scaling-group-name ${aws_autoscaling_group.tars-messaging.name} --desired-capacity ${var.wildfly-messaging_asg_max_size} --region ${var.aws_region}"
   }
 }
