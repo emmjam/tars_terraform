@@ -77,3 +77,5 @@ whitelist = [
   "92.54.181.128/29",   # Informed Solutions
   "87.81.132.117/32",   # Informed Solutions
 ]
+
+ops_team_email = "mark.thompson@bjss.com"
