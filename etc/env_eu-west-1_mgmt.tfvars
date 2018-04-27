@@ -33,7 +33,6 @@ users = [
 
 administrators = [
   "mark.thompson@bjss.com",
-  "karl.gharios@bjss.com",
   "callum.massey@bjss.com",
   "brian.collinson@bjss.com",
 ]
