@@ -56,7 +56,6 @@ variable "ctrl_bastion_subnets" {
 variable "whitelist" {
   type        = "list"
   description = ""
-  default     = []
 }
 
 variable "public_domain_name" {
