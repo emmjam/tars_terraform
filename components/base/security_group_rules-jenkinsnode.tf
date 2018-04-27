@@ -31,27 +31,6 @@ resource "aws_security_group_rule" "jenkinsnode_egress_jenkins_elb_49187" {
   cidr_blocks       = ["${var.mgmt_jenkins_elb_subnet}"]
 }
 
-### jenkins-jenkinsnodes
-resource "aws_security_group_rule" "jenkins_elb_ingress_jenkinsnode_http" {
-  description       = "Allow TCP/80 from OpsDev JenkinsNodes"
-  type              = "ingress"
-  from_port         = 80
-  to_port           = 80
-  protocol          = "tcp"
-  source_security_group_id = "${module.jenkinsnode.security_group_id}"
-  security_group_id = "${data.terraform_remote_state.mgmt.jenkins_elb_sg_id}"
-}
-
-resource "aws_security_group_rule" "jenkins_elb_ingress_jenkinsnode_49187" {
-  description       = "Allow TCP/49187 from OpsDev JenkinsNodes"
-  type              = "ingress"
-  from_port         = 49187
-  to_port           = 49187
-  protocol          = "tcp"
-  source_security_group_id = "${module.jenkinsnode.security_group_id}"
-  security_group_id = "${data.terraform_remote_state.mgmt.jenkins_elb_sg_id}"
-}
-
 # jenkinsnode-gitlab
 resource "aws_security_group_rule" "jenkinsnode_egress_gitlab_ssh" {
   description       = "Allow TCP/22 to GitLab"
@@ -63,17 +42,6 @@ resource "aws_security_group_rule" "jenkinsnode_egress_gitlab_ssh" {
   cidr_blocks       = ["${var.mgmt_gitlab_subnet}"]
 }
 
-
-# gitlab-opsdev_jenkinsnodes
-resource "aws_security_group_rule" "gitlab_elb_private_ingress_jenkinsnode_ssh" {
-  description       = "Allow TCP/22 from OpsDev JenkinsNodes"
-  type              = "ingress"
-  from_port         = 22
-  to_port           = 22
-  protocol          = "tcp"
-  source_security_group_id = "${module.jenkinsnode.security_group_id}"
-  security_group_id = "${data.terraform_remote_state.mgmt.gitlab_elb_sg_id}"
-}
 
 # jenkinsnode-internet-https
 resource "aws_security_group_rule" "jenkinsnode_egress_internet_https" {
