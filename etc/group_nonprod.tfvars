@@ -35,6 +35,7 @@ dms_users = [
 
 capita_users = [
   "paul.hepple@capita.co.uk",
+  "rob.whyte@capita.co.uk",
 ]
 
 ###############################################################################
