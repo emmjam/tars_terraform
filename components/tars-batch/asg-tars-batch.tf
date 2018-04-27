@@ -9,8 +9,8 @@ resource "aws_autoscaling_group" "tars-batch" {
   )}"
 
   launch_configuration = "${aws_launch_configuration.tars-batch.id}"
-  max_size             = "${lookup(var.wildfly-batch,"asg_max_size")}"
-  min_size             = "${lookup(var.wildfly-batch,"asg_min_size")}"
+  max_size             = "${var.wildfly-batch_asg_max_size}"
+  min_size             = "${var.wildfly-batch_asg_min_size}"
   termination_policies = ["${var.asg_termination_policies}"]
   vpc_zone_identifier  = ["${data.terraform_remote_state.base.subnets_tars_backend}"]
   target_group_arns    = [
@@ -49,6 +49,6 @@ resource "aws_autoscaling_group" "tars-batch" {
 
   # Spin up batch servers to the max defined
   provisioner "local-exec" {
-    command = "aws autoscaling update-auto-scaling-group --auto-scaling-group-name ${aws_autoscaling_group.tars-batch.name} --desired-capacity ${lookup(var.wildfly-batch,"asg_max_size")} --region ${var.aws_region}"
+    command = "aws autoscaling update-auto-scaling-group --auto-scaling-group-name ${aws_autoscaling_group.tars-batch.name} --desired-capacity ${var.wildfly-batch_asg_max_size} --region ${var.aws_region}"
   }
 }

@@ -6,7 +6,7 @@ resource "aws_security_group_rule" "tars_alb_public_ingress_whitelist_port_443" 
   to_port           = 443
   protocol          = "tcp"
   security_group_id = "${aws_security_group.tars-alb-public.id}"
-  cidr_blocks       = ["${var.tars_core_whitelist}"]
+  cidr_blocks       = ["${var.whitelist}"]
 }
 
 resource "aws_security_group_rule" "tars_alb_public_ingress_whitelist_port_9990" {
@@ -16,7 +16,7 @@ resource "aws_security_group_rule" "tars_alb_public_ingress_whitelist_port_9990"
   to_port           = 9990
   protocol          = "tcp"
   security_group_id = "${aws_security_group.tars-alb-public.id}"
-  cidr_blocks       = ["${var.tars_core_whitelist}"]
+  cidr_blocks       = ["${var.whitelist}"]
 }
 
 resource "aws_security_group_rule" "tars_alb_public_egress_tars_front_port_8443" {

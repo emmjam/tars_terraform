@@ -11,26 +11,26 @@ resource "aws_mq_broker" "tars-awsmq" {
     id = "${aws_mq_configuration.tars-awsmq.id}"
     revision = "${aws_mq_configuration.tars-awsmq.latest_revision}"
   }
-  engine_type = "${lookup(var.aws_mq,"engine_type")}"
-  engine_version = "${lookup(var.aws_mq,"engine_version")}"
-  host_instance_type = "${lookup(var.aws_mq,"host_instance_type")}"
-  deployment_mode = "${lookup(var.aws_mq,"deployment_mode")}"
+  engine_type = "${var.aws_mq_engine_type}"
+  engine_version = "${var.aws_mq_engine_version}"
+  host_instance_type = "${var.aws_mq_host_instance_type}"
+  deployment_mode = "${var.aws_mq_deployment_mode}"
   security_groups = ["${aws_security_group.tars-awsmq.id}"]
   user {
-    username = "${lookup(var.aws_mq_users,"admin_user")}"
-    password = "${lookup(var.aws_mq_users,"admin_password")}"
+    username = "${var.aws_mq_users_admin_user}"
+    password = "${var.aws_mq_users_admin_password}"
     console_access = true
   }
   user {
-    username = "${lookup(var.aws_mq_users,"tars_batch_user")}"
-    password = "${lookup(var.aws_mq_users,"tars_batch_password")}"
-    groups   = ["${lookup(var.aws_mq_users,"tars_batch_group")}"]
+    username = "${var.aws_mq_users_tars_batch_user}"
+    password = "${var.aws_mq_users_tars_batch_password}"
+    groups   = ["${var.aws_mq_users_tars_batch_group}"]
     console_access = false
   }
   user {
-    username = "${lookup(var.aws_mq_users,"tars_messaging_user")}"
-    password = "${lookup(var.aws_mq_users,"tars_messaging_password")}"
-    groups   = ["${lookup(var.aws_mq_users,"tars_batch_group")}"]
+    username = "${var.aws_mq_users_tars_messaging_user}"
+    password = "${var.aws_mq_users_tars_messaging_password}"
+    groups   = ["${var.aws_mq_users_tars_batch_group}"]
     console_access = false
   } 
   subnet_ids = ["${data.terraform_remote_state.base.subnets_tars_awsmq}"]

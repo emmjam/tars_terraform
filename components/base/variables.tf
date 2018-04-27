@@ -38,16 +38,6 @@ variable "private_domain_name" {
   description = "R53 Private Domain Name"
 }
 
-variable "jenkinsnode_subnets_cidrs" {
-  type        = "list"
-  description = "Jenkinsnode subnet CIDR's"
-}
-
-variable "jenkins_nat_subnets_cidrs" {
-  type        = "list"
-  description = "Jenkinsnode NAT subnet CIDR's"
-}
-
 variable "tars_backend_subnets_cidrs" {
   type        = "list"
   description = "TARS backend tier subnet CIDR's"
@@ -78,9 +68,68 @@ variable "rds_subnets_cidrs" {
   description = "TARS RDS Subnet CIDR's"
 }
 
-variable "mgmt" {
-  type        = "map"
-  description = "MGMT Account Subnets"
+variable "squidnat_subnets_cidrs" {
+  type = "list"
+  description = ""
+}
+
+variable "squidnat_instance_type" {
+  type = "string"
+  description = ""
+}
+
+variable "tf_state_bucket_prefix" {
+  type        = "string"
+  description = "TF State bucket prefix"
+}
+
+variable "account_component_name" {
+  type        = "string"
+  description = "The name of the account-level component as used in remote state"
+  default     = "acc"
+}
+
+variable "account_environment" {
+  type        = "string"
+  description = "The environment name for the account level scope for the account in which this component is deployed"
+}
+
+variable "transit_peering_enabled" {
+  type        = "string"
+  description = "Enable Transit VPC peering to West Malling"
+  default     = false
+}
+
+variable "aws_account_id" {
+  type        = "string"
+  description = "Account ID"
+}
+
+## Mgmt
+
+variable "mgmt_component" {
+  type = "string"
+  description = ""
+}
+
+variable "mgmt_vpc_cidr_block" {
+  type = "string"
+  description = "CIDR Block range of MGMT account/comp"
+}
+
+variable "mgmt_jenkins_elb_subnet" {
+  type = "string"
+  description = "Jenkins Master subnet"
+}
+
+variable "mgmt_vpc_id" {
+  type = "string"
+  description = "MGMT account vpc cidr"
+}
+
+variable "mgmt_gitlab_subnet" {
+  type = "string"
+  description = "MGMT gitlab subent cidr"
 }
 
 variable "mgmt_aws_region" {
@@ -103,59 +152,40 @@ variable "mgmt_environment" {
   description = ""
 }
 
-variable "squidnat_subnets_cidrs" {
-  type = "list"
-  description = ""
+## Jenkins
+
+variable "jenkinsnode_subnets_cidrs" {
+  type        = "list"
+  description = "Jenkinsnode subnet CIDR's"
 }
 
-variable "squidnat_instance_type" {
+variable "jenkins_nat_subnets_cidrs" {
+  type        = "list"
+  description = "Jenkinsnode NAT subnet CIDR's"
+}
+
+variable "jenkinsnode_ami_build_id" {
+  type = "string"
+  description = "Jenkinsnode AMI build nomber"
+}
+
+variable "jenkinsnode_executors" {
+  type = "string"
+  description = "executor count for jenkinsnodes"
+}
+
+variable "jenkinsnode_instance_type" {
+  type = "string"
+  description = "Jnekins instance size"
+}
+
+variable "jenkinsnode_asg_max_size" {
   type = "string"
   description = ""
 }
 
-variable "mgmt_component" {
+variable "jenkinsnode_asg_min_size" {
   type = "string"
   description = ""
 }
 
-variable "tf_state_bucket_prefix" {
-  type        = "string"
-  description = "TF State bucket prefix"
-}
-
-variable "account_component_name" {
-  type        = "string"
-  description = "The name of the account-level component as used in remote state"
-  default     = "acc"
-}
-
-variable "account_environment" {
-  type        = "string"
-  description = "The environment name for the account level scope for the account in which this component is deployed"
-}
-
-variable "jenkinsnode" {
-  type        = "map"
-  description = "Jenkinsnode configuration"
-}
-
-variable "transit_peering_enabled" {
-  type        = "string"
-  description = "Enable Transit VPC peering to West Malling"
-  default     = false
-}
-
-variable "ctrl_mgmt" {
-  type        = "map"
-  description = "CTRL MGMT Account Subnets"
-}
-
-variable "ctrl_nonprod" {
-  type        = "map"
-  description = "CTRL Nonprod Account Subnets"
-}
-
-variable "aws_account_id" {
-  type        = "string"
-  description = "Account ID"
-}

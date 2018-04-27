@@ -9,7 +9,7 @@ resource "aws_launch_configuration" "tars-messaging" {
   )}"
 
   image_id             = "${data.aws_ami.wildfly-messaging.image_id}"
-  instance_type        = "${lookup(var.wildfly-messaging,"instance_type")}"
+  instance_type        = "${var.wildfly-messaging_instance_type}"
   spot_price           = "${var.lc_spot_price}"
   key_name             = "${data.terraform_remote_state.acc.key_name}"
   # user_data            = "${data.template_cloudinit_config.wildfly-batch.rendered}"

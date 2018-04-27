@@ -42,13 +42,6 @@ variable "default_tags" {
 variable "whitelist" {
   type        = "list"
   description = "TARS Servers inbound whitelisted IP's"
-  default     = []
-}
-
-variable "mq_console_whitelist" {
-  type        = "list"
-  description = "TARS AWS MQ console inbound whitelisted IP's"
-  default     = []
 }
 
 variable "wildfly-messaging" {

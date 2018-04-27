@@ -39,10 +39,9 @@ variable "default_tags" {
   }
 }
 
-variable "tars_core_whitelist" {
+variable "whitelist" {
   type        = "list"
   description = "TARS Core Servers inbound whitelisted IP's"
-  default     = []
 }
 
 variable "wildfly-back" {

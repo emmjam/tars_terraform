@@ -27,17 +27,14 @@ ctrl_bastion_subnets = [
   "10.167.64.144/28",
 ]
 
-mgmt_account_id = "645711882182"
-mgmt = {
-  aws_account_id         = "645711882182"
-  aws_region             = "eu-west-1"
-  project                = "tars"
-  environment            = "mgmt"
-  component              = "mgmt"
-  vpc_id                 = "vpc-e303d285"           # TODO: use remote state
-  vpc_cidr_block         = "10.200.0.0/16"          # TODO: use remote state
-  tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote state
-}
+mgmt_aws_account_id         = "645711882182"
+mgmt_aws_region             = "eu-west-1"
+mgmt_project                = "tars"
+mgmt_environment            = "mgmt"
+mgmt_component              = "mgmt"
+mgmt_vpc_id                 = "vpc-e303d285"           # TODO: use remote state
+mgmt_vpc_cidr_block         = "10.200.0.0/16"          # TODO: use remote state
+mgmt_tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote state
 
 mgmt_bastion_subnets = [
   "10.200.1.96/28",
@@ -45,17 +42,15 @@ mgmt_bastion_subnets = [
   "10.200.1.128/28",
 ]
 
-jenkinsctrl = {
-  instance_type        = "m4.large"
-  ami_build_id         = "39"
-  executors            = 5
-  asg_min_size         = 0
-  asg_max_size         = 3
-  scaledown_desired    = 0
-  scaledown_recurrence = "00 19 * * 1-5"
-  scaleup_desired      = 1
-  scaleup_recurrence   = "15 07 * * 1-5"
-}
+jenkinsctrl_instance_type        = "m4.large"
+jenkinsctrl_ami_build_id         = "39"
+jenkinsctrl_executors            = 5
+jenkinsctrl_asg_min_size         = 0
+jenkinsctrl_asg_max_size         = 3
+jenkinsctrl_scaledown_desired    = 0
+jenkinsctrl_scaledown_recurrence = "00 19 * * 1-5"
+jenkinsctrl_scaleup_desired      = 1
+jenkinsctrl_scaleup_recurrence   = "15 07 * * 1-5"
 
 jenkinsctrl_subnets_cidrs = [
   "10.167.64.16/28",
@@ -79,3 +74,4 @@ whitelist = [
 ]
 
 ops_team_email = "mark.thompson@bjss.com"
+
