@@ -273,3 +273,23 @@ tars_rds_apply_immediately = "true"
 tars_rds_license_model = "license-included"
 
 tars_rds_snapshot = "tars-testdb-210218"
+
+# Xenco temp dev box
+xenconode = {
+  instance_type        = "m4.large"
+  ami_id               = "ami-f06bf389"
+  asg_min_size         = 0
+  asg_max_size         = 1
+  rpms_to_install      = "gcc kernel-devel kernel-headers"
+  key_name             = "deployer"
+}
+
+xenco_whitelist = [
+  "77.86.30.4/32",      # BJSS VPN (Decom ~06/18)
+  "148.253.134.213/32", # BJSS VPN 04/18
+]
+
+# Xenco CIDR Range
+xenco_subnets_cidrs = [
+  "10.167.3.241/28",
+]
