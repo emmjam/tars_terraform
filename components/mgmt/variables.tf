@@ -28,10 +28,6 @@ variable "default_tags" {
   }
 }
 
-variable "mgmt" {
-  type       = "map"
-}
-
 variable "account_environment" {
   type = "string"
   description = "Test shortname of current AWS account"
@@ -80,11 +76,6 @@ variable "whitelist" {
   default     = []
 }
 
-variable "jenkins" {
-  type        = "map"
-  description = ""
-}
-
 variable "jenkins_blue_subnets_cidrs" {
   type        = "list"
   description = ""
@@ -112,28 +103,13 @@ variable "jenkins_elb_subnets_cidrs" {
   description = ""
 }
 
-variable "jenkinsnode" {
-  type        = "map"
-  description = ""
-}
-
 variable "jenkinsnode_subnets_cidrs" {
   type        = "list"
   description = ""
 }
 
-variable "gitlab" {
-  type        = "map"
-  description = ""
-}
-
 variable "gitlab_subnets_cidrs" {
   type        = "list"
-  description = ""
-}
-
-variable "gitlab_elb_public" {
-  type        = "map"
   description = ""
 }
 
@@ -147,18 +123,8 @@ variable "gitlab_elb_subnets_cidrs" {
   description = ""
 }
 
-variable "gitlab_db" {
-  type        = "map"
-  description = ""
-}
-
 variable "gitlab_db_subnets_cidrs" {
   type        = "list"
-  description = ""
-}
-
-variable "gitlab_redis" {
-  type        = "map"
   description = ""
 }
 
@@ -178,45 +144,9 @@ variable "ctrl_peers" {
   default     = []
 }
 
-variable "ebs_snapshot" {
-  type        = "map"
-  description = "Map of variables for configuring the EBS snapshot Lambda and associated resources."
-  default     = {}
-}
-
-variable "ebs_snapshot_cleanup" {
-  type        = "map"
-  description = "Map of variables for configuring the EBS snapshot cleanup Lambda and associated resources."
-  default     = {}
-}
-
 variable "deployer_pub_key" {
   type        = "string"
   description = "Pub SSH ky for deployer"
-}
-
-variable "dev01_peers" {
-  type        = "list"
-  description = ""
-  default     = []
-}
-
-variable "opsdev_peers" {
-  type        = "list"
-  description = ""
-  default     = []
-}
-
-variable "sit01_peers" {
-  type        = "list"
-  description = ""
-  default     = []
-}
-
-variable "uat01_peers" {
-  type        = "list"
-  description = ""
-  default     = []
 }
 
 variable "ctrl_peers_xacct" {
@@ -237,4 +167,278 @@ variable "base_peers_local" {
   description = ""
 }
 
+# EBS Snapshots
+
+variable "ebs_snapshot_cleanup_cloudwatch_log_retention_in_days" {
+  type = "string"
+  description = ""
+  
+}
+variable "ebs_snapshot_cleanup_cw_metric_log_error_pattern" {
+  type = "string"
+  description = ""
+  
+}
+variable "ebs_snapshot_cleanup_cw_rule_schedule_expression" {
+  type = "string"
+  description = ""
+  
+}
+variable "ebs_snapshot_cleanup_memory_size" {
+  type = "string"
+  description = ""
+  
+}
+variable "ebs_snapshot_cleanup_min_num_of_snapshots_to_retain" {
+  type = "string"
+  description = ""
+  
+}
+variable "ebs_snapshot_cleanup_min_retention_days" {
+  type = "string"
+  description = ""
+  
+}
+variable "ebs_snapshot_cleanup_publish" {
+  type = "string"
+  description = ""
+  
+}
+variable "ebs_snapshot_cleanup_s3_key" {
+  type = "string"
+  description = ""
+  
+}
+variable "ebs_snapshot_cleanup_timeout" {
+  type = "string"
+  description = ""
+  
+}
+variable "ebs_snapshot_cloudwatch_log_retention_in_days" {
+  type = "string"
+  description = ""
+  
+}
+variable "ebs_snapshot_cw_metric_log_error_pattern" {
+  type = "string"
+  description = ""
+  
+}
+variable "ebs_snapshot_cw_rule_schedule_expression" {
+  type = "string"
+  description = ""
+  
+}
+variable "ebs_snapshot_is_enabled" {
+  type = "string"
+  description = ""
+  
+}
+variable "ebs_snapshot_memory_size" {
+  type = "string"
+  description = ""
+  
+}
+variable "ebs_snapshot_publish" {
+  type = "string"
+  description = ""
+  
+}
+variable "ebs_snapshot_s3_key" {
+  type = "string"
+  description = ""
+  
+}
+variable "ebs_snapshot_timeout" {
+  type = "string"
+  description = ""
+  
+}
+
+#### Gitlab
+
+variable "gitlab_ami_build_id" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_db_allocated_storage" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_db_backup_retention_period" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_db_backup_window" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_db_db_name" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_db_engine_version" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_db_instance_class" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_db_maintenance_window" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_db_multi_az" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_db_password" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_db_pg_family" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_db_skip_final_snapshot" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_db_storage_type" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_db_username" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_ebs_volume_size" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_ebs_volume_type" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_elb_public_public_port" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_elb_public_public_protocol" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_instance_type" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_redis_endpoint_address" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_redis_engine_version" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_redis_maintenance_window" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_redis_node_type" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_redis_parameter_group_name" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_redis_snapshot_retention_limit" {
+  type = "string"
+  description = ""
+  
+}
+variable "gitlab_redis_snapshot_window" {
+  type = "string"
+  description = ""
+  
+}
+
+## Jenkins
+
+variable "jenkins_asg_max_size" {
+  type = "string"
+  description = ""
+  
+}
+variable "jenkins_asg_min_size" {
+  type = "string"
+  description = ""
+  
+}
+variable "jenkins_ami_build_id" {
+  type = "string"
+  description = ""
+}
+variable "jenkins_blue_nodes_number" {
+  type = "string"
+  description = ""
+  
+}
+variable "jenkins_ebs_volume_size" {
+  type = "string"
+  description = ""
+}
+variable "jenkins_ebs_volume_type" {
+  type = "string"
+  description = ""
+}
+variable "jenkins_instance_type" {
+  type = "string"
+  description = ""
+}
+variable "jenkins_scaledown_desired" {
+  type = "string"
+  description = ""
+}
+variable "jenkins_scaledown_recurrence" {
+  type = "string"
+  description = ""
+}
+variable "jenkins_scaleup_desired" {
+  type = "string"
+  description = ""
+}
+variable "jenkins_scaleup_recurrence" {
+  type = "string"
+  description = ""
+}
+variable "mgmt_vpc_id" {
+  type = "string"
+  description = ""
+}
 

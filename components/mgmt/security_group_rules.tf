@@ -10,6 +10,140 @@ resource "aws_security_group_rule" "common_ingress_bastion_ssh" {
 }
 
 # mgmt
+# jenkins-ctrl_jenkinsnodes
+resource "aws_security_group_rule" "jenkins_elb_ingress_ctrl_local_jenkinsnode_http" {
+  count             = "${length(var.ctrl_peers_local)}"
+  description       = "Allow TCP/80 from CTRL JenkinsNodes"
+  type              = "ingress"
+  from_port         = 80
+  to_port           = 80
+  protocol          = "tcp"
+  security_group_id = "${module.jenkins.jenkins_sg_id}"
+  cidr_blocks       = [ "${lookup(var.ctrl_peers_local[count.index], "cidr_block")}" ] 
+}
+
+resource "aws_security_group_rule" "jenkins_elb_ingress_ctrl_local_jenkinsnode_49187" {
+  count             = "${length(var.ctrl_peers_local)}"
+  description       = "Allow TCP/49187 from CTRL JenkinsNodes"
+  type              = "ingress"
+  from_port         = 49187
+  to_port           = 49187
+  protocol          = "tcp"
+  security_group_id = "${module.jenkins.jenkins_sg_id}"
+  cidr_blocks       = [ "${lookup(var.ctrl_peers_local[count.index], "cidr_block")}" ]
+}
+
+resource "aws_security_group_rule" "jenkins_elb_ingress_ctrl_xacct_jenkinsnode_http" {
+  count             = "${length(var.ctrl_peers_xacct)}"
+  description       = "Allow TCP/80 from CTRL JenkinsNodes"
+  type              = "ingress"
+  from_port         = 80
+  to_port           = 80
+  protocol          = "tcp"
+  security_group_id = "${module.jenkins.jenkins_sg_id}"
+  cidr_blocks       = [ "${lookup(var.ctrl_peers_xacct[count.index], "cidr_block")}" ]
+}
+
+resource "aws_security_group_rule" "jenkins_elb_ingress_ctrl_xacct_jenkinsnode_49187" {
+  count             = "${length(var.ctrl_peers_xacct)}"
+  description       = "Allow TCP/49187 from CTRL JenkinsNodes"
+  type              = "ingress"
+  from_port         = 49187
+  to_port           = 49187
+  protocol          = "tcp"
+  security_group_id = "${module.jenkins.jenkins_sg_id}"
+  cidr_blocks       = [ "${lookup(var.ctrl_peers_xacct[count.index], "cidr_block")}" ]
+}
+
+resource "aws_security_group_rule" "jenkins_elb_ingress_base_local_jenkinsnode_http" {
+  count             = "${length(var.base_peers_local)}"
+  description       = "Allow TCP/80 from CTRL JenkinsNodes"
+  type              = "ingress"
+  from_port         = 80
+  to_port           = 80
+  protocol          = "tcp"
+  security_group_id = "${module.jenkins.jenkins_sg_id}"
+  cidr_blocks       = [ "${lookup(var.base_peers_local[count.index], "cidr_block")}" ]
+}
+
+resource "aws_security_group_rule" "jenkins_elb_ingress_base_local_jenkinsnode_49187" {
+  count             = "${length(var.base_peers_local)}"
+  description       = "Allow TCP/49187 from CTRL JenkinsNodes"
+  type              = "ingress"
+  from_port         = 49187
+  to_port           = 49187
+  protocol          = "tcp"
+  security_group_id = "${module.jenkins.jenkins_sg_id}"
+  cidr_blocks       = [ "${lookup(var.base_peers_local[count.index], "cidr_block")}" ]
+}
+
+resource "aws_security_group_rule" "jenkins_elb_ingress_base_xacct_jenkinsnode_http" {
+  count             = "${length(var.base_peers_xacct)}"
+  description       = "Allow TCP/80 from CTRL JenkinsNodes"
+  type              = "ingress"
+  from_port         = 80   
+  to_port           = 80   
+  protocol          = "tcp"
+  security_group_id = "${module.jenkins.jenkins_sg_id}"
+  cidr_blocks       = [ "${lookup(var.base_peers_xacct[count.index], "cidr_block")}" ]
+} 
+  
+resource "aws_security_group_rule" "jenkins_elb_ingress_base_xacct_jenkinsnode_49187" {
+  count             = "${length(var.base_peers_xacct)}"
+  description       = "Allow TCP/49187 from CTRL JenkinsNodes"
+  type              = "ingress"
+  from_port         = 49187
+  to_port           = 49187
+  protocol          = "tcp"
+  security_group_id = "${module.jenkins.jenkins_sg_id}"
+  cidr_blocks       = [ "${lookup(var.base_peers_xacct[count.index], "cidr_block")}" ]
+}
+
+# gitlab-ctrl_jenkinsnodes
+resource "aws_security_group_rule" "gitlab_elb_private_ingress_base_local_jenkinsnode_ssh" {
+  count             = "${length(var.base_peers_local)}"
+  description       = "Allow TCP/22 from CTRL JenkinsNodes"
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  security_group_id = "${module.gitlab.elb_private_sg_id}"
+  cidr_blocks       = [ "${lookup(var.base_peers_local[count.index], "cidr_block")}" ]
+}
+
+resource "aws_security_group_rule" "gitlab_elb_private_ingress_base_xacct_jenkinsnode_ssh" {
+  count             = "${length(var.base_peers_xacct)}"
+  description       = "Allow TCP/22 from CTRL JenkinsNodes"
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  security_group_id = "${module.gitlab.elb_private_sg_id}"
+  cidr_blocks       = [ "${lookup(var.base_peers_xacct[count.index], "cidr_block")}" ]
+}
+
+resource "aws_security_group_rule" "gitlab_elb_private_ingress_ctrl_local_jenkinsnode_ssh" {
+  count             = "${length(var.ctrl_peers_local)}"
+  description       = "Allow TCP/22 from CTRL JenkinsNodes"
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  security_group_id = "${module.gitlab.elb_private_sg_id}"
+  cidr_blocks       = [ "${lookup(var.ctrl_peers_local[count.index], "cidr_block")}" ]
+}
+
+resource "aws_security_group_rule" "gitlab_elb_private_ingress_ctrl_xacct_jenkinsnode_ssh" {
+  count             = "${length(var.ctrl_peers_xacct)}"
+  description       = "Allow TCP/22 from CTRL JenkinsNodes"
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  security_group_id = "${module.gitlab.elb_private_sg_id}"
+  cidr_blocks       = [ "${lookup(var.ctrl_peers_xacct[count.index], "cidr_block")}" ]
+}
+
 
 # jenkins-gitlab
 resource "aws_security_group_rule" "jenkins_egress_gitlab_elb_private_ssh" {
@@ -81,181 +215,6 @@ resource "aws_security_group_rule" "alb_public_ingress_whitelist_https" {
   protocol          = "tcp"
   security_group_id = "${aws_security_group.alb_public.id}"
   cidr_blocks       = ["${var.whitelist}"]
-}
-
-# jenkins-ctrl_jenkinsnodes
-resource "aws_security_group_rule" "jenkins_elb_ingress_ctrl_jenkinsnode_http" {
-  count             = "${length(var.ctrl_peers)}"
-  description       = "Allow TCP/80 from CTRL JenkinsNodes"
-  type              = "ingress"
-  from_port         = 80
-  to_port           = 80
-  protocol          = "tcp"
-  security_group_id = "${module.jenkins.elb_sg_id}"
-  cidr_blocks       = ["${lookup(var.ctrl_peers[count.index],"jenkinsnode_subnet")}"]
-}
-
-resource "aws_security_group_rule" "jenkins_elb_ingress_ctrl_jenkinsnode_49187" {
-  count             = "${length(var.ctrl_peers)}"
-  description       = "Allow TCP/49187 from CTRL JenkinsNodes"
-  type              = "ingress"
-  from_port         = 49187
-  to_port           = 49187
-  protocol          = "tcp"
-  security_group_id = "${module.jenkins.elb_sg_id}"
-  cidr_blocks       = ["${lookup(var.ctrl_peers[count.index],"jenkinsnode_subnet")}"]
-}
-
-# gitlab-ctrl_jenkinsnodes
-resource "aws_security_group_rule" "gitlab_elb_private_ingress_ctrl_jenkinsnode_ssh" {
-  count             = "${length(var.ctrl_peers)}"
-  description       = "Allow TCP/22 from CTRL JenkinsNodes"
-  type              = "ingress"
-  from_port         = 22
-  to_port           = 22
-  protocol          = "tcp"
-  security_group_id = "${module.gitlab.elb_private_sg_id}"
-  cidr_blocks       = ["${lookup(var.ctrl_peers[count.index],"jenkinsnode_subnet")}"]
-}
-
-### jenkins-opsdev_jenkinsnodes
-resource "aws_security_group_rule" "jenkins_elb_ingress_opsdev_jenkinsnode_http" {
-  count             = "${length(var.opsdev_peers)}"
-  description       = "Allow TCP/80 from OpsDev JenkinsNodes"
-  type              = "ingress"
-  from_port         = 80
-  to_port           = 80
-  protocol          = "tcp"
-  security_group_id = "${module.jenkins.elb_sg_id}"
-  cidr_blocks       = ["${lookup(var.opsdev_peers[count.index],"jenkinsnode_subnet")}"]
-}
-
-resource "aws_security_group_rule" "jenkins_elb_ingress_opsdev_jenkinsnode_49187" {
-  count             = "${length(var.opsdev_peers)}"
-  description       = "Allow TCP/49187 from OpsDev JenkinsNodes"
-  type              = "ingress"
-  from_port         = 49187
-  to_port           = 49187
-  protocol          = "tcp"
-  security_group_id = "${module.jenkins.elb_sg_id}"
-  cidr_blocks       = ["${lookup(var.opsdev_peers[count.index],"jenkinsnode_subnet")}"]
-}
-
-# gitlab-opsdev_jenkinsnodes
-resource "aws_security_group_rule" "gitlab_elb_private_ingress_opsdev_jenkinsnode_ssh" {
-  count             = "${length(var.opsdev_peers)}"
-  description       = "Allow TCP/22 from OpsDev JenkinsNodes"
-  type              = "ingress"
-  from_port         = 22
-  to_port           = 22
-  protocol          = "tcp"
-  security_group_id = "${module.gitlab.elb_private_sg_id}"
-  cidr_blocks       = ["${lookup(var.opsdev_peers[count.index],"jenkinsnode_subnet")}"]
-}
-
-### jenkins-dev01_jenkinsnodes
-resource "aws_security_group_rule" "jenkins_elb_ingress_dev01_jenkinsnode_http" {
-  count             = "${length(var.dev01_peers)}"
-  description       = "Allow TCP/80 from dev01 JenkinsNodes"
-  type              = "ingress"
-  from_port         = 80
-  to_port           = 80
-  protocol          = "tcp"
-  security_group_id = "${module.jenkins.elb_sg_id}"
-  cidr_blocks       = ["${lookup(var.dev01_peers[count.index],"jenkinsnode_subnet")}"]
-}
-
-resource "aws_security_group_rule" "jenkins_elb_ingress_dev01_jenkinsnode_49187" {
-  count             = "${length(var.dev01_peers)}"
-  description       = "Allow TCP/49187 from dev01 JenkinsNodes"
-  type              = "ingress"
-  from_port         = 49187
-  to_port           = 49187
-  protocol          = "tcp"
-  security_group_id = "${module.jenkins.elb_sg_id}"
-  cidr_blocks       = ["${lookup(var.dev01_peers[count.index],"jenkinsnode_subnet")}"]
-}
-
-# gitlab-dev01_jenkinsnodes
-resource "aws_security_group_rule" "gitlab_elb_private_ingress_dev01_jenkinsnode_ssh" {
-  count             = "${length(var.dev01_peers)}"
-  description       = "Allow TCP/22 from dev01 JenkinsNodes"
-  type              = "ingress"
-  from_port         = 22
-  to_port           = 22
-  protocol          = "tcp"
-  security_group_id = "${module.gitlab.elb_private_sg_id}"
-  cidr_blocks       = ["${lookup(var.dev01_peers[count.index],"jenkinsnode_subnet")}"]
-}
-
-### jenkins-sit01_jenkinsnodes
-resource "aws_security_group_rule" "jenkins_elb_ingress_sit01_jenkinsnode_http" {
-  count             = "${length(var.sit01_peers)}"
-  description       = "Allow TCP/80 from sit01 JenkinsNodes"
-  type              = "ingress"
-  from_port         = 80
-  to_port           = 80
-  protocol          = "tcp"
-  security_group_id = "${module.jenkins.elb_sg_id}"
-  cidr_blocks       = ["${lookup(var.sit01_peers[count.index],"jenkinsnode_subnet")}"]
-}
-
-resource "aws_security_group_rule" "jenkins_elb_ingress_sit01_jenkinsnode_49187" {
-  count             = "${length(var.sit01_peers)}"
-  description       = "Allow TCP/49187 from sit01 JenkinsNodes"
-  type              = "ingress"
-  from_port         = 49187
-  to_port           = 49187
-  protocol          = "tcp"
-  security_group_id = "${module.jenkins.elb_sg_id}"
-  cidr_blocks       = ["${lookup(var.sit01_peers[count.index],"jenkinsnode_subnet")}"]
-}
-
-# gitlab-sit01_jenkinsnodes
-resource "aws_security_group_rule" "gitlab_elb_private_ingress_sit01_jenkinsnode_ssh" {
-  count             = "${length(var.sit01_peers)}"
-  description       = "Allow TCP/22 from sit01 JenkinsNodes"
-  type              = "ingress"
-  from_port         = 22
-  to_port           = 22
-  protocol          = "tcp"
-  security_group_id = "${module.gitlab.elb_private_sg_id}"
-  cidr_blocks       = ["${lookup(var.sit01_peers[count.index],"jenkinsnode_subnet")}"]
-}
-
-### jenkins-uat01_jenkinsnodes
-resource "aws_security_group_rule" "jenkins_elb_ingress_uat01_jenkinsnode_http" {
-  count             = "${length(var.uat01_peers)}"
-  description       = "Allow TCP/80 from uat01 JenkinsNodes"
-  type              = "ingress"
-  from_port         = 80
-  to_port           = 80
-  protocol          = "tcp"
-  security_group_id = "${module.jenkins.elb_sg_id}"
-  cidr_blocks       = ["${lookup(var.uat01_peers[count.index],"jenkinsnode_subnet")}"]
-}
-
-resource "aws_security_group_rule" "jenkins_elb_ingress_uat01_jenkinsnode_49187" {
-  count             = "${length(var.uat01_peers)}"
-  description       = "Allow TCP/49187 from uat01 JenkinsNodes"
-  type              = "ingress"
-  from_port         = 49187
-  to_port           = 49187
-  protocol          = "tcp"
-  security_group_id = "${module.jenkins.elb_sg_id}"
-  cidr_blocks       = ["${lookup(var.uat01_peers[count.index],"jenkinsnode_subnet")}"]
-}
-
-# gitlab-uat01_jenkinsnodes
-resource "aws_security_group_rule" "gitlab_elb_private_ingress_uat01_jenkinsnode_ssh" {
-  count             = "${length(var.uat01_peers)}"
-  description       = "Allow TCP/22 from uat01 JenkinsNodes"
-  type              = "ingress"
-  from_port         = 22
-  to_port           = 22
-  protocol          = "tcp"
-  security_group_id = "${module.gitlab.elb_private_sg_id}"
-  cidr_blocks       = ["${lookup(var.uat01_peers[count.index],"jenkinsnode_subnet")}"]
 }
 
 # gitlab-internet_ntp

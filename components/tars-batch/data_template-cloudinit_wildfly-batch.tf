@@ -14,10 +14,10 @@ data "template_file" "wildfly-batch-config" {
 
   # Set puppet factors
   vars {
-    env    = "${lookup(var.wildfly-batch,"puppet_env")}"
-    node   = "${lookup(var.wildfly-batch,"puppet_node")}"
-    type   = "${lookup(var.wildfly-batch,"puppet_type")}"
-    kms_key = "${lookup(var.wildfly-batch,"puppet_kms_key")}"
+    env    = "${var.wildfly-batch_puppet_env}"
+    node   = "${var.wildfly-batch_puppet_node}"
+    type   = "${var.wildfly-batch_puppet_type}"
+    kms_key = "${var.wildfly-batch_puppet_kms_key}"
   }
 }
 

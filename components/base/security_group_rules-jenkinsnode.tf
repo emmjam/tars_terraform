@@ -17,7 +17,7 @@ resource "aws_security_group_rule" "jenkinsnode_egress_jenkins_elb_http" {
   to_port           = 80
   protocol          = "tcp"
   security_group_id = "${module.jenkinsnode.security_group_id}"
-  cidr_blocks       = ["${lookup(var.mgmt,"jenkins_elb_subnet")}"]
+  cidr_blocks       = ["${var.mgmt_jenkins_elb_subnet}"]
 }
 
 # jenkinsnode-swarm
@@ -28,7 +28,7 @@ resource "aws_security_group_rule" "jenkinsnode_egress_jenkins_elb_49187" {
   to_port           = 49187
   protocol          = "tcp"
   security_group_id = "${module.jenkinsnode.security_group_id}"
-  cidr_blocks       = ["${lookup(var.mgmt,"jenkins_elb_subnet")}"]
+  cidr_blocks       = ["${var.mgmt_jenkins_elb_subnet}"]
 }
 
 # jenkinsnode-gitlab
@@ -39,8 +39,9 @@ resource "aws_security_group_rule" "jenkinsnode_egress_gitlab_ssh" {
   to_port           = 22
   protocol          = "tcp"
   security_group_id = "${module.jenkinsnode.security_group_id}"
-  cidr_blocks       = ["${lookup(var.mgmt,"gitlab_subnet")}"]
+  cidr_blocks       = ["${var.mgmt_gitlab_subnet}"]
 }
+
 
 # jenkinsnode-internet-https
 resource "aws_security_group_rule" "jenkinsnode_egress_internet_https" {

@@ -11,7 +11,7 @@ data "aws_ami" "wildfly-messaging" {
   most_recent = "true"
   owners = [
     "${data.aws_caller_identity.current.account_id}",
-    "${lookup(var.mgmt,"aws_account_id")}",
+    "${var.mgmt_aws_account_id}",
   ]
 
   filter {

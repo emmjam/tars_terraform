@@ -5,14 +5,14 @@ data "aws_ami" "jenkinsnode" {
     var.project,
     "amzn",
     "jenkinsnode",
-    "${lookup(var.jenkinsnode,"ami_build_id")}"
+    var.jenkinsnode_ami_build_id
   )}"
 
   most_recent = "true"
 
   owners = [
     "${data.aws_caller_identity.current.account_id}",
-    "${lookup(var.mgmt,"aws_account_id")}",
+    "${var.mgmt_aws_account_id}",
   ]
 
   filter {
@@ -33,7 +33,7 @@ data "aws_ami" "squidnat" {
   most_recent = "true"
   owners      = [
     "${data.aws_caller_identity.current.account_id}",
-    "${lookup(var.mgmt,"aws_account_id")}",
+    "${var.mgmt_aws_account_id}",
   ]
 
   filter {

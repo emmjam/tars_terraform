@@ -8,6 +8,11 @@ data "aws_iam_policy_document" "capita_users" {
       "cloudwatch:*",
       "events:*",
       "logs:*",
+      "ec2:DescribeInstanceAttribute",
+      "ec2:DescribeInstanceStatus",
+      "ec2:DescribeInstances",
+      "ec2:DescribeNetworkAcls",
+      "ec2:DescribeSecurityGroups"
     ]
 
     resources = [

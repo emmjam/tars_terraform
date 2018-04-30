@@ -1,6 +1,6 @@
 resource "aws_vpc_peering_connection" "mgmt" {
   vpc_id        = "${aws_vpc.ctrl.id}"
-  peer_owner_id = "${lookup(var.mgmt,"aws_account_id")}"
+  peer_owner_id = "${var.mgmt_aws_account_id}"
   peer_vpc_id   = "${data.terraform_remote_state.mgmt.vpc_id}"
 
   auto_accept = false

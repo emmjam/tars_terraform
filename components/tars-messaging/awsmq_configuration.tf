@@ -2,10 +2,10 @@
 # Define all the TARS msg queue's required
 
 resource "aws_mq_configuration" "tars-awsmq" {
-  description    = "${lookup(var.aws_mq_config,"description")}"
-  name           = "${lookup(var.aws_mq_config,"name")}"
-  engine_type    = "${lookup(var.aws_mq_config,"engine_type")}"
-  engine_version = "${lookup(var.aws_mq_config,"engine_version")}"
+  description    = "${var.aws_mq_config_description}"
+  name           = "${var.aws_mq_config_name}"
+  engine_type    = "${var.aws_mq_config_engine_type}"
+  engine_version = "${var.aws_mq_config_engine_version}"
   data           = <<DATA
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <broker xmlns="http://activemq.apache.org/schema/core">
