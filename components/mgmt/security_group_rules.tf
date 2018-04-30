@@ -18,7 +18,7 @@ resource "aws_security_group_rule" "jenkins_elb_ingress_ctrl_local_jenkinsnode_h
   from_port         = 80
   to_port           = 80
   protocol          = "tcp"
-  security_group_id = "${module.jenkins.jenkins_sg_id}"
+  security_group_id = "${module.jenkins.elb_sg_id}"
   cidr_blocks       = [ "${lookup(var.ctrl_peers_local[count.index], "cidr_block")}" ] 
 }
 
@@ -29,7 +29,7 @@ resource "aws_security_group_rule" "jenkins_elb_ingress_ctrl_local_jenkinsnode_4
   from_port         = 49187
   to_port           = 49187
   protocol          = "tcp"
-  security_group_id = "${module.jenkins.jenkins_sg_id}"
+  security_group_id = "${module.jenkins.elb_sg_id}"
   cidr_blocks       = [ "${lookup(var.ctrl_peers_local[count.index], "cidr_block")}" ]
 }
 
@@ -40,7 +40,7 @@ resource "aws_security_group_rule" "jenkins_elb_ingress_ctrl_xacct_jenkinsnode_h
   from_port         = 80
   to_port           = 80
   protocol          = "tcp"
-  security_group_id = "${module.jenkins.jenkins_sg_id}"
+  security_group_id = "${module.jenkins.elb_sg_id}"
   cidr_blocks       = [ "${lookup(var.ctrl_peers_xacct[count.index], "cidr_block")}" ]
 }
 
@@ -51,7 +51,7 @@ resource "aws_security_group_rule" "jenkins_elb_ingress_ctrl_xacct_jenkinsnode_4
   from_port         = 49187
   to_port           = 49187
   protocol          = "tcp"
-  security_group_id = "${module.jenkins.jenkins_sg_id}"
+  security_group_id = "${module.jenkins.elb_sg_id}"
   cidr_blocks       = [ "${lookup(var.ctrl_peers_xacct[count.index], "cidr_block")}" ]
 }
 
@@ -62,7 +62,7 @@ resource "aws_security_group_rule" "jenkins_elb_ingress_base_local_jenkinsnode_h
   from_port         = 80
   to_port           = 80
   protocol          = "tcp"
-  security_group_id = "${module.jenkins.jenkins_sg_id}"
+  security_group_id = "${module.jenkins.elb_sg_id}"
   cidr_blocks       = [ "${lookup(var.base_peers_local[count.index], "cidr_block")}" ]
 }
 
@@ -73,7 +73,7 @@ resource "aws_security_group_rule" "jenkins_elb_ingress_base_local_jenkinsnode_4
   from_port         = 49187
   to_port           = 49187
   protocol          = "tcp"
-  security_group_id = "${module.jenkins.jenkins_sg_id}"
+  security_group_id = "${module.jenkins.elb_sg_id}"
   cidr_blocks       = [ "${lookup(var.base_peers_local[count.index], "cidr_block")}" ]
 }
 
@@ -84,7 +84,7 @@ resource "aws_security_group_rule" "jenkins_elb_ingress_base_xacct_jenkinsnode_h
   from_port         = 80   
   to_port           = 80   
   protocol          = "tcp"
-  security_group_id = "${module.jenkins.jenkins_sg_id}"
+  security_group_id = "${module.jenkins.elb_sg_id}"
   cidr_blocks       = [ "${lookup(var.base_peers_xacct[count.index], "cidr_block")}" ]
 } 
   
@@ -95,7 +95,7 @@ resource "aws_security_group_rule" "jenkins_elb_ingress_base_xacct_jenkinsnode_4
   from_port         = 49187
   to_port           = 49187
   protocol          = "tcp"
-  security_group_id = "${module.jenkins.jenkins_sg_id}"
+  security_group_id = "${module.jenkins.elb_sg_id}"
   cidr_blocks       = [ "${lookup(var.base_peers_xacct[count.index], "cidr_block")}" ]
 }
 
