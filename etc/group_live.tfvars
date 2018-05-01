@@ -1,23 +1,25 @@
 ## Tfvars
 
-account_environment = "nonprod"
+account_environment = "live"
 
-aws_account_id = "652856684323"
+aws_account_id = "246976497890"
 
 private_domain_name = "tars.dvsa.aws"
 
 ###############################################################################
 # ACCOUNT
 ###############################################################################
-# aws_account_alias = "tarsnonprod"
-
-# public_domain_name = "dvsa.tars.dev-dvsacloud.uk"
 
 users = [
   "rob.hart@dvsa.gov.uk",
+  "mark.thompson@bjss.com",
+  "steve.wilson@bjss.com",
+  "brian.collinson@bjss.com",
+  "allan.todd@bjss.com",
 ]
 
 administrators = [
+  "ian.harris@bjss.com",
   "mark.thompson@bjss.com",
   "callum.massey@bjss.com",
   "steve.wilson@bjss.com",
@@ -29,13 +31,9 @@ power_users = [
 ]
 
 dms_users = [
-  "ana.rotstein@bjss.com",
-  "david.giles@bjss.com",
 ]
 
 capita_users = [
-  "paul.hepple@capita.co.uk",
-  "rob.whyte@capita.co.uk",
 ]
 
 ###############################################################################
@@ -55,14 +53,14 @@ mgmt_component      = "mgmt"
 
 
 ###############################################################################
-# CONTROL NONPROD
+# CONTROL PROD
 ###############################################################################
 ctrl_vpc_cidr = "10.167.60.0/22"
 
-ctrl_aws_account_id         = "652856684323"
+ctrl_aws_account_id         = "246976497890"
 ctrl_aws_region             = "eu-west-1"
 ctrl_project                = "tars"
-ctrl_environment            = "nonprod"
+ctrl_environment            = "live"
 ctrl_component              = "ctrl"
 ctrl_vpc_id                 = "vpc-9f2ba7f9"           # TODO: use remote state
 ctrl_vpc_cidr_block         = "10.167.60.0/22"         # TODO: use remote state
@@ -230,9 +228,9 @@ squidnat_instance_type = "t2.micro"
 
 ops_team_email = "mark.thompson@bjss.com"
 
-public_domain_name = "dvsa.tars.dev-dvsacloud.uk"
+public_domain_name = "dvsa.tars.dvsacloud.uk"
 
-aws_account_alias = "tarsnonprod"
+aws_account_alias = "tarslive"
 
 # Deployer pub key
 deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVSO8uKpdbwww94azylwjnFxsFGcmXG4ObL1oOFibHMN0x+SsSwjfC1DEziWPK3m/Crmar0+ad/68nQC+iWo/MYclh8h3bkKlv9dO4Xtv/0H6uDRW3l3bBO0rWYbt46fMAOCqX96N3LRTfUlPuzsVAd0NGZZlSSAZF0AMl4xE/tZl2m+Dqylrjp3qLT4UxEIrAuvPW06PqkGy63hZznjCjQDaadOAUpY19ZaA71JBueyGBnZ8pSVzr5hT1TpNw/cXxA6WLj4CCipIVm0M64OT/ArqcnQMX9Htf4Gp5apXZ3f6MerfjgHnkrm1t6JNuhSjVB deployer@mgmt.tars.dvsa.aws"

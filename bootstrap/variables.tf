@@ -37,5 +37,6 @@ variable "ro_principals" {
   default = [
     "arn:aws:iam::645711882182:root", # dvsatarsmgmt
     "arn:aws:iam::652856684323:root", # dvsatarsnonprod
+    "arn:aws:iam::246976497890:root", # tarslive
   ]
 }
