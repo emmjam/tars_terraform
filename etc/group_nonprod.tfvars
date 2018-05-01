@@ -190,6 +190,12 @@ bastion_scaledown_recurrence = "00 19 * * 1-5"
 bastion_scaleup_desired      = 1
 bastion_scaleup_recurrence   = "00 07 * * 1-5"
 
+##  JMeter
+jmeter_instance_type              = "t2.micro"
+jmeter_asg_size_desired_on_create = 0
+jmeter_asg_size_max               = 3
+jmeter_asg_size_min               = 0
+
 
 bastion_elb_subnets_cidrs = [
   "10.167.60.64/28",

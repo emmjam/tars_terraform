@@ -19,6 +19,10 @@ variable "component" {
   default     = "base"
 }
 
+variable "asg_default_tags" {
+  type = "list"
+}
+
 variable "default_tags" {
   type        = "map"
   description = "Default tag map"
@@ -186,6 +190,29 @@ variable "jenkinsnode_asg_max_size" {
 
 variable "jenkinsnode_asg_min_size" {
   type = "string"
+  description = ""
+}
+
+## JMeter
+
+variable "jmeter_instance_type" {
+  type = "string"
+  description = ""
+}
+variable "jmeter_asg_size_desired_on_create" {
+  type = "string"
+  description = ""
+}
+variable "jmeter_asg_size_max" {
+  type = "string"
+  description = ""
+}
+variable "jmeter_asg_size_min" {
+  type = "string"
+  description = ""
+}
+variable "jmeter_subnets_cidrs" {
+  type = "list"
   description = ""
 }
 
