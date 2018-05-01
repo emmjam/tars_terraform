@@ -113,7 +113,6 @@ jenkinsctrl_subnets_cidrs = [
 ]
 
 wildfly-back_instance_type  = "t2.medium"
-wildfly-back_puppet_env     = "opsdev"
 wildfly-back_puppet_node    = ""
 wildfly-back_puppet_type    = ""
 wildfly-back_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
@@ -126,7 +125,6 @@ wildfly-back_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## wildfly-batch
 wildfly-batch_instance_type  = "t2.medium"
-wildfly-batch_puppet_env     = "opsdev"
 wildfly-batch_puppet_node    = ""
 wildfly-batch_puppet_type    = ""
 wildfly-batch_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
@@ -152,7 +150,6 @@ wildfly-front_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## wildfly-messaging
 wildfly-messaging_instance_type  = "t2.medium"
-wildfly-messaging_puppet_env     = "opsdev"
 wildfly-messaging_puppet_node    = ""
 wildfly-messaging_puppet_type    = ""
 wildfly-messaging_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
