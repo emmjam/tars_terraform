@@ -14,6 +14,24 @@ default_tags = {
   Environment = "uat01"
 }
 
+asg_default_tags = [
+  {
+    "key"                 = "Project"
+    "value"               = "tars"
+    "propagate_at_launch" = "true"
+  },
+  {
+    "key"                 = "Environment"
+    "value"               = "uat01"
+    "propagate_at_launch" = "true"
+  },
+  {
+    "key"                 = "Group"
+    "value"               = "nonprod"
+    "propagate_at_launch" = "true"
+  }
+]
+
 ###############################################################################
 # CTRL
 ###############################################################################
@@ -86,6 +104,12 @@ squidnat_subnets_cidrs = [
   "10.167.13.160/28",
   "10.167.13.176/28",
   "10.167.13.192/28",
+]
+
+jmeter_subnets_cidrs = [
+  "10.167.13.208/26",
+  "10.167.13.224/26",
+  "10.167.13.240/26",
 ]
 
 # Deployer pub key
