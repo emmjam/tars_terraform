@@ -14,7 +14,7 @@ data "template_file" "wildfly-batch-config" {
 
   # Set puppet factors
   vars {
-    env    = "${var.wildfly-batch_puppet_env}"
+    env    = "${var.environment}"
     node   = "${var.wildfly-batch_puppet_node}"
     type   = "${var.wildfly-batch_puppet_type}"
     kms_key = "${var.wildfly-batch_puppet_kms_key}"

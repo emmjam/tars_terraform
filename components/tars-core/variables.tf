@@ -215,10 +215,6 @@ variable "wildfly-back_instance_type" {
   type = "string"
   description = ""
 }
-variable "wildfly-back_puppet_env" {
-  type = "string"
-  description = ""
-}
 variable "wildfly-back_puppet_kms_key" {
   type = "string"
   description = ""
