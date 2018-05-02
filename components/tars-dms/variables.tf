@@ -89,3 +89,13 @@ variable "tars_dms_replication_instance_class" {
   type        = "string"
   description = "DMS instance type"
 }
+
+variable "capita_uat_db" {
+  type        = "string"
+  description = "Capita UAT DB subnets at Cody Park"
+}
+
+variable "capita_prod_db" {
+  type        = "string"
+  description = "Capita Prod DB subnets at West Malling"
+}
