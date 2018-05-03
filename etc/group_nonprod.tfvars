@@ -137,7 +137,6 @@ wildfly-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## wildfly-front
 wildfly-front_instance_type  = "t2.medium"
-wildfly-front_puppet_env     = "opsdev"
 wildfly-front_puppet_node    = ""
 wildfly-front_puppet_type    = ""
 wildfly-front_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
