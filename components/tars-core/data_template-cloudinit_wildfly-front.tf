@@ -14,7 +14,7 @@ data "template_file" "wildfly-front-config" {
 
   # Set puppet factors
   vars {
-    env    = "${var.wildfly-front_puppet_env}"
+    env    = "${var.environment}"
     node   = "${var.wildfly-front_puppet_node}"
     type   = "${var.wildfly-front_puppet_type}"
     kms_key = "${var.wildfly-front_puppet_kms_key}"

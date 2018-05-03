@@ -107,3 +107,33 @@ variable "aws_account_id" {
   type        = "string"
   description = "Account ID"
 }
+
+variable "mgmt_aws_account_id" {
+  type = "string"
+  description = ""
+}
+
+variable "wildfly-batch_asg_max_size" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-batch_asg_min_size" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-batch_instance_type" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-batch_puppet_kms_key" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-batch_puppet_node" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-batch_puppet_type" {
+  type = "string"
+  description = ""
+}

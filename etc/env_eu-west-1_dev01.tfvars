@@ -14,6 +14,24 @@ default_tags = {
   Environment = "dev01"
 }
 
+asg_default_tags = [
+  {
+    "key"                 = "Project"
+    "value"               = "tars"
+    "propagate_at_launch" = "true"
+  },
+  {
+    "key"                 = "Environment"
+    "value"               = "dev01"
+    "propagate_at_launch" = "true"
+  },
+  {
+    "key"                 = "Group"
+    "value"               = "nonprod"
+    "propagate_at_launch" = "true"
+  }
+]
+
 ###############################################################################
 # CTRL
 ###############################################################################
@@ -91,6 +109,13 @@ squidnat_subnets_cidrs = [
   "10.167.5.208/28",
   "10.167.5.224/28",
 ]
+### SHOULD be 10.167.5.208 etc
+jmeter_subnets_cidrs = [
+  "10.167.4.208/28",
+  "10.167.4.224/28",
+  "10.167.4.240/28",
+]
+
 
 ## tardis RDS subnets - 10.167.5.96/28, 10.167.5.112/28, 10.167.5.128/28
 

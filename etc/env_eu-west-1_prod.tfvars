@@ -3,7 +3,7 @@
 ##############################################################################
 project = "tars"
 
-environment = "opsdev"
+environment = "prod"
 
 aws_region = "eu-west-1"
 
@@ -11,7 +11,7 @@ tf_state_bucket_prefix = "tars-terraformscaffold"
 
 default_tags = {
   Project     = "tars"
-  Environment = "opsdev"
+  Environment = "prod"
 }
 
 asg_default_tags = [
@@ -22,12 +22,12 @@ asg_default_tags = [
   },
   {
     "key"                 = "Environment"
-    "value"               = "opsdev"
+    "value"               = "prod"
     "propagate_at_launch" = "true"
   },
   {
     "key"                 = "Group"
-    "value"               = "nonprod"
+    "value"               = "live"
     "propagate_at_launch" = "true"
   }
 ]
@@ -123,23 +123,3 @@ tars_rds_password = "password"
 # TARSDB
 tars_rds_allocated_storage = "20" # 20 Gigabyte - was 1500GB
 tars_rds_snapshot = "tars-testdb-210218"
-
-# Xenco temp dev box
-xenconode = {
-  instance_type        = "m4.large"
-  ami_id               = "ami-f06bf389"
-  asg_min_size         = 0
-  asg_max_size         = 1
-  rpms_to_install      = "gcc kernel-devel kernel-headers"
-  key_name             = "deployer"
-}
-
-xenco_whitelist = [
-  "77.86.30.4/32",      # BJSS VPN (Decom ~06/18)
-  "148.253.134.213/32", # BJSS VPN 04/18
-]
-
-# Xenco CIDR Range
-xenco_subnets_cidrs = [
-  "10.167.3.241/28",
-]

@@ -12,7 +12,10 @@ data "aws_iam_policy_document" "capita_users" {
       "ec2:DescribeInstanceStatus",
       "ec2:DescribeInstances",
       "ec2:DescribeNetworkAcls",
-      "ec2:DescribeSecurityGroups"
+      "ec2:DescribeSecurityGroups",
+      "ec2:DescribeImages",
+      "ec2:DescribeTags",
+      "ec2:DescribeSnapshots",
     ]
 
     resources = [

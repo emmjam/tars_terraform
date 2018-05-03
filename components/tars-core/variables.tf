@@ -44,16 +44,6 @@ variable "whitelist" {
   description = "TARS Core Servers inbound whitelisted IP's"
 }
 
-variable "wildfly-back" {
-  type        = "map"
-  description = "TARS Core backend configuration"
-}
-
-variable "wildfly-front" {
-  type        = "map"
-  description = "TARS Core frontend configuration"
-}
-
 variable "tf_state_bucket_prefix" {
   type        = "string"
   description = "TF State bucket prefix"
@@ -204,12 +194,66 @@ variable "ami_build_id" {
   description = "TARS Core AMI build ID"
 }
 
-variable "mgmt" {
-  type        = "map"
-  description = "MGMT Account config"
-}
-
 variable "aws_account_id" {
   type        = "string"
   description = "Account ID"
 }
+
+variable "mgmt_aws_account_id" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-back_asg_max_size" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-back_asg_min_size" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-back_instance_type" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-back_puppet_kms_key" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-back_puppet_node" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-back_puppet_type" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-front_asg_max_size" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-front_asg_min_size" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-front_instance_type" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-front_puppet_env" {
+  type = "string"
+  description = ""
+}
+
+variable "wildfly-front_puppet_kms_key" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-front_puppet_node" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-front_puppet_type" {
+  type = "string"
+  description = ""
+}
+
