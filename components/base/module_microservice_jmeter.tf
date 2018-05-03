@@ -23,6 +23,7 @@ module "microservice_jmeter" {
 
   lc_additional_sg_ids = [
     "${aws_security_group.core.id}",
+    "${aws_security_group.jmeter.id}",
   ]
 
   lc_ami_id        = "${data.aws_ami.jmeter.image_id}"
