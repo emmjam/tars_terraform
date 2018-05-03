@@ -16,6 +16,7 @@ data "aws_iam_policy_document" "capita_users" {
       "ec2:DescribeImages",
       "ec2:DescribeTags",
       "ec2:DescribeSnapshots",
+      "elasticloadbalancing:Describe*",
     ]
 
     resources = [
