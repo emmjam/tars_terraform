@@ -225,10 +225,13 @@ whitelist = [
 ]
 
 # Capita TARS UAT DB subnets for DMS
-capita_uat_db = "10.86.192.0/23"
+capita_db_subnets = "10.86.192.0/23"
+
+capita_db_from_port = "6720"
+capita_db_to_port = "6721"
 
 # Capita TARS Prod DB subnets for DMS
-capita_prod_db = "10.84.192.0/23"
+#capita_prod_db = "10.84.192.0/23"
 
 # squidnat
 squidnat_instance_type = "t2.micro"

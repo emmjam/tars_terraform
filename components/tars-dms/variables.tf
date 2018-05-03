@@ -90,12 +90,16 @@ variable "tars_dms_replication_instance_class" {
   description = "DMS instance type"
 }
 
-variable "capita_uat_db" {
+variable "capita_db_subnets" {
   type        = "string"
-  description = "Capita UAT DB subnets at Cody Park"
+  description = "Capita DB subnets on-premise"
 }
 
-variable "capita_prod_db" {
+variable "capita_db_from_port" {
   type        = "string"
-  description = "Capita Prod DB subnets at West Malling"
+  description = "Start of DB port range"
+}
+variable "capita_db_to_port" {
+  type        = "string"
+  description = "End of DB port range"
 }
