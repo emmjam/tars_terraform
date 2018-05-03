@@ -11,7 +11,8 @@ module "jenkinsnode" {
   availability_zones   = "${data.aws_availability_zones.available.names}"
   subnets_cidrs        = "${var.jenkinsnode_subnets_cidrs}"
   subnets_route_tables = ["${aws_route_table.private_nat.*.id}"]
-  lc_additional_sg_ids = [ "${aws_security_group.core.id}" ]
+  lc_additional_sg_ids = [ "${aws_security_group.core.id}",
+                           "${aws_security_group.jenkinsnode.id}", ]
 
   lc_ami_id        = "${data.aws_ami.jenkinsnode.image_id}"
   lc_instance_type = "${var.jenkinsnode_instance_type}"
