@@ -18,3 +18,13 @@ resource "aws_security_group_rule" "tars_messaging_alb_public_egress_tars_msg_po
   security_group_id        = "${aws_security_group.tars-messaging-alb-public.id}"
   source_security_group_id = "${aws_security_group.tars-messaging.id}"
 }
+
+resource "aws_security_group_rule" "tars_messaging_alb_public_ingress_whitelist_port_3389" {
+  description       = "Allow TCP/3389 from Internet"
+  type              = "ingress"
+  from_port         = 3389
+  to_port           = 3389
+  protocol          = "tcp"
+  security_group_id = "${aws_security_group.tars-messaging-alb-public.id}"
+  cidr_blocks       = ["${var.whitelist}"]
+}
