@@ -39,6 +39,14 @@ output "public_route_table_id" {
   value = "${aws_route_table.public.id}"
 }
 
+output "private_nat_route_table_id" {
+  value = "${aws_route_table.private_nat.*.id}"
+}
+
+output "private_nonat_route_table_id" {
+  value = "${aws_route_table.private_nonat.id}"
+}
+
 output "jenkins_net_route_table_id" {
   value = "${aws_route_table.private_nat.*.id}"
 }
