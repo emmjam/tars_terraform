@@ -1,0 +1,43 @@
+{
+  "name": "cwles-logstoes",
+  "version": "1.0.0",
+  "description": "Parameterised duplication of default AWS Lambda function for shipping CloudWatch Logs to Elasticsearch",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "homepage": "https://github.com/Zordrak/cwles-logstoes",
+  "author": {
+    "name": "Zordrak",
+    "email": "github@jdmp.org.uk"
+  },
+  "license": "MIT",
+  "dependencies": {},
+  "gitHead": "67ae78bb5d045d8178d6f5f4595464f5ecf4e4cd",
+  "_id": "cwles-logstoes@1.0.0",
+  "_shasum": "4856493419dbe6f7359353bd46edaa1535bc06b7",
+  "_from": "cwles-logstoes@1.0.0",
+  "_npmVersion": "2.10.1",
+  "_nodeVersion": "0.12.4",
+  "_npmUser": {
+    "name": "zordrak",
+    "email": "npm@jdmp.org.uk"
+  },
+  "dist": {
+    "shasum": "4856493419dbe6f7359353bd46edaa1535bc06b7",
+    "tarball": "https://registry.npmjs.org/cwles-logstoes/-/cwles-logstoes-1.0.0.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "zordrak",
+      "email": "npm@jdmp.org.uk"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/cwles-logstoes-1.0.0.tgz_1469998701574_0.9905867867637426"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/cwles-logstoes/-/cwles-logstoes-1.0.0.tgz",
+  "readme": "ERROR: No README data found!"
+}
