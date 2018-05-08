@@ -7,7 +7,7 @@ resource "aws_elasticsearch_domain" "es" {
     "cwles"
   )}"
 
-  elasticsearch_version = "6.2"
+  elasticsearch_version = "5.5"
 
   advanced_options {
     "rest.action.multi.allow_explicit_index" = "true"
