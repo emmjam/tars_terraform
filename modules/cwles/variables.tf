@@ -38,6 +38,12 @@ variable "es_cidr_whitelist" {
   default     = []
 }
 
+variable "es_metric_alarm_actions" {
+  type        = "list"
+  description = "List of actions to provide to Elasticsearch's Cloudwatch Metric Alarms, e.g. SNS topics"
+  default     = []
+}
+
 ##
 # Lambda Curator configuration
 ##
