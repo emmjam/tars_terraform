@@ -13,7 +13,7 @@ resource "aws_launch_configuration" "tars-messaging" {
   spot_price           = "${var.lc_spot_price}"
   key_name             = "${data.terraform_remote_state.acc.key_name}"
   # user_data            = "${data.template_cloudinit_config.wildfly-batch.rendered}"
-  iam_instance_profile = "${data.terraform_remote_state.base.tars_core_iam_instance_profile_name}"
+  iam_instance_profile = "${data.terraform_remote_state.base.tars_messaging_iam_instance_profile_name}"
 
   security_groups = [
     "${aws_security_group.tars-messaging.id}",
