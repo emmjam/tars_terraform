@@ -94,7 +94,7 @@ function buildSource(message, extractedFields) {
             if (extractedFields.hasOwnProperty(key) && extractedFields[key]) {
                 var value = extractedFields[key];
 
-                if (isNumeric(value)) {
+                if (key != 'account_id' && isNumeric(value)) {
                     source[key] = 1 * value;
                     continue;
                 }
