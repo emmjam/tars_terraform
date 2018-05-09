@@ -94,6 +94,12 @@ squidnat_subnets_cidrs = [
   "10.167.1.192/28",
 ]
 
+jmeter_subnets_cidrs = [
+  "10.167.1.208/28",
+  "10.167.1.224/28",
+  "10.167.1.240/28",
+]
+
 # TARS Frontend/IBS/OBS Web subnets
 tars_web_subnets_cidrs = [
   "10.167.2.0/26",
@@ -101,12 +107,12 @@ tars_web_subnets_cidrs = [
   "10.167.2.128/26",
 ]
 
-jmeter_subnets_cidrs = [
-  "10.167.1.208/28",
-  "10.167.1.224/28",
-  "10.167.1.240/28",
+#OBS CIDR Range
+obs_subnets_cidrs = [
+  "10.167.2.192/28",
+  "10.167.2.208/28",
+  "10.167.2.224/28",
 ]
-
 
 # Deployer pub key
 deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVSO8uKpdbwww94azylwjnFxsFGcmXG4ObL1oOFibHMN0x+SsSwjfC1DEziWPK3m/Crmar0+ad/68nQC+iWo/MYclh8h3bkKlv9dO4Xtv/0H6uDRW3l3bBO0rWYbt46fMAOCqX96N3LRTfUlPuzsVAd0NGZZlSSAZF0AMl4xE/tZl2m+Dqylrjp3qLT4UxEIrAuvPW06PqkGy63hZznjCjQDaadOAUpY19ZaA71JBueyGBnZ8pSVzr5hT1TpNw/cXxA6WLj4CCipIVm0M64OT/ArqcnQMX9Htf4Gp5apXZ3f6MerfjgHnkrm1t6JNuhSjVB deployer@mgmt.tars.dvsa.aws"

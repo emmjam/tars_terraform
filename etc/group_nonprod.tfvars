@@ -135,6 +135,17 @@ wildfly-batch_scaledown_recurrence = "00 19 * * 1-5"
 wildfly-batch_scaleup_desired      = 1
 wildfly-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
+## obs
+obs_instance_type  = "t2.medium"
+obs_puppet_node    = ""
+obs_puppet_type    = ""
+obs_asg_min_size         = 0
+obs_asg_max_size         = 3
+obs_scaledown_desired    = 0
+obs_scaledown_recurrence = "00 19 * * 1-5"
+obs_scaleup_desired      = 1
+obs_scaleup_recurrence   = "00 07 * * 1-5"
+
 ## wildfly-front
 wildfly-front_instance_type  = "t2.medium"
 wildfly-front_puppet_node    = ""
