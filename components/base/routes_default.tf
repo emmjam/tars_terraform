@@ -11,3 +11,9 @@ resource "aws_route" "private_nats_default" {
   instance_id            = "${element(module.squidnat.instance_ids,count.index)}"
 }
 
+resource "aws_route" "internet_natgw" {
+  route_table_id         = "${aws_route_table.private_natgw.id}"
+  destination_cidr_block = "0.0.0.0/0"
+  gateway_id             = "${aws_nat_gateway.tars.id}"
+}
+
