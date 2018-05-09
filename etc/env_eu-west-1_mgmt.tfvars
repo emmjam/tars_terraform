@@ -102,7 +102,7 @@ nat_subnets_cidr = "10.200.1.0/28"
 
 ## bastion
 bastion_instance_type        = "t2.micro"
-bastion_ami_build_id         = "38"
+bastion_ami_build_id         = "59"
 bastion_asg_min_size         = 0
 bastion_asg_max_size         = 3
 bastion_scaledown_desired    = 0
