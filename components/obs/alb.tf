@@ -12,7 +12,7 @@ resource "aws_alb" "obs" {
 
   security_groups = ["${aws_security_group.obs-alb.id}"]
 
-  subnets = ["${data.terraform_remote_state.base.subnets_tars_web}"]
+  subnets = ["${data.terraform_remote_state.base.subnets_alb_public}"]
 
   tags = "${merge(
     var.default_tags,
