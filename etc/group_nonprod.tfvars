@@ -170,6 +170,18 @@ wildfly-messaging_scaledown_recurrence = "00 19 * * 1-5"
 wildfly-messaging_scaleup_desired      = 1
 wildfly-messaging_scaleup_recurrence   = "00 07 * * 1-5"
 
+## wildfly-mock
+wildfly-mock_instance_type  = "t2.medium"
+wildfly-mock_puppet_node    = ""
+wildfly-mock_puppet_type    = ""
+wildfly-mock_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+wildfly-mock_asg_min_size         = 0
+wildfly-mock_asg_max_size         = 1
+wildfly-mock_scaledown_desired    = 0
+wildfly-mock_scaledown_recurrence = "00 19 * * 1-5"
+wildfly-mock_scaleup_desired      = 1
+wildfly-mock_scaleup_recurrence   = "00 07 * * 1-5"
+
 ## AWS MQ
 aws_mq_engine_type             = "ActiveMQ"
 aws_mq_engine_version          = "5.15.0"
