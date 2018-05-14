@@ -44,26 +44,6 @@ variable "whitelist" {
   description = "TARS Servers inbound whitelisted IP's"
 }
 
-variable "wildfly-messaging" {
-  type        = "map"
-  description = "TARS Messaging server config"
-}
-
-variable "aws_mq" {
-  type        = "map"
-  description = "TARS AWS MQ Service config"
-}
-
-variable "aws_mq_users" {
-  type        = "map"
-  description = "TARS AWS MQ Users"
-}
-
-variable "aws_mq_config" {
-  type        = "map"
-  description = "TARS AWS MQ Service config"
-}
-
 variable "tf_state_bucket_prefix" {
   type        = "string"
   description = "TF State bucket prefix"
@@ -118,12 +98,111 @@ variable "ami_build_id" {
   description = "TARS Messaging AMI build ID"
 }
 
-variable "mgmt" {
-  type        = "map"
-  description = "MGMT Account config"
-}
-
 variable "aws_account_id" {
   type        = "string"
   description = "Account ID"
+}
+
+variable "mgmt_aws_account_id" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-messaging_asg_max_size" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-messaging_asg_min_size" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-messaging_instance_type" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-messaging_puppet_kms_key" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-messaging_puppet_node" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-messaging_puppet_type" {
+  type = "string"
+  description = ""
+}
+
+variable "aws_mq_config_description" {
+  type = "string"
+  description = "AWS MQ config decsription"
+}
+
+variable  "aws_mq_config_name" {
+  type = "string"
+  description = "AWS MQ config name"
+}
+
+variable "aws_mq_config_engine_type" {
+  type = "string"
+  description = "AWS MQ config engine type"
+}
+
+variable "aws_mq_config_engine_version" {
+  type = "string"
+  description = "AWS MQ config engine version"
+}
+
+variable "aws_mq_deployment_mode" {
+  type = "string"
+  description = "AWS MQ deployment mode"
+}
+
+variable "aws_mq_users_tars_batch_user" {
+  type = "string"
+  description = "AWS MQ tars batch user"
+}
+
+variable "aws_mq_engine_version" {
+  type = "string"
+  description = "AWS MQ engine version"
+}
+
+variable "aws_mq_users_admin_user" {
+  type = "string"
+  description = "AWS MQ admin user"
+}
+
+variable "aws_mq_users_tars_batch_password" {
+  type = "string"
+  description = "AWS MQ tars batch user password"
+}
+
+variable "aws_mq_users_tars_batch_group" {
+  type = "string"
+  description = "AWS MQ tars batch user group"
+}
+
+variable "aws_mq_users_tars_messaging_password" {
+  type = "string"
+  description = "AWS MQ tars messaging user password"
+}
+
+variable "aws_mq_host_instance_type" {
+  type = "string"
+  description = "AWS MQ host instance type"
+}
+
+variable "aws_mq_users_admin_password" {
+  type = "string"
+  description = "AWS MQ users admin password"
+}
+
+variable "aws_mq_users_tars_messaging_user" {
+  type = "string"
+  description = "AWS MQ user tars messaging"
+}
+
+variable "aws_mq_engine_type" {
+  type = "string"
+  description = "AWS MQ engine type"
 }

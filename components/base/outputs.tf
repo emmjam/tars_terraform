@@ -3,6 +3,10 @@ output "tars_core_iam_instance_profile_name" {
   value = "${aws_iam_instance_profile.tars-core.name}"
 }
 
+output "tars_messaging_iam_instance_profile_name" {
+  value = "${aws_iam_instance_profile.tars-messaging.name}"
+}
+
 output "subnets_alb_public" {
   value = "${module.alb_public_subnets.subnet_ids}"
 }
