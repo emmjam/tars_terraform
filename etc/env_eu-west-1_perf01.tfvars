@@ -125,9 +125,6 @@ tars_rds_allocated_storage = "300"
 tars_rds_snapshot = "tarsuat-050418"
 
 wildfly-back_instance_type  = "m4.large"
-wildfly-back_puppet_node    = ""
-wildfly-back_puppet_type    = ""
-wildfly-back_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
 wildfly-back_asg_min_size         = 0
 wildfly-back_asg_max_size         = 2
 wildfly-back_scaledown_desired    = 0
@@ -137,9 +134,6 @@ wildfly-back_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## wildfly-batch
 wildfly-batch_instance_type  = "m4.large"
-wildfly-batch_puppet_node    = ""
-wildfly-batch_puppet_type    = ""
-wildfly-batch_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
 wildfly-batch_asg_min_size         = 0
 wildfly-batch_asg_max_size         = 1
 wildfly-batch_scaledown_desired    = 0
@@ -149,9 +143,6 @@ wildfly-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## wildfly-front
 wildfly-front_instance_type  = "m4.large"
-wildfly-front_puppet_node    = ""
-wildfly-front_puppet_type    = ""
-wildfly-front_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
 wildfly-front_asg_min_size         = 0
 wildfly-front_asg_max_size         = 2
 wildfly-front_scaledown_desired    = 0
@@ -161,9 +152,6 @@ wildfly-front_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## wildfly-messaging
 wildfly-messaging_instance_type  = "m4.large"
-wildfly-messaging_puppet_node    = ""
-wildfly-messaging_puppet_type    = ""
-wildfly-messaging_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
 wildfly-messaging_asg_min_size         = 0
 wildfly-messaging_asg_max_size         = 1
 wildfly-messaging_scaledown_desired    = 0
@@ -172,37 +160,45 @@ wildfly-messaging_scaleup_desired      = 1
 wildfly-messaging_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## AWS MQ
-aws_mq_engine_type             = "ActiveMQ"
-aws_mq_engine_version          = "5.15.0"
 aws_mq_host_instance_type      = "mq.t2.micro"
 aws_mq_deployment_mode         = "SINGLE_INSTANCE"
 
-aws_mq_users_admin_user              = "admin"
-aws_mq_users_admin_password          = "admin123456789"
-aws_mq_users_tars_batch_user         = "tars_batch"
-aws_mq_users_tars_batch_password     = "password123456"
-aws_mq_users_tars_batch_group        = "admins"
-aws_mq_users_tars_messaging_user     = "tars_messaging"
-aws_mq_users_tars_messaging_password = "password123456"
-aws_mq_users_tars_messaging_group    = "admins"
-
-aws_mq_config_description    = "TARS MQ Configuration"
-aws_mq_config_name           = "tars-awsmq"
-aws_mq_config_engine_type    = "ActiveMQ"
-aws_mq_config_engine_version = "5.15.0"
-
 # TARSDB
 tars_rds_storage_type = "gp2"
-tars_rds_engine = "oracle-se2"
-tars_rds_engine_version = "12.1.0.2.v11"
 tars_rds_instance_class = "db.m4.xlarge" # was "db.m4.4xlarge"
-tars_rds_port = "1521"
 tars_rds_public = "false"
-tars_rds_multi_az = "false" # it takes an age to build if true
+tars_rds_multi_az = "true" # it takes an age to build if true
 tars_rds_backup_retention = "7"
 tars_rds_backup_window = "02:38-03:08"
 tars_rds_maint_window = "sun:03:16-sun:03:46"
 tars_rds_skip_final_snapshot = true
 tars_rds_apply_immediately = "true"
-tars_rds_license_model = "license-included"
 tars_rds_autoscale = "True"
+
+## obs
+obs_instance_type  = "t2.medium"
+obs_asg_min_size         = 0
+obs_asg_max_size         = 3
+obs_scaledown_desired    = 0
+obs_scaledown_recurrence = "00 19 * * 1-5"
+obs_scaleup_desired      = 1
+obs_scaleup_recurrence   = "00 07 * * 1-5"
+
+## wildfly-mock
+wildfly-mock_instance_type  = "t2.medium"
+wildfly-mock_asg_min_size         = 0
+wildfly-mock_asg_max_size         = 1
+wildfly-mock_scaledown_desired    = 0
+wildfly-mock_scaledown_recurrence = "00 19 * * 1-5"
+wildfly-mock_scaleup_desired      = 1
+wildfly-mock_scaleup_recurrence   = "00 07 * * 1-5"
+
+##  JMeter
+jmeter_instance_type              = "m5.large"
+jmeter_asg_size_desired_on_create = 0
+jmeter_asg_size_max               = 3
+jmeter_asg_size_min               = 0
+
+# squidnat
+squidnat_instance_type = "m5.large"
+
