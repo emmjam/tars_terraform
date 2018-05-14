@@ -6,6 +6,7 @@ data "aws_iam_policy_document" "jenkins" {
     actions = [
       "ec2:AttachVolume",
       "ec2:DescribeVolumes",
+      "ec2:DescribeImages"
     ]
 
     resources = [
