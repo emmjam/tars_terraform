@@ -16,7 +16,12 @@ resource "aws_autoscaling_group" "tars-messaging" {
   target_group_arns    = [
     "${aws_alb_target_group.tars-messaging-8080.arn}",
     "${aws_alb_target_group.tars-messaging-80.arn}",
-    ]
+  ]
+  load_balancers = [
+    "${aws_elb.messaging_public.name}"
+  ]
+  min_elb_capacity = 1
+
   enabled_metrics      = ["${var.asg_enabled_metrics}"]
 
   tags = [

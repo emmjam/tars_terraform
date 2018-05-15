@@ -29,4 +29,10 @@ resource "aws_route" "private_nonat_ctrl" {
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ctrl.id}"
 }
 
+resource "aws_route" "private_natgw_ctrl" {
+  route_table_id            = "${aws_route_table.private_natgw.id}"
+  destination_cidr_block    = "${data.terraform_remote_state.ctrl.vpc_cidr_block}"
+  vpc_peering_connection_id = "${aws_vpc_peering_connection.ctrl.id}"
+}
+
 
