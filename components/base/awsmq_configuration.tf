@@ -15,10 +15,12 @@ resource "aws_mq_configuration" "tars-awsmq" {
     <timeStampingBrokerPlugin ttlCeiling="86400000" zeroExpirationOverride="86400000"/>
   </plugins>
   <destinations>
-    <queue physicalName="ExpiryQueue" />
-    <queue physicalName="DLQ" />
-    <queue physicalName="JobQueue" />
-    <queue physicalName="JobErrorQueue" />
+    <queue physicalName="queue/JobQueue" />
+    <queue physicalName="queue/JobErrorQueue" />
+    <queue physicalName="queue/EmailQueue" />
+    <queue physicalName="queue/DocBatchUpdateRetryQueue" />
+    <queue physicalName="queue/VelocityEmailQueue" />
+    <queue physicalName="queue/PrintQueue" />
    </destinations>
 </broker>
 DATA

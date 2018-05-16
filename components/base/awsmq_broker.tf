@@ -19,6 +19,7 @@ resource "aws_mq_broker" "tars-awsmq" {
   user {
     username = "${var.aws_mq_users_admin_user}"
     password = "${var.aws_mq_users_admin_password}"
+    groups   = ["${var.aws_mq_users_admin_group}"]
     console_access = true
   }
   user {
@@ -30,9 +31,9 @@ resource "aws_mq_broker" "tars-awsmq" {
   user {
     username = "${var.aws_mq_users_tars_messaging_user}"
     password = "${var.aws_mq_users_tars_messaging_password}"
-    groups   = ["${var.aws_mq_users_tars_batch_group}"]
+    groups   = ["${var.aws_mq_users_tars_messaging_group}"]
     console_access = false
   } 
-  subnet_ids = ["${data.terraform_remote_state.base.subnets_tars_awsmq}"]
+  subnet_ids = ["${module.tars_awsmq_subnets.subnet_ids}"]
   publicly_accessible = true
 }
