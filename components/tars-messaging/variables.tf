@@ -132,77 +132,7 @@ variable "wildfly-messaging_puppet_type" {
   description = ""
 }
 
-variable "aws_mq_config_description" {
+variable "wildfly-messaging_scaleup_desired" {
   type = "string"
-  description = "AWS MQ config decsription"
-}
-
-variable  "aws_mq_config_name" {
-  type = "string"
-  description = "AWS MQ config name"
-}
-
-variable "aws_mq_config_engine_type" {
-  type = "string"
-  description = "AWS MQ config engine type"
-}
-
-variable "aws_mq_config_engine_version" {
-  type = "string"
-  description = "AWS MQ config engine version"
-}
-
-variable "aws_mq_deployment_mode" {
-  type = "string"
-  description = "AWS MQ deployment mode"
-}
-
-variable "aws_mq_users_tars_batch_user" {
-  type = "string"
-  description = "AWS MQ tars batch user"
-}
-
-variable "aws_mq_engine_version" {
-  type = "string"
-  description = "AWS MQ engine version"
-}
-
-variable "aws_mq_users_admin_user" {
-  type = "string"
-  description = "AWS MQ admin user"
-}
-
-variable "aws_mq_users_tars_batch_password" {
-  type = "string"
-  description = "AWS MQ tars batch user password"
-}
-
-variable "aws_mq_users_tars_batch_group" {
-  type = "string"
-  description = "AWS MQ tars batch user group"
-}
-
-variable "aws_mq_users_tars_messaging_password" {
-  type = "string"
-  description = "AWS MQ tars messaging user password"
-}
-
-variable "aws_mq_host_instance_type" {
-  type = "string"
-  description = "AWS MQ host instance type"
-}
-
-variable "aws_mq_users_admin_password" {
-  type = "string"
-  description = "AWS MQ users admin password"
-}
-
-variable "aws_mq_users_tars_messaging_user" {
-  type = "string"
-  description = "AWS MQ user tars messaging"
-}
-
-variable "aws_mq_engine_type" {
-  type = "string"
-  description = "AWS MQ engine type"
+  description = ""
 }

@@ -55,6 +55,9 @@ output "jenkins_net_route_table_id" {
   value = "${aws_route_table.private_nat.*.id}"
 }
  
+output "awsmq_sg_id" {
+  value = "${aws_security_group.tars-awsmq.id}"
+}
 output "ctrl_peering_id" {
   value = "${aws_vpc_peering_connection.ctrl.id}"
 }

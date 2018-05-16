@@ -1,8 +1,8 @@
 # SG for the AWS MQ Service
 resource "aws_security_group" "tars-awsmq" {
-  name        = "${var.project}-${var.environment}-${var.component}-tars-awsmq"
+  name        = "${var.project}-${var.environment}-${var.component}-awsmq"
   description = "TARS AWS MQ"
-  vpc_id      = "${data.terraform_remote_state.base.vpc_id}"
+  vpc_id      = "${aws_vpc.vpc.id}"
 
   tags = "${merge(
     var.default_tags,
@@ -12,7 +12,7 @@ resource "aws_security_group" "tars-awsmq" {
         var.project,
         var.environment,
         var.component,
-        "tars-awsmq"
+        "awsmq"
       ),
     )
   )}"

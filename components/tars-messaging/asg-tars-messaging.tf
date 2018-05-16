@@ -55,6 +55,6 @@ resource "aws_autoscaling_group" "tars-messaging" {
 
   # Spin up max desired messaging servers
   provisioner "local-exec" {
-    command = "aws autoscaling update-auto-scaling-group --auto-scaling-group-name ${aws_autoscaling_group.tars-messaging.name} --desired-capacity ${var.wildfly-messaging_asg_max_size} --region ${var.aws_region}"
+    command = "aws autoscaling update-auto-scaling-group --auto-scaling-group-name ${aws_autoscaling_group.tars-messaging.name} --desired-capacity ${var.wildfly-messaging_scaleup_desired} --region ${var.aws_region}"
   }
 }
