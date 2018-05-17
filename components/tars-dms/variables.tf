@@ -103,3 +103,619 @@ variable "capita_db_to_port" {
   type        = "string"
   description = "End of DB port range"
 }
+
+
+
+variable "source_dms_tars_rds_skip_final_snapshot" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "source_dms_tars_rds_allocated_storage" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "source_dms_tars_rds_storage_type" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "source_dms_tars_rds_engine" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "source_dms_tars_rds_engine_version" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "source_dms_tars_rds_instance_class" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "source_dms_tars_rds_username" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "source_dms_tars_rds_password" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "source_dms_tars_rds_port" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "source_dms_tars_rds_public" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "source_dms_tars_rds_multi_az" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "source_dms_tars_rds_backup_retention" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "source_dms_tars_rds_backup_window" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "source_dms_tars_rds_maint_window" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "source_dms_tars_rds_apply_immediately" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "source_dms_tars_rds_license_model" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "source_dms_tars_rds_autoscale" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "source_dms_tars_rds_name" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "source_dms_tars_rds_snapshot" {
+  type        = "string"
+  description = "tars dms"
+}
+
+
+variable "target_dms_tars_rds_skip_final_snapshot" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "target_dms_tars_rds_allocated_storage" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "target_dms_tars_rds_storage_type" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "target_dms_tars_rds_engine" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "target_dms_tars_rds_engine_version" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "target_dms_tars_rds_instance_class" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "target_dms_tars_rds_username" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "target_dms_tars_rds_password" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "target_dms_tars_rds_port" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "target_dms_tars_rds_public" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "target_dms_tars_rds_multi_az" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "target_dms_tars_rds_backup_retention" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "target_dms_tars_rds_backup_window" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "target_dms_tars_rds_maint_window" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "target_dms_tars_rds_apply_immediately" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "target_dms_tars_rds_license_model" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "target_dms_tars_rds_autoscale" {
+  type        = "string"
+  description = "tars dms"
+}
+variable "target_dms_tars_rds_name" {
+  type        = "string"
+  description = "tars dms"
+}
+
+
+
+
+variable "source_dms_cpc_rds_skip_final_snapshot" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "source_dms_cpc_rds_allocated_storage" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "source_dms_cpc_rds_storage_type" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "source_dms_cpc_rds_engine" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "source_dms_cpc_rds_engine_version" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "source_dms_cpc_rds_instance_class" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "source_dms_cpc_rds_username" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "source_dms_cpc_rds_password" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "source_dms_cpc_rds_port" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "source_dms_cpc_rds_public" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "source_dms_cpc_rds_multi_az" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "source_dms_cpc_rds_backup_retention" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "source_dms_cpc_rds_backup_window" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "source_dms_cpc_rds_maint_window" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "source_dms_cpc_rds_apply_immediately" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "source_dms_cpc_rds_license_model" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "source_dms_cpc_rds_autoscale" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "source_dms_cpc_rds_name" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "source_dms_cpc_rds_snapshot" {
+  type        = "string"
+  description = "cpc dms"
+}
+
+
+variable "target_dms_cpc_rds_skip_final_snapshot" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "target_dms_cpc_rds_allocated_storage" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "target_dms_cpc_rds_storage_type" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "target_dms_cpc_rds_engine" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "target_dms_cpc_rds_engine_version" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "target_dms_cpc_rds_instance_class" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "target_dms_cpc_rds_username" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "target_dms_cpc_rds_password" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "target_dms_cpc_rds_port" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "target_dms_cpc_rds_public" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "target_dms_cpc_rds_multi_az" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "target_dms_cpc_rds_backup_retention" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "target_dms_cpc_rds_backup_window" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "target_dms_cpc_rds_maint_window" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "target_dms_cpc_rds_apply_immediately" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "target_dms_cpc_rds_license_model" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "target_dms_cpc_rds_autoscale" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "target_dms_cpc_rds_name" {
+  type        = "string"
+  description = "cpc dms"
+}
+
+
+
+variable "source_dms_rsis_rds_skip_final_snapshot" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "source_dms_rsis_rds_allocated_storage" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "source_dms_rsis_rds_storage_type" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "source_dms_rsis_rds_engine" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "source_dms_rsis_rds_engine_version" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "source_dms_rsis_rds_instance_class" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "source_dms_rsis_rds_username" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "source_dms_rsis_rds_password" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "source_dms_rsis_rds_port" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "source_dms_rsis_rds_public" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "source_dms_rsis_rds_multi_az" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "source_dms_rsis_rds_backup_retention" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "source_dms_rsis_rds_backup_window" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "source_dms_rsis_rds_maint_window" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "source_dms_rsis_rds_apply_immediately" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "source_dms_rsis_rds_license_model" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "source_dms_rsis_rds_autoscale" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "source_dms_rsis_rds_name" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "source_dms_rsis_rds_snapshot" {
+  type        = "string"
+  description = "rsis dms"
+}
+
+
+
+variable "target_dms_rsis_rds_skip_final_snapshot" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "target_dms_rsis_rds_allocated_storage" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "target_dms_rsis_rds_storage_type" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "target_dms_rsis_rds_engine" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "target_dms_rsis_rds_engine_version" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "target_dms_rsis_rds_instance_class" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "target_dms_rsis_rds_username" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "target_dms_rsis_rds_password" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "target_dms_rsis_rds_port" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "target_dms_rsis_rds_public" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "target_dms_rsis_rds_multi_az" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "target_dms_rsis_rds_backup_retention" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "target_dms_rsis_rds_backup_window" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "target_dms_rsis_rds_maint_window" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "target_dms_rsis_rds_apply_immediately" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "target_dms_rsis_rds_license_model" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "target_dms_rsis_rds_autoscale" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "target_dms_rsis_rds_name" {
+  type        = "string"
+  description = "rsis dms"
+}
+
+
+
+
+variable "source_dms_mis_rds_skip_final_snapshot" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "source_dms_mis_rds_allocated_storage" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "source_dms_mis_rds_storage_type" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "source_dms_mis_rds_engine" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "source_dms_mis_rds_engine_version" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "source_dms_mis_rds_instance_class" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "source_dms_mis_rds_username" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "source_dms_mis_rds_password" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "source_dms_mis_rds_port" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "source_dms_mis_rds_public" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "source_dms_mis_rds_multi_az" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "source_dms_mis_rds_backup_retention" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "source_dms_mis_rds_backup_window" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "source_dms_mis_rds_maint_window" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "source_dms_mis_rds_apply_immediately" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "source_dms_mis_rds_license_model" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "source_dms_mis_rds_autoscale" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "source_dms_mis_rds_name" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "source_dms_mis_rds_snapshot" {
+  type        = "string"
+  description = "mis dms"
+}
+
+
+
+variable "target_dms_mis_rds_skip_final_snapshot" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "target_dms_mis_rds_allocated_storage" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "target_dms_mis_rds_storage_type" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "target_dms_mis_rds_engine" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "target_dms_mis_rds_engine_version" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "target_dms_mis_rds_instance_class" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "target_dms_mis_rds_username" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "target_dms_mis_rds_password" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "target_dms_mis_rds_port" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "target_dms_mis_rds_public" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "target_dms_mis_rds_multi_az" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "target_dms_mis_rds_backup_retention" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "target_dms_mis_rds_backup_window" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "target_dms_mis_rds_maint_window" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "target_dms_mis_rds_apply_immediately" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "target_dms_mis_rds_license_model" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "target_dms_mis_rds_autoscale" {
+  type        = "string"
+  description = "mis dms"
+}
+variable "target_dms_mis_rds_name" {
+  type        = "string"
+  description = "mis dms"
+}
