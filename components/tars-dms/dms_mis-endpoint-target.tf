@@ -1,11 +1,11 @@
 # Create a source endpoint
-resource "aws_dms_endpoint" "target" {
+resource "aws_dms_endpoint" "mistarget" {
   endpoint_id                 = "${format(
     "%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
-    "target"
+    "mistarget"
   )}"
   endpoint_type               = "target"
   engine_name                 = "oracle"
@@ -20,13 +20,13 @@ resource "aws_dms_endpoint" "target" {
         var.project,
         var.environment,
         var.component,
-        "target"
+        "mistarget"
       ),
     )
   )}"
 
-  username = "change_me"
-  password = "change_me"
-  server_name = "change_me"
-  database_name = "change_me"
+  username = "${var.target_dms_mis_rds_username}"
+  password = "${var.target_dms_mis_rds_password}"
+  server_name = "${aws_db_instance.target_misdb_dms.address}"
+  database_name = "${var.target_dms_mis_rds_name}"
 }

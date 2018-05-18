@@ -284,14 +284,3 @@ tars_rds_skip_final_snapshot = true
 tars_rds_apply_immediately = "true"
 tars_rds_license_model = "license-included"
 tars_rds_autoscale = "True"
-
-# DMS Replication instance
-
-tars_dms_allocated_storage = "50"
-tars_dms_apply_immediately = true
-tars_dms_auto_minor_version_upgrade = true
-tars_dms_engine_version = "2.4.1"
-tars_dms_multi_az = false
-tars_dms_maint_window = "sun:03:16-sun:03:46"
-tars_dms_publicly_accessible = false
-tars_dms_replication_instance_class = "dms.t2.micro"
