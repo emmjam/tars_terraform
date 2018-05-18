@@ -50,42 +50,6 @@ jenkinsnode_subnets_cidrs = [
   "10.167.8.32/28",
 ]
 
-# Environment & Component for Accessing mgmt_prd remote state
-mgmt_component = "mgmt"
-
-mgmt_env = "mgmt"
-
-# TARS backend core/batch subnets
-tars_backend_subnets_cidrs = [
-  "10.167.9.0/27",
-  "10.167.9.32/27",
-  "10.167.9.64/27",
-]
-
-# TARS Frontend/IBS/OBS Web subnets
-tars_web_subnets_cidrs = [
-  "10.167.10.0/26",
-  "10.167.10.64/26",
-  "10.167.10.128/26",
-]
-
-# TARS Messaging subnets
-tars_messaging_subnets_cidrs = [
-  "10.167.9.96/28",
-  "10.167.9.112/28",
-  "10.167.9.128/28",
-]
-
-# AWS MQ SINGLE_INSTANCE only requires 1 subnets
-# ACTIVE_STANDBY_MULTI_AZ requires 2
-awsmq_subnets_cidrs = [
-  "10.167.8.160/28",
-]
-
-jenkins_nat_subnets_cidrs = [
-  "10.167.8.176/28",
-]
-
 ## alb public
 alb_public_subnets_cidrs = [
   "10.167.8.64/28",
@@ -98,6 +62,30 @@ rds_subnets_cidrs = [
   "10.167.8.112/28",
   "10.167.8.128/28",
   "10.167.8.144/28",
+]
+
+# AWS MQ SINGLE_INSTANCE only requires 1 subnets
+# ACTIVE_STANDBY_MULTI_AZ requires 2
+awsmq_subnets_cidrs = [
+  "10.167.8.160/28",
+]
+
+jenkins_nat_subnets_cidrs = [
+  "10.167.8.176/28",
+]
+
+# TARS backend core/batch subnets
+tars_backend_subnets_cidrs = [
+  "10.167.9.0/27",
+  "10.167.9.32/27",
+  "10.167.9.64/27",
+]
+
+# TARS Messaging subnets
+tars_messaging_subnets_cidrs = [
+  "10.167.9.96/28",
+  "10.167.9.112/28",
+  "10.167.9.128/28",
 ]
 
 #SquidNAT CIDR Range
@@ -113,6 +101,13 @@ jmeter_subnets_cidrs = [
   "10.167.9.240/28",
 ]
 
+# TARS Frontend/IBS/OBS Web subnets
+tars_web_subnets_cidrs = [
+  "10.167.10.0/26",
+  "10.167.10.64/26",
+  "10.167.10.128/26",
+]
+
 #OBS CIDR Range
 obs_subnets_cidrs = [
   "10.167.10.192/28",
@@ -120,6 +115,22 @@ obs_subnets_cidrs = [
   "10.167.10.224/28",
 ]
 
+cpc_backend_subnets_cidrs = [
+  "10.167.11.0/28",
+  "10.167.11.16/28",
+  "10.167.11.32/28",
+]
+
+cpc_frontend_subnets_cidrs = [
+  "10.167.11.48/28",
+  "10.167.11.60/28",
+  "10.167.11.76/28",
+]
+
+# Environment & Component for Accessing mgmt_prd remote state
+mgmt_component = "mgmt"
+
+mgmt_env = "mgmt"
 
 
 # Deployer pub key
