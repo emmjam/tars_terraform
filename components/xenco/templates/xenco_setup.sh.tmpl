@@ -15,4 +15,12 @@ do
 
 done
 
+log "[INFO] Configuring Xenco user"
+useradd -c "Xenco Dev User" -G wheel xenco
+mkdir /home/xenco/.ssh
+echo "${xenco_ssh_key}" >> /home/xenco/.ssh/authorized_keys
+chmod -R 600 /home/xenco/.ssh
+chown -R xenco:xenco /home/xenco/.ssh
+log "[INFO] Configuring Xenco user complete"
+
 log '[INFO] Xenco dev server install complete'

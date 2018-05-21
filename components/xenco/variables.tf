@@ -55,6 +55,11 @@ variable "xenco_subnets_cidrs" {
   description = "Xenco dev subnet CIDR's"
 }
 
+variable "xenco_ssh_pub_key" {
+  type        = "string"
+  description = "Xenco provided ssh pub key"
+}
+
 variable "tf_state_bucket_prefix" {
   type        = "string"
   description = "TF State bucket prefix"
