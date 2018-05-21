@@ -4,6 +4,7 @@ data "template_file" "xenco" {
 
   vars {
      rpms = "${lookup(var.xenconode,"rpms_to_install")}"
+     xenco_ssh_key = "${var.xenco_ssh_pub_key}"
   }
   
 }
