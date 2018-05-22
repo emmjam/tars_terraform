@@ -39,10 +39,6 @@ variable "default_tags" {
   }
 }
 
-variable "wildfly-batch" {
-  type        = "map"
-  description = "TARS Wildfly batch server config"
-}
 
 variable "tf_state_bucket_prefix" {
   type        = "string"
@@ -96,11 +92,6 @@ variable "lc_key_name" {
 variable "ami_build_id" {
   type        = "string"
   description = "TARS Batch AMI build ID"
-}
-
-variable "mgmt" {
-  type        = "map"
-  description = "MGMT Account config"
 }
 
 variable "aws_account_id" {
