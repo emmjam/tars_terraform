@@ -1,6 +1,6 @@
 ## Tfvars
 
-account_environment = "live"
+account_environment = "prod"
 
 aws_account_id = "246976497890"
 
@@ -55,19 +55,19 @@ mgmt_component      = "mgmt"
 ###############################################################################
 # CONTROL PROD
 ###############################################################################
-ctrl_vpc_cidr = "10.167.60.0/22"
+ctrl_vpc_cidr = "10.167.56.0/22"
 
 ctrl_aws_account_id         = "246976497890"
 ctrl_aws_region             = "eu-west-1"
 ctrl_project                = "tars"
-ctrl_environment            = "live"
+ctrl_environment            = "prod"
 ctrl_component              = "ctrl"
-ctrl_vpc_id                 = "vpc-9f2ba7f9"           # TODO: use remote state
-ctrl_vpc_cidr_block         = "10.167.60.0/22"         # TODO: use remote state
+ctrl_vpc_id                 = "vpc-26e49240"           # TODO: use remote state
+ctrl_vpc_cidr_block         = "10.167.56.0/22"         # TODO: use remote state
 ctrl_tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote state
 
 ctrl_nat_subnets_cidrs = [
-  "10.167.60.0/28",
+  "10.167.56.0/28",
 ]
 
 ###############################################################################
@@ -84,8 +84,8 @@ ctrl_mgmt_vpc_cidr_block         = "10.167.64.0/22"         # TODO: use remote s
 ctrl_mgmt_tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote state
 
 ## jenkinsnode
-jenkinsnode_instance_type        = "m4.large"
-jenkinsnode_ami_build_id         = "39"
+jenkinsnode_instance_type        = "m5.large"
+jenkinsnode_ami_build_id         = "80"
 jenkinsnode_executors            = 5
 jenkinsnode_asg_min_size         = 0
 jenkinsnode_asg_max_size         = 3
@@ -94,8 +94,8 @@ jenkinsnode_scaledown_recurrence = "00 19 * * 1-5"
 jenkinsnode_scaleup_desired      = 1
 jenkinsnode_scaleup_recurrence   = "15 07 * * 1-5"
 
-jenkinsctrl_instance_type        = "m4.large"
-jenkinsctrl_ami_build_id         = "39"
+jenkinsctrl_instance_type        = "m5.large"
+jenkinsctrl_ami_build_id         = "80"
 jenkinsctrl_executors            = 5
 jenkinsctrl_asg_min_size         = 0
 jenkinsctrl_asg_max_size         = 3
@@ -105,12 +105,12 @@ jenkinsctrl_scaleup_desired      = 1
 jenkinsctrl_scaleup_recurrence   = "15 07 * * 1-5"
 
 jenkinsctrl_subnets_cidrs = [
-  "10.167.60.16/28",
-  "10.167.60.32/28",
-  "10.167.60.48/28",
+  "10.167.56.16/28",
+  "10.167.56.32/28",
+  "10.167.56.48/28",
 ]
 
-wildfly-back_instance_type  = "t2.medium"
+wildfly-back_instance_type  = "m4.large"
 wildfly-back_puppet_node    = ""
 wildfly-back_puppet_type    = ""
 wildfly-back_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
@@ -122,7 +122,7 @@ wildfly-back_scaleup_desired      = 1
 wildfly-back_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## wildfly-batch
-wildfly-batch_instance_type  = "t2.medium"
+wildfly-batch_instance_type  = "m4.large"
 wildfly-batch_puppet_node    = ""
 wildfly-batch_puppet_type    = ""
 wildfly-batch_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
@@ -134,7 +134,7 @@ wildfly-batch_scaleup_desired      = 1
 wildfly-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## wildfly-front
-wildfly-front_instance_type  = "t2.medium"
+wildfly-front_instance_type  = "m4.large"
 wildfly-front_puppet_env     = "opsdev"
 wildfly-front_puppet_node    = ""
 wildfly-front_puppet_type    = ""
@@ -147,7 +147,7 @@ wildfly-front_scaleup_desired      = 1
 wildfly-front_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## wildfly-messaging
-wildfly-messaging_instance_type  = "t2.medium"
+wildfly-messaging_instance_type  = "m4.large"
 wildfly-messaging_puppet_node    = ""
 wildfly-messaging_puppet_type    = ""
 wildfly-messaging_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
@@ -166,12 +166,13 @@ aws_mq_deployment_mode         = "SINGLE_INSTANCE"
 
 aws_mq_users_admin_user              = "admin"
 aws_mq_users_admin_password          = "admin123456789"
+aws_mq_users_admin_group             = "admin"
 aws_mq_users_tars_batch_user         = "tars_batch"
 aws_mq_users_tars_batch_password     = "password123456"
-aws_mq_users_tars_batch_group        = "admins"
+aws_mq_users_tars_batch_group        = "tars_batch"
 aws_mq_users_tars_messaging_user     = "tars_messaging"
 aws_mq_users_tars_messaging_password = "password123456"
-aws_mq_users_tars_messaging_group    = "admins"
+aws_mq_users_tars_messaging_group    = "tars_messaging"
 
 aws_mq_config_description    = "TARS MQ Configuration"
 aws_mq_config_name           = "tars-awsmq"
@@ -180,7 +181,7 @@ aws_mq_config_engine_version = "5.15.0"
 
 ## bastion
 bastion_instance_type        = "t2.micro"
-bastion_ami_build_id         = "59"
+bastion_ami_build_id         = "72"
 bastion_asg_min_size         = 0
 bastion_asg_max_size         = 3
 bastion_scaledown_desired    = 0
@@ -196,15 +197,15 @@ jmeter_asg_size_min               = 0
 
 
 bastion_elb_subnets_cidrs = [
-  "10.167.60.64/28",
-  "10.167.60.80/28",
-  "10.167.60.96/28",
+  "10.167.56.64/28",
+  "10.167.56.80/28",
+  "10.167.56.96/28",
 ]
 
 ctrl_bastion_subnets = [
-  "10.167.60.112/28",
-  "10.167.60.128/28",
-  "10.167.60.144/28",
+  "10.167.56.112/28",
+  "10.167.56.128/28",
+  "10.167.56.144/28",
 ]
 
 whitelist = [
@@ -230,7 +231,7 @@ ops_team_email = "mark.thompson@bjss.com"
 
 public_domain_name = "dvsa.tars.dvsacloud.uk"
 
-aws_account_alias = "tarslive"
+aws_account_alias = "tarsprod"
 
 # Deployer pub key
 deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVSO8uKpdbwww94azylwjnFxsFGcmXG4ObL1oOFibHMN0x+SsSwjfC1DEziWPK3m/Crmar0+ad/68nQC+iWo/MYclh8h3bkKlv9dO4Xtv/0H6uDRW3l3bBO0rWYbt46fMAOCqX96N3LRTfUlPuzsVAd0NGZZlSSAZF0AMl4xE/tZl2m+Dqylrjp3qLT4UxEIrAuvPW06PqkGy63hZznjCjQDaadOAUpY19ZaA71JBueyGBnZ8pSVzr5hT1TpNw/cXxA6WLj4CCipIVm0M64OT/ArqcnQMX9Htf4Gp5apXZ3f6MerfjgHnkrm1t6JNuhSjVB deployer@mgmt.tars.dvsa.aws"
@@ -239,10 +240,10 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 tars_rds_storage_type = "gp2"
 tars_rds_engine = "oracle-se2"
 tars_rds_engine_version = "12.1.0.2.v11"
-tars_rds_instance_class = "db.t2.micro" # was "db.m4.4xlarge"
+tars_rds_instance_class = "db.m4.4xlarge"
 tars_rds_port = "1521"
 tars_rds_public = "false"
-tars_rds_multi_az = "false" # it takes an age to build if true
+tars_rds_multi_az = "true" # it takes an age to build if true
 tars_rds_backup_retention = "7"
 tars_rds_backup_window = "02:38-03:08"
 tars_rds_maint_window = "sun:03:16-sun:03:46"

@@ -27,7 +27,7 @@ asg_default_tags = [
   },
   {
     "key"                 = "Group"
-    "value"               = "live"
+    "value"               = "prod"
     "propagate_at_launch" = "true"
   }
 ]
@@ -41,92 +41,95 @@ asg_default_tags = [
 ###############################################################################
 
 # The VPC CIDR Block for this environment
-vpc_cidr = "10.167.0.0/22"
+vpc_cidr = "10.167.128.0/22"
 
 jenkinsnode_subnets_cidrs = [
-  "10.167.0.0/28",
-  "10.167.0.16/28",
-  "10.167.0.32/28",
+  "10.167.128.0/28",
+  "10.167.128.16/28",
+  "10.167.128.32/28",
 ]
 
 ## alb public
 alb_public_subnets_cidrs = [
-  "10.167.0.64/28",
-  "10.167.0.80/28",
-  "10.167.0.96/28",
+  "10.167.128.64/28",
+  "10.167.128.80/28",
+  "10.167.128.96/28",
 ]
 
 ## rds
 rds_subnets_cidrs = [
-  "10.167.0.112/28",
-  "10.167.0.128/28",
-  "10.167.0.144/28",
+  "10.167.128.112/28",
+  "10.167.128.128/28",
+  "10.167.128.144/28",
 ]
 
 # AWS MQ SINGLE_INSTANCE only requires 1 subnets
 # ACTIVE_STANDBY_MULTI_AZ requires 2
 awsmq_subnets_cidrs = [
-  "10.167.0.160/28",
+  "10.167.128.160/28",
 ]
 
 jenkins_nat_subnets_cidrs = [
-  "10.167.0.176/28",
+  "10.167.128.176/28",
 ]
 
 # TARS backend core/batch subnets
 tars_backend_subnets_cidrs = [
-  "10.167.1.0/27",
-  "10.167.1.32/27",
-  "10.167.1.64/27",
+  "10.167.129.0/27",
+  "10.167.129.32/27",
+  "10.167.129.64/27",
 ]
 
 # TARS Messaging subnets
 tars_messaging_subnets_cidrs = [
-  "10.167.1.96/28",
-  "10.167.1.112/28",
-  "10.167.1.128/28",
+  "10.167.129.96/28",
+  "10.167.129.112/28",
+  "10.167.129.128/28",
 ]
 
 #SquidNAT CIDR Range
 squidnat_subnets_cidrs = [
-  "10.167.1.160/28",
-  "10.167.1.176/28",
-  "10.167.1.192/28",
+  "10.167.129.160/28",
+  "10.167.129.176/28",
+  "10.167.129.192/28",
 ]
 
 jmeter_subnets_cidrs = [
-  "10.167.1.208/28",
-  "10.167.1.224/28",
-  "10.167.1.240/28",
+  "10.167.129.208/28",
+  "10.167.129.224/28",
+  "10.167.129.240/28",
 ]
 
 # TARS Frontend/IBS/OBS Web subnets
 tars_web_subnets_cidrs = [
-  "10.167.2.0/26",
-  "10.167.2.64/26",
-  "10.167.2.128/26",
+  "10.167.130.0/26",
+  "10.167.130.64/26",
+  "10.167.130.128/26",
 ]
 
 #OBS CIDR Range
 obs_subnets_cidrs = [
-  "10.167.2.192/28",
-  "10.167.2.208/28",
-  "10.167.2.224/28",
+  "10.167.130.192/28",
+  "10.167.130.208/28",
+  "10.167.130.224/28",
 ]
 
 cpc_backend_subnets_cidrs = [
-  "10.167.3.0/28",
-  "10.167.3.16/28",
-  "10.167.3.32/28",
+  "10.167.131.0/28",
+  "10.167.131.16/28",
+  "10.167.131.32/28",
 ]
 
 cpc_frontend_subnets_cidrs = [
-  "10.167.3.48/28",
-  "10.167.3.60/28",
-  "10.167.3.76/28",
+  "10.167.131.48/28",
+  "10.167.131.60/28",
+  "10.167.131.76/28",
 ]
 
+# Environment & Component for Accessing mgmt_prd remote state
+mgmt_component = "mgmt"
 
+mgmt_env = "mgmt"
 
 
 # Deployer pub key
@@ -137,10 +140,28 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 ##
 
 # TARSDB
-tars_rds_username = "tarsdevadmin"
+tars_rds_username = "tarsprodadmin"
 
-tars_rds_password = "password"
+tars_rds_password = "sPPmE94NsvmfTmqj5K5YvFxZLmnm9T8m"
 
 # TARSDB
-tars_rds_allocated_storage = "20" # 20 Gigabyte - was 1500GB
-tars_rds_snapshot = "tars-testdb-210218"
+tars_rds_allocated_storage = "300"
+tars_rds_snapshot = "tarsuat-050418"
+
+#############################################################################
+# Transit VPC peering
+#############################################################################
+
+transit_peering_enabled = true
+
+#############################################################################
+# CWLES
+#############################################################################
+
+cwles_curator_max_age = "30"
+
+cwles_data_instance_type    = "m4.large.elasticsearch"
+cwles_data_instance_count   = "2"
+cwles_data_volume_size      = "512"
+cwles_master_instance_type  = "t2.small.elasticsearch"
+cwles_master_instance_count = "2"

@@ -48,6 +48,11 @@ ctrl_peers_xacct = [
     cidr_block = "10.167.60.0/22"
     account_id = "652856684323"
   },
+  {
+    vpc_id     = "vpc-26e49240"   # tarsprod/ctrl
+    cidr_block = "10.167.56.0/22"
+    account_id = "246976497890"
+  },
 ]
 
 # Peers created by the ctrl component, in the same AWS account
@@ -87,6 +92,11 @@ base_peers_xacct = [
     vpc_id     = "vpc-efe38a89"   # tarsnonprod/perf01
     cidr_block = "10.167.16.0/22"
     account_id = "652856684323"
+  },
+  {
+    vpc_id     = "vpc-5ae2943c"   # tarsprod/prod
+    cidr_block = "10.167.128.0/22"
+    account_id = "246976497890"
   },
 ]
 
