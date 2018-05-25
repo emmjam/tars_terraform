@@ -18,6 +18,7 @@ resource "aws_launch_configuration" "tars-messaging" {
   security_groups = [
     "${aws_security_group.tars-messaging.id}",
     "${data.terraform_remote_state.base.core_sg_id}",
+    "${aws_security_group.tars-messaging-ad.id}"
   ]
 
   lifecycle {
