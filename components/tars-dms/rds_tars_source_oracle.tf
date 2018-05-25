@@ -32,14 +32,15 @@ resource "aws_db_instance" "source_tarsdb_dms" {
   backup_retention_period = "${var.source_dms_tars_rds_backup_retention}"
   backup_window           = "${var.source_dms_tars_rds_backup_window}"
   maintenance_window      = "${var.source_dms_tars_rds_maint_window}"
-  parameter_group_name    = "${aws_db_parameter_group.tarsdb_dms.id}"
   apply_immediately       = "${var.source_dms_tars_rds_apply_immediately}"
   license_model           = "${var.source_dms_tars_rds_license_model}"
   name                    = "${var.source_dms_tars_rds_name}"
   snapshot_identifier     = "${var.source_dms_tars_rds_snapshot}"
+  parameter_group_name    = "${aws_db_parameter_group.dms_oem.id}"
+  option_group_name       = "${aws_db_option_group.dms_oem.id}"
   
   vpc_security_group_ids = [
-    "${aws_security_group.tars-dms.id}",
+    "${aws_security_group.tars-dms.id}","${aws_security_group.dms-oem.id}"
   ]
 
   db_subnet_group_name = "${aws_db_subnet_group.tarsdb_dms.id}"
