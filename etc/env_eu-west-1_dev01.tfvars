@@ -162,6 +162,14 @@ tars_rds_snapshot = "tars-testdb-210218"
 
 transit_peering_enabled = true
 
+#############################################################################
+# DVSA AD VPC peering
+#############################################################################
+
+ad_peering_enabled = true
+ad_peering_vpc = "vpc-02072cb35506d9b73"
+ad_account = "233824316563"
+
 # Target DMS RDS instances
 target_dms_tars_rds_storage_type = "gp2"
 target_dms_tars_rds_engine = "oracle-se2"

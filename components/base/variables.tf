@@ -306,3 +306,16 @@ variable "aws_mq_engine_type" {
   description = "AWS MQ engine type"
 }
 
+variable "ad_peering_enabled" {
+  type = "string"
+  description = "Peer with DVSA AD or not"
+}
+variable "ad_account" {
+  type = "string"
+  description = "DVSA AD account number"
+}
+
+variable "ad_peering_vpc" {
+  type = "string"
+  description = "DVSA AD VPC"
+}

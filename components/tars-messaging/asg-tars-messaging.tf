@@ -18,7 +18,7 @@ resource "aws_autoscaling_group" "tars-messaging" {
     "${aws_alb_target_group.tars-messaging-80.arn}",
   ]
   load_balancers = [
-    "${aws_elb.messaging_public.name}"
+    "${aws_elb.messaging_private.name}"
   ]
   min_elb_capacity = 1
 
