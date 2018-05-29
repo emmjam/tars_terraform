@@ -87,7 +87,7 @@ ctrl_mgmt_tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote s
 
 ## jenkinsnode
 jenkinsnode_instance_type        = "m4.large"
-jenkinsnode_ami_build_id         = "39"
+jenkinsnode_ami_build_id         = "80"
 jenkinsnode_executors            = 5
 jenkinsnode_asg_min_size         = 0
 jenkinsnode_asg_max_size         = 3

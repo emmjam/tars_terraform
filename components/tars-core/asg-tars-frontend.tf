@@ -16,6 +16,8 @@ resource "aws_autoscaling_group" "tars-frontend" {
   target_group_arns    = [
     "${aws_alb_target_group.tars-frontend-8443.arn}",
     "${aws_alb_target_group.tars-frontend-9990.arn}",
+    "${aws_alb_target_group.tars-frontend-private-8443.arn}",
+    "${aws_alb_target_group.tars-frontend-private-9990.arn}",
     ]
   enabled_metrics      = ["${var.asg_enabled_metrics}"]
 
