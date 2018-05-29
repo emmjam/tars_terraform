@@ -126,6 +126,12 @@ cpc_frontend_subnets_cidrs = [
   "10.167.131.76/28",
 ]
 
+elc_main_subnets_cidrs = [
+  "10.167.131.96/28",
+  "10.167.131.112/28",
+  "10.167.131.128/28",
+]
+
 # Environment & Component for Accessing mgmt_prd remote state
 mgmt_component = "mgmt"
 
@@ -164,4 +170,8 @@ cwles_data_instance_type    = "m4.large.elasticsearch"
 cwles_data_instance_count   = "2"
 cwles_data_volume_size      = "512"
 cwles_master_instance_type  = "t2.small.elasticsearch"
+<<<<<<< HEAD
 cwles_master_instance_count = "2"
+=======
+cwles_master_instance_count = "2"
+>>>>>>> Elasticache Deployment

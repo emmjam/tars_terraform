@@ -236,6 +236,15 @@ aws_account_alias = "tarsprod"
 # Deployer pub key
 deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVSO8uKpdbwww94azylwjnFxsFGcmXG4ObL1oOFibHMN0x+SsSwjfC1DEziWPK3m/Crmar0+ad/68nQC+iWo/MYclh8h3bkKlv9dO4Xtv/0H6uDRW3l3bBO0rWYbt46fMAOCqX96N3LRTfUlPuzsVAd0NGZZlSSAZF0AMl4xE/tZl2m+Dqylrjp3qLT4UxEIrAuvPW06PqkGy63hZznjCjQDaadOAUpY19ZaA71JBueyGBnZ8pSVzr5hT1TpNw/cXxA6WLj4CCipIVm0M64OT/ArqcnQMX9Htf4Gp5apXZ3f6MerfjgHnkrm1t6JNuhSjVB deployer@mgmt.tars.dvsa.aws"
 
+## Elasticache
+
+elc_main_engine          = "memcached"
+elc_main_engine_version  = "1.4.34"
+elc_main_node_type       = "cache.t2.medium" 
+elc_main_cache_nodes     = "3" 
+elc_main_parameter_group = "default.memcached1.4"
+elc_main_port            = "11211"
+
 # TARSDB
 tars_rds_storage_type = "gp2"
 tars_rds_engine = "oracle-se2"

@@ -72,6 +72,38 @@ variable "rds_subnets_cidrs" {
   description = "TARS RDS Subnet CIDR's"
 }
 
+variable "elc_main_engine" {
+  type = "string"
+  description = "Engine Type for elasticache"
+}
+
+variable "elc_main_engine_version" {
+  type = "string"
+  description = "Engine Version for elasticache"
+}
+
+variable "elc_main_node_type" {
+  type = "string"
+  description = "Elasticache Node Type"
+}
+variable "elc_main_cache_nodes" {
+  type = "string"
+  description = "Elasticache node count"
+}
+variable "elc_main_parameter_group" {
+  type = "string"
+  description = "Elasticache Paramter Group"
+}
+variable "elc_main_port" {
+  type = "string"
+  description = "Elasticache Port"
+}
+
+variable "elc_main_subnets_cidrs" {
+  type        = "list"
+  description = "Elasticache Subnets"
+}
+
 variable "squidnat_subnets_cidrs" {
   type = "list"
   description = ""
