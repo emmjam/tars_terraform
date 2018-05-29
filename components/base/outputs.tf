@@ -66,6 +66,10 @@ output "kms_sg_id" {
   value = "${aws_security_group.kms_endpoint.id}"
 }
 
+output "elc_sg_id" {
+  value = "${aws_security_group.elc_main.id}"
+}
+
 output "subnets_tars_awsmq" {
   value = "${module.tars_awsmq_subnets.subnet_ids}"
 }

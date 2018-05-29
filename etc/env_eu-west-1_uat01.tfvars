@@ -126,6 +126,11 @@ cpc_frontend_subnets_cidrs = [
   "10.167.15.76/28",
 ]
 
+elc_main_subnets_cidrs = [
+  "10.167.15.96/28",
+  "10.167.15.112/28",
+  "10.167.15.128/28",
+]
 
 # Environment & Component for Accessing mgmt_prd remote state
 mgmt_component = "mgmt"
