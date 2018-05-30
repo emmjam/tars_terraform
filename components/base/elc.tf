@@ -4,7 +4,7 @@ resource "aws_elasticache_subnet_group" "main" {
     var.project,
     var.environment,
     var.component,
-    "main"
+    "ec"
   )}"
 
   description = "${format(
@@ -12,7 +12,7 @@ resource "aws_elasticache_subnet_group" "main" {
     var.project,
     var.environment,
     var.component,
-    "main"
+    "ec"
   )}"
 
   subnet_ids = [
@@ -20,8 +20,8 @@ resource "aws_elasticache_subnet_group" "main" {
   ]
 }
 
-resource "aws_elasticache_cluster" "main" {
-  cluster_id           = "${var.project}-${var.environment}-${var.component}-main" 
+resource "aws_elasticache_cluster" "ec" {
+  cluster_id           = "${var.project}-${var.environment}-${var.component}-ec" 
   engine               = "${var.elc_main_engine}"
   engine_version       = "${var.elc_main_engine_version}"
   node_type            = "${var.elc_main_node_type}"
@@ -42,7 +42,7 @@ resource "aws_elasticache_cluster" "main" {
         var.project,
         var.environment,
         var.component,
-        "main"
+        "ec"
       ),
       "Component", var.component
     )
