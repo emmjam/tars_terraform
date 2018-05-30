@@ -7,6 +7,6 @@ resource "aws_route53_record" "elc-main-CNAME" {
   ttl     = "30"
 
   records = [
-    "${aws_elasticache_cluster.main.cluster_address}",
+    "${aws_elasticache_cluster.ec.cluster_address}",
   ]
 }
