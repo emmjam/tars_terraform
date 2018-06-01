@@ -108,6 +108,7 @@ tars_web_subnets_cidrs = [
 ]
 
 #OBS CIDR Range
+
 obs_subnets_cidrs = [
   "10.167.130.192/28",
   "10.167.130.208/28",
@@ -130,6 +131,13 @@ elc_main_subnets_cidrs = [
   "10.167.131.96/28",
   "10.167.131.112/28",
   "10.167.131.128/28",
+]
+
+#IBS CIDR Range
+ibs_subnets_cidrs = [
+  "10.167.131.144/28",
+  "10.167.131.160/28",
+  "10.167.131.176/28",
 ]
 
 # Environment & Component for Accessing mgmt_prd remote state

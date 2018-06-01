@@ -133,6 +133,13 @@ elc_main_subnets_cidrs = [
   "10.167.11.128/28",
 ]
 
+#IBS CIDR Range
+ibs_subnets_cidrs = [
+  "10.167.11.144/28",
+  "10.167.11.160/28",
+  "10.167.11.176/28",
+]
+
 # Environment & Component for Accessing mgmt_prd remote state
 mgmt_component = "mgmt"
 
