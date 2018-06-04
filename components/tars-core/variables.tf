@@ -211,6 +211,22 @@ variable "wildfly-back_asg_min_size" {
   type = "string"
   description = ""
 }
+variable "wildfly-back_scaledown_desired" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-back_scaleup_desired" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-back_scaledown_recurrence" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-back_scaleup_recurrence" {
+  type = "string"
+  description = ""
+}
 variable "wildfly-back_instance_type" {
   type = "string"
   description = ""
@@ -232,6 +248,22 @@ variable "wildfly-front_asg_max_size" {
   description = ""
 }
 variable "wildfly-front_asg_min_size" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-front_scaledown_desired" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-front_scaleup_desired" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-front_scaledown_recurrence" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-front_scaleup_recurrence" {
   type = "string"
   description = ""
 }

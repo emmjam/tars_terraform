@@ -128,3 +128,19 @@ variable "wildfly-batch_puppet_type" {
   type = "string"
   description = ""
 }
+variable "wildfly-batch_scaledown_desired" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-batch_scaledown_recurrence" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-batch_scaleup_desired" {
+  type = "string"
+  description = ""
+}
+variable "wildfly-batch_scaleup_recurrence" {
+  type = "string"
+  description = ""
+}
