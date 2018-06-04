@@ -11,16 +11,6 @@ resource "aws_security_group_rule" "tars_messaging_egress_dvsa_dc" {
   cidr_blocks       = ["${var.dvsa_dc_whitelist}"]
 }
 
-resource "aws_security_group_rule" "tars_messaging_egress_dvsa_wsus" {
-  description       = "Allow all TCP/8530 to DVSA WSUS"
-  type              = "egress"
-  from_port         = 8530
-  to_port           = 8530
-  protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
-  cidr_blocks       = ["${var.dvsa_wsus_services}"]
-}
-
 resource "aws_security_group_rule" "tars_messaging_egress_dvsa_sccm_443" {
   description       = "Allow all TCP/443 to DVSA SCCM"
   type              = "egress"
@@ -190,4 +180,14 @@ resource "aws_security_group_rule" "tars_messaging_egress_dvsa_epo_6514" {
   protocol          = "tcp"
   security_group_id = "${aws_security_group.tars-messaging-ad.id}"
   cidr_blocks       = ["${var.dvsa_epo_services}"]
+}
+
+resource "aws_security_group_rule" "dvsa_mgmt_ingress_tars_messaging_all_ports" {
+  description       = "Allow all TCP/IP from DVSA mgmt"
+  type              = "ingress"
+  from_port         = -1
+  to_port           = -1
+  protocol          = -1
+  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  cidr_blocks       = ["${var.dvsa_mgmt_inbound}"]
 }
