@@ -54,3 +54,30 @@ resource "aws_vpc_peering_connection" "mgmt" {
   )}"
 }
 
+# Peer with the DVSA AD account
+resource "aws_vpc_peering_connection" "dvsa_ad" {
+  count = "${var.ad_peering_enabled}"
+  vpc_id        = "${aws_vpc.vpc.id}"
+  peer_owner_id = "${var.ad_account}"
+  peer_vpc_id   = "${var.ad_peering_vpc}"
+
+  auto_accept = false
+
+  requester {
+    "allow_remote_vpc_dns_resolution" = true
+  }
+
+  tags = "${merge(
+    var.default_tags,
+    map(
+      "Name", format(
+        "%s-%s-%s/%s",
+        var.project,
+        var.environment,
+        var.component,
+        "dvsa_ad"
+      ),
+      "Side", "Requester"
+    )
+  )}"
+}

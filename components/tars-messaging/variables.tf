@@ -136,3 +136,23 @@ variable "wildfly-messaging_scaleup_desired" {
   type = "string"
   description = ""
 }
+
+variable "dvsa_dc_whitelist" {
+  type        = "list"
+  description = "DVSA DC whitelist"
+}
+
+variable "dvsa_wsus_services" {
+  type = "string"
+  description = "DVSA WSUS IP"
+}
+
+variable "dvsa_sccm_services" {
+  type = "string"
+  description = "DVSA SCCM IP"
+}
+
+variable "dvsa_epo_services" {
+  type = "string"
+  description = "DVSA EPO IP"
+}

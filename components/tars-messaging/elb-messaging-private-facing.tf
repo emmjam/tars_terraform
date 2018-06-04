@@ -1,19 +1,19 @@
 # This is to allow RDP in a private node
 
-resource "aws_elb" "messaging_public" {
+resource "aws_elb" "messaging_private" {
   name = "${format(
     "%s-%s-%s-%s",
     var.project,
     var.environment,
     "msg",
-    "rdp-public"
+    "rdp-private"
   )}"
 
-  internal                    = false
+  internal                    = true
   connection_draining         = true
   connection_draining_timeout = 400
   cross_zone_load_balancing   = true
-  security_groups             = ["${aws_security_group.tars-messaging-alb-public.id}"]
+  security_groups             = ["${aws_security_group.tars-alb-messaging.id}"]
 
   subnets = ["${data.terraform_remote_state.base.subnets_alb_public}"]
 
