@@ -69,15 +69,25 @@ resource "aws_security_group_rule" "tars_messaging_egress_active_mq" {
   source_security_group_id = "${data.terraform_remote_state.base.awsmq_sg_id}"
 }
 
-# Allow RDP in from ALB
-resource "aws_security_group_rule" "tars_messaging_ingress_tars_messaging_alb_RDP" {
-  description              = "Allow TCP/3389 from private ALB"
+# Allow RDP in from Bastion
+resource "aws_security_group_rule" "tars_messaging_ingress_bastion_RDP" {
+  description              = "Allow TCP/3389 from bastion"
   type                     = "ingress"
   from_port                = 3389
   to_port                  = 3389
   protocol                 = "tcp"
   security_group_id        = "${aws_security_group.tars-messaging.id}"
-  source_security_group_id = "${aws_security_group.tars-alb-messaging.id}"
+  source_security_group_id = "${data.terraform_remote_state.ctrl.bastion_sg_id}"
+}
+
+resource "aws_security_group_rule" "bastion_egress_tars_messaging_RDP" {
+  description              = "Allow TCP/3389 to Windows Messaging"
+  type                     = "egress"
+  from_port                = 3389
+  to_port                  = 3389
+  protocol                 = "tcp"
+  security_group_id        = "${data.terraform_remote_state.ctrl.bastion_sg_id}"
+  source_security_group_id = "${aws_security_group.tars-messaging.id}"
 }
 
 resource "aws_security_group_rule" "tars_messaging_egress_tars_core_backend_alb_8080" {
@@ -110,6 +120,7 @@ resource "aws_security_group_rule" "active_mq_ingress_tars_messaging" {
   source_security_group_id = "${aws_security_group.tars-messaging.id}"
 }
 
+# This allows the DVSA to RDP in
 resource "aws_security_group_rule" "wan_ingress_tars_messaging_port_3389" {
   description       = "Allow TCP/3389 from WAN"
   type              = "ingress"
