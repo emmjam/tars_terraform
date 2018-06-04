@@ -39,6 +39,11 @@ variable "default_tags" {
   }
 }
 
+variable "whitelist" {
+  type        = "list"
+  description = "TARS Servers inbound whitelisted IP's"
+}
+
 variable "tf_state_bucket_prefix" {
   type        = "string"
   description = "TF State bucket prefix"

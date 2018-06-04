@@ -32,14 +32,16 @@ resource "aws_db_instance" "target_cpcdb_dms" {
   backup_retention_period = "${var.target_dms_cpc_rds_backup_retention}"
   backup_window           = "${var.target_dms_cpc_rds_backup_window}"
   maintenance_window      = "${var.target_dms_cpc_rds_maint_window}"
-  parameter_group_name    = "${aws_db_parameter_group.tarsdb_dms.id}"
   apply_immediately       = "${var.target_dms_cpc_rds_apply_immediately}"
   license_model           = "${var.target_dms_cpc_rds_license_model}"
   name                    = "${var.target_dms_cpc_rds_name}"
+  parameter_group_name    = "${aws_db_parameter_group.dms_oem.id}"
+  option_group_name       = "${aws_db_option_group.dms_oem.id}"
+  
   
   
   vpc_security_group_ids = [
-    "${aws_security_group.tars-dms.id}",
+    "${aws_security_group.tars-dms.id}","${aws_security_group.dms-oem.id}"
   ]
 
   db_subnet_group_name = "${aws_db_subnet_group.tarsdb_dms.id}"
