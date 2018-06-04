@@ -288,7 +288,7 @@ dvsa_mgmt_inbound = [
   "10.69.3.4/32"
 ]
 
-dvsa_wsus_services = "10.69.3.4/32"
+# WSUS is covered above in the DC whitelist
 dvsa_sccm_services = "10.84.192.157/32"
 dvsa_epo_services = "10.84.192.158/32"
 
