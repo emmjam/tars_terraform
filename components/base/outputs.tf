@@ -82,3 +82,7 @@ output "core_sg_id" {
   value = "${aws_security_group.core.id}"
 }
 
+output "jmeter_sg_id" {
+  value = "${aws_security_group.jmeter.id}"
+}
+
