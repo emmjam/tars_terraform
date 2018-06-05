@@ -96,9 +96,21 @@ squidnat_subnets_cidrs = [
 
 # TARS Frontend/IBS/OBS Web subnets
 tars_web_subnets_cidrs = [
-  "10.167.18.0/26",
-  "10.167.18.64/26",
-  "10.167.18.128/26",
+  "10.167.18.0/28",
+  "10.167.18.16/28",
+  "10.167.18.32/28",
+]
+
+ibs_subnets_cidrs = [
+  "10.167.18.48/28",
+  "10.167.18.64/28",
+  "10.167.18.80/28",
+]
+
+ibs_db_subnets_cidrs = [
+  "10.167.18.96/28",
+  "10.167.18.112/28",
+  "10.167.18.128/28",
 ]
 
 jmeter_subnets_cidrs = [
@@ -139,6 +151,11 @@ tars_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 # TARSDB
 tars_rds_allocated_storage = "300"
 tars_rds_snapshot = "tarsuat-050418"
+
+# IBSDB
+ibs_rds_username = "ibsuatadmin"
+
+ibs_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 
 wildfly-back_instance_type  = "m4.large"
 wildfly-back_asg_min_size         = 0

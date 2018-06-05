@@ -7,3 +7,14 @@ resource "aws_security_group_rule" "ibs-ingress-ibs-alb-8080" {
   source_security_group_id = "${aws_security_group.ibs-alb.id}"
 }
 
+resource "aws_security_group_rule" "ibs-egress-ibs-rds-3306" {
+  type                     = "egress"
+  protocol                 = "tcp"
+  from_port                = "3306"
+  to_port                  = "3306"
+  security_group_id        = "${aws_security_group.ibs.id}"
+  source_security_group_id = "${aws_security_group.ibs_aurora.id}"
+}
+
+
+

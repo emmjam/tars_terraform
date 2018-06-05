@@ -102,9 +102,21 @@ jmeter_subnets_cidrs = [
 
 # TARS Frontend/IBS/OBS Web subnets
 tars_web_subnets_cidrs = [
-  "10.167.14.0/26",
-  "10.167.14.64/26",
-  "10.167.14.128/26",
+  "10.167.14.0/28",
+  "10.167.14.16/28",
+  "10.167.14.32/28",
+]
+
+ibs_subnets_cidrs = [
+  "10.167.14.48/28",
+  "10.167.14.64/28",
+  "10.167.14.80/28",
+]
+
+ibs_db_subnets_cidrs = [
+  "10.167.14.96/28",
+  "10.167.14.112/28",
+  "10.167.14.128/28",
 ]
 
 #OBS CIDR Range
@@ -163,6 +175,11 @@ tars_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 tars_rds_allocated_storage = "300"
 tars_rds_snapshot = "tarsuat-050418"
 tars_rds_autoscale = "False"
+
+# IBSDB
+ibs_rds_username = "tarsuatadmin"
+
+ibs_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 
 #############################################################################
 # Transit VPC peering

@@ -102,9 +102,21 @@ jmeter_subnets_cidrs = [
 
 # TARS Frontend/IBS/OBS Web subnets
 tars_web_subnets_cidrs = [
-  "10.167.2.0/26",
-  "10.167.2.64/26",
-  "10.167.2.128/26",
+  "10.167.2.0/28",
+  "10.167.2.16/28",
+  "10.167.2.32/28",
+]
+
+ibs_subnets_cidrs = [
+  "10.167.2.48/28",
+  "10.167.2.64/28",
+  "10.167.2.80/28",
+]
+
+ibs_db_subnets_cidrs = [
+  "10.167.2.96/28",
+  "10.167.2.112/28",
+  "10.167.2.128/28",
 ]
 
 #OBS CIDR Range
@@ -126,7 +138,6 @@ batch_efs_subnets_cidrs = [
   "10.167.3.176/28",
 ]
 
-
 # Deployer pub key
 deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVSO8uKpdbwww94azylwjnFxsFGcmXG4ObL1oOFibHMN0x+SsSwjfC1DEziWPK3m/Crmar0+ad/68nQC+iWo/MYclh8h3bkKlv9dO4Xtv/0H6uDRW3l3bBO0rWYbt46fMAOCqX96N3LRTfUlPuzsVAd0NGZZlSSAZF0AMl4xE/tZl2m+Dqylrjp3qLT4UxEIrAuvPW06PqkGy63hZznjCjQDaadOAUpY19ZaA71JBueyGBnZ8pSVzr5hT1TpNw/cXxA6WLj4CCipIVm0M64OT/ArqcnQMX9Htf4Gp5apXZ3f6MerfjgHnkrm1t6JNuhSjVB deployer@mgmt.tars.dvsa.aws"
 
@@ -142,6 +153,11 @@ tars_rds_password = "password"
 # TARSDB
 tars_rds_allocated_storage = "20" # 20 Gigabyte - was 1500GB
 tars_rds_snapshot = "tars-testdb-210218"
+
+# IBSDB
+ibs_rds_username = "ibsdevadmin"
+
+ibs_rds_password = "password"
 
 #############################################################################
 # DVSA AD VPC peering

@@ -109,9 +109,21 @@ squidnat_subnets_cidrs = [
 
 # TARS Frontend/IBS/OBS Web subnets
 tars_web_subnets_cidrs = [
-  "10.167.6.0/26",
-  "10.167.6.64/26",
-  "10.167.6.128/26",
+  "10.167.6.0/28",
+  "10.167.6.16/28",
+  "10.167.6.32/28",
+]
+
+ibs_subnets_cidrs = [
+  "10.167.6.48/28",
+  "10.167.6.64/28",
+  "10.167.6.80/28",
+]
+
+ibs_db_subnets_cidrs = [
+  "10.167.6.96/28",
+  "10.167.6.112/28",
+  "10.167.6.128/28",
 ]
 
 #OBS CIDR Range
@@ -166,6 +178,11 @@ tars_rds_password = "password"
 # TARSDB
 tars_rds_allocated_storage = "20" # 20 Gigabyte - was 1500GB
 tars_rds_snapshot = "tars-testdb-210218"
+
+# IBSDB
+ibs_rds_username = "ibsdevadmin"
+
+ibs_rds_password = "password"
 
 #############################################################################
 # Transit VPC peering
