@@ -108,6 +108,7 @@ tars_web_subnets_cidrs = [
 ]
 
 #OBS CIDR Range
+
 obs_subnets_cidrs = [
   "10.167.130.192/28",
   "10.167.130.208/28",
