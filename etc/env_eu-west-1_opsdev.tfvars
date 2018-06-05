@@ -136,6 +136,14 @@ tars_rds_password = "password"
 tars_rds_allocated_storage = "20" # 20 Gigabyte - was 1500GB
 tars_rds_snapshot = "tars-testdb-210218"
 
+#############################################################################
+# DVSA AD VPC peering
+#############################################################################
+
+ad_peering_enabled = true
+ad_peering_vpc = "vpc-02072cb35506d9b73"
+ad_account = "233824316563"
+
 # Xenco temp dev box
 xenconode = {
   instance_type        = "m4.large"
