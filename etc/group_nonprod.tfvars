@@ -22,6 +22,7 @@ administrators = [
   "callum.massey@bjss.com",
   "steve.wilson@bjss.com",
   "brian.collinson@bjss.com",
+  "chris.nappin@bjss.com",
 ]
 
 power_users = [
