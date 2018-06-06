@@ -14,9 +14,8 @@ data "template_file" "ibs" {
 
   # Set puppet factors
   vars {
-    env    = "${var.environment}"
-    node   = "${var.ibs_puppet_node}"
-    type   = "${var.ibs_puppet_type}"
+    environment    = "${var.environment}"
+    nodetype   = "${var.ibs_puppet_nodetype}"
     kms_key = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
   }
 }

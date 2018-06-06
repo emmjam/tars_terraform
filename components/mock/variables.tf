@@ -119,11 +119,7 @@ variable "wildfly-mock_puppet_kms_key" {
   type = "string"
   description = ""
 }
-variable "wildfly-mock_puppet_node" {
-  type = "string"
-  description = ""
-}
-variable "wildfly-mock_puppet_type" {
+variable "wildfly-mock_puppet_nodetype" {
   type = "string"
   description = ""
 }

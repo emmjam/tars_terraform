@@ -4,7 +4,7 @@ data "aws_ami" "wildfly-batch" {
     "%s-%s-%s/%s",
     var.project,
     "rhel",
-    "wildfly11-batch",
+    "tars-batch",
     var.ami_build_id
   )}"
 

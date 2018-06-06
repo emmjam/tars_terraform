@@ -4,7 +4,7 @@ data "aws_ami" "obs" {
     "%s-%s-%s/%s",
     var.project,
     "rhel",
-    "obs-obs",
+    "obs",
     var.ami_build_id
   )}"
 

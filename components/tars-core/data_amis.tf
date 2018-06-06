@@ -3,7 +3,7 @@ data "aws_ami" "wildfly-back" {
     "%s-%s-%s/%s",
     var.project,
     "rhel",
-    "wildfly11-back",
+    "tars-back",
     "${var.ami_build_id}"
   )}"
 
@@ -24,7 +24,7 @@ data "aws_ami" "wildfly-front" {
     "%s-%s-%s/%s",
     var.project,
     "rhel",
-    "wildfly11-front",
+    "tars-front",
     var.ami_build_id
   )}"
 

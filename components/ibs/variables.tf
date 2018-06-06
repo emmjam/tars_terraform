@@ -106,11 +106,7 @@ variable "ibs_asg_min_size" {
   type = "string"
   description = ""
 }
-variable "ibs_instance_type" {
-  type = "string"
-  description = ""
-}
-variable "ibs_puppet_node" {
+variable "ibs_instance_nodetype" {
   type = "string"
   description = ""
 }

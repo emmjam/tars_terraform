@@ -235,11 +235,7 @@ variable "wildfly-back_puppet_kms_key" {
   type = "string"
   description = ""
 }
-variable "wildfly-back_puppet_node" {
-  type = "string"
-  description = ""
-}
-variable "wildfly-back_puppet_type" {
+variable "wildfly-back_puppet_nodetype" {
   type = "string"
   description = ""
 }
@@ -276,11 +272,7 @@ variable "wildfly-front_puppet_kms_key" {
   type = "string"
   description = ""
 }
-variable "wildfly-front_puppet_node" {
-  type = "string"
-  description = ""
-}
-variable "wildfly-front_puppet_type" {
+variable "wildfly-front_puppet_nodetype" {
   type = "string"
   description = ""
 }
