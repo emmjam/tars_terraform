@@ -38,6 +38,11 @@ capita_users = [
   "rob.whyte@capita.co.uk",
 ]
 
+capita_perf_ro_users = [
+  "Himanshu.Dhir@capita.co.uk",
+  "Subrata.Dey@capita.co.uk"
+]
+
 ###############################################################################
 # MGMT
 ###############################################################################
@@ -314,7 +319,7 @@ aws_account_alias = "tarsnonprod"
 
 elc_main_engine          = "memcached"
 elc_main_engine_version  = "1.4.34"
-elc_main_node_type       = "cache.t2.micro" 
+elc_main_node_type       = "cache.t2.micro"
 elc_main_cache_nodes     = "1"
 elc_main_parameter_group = "default.memcached1.4"
 elc_main_port            = "11211"
