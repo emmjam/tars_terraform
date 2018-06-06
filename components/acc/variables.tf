@@ -93,6 +93,12 @@ variable "capita_users" {
   default     = []
 }
 
+variable "capita_perf_ro_users" {
+  type        = "list"
+  description = "List of read-only IAM Users from Capita, that have rights to view CloudWatch events"
+  default     = []
+}
+
 # CWLES - CloudWatch Logs to Elasticsearch
 
 variable "cwles_curator_max_age" {
@@ -125,4 +131,3 @@ variable "cwles_master_instance_count" {
   type        = "string"
   description = "Number of Elasticsearch domain master nodes"
 }
-

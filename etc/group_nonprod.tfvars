@@ -22,6 +22,7 @@ administrators = [
   "callum.massey@bjss.com",
   "steve.wilson@bjss.com",
   "brian.collinson@bjss.com",
+  "chris.nappin@bjss.com",
 ]
 
 power_users = [
@@ -36,6 +37,11 @@ dms_users = [
 capita_users = [
   "paul.hepple@capita.co.uk",
   "rob.whyte@capita.co.uk",
+]
+
+capita_perf_ro_users = [
+  "Himanshu.Dhir@capita.co.uk",
+  "Subrata.Dey@capita.co.uk"
 ]
 
 ###############################################################################
@@ -307,7 +313,7 @@ aws_account_alias = "tarsnonprod"
 
 elc_main_engine          = "memcached"
 elc_main_engine_version  = "1.4.34"
-elc_main_node_type       = "cache.t2.micro" 
+elc_main_node_type       = "cache.t2.micro"
 elc_main_cache_nodes     = "1"
 elc_main_parameter_group = "default.memcached1.4"
 elc_main_port            = "11211"
