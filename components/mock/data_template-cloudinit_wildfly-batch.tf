@@ -3,7 +3,7 @@ data "template_file" "wildfly-mock-common" {
   template = "${file("${path.module}/templates/cloudinit_common.yaml.tmpl")}"
 
   vars {
-    nodetype    = "wildlfy-mock"
+    nodetype    = "mock"
     domain_name = "${var.environment}.${var.private_domain_name}"
   }
 }
@@ -14,9 +14,8 @@ data "template_file" "wildfly-mock-config" {
 
   # Set puppet factors
   vars {
-    env    = "${var.environment}"
-    node   = "${var.wildfly-mock_puppet_node}"
-    type   = "${var.wildfly-mock_puppet_type}"
+    environment    = "${var.environment}"
+    nodetype   = "${var.wildfly-mock_puppet_nodetype}"
     kms_key = "${var.wildfly-mock_puppet_kms_key}"
   }
 }

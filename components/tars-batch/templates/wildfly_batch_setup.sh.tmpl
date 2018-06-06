@@ -11,9 +11,8 @@ sed -E -i "s/'[a-z0-9]{8}\-[a-z0-9]{4}\-[a-z0-9]{4}\-[a-f0-9]{4}\-[a-z0-9]{12}'/
 
 
 cd /tmp/packer-puppet-masterless
-export FACTER_env='${env}'
-export FACTER_node='${node}'
-export FACTER_type='${type}'
+export FACTER_environment='${environment}'
+export FACTER_nodetype='${nodetype}'
 /opt/puppetlabs/bin/puppet apply --verbose --modulepath='/tmp/packer-puppet-masterless/module-0:/tmp/packer-puppet-masterless/module-1' --hiera_config='/tmp/packer-puppet-masterless/hiera.yaml' --detailed-exitcodes /tmp/packer-puppet-masterless/manifests/site.pp
 
 log '[INFO] Wildfly batch configuration finished'

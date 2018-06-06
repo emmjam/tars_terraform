@@ -5,7 +5,7 @@ resource "aws_autoscaling_group" "tars-batch" {
     var.project,
     var.environment,
     var.component,
-    "wf-batch"
+    "tars-batch"
   )}"
 
   launch_configuration = "${aws_launch_configuration.tars-batch.id}"
@@ -29,7 +29,7 @@ resource "aws_autoscaling_group" "tars-batch" {
             var.project,
             var.environment,
             var.component,
-            "wf-batch"
+            "tars-batch"
           ),
           "propagate_at_launch", "true"
         ),

@@ -4,7 +4,7 @@ data "aws_ami" "wildfly-mock" {
     "%s-%s-%s/%s",
     var.project,
     "rhel",
-    "wildfly11-mock",
+    "mock",
     var.ami_build_id
   )}"
 

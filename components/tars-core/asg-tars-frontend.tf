@@ -5,7 +5,7 @@ resource "aws_autoscaling_group" "tars-frontend" {
     var.project,
     var.environment,
     var.component,
-    "wf-front"
+    "tars-front"
   )}"
 
   launch_configuration = "${aws_launch_configuration.tars-frontend.id}"
@@ -32,13 +32,13 @@ resource "aws_autoscaling_group" "tars-frontend" {
             var.project,
             var.environment,
             var.component,
-            "wf-front"
+            "tars-front"
           ),
           "propagate_at_launch", "true"
         ),
         map(
           "key", "Nodetype",
-          "value", "wildfly",
+          "value", "tars-front",
           "propagate_at_launch", "true"
         ),
         map(

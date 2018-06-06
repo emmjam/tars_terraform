@@ -123,11 +123,7 @@ variable "wildfly-messaging_puppet_kms_key" {
   type = "string"
   description = ""
 }
-variable "wildfly-messaging_puppet_node" {
-  type = "string"
-  description = ""
-}
-variable "wildfly-messaging_puppet_type" {
+variable "wildfly-messaging_puppet_nodetype" {
   type = "string"
   description = ""
 }

@@ -113,8 +113,7 @@ jenkinsctrl_subnets_cidrs = [
 ]
 
 wildfly-back_instance_type  = "t2.medium"
-wildfly-back_puppet_node    = ""
-wildfly-back_puppet_type    = ""
+wildfly-back_puppet_nodetype    = "tars-back"
 wildfly-back_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
 wildfly-back_asg_min_size         = 0
 wildfly-back_asg_max_size         = 1
@@ -126,8 +125,7 @@ wildfly-back_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## wildfly-batch
 wildfly-batch_instance_type  = "t2.medium"
-wildfly-batch_puppet_node    = ""
-wildfly-batch_puppet_type    = ""
+wildfly-batch_puppet_nodetype    = "tars-batch"
 wildfly-batch_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
 wildfly-batch_asg_min_size         = 0
 wildfly-batch_asg_max_size         = 1
@@ -138,8 +136,7 @@ wildfly-batch_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## obs
 obs_instance_type  = "t2.medium"
-obs_puppet_node    = ""
-obs_puppet_type    = ""
+obs_puppet_nodetype    = "obs"
 obs_asg_min_size         = 0
 obs_asg_max_size         = 3
 obs_scaledown_desired    = 0
@@ -149,8 +146,7 @@ obs_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## ibs
 ibs_instance_type  = "t2.medium"
-ibs_puppet_node    = ""
-ibs_puppet_type    = ""
+ibs_puppet_nodetype    = "ibs"
 ibs_asg_min_size         = 0
 ibs_asg_max_size         = 3
 ibs_scaledown_desired    = 0
@@ -160,8 +156,7 @@ ibs_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## wildfly-front
 wildfly-front_instance_type  = "t2.medium"
-wildfly-front_puppet_node    = ""
-wildfly-front_puppet_type    = ""
+wildfly-front_puppet_nodetype    = "tars-front"
 wildfly-front_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
 wildfly-front_asg_min_size         = 0
 wildfly-front_asg_max_size         = 1
@@ -172,8 +167,7 @@ wildfly-front_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## wildfly-messaging
 wildfly-messaging_instance_type  = "t2.medium"
-wildfly-messaging_puppet_node    = ""
-wildfly-messaging_puppet_type    = ""
+wildfly-messaging_puppet_nodetype    = "tars-messaging"
 wildfly-messaging_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
 wildfly-messaging_asg_min_size         = 0
 wildfly-messaging_asg_max_size         = 1
@@ -184,8 +178,7 @@ wildfly-messaging_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## wildfly-mock
 wildfly-mock_instance_type  = "t2.medium"
-wildfly-mock_puppet_node    = ""
-wildfly-mock_puppet_type    = ""
+wildfly-mock_puppet_nodetype    = "mock"
 wildfly-mock_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
 wildfly-mock_asg_min_size         = 0
 wildfly-mock_asg_max_size         = 1

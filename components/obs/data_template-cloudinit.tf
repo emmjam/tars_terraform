@@ -14,9 +14,8 @@ data "template_file" "obs" {
 
   # Set puppet factors
   vars {
-    env    = "${var.environment}"
-    node   = "${var.obs_puppet_node}"
-    type   = "${var.obs_puppet_type}"
+    environment    = "${var.environment}"
+    nodetype   = "${var.obs_puppet_nodetype}"
     kms_key = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
   }
 }
