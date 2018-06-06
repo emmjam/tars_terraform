@@ -97,7 +97,7 @@ jenkinsnode_scaleup_desired      = 1
 jenkinsnode_scaleup_recurrence   = "15 07 * * 1-5"
 
 jenkinsctrl_instance_type        = "m4.large"
-jenkinsctrl_ami_build_id         = "39"
+jenkinsctrl_ami_build_id         = "80"
 jenkinsctrl_executors            = 5
 jenkinsctrl_asg_min_size         = 0
 jenkinsctrl_asg_max_size         = 3
