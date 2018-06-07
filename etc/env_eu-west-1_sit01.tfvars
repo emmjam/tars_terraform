@@ -146,6 +146,10 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 # RDS
 ##
 
+ad_peering_enabled = false
+ad_peering_vpc = "vpc-02072cb35506d9b73"
+ad_account = "233824316563"
+
 # TARSDB
 tars_rds_username = "tarsuatadmin"
 
