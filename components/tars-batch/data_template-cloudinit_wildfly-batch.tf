@@ -17,6 +17,8 @@ data "template_file" "wildfly-batch-config" {
     environment    = "${var.environment}"
     nodetype   = "${var.wildfly-batch_puppet_nodetype}"
     kms_key = "${var.wildfly-batch_puppet_kms_key}"
+    EFS_ID      = "${aws_efs_file_system.batch.id}"
+    MOUNT_POINT = "/efs"
   }
 }
 
