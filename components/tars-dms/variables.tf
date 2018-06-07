@@ -724,3 +724,13 @@ variable "target_dms_mis_rds_name" {
   type        = "string"
   description = "mis dms"
 }
+
+variable "xe_instance_sg" {
+  type = "string"
+  description = ""
+}
+
+variable "xe_role_name" {
+  type = "string"
+  description = ""
+}
