@@ -70,3 +70,7 @@ output "cwles_cloudtrail_arn" {
   value = "${module.cwles_cloudtrail.cloudtrail_arn}"
 }
 
+# The DVSA EC2 read_only role
+output "DVSA-EC2-Read-Role-role-arn" {
+  value = "${aws_iam_role.DVSA-EC2-Read-Role.arn}"
+}
