@@ -25,8 +25,8 @@ resource "aws_dms_endpoint" "tarssource" {
     )
   )}"
 
-  username = "change_me"
-  password = "change_me"
-  server_name = "change_me"
-  database_name = "change_me"
+  username = "${var.source_dms_tars_rds_username}"
+  password = "${var.source_dms_tars_rds_password}"
+  server_name = "${aws_db_instance.source_tarsdb_dms.address}"
+  database_name = "${var.source_dms_tars_rds_name}"
 }

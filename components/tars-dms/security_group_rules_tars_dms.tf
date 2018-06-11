@@ -29,3 +29,23 @@ resource "aws_security_group_rule" "tars_dms_egress_capita_db" {
   security_group_id = "${aws_security_group.tars-dms.id}"
   cidr_blocks       = [ "${var.capita_db_subnets}"]
 }
+
+resource "aws_security_group_rule" "tars_dms_ingress_XE" {
+  description              = "Allow TCP/1521 from XE instance"
+  type                     = "ingress"
+  from_port                = 1521
+  to_port                  = 1521
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.tars-dms.id}"
+  source_security_group_id = "${var.xe_instance_sg}"
+}
+
+resource "aws_security_group_rule" "XE_egress_tars_dms" {
+  description              = "Allow TCP/1521 to DMS"
+  type                     = "egress"
+  from_port                = 1521
+  to_port                  = 1521
+  protocol                 = "tcp"
+  security_group_id        = "${var.xe_instance_sg}"
+  source_security_group_id = "${aws_security_group.tars-dms.id}"
+}
