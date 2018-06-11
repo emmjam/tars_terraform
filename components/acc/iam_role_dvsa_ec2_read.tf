@@ -1,7 +1,7 @@
 resource "aws_iam_role" "DVSA-EC2-Read-Role" {
   name = "EC2-Read"
   description = "Role used by the DVSA infrastructure team to carry out inventory tasks, centrally, on the AWS estate. For more information contact InfrastructureServicesAWS@dvsa.gov.uk."
-  policy = <<EOF
+  assume_role_policy = <<EOF
   {
     "Version": "2012-10-17",
     "Statement": [
