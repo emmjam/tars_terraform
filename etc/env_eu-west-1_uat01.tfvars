@@ -156,6 +156,7 @@ tars_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 # TARSDB
 tars_rds_allocated_storage = "300"
 tars_rds_snapshot = "tarsuat-050418"
+tars_rds_autoscale = "False"
 
 #############################################################################
 # Transit VPC peering
