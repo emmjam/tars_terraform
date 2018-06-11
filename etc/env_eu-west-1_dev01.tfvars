@@ -139,6 +139,12 @@ elc_main_subnets_cidrs = [
   "10.167.7.128/28",
 ]
 
+batch_efs_subnets_cidrs = [
+  "10.167.7.144/28",
+  "10.167.7.160/28",
+  "10.167.7.176/28",
+]
+
 # Environment & Component for Accessing mgmt_prd remote state
 mgmt_component = "mgmt"
 

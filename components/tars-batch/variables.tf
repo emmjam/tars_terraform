@@ -140,3 +140,8 @@ variable "wildfly-batch_scaleup_recurrence" {
   type = "string"
   description = ""
 }
+
+variable "batch_efs_subnets_cidrs" {
+  type = "list"
+  description = "Batch EFS subnets list"
+}
