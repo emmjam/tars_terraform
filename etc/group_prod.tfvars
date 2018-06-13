@@ -112,7 +112,7 @@ jenkinsctrl_subnets_cidrs = [
 
 wildfly-back_instance_type  = "m4.large"
 wildfly-back_puppet_nodetype    = "tars-back"
-wildfly-back_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+wildfly-back_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
 wildfly-back_asg_min_size         = 0
 wildfly-back_asg_max_size         = 1
 wildfly-back_scaledown_desired    = 0
@@ -123,7 +123,7 @@ wildfly-back_scaleup_recurrence   = "00 04 * * 1-5"
 ## wildfly-batch
 wildfly-batch_instance_type  = "m4.large"
 wildfly-batch_puppet_nodetype    = "tars-batch"
-wildfly-batch_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+wildfly-batch_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
 wildfly-batch_asg_min_size         = 0
 wildfly-batch_asg_max_size         = 1
 wildfly-batch_scaledown_desired    = 0
@@ -135,7 +135,7 @@ wildfly-batch_scaleup_recurrence   = "00 04 * * 1-5"
 wildfly-front_instance_type  = "m4.large"
 wildfly-front_puppet_env     = "opsdev"
 wildfly-front_puppet_nodetype    = "tars-front"
-wildfly-front_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+wildfly-front_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
 wildfly-front_asg_min_size         = 0
 wildfly-front_asg_max_size         = 1
 wildfly-front_scaledown_desired    = 0
@@ -166,7 +166,7 @@ ibs_scaleup_recurrence   = "00 04 * * 1-5"
 ## wildfly-messaging
 wildfly-messaging_instance_type  = "m4.large"
 wildfly-messaging_puppet_nodetype    = "tars-messaging"
-wildfly-messaging_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+wildfly-messaging_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
 wildfly-messaging_asg_min_size         = 0
 wildfly-messaging_asg_max_size         = 1
 wildfly-messaging_scaledown_desired    = 0
@@ -245,9 +245,12 @@ squidnat_instance_type = "t2.micro"
 
 ops_team_email = "mark.thompson@bjss.com"
 
-public_domain_name = "dvsa.tars.dvsacloud.uk"
+public_domain_name = "prod.tars.dvsacloud.uk"
 
 aws_account_alias = "tarsprod"
+
+# ACM Certname
+cert_name = "tars-prod-public"
 
 # Deployer pub key
 deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVSO8uKpdbwww94azylwjnFxsFGcmXG4ObL1oOFibHMN0x+SsSwjfC1DEziWPK3m/Crmar0+ad/68nQC+iWo/MYclh8h3bkKlv9dO4Xtv/0H6uDRW3l3bBO0rWYbt46fMAOCqX96N3LRTfUlPuzsVAd0NGZZlSSAZF0AMl4xE/tZl2m+Dqylrjp3qLT4UxEIrAuvPW06PqkGy63hZznjCjQDaadOAUpY19ZaA71JBueyGBnZ8pSVzr5hT1TpNw/cXxA6WLj4CCipIVm0M64OT/ArqcnQMX9Htf4Gp5apXZ3f6MerfjgHnkrm1t6JNuhSjVB deployer@mgmt.tars.dvsa.aws"

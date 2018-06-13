@@ -155,7 +155,7 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 # TARSDB
 tars_rds_username = "tarsprodadmin"
 
-tars_rds_password = "sPPmE94NsvmfTmqj5K5YvFxZLmnm9T8m"
+tars_rds_password = "sPPmE94NsvmfTmqj5K5YvFxZLmnm9T"
 
 # TARSDB
 tars_rds_allocated_storage = "300"
@@ -168,6 +168,14 @@ tars_rds_snapshot = "tarsuat-050418"
 transit_peering_enabled = true
 
 #############################################################################
+# DVSA AD VPC peering
+#############################################################################
+
+ad_peering_enabled = false
+ad_peering_vpc = "vpc-02072cb35506d9b73"
+ad_account = "233824316563"
+
+#############################################################################
 # CWLES
 #############################################################################
 
@@ -177,8 +185,4 @@ cwles_data_instance_type    = "m4.large.elasticsearch"
 cwles_data_instance_count   = "2"
 cwles_data_volume_size      = "512"
 cwles_master_instance_type  = "t2.small.elasticsearch"
-<<<<<<< HEAD
 cwles_master_instance_count = "2"
-=======
-cwles_master_instance_count = "2"
->>>>>>> Elasticache Deployment

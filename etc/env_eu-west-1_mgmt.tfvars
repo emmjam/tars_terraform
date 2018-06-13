@@ -22,9 +22,16 @@ private_domain_name = "tars.dvsa.aws"
 aws_account_alias = "tarsmgmt"
 
 public_domain_name = "tars.dvsacloud.uk"
+# For delgetion to prod
+prod_public_domain_name = "prod.tars.dvsacloud.uk"
 
 subdomains_name_servers = {
   nonprod = "ns-144.awsdns-18.com,ns-1293.awsdns-33.org,ns-619.awsdns-13.net,ns-1979.awsdns-55.co.uk"
+}
+
+# For delgetion to prod
+prod_subdomains_name_servers = {
+  prod = "ns-426.awsdns-53.com,ns-1049.awsdns-03.org,ns-2041.awsdns-63.co.uk,ns-611.awsdns-12.net"
 }
 
 users = [
@@ -49,7 +56,7 @@ ctrl_peers_xacct = [
     account_id = "652856684323"
   },
   {
-    vpc_id     = "vpc-26e49240"   # tarsprod/ctrl
+    vpc_id     = "vpc-01552f67"   # tarsprod/ctrl
     cidr_block = "10.167.56.0/22"
     account_id = "246976497890"
   },
@@ -94,7 +101,7 @@ base_peers_xacct = [
     account_id = "652856684323"
   },
   {
-    vpc_id     = "vpc-5ae2943c"   # tarsprod/prod
+    vpc_id     = "vpc-21433947"   # tarsprod/prod
     cidr_block = "10.167.128.0/22"
     account_id = "246976497890"
   },

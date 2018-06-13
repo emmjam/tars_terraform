@@ -277,3 +277,7 @@ variable "wildfly-front_puppet_nodetype" {
   description = ""
 }
 
+variable "cert_name" {
+  type = "string"
+  description = "ACM cert name"
+}
