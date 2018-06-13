@@ -123,3 +123,7 @@ variable "wildfly-mock_puppet_nodetype" {
   type = "string"
   description = ""
 }
+variable "cert_name" {
+  type = "string"
+  description = "ACM cert name"
+}
