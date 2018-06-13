@@ -152,3 +152,8 @@ variable "dvsa_mgmt_inbound" {
   type        = "list"
   description = "DVSA mgmt servers inbound"
 }
+
+variable "cert_name" {
+  type = "string"
+  description = "ACM cert name"
+}

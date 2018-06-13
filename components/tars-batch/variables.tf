@@ -145,3 +145,8 @@ variable "batch_efs_subnets_cidrs" {
   type = "list"
   description = "Batch EFS subnets list"
 }
+
+variable "cert_name" {
+  type = "string"
+  description = "ACM cert name"
+}
