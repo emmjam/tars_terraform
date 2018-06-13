@@ -43,6 +43,7 @@ administrators = [
   "callum.massey@bjss.com",
   "brian.collinson@bjss.com",
   "steve.wilson@bjss.com",
+  "chris.nappin@bjss.com",
 ]
 
 ###########################################
