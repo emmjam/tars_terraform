@@ -442,3 +442,14 @@ variable "mgmt_vpc_id" {
   description = ""
 }
 
+variable "prod_public_domain_name" {
+  type        = "string"
+  description = "The fully-qualified domain name for the Prod Public Hosted Zone, if undefined, no zone will be created"
+  default     = ""
+}
+
+variable "prod_subdomains_name_servers" {
+  type        = "map"
+  description = "Map of accounts with NS records in a form: '<record_name> = <comma seperated list of NS addresses>'"
+  default     = {}
+}
