@@ -110,15 +110,11 @@ variable "obs_instance_type" {
   type = "string"
   description = ""
 }
-variable "obs_puppet_node" {
-  type = "string"
-  description = ""
-}
 variable "obs_subnets_cidrs" {
   type = "list"
   description = ""
 }
-variable "obs_puppet_type" {
+variable "obs_puppet_nodetype" {
   type = "string"
   description = ""
 }

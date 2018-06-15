@@ -159,8 +159,6 @@ wildfly-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## obs
 obs_instance_type  = "m4.large"
-obs_puppet_node    = ""
-obs_puppet_type    = ""
 obs_asg_min_size         = 0
 obs_asg_max_size         = 3
 obs_scaledown_desired    = 0
@@ -170,8 +168,6 @@ obs_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## ibs
 ibs_instance_type  = "m4.large"
-ibs_puppet_node    = ""
-ibs_puppet_type    = ""
 ibs_asg_min_size         = 0
 ibs_asg_max_size         = 3
 ibs_scaledown_desired    = 0
