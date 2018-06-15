@@ -114,7 +114,7 @@ variable "obs_subnets_cidrs" {
   type = "list"
   description = ""
 }
-variable "ibs_puppet_type" {
+variable "ibs_puppet_nodetype" {
   type = "string"
   description = ""
 }
