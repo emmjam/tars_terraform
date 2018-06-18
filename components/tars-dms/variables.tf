@@ -734,3 +734,18 @@ variable "xe_role_name" {
   type = "string"
   description = ""
 }
+
+variable "dsa-drora-db-rac01" {
+  type = "string"
+  description = ""
+}
+
+variable "dsa-drora-db-rac02" {
+  type = "string"
+  description = ""
+}
+
+variable "dsa-drora-db-rac03" {
+  type = "string"
+  description = ""
+}

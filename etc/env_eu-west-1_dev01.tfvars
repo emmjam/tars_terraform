@@ -339,6 +339,12 @@ source_dms_mis_rds_allocated_storage = "300"
 source_dms_mis_rds_name = "MISDB"
 source_dms_mis_rds_snapshot = "misuat01-060418"
 
+# DMS Stuff
 # Yes it's hard coded as this isn't created from terraform and is only temporary
 xe_instance_sg = "sg-abf0dbd1"
 xe_role_name = "OracleXE"
+
+# These names will be added to our private zone so we can resolve them.
+dsa-drora-db-rac01 = "10.86.192.16"
+dsa-drora-db-rac02 = "10.86.192.17"
+dsa-drora-db-rac03 = "10.86.192.72"
