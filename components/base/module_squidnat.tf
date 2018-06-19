@@ -10,6 +10,8 @@ module "squidnat" {
   project          = "${var.project}"
   environment      = "${var.environment}"
   component        = "${var.component}"
+  aws_account_id   = "${var.aws_account_id}"
+  kms_key_id       = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
 
   ami_id           = "${data.aws_ami.squidnat.image_id}"
   instance_type    = "${var.squidnat_instance_type}"

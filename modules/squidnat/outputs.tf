@@ -28,6 +28,10 @@ output "public_ips" {
   ]
 }
 
+output "iam_role_name" {
+  value = "${aws_iam_role.main.name}"
+}
+
 # Using the instance output rather than the subnet-tuple module output
 # to help ensure the output lists maintain a relationship with each other
 output "subnet_ids" {

@@ -210,6 +210,7 @@ jmeter_instance_type              = "t2.micro"
 jmeter_asg_size_desired_on_create = 0
 jmeter_asg_size_max               = 3
 jmeter_asg_size_min               = 0
+jmeter_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
 
 
 bastion_elb_subnets_cidrs = [

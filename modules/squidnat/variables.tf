@@ -17,6 +17,11 @@ variable "component" {
   description = "The name of the component calling this module"
 }
 
+variable "aws_account_id" {
+  type        = "string"
+  description = "AWS Account ID called in"
+}
+
 variable "module" {
   type        = "string"
   description = "The name of this module. Should only be set here."
@@ -26,6 +31,15 @@ variable "module" {
 variable "default_tags" {
   type        = "map"
   description = "A map of default tags to apply to all taggable resources within the module"
+}
+
+variable "kms_key_id" {
+  type = "string"
+}
+
+variable "squidnat_puppet_nodetype" {
+  type = "string"
+  default = "squidnat"
 }
 
 ##

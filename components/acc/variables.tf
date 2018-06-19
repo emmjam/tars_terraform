@@ -99,6 +99,11 @@ variable "capita_perf_ro_users" {
   default     = []
 }
 
+variable "logs_list" {
+  type = "list"
+  description = "List of log files to send to elasticsearch"
+}
+
 # CWLES - CloudWatch Logs to Elasticsearch
 
 variable "cwles_curator_max_age" {

@@ -29,3 +29,9 @@ resource "aws_iam_role_policy_attachment" "hieradata" {
   role       = "${aws_iam_role.tars-core.name}"
   policy_arn = "${data.terraform_remote_state.acc.hieradata_kms_key_user_policy_arn}"
 }
+
+resource "aws_iam_role_policy_attachment" "cloudwatch_tars_core" {
+    role       = "${aws_iam_role.tars-core.name}"
+    policy_arn = "${aws_iam_policy.cloudwatch.arn}"
+}
+

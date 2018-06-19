@@ -86,3 +86,7 @@ output "jmeter_sg_id" {
   value = "${aws_security_group.jmeter.id}"
 }
 
+output "iam_policy_cloudwatch_arn" {
+  value = "{aws_iam_policy.cloudwatch.arn}"
+}
+

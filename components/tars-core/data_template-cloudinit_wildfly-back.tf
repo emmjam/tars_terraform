@@ -17,6 +17,7 @@ data "template_file" "wildfly-back-config" {
     environment    = "${var.environment}"
     nodetype   = "${var.wildfly-back_puppet_nodetype}"
     kms_key = "${var.wildfly-back_puppet_kms_key}"
+    aws_account_id = "${var.aws_account_id}"
   }
 }
 

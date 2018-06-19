@@ -351,3 +351,13 @@ variable "ad_peering_vpc" {
   type = "string"
   description = "DVSA AD VPC"
 }
+
+variable "jmeter_puppet_nodetype" {
+  type = "string"
+  description = "JMeter Nodetype for Puppet"
+  default = "jmeter"
+}
+variable "jmeter_puppet_kms_key" {
+  type = "string"
+  description = "JMeter puppet kms key"
+}

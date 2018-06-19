@@ -12,6 +12,12 @@ resource "aws_alb" "tars-public-facing" {
 
   security_groups = ["${aws_security_group.tars-alb-public.id}"]
 
+  access_logs {
+    bucket  = "${module.access_logs_bucket.id}"
+    prefix  = "public-frontend"
+    enabled = true
+  }
+
   subnets = ["${data.terraform_remote_state.base.subnets_alb_public}"]
 
   tags = "${merge(
