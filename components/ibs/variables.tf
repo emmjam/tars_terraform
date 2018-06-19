@@ -148,7 +148,3 @@ variable "ibs_instance_type" {
   description = ""
 }
 
-variable "ibs_db_subnets_cidrs" {
-  type        = "list"
-  description = ""
-}
