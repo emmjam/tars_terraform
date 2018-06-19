@@ -17,6 +17,6 @@ resource "aws_db_subnet_group" "ibsdb" {
   )}"
 
   subnet_ids = [
-    "${data.terraform_remote_state.base.subnets_rds.subnet_ids}"
+    "${data.terraform_remote_state.base.subnets_ibs_db}"
   ]
 }
