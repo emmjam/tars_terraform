@@ -9,8 +9,7 @@ module "ibs" {
   vpc_id             = "${data.terraform_remote_state.base.vpc_id}"
   availability_zones = "${data.aws_availability_zones.available.names}"
 
-  #User OBS subnets as per design
-  subnets_cidrs                   = "${var.obs_subnets_cidrs}"
+  subnets_cidrs                   = "${var.ibs_subnets_cidrs}"
   subnets_route_tables            = ["${data.terraform_remote_state.base.private_nonat_route_table_id}"]
 
   lc_ami_id        = "${data.aws_ami.ibs.image_id}"

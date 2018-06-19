@@ -1,0 +1,78 @@
+# Create the IBS Aurora DB
+resource "aws_rds_cluster" "ibsdb_cluster" {
+
+  cluster_identifier            = "${format(
+    "%s-%s-%s-%s",
+    var.project,
+    var.environment,
+    var.component,
+    "ibsdb-cluster"
+  )}"
+  database_name                 = "ibsdb"
+  master_username               = "${var.ibs_rds_username}"
+  master_password               = "${var.ibs_rds_password}"
+  backup_retention_period       = "${var.ibs_rds_backup_retention_period}"
+  preferred_backup_window       = "${var.ibs_rds_backup_window}"
+  preferred_maintenance_window  = "${var.ibs_rds_maint_window}"
+  db_subnet_group_name          = "${aws_db_subnet_group.ibsdb.name}"
+  final_snapshot_identifier     = "${format(
+    "%s-%s-%s-%s-%s",
+    var.project,
+    var.environment,
+    var.component,
+    "ibsdb",
+    "final"
+  )}"
+  vpc_security_group_ids        = [
+    "${aws_security_group.ibs_aurora.id}"
+  ]
+
+  tags = "${merge(
+    var.default_tags,
+    map(
+      "Name", format(
+        "%s-%s-%s-%s",
+        var.project,
+        var.environment,
+        var.component,
+        "ibsdb_cluster"
+      )
+    )
+  )}"
+
+  lifecycle {
+    create_before_destroy = true
+  }
+
+}
+
+resource "aws_rds_cluster_instance" "ibsdb_instance" {
+
+  count                 = "1"
+  identifier            = "${var.environment}-ibsdb-${count.index}"
+  cluster_identifier    = "${aws_rds_cluster.ibsdb_cluster.id}"
+  instance_class        = "${var.ibs_rds_instance_class}"
+  db_subnet_group_name  = "${aws_db_subnet_group.ibsdb.name}"
+  publicly_accessible   = true
+
+  tags = "${merge(
+    var.default_tags,
+    map(
+      "Name", format(
+        "%s-%s-%s-%s",
+        var.project,
+        var.environment,
+        var.component,
+        "ibsdb_instance"
+      )
+    )
+  )}"
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+
+
+

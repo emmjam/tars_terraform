@@ -106,15 +106,49 @@ variable "ibs_asg_min_size" {
   type = "string"
   description = ""
 }
-variable "ibs_instance_nodetype" {
-  type = "string"
-  description = ""
-}
-variable "obs_subnets_cidrs" {
+
+variable "ibs_subnets_cidrs" {
   type = "list"
   description = ""
 }
 variable "ibs_puppet_nodetype" {
   type = "string"
+  description = ""
+}
+
+variable "ibs_rds_instance_class" {
+  type        = "string"
+  description = ""
+}
+
+variable "ibs_rds_username" {
+  description = "The ID's of the VPC subnets that the RDS cluster instances will be created in"
+}
+
+variable "ibs_rds_password" {
+  description = "The ID's of the VPC subnets that the RDS cluster instances will be created in"
+}
+
+variable "ibs_rds_backup_retention_period" {
+  type        = "string"
+  description = ""
+}
+
+variable "ibs_rds_maint_window" {
+  type        = "string"
+  description = ""
+}
+variable "ibs_rds_backup_window" {
+  type        = "string"
+  description = ""
+}
+
+variable "ibs_instance_type" {
+  type = "string"
+  description = ""
+}
+
+variable "ibs_db_subnets_cidrs" {
+  type        = "list"
   description = ""
 }
