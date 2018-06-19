@@ -4,7 +4,7 @@ resource "aws_security_group" "ibs_aurora" {
     var.project,
     var.environment,
     var.component,
-    "ibs"
+    "ibs-db"
   )}"
 
   description = "${format(
@@ -12,7 +12,7 @@ resource "aws_security_group" "ibs_aurora" {
     var.project,
     var.environment,
     var.component,
-    "ibs"
+    "ibs-db"
   )}"
 
   vpc_id = "${data.terraform_remote_state.base.vpc_id}"

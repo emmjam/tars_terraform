@@ -72,6 +72,12 @@ variable "rds_subnets_cidrs" {
   description = "TARS RDS Subnet CIDR's"
 }
 
+variable "ibs_db_subnets_cidrs" {
+  type        = "list"
+  description = "IBS DB CIDRs"
+}
+
+
 variable "elc_main_engine" {
   type = "string"
   description = "Engine Type for elasticache"
