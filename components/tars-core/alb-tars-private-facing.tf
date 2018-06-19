@@ -10,6 +10,12 @@ resource "aws_alb" "tars-private-facing" {
 
   internal = "true"
 
+  access_logs {
+    bucket  = "${module.access_logs_bucket.id}"
+    prefix  = "private-frontend"
+    enabled = true
+  }
+
   security_groups = ["${aws_security_group.tars-alb-private.id}"]
 
   subnets = ["${data.terraform_remote_state.base.subnets_tars_web}"]

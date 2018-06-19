@@ -16,11 +16,13 @@ resource "aws_instance" "squidnat" {
 
   subnet_id = "${element(module.subnets.subnet_ids, count.index)}"
 
+  iam_instance_profile = "${aws_iam_instance_profile.main.id}"
+
   source_dest_check           = "false"
   associate_public_ip_address = "false"
 
   # Commented out for reference as not known if required.
-  user_data = "${data.template_file.squidnat_cloudinit_config.rendered}"
+  user_data = "${data.template_cloudinit_config.squidnat.rendered}"
 
   tags = "${merge(
     var.default_tags,

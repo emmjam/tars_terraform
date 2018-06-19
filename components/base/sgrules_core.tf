@@ -41,6 +41,16 @@ resource "aws_security_group_rule" "core_egress_s3_https" {
   ]
 }
 
+resource "aws_security_group_rule" "core_egress_kms" {
+  type                     = "egress"
+  protocol                 = "tcp"
+  from_port                = "443"
+  to_port                  = "443"
+  security_group_id        = "${aws_security_group.core.id}"
+  source_security_group_id = "${aws_security_group.kms_endpoint.id}"
+}
+
+
 # Jenkins Node ssh access 
 
 resource "aws_security_group_rule" "core_ingress_jenkinsnode_ssh" {

@@ -10,6 +10,12 @@ resource "aws_alb" "tars-alb-backend-private" {
 
   internal = true
 
+  access_logs {
+    bucket  = "${module.access_logs_bucket.id}"
+    prefix  = "private-backend"
+    enabled = true
+  }
+
   security_groups = ["${aws_security_group.tars-alb-backend.id}"]
 
   subnets = ["${data.terraform_remote_state.base.subnets_tars_backend}"]

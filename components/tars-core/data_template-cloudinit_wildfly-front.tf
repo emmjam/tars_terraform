@@ -17,6 +17,7 @@ data "template_file" "wildfly-front-config" {
     environment    = "${var.environment}"
     nodetype   = "${var.wildfly-front_puppet_nodetype}"
     kms_key = "${var.wildfly-front_puppet_kms_key}"
+    aws_account_id = "${var.aws_account_id}"
   }
 }
 

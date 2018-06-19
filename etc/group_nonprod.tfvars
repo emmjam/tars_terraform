@@ -229,7 +229,7 @@ jmeter_instance_type              = "t2.micro"
 jmeter_asg_size_desired_on_create = 0
 jmeter_asg_size_max               = 3
 jmeter_asg_size_min               = 0
-
+jmeter_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
 
 bastion_elb_subnets_cidrs = [
   "10.167.60.64/28",
@@ -356,3 +356,14 @@ ibs_rds_instance_class = "db.t2.micro"
 ibs_rds_backup_retention_period = "7"
 ibs_rds_backup_window = "02:38-03:08"
 ibs_rds_maint_window = "sun:03:16-sun:03:46"
+
+## Do Not change list order only append
+logs_list = [
+  "/opt/wildfly/standalone/log/server.log",
+  "/opt/wildfly/tars-log/current_diagnosis.log",
+  "/var/log/cloud-init-output.log",
+  "/var/log/squid/access.log",
+  "/var/log/squid/cache.log",
+  "/opt/wildfly/tars-log/dsa-examiner.log",
+]
+

@@ -17,6 +17,7 @@ data "template_file" "ibs" {
     environment    = "${var.environment}"
     nodetype   = "${var.ibs_puppet_nodetype}"
     kms_key = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
+    aws_account_id = "${var.aws_account_id}"
   }
 }
 
