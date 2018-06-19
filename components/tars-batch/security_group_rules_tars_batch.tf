@@ -69,3 +69,13 @@ resource "aws_security_group_rule" "tars_batch_egress_active_mq" {
   security_group_id        = "${aws_security_group.tars-batch.id}"
   source_security_group_id = "${data.terraform_remote_state.base.awsmq_sg_id}"
 }
+
+resource "aws_security_group_rule" "tars_batch_egress_avarto_sftp" {
+  description              = "Allow TCP/22 to AVARTO sftp.sharedservicesarvarto.gsi.gov.uk"
+  type                     = "egress"
+  from_port                = 22
+  to_port                  = 22
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.tars-batch.id}"
+  cidr_blocks              = ["51.231.12.13/32"]
+}
