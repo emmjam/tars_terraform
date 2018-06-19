@@ -87,7 +87,7 @@ output "jmeter_sg_id" {
 }
 
 output "iam_policy_cloudwatch_arn" {
-  value = "{aws_iam_policy.cloudwatch.arn}"
+  value = "${aws_iam_policy.cloudwatch.arn}"
 }
 
 output "subnets_ibs_db" {
