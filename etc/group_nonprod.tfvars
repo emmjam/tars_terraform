@@ -352,7 +352,7 @@ tars_dms_publicly_accessible = false
 tars_dms_replication_instance_class = "dms.t2.micro"
 
 # IBSDB
-ibs_rds_instance_class = "db.t2.micro"
+ibs_rds_instance_class = "db.t2.small" //Aurora doesn't support t2.micro
 ibs_rds_backup_retention_period = "7"
 ibs_rds_backup_window = "02:38-03:08"
 ibs_rds_maint_window = "sun:03:16-sun:03:46"
