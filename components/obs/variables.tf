@@ -98,14 +98,6 @@ variable "mgmt_aws_account_id" {
   description = ""
 }
 
-variable "obs_asg_max_size" {
-  type = "string"
-  description = ""
-}
-variable "obs_asg_min_size" {
-  type = "string"
-  description = ""
-}
 variable "obs_instance_type" {
   type = "string"
   description = ""
@@ -115,6 +107,31 @@ variable "obs_subnets_cidrs" {
   description = ""
 }
 variable "obs_puppet_nodetype" {
+  type = "string"
+  description = ""
+}
+
+variable "obs_asg_max_size" {
+  type = "string"
+  description = ""
+}
+variable "obs_asg_min_size" {
+  type = "string"
+  description = ""
+}
+variable "obs_scaledown_desired" {
+  type = "string"
+  description = ""
+}
+variable "obs_scaledown_recurrence" {
+  type = "string"
+  description = ""
+}
+variable "obs_scaleup_desired" {
+  type = "string"
+  description = ""
+}
+variable "obs_scaleup_recurrence" {
   type = "string"
   description = ""
 }
