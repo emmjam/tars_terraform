@@ -106,6 +106,22 @@ variable "ibs_asg_min_size" {
   type = "string"
   description = ""
 }
+variable "ibs_scaledown_desired" {
+  type = "string"
+  description = ""
+}
+variable "ibs_scaledown_recurrence" {
+  type = "string"
+  description = ""
+}
+variable "ibs_scaleup_desired" {
+  type = "string"
+  description = ""
+}
+variable "ibs_scaleup_recurrence" {
+  type = "string"
+  description = ""
+}
 
 variable "ibs_subnets_cidrs" {
   type = "list"
