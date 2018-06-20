@@ -19,7 +19,7 @@ data "template_file" "wildfly-batch-config" {
     kms_key = "${var.wildfly-batch_puppet_kms_key}"
     EFS_ID      = "${aws_efs_file_system.batch.id}"
     MOUNT_POINT = "/efs"
-    aws_account = "${var.aws_account_id}"
+    aws_account_id = "${var.aws_account_id}"
   }
 }
 
