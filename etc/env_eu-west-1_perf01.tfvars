@@ -119,6 +119,20 @@ jmeter_subnets_cidrs = [
   "10.167.17.240/28",
 ]
 
+# CPC Front
+cpc-front_subnets_cidrs = [
+  "10.167.16.192/28",
+  "10.167.16.208/28",
+  "10.167.16.224/28",
+]
+
+# CPC Back
+cpc-back_subnets_cidrs = [
+  "10.167.19.0/28",
+  "10.167.19.16/28",
+  "10.167.19.32/28",
+]
+
 elc_main_subnets_cidrs = [
   "10.167.19.96/28",
   "10.167.19.112/28",
@@ -151,6 +165,15 @@ tars_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 # TARSDB
 tars_rds_allocated_storage = "300"
 tars_rds_snapshot = "tarsuat-050418"
+
+# CPCSDB
+cpc_rds_username = "cpcuatadmin"
+
+cpc_rds_password = "Mg28yDQjuEWndbtz"
+
+# CPCTSDB
+cpc_rds_allocated_storage = "100" # 20 Gigabyte - was 1500GB
+cpc_rds_snapshot = "cpcuat01-180622"
 
 # IBSDB
 ibs_rds_username = "ibsuatadmin"

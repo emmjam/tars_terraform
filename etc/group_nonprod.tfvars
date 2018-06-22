@@ -193,6 +193,29 @@ wildfly-mock_scaledown_recurrence = "00 22 * * 1-5"
 wildfly-mock_scaleup_desired      = 1
 wildfly-mock_scaleup_recurrence   = "00 07 * * 1-5"
 
+## cpc-back
+cpc-back_instance_type  = "t2.medium"
+cpc-back_puppet_nodetype    = "cpc-back"
+cpc-back_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+cpc-back_asg_min_size         = 0
+cpc-back_asg_max_size         = 1
+cpc-back_scaledown_desired    = 0
+cpc-back_scaledown_recurrence = "00 22 * * 1-5"
+cpc-back_scaleup_desired      = 1
+cpc-back_scaleup_recurrence   = "00 07 * * 1-5"
+
+
+## cpc-back
+cpc-front_instance_type  = "t2.medium"
+cpc-front_puppet_nodetype    = "cpc-front"
+cpc-front_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+cpc-front_asg_min_size         = 0
+cpc-front_asg_max_size         = 1
+cpc-front_scaledown_desired    = 0
+cpc-front_scaledown_recurrence = "00 22 * * 1-5"
+cpc-front_scaleup_desired      = 1
+cpc-front_scaleup_recurrence   = "00 07 * * 1-5"
+
 ## AWS MQ
 aws_mq_engine_type             = "ActiveMQ"
 aws_mq_engine_version          = "5.15.0"
@@ -208,6 +231,9 @@ aws_mq_users_tars_batch_group        = "tars_batch"
 aws_mq_users_tars_messaging_user     = "tars_messaging"
 aws_mq_users_tars_messaging_password = "password123456"
 aws_mq_users_tars_messaging_group    = "tars_messaging"
+aws_mq_users_cpc_back_user           = "cpc_back"
+aws_mq_users_cpc_back_password       = "password123456"
+aws_mq_users_cpc_back_group          = "cpc_back"
 
 aws_mq_config_description    = "TARS MQ Configuration"
 aws_mq_config_name           = "tars-awsmq"
@@ -367,3 +393,18 @@ logs_list = [
   "/opt/wildfly/tars-log/dsa-examiner.log",
 ]
 
+# CPCDB
+cpc_rds_storage_type = "gp2"
+cpc_rds_engine = "oracle-se2"
+cpc_rds_engine_version = "12.1.0.2.v11"
+cpc_rds_instance_class = "db.t2.micro" # was "db.m4.4xlarge"
+cpc_rds_port = "1521"
+cpc_rds_public = "false"
+cpc_rds_multi_az = "false" # it takes an age to build if true
+cpc_rds_backup_retention = "7"
+cpc_rds_backup_window = "02:38-03:08"
+cpc_rds_maint_window = "sun:03:16-sun:03:46"
+cpc_rds_skip_final_snapshot = true
+cpc_rds_apply_immediately = "true"
+cpc_rds_license_model = "license-included"
+cpc_rds_autoscale = "True"

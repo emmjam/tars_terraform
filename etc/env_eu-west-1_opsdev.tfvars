@@ -126,6 +126,20 @@ obs_subnets_cidrs = [
   "10.167.2.224/28",
 ]
 
+# CPC Front
+cpc-front_subnets_cidrs = [
+  "10.167.0.192/28",
+  "10.167.0.208/28",
+  "10.167.0.224/28",
+]
+
+# CPC Back
+cpc-back_subnets_cidrs = [
+  "10.167.3.0/28",
+  "10.167.3.16/28",
+  "10.167.3.32/28",
+]
+
 elc_main_subnets_cidrs = [
   "10.167.3.96/28",
   "10.167.3.112/28",
@@ -153,6 +167,16 @@ tars_rds_password = "password"
 # TARSDB
 tars_rds_allocated_storage = "20" # 20 Gigabyte - was 1500GB
 tars_rds_snapshot = "tars-testdb-210218"
+
+# CPCSDB
+cpc_rds_username = "tarscpcadmin"
+
+cpc_rds_password = "YwBWc8HvweT3Lun8"
+
+# CPCTSDB
+cpc_rds_allocated_storage = "20" # 20 Gigabyte - was 1500GB
+cpc_rds_snapshot = "cpcdev01-180621"
+
 
 # IBSDB
 ibs_rds_username = "ibsdevadmin"

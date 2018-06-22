@@ -21,6 +21,9 @@ resource "aws_mq_configuration" "tars-awsmq" {
     <queue physicalName="queue/DocBatchUpdateRetryQueue" />
     <queue physicalName="queue/VelocityEmailQueue" />
     <queue physicalName="queue/PrintQueue" />
+    <queue physicalName="queue/gbdqcqueue"/>
+    <queue physicalName="queue/assessdriverqueue"/>
+    <queue physicalName="queue/queuedcall"/>
    </destinations>
 </broker>
 DATA
