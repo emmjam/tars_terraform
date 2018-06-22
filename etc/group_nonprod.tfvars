@@ -391,6 +391,7 @@ logs_list = [
   "/var/log/squid/access.log",
   "/var/log/squid/cache.log",
   "/opt/wildfly/tars-log/dsa-examiner.log",
+  "/opt/wildfly/tars-log/qas.log",
 ]
 
 # CPCDB
