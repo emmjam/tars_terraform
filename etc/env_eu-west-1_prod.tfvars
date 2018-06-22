@@ -173,6 +173,15 @@ tars_rds_password = "sPPmE94NsvmfTmqj5K5YvFxZLmnm9T"
 tars_rds_allocated_storage = "300"
 tars_rds_snapshot = "tarsuat-050418"
 
+# CPCSDB
+cpc_rds_username = "tarscpcadmin"
+
+cpc_rds_password = "YwBWc8HvweT3Lun8"
+
+# CPCTSDB
+cpc_rds_allocated_storage = "20" # 20 Gigabyte - was 1500GB
+cpc_rds_snapshot = "cpcdev01-180621"
+
 # IBSDB
 ibs_rds_username = "ibsprodadmin"
 

@@ -33,7 +33,13 @@ resource "aws_mq_broker" "tars-awsmq" {
     password = "${var.aws_mq_users_tars_messaging_password}"
     groups   = ["${var.aws_mq_users_tars_messaging_group}"]
     console_access = false
-  } 
+  }
+  user {
+    username = "${var.aws_mq_users_cpc_back_user}"
+    password = "${var.aws_mq_users_cpc_back_password}"
+    groups   = ["${var.aws_mq_users_cpc_back_group}"]
+    console_access = false
+  }
   subnet_ids = ["${module.tars_awsmq_subnets.subnet_ids}"]
   publicly_accessible = true
 }

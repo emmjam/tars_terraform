@@ -344,6 +344,21 @@ variable "aws_mq_engine_type" {
   description = "AWS MQ engine type"
 }
 
+variable "aws_mq_users_cpc_back_user" {
+  type = "string"
+  description = "AWS MQ user cpc back"
+}
+
+variable "aws_mq_users_cpc_back_group" {
+  type = "string"
+  description = "AWS MQ group cpc back"
+}
+
+variable "aws_mq_users_cpc_back_password" {
+  type = "string"
+  description = "AWS MQ cpc back user password"
+}
+
 variable "ad_peering_enabled" {
   type = "string"
   description = "Peer with DVSA AD or not"
