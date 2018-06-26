@@ -1,10 +1,10 @@
-resource "aws_autoscaling_schedule" "ibs_down" {
+resource "aws_autoscaling_schedule" "obs_down" {
   scheduled_action_name = "${format(
     "%s-%s-%s/%s",
     var.project,
     var.environment,
     var.component,
-    "ibs-down"
+    "obs-down"
   )}"
 
   min_size               = "${var.obs_asg_min_size}"
@@ -14,13 +14,13 @@ resource "aws_autoscaling_schedule" "ibs_down" {
   autoscaling_group_name = "${module.obs.autoscaling_group_id}"
 }
 
-resource "aws_autoscaling_schedule" "ibs_up" {
+resource "aws_autoscaling_schedule" "obs_up" {
   scheduled_action_name = "${format(
     "%s-%s-%s/%s",
     var.project,
     var.environment,
     var.component,
-    "ibs-up"
+    "obs-up"
   )}"
 
   min_size               = "${var.obs_asg_min_size}"
