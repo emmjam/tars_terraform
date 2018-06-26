@@ -15,9 +15,9 @@ data "template_file" "wildfly-mock-config" {
   # Set puppet factors
   vars {
     environment    = "${var.environment}"
-    nodetype   = "${var.wildfly-mock_puppet_nodetype}"
-    kms_key = "${var.wildfly-mock_puppet_kms_key}"
-    aws_account = "${var.aws_account_id}"
+    nodetype       = "${var.wildfly-mock_puppet_nodetype}"
+    kms_key        = "${var.wildfly-mock_puppet_kms_key}"
+    aws_account_id = "${var.aws_account_id}"
   }
 }
 
