@@ -314,6 +314,8 @@ dvsa_mgmt_inbound = [
   "10.69.3.4/32"
 ]
 
+dvsa_aws_ad_subnet_cidr = "10.166.0.0/26"
+
 # WSUS is covered above in the DC whitelist
 dvsa_sccm_services = "10.84.192.157/32"
 dvsa_epo_services = "10.84.192.158/32"
