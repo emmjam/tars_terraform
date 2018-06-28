@@ -77,12 +77,6 @@ variable "ibs_db_subnets_cidrs" {
   description = "IBS DB CIDRs"
 }
 
-variable "dvsa_aws_ad_subnet_cidr" {
-  type        = "string"
-  description = "CIDR for DVSA AD Account"
-}
-
-
 variable "elc_main_engine" {
   type = "string"
   description = "Engine Type for elasticache"
