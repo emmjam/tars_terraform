@@ -8,7 +8,7 @@ resource "aws_route53_record" "tarsdb" {
   )}"
 
   zone_id = "${data.terraform_remote_state.base.private_zone_id}"
-  type    = "C"
+  type    = "A"
 
   alias {
     name                   = "${aws_db_instance.tarsdb.address}"
