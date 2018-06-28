@@ -30,6 +30,18 @@ data "aws_iam_policy_document" "messagingnode" {
       "arn:aws:ssm:*:*:parameter/AmazonCloudWatch-*",
     ]
   }
+  statement {
+    sid    = "AllowADLookup"
+    effect = "Allow"
+
+    actions = [
+      "ssm:GetParameter"
+    ]
+
+    resources = [
+      "arn:aws:ssm:*:*:parameter/AD-*",
+    ]
+  }
 }
 
 resource "aws_iam_policy" "messagingnode" {
