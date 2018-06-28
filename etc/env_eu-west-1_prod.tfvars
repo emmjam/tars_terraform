@@ -197,7 +197,7 @@ transit_peering_enabled = true
 # DVSA AD VPC peering
 #############################################################################
 
-ad_peering_enabled = false
+ad_peering_enabled = true
 ad_peering_vpc = "vpc-02072cb35506d9b73"
 ad_account = "233824316563"
 
