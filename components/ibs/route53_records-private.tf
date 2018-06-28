@@ -7,7 +7,7 @@ resource "aws_route53_record" "ibsdb" {
   )}"
 
   zone_id = "${data.terraform_remote_state.base.private_zone_id}"
-  type    = "C"
+  type    = "CNAME"
 
   alias {
     name                   = "${aws_rds_cluster.ibsdb_cluster.endpoint}"
