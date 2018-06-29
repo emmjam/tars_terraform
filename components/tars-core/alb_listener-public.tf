@@ -12,6 +12,21 @@ resource "aws_alb_listener" "tars-public-443" {
   }
 }
 
+resource "aws_lb_listener_rule" "host_based_routing" {
+  listener_arn = "${aws_alb_listener.tars-public-443.arn}"
+  priority     = 99
+
+  action {
+    type             = "forward"
+    target_group_arn = "${aws_alb_target_group.irdt-frontend-7443.arn}"
+  }
+
+  condition {
+    field  = "host-header"
+    values = ["${aws_route53_record.irdt-public.fqdn}"]
+  }
+}
+
 # TARS Public ALB Listener for port 9990 - Wildfly Admin Console
 # Not needed long term
 resource "aws_alb_listener" "tars-public-9990" {

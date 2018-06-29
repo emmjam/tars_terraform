@@ -38,3 +38,13 @@ resource "aws_security_group_rule" "tars_alb_public_egress_tars_front_port_9990"
   security_group_id        = "${aws_security_group.tars-alb-public.id}"
   source_security_group_id = "${aws_security_group.tars-core-frontend.id}"
 }
+
+resource "aws_security_group_rule" "tars_alb_public_egress_irdt_front_port_7443_irdt" {
+  description              = "Allow TCP/7443 to irdt core frontend"
+  type                     = "egress"
+  from_port                = 7443
+  to_port                  = 7443
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.tars-alb-public.id}"
+  source_security_group_id = "${aws_security_group.tars-core-frontend.id}"
+}
