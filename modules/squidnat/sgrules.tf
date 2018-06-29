@@ -40,3 +40,15 @@ resource "aws_security_group_rule" "squidnat_egress_whitelist_ssh" {
   ]
 }
 
+resource "aws_security_group_rule" "squidnat_egress_whitelist_tns" {
+  type              = "egress"
+  protocol          = "tcp"
+  from_port         = "46465"
+  to_port           = "46465"
+  security_group_id = "${aws_security_group.squidnat.id}"
+
+  cidr_blocks = [
+    "${var.egress_whitelist}",
+  ]
+}
+
