@@ -15,6 +15,7 @@ resource "aws_autoscaling_group" "tars-frontend" {
   vpc_zone_identifier  = ["${data.terraform_remote_state.base.subnets_tars_web}"]
   target_group_arns    = [
     "${aws_alb_target_group.tars-frontend-8443.arn}",
+    "${aws_alb_target_group.irdt-frontend-7443.arn}",
     "${aws_alb_target_group.tars-frontend-9990.arn}",
     "${aws_alb_target_group.tars-frontend-private-8443.arn}",
     "${aws_alb_target_group.tars-frontend-private-9990.arn}",
