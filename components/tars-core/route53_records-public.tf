@@ -30,8 +30,8 @@ resource "aws_route53_record" "irdt-public" {
   type    = "A"
 
   alias {
-    name                   = "${aws_alb.irdt-public-facing.dns_name}"
-    zone_id                = "${aws_alb.irdt-public-facing.zone_id}"
+    name                   = "${aws_alb.tars-public-facing.dns_name}"
+    zone_id                = "${aws_alb.tars-public-facing.zone_id}"
     evaluate_target_health = true
   }
 }

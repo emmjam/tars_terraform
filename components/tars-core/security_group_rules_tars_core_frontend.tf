@@ -26,7 +26,7 @@ resource "aws_security_group_rule" "tars_core_frontend_ingress_public_alb_port_7
   to_port                  = 7443
   protocol                 = "tcp"
   security_group_id        = "${aws_security_group.tars-core-frontend.id}"
-  source_security_group_id = "${aws_security_group.irdt-alb-public.id}"
+  source_security_group_id = "${aws_security_group.tars-alb-public.id}"
 }
 
 resource "aws_security_group_rule" "tars_core_frontend_ingress_private_alb_port_9990" {
