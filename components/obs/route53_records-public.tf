@@ -1,9 +1,10 @@
 # Create the R53 record for the public ALB
 resource "aws_route53_record" "obs-front" {
   name = "${format(
-    "%s-%s",
+    "%s-%s-%s",
     var.component,
-    "front"
+    var.environment,
+    "public"
   )}"
 
   zone_id = "${data.terraform_remote_state.acc.public_domain_name_zone_id}"
