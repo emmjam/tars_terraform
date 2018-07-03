@@ -160,6 +160,26 @@ ibs_scaledown_recurrence = "00 22 * * 1-5"
 ibs_scaleup_desired      = 1
 ibs_scaleup_recurrence   = "00 04 * * 1-5"
 
+## fyndi-f
+fyndi-f_instance_type  = "t2.medium"
+fyndi-f_puppet_nodetype    = "fyndi_front"
+fyndi-f_asg_min_size         = 0
+fyndi-f_asg_max_size         = 3
+fyndi-f_scaledown_desired    = 0
+fyndi-f_scaledown_recurrence = "00 22 * * 1-5"
+fyndi-f_scaleup_desired      = 1
+fyndi-f_scaleup_recurrence   = "00 04 * * 1-5"
+
+## fyndi_back
+fyndi-b_instance_type  = "t2.medium"
+fyndi-b_puppet_nodetype    = "fyndi-b"
+fyndi-b_asg_min_size         = 0
+fyndi-b_asg_max_size         = 3
+fyndi-b_scaledown_desired    = 0
+fyndi-b_scaledown_recurrence = "00 22 * * 1-5"
+fyndi-b_scaleup_desired      = 1
+fyndi-b_scaleup_recurrence   = "00 04 * * 1-5"
+
 ## wildfly-front
 wildfly-front_instance_type  = "t2.medium"
 wildfly-front_puppet_nodetype    = "tars-front"
