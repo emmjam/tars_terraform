@@ -73,6 +73,13 @@ jenkins_nat_subnets_cidrs = [
   "10.167.0.176/28",
 ]
 
+# CPC Front
+cpc-front_subnets_cidrs = [
+  "10.167.0.192/28",
+  "10.167.0.208/28",
+  "10.167.0.224/28",
+]
+
 # TARS backend core/batch subnets
 tars_backend_subnets_cidrs = [
   "10.167.1.0/27",
@@ -119,18 +126,18 @@ ibs_db_subnets_cidrs = [
   "10.167.2.128/28",
 ]
 
+# FYNDI
+fyndi-f_subnets_cidrs = [
+  "10.167.2.144/28",
+  "10.167.2.160/28",
+  "10.167.2.176/28",
+]
+
 #OBS CIDR Range
 obs_subnets_cidrs = [
   "10.167.2.192/28",
   "10.167.2.208/28",
   "10.167.2.224/28",
-]
-
-# CPC Front
-cpc-front_subnets_cidrs = [
-  "10.167.0.192/28",
-  "10.167.0.208/28",
-  "10.167.0.224/28",
 ]
 
 # CPC Back
@@ -150,6 +157,13 @@ batch_efs_subnets_cidrs = [
   "10.167.3.144/28",
   "10.167.3.160/28",
   "10.167.3.176/28",
+]
+
+# FYNDI
+fyndi-b_subnets_cidrs = [
+  "10.167.3.192/28",
+  "10.167.3.208/28",
+  "10.167.3.224/28",
 ]
 
 # Deployer pub key
