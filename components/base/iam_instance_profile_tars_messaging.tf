@@ -24,8 +24,13 @@ resource "aws_iam_role" "tars-messaging" {
   assume_role_policy = "${data.aws_iam_policy_document.ec2_assumerole.json}"
 }
 
-# Allow the use of the hiera KMS key
 resource "aws_iam_role_policy_attachment" "messaging" {
   role       = "${aws_iam_role.tars-messaging.name}"
   policy_arn = "${aws_iam_policy.messagingnode.arn}"
+}
+
+# Allow the use of the hiera KMS key
+resource "aws_iam_role_policy_attachment" "messaging_hieradata" {
+  role       = "${aws_iam_role.tars-messaging.name}"
+  policy_arn = "${data.terraform_remote_state.acc.hieradata_kms_key_user_policy_arn}"
 }
