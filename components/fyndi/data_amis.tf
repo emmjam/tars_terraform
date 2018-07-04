@@ -4,7 +4,7 @@ data "aws_ami" "fyndi-f" {
     "%s-%s-%s/%s",
     var.project,
     "rhel",
-    "fyndi_front",
+    "fyndi-front",
     var.ami_build_id
   )}"
 
@@ -25,7 +25,7 @@ data "aws_ami" "fyndi-b" {
     "%s-%s-%s/%s",
     var.project,
     "rhel",
-    "fyndi_back",
+    "fyndi-back",
     var.ami_build_id
   )}"
 
