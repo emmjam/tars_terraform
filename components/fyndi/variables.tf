@@ -16,7 +16,7 @@ variable "environment" {
 variable "component" {
   type        = "string"
   description = "TF Scaffold component"
-  default     = "fyndi-f"
+  default     = "fyndi"
 }
 
 variable "whitelist" {
