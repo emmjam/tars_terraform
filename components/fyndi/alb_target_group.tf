@@ -5,7 +5,7 @@ resource "aws_alb_target_group" "fyndi-f-8080" {
     var.project,
     var.environment,
     var.component,
-    "8080"
+    "front-8080"
   )}"
   port     = "8080"
   protocol = "HTTP"
@@ -33,7 +33,7 @@ resource "aws_alb_target_group" "fyndi-b-8080" {
     var.project,
     var.environment,
     var.component,
-    "8080"
+    "back-8080"
   )}"
   port     = "8080"
   protocol = "HTTP"

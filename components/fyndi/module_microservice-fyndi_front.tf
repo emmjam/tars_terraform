@@ -1,7 +1,7 @@
 module "fyndi-f" {
   source = "../../modules/microservice"
 
-  name        = "fyndi-f"
+  name        = "front"
   project     = "${var.project}"
   environment = "${var.environment}"
   component   = "${var.component}"
