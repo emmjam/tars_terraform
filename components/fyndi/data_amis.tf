@@ -20,13 +20,12 @@ data "aws_ami" "fyndi-f" {
   }
 }
 
-#### FIXME ####
 data "aws_ami" "fyndi-b" {
   name_regex = "${format(
     "%s-%s-%s/%s",
     var.project,
     "rhel",
-    "fyndi_front",
+    "fyndi_back",
     var.ami_build_id
   )}"
 
