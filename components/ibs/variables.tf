@@ -164,3 +164,8 @@ variable "ibs_instance_type" {
   description = ""
 }
 
+variable "cert_name" {
+  type = "string"
+  description = "ACM cert name"
+}
+

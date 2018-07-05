@@ -135,3 +135,9 @@ variable "obs_scaleup_recurrence" {
   type = "string"
   description = ""
 }
+
+variable "cert_name" {
+  type = "string"
+  description = "ACM cert name"
+}
+

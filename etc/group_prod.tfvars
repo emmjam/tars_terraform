@@ -89,17 +89,17 @@ jenkinsnode_ami_build_id         = "80"
 jenkinsnode_executors            = 5
 jenkinsnode_asg_min_size         = 0
 jenkinsnode_asg_max_size         = 3
-jenkinsnode_scaledown_desired    = 0
+jenkinsnode_scaledown_desired    = 1
 jenkinsnode_scaledown_recurrence = "00 19 * * 1-5"
 jenkinsnode_scaleup_desired      = 1
 jenkinsnode_scaleup_recurrence   = "15 07 * * 1-5"
 
 jenkinsctrl_instance_type        = "m5.large"
-jenkinsctrl_ami_build_id         = "80"
+jenkinsctrl_ami_build_id         = "141"
 jenkinsctrl_executors            = 5
 jenkinsctrl_asg_min_size         = 0
 jenkinsctrl_asg_max_size         = 3
-jenkinsctrl_scaledown_desired    = 0
+jenkinsctrl_scaledown_desired    = 1
 jenkinsctrl_scaledown_recurrence = "00 19 * * 1-5"
 jenkinsctrl_scaleup_desired      = 1
 jenkinsctrl_scaleup_recurrence   = "15 07 * * 1-5"
@@ -114,11 +114,11 @@ wildfly-back_instance_type  = "m4.large"
 wildfly-back_puppet_nodetype    = "tars-back"
 wildfly-back_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
 wildfly-back_asg_min_size         = 0
-wildfly-back_asg_max_size         = 1
+wildfly-back_asg_max_size         = 2
 wildfly-back_scaledown_desired    = 0
-wildfly-back_scaledown_recurrence = "00 22 * * 1-5"
-wildfly-back_scaleup_desired      = 0
-wildfly-back_scaleup_recurrence   = "00 04 * * 1-5"
+wildfly-back_scaledown_recurrence = "00 18 * * 1-5"
+wildfly-back_scaleup_desired      = 2
+wildfly-back_scaleup_recurrence   = "00 08 * * 1-5"
 
 ## wildfly-batch
 wildfly-batch_instance_type  = "m4.large"
@@ -127,9 +127,9 @@ wildfly-batch_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
 wildfly-batch_asg_min_size         = 0
 wildfly-batch_asg_max_size         = 1
 wildfly-batch_scaledown_desired    = 0
-wildfly-batch_scaledown_recurrence = "00 22 * * 1-5"
-wildfly-batch_scaleup_desired      = 0
-wildfly-batch_scaleup_recurrence   = "00 04 * * 1-5"
+wildfly-batch_scaledown_recurrence = "00 18 * * 1-5"
+wildfly-batch_scaleup_desired      = 1
+wildfly-batch_scaleup_recurrence   = "00 08 * * 1-5"
 
 ## wildfly-front
 wildfly-front_instance_type  = "m4.large"
@@ -137,31 +137,36 @@ wildfly-front_puppet_env     = "opsdev"
 wildfly-front_puppet_nodetype    = "tars-front"
 wildfly-front_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
 wildfly-front_asg_min_size         = 0
-wildfly-front_asg_max_size         = 1
+wildfly-front_asg_max_size         = 2
 wildfly-front_scaledown_desired    = 0
-wildfly-front_scaledown_recurrence = "00 22 * * 1-5"
-wildfly-front_scaleup_desired      = 0
-wildfly-front_scaleup_recurrence   = "00 04 * * 1-5"
+wildfly-front_scaledown_recurrence = "00 18 * * 1-5"
+wildfly-front_scaleup_desired      = 2
+wildfly-front_scaleup_recurrence   = "00 08 * * 1-5"
 
 ## obs
-obs_instance_type  = "t2.medium"
+obs_instance_type  = "m4.large"
 obs_puppet_nodetype    = "obs"
 obs_asg_min_size         = 0
-obs_asg_max_size         = 3
+obs_asg_max_size         = 2
 obs_scaledown_desired    = 0
-obs_scaledown_recurrence = "00 22 * * 1-5"
-obs_scaleup_desired      = 0
-obs_scaleup_recurrence   = "00 04 * * 1-5"
+obs_scaledown_recurrence = "00 18 * * 1-5"
+obs_scaleup_desired      = 2
+obs_scaleup_recurrence   = "00 08 * * 1-5"
 
 ## ibs
-ibs_instance_type  = "t2.medium"
+ibs_instance_type  = "m4.large"
 ibs_puppet_nodetype    = "ibs"
 ibs_asg_min_size         = 0
-ibs_asg_max_size         = 3
+ibs_asg_max_size         = 2
 ibs_scaledown_desired    = 0
-ibs_scaledown_recurrence = "00 22 * * 1-5"
-ibs_scaleup_desired      = 0
-ibs_scaleup_recurrence   = "00 04 * * 1-5"
+ibs_scaledown_recurrence = "00 18 * * 1-5"
+ibs_scaleup_desired      = 2
+ibs_scaleup_recurrence   = "00 08 * * 1-5"
+#ibsdb
+ibs_rds_instance_class = "db.t2.small" //Aurora doesn't support t2.micro
+ibs_rds_backup_retention_period = "7"
+ibs_rds_backup_window = "02:38-03:08"
+ibs_rds_maint_window = "sun:03:16-sun:03:46"
 
 ## wildfly-messaging
 wildfly-messaging_instance_type  = "m4.large"
@@ -178,7 +183,7 @@ wildfly-messaging_scaleup_recurrence   = "00 07 * * 1-5"
 aws_mq_engine_type             = "ActiveMQ"
 aws_mq_engine_version          = "5.15.0"
 aws_mq_host_instance_type      = "mq.t2.micro"
-aws_mq_deployment_mode         = "SINGLE_INSTANCE"
+aws_mq_deployment_mode         = "ACTIVE_STANDBY_MULTI_AZ"
 
 aws_mq_users_admin_user              = "admin"
 aws_mq_users_admin_password          = "admin123456789"
@@ -193,6 +198,45 @@ aws_mq_users_cpc_back_user           = "cpc_back"
 aws_mq_users_cpc_back_password       = "password123456"
 aws_mq_users_cpc_back_group          = "cpc_back"
 
+## cpc-back
+cpc-back_instance_type  = "m4.large"
+cpc-back_puppet_nodetype    = "cpc-back"
+cpc-back_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
+cpc-back_asg_min_size         = 0
+cpc-back_asg_max_size         = 2
+cpc-back_scaledown_desired    = 0
+cpc-back_scaledown_recurrence = "00 22 * * 1-5"
+cpc-back_scaleup_desired      = 1
+cpc-back_scaleup_recurrence   = "00 07 * * 1-5"
+
+
+## cpc-back
+cpc-front_instance_type  = "m4.large"
+cpc-front_puppet_nodetype    = "cpc-front"
+cpc-front_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
+cpc-front_asg_min_size         = 0
+cpc-front_asg_max_size         = 2
+cpc-front_scaledown_desired    = 0
+cpc-front_scaledown_recurrence = "00 22 * * 1-5"
+cpc-front_scaleup_desired      = 1
+cpc-front_scaleup_recurrence   = "00 07 * * 1-5"
+
+# CPCDB
+cpc_rds_storage_type = "gp2"
+cpc_rds_engine = "oracle-se2"
+cpc_rds_engine_version = "12.1.0.2.v11"
+cpc_rds_instance_class = "db.m4.xlarge"
+cpc_rds_port = "1521"
+cpc_rds_public = "false"
+cpc_rds_multi_az = "true" # it takes an age to build if true
+cpc_rds_backup_retention = "7"
+cpc_rds_backup_window = "02:38-03:08"
+cpc_rds_maint_window = "sun:03:16-sun:03:46"
+cpc_rds_skip_final_snapshot = false
+cpc_rds_apply_immediately = "false"
+cpc_rds_license_model = "license-included"
+cpc_rds_autoscale = "False"
+
 aws_mq_config_description    = "TARS MQ Configuration"
 aws_mq_config_name           = "tars-awsmq"
 aws_mq_config_engine_type    = "ActiveMQ"
@@ -201,9 +245,9 @@ aws_mq_config_engine_version = "5.15.0"
 ## bastion
 bastion_instance_type        = "t2.micro"
 bastion_ami_build_id         = "107"
-bastion_asg_min_size         = 0
+bastion_asg_min_size         = 1
 bastion_asg_max_size         = 3
-bastion_scaledown_desired    = 0
+bastion_scaledown_desired    = 1
 bastion_scaledown_recurrence = "00 19 * * 1-5"
 bastion_scaleup_desired      = 1
 bastion_scaleup_recurrence   = "00 07 * * 1-5"
@@ -279,7 +323,7 @@ dvsa_sccm_services = "10.84.192.157/32"
 dvsa_epo_services = "10.84.192.158/32"
 
 # squidnat
-squidnat_instance_type = "t2.micro"
+squidnat_instance_type = "m5.large"
 
 ops_team_email = "mark.thompson@bjss.com"
 
@@ -301,6 +345,8 @@ elc_main_node_type       = "cache.t2.medium"
 elc_main_cache_nodes     = "3" 
 elc_main_parameter_group = "default.memcached1.4"
 elc_main_port            = "11211"
+
+logs_list = []
 
 # TARSDB
 tars_rds_storage_type = "gp2"

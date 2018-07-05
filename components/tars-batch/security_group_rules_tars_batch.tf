@@ -80,7 +80,7 @@ resource "aws_security_group_rule" "tars_batch_egress_avarto_sftp" {
   cidr_blocks              = ["51.231.12.13/32"]
 }
 
-resource "aws_security_group_rule" "tars_batch_egress_batch_nfs" {
+resource "aws_security_group_rule" "batch_egress_batch_efs_nfs" {
   type                     = "egress"
   from_port                = "2049"
   to_port                  = "2049"
