@@ -27,6 +27,6 @@ resource "aws_dms_endpoint" "mistargetonprem" {
 
   username = "${var.target_dms_mis_rds_username}"
   password = "${var.target_dms_mis_rds_password}"
-  server_name = "${aws_db_instance.target_misdb_dms.address}"
+  server_name = "${aws_db_instance.target_misdb_dms_on_prem.address}"
   database_name = "${var.target_dms_mis_rds_name}"
 }
