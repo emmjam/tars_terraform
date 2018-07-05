@@ -23,3 +23,10 @@ cwles_data_volume_size      = "512"
 cwles_master_instance_type  = "t2.small.elasticsearch"
 cwles_master_instance_count = "2"
 
+##########
+# Guardduty
+##############################################################################
+
+guardduty_master_enabled = "0"
+guardduty_member_enabled = "1"
+

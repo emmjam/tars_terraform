@@ -46,6 +46,21 @@ administrators = [
   "chris.nappin@bjss.com",
 ]
 
+##########################################
+# Guardduty
+##########################################
+
+guardduty_master_enabled = "1"
+guardduty_member_enabled = "0"
+
+guardduty_member_list = [
+  { # tarsnonprod
+    account_id = "652856684323"
+    email      = "brian.hogg@dvsa.gov.uk"
+  },
+]
+
+
 ###########################################
 # Peering
 ###########################################
