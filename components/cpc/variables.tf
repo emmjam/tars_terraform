@@ -234,3 +234,8 @@ variable "cpc-back_subnets_cidrs" {
   description = ""
 }
 
+variable "cert_name" {
+  type = "string"
+  description = "ACM cert name"
+}
+

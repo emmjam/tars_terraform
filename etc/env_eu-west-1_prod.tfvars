@@ -67,6 +67,7 @@ rds_subnets_cidrs = [
 # ACTIVE_STANDBY_MULTI_AZ requires 2
 awsmq_subnets_cidrs = [
   "10.167.128.160/28",
+  "10.167.128.192/28",
 ]
 
 jenkins_nat_subnets_cidrs = [
@@ -127,16 +128,16 @@ obs_subnets_cidrs = [
   "10.167.130.224/28",
 ]
 
-cpc_backend_subnets_cidrs = [
+cpc-back_subnets_cidrs = [
   "10.167.131.0/28",
   "10.167.131.16/28",
   "10.167.131.32/28",
 ]
 
-cpc_frontend_subnets_cidrs = [
+cpc-front_subnets_cidrs = [
   "10.167.131.48/28",
-  "10.167.131.60/28",
-  "10.167.131.76/28",
+  "10.167.131.64/28",
+  "10.167.131.80/28",
 ]
 
 elc_main_subnets_cidrs = [
@@ -165,7 +166,7 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 ##
 
 # TARSDB
-tars_rds_username = "tarsprodadmin"
+tars_rds_username = "tarsuatadmin"
 
 tars_rds_password = "sPPmE94NsvmfTmqj5K5YvFxZLmnm9T"
 
