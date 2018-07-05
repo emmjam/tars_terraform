@@ -37,6 +37,7 @@ resource "aws_db_instance" "target_cpcdb_dms_onprem" {
   name                    = "${var.target_dms_cpc_rds_name}"
   parameter_group_name    = "${aws_db_parameter_group.dms_oem.id}"
   option_group_name       = "${aws_db_option_group.dms_oem.id}"
+  snapshot_identifier     = "${var.target_dms_on_prem_cpc_rds_snapshot}"
   
   
   
