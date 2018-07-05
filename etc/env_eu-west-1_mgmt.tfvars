@@ -56,7 +56,7 @@ guardduty_member_enabled = "0"
 guardduty_member_list = [
   { # tarsnonprod
     account_id = "652856684323"
-    email      = "brian.hogg@dvsa.gov.uk"
+    email      = "callum.massey@bjss.com"
   },
 ]
 
