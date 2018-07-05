@@ -126,16 +126,16 @@ obs_subnets_cidrs = [
   "10.167.14.224/28",
 ]
 
-cpc_backend_subnets_cidrs = [
+cpc-front_subnets_cidrs = [
+  "10.167.12.192/28",
+  "10.167.12.208/28",
+  "10.167.12.224/28",
+]
+
+cpc-back_subnets_cidrs = [
   "10.167.15.0/28",
   "10.167.15.16/28",
   "10.167.15.32/28",
-]
-
-cpc_frontend_subnets_cidrs = [
-  "10.167.15.48/28",
-  "10.167.15.60/28",
-  "10.167.15.76/28",
 ]
 
 elc_main_subnets_cidrs = [
