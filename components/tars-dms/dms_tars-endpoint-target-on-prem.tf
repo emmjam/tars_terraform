@@ -27,6 +27,6 @@ resource "aws_dms_endpoint" "tarstargetonprem" {
 
   username = "${var.target_dms_tars_rds_username}"
   password = "${var.target_dms_tars_rds_password}"
-  server_name = "${aws_db_instance.target_tarsdb_dms.address}"
+  server_name = "${aws_db_instance.target_tarsdb_dm_on_prem.address}"
   database_name = "${var.target_dms_tars_rds_name}"
 }

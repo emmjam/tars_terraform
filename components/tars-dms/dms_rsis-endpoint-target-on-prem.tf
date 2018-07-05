@@ -27,6 +27,6 @@ resource "aws_dms_endpoint" "rsistargetonprem" {
 
   username = "${var.target_dms_rsis_rds_username}"
   password = "${var.target_dms_rsis_rds_password}"
-  server_name = "${aws_db_instance.target_rsisdb_dms.address}"
+  server_name = "${aws_db_instance.target_rsisdb_dms_on_prem.address}"
   database_name = "${var.target_dms_rsis_rds_name}"
 }

@@ -27,6 +27,6 @@ resource "aws_dms_endpoint" "cpctarget_onprem" {
 
   username = "${var.target_dms_cpc_rds_username}"
   password = "${var.target_dms_cpc_rds_password}"
-  server_name = "${aws_db_instance.target_cpcdb_dms.address}"
+  server_name = "${aws_db_instance.target_cpcdb_dms_onprem.address}"
   database_name = "${var.target_dms_cpc_rds_name}"
 }
