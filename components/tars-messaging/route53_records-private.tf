@@ -1,10 +1,8 @@
 # R53 record for the tars messaging ALB
 resource "aws_route53_record" "tars-messaging" {
   name = "${format(
-    "%s-%s-%s-%s",
+    "%s-%s",
     var.project,
-    var.environment,
-    var.component,
     "messaging"
   )}"
 
