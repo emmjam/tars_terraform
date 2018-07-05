@@ -136,3 +136,20 @@ variable "cwles_master_instance_count" {
   type        = "string"
   description = "Number of Elasticsearch domain master nodes"
 }
+
+variable "guardduty_member_enabled" {
+  type        = "string"
+  description = "Controls if this account is a guardduty member acount"
+}
+
+variable "guardduty_master_enabled" {
+  type        = "string"
+  description = "Controls if this account is the guardduty master acount"
+}
+
+variable "guardduty_member_list" {
+  type        = "list"
+  description = "Map of details of Guardduty member accounts for master account"
+  default     = []
+}
+
