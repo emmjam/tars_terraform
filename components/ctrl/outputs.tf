@@ -40,3 +40,7 @@ output "ses_password" {
   value = "${aws_iam_access_key.ses_user.ses_smtp_password}"
 }
 
+output "jenkinsctrl_sg_id" {
+  value = "${module.jenkinsnode.security_group_id}"
+}
+

@@ -227,3 +227,35 @@ resource "aws_security_group_rule" "gitlab_egress_internet_ntp" {
   security_group_id = "${module.gitlab.gitlab_sg_id}"
   cidr_blocks       = ["0.0.0.0/0"]
 }
+
+resource "aws_security_group_rule" "build_ingress_ssh" {
+  description       = "Allow SSH in from whitelist to build instances"
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  security_group_id = "${aws_security_group.build.id}"
+  cidr_blocks       = ["${var.whitelist}"]
+}
+
+resource "aws_security_group_rule" "build_ingress_jenkinsctrl_ssh" {
+  description       = "Allow SSH in from jenkinsctrl to build instances"
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  security_group_id = "${aws_security_group.build.id}"
+  source_security_group_id = "${data.terraform_remote_state.ctrl.jenkinsctrl_sg_id}"
+}
+
+resource "aws_security_group_rule" "build_egress_jenkinsctrl_ssh" {
+  description       = "Allow SSH out from jenkinsctrl to build instances"
+  type              = "egress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  source_security_group_id = "${aws_security_group.build.id}"
+  security_group_id = "${data.terraform_remote_state.ctrl.jenkinsctrl_sg_id}"
+}
+
+
