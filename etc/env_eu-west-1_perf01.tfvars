@@ -188,54 +188,54 @@ wildfly-back_instance_type  = "m4.large"
 wildfly-back_asg_min_size         = 0
 wildfly-back_asg_max_size         = 2
 wildfly-back_scaledown_desired    = 0
-wildfly-back_scaledown_recurrence = "00 19 * * 1-5"
+wildfly-back_scaledown_recurrence = "00 16 * * 1-5"
 wildfly-back_scaleup_desired      = 2
-wildfly-back_scaleup_recurrence   = "00 07 * * 1-5"
+wildfly-back_scaleup_recurrence   = "00 05 * * 1-5"
 
 ## wildfly-batch
 wildfly-batch_instance_type  = "m4.large"
 wildfly-batch_asg_min_size         = 0
 wildfly-batch_asg_max_size         = 1
 wildfly-batch_scaledown_desired    = 0
-wildfly-batch_scaledown_recurrence = "00 19 * * 1-5"
+wildfly-batch_scaledown_recurrence = "00 16 * * 1-5"
 wildfly-batch_scaleup_desired      = 1
-wildfly-batch_scaleup_recurrence   = "00 07 * * 1-5"
+wildfly-batch_scaleup_recurrence   = "00 05 * * 1-5"
 
 ## obs
 obs_instance_type  = "m4.large"
 obs_asg_min_size         = 0
 obs_asg_max_size         = 3
 obs_scaledown_desired    = 0
-obs_scaledown_recurrence = "00 19 * * 1-5"
+obs_scaledown_recurrence = "00 16 * * 1-5"
 obs_scaleup_desired      = 1
-obs_scaleup_recurrence   = "00 07 * * 1-5"
+obs_scaleup_recurrence   = "00 05 * * 1-5"
 
 ## ibs
 ibs_instance_type  = "m4.large"
 ibs_asg_min_size         = 0
 ibs_asg_max_size         = 3
 ibs_scaledown_desired    = 0
-ibs_scaledown_recurrence = "00 19 * * 1-5"
+ibs_scaledown_recurrence = "00 16 * * 1-5"
 ibs_scaleup_desired      = 1
-ibs_scaleup_recurrence   = "00 07 * * 1-5"
+ibs_scaleup_recurrence   = "00 05 * * 1-5"
 
 ## wildfly-front
 wildfly-front_instance_type  = "m4.large"
 wildfly-front_asg_min_size         = 0
 wildfly-front_asg_max_size         = 2
 wildfly-front_scaledown_desired    = 0
-wildfly-front_scaledown_recurrence = "00 19 * * 1-5"
+wildfly-front_scaledown_recurrence = "00 16 * * 1-5"
 wildfly-front_scaleup_desired      = 2
-wildfly-front_scaleup_recurrence   = "00 07 * * 1-5"
+wildfly-front_scaleup_recurrence   = "00 05 * * 1-5"
 
 ## wildfly-messaging
 wildfly-messaging_instance_type  = "m4.large"
 wildfly-messaging_asg_min_size         = 0
 wildfly-messaging_asg_max_size         = 1
 wildfly-messaging_scaledown_desired    = 1
-wildfly-messaging_scaledown_recurrence = "00 19 * * 1-5"
+wildfly-messaging_scaledown_recurrence = "00 16 * * 1-5"
 wildfly-messaging_scaleup_desired      = 1
-wildfly-messaging_scaleup_recurrence   = "00 07 * * 1-5"
+wildfly-messaging_scaleup_recurrence   = "00 05 * * 1-5"
 
 ## AWS MQ
 aws_mq_host_instance_type      = "mq.t2.micro"
@@ -258,9 +258,9 @@ wildfly-mock_instance_type  = "t2.medium"
 wildfly-mock_asg_min_size         = 0
 wildfly-mock_asg_max_size         = 1
 wildfly-mock_scaledown_desired    = 0
-wildfly-mock_scaledown_recurrence = "00 19 * * 1-5"
+wildfly-mock_scaledown_recurrence = "00 16 * * 1-5"
 wildfly-mock_scaleup_desired      = 1
-wildfly-mock_scaleup_recurrence   = "00 07 * * 1-5"
+wildfly-mock_scaleup_recurrence   = "00 05 * * 1-5"
 
 ##  JMeter
 jmeter_instance_type              = "m5.large"
