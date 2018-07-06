@@ -158,7 +158,7 @@ ibs_asg_max_size         = 3
 ibs_scaledown_desired    = 0
 ibs_scaledown_recurrence = "00 22 * * 1-5"
 ibs_scaleup_desired      = 1
-ibs_scaleup_recurrence   = "00 04 * * 1-5"
+ibs_scaleup_recurrence   = "10 04 * * 1-5"
 
 ## fyndi-f
 fyndi-f_instance_type  = "t2.medium"
