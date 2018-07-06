@@ -54,3 +54,23 @@ resource "aws_security_group" "alb_public" {
     )
   )}"
 }
+
+resource "aws_security_group" "build" {
+  name        = "${var.project}-${var.environment}-${var.component}-build"
+  description = "Common SG for build instances"
+  vpc_id      = "${aws_vpc.mgmt.id}"
+
+  tags = "${merge(
+    var.default_tags,
+    map(
+      "Name", format(
+        "%s-%s-%s/%s",
+        var.project,
+        var.environment,
+        var.component,
+        "build"
+      ),
+    )
+  )}"
+}
+
