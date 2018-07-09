@@ -1,115 +1,648 @@
 ################################################################################
 #
-# RDS Parameter Group
+# RDS Parameter Groups
 #
 ################################################################################
 
-resource "aws_db_parameter_group" "cpcdb" {
+resource "aws_db_parameter_group" "db-t2-micro" {
   name = "${format(
-    "%s-%s-%s-%s",
+    "%s-%s-%s",
     var.project,
-    var.environment,
     var.component,
-    "cpcdb"
-  )}"
-
-  description = "${format(
-    "%s-%s-%s-%s",
-    var.project,
-    var.environment,
-    var.component,
-    "cpcdb"
+    "db-t2-micro"
   )}"
 
   family = "oracle-se2-12.1"
 
-  # parameter {
-  #   name         = "binlog_format"
-  #   value        = "row"
-  #   apply_method = "immediate"
-  # }
+}
 
-  # parameter {
-  #   name         = "innodb_file_format"
-  #   value        = "barracuda"
-  #   apply_method = "immediate"
-  # }
+resource "aws_db_parameter_group" "db-r4-xlarge" {
+  name = "${format(
+    "%s-%s-%s",
+    var.project,
+    var.component,
+    "db-r4-xlarge"
+  )}"
 
-  # parameter {
-  #   name         = "innodb_io_capacity"
-  #   value        = "5000"
-  #   apply_method = "immediate"
-  # }
+  family = "oracle-se2-12.1"
 
-  # parameter {
-  #   name         = "innodb_log_file_size"
-  #   value        = "536870912"
-  #   apply_method = "pending-reboot"
-  # }
+  parameter {
+    name         = "sga_max_size"
+    value        = "23461888"
+    apply_method = "pending-reboot"
+  }
 
-  # parameter {
-  #   name         = "innodb_open_files"
-  #   value        = "15000"
-  #   apply_method = "pending-reboot"
-  # }
+  parameter {
+    name         = "sga_target"
+    value        = "23461888"
+    apply_method = "immediate"
+  }
 
-  # parameter {
-  #   name         = "auto_increment_increment"
-  #   value        = "2"
-  #   apply_method = "immediate"
-  # }
+  parameter {
+    name         = "memory_max_target"
+    value        = "0"
+    apply_method = "pending-reboot"
+  }
 
-  # parameter {
-  #   name         = "tmp_table_size"
-  #   value        = "67108864"
-  #   apply_method = "immediate"
-  # }
+  parameter {
+    name         = "memory_target"
+    value        = "0"
+    apply_method = "immediate"
+  }
 
-  # parameter {
-  #   name         = "sql_mode"
-  #   value        = "strict_all_tables"
-  #   apply_method = "immediate"
-  # }
+  parameter {
+    name         = "pga_aggregate_target"
+    value        = "3899392"
+    apply_method = "immediate"
+  }
 
-  # parameter {
-  #   name         = "query_cache_limit"
-  #   value        = "1048576"
-  #   apply_method = "immediate"
-  # }
+  parameter {
+    name         = "pga_aggregate_limit"
+    value        = "9940992"
+    apply_method = "pending-reboot"
+  }
 
-  # parameter {
-  #   name         = "query_cache_size"
-  #   value        = "16777216"
-  #   apply_method = "immediate"
-  # }
+  parameter {
+    name         = "shared_pool_reserved_size"
+    value        = "126976"
+    apply_method = "pending-reboot"
+  }
 
-  # parameter {
-  #   name         = "max_allowed_packet"
-  #   value        = "16777216"
-  #   apply_method = "immediate"
-  # }
+  parameter {
+    name         = "log_buffer"
+    value        = "61865984"
+    apply_method = "pending-reboot"
+  }
 
-  # parameter {
-  #   name         = "log_output"
-  #   value        = "file"
-  #   apply_method = "immediate"
-  # }
+  parameter {
+    name         = "cpu_count"
+    value        = "4"
+    apply_method = "immediate"
+  }
 
-  # parameter {
-  #   name         = "log_queries_not_using_indexes"
-  #   value        = "0"
-  #   apply_method = "immediate"
-  # }
+  parameter {
+    name         = "dml_locks"
+    value        = "21452"
+    apply_method = "pending-reboot"
+  }
 
-  # parameter {
-  #   name         = "long_query_time"
-  #   value        = "2"
-  #   apply_method = "immediate"
-  # }
+  parameter {
+    name         = "parallel_servers_target"
+    value        = "64"
+    apply_method = "immediate"
+  }
 
-  # parameter {
-  #   name         = "log_bin_trust_function_creators"
-  #   value        = "1"
-  #   apply_method = "immediate"
-  # }
+  parameter {
+    name         = "processes"
+    value        = "3236"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "sessions"
+    value        = "4876"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "transactions"
+    value        = "5363"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "db_file_multiblock_read_count"
+    value        = "128"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "db_writer_processes"
+    value        = "1"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "job_queue_processes"
+    value        = "50"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "session_cached_cursors"
+    value        = "50"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "use_large_pages"
+    value        = "ONLY"
+    apply_method = "pending-reboot"
+  }
+
+}
+
+resource "aws_db_parameter_group" "db-r4-2xlarge" {
+  name = "${format(
+    "%s-%s-%s",
+    var.project,
+    var.component,
+    "db-r4-2xlarge"
+  )}"
+
+  family = "oracle-se2-12.1"
+
+  parameter {
+    name         = "sga_max_size"
+    value        = "47054848"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "sga_target"
+    value        = "47054848"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "memory_max_target"
+    value        = "0"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "memory_target"
+    value        = "0"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "pga_aggregate_target"
+    value        = "7834624"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "pga_aggregate_limit"
+    value        = "19977216"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "shared_pool_reserved_size"
+    value        = "254976"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "log_buffer"
+    value        = "125829120"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "cpu_count"
+    value        = "8"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "dml_locks"
+    value        = "43012"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "parallel_servers_target"
+    value        = "128"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "processes"
+    value        = "6503"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "sessions"
+    value        = "9776"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "transactions"
+    value        = "10753"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "db_file_multiblock_read_count"
+    value        = "128"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "db_writer_processes"
+    value        = "1"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "job_queue_processes"
+    value        = "50"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "session_cached_cursors"
+    value        = "50"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "use_large_pages"
+    value        = "ONLY"
+    apply_method = "pending-reboot"
+  }
+
+}
+
+resource "aws_db_parameter_group" "db-r4-4xlarge" {
+  name = "${format(
+    "%s-%s-%s",
+    var.project,
+    var.component,
+    "db-r4-4xlarge"
+  )}"
+
+  family = "oracle-se2-12.1"
+
+  parameter {
+    name         = "sga_max_size"
+    value        = "94371840"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "sga_target"
+    value        = "94371840"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "memory_max_target"
+    value        = "0"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "memory_target"
+    value        = "0"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "pga_aggregate_target"
+    value        = "15703040"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "pga_aggregate_limit"
+    value        = "40043520"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "shared_pool_reserved_size"
+    value        = "510976"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "log_buffer"
+    value        = "254803968"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "cpu_count"
+    value        = "16"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "dml_locks"
+    value        = "86168"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "parallel_servers_target"
+    value        = "256"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "processes"
+    value        = "13035"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "sessions"
+    value        = "19584"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "transactions"
+    value        = "21542"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "db_file_multiblock_read_count"
+    value        = "128"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "db_writer_processes"
+    value        = "2"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "job_queue_processes"
+    value        = "50"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "session_cached_cursors"
+    value        = "50"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "use_large_pages"
+    value        = "ONLY"
+    apply_method = "pending-reboot"
+  }
+
+}
+
+
+resource "aws_db_parameter_group" "db-m4-xlarge" {
+  name = "${format(
+    "%s-%s-%s",
+    var.project,
+    var.component,
+    "db-m4-xlarge"
+  )}"
+
+  family = "oracle-se2-12.1"
+
+  parameter {
+    name         = "sga_max_size"
+    value        = "12189696"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "sga_target"
+    value        = "0"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "memory_max_target"
+    value        = "12482248704"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "memory_target"
+    value        = "12482248704"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "pga_aggregate_target"
+    value        = "0"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "pga_aggregate_limit"
+    value        = "9764864"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "shared_pool_reserved_size"
+    value        = "58368"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "log_buffer"
+    value        = "29360128"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "cpu_count"
+    value        = "4"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "dml_locks"
+    value        = "11208"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "parallel_servers_target"
+    value        = "64"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "processes"
+    value        = "1683"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "sessions"
+    value        = "2548"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "transactions"
+    value        = "2802"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "db_file_multiblock_read_count"
+    value        = "128"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "db_writer_processes"
+    value        = "1"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "job_queue_processes"
+    value        = "50"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "session_cached_cursors"
+    value        = "50"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "use_large_pages"
+    value        = "FALSE"
+    apply_method = "pending-reboot"
+  }
+
+}
+
+resource "aws_db_parameter_group" "db-m4-2xlarge" {
+  name = "${format(
+    "%s-%s-%s",
+    var.project,
+    var.component,
+    "db-m4-2xlarge"
+  )}"
+
+  family = "oracle-se2-12.1"
+
+  parameter {
+    name         = "sga_max_size"
+    value        = "24576000"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "sga_target"
+    value        = "0"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "memory_max_target"
+    value        = "25165824000"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "memory_target"
+    value        = "25165824000"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "pga_aggregate_target"
+    value        = "0"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "pga_aggregate_limit"
+    value        = "19660800"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "shared_pool_reserved_size"
+    value        = "94208"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "log_buffer"
+    value        = "60817408"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "cpu_count"
+    value        = "8"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "dml_locks"
+    value        = "22528"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "parallel_servers_target"
+    value        = "128"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "processes"
+    value        = "3397"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "sessions"
+    value        = "5120"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "transactions"
+    value        = "5632"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "db_file_multiblock_read_count"
+    value        = "128"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "db_writer_processes"
+    value        = "1"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "job_queue_processes"
+    value        = "50"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "session_cached_cursors"
+    value        = "50"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "use_large_pages"
+    value        = "FALSE"
+    apply_method = "pending-reboot"
+  }
+
 }
