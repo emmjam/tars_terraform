@@ -32,7 +32,7 @@ resource "aws_db_instance" "cpcdb" {
   backup_retention_period = "${var.cpc_rds_backup_retention}"
   backup_window           = "${var.cpc_rds_backup_window}"
   maintenance_window      = "${var.cpc_rds_maint_window}"
-  parameter_group_name    = "${aws_db_parameter_group.cpcdb.id}"
+  parameter_group_name    = "${var.project}-${var.component}-${replace(var.cpc_rds_instance_class, ".", "-")}"
   apply_immediately       = "${var.cpc_rds_apply_immediately}"
   license_model           = "${var.cpc_rds_license_model}"
   snapshot_identifier     = "${var.cpc_rds_snapshot}"
