@@ -44,6 +44,15 @@ capita_perf_ro_users = [
   "Subrata.Dey@capita.co.uk"
 ]
 
+capita_support_ro_users = [
+  "phil.scally@capita.co.uk",
+  "richard.freitas@capita.co.uk",
+  "vinit.prajapati@capita.co.uk",
+  "rob.morrison3@capita.co.uk",
+  "pratap.prusty@capita.co.uk",
+  "boby.jacob@capita.co.uk"
+]
+
 ###############################################################################
 # MGMT
 ###############################################################################

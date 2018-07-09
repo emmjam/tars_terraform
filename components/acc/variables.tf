@@ -99,6 +99,12 @@ variable "capita_perf_ro_users" {
   default     = []
 }
 
+variable "capita_support_ro_users" {
+  type        = "list"
+  description = "List of read-only IAM Users from Capita, that have Read Only access"
+  default     = []
+}
+
 variable "logs_list" {
   type = "list"
   description = "List of log files to send to elasticsearch"
