@@ -6,9 +6,10 @@
 
 resource "aws_db_parameter_group" "db-t2-micro" {
   name = "${format(
-    "%s-%s-%s",
+    "%s-%s-%s-%s",
     var.project,
     var.component,
+    var.environment,
     "db-t2-micro"
   )}"
 
@@ -18,9 +19,10 @@ resource "aws_db_parameter_group" "db-t2-micro" {
 
 resource "aws_db_parameter_group" "db-r4-xlarge" {
   name = "${format(
-    "%s-%s-%s",
+    "%s-%s-%s-%s",
     var.project,
     var.component,
+    var.environment,
     "db-r4-xlarge"
   )}"
 
@@ -144,9 +146,10 @@ resource "aws_db_parameter_group" "db-r4-xlarge" {
 
 resource "aws_db_parameter_group" "db-r4-2xlarge" {
   name = "${format(
-    "%s-%s-%s",
+    "%s-%s-%s-%s",
     var.project,
     var.component,
+    var.environment,
     "db-r4-2xlarge"
   )}"
 
@@ -270,9 +273,10 @@ resource "aws_db_parameter_group" "db-r4-2xlarge" {
 
 resource "aws_db_parameter_group" "db-r4-4xlarge" {
   name = "${format(
-    "%s-%s-%s",
+    "%s-%s-%s-%s",
     var.project,
     var.component,
+    var.environment,
     "db-r4-4xlarge"
   )}"
 
@@ -397,9 +401,10 @@ resource "aws_db_parameter_group" "db-r4-4xlarge" {
 
 resource "aws_db_parameter_group" "db-m4-xlarge" {
   name = "${format(
-    "%s-%s-%s",
+    "%s-%s-%s-%s",
     var.project,
     var.component,
+    var.environment,
     "db-m4-xlarge"
   )}"
 
@@ -523,9 +528,10 @@ resource "aws_db_parameter_group" "db-m4-xlarge" {
 
 resource "aws_db_parameter_group" "db-m4-2xlarge" {
   name = "${format(
-    "%s-%s-%s",
+    "%s-%s-%s-%s",
     var.project,
     var.component,
+    var.environment,
     "db-m4-2xlarge"
   )}"
 
