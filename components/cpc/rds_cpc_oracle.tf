@@ -36,6 +36,7 @@ resource "aws_db_instance" "cpcdb" {
   apply_immediately       = "${var.cpc_rds_apply_immediately}"
   license_model           = "${var.cpc_rds_license_model}"
   snapshot_identifier     = "${var.cpc_rds_snapshot}"
+  option_group_name       = "${aws_db_option_group.cpc_oem.id}"
 
   vpc_security_group_ids = [
     "${aws_security_group.cpc-db.id}",
