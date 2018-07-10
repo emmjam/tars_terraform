@@ -32,7 +32,7 @@ resource "aws_db_instance" "tarsdb" {
   backup_retention_period = "${var.tars_rds_backup_retention}"
   backup_window           = "${var.tars_rds_backup_window}"
   maintenance_window      = "${var.tars_rds_maint_window}"
-  parameter_group_name    = "${var.project}-${var.component}-${replace(var.tars_rds_instance_class, ".", "-")}"
+  parameter_group_name    = "${var.project}-${var.component}-${var.environment}-${replace(var.cpc_rds_instance_class, ".", "-")}"
   apply_immediately       = "${var.tars_rds_apply_immediately}"
   license_model           = "${var.tars_rds_license_model}"
   snapshot_identifier     = "${var.tars_rds_snapshot}"
