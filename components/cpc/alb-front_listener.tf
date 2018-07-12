@@ -13,7 +13,7 @@ resource "aws_alb_listener" "cpc-front-9443" {
 }
 
 resource "aws_lb_listener_rule" "cpc-front-8443" {
-  listener_arn = "${aws_alb.cpc-front.arn}"
+  listener_arn = "${aws_alb_listener.cpc-front-9443.arn}"
   priority     = 99
 
   action {
@@ -28,7 +28,7 @@ resource "aws_lb_listener_rule" "cpc-front-8443" {
 }
 
 resource "aws_lb_listener_rule" "cpc-front-9443-delegated" {
-  listener_arn = "${aws_alb.cpc-front.arn}"
+  listener_arn = "${aws_alb_listener.cpc-front-9443.arn}"
   priority     = 90
 
   action {
@@ -43,7 +43,7 @@ resource "aws_lb_listener_rule" "cpc-front-9443-delegated" {
 }
 
 resource "aws_lb_listener_rule" "cpc-front-9443-cpcode" {
-  listener_arn = "${aws_alb.cpc-front.arn}"
+  listener_arn = "${aws_alb_listener.cpc-front-9443.arn}"
   priority     = 89
 
   action {
@@ -58,7 +58,7 @@ resource "aws_lb_listener_rule" "cpc-front-9443-cpcode" {
 }
 
 resource "aws_lb_listener_rule" "cpc-front-9443-cpctrain" {
-  listener_arn = "${aws_alb.cpc-front.arn}"
+  listener_arn = "${aws_alb_listener.cpc-front-9443.arn}"
   priority     = 88
 
   action {
@@ -74,7 +74,7 @@ resource "aws_lb_listener_rule" "cpc-front-9443-cpctrain" {
 
 
 resource "aws_lb_listener_rule" "cpc-front-7443" {
-  listener_arn = "${aws_alb.cpc-front.arn}"
+  listener_arn = "${aws_alb_listener.cpc-front-9443.arn}"
   priority     = 70
 
   action {
