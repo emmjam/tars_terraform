@@ -141,8 +141,8 @@ cpc-back_subnets_cidrs = [
 
 cpc-front_subnets_cidrs = [
   "10.167.7.48/28",
-  "10.167.7.60/28",
-  "10.167.7.76/28",
+  "10.167.7.64/28",
+  "10.167.7.80/28",
 ]
 
 elc_main_subnets_cidrs = [
