@@ -133,13 +133,13 @@ obs_subnets_cidrs = [
   "10.167.6.224/28",
 ]
 
-cpc_backend_subnets_cidrs = [
+cpc-back_subnets_cidrs = [
   "10.167.7.0/28",
   "10.167.7.16/28",
   "10.167.7.32/28",
 ]
 
-cpc_frontend_subnets_cidrs = [
+cpc-front_subnets_cidrs = [
   "10.167.7.48/28",
   "10.167.7.60/28",
   "10.167.7.76/28",
