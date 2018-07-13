@@ -13,6 +13,7 @@ resource "aws_alb_target_group" "cpc-front-9443" {
 
   health_check {
     path                = "/"
+    protocol            = "HTTPS"
     timeout             = 5
     interval            = 10
     healthy_threshold   = 3
@@ -42,6 +43,7 @@ resource "aws_alb_target_group" "cpc-front-7443" {
 
   health_check {
     path                = "/"
+    protocol            = "HTTPS"
     timeout             = 5
     interval            = 10
     healthy_threshold   = 3
@@ -71,6 +73,7 @@ resource "aws_alb_target_group" "cpc-front-8443" {
 
   health_check {
     path                = "/"
+    protocol            = "HTTPS"
     timeout             = 5
     interval            = 10
     healthy_threshold   = 3
