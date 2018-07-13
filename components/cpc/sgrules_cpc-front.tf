@@ -1,8 +1,26 @@
-resource "aws_security_group_rule" "cpc-front-ingress-cpc-front-alb-8080" {
+resource "aws_security_group_rule" "cpc-front-ingress-cpc-front-alb-9443" {
   type                     = "ingress"
   protocol                 = "tcp"
-  from_port                = "8080"
-  to_port                  = "8080"
+  from_port                = "9443"
+  to_port                  = "9443"
+  security_group_id        = "${module.cpc-front.security_group_id}"
+  source_security_group_id = "${aws_security_group.cpc-front-alb.id}"
+}
+
+resource "aws_security_group_rule" "cpc-front-ingress-cpc-front-alb-7443" {
+  type                     = "ingress"
+  protocol                 = "tcp"
+  from_port                = "7443"
+  to_port                  = "7443"
+  security_group_id        = "${module.cpc-front.security_group_id}"
+  source_security_group_id = "${aws_security_group.cpc-front-alb.id}"
+}
+
+resource "aws_security_group_rule" "cpc-front-ingress-cpc-front-alb-8443" {
+  type                     = "ingress"
+  protocol                 = "tcp"
+  from_port                = "8443"
+  to_port                  = "8443"
   security_group_id        = "${module.cpc-front.security_group_id}"
   source_security_group_id = "${aws_security_group.cpc-front-alb.id}"
 }
