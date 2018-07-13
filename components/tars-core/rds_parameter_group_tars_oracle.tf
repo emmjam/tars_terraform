@@ -4,13 +4,13 @@
 #
 ################################################################################
 
-resource "aws_db_parameter_group" "db-t2-micro" {
+resource "aws_db_parameter_group" "db-t2-medium" {
   name = "${format(
     "%s-%s-%s-%s",
     var.project,
     var.component,
     var.environment,
-    "db-t2-micro"
+    "db-t2-medium"
   )}"
 
   family = "oracle-se2-12.1"
