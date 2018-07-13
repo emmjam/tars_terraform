@@ -53,7 +53,7 @@ resource "aws_lb_listener_rule" "cpc-front-9443-cpcode" {
 
   condition {
     field  = "path-pattern"
-    values = ["/cpccode/*"]
+    values = ["/cpcode/*"]
   }
 }
 
