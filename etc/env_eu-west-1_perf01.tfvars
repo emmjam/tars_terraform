@@ -113,6 +113,13 @@ ibs_db_subnets_cidrs = [
   "10.167.18.128/28",
 ]
 
+# FYNDI
+fyndi-f_subnets_cidrs = [
+  "10.167.18.144/28",
+  "10.167.18.160/28",
+  "10.167.18.176/28",
+]
+
 jmeter_subnets_cidrs = [
   "10.167.17.208/28",
   "10.167.17.224/28",
@@ -143,6 +150,13 @@ batch_efs_subnets_cidrs = [
   "10.167.19.144/28",
   "10.167.19.160/28",
   "10.167.19.176/28",
+]
+
+# FYNDI
+fyndi-b_subnets_cidrs = [
+  "10.167.19.192/28",
+  "10.167.19.208/28",
+  "10.167.19.224/28",
 ]
 
 
@@ -270,4 +284,3 @@ jmeter_asg_size_min               = 0
 
 # squidnat
 squidnat_instance_type = "m5.large"
-

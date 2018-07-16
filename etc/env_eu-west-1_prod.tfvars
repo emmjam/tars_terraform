@@ -127,6 +127,13 @@ ibs_db_subnets_cidrs = [
   "10.167.130.128/28",
 ]
 
+# FYNDI
+fyndi-f_subnets_cidrs = [
+  "10.167.130.144/28",
+  "10.167.130.160/28",
+  "10.167.130.176/28",
+]
+
 #OBS CIDR Range
 
 obs_subnets_cidrs = [
@@ -157,6 +164,13 @@ batch_efs_subnets_cidrs = [
   "10.167.131.144/28",
   "10.167.131.160/28",
   "10.167.131.176/28",
+]
+
+# FYNDI
+fyndi-b_subnets_cidrs = [
+  "10.167.131.192/28",
+  "10.167.131.208/28",
+  "10.167.131.224/28",
 ]
 
 # Environment & Component for Accessing mgmt_prd remote state
