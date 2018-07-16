@@ -2,7 +2,7 @@
 resource "aws_route53_record" "tars-mock-public" {
   name = "${format(
     "%s-%s-%s",
-    var.project,
+    var.component,
     var.environment,
     "public"
   )}"
