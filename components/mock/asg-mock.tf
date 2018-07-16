@@ -15,6 +15,7 @@ resource "aws_autoscaling_group" "tars-mock" {
   vpc_zone_identifier  = ["${data.terraform_remote_state.base.subnets_tars_backend}"]
   target_group_arns    = [
     "${aws_alb_target_group.tars-mock-8080.arn}",
+    "${aws_alb_target_group.tars-mock-8443.arn}",
     ]
   enabled_metrics      = ["${var.asg_enabled_metrics}"]
 
