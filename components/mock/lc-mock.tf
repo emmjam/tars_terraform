@@ -17,7 +17,6 @@ resource "aws_launch_configuration" "tars-mock" {
 
   security_groups = [
     "${aws_security_group.tars-mock.id}",
-    "${aws_security_group.tars-alb-mock-public.id}",
     "${data.terraform_remote_state.base.core_sg_id}",
   ]
 

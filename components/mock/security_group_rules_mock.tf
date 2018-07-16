@@ -9,6 +9,17 @@ resource "aws_security_group_rule" "tars_mock_ingress_private_alb_port_8080" {
   source_security_group_id = "${aws_security_group.tars-alb-mock.id}"
 }
 
+# TARS Core mock rules
+resource "aws_security_group_rule" "tars_mock_ingress_public_alb_port_8443" {
+  description              = "Allow TCP/8443 from mock public ALB"
+  type                     = "ingress"
+  from_port                = 8443
+  to_port                  = 8443
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.tars-mock.id}"
+  source_security_group_id = "${aws_security_group.tars-alb-mock-public.id}"
+}
+
 resource "aws_security_group_rule" "tars_mock_egress_oracle_db" {
   description              = "Allow TCP/1521 to the Oracle DB"
   type                     = "egress"
