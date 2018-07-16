@@ -15,6 +15,12 @@ resource "aws_db_parameter_group" "db-t2-micro" {
 
   family = "oracle-se2-12.1"
 
+  parameter {
+    name         = "sqlnetora.sqlnet.expire_time"
+    value        = "10"
+    apply_method = "immediate"
+  }
+
 }
 
 resource "aws_db_parameter_group" "db-r4-xlarge" {
@@ -140,6 +146,12 @@ resource "aws_db_parameter_group" "db-r4-xlarge" {
     name         = "use_large_pages"
     value        = "ONLY"
     apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "sqlnetora.sqlnet.expire_time"
+    value        = "10"
+    apply_method = "immediate"
   }
 
 }
@@ -269,6 +281,12 @@ resource "aws_db_parameter_group" "db-r4-2xlarge" {
     apply_method = "pending-reboot"
   }
 
+  parameter {
+    name         = "sqlnetora.sqlnet.expire_time"
+    value        = "10"
+    apply_method = "immediate"
+  }
+
 }
 
 resource "aws_db_parameter_group" "db-r4-4xlarge" {
@@ -394,6 +412,12 @@ resource "aws_db_parameter_group" "db-r4-4xlarge" {
     name         = "use_large_pages"
     value        = "ONLY"
     apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "sqlnetora.sqlnet.expire_time"
+    value        = "10"
+    apply_method = "immediate"
   }
 
 }
@@ -524,6 +548,12 @@ resource "aws_db_parameter_group" "db-m4-xlarge" {
     apply_method = "pending-reboot"
   }
 
+  parameter {
+    name         = "sqlnetora.sqlnet.expire_time"
+    value        = "10"
+    apply_method = "immediate"
+  }
+
 }
 
 resource "aws_db_parameter_group" "db-m4-2xlarge" {
@@ -649,6 +679,12 @@ resource "aws_db_parameter_group" "db-m4-2xlarge" {
     name         = "use_large_pages"
     value        = "FALSE"
     apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "sqlnetora.sqlnet.expire_time"
+    value        = "10"
+    apply_method = "immediate"
   }
 
 }
