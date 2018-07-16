@@ -1,4 +1,4 @@
-# TARS Mock ALB Listener for port 8080
+# TARS Mock ALB Listener for port 8443
 resource "aws_alb_listener" "tars-mock-8443" {
   load_balancer_arn = "${aws_alb.tars-alb-mock-public.arn}"
   port              = "8443"
