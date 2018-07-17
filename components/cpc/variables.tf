@@ -239,3 +239,7 @@ variable "cert_name" {
   description = "ACM cert name"
 }
 
+variable "dvla_elise_server" {
+  type = "string"
+  description = "DVLA Elise"
+}
