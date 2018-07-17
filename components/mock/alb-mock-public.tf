@@ -8,7 +8,7 @@ resource "aws_alb" "tars-alb-mock-public" {
     "mock-public"
   )}"
 
-  internal = true
+  internal = false
 
   security_groups = ["${aws_security_group.tars-alb-mock-public.id}"]
 
