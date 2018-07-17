@@ -322,6 +322,13 @@ dvsa_mgmt_inbound = [
 dvsa_sccm_services = "10.84.192.157/32"
 dvsa_epo_services = "10.84.192.158/32"
 
+# 3rd party
+avarto_sftp_server = "51.231.12.13/32"
+sweda_samba_server = "10.84.192.105/32"
+dvla_adli_server = "51.231.10.92/32"
+dvla_elise_server = "51.231.10.81/32"
+rsis_samba_server = "10.150.36.113/32"
+
 # squidnat
 squidnat_instance_type = "m5.large"
 

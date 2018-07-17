@@ -150,3 +150,23 @@ variable "cert_name" {
   type = "string"
   description = "ACM cert name"
 }
+
+variable "avarto_sftp_server" {
+  type = "string"
+  description = "Avarto"
+}
+
+variable "sweda_samba_server" {
+  type = "string"
+  description = "Sweda"
+}
+
+variable "dvla_adli_server" {
+  type = "string"
+  description = "ADLI"
+}
+
+variable "rsis_samba_server" {
+  type = "string"
+  description = "RSIS"
+}

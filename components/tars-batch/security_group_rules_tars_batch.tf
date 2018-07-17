@@ -70,16 +70,6 @@ resource "aws_security_group_rule" "tars_batch_egress_active_mq" {
   source_security_group_id = "${data.terraform_remote_state.base.awsmq_sg_id}"
 }
 
-resource "aws_security_group_rule" "tars_batch_egress_avarto_sftp" {
-  description              = "Allow TCP/22 to AVARTO sftp.sharedservicesarvarto.gsi.gov.uk"
-  type                     = "egress"
-  from_port                = 22
-  to_port                  = 22
-  protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-batch.id}"
-  cidr_blocks              = ["51.231.12.13/32"]
-}
-
 resource "aws_security_group_rule" "batch_egress_batch_efs_nfs" {
   type                     = "egress"
   from_port                = "2049"
@@ -89,3 +79,42 @@ resource "aws_security_group_rule" "batch_egress_batch_efs_nfs" {
   source_security_group_id = "${aws_security_group.batch_efs.id}"
 }
 
+resource "aws_security_group_rule" "tars_batch_egress_avarto_sftp" {
+  description              = "Allow TCP/22 to AVARTO"
+  type                     = "egress"
+  from_port                = 22
+  to_port                  = 22
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.tars-batch.id}"
+  cidr_blocks              = ["${var.avarto_sftp_server}"]
+}
+
+resource "aws_security_group_rule" "tars_batch_egress_sweda_sftp" {
+  description              = "Allow ALL to Sweda Samba"
+  type                     = "egress"
+  from_port                = -1
+  to_port                  = -1
+  protocol                 = "-1"
+  security_group_id        = "${aws_security_group.tars-batch.id}"
+  cidr_blocks              = ["${var.sweda_samba_server}"]
+}
+
+resource "aws_security_group_rule" "tars_batch_egress_dvla_adli" {
+  description              = "Allow TCP/22 to DVLA ADLI"
+  type                     = "egress"
+  from_port                = 22
+  to_port                  = 22
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.tars-batch.id}"
+  cidr_blocks              = ["${var.dvla_adli_server}"]
+}
+
+resource "aws_security_group_rule" "tars_batch_egress_rsis_sftp" {
+  description              = "Allow ALL to RSIS Samba"
+  type                     = "egress"
+  from_port                = -1
+  to_port                  = -1
+  protocol                 = "-1"
+  security_group_id        = "${aws_security_group.tars-batch.id}"
+  cidr_blocks              = ["${var.rsis_samba_server}"]
+}

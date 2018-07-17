@@ -66,3 +66,13 @@ resource "aws_security_group_rule" "tars_back_alb_ingress_cpc_back" {
   security_group_id        = "${data.terraform_remote_state.tars-core.tars-core-backend-alb-sg-id}"
   source_security_group_id = "${module.cpc-back.security_group_id}"
 }
+
+resource "aws_security_group_rule" "cpc_back_egress_dvla_elise" {
+  description              = "Allow TCP/443 to DVLA Elise"
+  type                     = "egress"
+  from_port                = 443
+  to_port                  = 443
+  protocol                 = "tcp"
+  security_group_id        = "${module.cpc-back.security_group_id}"
+  cidr_blocks              = ["${var.dvla_elise_server}"]
+}
