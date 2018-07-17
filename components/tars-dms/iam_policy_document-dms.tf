@@ -64,6 +64,21 @@ data "aws_iam_policy_document" "enable_dms" {
   }
 
   statement {
+    sid    = "AllowCloudwatchAlarms"
+    effect = "Allow"
+
+    actions = [
+      "cloudwatch:deleteAlarms",
+      "cloudwatch:describeAlarmHistory",
+      "cloudwatch:putMetricAlarm"
+    ]
+
+    resources = [
+      "*",
+    ]
+  }
+
+  statement {
     sid    = "AllowLogs"
     effect = "Allow"
 
