@@ -54,7 +54,8 @@ data "aws_iam_policy_document" "enable_dms" {
 
     actions = [
       "cloudwatch:Get*",
-      "cloudwatch:List*"
+      "cloudwatch:List*",
+      "cloudwatch:PutDashboard"
     ]
 
     resources = [
