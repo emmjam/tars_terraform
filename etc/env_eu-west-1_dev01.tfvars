@@ -226,7 +226,7 @@ ad_account = "233824316563"
 target_dms_tars_rds_storage_type = "gp2"
 target_dms_tars_rds_engine = "oracle-se2"
 target_dms_tars_rds_engine_version = "12.1.0.2.v11"
-target_dms_tars_rds_instance_class = "db.t2.medium" # was "db.m4.4xlarge"
+target_dms_tars_rds_instance_class = "db.r4.xlarge" # was "db.m4.4xlarge"
 target_dms_tars_rds_port = "1521"
 target_dms_tars_rds_public = "true"
 target_dms_tars_rds_multi_az = "false" # it takes an age to build if true
@@ -242,10 +242,12 @@ target_dms_tars_rds_password = "password"
 target_dms_tars_rds_allocated_storage = "300"
 target_dms_tars_rds_name = "TARSDB"
 
+target_dms_on_prem_tars_rds_snapshot = "tars-dms-target-180704"
+
 target_dms_cpc_rds_storage_type = "gp2"
 target_dms_cpc_rds_engine = "oracle-se2"
 target_dms_cpc_rds_engine_version = "12.1.0.2.v11"
-target_dms_cpc_rds_instance_class = "db.t2.medium" # was "db.m4.4xlarge"
+target_dms_cpc_rds_instance_class = "db.r4.large" # was "db.m4.4xlarge"
 target_dms_cpc_rds_port = "1521"
 target_dms_cpc_rds_public = "true"
 target_dms_cpc_rds_multi_az = "false" # it takes an age to build if true
@@ -260,6 +262,8 @@ target_dms_cpc_rds_username = "cpcdmsadmin"
 target_dms_cpc_rds_password = "password"
 target_dms_cpc_rds_allocated_storage = "100"
 target_dms_cpc_rds_name = "CPCDB"
+
+target_dms_on_prem_cpc_rds_snapshot = "cpc-dms-target-180619"
 
 target_dms_rsis_rds_storage_type = "gp2"
 target_dms_rsis_rds_engine = "oracle-se2"
@@ -280,6 +284,8 @@ target_dms_rsis_rds_password = "password"
 target_dms_rsis_rds_allocated_storage = "80"
 target_dms_rsis_rds_name = "RSISDB"
 
+target_dms_on_prem_rsis_rds_snapshot = "rsis-dms-target-180628"
+
 target_dms_mis_rds_storage_type = "gp2"
 target_dms_mis_rds_engine = "oracle-se2"
 target_dms_mis_rds_engine_version = "12.1.0.2.v11"
@@ -298,6 +304,8 @@ target_dms_mis_rds_username = "misdmsadmin"
 target_dms_mis_rds_password = "password"
 target_dms_mis_rds_allocated_storage = "300"
 target_dms_mis_rds_name = "MISDB"
+
+target_dms_on_prem_mis_rds_snapshot = "mis-dms-target-180702"
 
 # Source DMS RDS instances
 source_dms_tars_rds_storage_type = "gp2"
