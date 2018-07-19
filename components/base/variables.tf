@@ -47,6 +47,11 @@ variable "tars_backend_subnets_cidrs" {
   description = "TARS backend tier subnet CIDR's"
 }
 
+variable "tars_backend_elb_subnets_cidrs" {
+  type        = "list"
+  description = "TARS backend elb tier subnet CIDR's"
+}
+
 variable "tars_web_subnets_cidrs" {
   type        = "list"
   description = "TARS web tier subnet CIDR's"
@@ -55,6 +60,11 @@ variable "tars_web_subnets_cidrs" {
 variable "tars_messaging_subnets_cidrs" {
   type        = "list"
   description = "TARS messaging tier subnet CIDR's"
+}
+
+variable "tars_messaging_alb_subnets_cidrs" {
+  type        = "list"
+  description = "TARS messaging ALB tier subnet CIDR's"
 }
 
 variable "awsmq_subnets_cidrs" {
@@ -70,6 +80,16 @@ variable "alb_public_subnets_cidrs" {
 variable "rds_subnets_cidrs" {
   type        = "list"
   description = "TARS RDS Subnet CIDR's"
+}
+
+variable "cpc_rds_subnets_cidrs" {
+  type        = "list"
+  description = "CPC RDS Subnet CIDR's"
+}
+
+variable "fyndi_back_alb_subnets_cidrs" {
+  type        = "list"
+  description = "FYNDI back ALB  Subnet CIDR's"
 }
 
 variable "ibs_db_subnets_cidrs" {

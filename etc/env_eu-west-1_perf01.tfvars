@@ -41,124 +41,216 @@ asg_default_tags = [
 ###############################################################################
 
 # The VPC CIDR Block for this environment
-vpc_cidr = "10.167.16.0/22"
-
-jenkinsnode_subnets_cidrs = [
-  "10.167.16.0/28",
-  "10.167.16.16/28",
-  "10.167.16.32/28",
-]
+vpc_cidr = "10.167.32.0/21"
 
 ## alb public
 alb_public_subnets_cidrs = [
-  "10.167.16.64/28",
-  "10.167.16.80/28",
-  "10.167.16.96/28",
+  "10.167.32.0/26",
+  "10.167.32.64/26",
+  "10.167.32.128/26",
+]
+
+# TARS Frontend/IBS/OBS Web subnets
+tars_web_subnets_cidrs = [
+  "10.167.32.192/28",
+  "10.167.32.208/28",
+  "10.167.32.224/28",
+]
+
+jenkins_nat_subnets_cidrs = [
+  "10.167.32.240/28",
+]
+
+# TARS backend core/batch subnets
+tars_backend_subnets_cidrs = [
+  "10.167.33.0/27",
+  "10.167.33.32/27",
+  "10.167.33.64/27",
+]
+
+tars_backend_elb_subnets_cidrs = [
+  "10.167.33.96/28",
+  "10.167.33.112/28",
+  "10.167.33.128/28",
+]
+
+#  "10.167.33.144/28",
+#  "10.167.33.160/28",
+
+tars_messaging_alb_subnets_cidrs = [
+  "10.167.33.176/28",
+  "10.167.33.192/28",
+  "10.167.33.208/28",
+]
+
+# TARS Messaging subnets
+tars_messaging_subnets_cidrs = [
+  "10.167.33.224/28",
+  "10.167.33.240/28",
+  "10.167.34.0/28",
 ]
 
 ## rds
 rds_subnets_cidrs = [
-  "10.167.16.112/28",
-  "10.167.16.128/28",
-  "10.167.16.144/28",
+  "10.167.34.16/28",
+  "10.167.34.32/28",
+  "10.167.34.48/28",
+]
+
+#OBS CIDR Range
+obs_subnets_cidrs = [
+  "10.167.34.64/28",
+  "10.167.34.80/28",
+  "10.167.34.96/28",
+]
+
+# CPC Front
+cpc-front_subnets_cidrs = [
+  "10.167.34.112/28",
+  "10.167.34.128/28",
+  "10.167.34.144/28",
+]
+
+cpc_backend_alb_subnets_cidrs = [
+  "10.167.34.160/28",
+  "10.167.34.176/28",
+  "10.167.34.192/28",
+]
+
+cpc_sftp_subnets_cidrs = [
+  "10.167.34.208/28",
+  "10.167.34.224/28",
+  "10.167.34.240/28",
+]
+
+# CPC Back
+cpc-back_subnets_cidrs = [
+  "10.167.35.0/28",
+  "10.167.35.16/28",
+  "10.167.35.32/28",
+]
+
+cpc_rds_subnets_cidrs = [
+  "10.167.35.48/28",
+  "10.167.35.64/28",
+  "10.167.35.80/28",
+]
+
+mis_rds_subnets_cidrs = [
+  "10.167.35.96/28",
+  "10.167.35.112/28",
+  "10.167.35.128/28",
+]
+
+# FYNDI
+fyndi-f_subnets_cidrs = [
+  "10.167.35.144/28",
+  "10.167.35.160/28",
+  "10.167.35.176/28",
+]
+
+fyndi_back_alb_subnets_cidrs = [
+  "10.167.35.192/28",
+  "10.167.35.208/28",
+  "10.167.35.224/28",
+]
+
+# FYNDI
+fyndi-b_subnets_cidrs = [
+  "10.167.35.240/28",
+  "10.167.36.0/28",
+  "10.167.36.16/28",
+]
+
+ibs_subnets_cidrs = [
+  "10.167.36.32/28",
+  "10.167.36.48/28",
+  "10.167.36.64/28",
+]
+
+ibs_db_subnets_cidrs = [
+  "10.167.36.80/28",
+  "10.167.36.96/28",
+  "10.167.36.112/28",
+]
+
+#SquidNAT CIDR Range
+squidnat_subnets_cidrs = [
+  "10.167.36.128/28",
+  "10.167.36.144/28",
+  "10.167.36.160/28",
+]
+
+xenco_nlb_subnets_cidrs = [
+  "10.167.36.176/28",
+  "10.167.36.192/28",
+  "10.167.36.208/28",
+]
+
+xenco_subnets_cidrs = [
+  "10.167.36.224/28",
+  "10.167.36.240/28",
+  "10.167.37.0/28",
+]
+
+elc_main_subnets_cidrs = [
+  "10.167.37.16/28",
+  "10.167.37.32/28",
+  "10.167.37.48/28",
+]
+
+batch_efs_subnets_cidrs = [
+  "10.167.37.64/28",
+  "10.167.37.80/28",
+  "10.167.37.96/28",
+]
+
+cpc_efs_subnets_cidrs = [
+  "10.167.37.112/28",
+  "10.167.37.128/28",
+  "10.167.37.144/28",
+]
+
+jenkinsnode_subnets_cidrs = [
+  "10.167.37.160/28",
+  "10.167.37.176/28",
+  "10.167.37.192/28",
 ]
 
 # AWS MQ SINGLE_INSTANCE only requires 1 subnets
 # ACTIVE_STANDBY_MULTI_AZ requires 2
 awsmq_subnets_cidrs = [
-  "10.167.16.160/28",
+  "10.167.37.208/28",
+#  "10.167.37.224/28",
+#  "10.167.37.240/28",
 ]
 
-jenkins_nat_subnets_cidrs = [
-  "10.167.16.176/28",
-]
+#  "10.167.38.0/28",
+#  "10.167.38.16/28",
 
-# TARS backend core/batch subnets
-tars_backend_subnets_cidrs = [
-  "10.167.17.0/27",
-  "10.167.17.32/27",
-  "10.167.17.64/27",
-]
-
-# TARS Messaging subnets
-tars_messaging_subnets_cidrs = [
-  "10.167.17.96/28",
-  "10.167.17.112/28",
-  "10.167.17.128/28",
-]
-
-#SquidNAT CIDR Range
-squidnat_subnets_cidrs = [
-  "10.167.17.160/28",
-  "10.167.17.176/28",
-  "10.167.17.192/28",
-]
-
-# TARS Frontend/IBS/OBS Web subnets
-tars_web_subnets_cidrs = [
-  "10.167.18.0/28",
-  "10.167.18.16/28",
-  "10.167.18.32/28",
-]
-
-ibs_subnets_cidrs = [
-  "10.167.18.48/28",
-  "10.167.18.64/28",
-  "10.167.18.80/28",
-]
-
-ibs_db_subnets_cidrs = [
-  "10.167.18.96/28",
-  "10.167.18.112/28",
-  "10.167.18.128/28",
-]
-
-# FYNDI
-fyndi-f_subnets_cidrs = [
-  "10.167.18.144/28",
-  "10.167.18.160/28",
-  "10.167.18.176/28",
+test_database_subnets_cidrs = [
+  "10.167.38.32/27",
+  "10.167.38.64/27",
+  "10.167.38.96/27",
 ]
 
 jmeter_subnets_cidrs = [
-  "10.167.17.208/28",
-  "10.167.17.224/28",
-  "10.167.17.240/28",
+  "10.167.38.128/28",
+  "10.167.38.144/28",
+  "10.167.38.160/28",
 ]
 
-# CPC Front
-cpc-front_subnets_cidrs = [
-  "10.167.16.192/28",
-  "10.167.16.208/28",
-  "10.167.16.224/28",
+3rd_party_subnets_cidrs = [
+  "10.167.38.176/28",
+  "10.167.38.192/28",
+  "10.167.38.208/28",
 ]
 
-# CPC Back
-cpc-back_subnets_cidrs = [
-  "10.167.19.0/28",
-  "10.167.19.16/28",
-  "10.167.19.32/28",
+owasp_subnets_cidrs = [
+  "10.167.38.224/28",
+  "10.167.38.240/28",
+  "10.167.39.0/28",
 ]
-
-elc_main_subnets_cidrs = [
-  "10.167.19.96/28",
-  "10.167.19.112/28",
-  "10.167.19.128/28",
-]
-
-batch_efs_subnets_cidrs = [
-  "10.167.19.144/28",
-  "10.167.19.160/28",
-  "10.167.19.176/28",
-]
-
-# FYNDI
-fyndi-b_subnets_cidrs = [
-  "10.167.19.192/28",
-  "10.167.19.208/28",
-  "10.167.19.224/28",
-]
-
 
 # Deployer pub key
 deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVSO8uKpdbwww94azylwjnFxsFGcmXG4ObL1oOFibHMN0x+SsSwjfC1DEziWPK3m/Crmar0+ad/68nQC+iWo/MYclh8h3bkKlv9dO4Xtv/0H6uDRW3l3bBO0rWYbt46fMAOCqX96N3LRTfUlPuzsVAd0NGZZlSSAZF0AMl4xE/tZl2m+Dqylrjp3qLT4UxEIrAuvPW06PqkGy63hZznjCjQDaadOAUpY19ZaA71JBueyGBnZ8pSVzr5hT1TpNw/cXxA6WLj4CCipIVm0M64OT/ArqcnQMX9Htf4Gp5apXZ3f6MerfjgHnkrm1t6JNuhSjVB deployer@mgmt.tars.dvsa.aws"

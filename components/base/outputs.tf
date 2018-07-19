@@ -15,6 +15,10 @@ output "subnets_tars_backend" {
   value = "${module.tars_backend_subnets.subnet_ids}"
 }
 
+output "subnets_tars_backend_elb" {
+  value = "${module.tars_backend_elb_subnets.subnet_ids}"
+}
+
 output "subnets_tars_web" {
   value = "${module.tars_web_subnets.subnet_ids}"
 }
@@ -23,12 +27,24 @@ output "subnets_tars_messaging" {
   value = "${module.tars_messaging_subnets.subnet_ids}"
 }
 
+output "subnets_tars_messaging_alb" {
+  value = "${module.tars_messaging_subnets_alb.subnet_ids}"
+}
+
 output "route_table_jenkins_nat" {
   value = "${aws_route_table.private_nat.*.id}"
 }
 
 output "subnets_tars_db" {
   value = "${module.subnets_rds.subnet_ids}"
+}
+
+output "subnets_cpc_db" {
+  value = "${module.subnets_cpc_rds.subnet_ids}"
+}
+
+output "subnets_fyndi_back_alb" {
+  value = "${module.fyndi_back_alb_subnets.subnet_ids}"
 }
 
 output "vpc_id" {

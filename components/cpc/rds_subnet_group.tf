@@ -17,6 +17,6 @@ resource "aws_db_subnet_group" "cpcdb" {
   )}"
 
   subnet_ids = [
-    "${data.terraform_remote_state.base.subnets_tars_db}"
+    "${data.terraform_remote_state.base.subnets_cpc_db}"
   ]
 }
