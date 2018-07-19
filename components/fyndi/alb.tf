@@ -37,11 +37,11 @@ resource "aws_alb" "fyndi-b" {
     "fyndi-b"
   )}"
 
-  internal = false
+  internal = true
 
   security_groups = ["${aws_security_group.fyndi-b-alb.id}"]
 
-  subnets = ["${data.terraform_remote_state.base.subnets_alb_public}"]
+  subnets = ["${data.terraform_remote_state.base.subnets_fyndi_back_alb}"]
 
   tags = "${merge(
     var.default_tags,

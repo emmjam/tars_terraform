@@ -18,7 +18,7 @@ resource "aws_alb" "tars-alb-backend-private" {
 
   security_groups = ["${aws_security_group.tars-alb-backend.id}"]
 
-  subnets = ["${data.terraform_remote_state.base.subnets_tars_backend}"]
+  subnets = ["${data.terraform_remote_state.base.subnets_tars_backend_elb}"]
 
   tags = "${merge(
     var.default_tags,

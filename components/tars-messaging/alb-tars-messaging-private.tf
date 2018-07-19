@@ -12,7 +12,7 @@ resource "aws_alb" "tars-alb-messaging-private" {
 
   security_groups = ["${aws_security_group.tars-alb-messaging.id}"]
 
-  subnets = ["${data.terraform_remote_state.base.subnets_tars_messaging}"]
+  subnets = ["${data.terraform_remote_state.base.subnets_tars_messaging_alb}"]
 
   tags = "${merge(
     var.default_tags,
