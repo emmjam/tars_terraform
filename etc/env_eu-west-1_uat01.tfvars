@@ -240,7 +240,7 @@ jmeter_subnets_cidrs = [
   "10.167.14.160/28",
 ]
 
-3rd_party_subnets_cidrs = [
+third_party_subnets_cidrs = [
   "10.167.14.176/28",
   "10.167.14.192/28",
   "10.167.14.208/28",
