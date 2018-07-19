@@ -102,11 +102,6 @@ base_peers_xacct = [
     account_id = "652856684323"
   },
   {
-    vpc_id     = "vpc-21433947"   # tarsprod/prod
-    cidr_block = "10.167.128.0/22"
-    account_id = "246976497890"
-  },
-  {
     vpc_id     = "vpc-10ecbe76"  # tarsnonprod/sit01
     cidr_block = "10.167.16.0/21"
     account_id = "652856684323"
@@ -121,6 +116,11 @@ base_peers_xacct = [
     cidr_block = "10.167.32.0/21"
     account_id = "652856684323"
   },
+#  {
+#    vpc_id     = "vpc-21433947"   # tarsprod/prod
+#    cidr_block = "10.167.128.0/22"
+#    account_id = "246976497890"
+#  },
 ]
 
 ### CWLES
