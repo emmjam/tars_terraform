@@ -52,6 +52,11 @@ variable "tars_backend_elb_subnets_cidrs" {
   description = "TARS backend elb tier subnet CIDR's"
 }
 
+variable "cpc_backend_alb_subnets_cidrs" {
+  type        = "list"
+  description = "CPC backend elb tier subnet CIDR's"
+}
+
 variable "tars_web_subnets_cidrs" {
   type        = "list"
   description = "TARS web tier subnet CIDR's"
