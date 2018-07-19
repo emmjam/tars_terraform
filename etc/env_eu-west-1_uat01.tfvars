@@ -61,11 +61,16 @@ jenkins_nat_subnets_cidrs = [
   "10.167.8.240/28",
 ]
 
-# TARS backend core/batch subnets
-tars_backend_subnets_cidrs = [
-  "10.167.9.0/27",
-  "10.167.9.32/27",
-  "10.167.9.64/27",
+xenco_subnets_cidrs = [
+  "10.167.9.0/28",
+  "10.167.9.16/28",
+  "10.167.9.32/28",
+]
+
+elc_main_subnets_cidrs = [
+  "10.167.9.48/28",
+  "10.167.9.64/28",
+  "10.167.9.80/28",
 ]
 
 tars_backend_elb_subnets_cidrs = [
@@ -121,13 +126,6 @@ cpc_sftp_subnets_cidrs = [
   "10.167.10.208/28",
   "10.167.10.224/28",
   "10.167.10.240/28",
-]
-
-# CPC Back
-cpc-back_subnets_cidrs = [
-  "10.167.11.0/28",
-  "10.167.11.16/28",
-  "10.167.11.32/28",
 ]
 
 cpc_rds_subnets_cidrs = [
@@ -187,22 +185,10 @@ xenco_nlb_subnets_cidrs = [
   "10.167.12.208/28",
 ]
 
-xenco_subnets_cidrs = [
-  "10.167.12.224/28",
-  "10.167.12.240/28",
-  "10.167.13.0/28",
-]
-
-elc_main_subnets_cidrs = [
-  "10.167.13.16/28",
-  "10.167.13.32/28",
-  "10.167.13.48/28",
-]
-
-batch_efs_subnets_cidrs = [
-  "10.167.13.64/28",
-  "10.167.13.80/28",
-  "10.167.13.96/28",
+tars_backend_subnets_cidrs = [
+  "10.167.13.0/27",
+  "10.167.13.32/27",
+  "10.167.13.64/27",
 ]
 
 cpc_efs_subnets_cidrs = [
@@ -246,11 +232,19 @@ third_party_subnets_cidrs = [
   "10.167.14.208/28",
 ]
 
-owasp_subnets_cidrs = [
-  "10.167.14.224/28",
-  "10.167.14.240/28",
+# CPC Back
+cpc-back_subnets_cidrs = [
   "10.167.15.0/28",
+  "10.167.15.16/28",
+  "10.167.15.32/28",
 ]
+
+batch_efs_subnets_cidrs = [
+  "10.167.15.48/28",
+  "10.167.15.64/28",
+  "10.167.15.80/28",
+]
+
 
 # Environment & Component for Accessing mgmt_prd remote state
 mgmt_component = "mgmt"
