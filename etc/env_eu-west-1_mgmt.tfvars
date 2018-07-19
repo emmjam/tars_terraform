@@ -91,31 +91,31 @@ base_peers_local = []
 
 # Peers created by the base component, in a different AWS account
 base_peers_xacct = [
-  {
-    vpc_id     = "vpc-e560ef83"  # tarsnonprod/opsdev
-    cidr_block = "10.167.0.0/21"
-    account_id = "652856684323"
-  },
+#  {
+#    vpc_id     = "vpc-e560ef83"  # tarsnonprod/opsdev
+#    cidr_block = "10.167.0.0/21"
+#    account_id = "652856684323"
+#  },
   {
     vpc_id     = "vpc-a3fdafc5"  # tarsnonprod/dev01
     cidr_block = "10.167.24.0/21"
     account_id = "652856684323"
   },
-  {
-    vpc_id     = "vpc-57179931"  # tarsnonprod/sit01
-    cidr_block = "10.167.16.0/21"
-    account_id = "652856684323"
-  },
-  {
-    vpc_id     = "vpc-411b9527"   # tarsnonprod/uat01
-    cidr_block = "10.167.8.0/21"
-    account_id = "652856684323"
-  },
-  {
-    vpc_id     = "vpc-efe38a89"   # tarsnonprod/perf01
-    cidr_block = "10.167.32.0/22"
-    account_id = "652856684323"
-  },
+#  {
+#    vpc_id     = "vpc-57179931"  # tarsnonprod/sit01
+#    cidr_block = "10.167.16.0/21"
+#    account_id = "652856684323"
+#  },
+#  {
+#    vpc_id     = "vpc-411b9527"   # tarsnonprod/uat01
+#    cidr_block = "10.167.8.0/21"
+#    account_id = "652856684323"
+#  },
+#  {
+#    vpc_id     = "vpc-efe38a89"   # tarsnonprod/perf01
+#    cidr_block = "10.167.32.0/21"
+#    account_id = "652856684323"
+#  },
   {
     vpc_id     = "vpc-21433947"   # tarsprod/prod
     cidr_block = "10.167.128.0/22"
