@@ -1,8 +1,8 @@
-resource "aws_security_group_rule" "cpc-front-alb_ingress_dva-443" {
+resource "aws_security_group_rule" "cpc-front-alb_ingress_dva-543" {
   type                     = "ingress"
   protocol                 = "tcp"
-  from_port                = "443"
-  to_port                  = "443"
+  from_port                = "543"
+  to_port                  = "543"
   security_group_id        = "${aws_security_group.cpc-front-dva-alb.id}"
   cidr_blocks              = ["${var.dva_whitelist}"]
 }

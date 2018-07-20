@@ -342,7 +342,8 @@ dvsa_dc_whitelist = [
 # This will need changing when we know what the DVA IP is
 dva_whitelist = [
   "77.86.30.4/32",      # BJSS VPN (Decom ~06/18)
-  "148.253.134.213/32", # BJSS VPN 04/18 
+  "148.253.134.213/32", # BJSS VPN 04/18
+  "194.32.31.1/32",     # DVA IP
 ]
 
 dvsa_mgmt_inbound = [
