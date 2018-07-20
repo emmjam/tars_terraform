@@ -1,16 +1,16 @@
-# CPC FRONT ALB 
-resource "aws_alb" "cpc-front" {
+# CPC FRONT DVA ALB 
+resource "aws_alb" "cpc-front-dva" {
   name = "${format(
     "%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
-    "cpc-front"
+    "dva"
   )}"
 
   internal = false
 
-  security_groups = ["${aws_security_group.cpc-front-alb.id}"]
+  security_groups = ["${aws_security_group.cpc-front-dva-alb.id}"]
 
   subnets = ["${data.terraform_remote_state.base.subnets_alb_public}"]
 
@@ -22,7 +22,7 @@ resource "aws_alb" "cpc-front" {
         var.project,
         var.environment,
         var.component,
-        "cpc-front"
+        "dva"
       ),
     )
   )}"

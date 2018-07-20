@@ -1,10 +1,10 @@
-resource "aws_security_group" "cpc-front-alb" {
+resource "aws_security_group" "cpc-front-dva-alb" {
   name = "${format(
     "%s-%s-%s/%s",
     var.project,
     var.environment,
     var.component,
-    "cpc-front-alb"
+    "dva-alb"
   )}"
 
   description = "${format(
@@ -12,7 +12,7 @@ resource "aws_security_group" "cpc-front-alb" {
     var.project,
     var.environment,
     var.component,
-    "cpc-front-alb"
+    "dva-alb"
   )}"
 
   vpc_id = "${data.terraform_remote_state.base.vpc_id}"
@@ -25,7 +25,7 @@ resource "aws_security_group" "cpc-front-alb" {
         var.project,
         var.environment,
         var.component,
-        "cpc-front-alb"
+        "dva-alb"
       ),
       "Component", var.component
     )

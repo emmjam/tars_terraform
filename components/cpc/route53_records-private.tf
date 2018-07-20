@@ -34,3 +34,20 @@ resource "aws_route53_record" "cpc-backend" {
     evaluate_target_health = true
   }
 }
+
+resource "aws_route53_record" "cpc-dvsa" {
+  name = "${format(
+    "%s-%s",
+    var.component,
+    "dvsa"
+  )}"
+
+  zone_id = "${data.terraform_remote_state.base.private_zone_id}"
+  type    = "A"
+
+  alias {
+    name                   = "${aws_alb.cpc-front-dvsa.dns_name}"
+    zone_id                = "${aws_alb.cpc-front-dvsa.zone_id}"
+    evaluate_target_health = true
+  }
+}

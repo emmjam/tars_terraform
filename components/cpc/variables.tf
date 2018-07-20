@@ -23,6 +23,10 @@ variable "whitelist" {
   type        = "list"
 }
 
+variable "dva_whitelist" {
+  type        = "list"
+}
+
 variable "account_component_name" {
   type        = "string"
   description = "The name of the account-level component as used in remote state"
