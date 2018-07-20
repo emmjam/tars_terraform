@@ -1,7 +1,7 @@
 # ALB Listeners
 resource "aws_alb_listener" "cpc-front-dva-7443" {
   load_balancer_arn = "${aws_alb.cpc-front-dva.arn}"
-  port              = "543"
+  port              = "443"
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-2016-08"
   certificate_arn   = "${data.aws_acm_certificate.nonprod_tars_dvsacloud_uk.arn}"
