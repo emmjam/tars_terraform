@@ -18,14 +18,15 @@ resource "aws_route53_record" "cpc-internet" {
   }
 }
 
+
+# If environment = prod, just use component, else use component-environment
+locals {
+  default_short_name = "${var.component}-${var.environment}"
+  dva_dns_short_name = "${var.environment == "prod" ? var.component : local.default_short_name}"
+}
+
 resource "aws_route53_record" "cpc-dva" {
-  name = "${format(
-    "%s-%s-%s-%s",
-    var.project,
-    var.environment,
-    var.component,
-    "dva"
-  )}"
+  name = "${local.dva_dns_short_name}"
 
   zone_id = "${data.terraform_remote_state.acc.public_domain_name_zone_id}"
   type    = "A"
