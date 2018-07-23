@@ -268,7 +268,6 @@ cpc-back_scaledown_recurrence = "00 22 * * 1-5"
 cpc-back_scaleup_desired      = 1
 cpc-back_scaleup_recurrence   = "00 04 * * 1-5"
 
-
 ## cpc-front
 cpc-front_instance_type  = "t2.medium"
 cpc-front_puppet_nodetype    = "cpc-front"
@@ -297,6 +296,17 @@ xenco_asg_max_size = "1"
 xenco_asg_min_size = "1"
 xenco_instance_type = "t2.small"
 
+
+## cpc-batch
+cpc-batch_instance_type  = "t2.medium"
+cpc-batch_puppet_nodetype    = "cpc-batch"
+cpc-batch_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+cpc-batch_asg_min_size         = 0
+cpc-batch_asg_max_size         = 1
+cpc-batch_scaledown_desired    = 0
+cpc-batch_scaledown_recurrence = "00 22 * * 1-5"
+cpc-batch_scaleup_desired      = 1
+cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## AWS MQ
 aws_mq_engine_type             = "ActiveMQ"
