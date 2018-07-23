@@ -34,17 +34,17 @@ resource "aws_db_parameter_group" "db-r4-xlarge" {
 
   family = "oracle-se2-12.1"
 
-  parameter {
-    name         = "sga_max_size"
-    value        = "12884901888"
-    apply_method = "pending-reboot"
-  }
-
-  parameter {
-    name         = "sga_target"
-    value        = "12884901888"
-    apply_method = "immediate"
-  }
+  # parameter {
+  #   name         = "sga_max_size"
+  #   value        = "12884901888"
+  #   apply_method = "pending-reboot"
+  # }
+  #
+  # parameter {
+  #   name         = "sga_target"
+  #   value        = "12884901888"
+  #   apply_method = "immediate"
+  # }
 
   parameter {
     name         = "memory_max_target"
