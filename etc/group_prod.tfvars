@@ -240,6 +240,9 @@ aws_mq_users_tars_messaging_group    = "tars_messaging"
 aws_mq_users_cpc_back_user           = "cpc_back"
 aws_mq_users_cpc_back_password       = "password123456"
 aws_mq_users_cpc_back_group          = "cpc_back"
+aws_mq_users_cpc_batch_user          = "cpc_batch"
+aws_mq_users_cpc_batch_password      = "password123456"
+aws_mq_users_cpc_batch_group         = "cpc_batch"
 
 ## cpc-back
 cpc-back_instance_type  = "m4.large"
