@@ -47,3 +47,22 @@ resource "aws_security_group_rule" "cpc_batch_egress_active_mq" {
   security_group_id        = "${module.cpc-batch.security_group_id}"
   source_security_group_id = "${data.terraform_remote_state.base.awsmq_sg_id}"
 }
+
+# Rule to permit access to EFS Mount Targets from CPC Batch
+resource "aws_security_group_rule" "cpc_batch_egress_cpc_batch_efs" {
+  type                     = "egress"
+  from_port                = "2049"
+  to_port                  = "2049"
+  protocol                 = "tcp"
+  security_group_id        = "${module.cpc-batch.security_group_id}"
+  source_security_group_id = "${aws_security_group.cpc_batch_efs.id}"
+}
+
+resource "aws_security_group_rule" "cpc_batch_efs_ingress_cpc_batch_nfs" {
+  type                     = "ingress"
+  from_port                = "2049"
+  to_port                  = "2049"
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.cpc_batch_efs.id}"
+  source_security_group_id = "${module.cpc-batch.security_group_id}"
+}

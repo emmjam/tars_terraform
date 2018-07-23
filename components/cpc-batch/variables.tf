@@ -118,3 +118,8 @@ variable "cpc-back_subnets_cidrs" {
   type = "list"
   description = ""
 }
+
+variable "cpc_efs_subnets_cidrs" {
+  type = "list"
+  description = "CPC EFS subnets list"
+}
