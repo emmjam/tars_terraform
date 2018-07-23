@@ -312,6 +312,8 @@ whitelist = [
   "92.54.181.128/29",   # Informed Solutions
   "87.81.132.117/32",   # Informed Solutions
   "54.72.37.158/32",    # Selenium Elasticgrid Proxy
+  "92.207.224.144/28",  # ITHC - TS-3051
+  "5.101.139.1/29",     # ITHC - TS-3051
 ]
 
 dvsa_dc_whitelist = [
