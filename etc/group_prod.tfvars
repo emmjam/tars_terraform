@@ -253,7 +253,7 @@ cpc_rds_backup_retention = "7"
 cpc_rds_backup_window = "02:38-03:08"
 cpc_rds_maint_window = "sun:03:16-sun:03:46"
 cpc_rds_skip_final_snapshot = false
-cpc_rds_apply_immediately = "false"
+cpc_rds_apply_immediately = "true"
 cpc_rds_license_model = "license-included"
 cpc_rds_autoscale = "False"
 
