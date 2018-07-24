@@ -1,6 +1,6 @@
 # Create the TARS RDS DB
 resource "aws_db_instance" "tarsdb" {
-  
+
   identifier = "${format(
     "%s-%s-%s-%s",
     var.project,
@@ -32,7 +32,7 @@ resource "aws_db_instance" "tarsdb" {
   backup_retention_period = "${var.tars_rds_backup_retention}"
   backup_window           = "${var.tars_rds_backup_window}"
   maintenance_window      = "${var.tars_rds_maint_window}"
-  parameter_group_name    = "${var.project}-${var.component}-${var.environment}-${replace(var.tars_rds_instance_class, ".", "-")}"
+  parameter_group_name    = "${aws_db_parameter_group.tarsdb.id}"
   apply_immediately       = "${var.tars_rds_apply_immediately}"
   license_model           = "${var.tars_rds_license_model}"
   snapshot_identifier     = "${var.tars_rds_snapshot}"
