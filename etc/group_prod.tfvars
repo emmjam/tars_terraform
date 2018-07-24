@@ -168,6 +168,26 @@ ibs_rds_backup_retention_period = "7"
 ibs_rds_backup_window = "02:38-03:08"
 ibs_rds_maint_window = "sun:03:16-sun:03:46"
 
+## fyndi-f
+fyndi-f_instance_type  = "m4.large"
+fyndi-f_puppet_nodetype    = "fyndi-front"
+fyndi-f_asg_min_size         = 0
+fyndi-f_asg_max_size         = 3
+fyndi-f_scaledown_desired    = 0
+fyndi-f_scaledown_recurrence = "00 18 * * 1-5"
+fyndi-f_scaleup_desired      = 1
+fyndi-f_scaleup_recurrence   = "00 08 * * 1-5"
+
+## fyndi_back
+fyndi-b_instance_type  = "m4.large"
+fyndi-b_puppet_nodetype    = "fyndi-back"
+fyndi-b_asg_min_size         = 0
+fyndi-b_asg_max_size         = 3
+fyndi-b_scaledown_desired    = 0
+fyndi-b_scaledown_recurrence = "00 18 * * 1-5"
+fyndi-b_scaleup_desired      = 1
+fyndi-b_scaleup_recurrence   = "00 08 * * 1-5"
+
 ## wildfly-messaging
 wildfly-messaging_instance_type  = "m4.large"
 wildfly-messaging_puppet_nodetype    = "tars-messaging"
@@ -357,8 +377,8 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 
 elc_main_engine          = "memcached"
 elc_main_engine_version  = "1.4.34"
-elc_main_node_type       = "cache.t2.medium" 
-elc_main_cache_nodes     = "3" 
+elc_main_node_type       = "cache.t2.medium"
+elc_main_cache_nodes     = "3"
 elc_main_parameter_group = "default.memcached1.4"
 elc_main_port            = "11211"
 
