@@ -36,6 +36,11 @@ dms_users = [
 capita_users = [
 ]
 
+ithc_ro_users = [
+  "Alexander.Zavyalov@irmsecurity.com",
+  "richard.odonnell@irmsecurity.com"
+]
+
 ###############################################################################
 # MGMT
 ###############################################################################
@@ -357,8 +362,8 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 
 elc_main_engine          = "memcached"
 elc_main_engine_version  = "1.4.34"
-elc_main_node_type       = "cache.t2.medium" 
-elc_main_cache_nodes     = "3" 
+elc_main_node_type       = "cache.t2.medium"
+elc_main_cache_nodes     = "3"
 elc_main_parameter_group = "default.memcached1.4"
 elc_main_port            = "11211"
 
