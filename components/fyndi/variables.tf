@@ -170,3 +170,7 @@ variable "fyndi-b_instance_type" {
   type = "string"
   description = ""
 }
+variable "cert_name" {
+  type = "string"
+  description = "ACM cert name"
+}
