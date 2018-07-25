@@ -53,6 +53,11 @@ capita_support_ro_users = [
   "boby.jacob@capita.co.uk"
 ]
 
+ithc_ro_users = [
+  "Alexander.Zavyalov@irmsecurity.com",
+  "richard.odonnell@irmsecurity.com"
+]
+
 ###############################################################################
 # MGMT
 ###############################################################################

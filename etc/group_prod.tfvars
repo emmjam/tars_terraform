@@ -36,6 +36,11 @@ dms_users = [
 capita_users = [
 ]
 
+ithc_ro_users = [
+  "Alexander.Zavyalov@irmsecurity.com",
+  "richard.odonnell@irmsecurity.com"
+]
+
 ###############################################################################
 # MGMT
 ###############################################################################
