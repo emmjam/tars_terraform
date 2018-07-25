@@ -386,7 +386,7 @@ target_dms_mis_rds_password = "password"
 target_dms_mis_rds_allocated_storage = "300"
 target_dms_mis_rds_name = "MISDB"
 
-target_dms_on_prem_mis_rds_snapshot = "mis-dms-target-180702"
+target_dms_on_prem_mis_rds_snapshot = "tars-dev01-tars-dms-misopdmstg-20180720"
 
 # Source DMS RDS instances
 source_dms_tars_rds_storage_type = "gp2"
@@ -427,7 +427,7 @@ source_dms_cpc_rds_username = "cpcuatadmin"
 source_dms_cpc_rds_password = "Mg28yDQjuEWndbtz"
 source_dms_cpc_rds_allocated_storage = "100"
 source_dms_cpc_rds_name = "CPCDB"
-source_dms_cpc_rds_snapshot = "rds:cpcuat01-2018-06-04-00-30"
+source_dms_cpc_rds_snapshot = "tars-dev01-tars-dms-cpcdmssc-20180720"
 
 source_dms_rsis_rds_storage_type = "gp2"
 source_dms_rsis_rds_engine = "oracle-se2"
@@ -447,7 +447,7 @@ source_dms_rsis_rds_username = "tarsrsisadmin"
 source_dms_rsis_rds_password = "FC2Vyu8ejnWCKfYU"
 source_dms_rsis_rds_allocated_storage = "80"
 source_dms_rsis_rds_name = "RSISDB"
-source_dms_rsis_rds_snapshot = "rds:tarsrsis01-2018-06-03-23-18"
+source_dms_rsis_rds_snapshot = "tars-dev01-tars-dms-rsisdmssc-20180719"
 
 source_dms_mis_rds_storage_type = "gp2"
 source_dms_mis_rds_engine = "oracle-se2"
@@ -470,8 +470,6 @@ source_dms_mis_rds_name = "MISDB"
 source_dms_mis_rds_snapshot = "misuat01-060418"
 
 # DMS Stuff
-# Yes it's hard coded as this isn't created from terraform and is only temporary
-xe_instance_sg = "sg-abf0dbd1"
 xe_role_name = "OracleXE"
 
 # These names will be added to our private zone so we can resolve them.

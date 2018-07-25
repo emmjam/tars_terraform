@@ -110,3 +110,10 @@ output "subnets_ibs_db" {
   value = "${module.subnets_rds.subnet_ids}"
 }
 
+output "transit_vpn_gw" {
+  value = "${aws_vpn_gateway.vpn_gw.id}"
+}
+
+output "igw" {
+  value = "${aws_internet_gateway.tars.id}"
+}
