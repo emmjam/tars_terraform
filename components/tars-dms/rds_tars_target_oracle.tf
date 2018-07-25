@@ -37,10 +37,8 @@ resource "aws_db_instance" "target_tarsdb_dms" {
   name                    = "${var.target_dms_tars_rds_name}"
   parameter_group_name    = "${aws_db_parameter_group.dms_oem.id}"
   option_group_name       = "${aws_db_option_group.dms_oem.id}"
-  # Ensure we have to lookup what snapshot to use before we run the code.
-  # That way we won't accidentily revert the DB back to old data.
-  # snapshot_identifier     = "tars-dev01-tars-dms-tarsdmstg-20180720"
-  snapshot_identifier     = "XXXXXXXXXXX"
+  # Please ensure this is the correct snapshot to restore before applying
+  snapshot_identifier     = "tars-dev01-tars-dms-tarsdmstg-20180720"
 
   
   vpc_security_group_ids = [
