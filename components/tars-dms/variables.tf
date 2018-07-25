@@ -109,6 +109,15 @@ variable "capita_db_to_port" {
   description = "End of DB port range"
 }
 
+variable "test_database_subnets_cidrs" {
+  type        = "list"
+  description = "RDS test subnets"
+}
+
+variable "transit_peering_enabled" {
+  type        = "string"
+  description = "Transit VPC flag"
+}
 
 
 variable "source_dms_tars_rds_skip_final_snapshot" {
@@ -748,11 +757,6 @@ variable "target_dms_on_prem_mis_rds_snapshot" {
   description = "mis dms"
 }
 
-
-variable "xe_instance_sg" {
-  type = "string"
-  description = ""
-}
 
 variable "xe_role_name" {
   type = "string"

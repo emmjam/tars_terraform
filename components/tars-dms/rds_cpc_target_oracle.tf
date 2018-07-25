@@ -37,8 +37,8 @@ resource "aws_db_instance" "target_cpcdb_dms" {
   name                    = "${var.target_dms_cpc_rds_name}"
   parameter_group_name    = "${aws_db_parameter_group.dms_oem.id}"
   option_group_name       = "${aws_db_option_group.dms_oem.id}"
-  
-  
+  # Please ensure this is the correct snapshot to restore before applying
+  snapshot_identifier     = "tars-dev01-tars-dms-cpcdmstg-20180720"  
   
   vpc_security_group_ids = [
     "${aws_security_group.tars-dms.id}","${aws_security_group.dms-oem.id}"

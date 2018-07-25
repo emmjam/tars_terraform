@@ -22,7 +22,7 @@ resource "aws_security_group_rule" "XE_egress_tars_dms_oem" {
   from_port                = 5500
   to_port                  = 5500
   protocol                 = "tcp"
-  security_group_id        = "${var.xe_instance_sg}"
+  security_group_id        = "${aws_security_group.oraclexe.id}"
   source_security_group_id = "${aws_security_group.tars-dms.id}"
 }
 
@@ -33,6 +33,6 @@ resource "aws_security_group_rule" "tars_dms_oem_ingress_XE" {
   to_port                  = 5500
   protocol                 = "tcp"
   security_group_id        = "${aws_security_group.tars-dms.id}"
-  source_security_group_id = "${var.xe_instance_sg}"
+  source_security_group_id = "${aws_security_group.oraclexe.id}"
 }
 

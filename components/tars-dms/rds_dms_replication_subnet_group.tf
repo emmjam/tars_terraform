@@ -17,6 +17,6 @@ resource "aws_dms_replication_subnet_group" "tars_dms_replication" {
   )}"
 
   subnet_ids = [
-    "${data.terraform_remote_state.base.subnets_tars_db}"
+    "${module.subnets_rds.subnet_ids}"
   ]
 }
