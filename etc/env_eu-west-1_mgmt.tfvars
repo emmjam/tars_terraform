@@ -44,6 +44,7 @@ administrators = [
   "brian.collinson@bjss.com",
   "steve.wilson@bjss.com",
   "chris.nappin@bjss.com",
+  "michael.taylor@bjss.com",
 ]
 
 ##########################################
