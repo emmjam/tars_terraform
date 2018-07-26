@@ -364,6 +364,12 @@ dvla_adli_server = "51.231.10.92/32"
 dvla_elise_server = "51.231.10.81/32"
 rsis_samba_server = "10.150.36.113/32"
 
+# Capita TARS UAT DB subnets for DMS
+capita_db_subnets = "10.86.192.0/23"
+
+capita_db_from_port = "6720"
+capita_db_to_port = "6721"
+
 # squidnat
 squidnat_instance_type = "m5.large"
 
@@ -411,7 +417,7 @@ tars_rds_autoscale = "True"
 tars_dms_allocated_storage = "50"
 tars_dms_apply_immediately = true
 tars_dms_auto_minor_version_upgrade = true
-tars_dms_engine_version = "2.4.1"
+tars_dms_engine_version = "2.4.2"
 tars_dms_multi_az = false
 tars_dms_maint_window = "sun:03:16-sun:03:46"
 tars_dms_publicly_accessible = false
