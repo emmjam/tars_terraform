@@ -11,7 +11,7 @@ resource "aws_autoscaling_schedule" "cpc_front_down" {
   max_size               = "${var.cpc-front_asg_max_size}"
   desired_capacity       = "${var.cpc-front_scaledown_desired}"
   recurrence             = "${var.cpc-front_scaledown_recurrence}"
-  autoscaling_group_name = "${aws_autoscaling_group.cpc-front.id}"
+  autoscaling_group_name = "${module.cpc-front.autoscaling_group_id}"
 }
 
 resource "aws_autoscaling_schedule" "tars_front_up" {
@@ -27,5 +27,5 @@ resource "aws_autoscaling_schedule" "tars_front_up" {
   max_size               = "${var.cpc-front_asg_max_size}"
   desired_capacity       = "${var.cpc-front_scaleup_desired}"
   recurrence             = "${var.cpc-front_scaleup_recurrence}"
-  autoscaling_group_name = "${aws_autoscaling_group.cpc-front.id}"
+  autoscaling_group_name = "${module.cpc-front.autoscaling_group_id}"
 }
