@@ -4,7 +4,7 @@ resource "aws_autoscaling_schedule" "cpc_front_down" {
     var.project,
     var.environment,
     var.component,
-    "jenkins-down"
+    "cpc-front-down"
   )}"
 
   min_size               = "${var.cpc-front_asg_min_size}"
@@ -20,7 +20,7 @@ resource "aws_autoscaling_schedule" "tars_front_up" {
     var.project,
     var.environment,
     var.component,
-    "jenkins-up"
+    "cpc-front-up"
   )}"
 
   min_size               = "${var.cpc-front_asg_min_size}"
