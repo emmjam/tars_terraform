@@ -247,3 +247,37 @@ variable "dvla_elise_server" {
   type = "string"
   description = "DVLA Elise"
 }
+
+variable "cpc-front_scaledown_desired" {
+  type = "string"
+  description = ""
+}
+variable "cpc-front_scaleup_desired" {
+  type = "string"
+  description = ""
+}
+variable "cpc-front_scaledown_recurrence" {
+  type = "string"
+  description = ""
+}
+variable "cpc-front_scaleup_recurrence" {
+  type = "string"
+  description = ""
+}
+
+variable "cpc-back_scaledown_desired" {
+  type = "string"
+  description = ""
+}
+variable "cpc-back_scaleup_desired" {
+  type = "string"
+  description = ""
+}
+variable "cpc-back_scaledown_recurrence" {
+  type = "string"
+  description = ""
+}
+variable "cpc-back_scaleup_recurrence" {
+  type = "string"
+  description = ""
+}
