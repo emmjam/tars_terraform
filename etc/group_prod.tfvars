@@ -32,6 +32,8 @@ power_users = [
 ]
 
 dms_users = [
+  "ana.rotstein@bjss.com",
+  "david.giles@bjss.com",
 ]
 
 capita_users = [
