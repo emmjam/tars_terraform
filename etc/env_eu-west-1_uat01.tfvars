@@ -284,7 +284,7 @@ cpc_rds_password = "Mg28yDQjuEWndbtz"
 
 # CPCTSDB
 cpc_rds_allocated_storage = "100" # 20 Gigabyte - was 1500GB
-cpc_rds_snapshot = "tars-uat01-cpc-cpcdb-20180720"
+cpc_rds_snapshot = "cpcuat01-20180727"
 
 # IBSDB
 ibs_rds_username = "tarsuatadmin"
