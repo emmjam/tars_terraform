@@ -115,7 +115,7 @@ output "subnets_ibs_db" {
 }
 
 output "transit_vpn_gw" {
-  value = "${aws_vpn_gateway.vpn_gw.id}"
+  value = ["${aws_vpn_gateway.vpn_gw.*.id}"]
 }
 
 output "igw" {
