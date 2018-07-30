@@ -31,6 +31,10 @@ output "subnets_tars_messaging_alb" {
   value = "${module.tars_messaging_subnets_alb.subnet_ids}"
 }
 
+output "subnets_sftplus_svr" {
+  value = "${module.cpc_sftpplus_subnets.subnet_ids}"
+}
+
 output "route_table_jenkins_nat" {
   value = "${aws_route_table.private_nat.*.id}"
 }

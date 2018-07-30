@@ -102,6 +102,11 @@ variable "ibs_db_subnets_cidrs" {
   description = "IBS DB CIDRs"
 }
 
+variable "cpc_sftp_subnets_cidrs" {
+  type        = "list"
+  description = "CPC SFTPPlus Server CIDRs"
+}
+
 variable "elc_main_engine" {
   type = "string"
   description = "Engine Type for elasticache"

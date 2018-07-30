@@ -251,6 +251,17 @@ cpc-front_scaledown_recurrence = "00 22 * * 1-5"
 cpc-front_scaleup_desired      = 1
 cpc-front_scaleup_recurrence   = "00 07 * * 1-5"
 
+## sftpplus-svr
+sftpplus-svr_instance_type  = "t2.medium"
+sftpplus-svr_puppet_nodetype    = "sftpplus-svr"
+sftpplus-svr_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+sftpplus-svr_asg_min_size         = 0
+sftpplus-svr_asg_max_size         = 1
+sftpplus-svr_scaledown_desired    = 0
+sftpplus-svr_scaledown_recurrence = "00 20 * * 1-5"
+sftpplus-svr_scaleup_desired      = 1
+sftpplus-svr_scaleup_recurrence   = "00 07 * * 1-5"
+
 ## AWS MQ
 aws_mq_engine_type             = "ActiveMQ"
 aws_mq_engine_version          = "5.15.0"
