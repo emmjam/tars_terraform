@@ -341,7 +341,7 @@ target_dms_tars_rds_password = "password"
 target_dms_tars_rds_allocated_storage = "300"
 target_dms_tars_rds_name = "TARSDB"
 
-target_dms_on_prem_tars_rds_snapshot = "tars-dms-target-180704"
+target_dms_on_prem_tars_rds_snapshot = "tars-prod-tars-dms-tarsopdmstg-2018-07-30"
 
 target_dms_cpc_rds_storage_type = "gp2"
 target_dms_cpc_rds_engine = "oracle-se2"
@@ -362,7 +362,7 @@ target_dms_cpc_rds_password = "password"
 target_dms_cpc_rds_allocated_storage = "100"
 target_dms_cpc_rds_name = "CPCDB"
 
-target_dms_on_prem_cpc_rds_snapshot = "cpc-dms-target-180619"
+target_dms_on_prem_cpc_rds_snapshot = "tars-prod-tars-dms-cpcopdmstg-2018-07-30"
 
 target_dms_rsis_rds_storage_type = "gp2"
 target_dms_rsis_rds_engine = "oracle-se2"
@@ -383,7 +383,7 @@ target_dms_rsis_rds_password = "password"
 target_dms_rsis_rds_allocated_storage = "80"
 target_dms_rsis_rds_name = "RSISDB"
 
-target_dms_on_prem_rsis_rds_snapshot = "rsis-dms-target-180628"
+target_dms_on_prem_rsis_rds_snapshot = "tars-prod-tars-dms-rsisopdmstg-2018-07-30"
 
 target_dms_mis_rds_storage_type = "gp2"
 target_dms_mis_rds_engine = "oracle-se2"
@@ -404,7 +404,7 @@ target_dms_mis_rds_password = "password"
 target_dms_mis_rds_allocated_storage = "300"
 target_dms_mis_rds_name = "MISDB"
 
-target_dms_on_prem_mis_rds_snapshot = "tars-dev01-tars-dms-misopdmstg-20180720"
+target_dms_on_prem_mis_rds_snapshot = "tars-prod-tars-dms-misopdmstg-2018-07-30"
 
 # Source DMS RDS instances
 source_dms_tars_rds_storage_type = "gp2"
