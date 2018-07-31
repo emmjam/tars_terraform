@@ -44,6 +44,12 @@ ithc_ro_users = [
   "richard.odonnell@irmsecurity.com"
 ]
 
+dvsa_ro_users = [
+  "matthew.bell@dvsa.gov.uk",
+  "alice.haws@dvsa.gov.uk",
+  "paul.duffy@dvsa.gov.uk"
+]
+
 ###############################################################################
 # MGMT
 ###############################################################################
