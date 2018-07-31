@@ -164,3 +164,9 @@ variable "ithc_ro_users" {
   description = "List of read-only IAM Users for the ITHC, that have Read Only access"
   default     = []
 }
+
+variable "dvsa_ro_users" {
+  type        = "list"
+  description = "List of read-only IAM Users for the DVSA IMS, that have Read Only access"
+  default     = []
+}
