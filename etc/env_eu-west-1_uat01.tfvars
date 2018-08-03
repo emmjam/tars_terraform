@@ -296,3 +296,20 @@ ibs_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 #############################################################################
 
 transit_peering_enabled = true
+
+#############################################################################
+# UAT should always be up - TS-3293
+#############################################################################
+
+group_nonprod.tfvars:wildfly-back_scaledown_desired = 0
+group_nonprod.tfvars:wildfly-batch_scaledown_desired = 0
+group_nonprod.tfvars:obs_scaledown_desired = 0
+group_nonprod.tfvars:ibs_scaledown_desired = 0
+group_nonprod.tfvars:fyndi-f_scaledown_desired = 0
+group_nonprod.tfvars:fyndi-b_scaledown_desired = 0
+group_nonprod.tfvars:wildfly-front_scaledown_desired = 0
+group_nonprod.tfvars:wildfly-messaging_scaledown_desired = 0
+group_nonprod.tfvars:wildfly-mock_scaledown_desired = 0
+group_nonprod.tfvars:cpc-back_scaledown_desired = 0
+group_nonprod.tfvars:cpc-front_scaledown_desired = 0
+group_nonprod.tfvars:sftpplus-svr_scaledown_desired = 0
