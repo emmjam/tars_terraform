@@ -284,7 +284,7 @@ cpc_rds_password = "Mg28yDQjuEWndbtz"
 
 # CPCTSDB
 cpc_rds_allocated_storage = "100" # 20 Gigabyte - was 1500GB
-cpc_rds_snapshot = "tars-uat01-cpc-cpcdb-20180720"
+cpc_rds_snapshot = "cpcuat01-inc-seq-views-cpc01-2018-08-01"
 
 # IBSDB
 ibs_rds_username = "tarsuatadmin"
@@ -296,3 +296,20 @@ ibs_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 #############################################################################
 
 transit_peering_enabled = true
+
+#############################################################################
+# UAT should always be up - TS-3293
+#############################################################################
+
+wildfly-back_scaledown_desired = 1
+wildfly-batch_scaledown_desired = 1
+obs_scaledown_desired = 1
+ibs_scaledown_desired = 1
+fyndi-f_scaledown_desired = 1
+fyndi-b_scaledown_desired = 1
+wildfly-front_scaledown_desired = 1
+wildfly-messaging_scaledown_desired = 1
+wildfly-mock_scaledown_desired = 1
+cpc-back_scaledown_desired = 1
+cpc-front_scaledown_desired = 1
+sftpplus-svr_scaledown_desired = 1

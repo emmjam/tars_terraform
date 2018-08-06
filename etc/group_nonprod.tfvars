@@ -59,6 +59,12 @@ ithc_ro_users = [
   "richard.odonnell@irmsecurity.com"
 ]
 
+dvsa_ro_users = [
+  "matthew.bell@dvsa.gov.uk",
+  "alice.haws@dvsa.gov.uk",
+  "paul.duffy@dvsa.gov.uk"
+]
+
 ###############################################################################
 # MGMT
 ###############################################################################
@@ -251,6 +257,17 @@ cpc-front_scaledown_recurrence = "00 22 * * 1-5"
 cpc-front_scaleup_desired      = 1
 cpc-front_scaleup_recurrence   = "00 07 * * 1-5"
 
+## sftpplus-svr
+sftpplus-svr_instance_type  = "t2.medium"
+sftpplus-svr_puppet_nodetype    = "sftpplus-svr"
+sftpplus-svr_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+sftpplus-svr_asg_min_size         = 0
+sftpplus-svr_asg_max_size         = 1
+sftpplus-svr_scaledown_desired    = 0
+sftpplus-svr_scaledown_recurrence = "00 20 * * 1-5"
+sftpplus-svr_scaleup_desired      = 1
+sftpplus-svr_scaleup_recurrence   = "00 07 * * 1-5"
+
 ## AWS MQ
 aws_mq_engine_type             = "ActiveMQ"
 aws_mq_engine_version          = "5.15.0"
@@ -318,8 +335,6 @@ whitelist = [
   "92.54.181.128/29",   # Informed Solutions
   "87.81.132.117/32",   # Informed Solutions
   "54.72.37.158/32",    # Selenium Elasticgrid Proxy
-  "92.207.224.144/28",  # ITHC - TS-3051
-  "5.101.139.0/29",     # ITHC - TS-3051
 ]
 
 dvsa_dc_whitelist = [
@@ -453,7 +468,7 @@ logs_list = [
 cpc_rds_storage_type = "gp2"
 cpc_rds_engine = "oracle-se2"
 cpc_rds_engine_version = "12.1.0.2.v11"
-cpc_rds_instance_class = "db.t2.micro" # was "db.m4.4xlarge"
+cpc_rds_instance_class = "db.t2.medium" # was "db.m4.4xlarge"
 cpc_rds_port = "1521"
 cpc_rds_public = "false"
 cpc_rds_multi_az = "false" # it takes an age to build if true

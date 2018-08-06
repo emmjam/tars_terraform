@@ -32,6 +32,8 @@ power_users = [
 ]
 
 dms_users = [
+  "ana.rotstein@bjss.com",
+  "david.giles@bjss.com",
 ]
 
 capita_users = [
@@ -40,6 +42,12 @@ capita_users = [
 ithc_ro_users = [
   "Alexander.Zavyalov@irmsecurity.com",
   "richard.odonnell@irmsecurity.com"
+]
+
+dvsa_ro_users = [
+  "matthew.bell@dvsa.gov.uk",
+  "alice.haws@dvsa.gov.uk",
+  "paul.duffy@dvsa.gov.uk"
 ]
 
 ###############################################################################
@@ -312,8 +320,6 @@ whitelist = [
   "92.54.181.128/29",   # Informed Solutions
   "87.81.132.117/32",   # Informed Solutions
   "54.72.37.158/32",    # Selenium Elasticgrid Proxy
-  "92.207.224.144/28",  # ITHC - TS-3051
-  "5.101.139.0/29",     # ITHC - TS-3051
 ]
 
 dvsa_dc_whitelist = [
