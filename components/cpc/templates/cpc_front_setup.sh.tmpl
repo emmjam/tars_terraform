@@ -11,7 +11,7 @@ log '[INFO] Waiting for backend to respond'
 
 for ((trys=1;trys<=$${retries};trys++));
 do
-  curl --connect-timeout 3 -s -f http://TARS-CORE-BACKEND:8080/DSAAuthenticationService/DSAAuthenticationJWSService?wsdl 2>&1 > /dev/null
+  curl --connect-timeout 3 -s -f http://CPC-BACKEND:8080/training-centre/TrainingCentreWebService/TrainingCentre?wsdl 2>&1 > /dev/null
   if [ $$? -eq 0 ]
   then
     log '[INFO] Backend responding'
