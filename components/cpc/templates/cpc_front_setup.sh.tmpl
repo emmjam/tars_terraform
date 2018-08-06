@@ -1,0 +1,41 @@
+#!/bin/bash -xe
+
+function log() {
+  echo "[$(date)]$1" | tee -a /var/log/puppet_cloudinit.log
+}
+
+retries=30
+retry_delay=10
+backend=1
+log '[INFO] Waiting for backend to respond'
+
+for ((trys=1;trys<=${retries};trys++));
+do
+  curl --connect-timeout 3 -s -f http://TARS-CORE-BACKEND:8080/DSAAuthenticationService/DSAAuthenticationJWSService?wsdl 2>&1 > /dev/null
+  if [ $? -eq 0 ]
+  then
+    log '[INFO] Backend responding'
+    backend=0
+    break
+  else
+    log '[INFO] Backend failed to respond. Retrying..'
+    sleep ${retry_delay}
+  fi
+done
+
+if [ ${backend} -eq 0  ] 
+  log '[INFO] Running puppet to configure environment'
+
+  sed -E -i "s/'[a-z0-9]{8}\-[a-z0-9]{4}\-[a-z0-9]{4}\-[a-f0-9]{4}\-[a-z0-9]{12}'/'${kms_key}'/g" /etc/eyaml/config.yaml
+
+  cd /tmp/packer-puppet-masterless
+  export FACTER_environment='${env}'
+  export FACTER_nodetype='${nodetype}'
+  export FACTER_aws_account='${aws_account_id}'
+  /opt/puppetlabs/bin/puppet apply --verbose --modulepath='/tmp/packer-puppet-masterless/module-0:/tmp/packer-puppet-masterless/module-1' --hiera_config='/tmp/packer-puppet-masterless/hiera.yaml' --detailed-exitcodes /tmp/packer-puppet-masterless/manifests/site.pp
+
+  log '[INFO] Puppet configuration finished'
+else
+  log '[ERROR] Backend failed to respond'
+  exit 1
+fi
