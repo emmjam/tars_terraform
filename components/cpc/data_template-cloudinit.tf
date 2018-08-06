@@ -19,7 +19,7 @@ data "template_file" "common-front" {
 
 # Create the cloud init template for the cpc front server
 data "template_file" "cpc-front" {
-  template = "${file("${path.module}/templates/cpc_setup.sh.tmpl")}"
+  template = "${file("${path.module}/templates/cpc_front_setup.sh.tmpl")}"
 
   # Set puppet factors
   vars {
@@ -32,7 +32,7 @@ data "template_file" "cpc-front" {
 
 # Create the cloud init template for the cpc back server
 data "template_file" "cpc-back" {
-  template = "${file("${path.module}/templates/cpc_setup.sh.tmpl")}"
+  template = "${file("${path.module}/templates/cpc_back_setup.sh.tmpl")}"
 
   # Set puppet factors
   vars {
