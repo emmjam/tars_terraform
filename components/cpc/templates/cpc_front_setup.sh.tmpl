@@ -4,6 +4,7 @@ function log() {
   echo "[$(date)]$1" | tee -a /var/log/puppet_cloudinit.log
 }
 
+curl_cmd="curl --connect-timeout 3 -s -f http://CPC-BACKEND:8080/training-centre/TrainingCentreWebService/TrainingCentre?wsdl 2>&1 > /dev/null"
 retries=30
 retry_delay=10
 backend=1
@@ -11,7 +12,7 @@ log '[INFO] Waiting for backend to respond'
 
 for ((trys=1;trys<=$${retries};trys++));
 do
-  curl --connect-timeout 3 -s -f http://CPC-BACKEND:8080/training-centre/TrainingCentreWebService/TrainingCentre?wsdl 2>&1 > /dev/null
+  eval $${curl_cmd}
   if [ $$? -eq 0 ]
   then
     log '[INFO] Backend responding'
