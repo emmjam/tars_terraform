@@ -24,6 +24,7 @@ do
 done
 
 if [ $${backend} -eq 0  ] 
+then
   log '[INFO] Running puppet to configure environment'
 
   sed -E -i "s/'[a-z0-9]{8}\-[a-z0-9]{4}\-[a-z0-9]{4}\-[a-f0-9]{4}\-[a-z0-9]{12}'/'${kms_key}'/g" /etc/eyaml/config.yaml
