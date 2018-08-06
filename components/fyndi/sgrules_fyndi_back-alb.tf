@@ -15,3 +15,12 @@ resource "aws_security_group_rule" "fyndi-b-jmeter_egress_jenkinsnode_1099_1101"
   security_group_id        = "${aws_security_group.fyndi-b-alb.id}"
   source_security_group_id = "${aws_security_group.fyndi-b.id}"
 }
+
+resource "aws_security_group_rule" "fyndi-b-alb_ingress_tars_batch" {
+  type                     = "ingress"
+  protocol                 = "tcp"
+  from_port                = "443"
+  to_port                  = "443"
+  security_group_id        = "${aws_security_group.fyndi-b-alb.id}"
+  source_security_group_id = "${aws_security_group.tars-batch.tars-batch-sg-id}"
+}
