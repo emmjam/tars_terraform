@@ -301,15 +301,15 @@ transit_peering_enabled = true
 # UAT should always be up - TS-3293
 #############################################################################
 
-wildfly-back_scaledown_desired = 0
-wildfly-batch_scaledown_desired = 0
-obs_scaledown_desired = 0
-ibs_scaledown_desired = 0
-fyndi-f_scaledown_desired = 0
-fyndi-b_scaledown_desired = 0
-wildfly-front_scaledown_desired = 0
-wildfly-messaging_scaledown_desired = 0
-wildfly-mock_scaledown_desired = 0
-cpc-back_scaledown_desired = 0
-cpc-front_scaledown_desired = 0
-sftpplus-svr_scaledown_desired = 0
+wildfly-back_scaledown_desired = 1
+wildfly-batch_scaledown_desired = 1
+obs_scaledown_desired = 1
+ibs_scaledown_desired = 1
+fyndi-f_scaledown_desired = 1
+fyndi-b_scaledown_desired = 1
+wildfly-front_scaledown_desired = 1
+wildfly-messaging_scaledown_desired = 1
+wildfly-mock_scaledown_desired = 1
+cpc-back_scaledown_desired = 1
+cpc-front_scaledown_desired = 1
+sftpplus-svr_scaledown_desired = 1
