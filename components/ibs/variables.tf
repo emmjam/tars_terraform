@@ -145,6 +145,10 @@ variable "ibs_rds_password" {
   description = "The ID's of the VPC subnets that the RDS cluster instances will be created in"
 }
 
+variable "ibs_rds_snapshot" {
+  description = "The DB snapshot to use for the IBS DB used for IBS / FYNDI"
+}
+
 variable "ibs_rds_backup_retention_period" {
   type        = "string"
   description = ""

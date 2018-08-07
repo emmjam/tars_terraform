@@ -289,6 +289,8 @@ ibs_rds_username = "ibsdevadmin"
 
 ibs_rds_password = "password"
 
+ibs_rds_snapshot = "dev01-ibsdb-with-users-and-geo-data"
+
 #############################################################################
 # Transit VPC peering
 #############################################################################
