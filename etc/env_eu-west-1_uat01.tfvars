@@ -291,6 +291,8 @@ ibs_rds_username = "tarsuatadmin"
 
 ibs_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 
+ibs_rds_snapshot = "uat01-ibsdb-with-users-and-geo-data"
+
 #############################################################################
 # Transit VPC peering
 #############################################################################

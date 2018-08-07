@@ -295,6 +295,8 @@ ibs_rds_username = "ibsprodadmin"
 
 ibs_rds_password = "sPPmE94NsvmfTmqj5K5YvFxZLmnm9T"
 
+ibs_rds_snapshot = "prod-ibsdb-with-users-and-geo-data"
+
 #############################################################################
 # Transit VPC peering
 #############################################################################

@@ -15,6 +15,7 @@ resource "aws_rds_cluster" "ibsdb_cluster" {
   preferred_backup_window       = "${var.ibs_rds_backup_window}"
   preferred_maintenance_window  = "${var.ibs_rds_maint_window}"
   db_subnet_group_name          = "${aws_db_subnet_group.ibsdb.name}"
+  snapshot_identifier           = "${var.ibs_rds_snapshot}"
   final_snapshot_identifier     = "${format(
     "%s-%s-%s-%s-%s",
     var.project,

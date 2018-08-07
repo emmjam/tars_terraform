@@ -283,6 +283,8 @@ ibs_rds_username = "ibsdevadmin"
 
 ibs_rds_password = "password"
 
+ibs_rds_snapshot = "opsdev-ibsdb-with-users-and-geo-data"
+
 #############################################################################
 # DVSA AD VPC peering
 #############################################################################
