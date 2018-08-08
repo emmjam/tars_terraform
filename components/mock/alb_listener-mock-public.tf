@@ -1,7 +1,7 @@
-# TARS Mock ALB Listener for port 8443
-resource "aws_alb_listener" "tars-mock-8443" {
+# TARS Mock ALB Listener for port 443
+resource "aws_alb_listener" "tars-mock-443" {
   load_balancer_arn = "${aws_alb.tars-alb-mock-public.arn}"
-  port              = "8443"
+  port              = "443"
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-2016-08"
   certificate_arn   = "${data.aws_acm_certificate.nonprod_tars_dvsacloud_uk.arn}"
