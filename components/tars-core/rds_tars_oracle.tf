@@ -36,6 +36,7 @@ resource "aws_db_instance" "tarsdb" {
   apply_immediately       = "${var.tars_rds_apply_immediately}"
   license_model           = "${var.tars_rds_license_model}"
   snapshot_identifier     = "${var.tars_rds_snapshot}"
+  option_group_name       = "default:oracle-se2-12-1"
  
   vpc_security_group_ids = [
     "${aws_security_group.tars-core-db.id}",
