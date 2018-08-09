@@ -22,4 +22,9 @@ resource "aws_db_parameter_group" "tarsdb" {
   )}"
 
   family = "oracle-se2-12.1"
+
+  parameter {
+    name = "time_zone"
+    value = "Europe/London"
+  }
 }
