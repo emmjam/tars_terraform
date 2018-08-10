@@ -14,7 +14,7 @@ private_domain_name = "tars.dvsa.aws"
 # public_domain_name = "dvsa.tars.dev-dvsacloud.uk"
 
 users = [
-  "rob.hart@dvsa.gov.uk",
+
 ]
 
 administrators = [
@@ -24,6 +24,7 @@ administrators = [
   "brian.collinson@bjss.com",
   "chris.nappin@bjss.com",
   "michael.taylor@bjss.com",
+  "rob.hart@dvsa.gov.uk",
 ]
 
 power_users = [
