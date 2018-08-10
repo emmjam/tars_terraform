@@ -4,7 +4,7 @@ resource "aws_db_option_group" "tars_core_timezone" {
     var.project,
     var.component,
     var.environment,
-    "option-group"
+    "tz-option-group"
   )}"
   option_group_description = "Terraform Option Group"
   engine_name              = "oracle-se2"
