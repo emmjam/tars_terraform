@@ -66,6 +66,12 @@ variable "asg_load_balancers" {
   default     = []
 }
 
+variable "asg_target_group_arns" {
+  type        = "list"
+  description = "A list of target groups to add to the autoscaling group"
+  default     = []
+}
+
 variable "availability_zones" {
   type        = "list"
   description = "List of Availability Zones for Subnets and Autoscaling Groups"

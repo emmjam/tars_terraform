@@ -181,7 +181,7 @@ squidnat_subnets_cidrs = [
   "10.167.36.160/28",
 ]
 
-xenco_nlb_subnets_cidrs = [
+xenco_lb_subnets_cidrs = [
   "10.167.36.176/28",
   "10.167.36.192/28",
   "10.167.36.208/28",

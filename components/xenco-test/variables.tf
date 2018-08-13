@@ -30,11 +30,6 @@ variable "account_environment" {
   description = "The environment name for the account level scope for the account in which this component is deployed"
 }
 
-variable "private_domain_name" {
-  type        = "string"
-  description = "TARS VPC private R53 domain name"
-}
-
 variable "default_tags" {
   type        = "map"
   description = "Default tags"
@@ -50,38 +45,19 @@ variable "xenco_whitelist" {
   default     = []
 }
 
+variable "xenconode" {
+  type        = "map"
+  description = "Xenco dev server config"
+}
+
 variable "xenco_subnets_cidrs" {
   type        = "list"
   description = "Xenco dev subnet CIDR's"
 }
 
-variable "xenco_lb_subnets_cidrs" {
-  type = "list"
-  description = ""
-}
-
-variable "xenco_instance_type" {
-  type = "string"
-  description = ""
-}
-
-variable "xenco_key_name" {
-  type = "string"
-  description = ""
-}
-
-variable "xenco_asg_max_size" {
-  type = "string"
-  description = ""
-}
-
-variable "xenco_asg_min_size" {
-  type = "string"
-  description = ""
-}
-
-variable "mgmt_aws_account_id" {
-  type = "string"
+variable "xenco_ssh_pub_key" {
+  type        = "string"
+  description = "Xenco provided ssh pub key"
 }
 
 variable "tf_state_bucket_prefix" {
@@ -93,8 +69,3 @@ variable "aws_account_id" {
   type        = "string"
   description = "Account ID"
 }
-
-variable "ami_build_id" {
-  type = "string"
-}
-

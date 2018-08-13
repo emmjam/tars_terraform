@@ -1,27 +1,19 @@
 #!/bin/bash -xe
 
 function log() {
-  echo "[$(date)]$1" | tee -a /var/log/xenconode_cloudinit.log
+  echo "[$(date)]$1" | tee -a /var/log/puppet_cloudinit.log
 }
 
-log '[INFO] Xenco dev server install started'
-
-for rpm in ${rpms}
-do
-
-  log "[INFO] Installing Dev Tools - $${rpm}"
-  yum install -y $${rpm}
+log '[INFO] Running puppet to configure environment'
 
 
-done
+sed -E -i "s/'[a-z0-9]{8}\-[a-z0-9]{4}\-[a-z0-9]{4}\-[a-f0-9]{4}\-[a-z0-9]{12}'/'${kms_key}'/g" /etc/eyaml/config.yaml
 
-log "[INFO] Configuring Xenco user"
-useradd -c "Xenco Dev User" -G wheel xenco
-mkdir /home/xenco/.ssh
-chmod 700 /home/xenco/.ssh
-echo "${xenco_ssh_key}" >> /home/xenco/.ssh/authorized_keys
-chmod 600 /home/xenco/.ssh/authorized_keys
-chown -R xenco:xenco /home/xenco/.ssh
-log "[INFO] Configuring Xenco user complete"
 
-log '[INFO] Xenco dev server install complete'
+cd /tmp/packer-puppet-masterless
+export FACTER_environment='${environment}'
+export FACTER_nodetype='${nodetype}'
+export FACTER_aws_account='${aws_account_id}'
+/opt/puppetlabs/bin/puppet apply --verbose --modulepath='/tmp/packer-puppet-masterless/module-0:/tmp/packer-puppet-masterless/module-1' --hiera_config='/tmp/packer-puppet-masterless/hiera.yaml' --detailed-exitcodes /tmp/packer-puppet-masterless/manifests/site.pp
+
+log '[INFO] Puppet configuration finished'

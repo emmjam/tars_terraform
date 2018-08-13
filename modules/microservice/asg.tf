@@ -13,6 +13,7 @@ resource "aws_autoscaling_group" "main" {
   termination_policies = ["${var.asg_termination_policies}"]
   vpc_zone_identifier  = ["${module.subnets.subnet_ids}"]
   load_balancers       = ["${var.asg_load_balancers}"]
+  target_group_arns    = ["${var.asg_target_group_arns}"]
   enabled_metrics      = ["${var.asg_enabled_metrics}"]
 
   tags = [
