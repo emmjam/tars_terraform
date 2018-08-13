@@ -269,6 +269,13 @@ sftpplus-svr_scaledown_recurrence = "00 20 * * 1-5"
 sftpplus-svr_scaleup_desired      = 1
 sftpplus-svr_scaleup_recurrence   = "00 07 * * 1-5"
 
+## Xenco
+xenco_key_name = ""
+xenco_asg_max_size = "1"
+xenco_asg_min_size = "1"
+xenco_instance_type = "t2.small"
+
+
 ## AWS MQ
 aws_mq_engine_type             = "ActiveMQ"
 aws_mq_engine_version          = "5.15.0"
