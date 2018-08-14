@@ -277,7 +277,7 @@ tars_rds_allocated_storage = "300"
 tars_rds_snapshot = "tars-perf01-tars-core-tarsdb-20180720"
 
 # CPCSDB
-cpc_rds_username = "cpcuatadmin"
+cpc_rds_username = "tarscpcadmin"
 
 cpc_rds_password = "Mg28yDQjuEWndbtz"
 
