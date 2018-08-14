@@ -16,6 +16,8 @@ module "fyndi-b" {
   lc_instance_type = "${var.fyndi-b_instance_type}"
   lc_user_data     = "${data.template_cloudinit_config.fyndi-b.rendered}"
 
+  asg_target_group_arns = [ "${aws_alb_target_group.fyndi-b-8080.id}" ]
+
   lc_additional_sg_ids = [
     "${aws_security_group.fyndi-b.id}",
     "${data.terraform_remote_state.base.core_sg_id}",

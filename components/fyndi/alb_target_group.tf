@@ -22,11 +22,6 @@ resource "aws_alb_target_group" "fyndi-f-8080" {
 
 }
 
-resource "aws_autoscaling_attachment" "fyndi-f" {
-  autoscaling_group_name = "${module.fyndi-f.autoscaling_group_id}"
-  alb_target_group_arn   = "${aws_alb_target_group.fyndi-f-8080.arn}"
-}
-
 resource "aws_alb_target_group" "fyndi-b-8080" {
   name = "${format(
     "%s-%s-%s-%s",
@@ -50,7 +45,3 @@ resource "aws_alb_target_group" "fyndi-b-8080" {
 
 }
 
-resource "aws_autoscaling_attachment" "fyndi-b" {
-  autoscaling_group_name = "${module.fyndi-b.autoscaling_group_id}"
-  alb_target_group_arn   = "${aws_alb_target_group.fyndi-b-8080.arn}"
-}
