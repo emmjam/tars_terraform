@@ -16,6 +16,10 @@ module "obs" {
   lc_instance_type = "${var.obs_instance_type}"
   lc_user_data     = "${data.template_cloudinit_config.obs.rendered}"
 
+  asg_target_group_arns = [
+        "${aws_alb_target_group.obs-8080.id}",
+        ]
+
   lc_additional_sg_ids = [
     "${aws_security_group.obs.id}",
     "${data.terraform_remote_state.base.core_sg_id}",

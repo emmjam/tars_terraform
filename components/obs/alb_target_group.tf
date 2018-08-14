@@ -22,8 +22,3 @@ resource "aws_alb_target_group" "obs-8080" {
 
 }
 
-resource "aws_autoscaling_attachment" "obs" {
-  autoscaling_group_name = "${module.obs.autoscaling_group_id}"
-  alb_target_group_arn   = "${aws_alb_target_group.obs-8080.arn}"
-}
-

@@ -22,8 +22,3 @@ resource "aws_alb_target_group" "ibs-8080" {
 
 }
 
-resource "aws_autoscaling_attachment" "ibs" {
-  autoscaling_group_name = "${module.ibs.autoscaling_group_id}"
-  alb_target_group_arn   = "${aws_alb_target_group.ibs-8080.arn}"
-}
-

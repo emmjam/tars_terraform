@@ -16,6 +16,10 @@ module "cpc-back" {
   lc_instance_type = "${var.cpc-back_instance_type}"
   lc_user_data     = "${data.template_cloudinit_config.cpc-back.rendered}"
 
+  asg_target_group_arns = [
+        "${aws_alb_target_group.cpc-back-8080.id}",
+        ]
+
   lc_additional_sg_ids = [
     "${data.terraform_remote_state.base.core_sg_id}",
   ]
