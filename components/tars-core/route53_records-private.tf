@@ -35,3 +35,22 @@ resource "aws_route53_record" "tars-backend" {
     evaluate_target_health = true
   }
 }
+
+resource "aws_route53_record" "tars-private" {
+  name = "${format(
+    "%s-%s-%s",
+    var.project,
+    "core",
+    "private"
+  )}"
+
+  zone_id = "${data.terraform_remote_state.base.private_zone_id}"
+  type    = "A"
+
+  alias {
+    name                   = "${aws_alb.tars-private-facing.dns_name}"
+    zone_id                = "${aws_alb.tars-private-facing.zone_id}"
+    evaluate_target_health = true
+  }
+}
+
