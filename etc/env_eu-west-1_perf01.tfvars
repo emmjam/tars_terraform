@@ -325,7 +325,7 @@ ibs_asg_max_size         = 3
 ibs_scaledown_desired    = 1
 ibs_scaledown_recurrence = "00 16 * * 1-5"
 ibs_scaleup_desired      = 1
-ibs_scaleup_recurrence   = "01 05 * * 1-5"
+ibs_scaleup_recurrence   = "10 05 * * 1-5"
 
 ## wildfly-front
 wildfly-front_instance_type  = "m4.large"
