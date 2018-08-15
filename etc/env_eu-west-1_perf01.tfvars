@@ -281,6 +281,38 @@ cpc_rds_username = "tarscpcadmin"
 
 cpc_rds_password = "Mg28yDQjuEWndbtz"
 
+# MISDB
+mis_rds_username = "misuatadmin"
+mis_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
+mis_rds_allocated_storage = "300"
+mis_rds_snapshot = "tars-dev01-tars-dms-misopdmstg-20180720"
+mis_rds_storage_type = "gp2"
+mis_rds_instance_class = "db.m4.xlarge" # was "db.m4.4xlarge"
+mis_rds_public = "false"
+mis_rds_multi_az = "false" # it takes an age to build if true
+mis_rds_backup_retention = "7"
+mis_rds_backup_window = "02:38-03:08"
+mis_rds_maint_window = "sun:03:16-sun:03:46"
+mis_rds_skip_final_snapshot = true
+mis_rds_apply_immediately = "true"
+mis_rds_autoscale = "True"
+
+# RSISDB
+rsis_rds_username = "rsisuatadmin"
+rsis_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
+rsis_rds_allocated_storage = "300"
+rsis_rds_snapshot = "tars-dev01-tars-dms-rsisdmssc-20180719"
+rsis_rds_storage_type = "gp2"
+rsis_rds_instance_class = "db.m4.xlarge" # was "db.m4.4xlarge"
+rsis_rds_public = "false"
+rsis_rds_multi_az = "false" # it takes an age to build if true
+rsis_rds_backup_retention = "7"
+rsis_rds_backup_window = "02:38-03:08"
+rsis_rds_maint_window = "sun:03:16-sun:03:46"
+rsis_rds_skip_final_snapshot = true
+rsis_rds_apply_immediately = "true"
+rsis_rds_autoscale = "True"
+
 # CPCTSDB
 cpc_rds_allocated_storage = "100" # 20 Gigabyte - was 1500GB
 cpc_rds_snapshot = "tars-opsdev-cpc-cpcdb-20180720"

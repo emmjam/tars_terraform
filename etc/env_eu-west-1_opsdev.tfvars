@@ -266,6 +266,7 @@ tars_rds_password = "password"
 
 # TARSDB
 tars_rds_allocated_storage = "20" # 20 Gigabyte - was 1500GB
+
 tars_rds_snapshot = "tars-opsdev-tars-core-tarsdb-20180720"
 
 # CPCSDB
@@ -284,6 +285,18 @@ ibs_rds_username = "ibsdevadmin"
 ibs_rds_password = "password"
 
 ibs_rds_snapshot = "opsdev-ibsdb-with-users-and-geo-data"
+
+# MISDB
+mis_rds_username = "misdevadmin"
+mis_rds_password = "password"
+mis_rds_allocated_storage = "20"
+mis_rds_snapshot = "tars-dev01-tars-dms-misopdmstg-20180720"
+
+# RSISDB
+rsis_rds_username = "rsisdevadmin"
+rsis_rds_password = "password"
+rsis_rds_allocated_storage = "20"
+rsis_rds_snapshot = "tars-dev01-tars-dms-rsisdmssc-20180719"
 
 #############################################################################
 # DVSA AD VPC peering

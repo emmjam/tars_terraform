@@ -418,6 +418,38 @@ tars_rds_apply_immediately = "true"
 tars_rds_license_model = "license-included"
 tars_rds_autoscale = "True"
 
+# MISDB
+mis_rds_storage_type = "gp2"
+mis_rds_engine = "oracle-se2"
+mis_rds_engine_version = "12.1.0.2.v11"
+mis_rds_instance_class = "db.r4.xlarge"
+mis_rds_port = "1521"
+mis_rds_public = "false"
+mis_rds_multi_az = "true" # it takes an age to build if true
+mis_rds_backup_retention = "7"
+mis_rds_backup_window = "02:38-03:08"
+mis_rds_maint_window = "sun:03:16-sun:03:46"
+mis_rds_skip_final_snapshot = true
+mis_rds_apply_immediately = "true"
+mis_rds_license_model = "license-included"
+mis_rds_autoscale = "True"
+
+# RSISDB
+rsis_rds_storage_type = "gp2"
+rsis_rds_engine = "oracle-se2"
+rsis_rds_engine_version = "12.1.0.2.v11"
+rsis_rds_instance_class = "db.r4.xlarge"
+rsis_rds_port = "1521"
+rsis_rds_public = "false"
+rsis_rds_multi_az = "true" # it takes an age to build if true
+rsis_rds_backup_retention = "7"
+rsis_rds_backup_window = "02:38-03:08"
+rsis_rds_maint_window = "sun:03:16-sun:03:46"
+rsis_rds_skip_final_snapshot = true
+rsis_rds_apply_immediately = "true"
+rsis_rds_license_model = "license-included"
+sris_rds_autoscale = "True"
+
 # DMS Replication instance
 
 tars_dms_allocated_storage = "50"
