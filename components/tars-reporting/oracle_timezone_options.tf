@@ -2,7 +2,7 @@ resource "aws_db_option_group" "tars_mis_timezone" {
   name = "${format(
     "%s-%s-%s-%s",
     var.project,
-    var.component,
+    "mis-reporting",
     var.environment,
     "tz-option-group"
   )}"
@@ -24,7 +24,7 @@ resource "aws_db_option_group" "tars_rsis_timezone" {
   name = "${format(
     "%s-%s-%s-%s",
     var.project,
-    var.component,
+    "rsis-reporting",
     var.environment,
     "tz-option-group"
   )}"
