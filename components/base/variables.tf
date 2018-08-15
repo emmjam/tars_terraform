@@ -87,6 +87,11 @@ variable "rds_subnets_cidrs" {
   description = "TARS RDS Subnet CIDR's"
 }
 
+variable "mis_rds_subnets_cidrs" {
+  type        = "list"
+  description = "MIS RDS Subnet CIDR's"
+}
+
 variable "cpc_rds_subnets_cidrs" {
   type        = "list"
   description = "CPC RDS Subnet CIDR's"

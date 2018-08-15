@@ -125,3 +125,7 @@ output "transit_vpn_gw" {
 output "igw" {
   value = "${aws_internet_gateway.tars.id}"
 }
+
+output "subnets_mis_db" {
+  value = "${module.subnets_mis.subnet_ids}"
+}
