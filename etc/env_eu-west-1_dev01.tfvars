@@ -291,6 +291,18 @@ ibs_rds_password = "password"
 
 ibs_rds_snapshot = "dev01-ibsdb-with-users-and-geo-data"
 
+# MISDB
+mis_rds_username = "misdevadmin"
+mis_rds_password = "password"
+mis_rds_allocated_storage = "20"
+mis_rds_snapshot = "tars-dev01-tars-dms-misopdmstg-20180720"
+
+# RSISDB
+rsis_rds_username = "rsisdevadmin"
+rsis_rds_password = "password"
+rsis_rds_allocated_storage = "20"
+rsis_rds_snapshot = "tars-dev01-tars-dms-rsisdmssc-20180719"
+
 #############################################################################
 # Transit VPC peering
 #############################################################################

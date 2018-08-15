@@ -300,6 +300,20 @@ ibs_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 
 ibs_rds_snapshot = "sit01-ibsdb-with-users-and-geo-data"
 
+# MISDB
+mis_rds_username = "missitadmin"
+mis_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
+mis_rds_snapshot = "tars-dev01-tars-dms-misopdmstg-20180720"
+mis_rds_allocated_storage = "300"
+mis_rds_autoscale = "False"
+
+# RSISDB
+rsis_rds_username = "rsissitadmin"
+rsis_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
+rsis_rds_snapshot = "tars-dev01-tars-dms-rsisdmssc-20180719"
+rsis_rds_allocated_storage = "300"
+rsis_rds_autoscale = "False"
+
 #############################################################################
 # Transit VPC peering
 #############################################################################
