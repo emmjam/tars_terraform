@@ -54,3 +54,13 @@ resource "aws_route53_record" "tars-private" {
   }
 }
 
+resource "aws_route53_record" "pearsonssftp" {
+  name = "pearsonssftp"
+
+  zone_id = "${data.terraform_remote_state.base.private_zone_id}"
+  type    = "CNAME"
+
+  records = ["sftpuk2.pearsonvue.com"]
+
+}
+
