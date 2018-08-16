@@ -59,7 +59,7 @@ resource "aws_route53_record" "pearsonssftp" {
 
   zone_id = "${data.terraform_remote_state.base.private_zone_id}"
   type    = "CNAME"
-
+  ttl     = "600"
   records = ["sftpuk2.pearsonvue.com"]
 
 }
