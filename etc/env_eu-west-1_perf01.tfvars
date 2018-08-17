@@ -377,6 +377,24 @@ wildfly-messaging_scaledown_recurrence = "00 16 * * 1-5"
 wildfly-messaging_scaleup_desired      = 1
 wildfly-messaging_scaleup_recurrence   = "00 05 * * 1-5"
 
+## cpc-back
+cpc-back_instance_type  = "m4.large"
+cpc-back_asg_min_size         = 0
+cpc-back_asg_max_size         = 1
+cpc-back_scaledown_desired    = 0
+cpc-back_scaledown_recurrence = "00 16 * * 1-5"
+cpc-back_scaleup_desired      = 1
+cpc-back_scaleup_recurrence   = "00 05 * * 1-5"
+
+## cpc-front
+cpc-front_instance_type  = "m4.large"
+cpc-front_asg_min_size         = 0
+cpc-front_asg_max_size         = 1
+cpc-front_scaledown_desired    = 0
+cpc-front_scaledown_recurrence = "00 16 * * 1-5"
+cpc-front_scaleup_desired      = 1
+cpc-front_scaleup_recurrence   = "00 05 * * 1-5"
+
 ## AWS MQ
 aws_mq_host_instance_type      = "mq.t2.micro"
 aws_mq_deployment_mode         = "SINGLE_INSTANCE"
