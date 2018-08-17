@@ -282,16 +282,16 @@ tars_rds_allocated_storage = "300"
 tars_rds_snapshot = "tarsuat-050418"
 
 # MISSDB
-tars_rds_username = "misprodadmin"
-tars_rds_password = "vQy7UCW3owPxLMDuUPjzmmKmEYei4k"
-tars_rds_allocated_storage = "300"
-tars_rds_snapshot = ""
+mis_rds_username = "misprodadmin"
+mis_rds_password = "vQy7UCW3owPxLMDuUPjzmmKmEYei4k"
+mis_rds_allocated_storage = "300"
+mis_rds_snapshot = ""
 
 # MISSDB
-tars_rds_username = "rsisprodadmin"
-tars_rds_password = "vQy7UCW3owPxLMDuUPjzmmKmEYei4k"
-tars_rds_allocated_storage = "300"
-tars_rds_snapshot = ""
+rsis_rds_username = "rsisprodadmin"
+rsis_rds_password = "vQy7UCW3owPxLMDuUPjzmmKmEYei4k"
+rsis_rds_allocated_storage = "300"
+rsis_rds_snapshot = ""
 
 # CPCSDB
 cpc_rds_username = "tarscpcadmin"
