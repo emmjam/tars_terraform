@@ -1,0 +1,28 @@
+#Retrieve the AWS instance ID, keep trying until the metadata is available
+$instanceID = "null"
+while ($instanceID -NotLike "i-*") {
+  Start-Sleep -s 3
+  $instanceID = invoke-restmethod -uri http://169.254.169.254/latest/meta-data/instance-id
+}
+
+$DomainName = "dsa.gsi.gov.uk"
+$BaseOU = "OU=Member Servers,DC=dsa,DC=gsi,DC=gov,DC=uk"
+
+# Get AD credentials that are stored in the ssm parameter store
+
+$username =  $DomainName + "\" + (Get-SSMParameterValue -Name AD-domainJoinUserName).Parameters[0].Value
+$password = (Get-SSMParameterValue -Name AD-domainpassword -WithDecryption $True).Parameters[0].Value |
+                ConvertTo-SecureString -asPlainText -Force
+
+$cred = New-Object System.Management.Automation.PSCredential($username,$password)
+
+Try {
+    #Join-Machine to AD Domain
+    Add-Computer -Domain $DomainName -Credential $cred -OUPath $BaseOU  -ErrorAction 'Stop' -Options "JoinWithNewName"
+
+    Write-Verbose -Message "Succesfully joined domain."
+    Restart-Computer
+}
+Catch{
+    Write-Host $_.Exception | Out-File c:\error-joindomain.txt -Append
+}
