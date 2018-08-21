@@ -7,9 +7,9 @@ data "terraform_remote_state" "cpc" {
     key = "${format(
       "%s/%s/%s/%s/%s.tfstate",
       var.project,
-      var.aws_account_id,
+      data.aws_caller_identity.current.account_id,
       var.aws_region,
-      var.account_environment,
+      var.environment,
       "cpc"
     )}"
 
