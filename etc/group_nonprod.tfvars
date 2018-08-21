@@ -25,6 +25,7 @@ administrators = [
   "chris.nappin@bjss.com",
   "michael.taylor@bjss.com",
   "rob.hart@dvsa.gov.uk",
+  "sam.smart@bjss.com",
 ]
 
 power_users = [
