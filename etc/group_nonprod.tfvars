@@ -303,7 +303,7 @@ aws_mq_config_engine_version = "5.15.0"
 
 ## bastion
 bastion_instance_type        = "t2.micro"
-bastion_ami_build_id         = "191"
+bastion_ami_build_id         = "194"
 bastion_asg_min_size         = 0
 bastion_asg_max_size         = 3
 bastion_scaledown_desired    = 1
