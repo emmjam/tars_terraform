@@ -10,7 +10,7 @@ data "terraform_remote_state" "cpc" {
       var.aws_account_id,
       var.aws_region,
       var.account_environment,
-      "ctrl"
+      "cpc"
     )}"
 
     region = "${var.aws_region}"
