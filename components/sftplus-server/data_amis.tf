@@ -3,7 +3,7 @@ data "aws_ami" "sftpplus_svr" {
     "%s-%s-%s/%s",
     var.project,
     "rhel",
-    "sftplus-svr",
+    "sftpplus_server",
     var.ami_build_id
   )}"
 
