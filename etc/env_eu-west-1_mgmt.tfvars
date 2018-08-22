@@ -34,20 +34,6 @@ prod_subdomains_name_servers = {
   prod = "ns-426.awsdns-53.com,ns-1049.awsdns-03.org,ns-2041.awsdns-63.co.uk,ns-611.awsdns-12.net"
 }
 
-users = [
-  "rob.hart@dvsa.gov.uk",
-]
-
-administrators = [
-  "mark.thompson@bjss.com",
-  "callum.massey@bjss.com",
-  "brian.collinson@bjss.com",
-  "steve.wilson@bjss.com",
-  "chris.nappin@bjss.com",
-  "michael.taylor@bjss.com",
-  "sam.smart@bjss.com",
-]
-
 ##########################################
 # Guardduty
 ##########################################

@@ -13,8 +13,31 @@ private_domain_name = "tars.dvsa.aws"
 
 # public_domain_name = "dvsa.tars.dev-dvsacloud.uk"
 
-users = [
-
+all_users = [
+  "mark.thompson@bjss.com",
+  "callum.massey@bjss.com",
+  "steve.wilson@bjss.com",
+  "brian.collinson@bjss.com",
+  "chris.nappin@bjss.com",
+  "michael.taylor@bjss.com",
+  "rob.hart@dvsa.gov.uk",
+  "sam.smart@bjss.com",
+  "allan.todd@bjss.com",
+  "david.giles@bjss.com",
+  "paul.hepple@capita.co.uk",
+  "rob.whyte@capita.co.uk",
+  "Himanshu.Dhir@capita.co.uk",
+  "Subrata.Dey@capita.co.uk",
+  "phil.scally@capita.co.uk",
+  "richard.freitas@capita.co.uk",
+  "vinit.prajapati@capita.co.uk",
+  "rob.morrison3@capita.co.uk",
+  "pratap.prusty@capita.co.uk",
+  "boby.jacob@capita.co.uk",
+  "matthew.bell@dvsa.gov.uk",
+  "alice.haws@dvsa.gov.uk",
+  "paul.duffy@dvsa.gov.uk",
+  "jamie.kelly@bjss.com",
 ]
 
 administrators = [
@@ -24,16 +47,16 @@ administrators = [
   "brian.collinson@bjss.com",
   "chris.nappin@bjss.com",
   "michael.taylor@bjss.com",
-  "rob.hart@dvsa.gov.uk",
   "sam.smart@bjss.com",
+  "jamie.kelly@bjss.com",
 ]
 
 power_users = [
   "allan.todd@bjss.com",
+  "rob.hart@dvsa.gov.uk",
 ]
 
 dms_users = [
-  "ana.rotstein@bjss.com",
   "david.giles@bjss.com",
 ]
 
@@ -44,7 +67,7 @@ capita_users = [
 
 capita_perf_ro_users = [
   "Himanshu.Dhir@capita.co.uk",
-  "Subrata.Dey@capita.co.uk"
+  "Subrata.Dey@capita.co.uk",
 ]
 
 capita_support_ro_users = [
@@ -53,18 +76,16 @@ capita_support_ro_users = [
   "vinit.prajapati@capita.co.uk",
   "rob.morrison3@capita.co.uk",
   "pratap.prusty@capita.co.uk",
-  "boby.jacob@capita.co.uk"
+  "boby.jacob@capita.co.uk",
 ]
 
 ithc_ro_users = [
-  "Alexander.Zavyalov@irmsecurity.com",
-  "richard.odonnell@irmsecurity.com"
 ]
 
 dvsa_ro_users = [
   "matthew.bell@dvsa.gov.uk",
   "alice.haws@dvsa.gov.uk",
-  "paul.duffy@dvsa.gov.uk"
+  "paul.duffy@dvsa.gov.uk",
 ]
 
 ###############################################################################
