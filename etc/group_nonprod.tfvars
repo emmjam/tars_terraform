@@ -245,10 +245,10 @@ cpc-back_asg_max_size         = 1
 cpc-back_scaledown_desired    = 0
 cpc-back_scaledown_recurrence = "00 22 * * 1-5"
 cpc-back_scaleup_desired      = 1
-cpc-back_scaleup_recurrence   = "00 07 * * 1-5"
+cpc-back_scaleup_recurrence   = "00 04 * * 1-5"
 
 
-## cpc-back
+## cpc-front
 cpc-front_instance_type  = "t2.medium"
 cpc-front_puppet_nodetype    = "cpc-front"
 cpc-front_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
@@ -257,7 +257,7 @@ cpc-front_asg_max_size         = 1
 cpc-front_scaledown_desired    = 0
 cpc-front_scaledown_recurrence = "00 22 * * 1-5"
 cpc-front_scaleup_desired      = 1
-cpc-front_scaleup_recurrence   = "00 07 * * 1-5"
+cpc-front_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## sftpplus-svr
 sftpplus-svr_instance_type  = "t2.medium"
@@ -268,7 +268,7 @@ sftpplus-svr_asg_max_size         = 1
 sftpplus-svr_scaledown_desired    = 0
 sftpplus-svr_scaledown_recurrence = "00 20 * * 1-5"
 sftpplus-svr_scaleup_desired      = 1
-sftpplus-svr_scaleup_recurrence   = "00 07 * * 1-5"
+sftpplus-svr_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## Xenco
 xenco_key_name = ""
