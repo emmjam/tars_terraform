@@ -9,6 +9,29 @@ default_tags = {
   "Group"   = "mgmt"
 }
 
+all_users = [
+  "rob.hart@dvsa.gov.uk",
+  "mark.thompson@bjss.com",
+  "callum.massey@bjss.com",
+  "brian.collinson@bjss.com",
+  "steve.wilson@bjss.com",
+  "chris.nappin@bjss.com",
+  "michael.taylor@bjss.com",
+  "sam.smart@bjss.com",
+  "jamie.kelly@bjss.com",
+]
+
+administrators = [
+  "mark.thompson@bjss.com",
+  "callum.massey@bjss.com",
+  "brian.collinson@bjss.com",
+  "steve.wilson@bjss.com",
+  "chris.nappin@bjss.com",
+  "michael.taylor@bjss.com",
+  "sam.smart@bjss.com",
+  "jamie.kelly@bjss.com",
+]
+
 ctrl_vpc_cidr = "10.167.64.0/22"
 
 ctrl_nat_subnets_cidrs = [
