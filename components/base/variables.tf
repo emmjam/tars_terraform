@@ -416,3 +416,9 @@ variable "jmeter_puppet_kms_key" {
   type = "string"
   description = "JMeter puppet kms key"
 }
+
+variable "domain_name_servers" {
+  type        = "list"
+  description = "DHCP Scope options for DNS Servers"
+  default = ["AmazonProvidedDNS"]
+}
