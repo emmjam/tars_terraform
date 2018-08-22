@@ -1,7 +1,11 @@
 resource "aws_iam_group_membership" "all_users" {
   name  = "${aws_iam_group.all_users.name}"
   group = "${aws_iam_group.all_users.name}"
-  users = ["${aws_iam_user.users.*.id}"]
+
+  users = [
+    "${var.all_users}",
+  ]
+
 }
 
 resource "aws_iam_group_membership" "administrators" {

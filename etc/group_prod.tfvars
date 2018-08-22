@@ -10,12 +10,21 @@ private_domain_name = "tars.dvsa.aws"
 # ACCOUNT
 ###############################################################################
 
-users = [
+all_users = [
   "rob.hart@dvsa.gov.uk",
   "mark.thompson@bjss.com",
   "steve.wilson@bjss.com",
   "brian.collinson@bjss.com",
   "allan.todd@bjss.com",
+  "michael.taylor@bjss.com",
+  "sam.smart@bjss.com",
+  "graham.king@bjss.com",
+  "jamie.kelly@bjss.com",
+  "matthew.bell@dvsa.gov.uk",
+  "alice.haws@dvsa.gov.uk",
+  "paul.duffy@dvsa.gov.uk",
+  "callum.massey@bjss.com",
+  "ian.harris@bjss.com",
 ]
 
 administrators = [
@@ -26,14 +35,15 @@ administrators = [
   "brian.collinson@bjss.com",
   "michael.taylor@bjss.com",
   "sam.smart@bjss.com",
+  "graham.king@bjss.com",
+  "allan.todd@bjss.com",
+  "jamie.kelly@bjss.com",
 ]
 
 power_users = [
-  "allan.todd@bjss.com",
 ]
 
 dms_users = [
-  "ana.rotstein@bjss.com",
   "david.giles@bjss.com",
 ]
 
@@ -41,8 +51,6 @@ capita_users = [
 ]
 
 ithc_ro_users = [
-  "Alexander.Zavyalov@irmsecurity.com",
-  "richard.odonnell@irmsecurity.com"
 ]
 
 dvsa_ro_users = [

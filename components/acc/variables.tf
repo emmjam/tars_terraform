@@ -47,7 +47,7 @@ variable "tf_state_bucket_prefix" {
   description = ""
 }
 
-variable "users" {
+variable "all_users" {
   type        = "list"
   description = "List of IAM Users"
   default     = []
