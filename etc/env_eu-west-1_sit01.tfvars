@@ -319,3 +319,12 @@ rsis_rds_autoscale = "False"
 #############################################################################
 
 transit_peering_enabled = true
+
+# DHCP Scope options for DNS
+
+domain_name_servers = [
+  "AmazonProvidedDNS",
+  "10.166.0.14",
+  "10.166.0.28",
+  "10.166.0.43",
+]

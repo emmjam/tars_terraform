@@ -329,3 +329,12 @@ wildfly-mock_scaledown_desired = 1
 cpc-back_scaledown_desired = 1
 cpc-front_scaledown_desired = 1
 sftpplus-svr_scaledown_desired = 1
+
+# DHCP Scope options for DNS
+
+domain_name_servers = [
+  "AmazonProvidedDNS",
+  "10.166.0.14",
+  "10.166.0.28",
+  "10.166.0.43",
+]
