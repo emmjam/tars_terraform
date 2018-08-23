@@ -78,7 +78,7 @@ output "private_nonat_route_table_id" {
 output "jenkins_net_route_table_id" {
   value = "${aws_route_table.private_nat.*.id}"
 }
- 
+
 output "awsmq_sg_id" {
   value = "${aws_security_group.tars-awsmq.id}"
 }
@@ -116,10 +116,6 @@ output "iam_policy_cloudwatch_arn" {
 
 output "subnets_ibs_db" {
   value = "${module.subnets_rds.subnet_ids}"
-}
-
-output "transit_vpn_gw" {
-  value = ["${aws_vpn_gateway.vpn_gw.*.id}"]
 }
 
 output "igw" {
