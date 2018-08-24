@@ -10,3 +10,4 @@ output "subnet_cidrs_cpc_backend" {
 output "cpc-db-sg-id" {
   value = "${aws_security_group.cpc-db.id}"
 }
+

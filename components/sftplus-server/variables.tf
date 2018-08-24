@@ -141,3 +141,7 @@ variable "cert_name" {
   description = "ACM cert name"
 }
 
+variable "cpc-back_subnets_cidrs" {
+  type = "list"
+}
+
