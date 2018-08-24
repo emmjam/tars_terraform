@@ -4,7 +4,7 @@ resource "aws_security_group" "sftpplus_svr-dva-lb" {
     var.project,
     var.environment,
     var.component,
-    "sftpplus-svr-cpc"
+    "sftpplus-svr-dva"
   )}"
 
   description = "${format(
@@ -12,7 +12,7 @@ resource "aws_security_group" "sftpplus_svr-dva-lb" {
     var.project,
     var.environment,
     var.component,
-    "sftpplus-svr-cpc"
+    "sftpplus-svr-dva"
   )}"
 
   vpc_id = "${data.terraform_remote_state.base.vpc_id}"
