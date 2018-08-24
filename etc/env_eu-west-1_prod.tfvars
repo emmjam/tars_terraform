@@ -512,8 +512,8 @@ dsa-drora-db-rac03 = "10.86.192.72"
 # DHCP Scope options for DNS
 
 domain_name_servers = [
+  "AmazonProvidedDNS",
   "10.166.0.14",
   "10.166.0.28",
   "10.166.0.43",
-  "AmazonProvidedDNS",
 ]
