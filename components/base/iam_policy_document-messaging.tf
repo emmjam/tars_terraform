@@ -35,7 +35,8 @@ data "aws_iam_policy_document" "messagingnode" {
     effect = "Allow"
 
     actions = [
-      "ssm:GetParameter"
+      "ssm:GetParameter",
+      "ssm:GetParameters"
     ]
 
     resources = [
