@@ -393,6 +393,21 @@ variable "aws_mq_users_cpc_back_password" {
   description = "AWS MQ cpc back user password"
 }
 
+variable "aws_mq_users_cpc_batch_user" {
+  type = "string"
+  description = "AWS MQ user cpc batch"
+}
+
+variable "aws_mq_users_cpc_batch_group" {
+  type = "string"
+  description = "AWS MQ group cpc batch"
+}
+
+variable "aws_mq_users_cpc_batch_password" {
+  type = "string"
+  description = "AWS MQ cpc batch user password"
+}
+
 variable "ad_peering_enabled" {
   type = "string"
   description = "Peer with DVSA AD or not"

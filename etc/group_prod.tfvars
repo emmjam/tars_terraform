@@ -240,6 +240,9 @@ aws_mq_users_tars_messaging_group    = "tars_messaging"
 aws_mq_users_cpc_back_user           = "cpc_back"
 aws_mq_users_cpc_back_password       = "password123456"
 aws_mq_users_cpc_back_group          = "cpc_back"
+aws_mq_users_cpc_batch_user          = "cpc_batch"
+aws_mq_users_cpc_batch_password      = "password123456"
+aws_mq_users_cpc_batch_group         = "cpc_batch"
 
 ## cpc-back
 cpc-back_instance_type  = "m4.large"
@@ -252,8 +255,7 @@ cpc-back_scaledown_recurrence = "00 22 * * 1-5"
 cpc-back_scaleup_desired      = 1
 cpc-back_scaleup_recurrence   = "00 07 * * 1-5"
 
-
-## cpc-back
+## cpc-front
 cpc-front_instance_type  = "m4.large"
 cpc-front_puppet_nodetype    = "cpc-front"
 cpc-front_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
@@ -263,6 +265,17 @@ cpc-front_scaledown_desired    = 0
 cpc-front_scaledown_recurrence = "00 22 * * 1-5"
 cpc-front_scaleup_desired      = 1
 cpc-front_scaleup_recurrence   = "00 07 * * 1-5"
+
+## cpc-batch
+cpc-batch_instance_type  = "m4.large"
+cpc-batch_puppet_nodetype    = "cpc-batch"
+cpc-batch_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
+cpc-batch_asg_min_size         = 0
+cpc-batch_asg_max_size         = 1
+cpc-batch_scaledown_desired    = 0
+cpc-batch_scaledown_recurrence = "00 22 * * 1-5"
+cpc-batch_scaleup_desired      = 1
+cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
 # CPCDB
 cpc_rds_storage_type = "gp2"
