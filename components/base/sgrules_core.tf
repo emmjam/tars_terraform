@@ -20,6 +20,16 @@ resource "aws_security_group_rule" "core_egress_squidnat_https" {
   source_security_group_id = "${module.squidnat.security_group_id}"
 }
 
+# This rule is required for the DVSA AD DNS Servers
+resource "aws_security_group_rule" "core_egress_dns" {
+  type                     = "egress"
+  protocol                 = "udp"
+  from_port                = "53"
+  to_port                  = "53"
+  cidr_blocks              = ["10.166.0.14/32", "10.166.0.28/32", "10.166.0.43/32"]
+  security_group_id        = "${aws_security_group.core.id}"
+}
+
 resource "aws_security_group_rule" "core_egress_squidnat_http" {
   type                     = "egress"
   protocol                 = "tcp"
@@ -51,7 +61,7 @@ resource "aws_security_group_rule" "core_egress_kms" {
 }
 
 
-# Jenkins Node ssh access 
+# Jenkins Node ssh access
 
 resource "aws_security_group_rule" "core_ingress_jenkinsnode_ssh" {
   type                     = "ingress"
@@ -70,4 +80,3 @@ resource "aws_security_group_rule" "core_egress_squidnat_explicit" {
   security_group_id        = "${aws_security_group.core.id}"
   source_security_group_id = "${module.squidnat.security_group_id}"
 }
-
