@@ -16,7 +16,7 @@ module "subnets_rds" {
   ]
 
   route_tables = [
-    "${aws_route_table.test_rds.id}"
+    ["${data.terraform_remote_state.base.private_nonat_route_table_id}"]
   ]
 
   vpc_id = "${data.terraform_remote_state.base.vpc_id}"
