@@ -85,12 +85,3 @@ resource "aws_security_group_rule" "cpc_back_egress_cpc_back_alb" {
   security_group_id        = "${module.cpc-back.security_group_id}"
   source_security_group_id = "${aws_security_group.cpc-back-alb.id}"
 }
-
-resource "aws_security_group_rule" "cpc-ingress-sftpplus-15021" {
-  type                     = "ingress"
-  protocol                 = "tcp"
-  from_port                = "15021"
-  to_port                  = "15021"
-  security_group_id        = "${module.cpc-back.security_group_id}"
-  source_security_group_id = "${data.terraform_remote_state.sftpplusserver.sftpplus_svr-cpc-lb_sg_id}"
-}
