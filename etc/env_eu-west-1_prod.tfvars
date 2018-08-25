@@ -33,6 +33,17 @@ asg_default_tags = [
 ]
 
 ###############################################################################
+# BASE
+###############################################################################
+
+#Monitoring
+prometheus_asg_min_size           = 0
+prometheus_asg_max_size           = 0
+prometheus_instance_type          = "t2.medium"
+prometheus_ami_build_id           = 200
+prometheus_efs_provisioned_mibps  = 5
+
+###############################################################################
 # CTRL
 ###############################################################################
 
@@ -257,6 +268,24 @@ owasp_subnets_cidrs = [
   "10.167.134.224/28",
   "10.167.134.240/28",
   "10.167.135.0/28",
+]
+
+prometheus_subnets_cidrs  = [
+  "10.167.135.16/28",
+  "10.167.135.32/28",
+  "10.167.135.48/28",
+]
+
+prometheus_efs_subnets_cidrs = [
+  "10.167.135.64/28",
+  "10.167.135.80/28",
+  "10.167.135.96/28",
+]
+
+prometheus_alb_private_cidrs = [
+  "10.167.135.112/28",
+  "10.167.135.128/28",
+  "10.167.135.144/28",
 ]
 
 # Environment & Component for Accessing mgmt_prd remote state

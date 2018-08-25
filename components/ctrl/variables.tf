@@ -167,3 +167,60 @@ variable "bastion_elb_subnets_cidrs" {
   description = ""
 }
 
+
+# Grafana
+
+variable "grafana_ami_build_id" {
+  type = "string"
+  description = ""
+}
+
+variable "grafana_asg_max_size" {
+  type = "string"
+  description = ""
+}
+
+variable "grafana_instance_type" {
+  type = "string"
+  description = ""
+}
+
+variable "grafana_asg_min_size" {
+  type = "string"
+  description = ""
+}
+
+variable "grafana_scaleup_desired" {
+  type = "string"
+  description = ""
+}
+
+variable "grafana_scaledown_desired" {
+  type = "string"
+  description = ""
+}
+
+variable "grafana_scaledown_recurrence" {
+  type = "string"
+  description = ""
+}
+
+variable "grafana_scaleup_recurrence" {
+  type = "string"
+  description = ""
+}
+
+variable "grafana_alb_subnets_cidrs" {
+  type        = "list"
+  description = ""
+}
+
+variable "ctrl_grafana_subnets" {
+  type        = "list"
+  description = ""
+}
+
+variable "cert_name" {
+  type = "string"
+  description = "ACM cert name"
+}

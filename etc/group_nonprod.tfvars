@@ -345,6 +345,16 @@ bastion_scaledown_recurrence = "00 19 * * 1-5"
 bastion_scaleup_desired      = 1
 bastion_scaleup_recurrence   = "00 07 * * 1-5"
 
+## Grafana
+grafana_instance_type        = "t2.micro"
+grafana_ami_build_id         = "207"
+grafana_asg_min_size         = 1
+grafana_asg_max_size         = 1
+grafana_scaledown_desired    = 1
+grafana_scaledown_recurrence = "00 19 * * 1-5"
+grafana_scaleup_desired      = 1
+grafana_scaleup_recurrence   = "00 07 * * 1-5"
+
 ##  JMeter
 jmeter_instance_type              = "t2.micro"
 jmeter_asg_size_desired_on_create = 0
@@ -362,6 +372,18 @@ ctrl_bastion_subnets = [
   "10.167.60.112/28",
   "10.167.60.128/28",
   "10.167.60.144/28",
+]
+
+grafana_alb_subnets_cidrs = [
+  "10.167.60.160/28",
+  "10.167.60.176/28",
+  "10.167.60.192/28",
+]
+
+ctrl_grafana_subnets = [
+  "10.167.60.208/28",
+  "10.167.60.224/28",
+  "10.167.60.240/28",
 ]
 
 whitelist = [
