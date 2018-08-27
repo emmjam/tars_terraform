@@ -1,10 +1,11 @@
 # sftplus Server public
 resource "aws_lb" "sftpplus-svr-public" {
   name = "${format(
-    "%s-%s-%s",
+    "%s-%s-%s-%s",
     var.project,
     var.environment,
-    var.component
+    var.component,
+    "public"
   )}"
 
   internal = false
