@@ -7,7 +7,7 @@ resource "aws_lb" "sftpplus-svr-private" {
     var.component
   )}"
 
-  internal = false
+  internal = true
   subnets = ["${module.sftpplus_svr.subnet_ids}"]
   load_balancer_type = "network"
 
