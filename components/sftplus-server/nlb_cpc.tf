@@ -8,8 +8,7 @@ resource "aws_lb" "sftpplus-svr-private" {
   )}"
 
   internal = false
-  security_groups = ["${aws_security_group.sftpplus_svr-cpc-lb.id}"]
-  subnets = ["${data.terraform_remote_state.base.subnets_sftplus_svr}"]
+  subnets = ["${var.cpc_sftp_subnets_cidrs}"]
   load_balancer_type = "network"
 
   tags = "${merge(

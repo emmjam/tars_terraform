@@ -17,7 +17,6 @@ module "sftpplus_svr" {
   lc_user_data     = "${data.template_cloudinit_config.sftpplus_svr.rendered}"
 
   lc_additional_sg_ids = [
-    "${aws_security_group.sftpplus_svr-core.id}",
     "${data.terraform_remote_state.base.core_sg_id}",
   ]
 
