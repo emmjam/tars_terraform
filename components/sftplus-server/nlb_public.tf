@@ -8,8 +8,12 @@ resource "aws_lb" "sftpplus-svr-public" {
   )}"
 
   internal = false
-  subnets = ["${var.cpc_sftp_subnets_cidrs}"]
+  subnets = ["${module.sftpplus_svr.subnet_ids}"]
   load_balancer_type = "network"
+
+  idle_timeout = "300"
+
+  enable_deletion_protection = true
 
   tags = "${merge(
     var.default_tags,
