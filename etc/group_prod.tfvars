@@ -355,6 +355,8 @@ dvsa_dc_whitelist = [
   "172.21.6.179/32",
   "10.100.126.9/32",
   "10.150.36.82/32",
+  "10.14.0.140/32",
+  "10.69.3.11/32",
   "172.21.34.139/32",
   "10.84.202.121/32",
   "10.84.202.120/32",
@@ -387,10 +389,10 @@ dvsa_epo_services = "10.84.192.158/32"
 
 # 3rd party
 avarto_sftp_server = "51.231.12.13/32"
-sweda_samba_server = "10.84.192.105/32"
+sweda_samba_server = "10.69.3.11/32"
 dvla_adli_server = "51.231.10.92/32"
 dvla_elise_server = "51.231.10.81/32"
-rsis_samba_server = "10.150.36.113/32"
+rsis_samba_server = "10.14.0.140/32"
 
 # Capita TARS UAT DB subnets for DMS
 capita_db_subnets = "10.86.192.0/23"
