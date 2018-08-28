@@ -1,17 +1,22 @@
 <powershell>
 #Retrieve the AWS instance ID, keep trying until the metadata is available
+
 $instanceID = "null"
 while ($instanceID -NotLike "i-*") {
   Start-Sleep -s 3
   $instanceID = invoke-restmethod -uri http://169.254.169.254/latest/meta-data/instance-id
 }
 
-$DomainName = "dsa.gsi.gov.uk"
-$BaseOU = "OU=Member Servers,DC=dsa,DC=gsi,DC=gov,DC=uk"
+#Set DNS servers
+$dnslist = (Get-SSMParameterValue -Name AD-DNS-List).Parameters[0].Value
+Set-DnsClientServerAddress -InterfaceAlias Ethernet -ServerAddresses $dnslist
+
+$DomainName = (Get-SSMParameterValue -Name AD-domainName).Parameters[0].Value
+$BaseOU = (Get-SSMParameterValue -Name AD-Base-OU).Parameters[0].Value
 
 # Get AD credentials that are stored in the ssm parameter store
 
-$username =  $DomainName + "\" + (Get-SSMParameterValue -Name AD-domainJoinUserName).Parameters[0].Value
+$username = (Get-SSMParameterValue -Name AD-domainJoinUserName).Parameters[0].Value
 $password = (Get-SSMParameterValue -Name AD-domainpassword -WithDecryption $True).Parameters[0].Value |
                 ConvertTo-SecureString -asPlainText -Force
 
