@@ -1,3 +1,4 @@
+<powershell>
 #Retrieve the AWS instance ID, keep trying until the metadata is available
 $instanceID = "null"
 while ($instanceID -NotLike "i-*") {
@@ -26,3 +27,4 @@ Try {
 Catch{
     Write-Host $_.Exception | Out-File c:\error-joindomain.txt -Append
 }
+</powershell>
