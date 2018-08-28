@@ -16,7 +16,7 @@ $BaseOU = (Get-SSMParameterValue -Name AD-Base-OU).Parameters[0].Value
 
 # Get AD credentials that are stored in the ssm parameter store
 
-$username = (Get-SSMParameterValue -Name AD-domainJoinUserName).Parameters[0].Value
+$username = $DomainName + "\" + (Get-SSMParameterValue -Name AD-domainJoinUserName).Parameters[0].Value
 $password = (Get-SSMParameterValue -Name AD-domainpassword -WithDecryption $True).Parameters[0].Value |
                 ConvertTo-SecureString -asPlainText -Force
 
@@ -24,7 +24,7 @@ $cred = New-Object System.Management.Automation.PSCredential($username,$password
 
 Try {
     #Join-Machine to AD Domain
-    Add-Computer -Domain $DomainName -Credential $cred -OUPath $BaseOU  -ErrorAction 'Stop' -Options "JoinWithNewName"
+    Add-Computer -Domain $DomainName -Credential $cred -OUPath $BaseOU  -ErrorAction 'Stop' -Options "JoinWithNewName, AccountCreate"
 
     Write-Verbose -Message "Succesfully joined domain."
     Restart-Computer
