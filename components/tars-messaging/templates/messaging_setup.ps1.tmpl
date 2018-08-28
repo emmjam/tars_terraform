@@ -9,7 +9,7 @@ while ($instanceID -NotLike "i-*") {
 
 #Set DNS servers
 $dnslist = (Get-SSMParameterValue -Name AD-DNS-List).Parameters[0].Value
-Set-DnsClientServerAddress -InterfaceAlias Ethernet -ServerAddresses $dnslist
+Get-NetAdapter | Set-DnsClientServerAddress -ServerAddresses $dnslist
 
 $DomainName = (Get-SSMParameterValue -Name AD-domainName).Parameters[0].Value
 $BaseOU = (Get-SSMParameterValue -Name AD-Base-OU).Parameters[0].Value
