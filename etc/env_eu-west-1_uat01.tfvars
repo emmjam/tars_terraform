@@ -33,6 +33,17 @@ asg_default_tags = [
 ]
 
 ###############################################################################
+# BASE
+###############################################################################
+
+#Monitoring
+prometheus_asg_min_size           = 0
+prometheus_asg_max_size           = 0
+prometheus_instance_type          = "t2.medium"
+prometheus_ami_build_id           = 200
+prometheus_efs_provisioned_mibps  = 1
+
+###############################################################################
 # CTRL
 ###############################################################################
 
@@ -245,6 +256,23 @@ batch_efs_subnets_cidrs = [
   "10.167.15.80/28",
 ]
 
+prometheus_subnets_cidrs  = [
+  "10.167.15.96/28",
+  "10.167.15.112/28",
+  "10.167.15.128/28",
+]
+
+prometheus_efs_subnets_cidrs = [
+  "10.167.15.144/28",
+  "10.167.15.160/28",
+  "10.167.15.176/28",
+]
+
+prometheus_alb_private_cidrs = [
+  "10.167.15.192/28",
+  "10.167.15.208/28",
+  "10.167.15.224/28",
+]
 
 # Environment & Component for Accessing mgmt_prd remote state
 mgmt_component = "mgmt"

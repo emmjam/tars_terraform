@@ -44,3 +44,7 @@ output "jenkinsctrl_sg_id" {
   value = "${module.jenkinsnode.security_group_id}"
 }
 
+# Grafana
+output "grafana_sg_id" {
+  value = "${module.grafana.security_group_id}"
+}

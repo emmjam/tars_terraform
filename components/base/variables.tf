@@ -288,6 +288,41 @@ variable "jmeter_subnets_cidrs" {
   description = ""
 }
 
+## Prometheus
+
+variable "prometheus_ami_build_id" {
+  type = "string"
+  description = ""
+}
+variable "prometheus_efs_provisioned_mibps" {
+   type        = "string"
+   description = ""
+ }
+variable "prometheus_instance_type" {
+  type = "string"
+  description = ""
+}
+variable "prometheus_asg_max_size" {
+  type = "string"
+  description = ""
+}
+variable "prometheus_asg_min_size" {
+  type = "string"
+  description = ""
+}
+variable "prometheus_subnets_cidrs" {
+  type = "list"
+  description = ""
+}
+variable "prometheus_efs_subnets_cidrs" {
+  type = "list"
+  description = ""
+}
+variable "prometheus_alb_private_cidrs" {
+  type = "list"
+  description = ""
+}
+
 variable "aws_mq_config_description" {
   type = "string"
   description = "AWS MQ config decsription"
@@ -436,4 +471,9 @@ variable "domain_name_servers" {
   type        = "list"
   description = "DHCP Scope options for DNS Servers"
   default = ["AmazonProvidedDNS"]
+}
+
+variable "cert_name" {
+  type = "string"
+  description = "ACM cert name"
 }
