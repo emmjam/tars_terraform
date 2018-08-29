@@ -12,7 +12,7 @@ resource "aws_alb_target_group" "fyndi-f-8080" {
   vpc_id   = "${data.terraform_remote_state.base.vpc_id}"
 
   health_check {
-    path                = "/"
+    path                = "/DSAFindNearestWebApp/findNearest.form"
     timeout             = 5
     interval            = 10
     healthy_threshold   = 3
@@ -35,7 +35,7 @@ resource "aws_alb_target_group" "fyndi-b-8080" {
   vpc_id   = "${data.terraform_remote_state.base.vpc_id}"
 
   health_check {
-    path                = "/"
+    path                = "/DSAFindNearestService/services/findNearest.wsdl"
     timeout             = 5
     interval            = 10
     healthy_threshold   = 3
