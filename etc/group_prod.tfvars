@@ -25,6 +25,7 @@ all_users = [
   "paul.duffy@dvsa.gov.uk",
   "callum.massey@bjss.com",
   "ian.harris@bjss.com",
+  "chris.nappin@bjss.com",
 ]
 
 administrators = [
@@ -38,6 +39,7 @@ administrators = [
   "graham.king@bjss.com",
   "allan.todd@bjss.com",
   "jamie.kelly@bjss.com",
+  "chris.nappin@bjss.com",
 ]
 
 power_users = [
