@@ -3,7 +3,7 @@ resource "aws_alb_listener" "prometheus-http-public" {
   port              = "443"
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-2016-08"
-  certificate_arn   = "${data.aws_acm_certificate.nonprod_tars_dvsacloud_uk.arn}"
+  certificate_arn   = "${data.aws_acm_certificate.prometheus.arn}"
  
   default_action {
     type             = "forward"

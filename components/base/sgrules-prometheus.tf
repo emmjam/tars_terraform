@@ -13,7 +13,7 @@ resource "aws_security_group_rule" "prometheus-private-alb-prometheus" {
   from_port                = 9090
   to_port                  = 9090
   security_group_id        = "${aws_security_group.prometheus.id}"
-  source_security_group_id = "${aws_security_group.prometheus-alb-public.id}"
+  source_security_group_id = "${aws_security_group.prometheus-alb-private.id}"
 }
 
 resource "aws_security_group_rule" "prometheus-egress-core" {
