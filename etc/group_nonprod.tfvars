@@ -49,6 +49,7 @@ administrators = [
   "michael.taylor@bjss.com",
   "sam.smart@bjss.com",
   "jamie.kelly@bjss.com",
+  "chris.nappin@bjss.com"
 ]
 
 power_users = [
