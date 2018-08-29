@@ -1,6 +1,6 @@
 resource "aws_route53_record" "prometheus-public" {
   name = "${format(
-    "%s.%s",
+    "%s-%s",
     "prometheus",
     var.environment,
   )}"
@@ -19,7 +19,7 @@ resource "aws_route53_record" "prometheus-private" {
   name = "${format(
     "%s.%s",
     "prometheus",
-    var.environment,
+    var.component,
   )}"
 
   zone_id = "${aws_route53_zone.vpc.zone_id}"

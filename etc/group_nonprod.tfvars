@@ -363,6 +363,10 @@ jmeter_asg_size_max               = 3
 jmeter_asg_size_min               = 0
 jmeter_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
 
+## Prometheus
+#Due to there being no wildcard cert in prod this is used.
+prometheus_cert_name = "*"
+
 bastion_elb_subnets_cidrs = [
   "10.167.60.64/28",
   "10.167.60.80/28",
