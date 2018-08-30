@@ -7,6 +7,17 @@ data "template_file" "grafana" {
   }
 }
 
+data "template_file" "grafana_config" {
+  template = "${file("${path.module}/templates/grafana_setup.sh.tmpl")}"
+
+  vars {
+    nodetype      = "grafana"
+    environment   = "${var.environment}"
+    aws_account   = "${var.aws_account_id}"
+    aws_region    = "${var.aws_region}"
+  }
+}
+
 data "template_cloudinit_config" "grafana" {
   gzip          = true
   base64_encode = true
@@ -14,5 +25,10 @@ data "template_cloudinit_config" "grafana" {
   part {
     content_type = "text/cloud-config"
     content      = "${data.template_file.grafana.rendered}"
+  }
+
+  part {
+    content_type = "text/x-shellscript"
+    content      = "${data.template_file.grafana_config.rendered}"
   }
 }
