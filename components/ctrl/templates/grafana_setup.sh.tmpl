@@ -4,23 +4,9 @@ function log() {
   echo "[$(date)]$1" | tee -a /var/log/${nodetype}_cloudinit.log
 }
 
-log '[INFO] Configuring prometheus EFS'
-
-# Ensure the directory exists
-mkdir -p ${mount_point};
-
-# This is shamelessley borrowed/stolen from Mr Peachey
-# Set mount information in /etc/fstab - we're unlikely to reboot, but it can't hurt to ensure it remains
-echo "${efs_id}.efs.${aws_region}.amazonaws.com:/ ${mount_point} nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab
-
-# Mount the configured target for Prometheus
-mount /var/lib/prometheus;
-
 # Puppet will restart the prometheus service
 
 log '[INFO] Running puppet to configure environment'
-
-sed -E -i "s/'[a-z0-9]{8}\-[a-z0-9]{4}\-[a-z0-9]{4}\-[a-f0-9]{4}\-[a-z0-9]{12}'/'${kms_key}'/g" /etc/eyaml/config.yaml
 
 cd /tmp/packer-puppet-masterless
 export FACTER_environment='${environment}'
