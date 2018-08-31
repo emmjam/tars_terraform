@@ -25,6 +25,15 @@ resource "aws_security_group_rule" "cpc-front-ingress-cpc-front-dvsa-alb-8443" {
   source_security_group_id = "${aws_security_group.cpc-front-dvsa-alb.id}"
 }
 
+resource "aws_security_group_rule" "cpc-front-ingress-cpc-front-dvsa-internet-alb-8443" {
+  type                     = "ingress"
+  protocol                 = "tcp"
+  from_port                = "8443"
+  to_port                  = "8443"
+  security_group_id        = "${module.cpc-front.security_group_id}"
+  source_security_group_id = "${aws_security_group.cpc-front-dvsa-internet-alb.id}"
+}
+
 resource "aws_security_group_rule" "cpc-front-egress-cpc-back-alb-8080" {
   type                     = "egress"
   protocol                 = "tcp"

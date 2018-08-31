@@ -16,8 +16,9 @@ module "cpc-front" {
   lc_instance_type = "${var.cpc-front_instance_type}"
   lc_user_data     = "${data.template_cloudinit_config.cpc-front.rendered}"
 
-  asg_target_group_arns = [ 
+  asg_target_group_arns = [
 	"${aws_alb_target_group.cpc-front-dvsa-8443.id}",
+	"${aws_alb_target_group.cpc-front-dvsa-internet-8443.id}",
 	"${aws_alb_target_group.cpc-front-dva-7443.id}",
 	"${aws_alb_target_group.cpc-front-internet-9443.id}",
 	]
