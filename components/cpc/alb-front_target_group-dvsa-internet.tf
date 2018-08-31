@@ -5,7 +5,7 @@ resource "aws_alb_target_group" "cpc-front-dvsa-internet-8443" {
     var.project,
     var.environment,
     var.component,
-    "dvsa-internet-8443"
+    "dvsa-inet-8443"
   )}"
   port     = "8443"
   protocol = "HTTPS"
