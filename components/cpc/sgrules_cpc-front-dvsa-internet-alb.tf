@@ -8,7 +8,7 @@ resource "aws_security_group_rule" "cpc-front-alb_ingress_dvsa-internet-443" {
   cidr_blocks              = ["${var.whitelist}"]
 }
 
-resource "aws_security_group_rule" "cpc-front-alb_egress_cpc-front-8443" {
+resource "aws_security_group_rule" "cpc-front-alb_egress_cpc-front-dvsa-internet-8443" {
   type                     = "egress"
   protocol                 = "tcp"
   from_port                = "8443"
