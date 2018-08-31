@@ -8,11 +8,11 @@ resource "aws_alb" "cpc-front-dvsa-internet" {
     "dvsa-internet"
   )}"
 
-  internal = true
+  internal = false
 
   security_groups = ["${aws_security_group.cpc-front-dvsa-internet-alb.id}"]
 
-  subnets = ["${module.cpc-front.subnet_ids}"]
+  subnets = ["${data.terraform_remote_state.base.subnets_alb_public}"]
 
   tags = "${merge(
     var.default_tags,
