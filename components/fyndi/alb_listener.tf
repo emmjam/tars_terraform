@@ -14,10 +14,8 @@ resource "aws_alb_listener" "fyndi-f-8080" {
 
 resource "aws_alb_listener" "fyndi-b-8080" {
   load_balancer_arn = "${aws_alb.fyndi-b.arn}"
-  port              = "443"
-  protocol          = "HTTPS"
-  ssl_policy        = "ELBSecurityPolicy-2016-08"
-  certificate_arn   = "${data.aws_acm_certificate.nonprod_tars_dvsacloud_uk.arn}"
+  port              = "8080"
+  protocol          = "HTTP"
 
   default_action {
     type             = "forward"
