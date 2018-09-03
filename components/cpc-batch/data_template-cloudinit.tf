@@ -14,7 +14,7 @@ data "template_file" "cpc-batch" {
 
   # Set puppet factors
   vars {
-    env    = "${var.environment}"
+    environment    = "${var.environment}"
     nodetype   = "${var.cpc-batch_puppet_nodetype}"
     aws_account_id = "${var.aws_account_id}"
     kms_key = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
