@@ -13,7 +13,7 @@ resource "aws_alb_target_group" "tars-frontend-8443" {
   vpc_id   = "${data.terraform_remote_state.base.vpc_id}"
 
   health_check {
-    path                = "/"
+    path                = "/DSAWeb/health_check.jsp"
     protocol            = "HTTPS"
     timeout             = 5
     interval            = 10
@@ -44,7 +44,7 @@ resource "aws_alb_target_group" "irdt-frontend-7443" {
   vpc_id   = "${data.terraform_remote_state.base.vpc_id}"
 
   health_check {
-    path                = "/"
+    path                = "/DSAWeb/health_check.jsp"
     protocol            = "HTTPS"
     timeout             = 5
     interval            = 10
