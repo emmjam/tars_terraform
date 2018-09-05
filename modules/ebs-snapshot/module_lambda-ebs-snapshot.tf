@@ -1,5 +1,5 @@
-module "lambda_ebs_snapshots" {
-  source      = "lambda"
+module "lambda_ebs_snapshot" {
+  source      = "../lambda-ebs-snapshot"
   name        = "${var.snapshot_name}"
   project     = "${var.project}"
   environment = "${var.environment}"
@@ -7,6 +7,7 @@ module "lambda_ebs_snapshots" {
 
   s3_bucket              = "${var.snapshot_s3_bucket}"
   s3_key                 = "${var.snapshot_s3_key}"
+
   publish                = "${var.publish}"
   memory_size            = "${var.memory_size}"
   timeout                = "${var.timeout}"
@@ -15,23 +16,12 @@ module "lambda_ebs_snapshots" {
   runtime = "python2.7"
   handler = "ebs_snapshot_lambda.lambda_handler"
 
-  principal_service  = "events"
+  principal_service  = "events.amazonaws.com"
   invoker_source_arn = "${aws_cloudwatch_event_rule.ebs_snapshot.arn}"
 
   env_variables = {
-    aws_region = "${var.aws_region}"
-    volume_ids = "${join(",", var.volume_ids)}"
+    aws_region   = "${var.aws_region}"
+    node_types   = "${join(",", var.node_types)}"
+    environments = "${join(",", var.environments)}"
   }
-}
-
-data "archive_file" "snapshot_lambda" {
-  type        = "zip"
-  source_file = "${path.module}/functions/ebs_snapshot_lambda.py"
-  output_path = "${path.module}/artefacts/snapshot_lambda.zip"
-}
-
-resource "aws_s3_bucket_object" "snapshot_lambda" {
-  bucket = "${var.snapshot_s3_bucket}"
-  key    = "${var.snapshot_s3_key}"
-  source = "${path.module}/artefacts/snapshot_lambda.zip"
 }

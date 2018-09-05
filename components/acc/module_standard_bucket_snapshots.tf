@@ -7,7 +7,7 @@ module "snapshots_bucket" {
     "%s-%s-%s-%s-%s-%s",
     var.project,
     var.aws_account_id,
-    data.aws_region.current.name,
+    var.aws_region,
     var.environment,
     var.component,
     "snapshots"
@@ -20,7 +20,7 @@ module "snapshots_bucket" {
         "%s-%s-%s-%s-%s-%s-logs",
         var.project,
         var.aws_account_id,
-        data.aws_region.current.name,
+        var.aws_region,
         var.environment,
         var.component,
         "snapshots" 

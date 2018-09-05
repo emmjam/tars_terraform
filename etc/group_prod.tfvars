@@ -511,3 +511,43 @@ tars_dms_multi_az = false
 tars_dms_maint_window = "sun:03:16-sun:03:46"
 tars_dms_publicly_accessible = false
 tars_dms_replication_instance_class = "dms.t2.micro"
+
+##
+# EBS Snapshot and Cleanup
+##
+
+# EBS Snapshot - runs every Sun - Sat at 1.00 AM 
+
+ebs_snapshot = {
+  is_enabled                       = true
+  snapshot_s3_key                  = "ebs-snapshot-artefacts/lambda_ebs_snapshot.zip"
+  memory_size                      = 128
+  timeout                          = 60
+  publish                          = true
+  cloudwatch_log_retention_in_days = 14
+  cw_rule_schedule_expression      = "cron(00 01 ? * 1-7 *)"
+  cw_metric_log_error_pattern      = "\"[ERROR]\" \"Snapshot backup Lambda failed\""
+  cw_alarm_namespace               = "ebs-snapshot-lambda"
+}
+
+ebs_snapshot_node_types   = ["jenkinsnode","jmeter","prometheus","squidnat","cpc-back","cpc-front","fyndi-front","fyndi-back","ibs","obs","grafana","bastion"]
+ebs_snapshot_environments = ["prod"]
+
+# EBS Snapshot Cleanup - runs every Sun - Sat at 3.00 AM 
+
+ebs_snapshot_cleanup = {
+  is_enabled                       = true
+  cleanup_s3_key                   = "ebs-snapshot-cleanup-artefacts/lambda_ebs_snapshot_cleanup.zip"
+  memory_size                      = 128
+  timeout                          = 120
+  publish                          = true
+  cloudwatch_log_retention_in_days = 14
+  cw_rule_schedule_expression      = "cron(00 03 ? * 1-7 *)"
+  cw_metric_log_error_pattern      = "\"[ERROR]\" \"Snapshot Cleanup Lambda failed\""
+  cw_alarm_namespace               = "ebs-snapshot-cleanup-lambda"
+  min_num_of_snapshots_to_retain   = 7
+  min_retention_days               = 7
+}
+
+
+

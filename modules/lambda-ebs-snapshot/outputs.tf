@@ -18,10 +18,6 @@ output "version" {
   value = "${aws_lambda_function.main.version}"
 }
 
-output "alias_name" {
-  value = "${aws_lambda_alias.main.name}"
-}
-
 output "role_name" {
   value = "${aws_iam_role.main.name}"
 }

@@ -3,6 +3,6 @@ resource "aws_lambda_permission" "allow_invoke" {
   function_name = "${aws_lambda_function.main.function_name}"
   statement_id  = "AllowInvokeFunction"
   action        = "lambda:InvokeFunction"
-  principal     = "${var.principal_service}.amazonaws.com"
+  principal     = "${var.principal_service}"
   source_arn    = "${var.invoker_source_arn}"
 }
