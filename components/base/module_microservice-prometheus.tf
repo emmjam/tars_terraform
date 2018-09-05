@@ -27,5 +27,8 @@ module "prometheus" {
   asg_size_desired_on_create = "${var.prometheus_asg_min_size}"
   asg_size_max               = "${var.prometheus_asg_max_size}"
 
-  default_tags = "${var.default_tags}"
+  default_tags      = "${var.default_tags}"
+  asg_default_tags  = [
+    "${var.asg_default_tags}",
+  ]
 }

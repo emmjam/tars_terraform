@@ -22,5 +22,8 @@ module "jenkinsnode" {
   asg_size_desired_on_create = "${var.jenkinsnode_asg_min_size}"
   asg_size_max               = "${var.jenkinsnode_asg_max_size}"
 
-  default_tags = "${var.default_tags}"
+  default_tags      = "${var.default_tags}"
+  asg_default_tags  = [
+    "${var.asg_default_tags}",
+  ]
 }

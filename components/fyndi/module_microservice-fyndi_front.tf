@@ -28,5 +28,8 @@ module "fyndi-f" {
   asg_size_max               = "${var.fyndi-f_asg_max_size}"
   asg_load_balancers         = []
 
-  default_tags = "${var.default_tags}"
+  default_tags      = "${var.default_tags}"
+  asg_default_tags  = [
+    "${var.asg_default_tags}",
+  ]
 }

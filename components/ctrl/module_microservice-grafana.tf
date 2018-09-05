@@ -25,5 +25,8 @@ module "grafana" {
     "${aws_alb_target_group.grafana-80.id}",
   ]
 
-  default_tags = "${var.default_tags}"
+  default_tags      = "${var.default_tags}"
+  asg_default_tags  = [
+    "${var.asg_default_tags}",
+  ]
 }
