@@ -12,7 +12,7 @@ resource "aws_alb_target_group" "tars-backend-8080" {
   vpc_id   = "${data.terraform_remote_state.base.vpc_id}"
 
   health_check {
-    path                = "/"
+    path                = "/DSAAuthenticationcationJWSService?wsdl"
     timeout             = 5
     interval            = 10
     healthy_threshold   = 3
