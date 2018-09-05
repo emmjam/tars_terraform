@@ -11,3 +11,6 @@ output "cpc-db-sg-id" {
   value = "${aws_security_group.cpc-db.id}"
 }
 
+output "cpc-back-sg-id" {
+  value = "${module.cpc-back.security_group_id}"
+}
