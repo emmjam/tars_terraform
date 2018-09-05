@@ -14,6 +14,23 @@ default_tags = {
   Environment = "nonprod"
 }
 
+asg_default_tags = [
+  {
+    "key"                 = "Project"
+    "value"               = "tars"
+    "propagate_at_launch" = "true"
+  },
+  {
+    "key"                 = "Environment"
+    "value"               = "nonprod"
+    "propagate_at_launch" = "true"
+  },
+  {
+    "key"                 = "Group"
+    "value"               = "nonprod"
+    "propagate_at_launch" = "true"
+  }
+]
 
 cwles_curator_max_age = "30"
 

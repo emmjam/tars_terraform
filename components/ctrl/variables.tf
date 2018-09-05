@@ -33,6 +33,12 @@ variable "default_tags" {
   }
 }
 
+variable "asg_default_tags" {
+  type        = "list"
+  description = "See code comments"
+  default     = []
+}
+
 variable "tf_state_bucket_prefix" {
   type        = "string"
   description = ""
