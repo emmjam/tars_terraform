@@ -12,7 +12,7 @@ resource "aws_alb_target_group" "cpc-front-dvsa-internet-8443" {
   vpc_id   = "${data.terraform_remote_state.base.vpc_id}"
 
   health_check {
-    path                = "/"
+    path                = "/cpctrain/ping"
     protocol            = "HTTPS"
     timeout             = 5
     interval            = 10
