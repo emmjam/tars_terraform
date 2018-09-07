@@ -113,7 +113,7 @@ ops_team_email = "mark.thompson@bjss.com"
 
 ebs_snapshot = {
   is_enabled                       = true
-  snapshot_s3_key                  = "ebs-snapshot-artefacts/lambda_ebs_snapshot.zip"
+  snapshot_s3_key                  = "lambda/lambda_ebs_snapshot.zip"
   memory_size                      = 128
   timeout                          = 60
   publish                          = true
@@ -130,7 +130,7 @@ ebs_snapshot_environments = ["mgmt"]
 
 ebs_snapshot_cleanup = {
   is_enabled                       = true
-  cleanup_s3_key                   = "ebs-snapshot-cleanup-artefacts/lambda_ebs_snapshot_cleanup.zip"
+  cleanup_s3_key                   = "lambda/lambda_ebs_snapshot_cleanup.zip"
   memory_size                      = 128
   timeout                          = 120
   publish                          = true
