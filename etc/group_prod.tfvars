@@ -520,7 +520,7 @@ tars_dms_replication_instance_class = "dms.t2.micro"
 
 ebs_snapshot = {
   is_enabled                       = true
-  snapshot_s3_key                  = "ebs-snapshot-artefacts/lambda_ebs_snapshot.zip"
+  snapshot_s3_key                  = "lambda/lambda_ebs_snapshot.zip"
   memory_size                      = 128
   timeout                          = 60
   publish                          = true
@@ -537,7 +537,7 @@ ebs_snapshot_environments = ["prod"]
 
 ebs_snapshot_cleanup = {
   is_enabled                       = true
-  cleanup_s3_key                   = "ebs-snapshot-cleanup-artefacts/lambda_ebs_snapshot_cleanup.zip"
+  cleanup_s3_key                   = "lambda/lambda_ebs_snapshot_cleanup.zip"
   memory_size                      = 128
   timeout                          = 120
   publish                          = true
