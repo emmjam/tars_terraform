@@ -37,6 +37,9 @@ resource "aws_db_instance" "rsisdb" {
   license_model           = "${var.rsis_rds_license_model}"
   snapshot_identifier     = "${var.rsis_rds_snapshot}"
   option_group_name       = "${aws_db_option_group.tars_rsis_timezone.id}"
+  timeouts {
+    update = "6h"
+  }
 
   vpc_security_group_ids = [
     "${aws_security_group.tars-rsis-db.id}",
