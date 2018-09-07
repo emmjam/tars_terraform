@@ -170,3 +170,110 @@ variable "dvsa_ro_users" {
   description = "List of read-only IAM Users for the DVSA IMS, that have Read Only access"
   default     = []
 }
+##
+#  EBS Snapshot Backup and Cleanup
+##
+
+# EBS Snapshot
+variable "ebs_snapshot" {
+  type        = "map"
+  description = "Map of variables for configuring the EBS snapshot Lambda and associated resources"
+  default     = {}
+}
+
+variable "ebs_snapshot_node_types" {
+  type        = "list"
+  description = "List of nodetypes to backup"
+  default     = []
+}
+
+variable "ebs_snapshot_environments" {
+  type        = "list"
+  description = "List of environments in which ebs_snapshot_node_types will be backedup"
+  default     = []
+}
+
+# EBS Snapshot Cleanup
+variable "ebs_snapshot_cleanup" {
+  type        = "map"
+  description = "Map of variables for configuring the EBS snapshot cleanup Lambda and associated resources"
+  default     = {}
+}
+
+##
+# SNS Alert Integration
+##
+
+variable "alerts_sns_topic_external_subscribers" {
+  type        = "list"
+  description = "A list of maps of subscriptions to create to the alerts sns topic. Maps contain protocol and endpoint. Only for external subscribers that are not terraform-defined or data-source supported"
+  default     = []
+}
+
+# Lambda Cloudwatch Slack
+##
+
+variable "lambda_cloudwatch_slack_config" {
+  type        = "map"
+  description = "Map of config information for Lambda Cloudwatch Slack"
+  default     = {}
+}
+
+## Mgmt
+
+variable "mgmt_component" {
+  type = "string"
+  description = ""
+}
+
+variable "mgmt_vpc_cidr_block" {
+  type = "string"
+  description = "CIDR Block range of MGMT account/comp"
+}
+
+variable "mgmt_jenkins_elb_subnet" {
+  type = "string"
+  description = "Jenkins Master subnet"
+}
+
+variable "mgmt_vpc_id" {
+  type = "string"
+  description = "MGMT account vpc cidr"
+}
+
+variable "mgmt_gitlab_subnet" {
+  type = "string"
+  description = "MGMT gitlab subent cidr"
+}
+
+variable "mgmt_aws_region" {
+  type = "string"
+  description = ""
+}
+
+variable "mgmt_aws_account_id" {
+  type = "string"
+  description = ""
+}
+
+variable "mgmt_project" {
+  type = "string"
+  description = ""
+}
+
+variable "mgmt_environment" {
+  type = "string"
+  description = ""
+}
+
+variable "account_component_name" {
+  type        = "string"
+  description = "The name of the account-level component as used in remote state"
+  default     = "acc"
+}
+
+variable "account_environment" {
+  type        = "string"
+  description = "The environment name for the account level scope for the account in which this component is deployed"
+}
+

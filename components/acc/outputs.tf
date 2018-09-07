@@ -74,3 +74,19 @@ output "cwles_cloudtrail_arn" {
 output "DVSA-EC2-Read-Role-role-arn" {
   value = "${aws_iam_role.DVSA-EC2-Read-Role.arn}"
 }
+
+##
+# S3 Bucket Platform Lambda artefacts
+##
+
+output "snapshots_lambda_s3_bucket_id" {
+  value = "${module.snapshots_bucket.id}"
+}
+
+output "snapshots_lambda_s3_bucket_arn" {
+  value = "${module.snapshots_bucket.arn}"
+}
+
+output "snapshots_lambda_s3_bucket_domain_name" {
+  value = "${module.snapshots_bucket.bucket_domain_name}"
+}

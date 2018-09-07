@@ -4,7 +4,8 @@ data "aws_iam_policy_document" "create_ebs_snapshot" {
     sid    = "AllowCreateSnapshots"
 
     actions = [
-      "ec2:Describe*",
+      "ec2:DescribeInstances",
+      "ec2:DescribeVolumes",
       "ec2:CreateSnapshot",
       "ec2:CreateTags",
       "ec2:DescribeTags",
@@ -22,7 +23,7 @@ data "aws_iam_policy_document" "delete_ebs_snapshot" {
     sid    = "AllowDeleteSnapshots"
 
     actions = [
-      "ec2:Describe*",
+      "ec2:DescribeSnapshots",
       "ec2:DeleteSnapshot",
     ]
 
