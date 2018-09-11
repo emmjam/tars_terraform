@@ -21,6 +21,12 @@ resource "aws_alb_target_group" "cpc-front-dvsa-8443" {
     matcher             = 200
   }
 
+  stickiness {
+    type = "lb_cookie"
+    enabled = true
+  }
+
+
 }
 
 resource "aws_autoscaling_attachment" "cpc-front-dvsa-8443" {

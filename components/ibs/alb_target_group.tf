@@ -20,5 +20,11 @@ resource "aws_alb_target_group" "ibs-8080" {
     matcher             = 200
   }
 
+  stickiness {
+    type = "lb_cookie"
+    enabled = true
+  }
+
+
 }
 
