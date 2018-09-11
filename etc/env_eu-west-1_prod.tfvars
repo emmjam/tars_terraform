@@ -313,7 +313,7 @@ tars_rds_snapshot = "tarsuat-050418"
 # MISDB
 mis_rds_username = "misuatadmin"
 mis_rds_password = "BaLhNU73XCpFCNXP"
-mis_rds_allocated_storage = "300"
+mis_rds_allocated_storage = "500"
 mis_rds_snapshot = "arn:aws:rds:eu-west-1:652856684323:snapshot:misuat01-20180720"
 mis_rds_autoscale = "False"
 
