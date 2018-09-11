@@ -548,3 +548,13 @@ domain_name_servers = [
   "10.166.0.28",
   "10.166.0.43",
 ]
+
+# Incapsula
+
+#These temporarily point to the public records for Incapsula to collect.
+#They will be replaced with incapsula domains
+fyndi_incapsula = "fyndi-prod-public.prod.tars.dvsacloud.uk"
+ibs_incapsula   = "ibs-prod-public.prod.tars.dvsacloud.uk"
+obs_incapsula   = "obs-prod-public.prod.tars.dvsacloud.uk"
+irdt_incapsula  = "tars-prod-public.prod.tars.dvsacloud.uk"
+
