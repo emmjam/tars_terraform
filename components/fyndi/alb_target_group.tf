@@ -20,6 +20,12 @@ resource "aws_alb_target_group" "fyndi-f-8080" {
     matcher             = 200
   }
 
+  stickiness {
+    type = "lb_cookie"
+    enabled = true
+  }
+
+
 }
 
 resource "aws_alb_target_group" "fyndi-b-8080" {

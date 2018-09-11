@@ -21,5 +21,11 @@ resource "aws_alb_target_group" "cpc-front-dva-7443" {
     matcher             = 200
   }
 
+  stickiness {
+    type = "lb_cookie"
+    enabled = true
+  }
+
+
 }
 
