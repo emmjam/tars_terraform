@@ -550,11 +550,8 @@ domain_name_servers = [
 ]
 
 # Incapsula
-
-#These temporarily point to the public records for Incapsula to collect.
-#They will be replaced with incapsula domains
-fyndi_incapsula = "fyndi-prod-public.prod.tars.dvsacloud.uk"
-ibs_incapsula   = "ibs-prod-public.prod.tars.dvsacloud.uk"
-obs_incapsula   = "obs-prod-public.prod.tars.dvsacloud.uk"
-irdt_incapsula  = "tars-prod-public.prod.tars.dvsacloud.uk"
+fyndi_incapsula = "anskt9w.x.incapdns.net"
+ibs_incapsula   = "5cdgrpe.x.incapdns.net"
+obs_incapsula   = "zv9vwoz.x.incapdns.net"
+irdt_incapsula  = "zi5ckxk.x.incapdns.net"
 
