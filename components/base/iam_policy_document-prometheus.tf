@@ -6,6 +6,7 @@ data "aws_iam_policy_document" "prometheus" {
     actions = [
       "cloudwatch:GetMetricStatistics",
       "cloudwatch:ListMetrics",
+      "ec2:DescribeInstances"
     ]
 
     resources = [
