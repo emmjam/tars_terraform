@@ -111,7 +111,7 @@ output "iam_policy_cloudwatch_arn" {
 }
 
 output "subnets_ibs_db" {
-  value = "${module.subnets_rds.subnet_ids}"
+  value = "${module.subnets_ibs_rds.subnet_ids}"
 }
 
 output "igw" {
