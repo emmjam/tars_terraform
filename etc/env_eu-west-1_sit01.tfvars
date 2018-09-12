@@ -326,7 +326,7 @@ ibs_rds_username = "ibsuatadmin"
 
 ibs_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 
-ibs_rds_snapshot = "sit01-ibsdb-with-users-and-geo-data"
+ibs_rds_snapshot = "sit01-ibs-subnet-move"
 
 # MISDB
 mis_rds_username = "missitadmin"

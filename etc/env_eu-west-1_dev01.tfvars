@@ -318,7 +318,7 @@ ibs_rds_username = "ibsdevadmin"
 
 ibs_rds_password = "password"
 
-ibs_rds_snapshot = "dev01-ibsdb-with-users-and-geo-data"
+ibs_rds_snapshot = "dev01-ibs-subnet-move"
 
 # MISDB
 mis_rds_username = "misdevadmin"
