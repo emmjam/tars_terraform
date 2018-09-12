@@ -16,6 +16,7 @@ resource "aws_autoscaling_group" "tars-mock" {
   target_group_arns    = [
     "${aws_alb_target_group.tars-mock-8080.arn}",
     "${aws_alb_target_group.tars-mock-8443.arn}",
+    "${aws_lb_target_group.mock-nlb.arn}",
     ]
   enabled_metrics      = ["${var.asg_enabled_metrics}"]
 
