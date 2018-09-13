@@ -26,6 +26,7 @@ module "jenkins" {
   jenkins_blue_nodes_number = "${var.jenkins_blue_nodes_number}"
   jenkins_blue_version      = "${var.jenkins_blue_version}"
   jenkins_blue_subnet_cidrs = ["${var.jenkins_blue_subnets_cidrs}"]
+  jenkins_target_group      = [ "${aws_alb_target_group.jenkins.arn}" ]
 
   default_tags = "${var.default_tags}"
 }
