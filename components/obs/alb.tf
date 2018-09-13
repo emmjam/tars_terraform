@@ -10,6 +10,12 @@ resource "aws_alb" "obs" {
 
   internal = false
 
+  access_logs {
+    bucket  = "${module.access_logs_bucket.id}"
+    prefix  = "public"
+    enabled = true
+  }
+
   security_groups = ["${aws_security_group.obs-alb.id}"]
 
   subnets = ["${data.terraform_remote_state.base.subnets_alb_public}"]

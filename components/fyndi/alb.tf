@@ -10,6 +10,12 @@ resource "aws_alb" "fyndi-f" {
 
   internal = false
 
+  access_logs {
+    bucket  = "${module.access_logs_bucket.id}"
+    prefix  = "front"
+    enabled = true
+  }
+
   security_groups = ["${aws_security_group.fyndi-f-alb.id}"]
 
   subnets = ["${data.terraform_remote_state.base.subnets_alb_public}"]
@@ -38,6 +44,12 @@ resource "aws_alb" "fyndi-b" {
   )}"
 
   internal = true
+
+  access_logs {
+    bucket  = "${module.access_logs_bucket.id}"
+    prefix  = "back"
+    enabled = true
+  }
 
   security_groups = ["${aws_security_group.fyndi-b-alb.id}"]
 
