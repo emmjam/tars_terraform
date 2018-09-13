@@ -16,7 +16,10 @@ module "fyndi-f" {
   lc_instance_type = "${var.fyndi-f_instance_type}"
   lc_user_data     = "${data.template_cloudinit_config.fyndi-f.rendered}"
 
-  asg_target_group_arns = [ "${aws_alb_target_group.fyndi-f-8080.id}" ]
+  asg_target_group_arns = [ 
+    "${aws_alb_target_group.fyndi-f-8080.id}",
+    "${aws_alb_target_group.fyndi-internal-8080.id}",
+  ]
 
   lc_additional_sg_ids = [
     "${aws_security_group.fyndi-f.id}",
