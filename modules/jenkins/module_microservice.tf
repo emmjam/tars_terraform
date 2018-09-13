@@ -26,6 +26,7 @@ module "jenkins_blue" {
   asg_size_desired_on_create = "${var.jenkins_blue_nodes_number}"
   asg_size_max               = 1
   asg_load_balancers         = ["${var.jenkins_bg_active == "blue" ? aws_elb.jenkins.name : "" }"]
+  asg_target_group_arns      = ["${var.jenkins_target_group}"]
 
   default_tags = "${var.default_tags}"
 }

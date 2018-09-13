@@ -115,6 +115,12 @@ variable "jenkins_green_version" {
   default     = "latest"
 }
 
+variable "jenkins_target_group" {
+  type        = "list"
+  description = ""
+  default     = []
+}
+
 variable "private_route_table_ids" {
   type        = "list"
   description = "A list of private route tables ids for subnets association"
