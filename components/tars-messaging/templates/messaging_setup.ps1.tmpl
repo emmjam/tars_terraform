@@ -33,4 +33,9 @@ Try {
     Restart-Computer
 }
 
+Catch{
+    Write-Host $_.Exception | Out-File c:\error-joindomain.txt -Append
+}
+
+
 </powershell>
