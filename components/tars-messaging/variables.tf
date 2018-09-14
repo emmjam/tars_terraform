@@ -157,3 +157,8 @@ variable "cert_name" {
   type = "string"
   description = "ACM cert name"
 }
+
+variable "search_suffix" {
+  type = "string"
+  description = "Environment Search Suffix"
+}
