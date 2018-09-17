@@ -53,7 +53,7 @@ resource "aws_security_group_rule" "tars_cpc_backend_ingress_tars_frontend_port_
   to_port                  = 8080
   protocol                 = "tcp"
   security_group_id        = "${aws_security_group.cpc-back-alb.id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-frontend.id}"
+  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-frontend-sg-id}"
 }
 
 resource "aws_security_group_rule" "tars_core_frontend_egress_cpc_backend_port_8080" {
@@ -62,7 +62,7 @@ resource "aws_security_group_rule" "tars_core_frontend_egress_cpc_backend_port_8
   from_port                = 8080
   to_port                  = 8080
   protocol                 = "tcp"
-  security_group_id        = "${data.terraform_remote_state.tars-core.tars-core-frontend.id}"
+  security_group_id        = "${data.terraform_remote_state.tars-core.tars-core-frontend-sg-id}"
   source_security_group_id = "${aws_security_group.cpc-back-alb.id}"
 }
 
