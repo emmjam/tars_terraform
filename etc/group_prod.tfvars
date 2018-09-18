@@ -28,6 +28,7 @@ all_users = [
   "chris.nappin@bjss.com",
   "andrew.lai@bjss.com",
   "dan.webb@bjss.com",
+  "saul.kashani@bjss.com",
 ]
 
 administrators = [
@@ -44,6 +45,7 @@ administrators = [
   "chris.nappin@bjss.com",
   "andrew.lai@bjss.com",
   "dan.webb@bjss.com",
+  "saul.kashani@bjss.com",
 ]
 
 power_users = [
