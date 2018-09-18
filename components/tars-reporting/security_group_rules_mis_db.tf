@@ -73,3 +73,23 @@ resource "aws_security_group_rule" "oracle_db_ingress_mis_rds" {
   source_security_group_id = "${aws_security_group.tars-mis-db.id}"
 }
 
+# MIS to tars backend for PAN encryption
+resource "aws_security_group_rule" "oracle_mis_egress_tars_backend" {
+  description              = "Allow TCP/8080 from MISDB to TARS BACKEND"
+  type                     = "egress"
+  from_port                = "8080"
+  to_port                  = "8080"
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.tars-mis-db.id}"
+  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-backend-alb-sg-id}"
+}
+
+resource "aws_security_group_rule" "tars_backend_ingress_oracle_mis" {
+  description              = "Allow TCP/8080 from MISDB to TARS BACKEND"
+  type                     = "ingress"
+  from_port                = "8080"
+  to_port                  = "8080"
+  protocol                 = "tcp"
+  security_group_id        = "${data.terraform_remote_state.tars-core.tars-core-backend-alb-sg-id}"
+  source_security_group_id = "${aws_security_group.tars-mis-db.id}"
+}
