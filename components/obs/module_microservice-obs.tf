@@ -10,7 +10,7 @@ module "obs" {
   availability_zones = "${data.aws_availability_zones.available.names}"
 
   subnets_cidrs                   = "${var.obs_subnets_cidrs}"
-  subnets_route_tables            = ["${data.terraform_remote_state.base.private_nonat_route_table_id}"]
+  subnets_route_tables            = ["${data.terraform_remote_state.base.private_nat_route_table_id}"]
 
   lc_ami_id        = "${data.aws_ami.obs.image_id}"
   lc_instance_type = "${var.obs_instance_type}"
