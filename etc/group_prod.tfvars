@@ -26,6 +26,8 @@ all_users = [
   "callum.massey@bjss.com",
   "ian.harris@bjss.com",
   "chris.nappin@bjss.com",
+  "andrew.lai@bjss.com",
+  "dan.webb@bjss.com",
 ]
 
 administrators = [
@@ -40,6 +42,8 @@ administrators = [
   "allan.todd@bjss.com",
   "jamie.kelly@bjss.com",
   "chris.nappin@bjss.com",
+  "andrew.lai@bjss.com",
+  "dan.webb@bjss.com",
 ]
 
 power_users = [
