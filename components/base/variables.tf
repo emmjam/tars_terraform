@@ -19,6 +19,11 @@ variable "component" {
   default     = "base"
 }
 
+variable "puppet_environment" {
+  type        = "string"
+  description = "Environment for puppet on boot"
+}
+
 variable "asg_default_tags" {
   type = "list"
 }

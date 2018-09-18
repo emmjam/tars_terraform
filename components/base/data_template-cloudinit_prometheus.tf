@@ -12,7 +12,7 @@ data "template_file" "prometheus_config" {
 
   vars {
     nodetype      = "prometheus"
-    environment   = "${var.environment}"
+    environment   = "${var.puppet_environment}"
     kms_key       = "${var.jmeter_puppet_kms_key}"
     aws_account   = "${var.aws_account_id}"
     aws_region    = "${var.aws_region}"

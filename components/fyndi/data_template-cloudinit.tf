@@ -23,7 +23,7 @@ data "template_file" "fyndi-f" {
 
   # Set puppet factors
   vars {
-    environment    = "${var.environment}"
+    environment    = "${var.puppet_environment}"
     nodetype   = "${var.fyndi-f_puppet_nodetype}"
     kms_key = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
     aws_account_id = "${var.aws_account_id}"
@@ -35,7 +35,7 @@ data "template_file" "fyndi-b" {
 
   # Set puppet factors
   vars {
-    environment    = "${var.environment}"
+    environment    = "${var.puppet_environment}"
     nodetype   = "${var.fyndi-b_puppet_nodetype}"
     kms_key = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
     aws_account_id = "${var.aws_account_id}"
