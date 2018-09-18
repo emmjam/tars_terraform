@@ -587,5 +587,3 @@ cpc_rds_skip_final_snapshot = true
 cpc_rds_apply_immediately = "true"
 cpc_rds_license_model = "license-included"
 cpc_rds_autoscale = "True"
-
-

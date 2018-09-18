@@ -16,7 +16,7 @@ variable "component" {
 variable "module" {
   type        = "string"
   description = "The module name."
-  default     = "lambda-ebs-snapshot"
+  default     = "lambda"
 }
 
 variable "name" {

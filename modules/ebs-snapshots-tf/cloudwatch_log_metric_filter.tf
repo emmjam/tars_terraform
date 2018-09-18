@@ -8,7 +8,7 @@ resource "aws_cloudwatch_log_metric_filter" "ebs_snapshot_failure" {
   )}"
 
   pattern        = "${var.log_error_pattern}"
-  log_group_name = "${module.lambda_ebs_snapshot.log_group_name}"
+  log_group_name = "${module.lambda_ebs_snapshots.log_group_name}"
 
   metric_transformation {
     name      = "FailureCount"
@@ -27,7 +27,7 @@ resource "aws_cloudwatch_log_metric_filter" "ebs_snapshot_cleanup_failure" {
   )}"
 
   pattern        = "${var.cleanup_log_error_pattern}"
-  log_group_name = "${module.lambda_ebs_snapshot_cleanup.log_group_name}"
+  log_group_name = "${module.lambda_ebs_snapshots_cleanup.log_group_name}"
 
   metric_transformation {
     name      = "FailureCount"

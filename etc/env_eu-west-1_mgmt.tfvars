@@ -244,5 +244,30 @@ jenkinsnode_subnets_cidrs = [
 ]
 
 
+# EBS backup lambda
+ebs_snapshot_is_enabled                       = true
+ebs_snapshot_s3_key                           = "lambda/ebs_snapshot_lambda.py.zip"
+ebs_snapshot_memory_size                      = 128
+ebs_snapshot_timeout                          = 60
+ebs_snapshot_publish                          = true
+ebs_snapshot_cloudwatch_log_retention_in_days = 14
+ebs_snapshot_cw_rule_schedule_expression      = "cron(00 01 ? * 3-7 *)"
+ebs_snapshot_cw_metric_log_error_pattern      = "\"[ERROR]\" \"Snapshot backup Lambda failed\""
+ebs_snapshot_cw_alarm_namespace               = "ebs-snapshot-lambda"
+
+
+# EBS cleanup Lambda
+ebs_snapshot_cleanup_is_enabled                       = true
+ebs_snapshot_cleanup_s3_key                           = "lambda/ebs_cleanup_lambda.py.zip"
+ebs_snapshot_cleanup_memory_size                      = 128
+ebs_snapshot_cleanup_timeout                          = 120
+ebs_snapshot_cleanup_publish                          = true
+ebs_snapshot_cleanup_cloudwatch_log_retention_in_days = 14
+ebs_snapshot_cleanup_cw_rule_schedule_expression      = "cron(00 03 ? * 3-7 *)"
+ebs_snapshot_cleanup_cw_metric_log_error_pattern      = "\"[ERROR]\" \"Snapshot Cleanup Lambda failed\""
+ebs_snapshot_cleanup_cw_alarm_namespace               = "ebs-snapshot-cleanup-lambda"
+ebs_snapshot_cleanup_min_num_of_snapshots_to_retain   = 7
+ebs_snapshot_cleanup_min_retention_days               = 7
+
 # Deployer pub key
 deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVSO8uKpdbwww94azylwjnFxsFGcmXG4ObL1oOFibHMN0x+SsSwjfC1DEziWPK3m/Crmar0+ad/68nQC+iWo/MYclh8h3bkKlv9dO4Xtv/0H6uDRW3l3bBO0rWYbt46fMAOCqX96N3LRTfUlPuzsVAd0NGZZlSSAZF0AMl4xE/tZl2m+Dqylrjp3qLT4UxEIrAuvPW06PqkGy63hZznjCjQDaadOAUpY19ZaA71JBueyGBnZ8pSVzr5hT1TpNw/cXxA6WLj4CCipIVm0M64OT/ArqcnQMX9Htf4Gp5apXZ3f6MerfjgHnkrm1t6JNuhSjVB deployer@mgmt.tars.dvsa.aws"
