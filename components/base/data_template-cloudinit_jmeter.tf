@@ -11,7 +11,8 @@ data "template_file" "jmeter_config" {
   template = "${file("${path.module}/templates/jmeter_setup.sh.tmpl")}"
 
   vars {
-    environment    = "${var.puppet_environment}"
+    environment = "${var.environment}"
+    puppet_environment  = "${var.puppet_environment}"
     nodetype   = "${var.jmeter_puppet_nodetype}"
     kms_key = "${var.jmeter_puppet_kms_key}"
     aws_account = "${var.aws_account_id}"

@@ -9,7 +9,8 @@ log '[INFO] Running puppet to configure environment'
 sed -E -i "s/'[a-z0-9]{8}\-[a-z0-9]{4}\-[a-z0-9]{4}\-[a-f0-9]{4}\-[a-z0-9]{12}'/'${kms_key}'/g" /etc/eyaml/config.yaml
 
 cd /tmp/packer-puppet-masterless
-export FACTER_environment='${env}'
+export FACTER_environment='${environment}'
+export FACTER_puppet_environment='${puppet_environment}'
 export FACTER_nodetype='${nodetype}'
 export FACTER_aws_account='${aws_account_id}'
 /opt/puppetlabs/bin/puppet apply --verbose --modulepath='/tmp/packer-puppet-masterless/module-0:/tmp/packer-puppet-masterless/module-1' --hiera_config='/tmp/packer-puppet-masterless/hiera.yaml' --detailed-exitcodes /tmp/packer-puppet-masterless/manifests/site.pp

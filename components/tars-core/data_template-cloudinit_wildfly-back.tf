@@ -14,7 +14,8 @@ data "template_file" "wildfly-back-config" {
 
   # Set puppet factors
   vars {
-    environment    = "${var.puppet_environment}"
+    environment = "${var.environment}"
+    puppet_environment  = "${var.puppet_environment}"
     nodetype   = "${var.wildfly-back_puppet_nodetype}"
     kms_key = "${var.wildfly-back_puppet_kms_key}"
     aws_account_id = "${var.aws_account_id}"
