@@ -19,6 +19,8 @@ all_users = [
   "michael.taylor@bjss.com",
   "sam.smart@bjss.com",
   "jamie.kelly@bjss.com",
+  "andrew.lai@bjss.com",
+  "dan.webb@bjss.com",
 ]
 
 administrators = [

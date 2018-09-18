@@ -38,6 +38,8 @@ all_users = [
   "alice.haws@dvsa.gov.uk",
   "paul.duffy@dvsa.gov.uk",
   "jamie.kelly@bjss.com",
+  "andrew.lai@bjss.com",
+  "dan.webb@bjss.com",
 ]
 
 administrators = [
@@ -49,7 +51,9 @@ administrators = [
   "michael.taylor@bjss.com",
   "sam.smart@bjss.com",
   "jamie.kelly@bjss.com",
-  "chris.nappin@bjss.com"
+  "chris.nappin@bjss.com",
+  "andrew.lai@bjss.com",
+  "dan.webb@bjss.com",
 ]
 
 power_users = [
