@@ -61,10 +61,6 @@ mgmt_vpc_id                 = "vpc-e303d285"           # TODO: use remote state
 mgmt_vpc_cidr_block         = "10.200.0.0/16"          # TODO: use remote state
 mgmt_tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote state
 
-mgmt_jenkins_elb_subnet     = "10.200.3.32/28"         # TODO: use remote state
-mgmt_gitlab_subnet          = "10.200.2.128/28"        # TODO: use remote state
-
-
 mgmt_bastion_subnets = [
   "10.200.1.96/28",
   "10.200.1.112/28",
@@ -106,43 +102,4 @@ whitelist = [
 ]
 
 ops_team_email = "mark.thompson@bjss.com"
-
-
-##
-# EBS Snapshot and Cleanup
-##
-
-# EBS Snapshot - runs every Sun - Sat at 1.00 AM 
-
-ebs_snapshot = {
-  is_enabled                       = true
-  snapshot_s3_key                  = "ebs-snapshot-artefacts/lambda_ebs_snapshot.zip"
-  memory_size                      = 128
-  timeout                          = 60
-  publish                          = true
-  cloudwatch_log_retention_in_days = 14
-  cw_rule_schedule_expression      = "cron(00 01 ? * 1-7 *)"
-  cw_metric_log_error_pattern      = "\"[ERROR]\" \"Snapshot backup Lambda failed\""
-  cw_alarm_namespace               = "ebs-snapshot-lambda"
-}
-
-ebs_snapshot_node_types   = ["bastion","gitlab","jenkinsctrl","jenkins-b"]
-ebs_snapshot_environments = ["mgmt"]
-
-# EBS Snapshot Cleanup - runs every Sun - Sat at 3.00 AM 
-
-ebs_snapshot_cleanup = {
-  is_enabled                       = true
-  cleanup_s3_key                   = "ebs-snapshot-cleanup-artefacts/lambda_ebs_snapshot_cleanup.zip"
-  memory_size                      = 128
-  timeout                          = 120
-  publish                          = true
-  cloudwatch_log_retention_in_days = 14
-  cw_rule_schedule_expression      = "cron(00 03 ? * 1-7 *)"
-  cw_metric_log_error_pattern      = "\"[ERROR]\" \"Snapshot Cleanup Lambda failed\""
-  cw_alarm_namespace               = "ebs-snapshot-cleanup-lambda"
-  min_num_of_snapshots_to_retain   = 7
-  min_retention_days               = 7
-}
-
 

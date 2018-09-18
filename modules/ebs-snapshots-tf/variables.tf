@@ -19,16 +19,6 @@ variable "default_tags" {
   default     = {}
 }
 
-variable "aws_region" {
-  type        = "string"
-  description = "Region to check for volumes in"
-}
-
-variable "aws_account_id" {
-  type        = "string"
-  description = "AWS account ID"
-}
-
 variable "snapshot_name" {
   type        = "string"
   description = "Name of the Snapshot Lambda"
@@ -39,7 +29,7 @@ variable "cleanup_name" {
   description = "Name of the Cleanup Lambda"
 }
 
-# EBS snapshot lambda
+#ebs snapshot lambda
 variable "memory_size" {
   type        = "string"
   description = "Amount of memory in MB your Lambda Function can use at runtime. "
@@ -61,14 +51,14 @@ variable "env_vars" {
   default     = {}
 }
 
-variable "node_types" {
+variable "volume_ids" {
   type        = "list"
-  description = "Nodetypes ids to backup. This is combined with environments to select volumes to backup. "
+  description = "Volume ids to backup. These should be added as module outputs"
 }
 
-variable "environments" {
-  type        = "list"
-  description = "Environments to backup. This is combined with node_types to select volumes to backup."
+variable "aws_region" {
+  type        = "string"
+  description = ""
 }
 
 variable "snapshot_s3_bucket" {
