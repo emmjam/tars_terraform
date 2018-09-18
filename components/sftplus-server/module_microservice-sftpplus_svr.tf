@@ -10,7 +10,7 @@ module "sftpplus_svr" {
   availability_zones = "${data.aws_availability_zones.available.names}"
 
   subnets_cidrs                   = "${var.cpc_sftp_subnets_cidrs}"
-  subnets_route_tables            = ["${data.terraform_remote_state.base.private_nonat_route_table_id}"]
+  subnets_route_tables            = ["${data.terraform_remote_state.base.public_route_table_id}"]
 
   lc_ami_id        = "${data.aws_ami.sftpplus_svr.image_id}"
   lc_instance_type = "${var.sftpplus-svr_instance_type}"
@@ -24,6 +24,11 @@ module "sftpplus_svr" {
   asg_size_desired_on_create = "${var.sftpplus-svr_asg_min_size}"
   asg_size_max               = "${var.sftpplus-svr_asg_max_size}"
   asg_load_balancers         = []
+
+  asg_target_group_arns = [
+    "${aws_lb_target_group.sftpplus_svr-10022.arn}",
+    "${aws_lb_target_group.sftpplus_svr-10022-pub.arn}",
+  ]
 
   default_tags = "${var.default_tags}"
 }

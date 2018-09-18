@@ -5,6 +5,6 @@ resource "aws_lb_listener" "sftpplus-543" {
 
   default_action {
     type             = "forward"
-    target_group_arn = "${aws_lb_target_group.sftpplus_svr-543.arn}"
+    target_group_arn = "${aws_lb_target_group.sftpplus_svr-10022-pub.arn}"
   }
 }

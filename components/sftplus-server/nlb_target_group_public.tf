@@ -1,13 +1,14 @@
 
-resource "aws_lb_target_group" "sftpplus_svr-543" {
+resource "aws_lb_target_group" "sftpplus_svr-10022-pub" {
   name = "${format(
-    "%s-%s-%s-%s",
+    "%s-%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
-    "543"
+    "10022",
+    "pub",
   )}"
-  port     = "543"
+  port     = "10022"
   protocol = "TCP"
   vpc_id   = "${data.terraform_remote_state.base.vpc_id}"
 
@@ -29,7 +30,7 @@ resource "aws_lb_target_group" "sftpplus_svr-543" {
         var.project,
         var.environment,
         var.component,
-        "sftpplus-svr"
+        "sftpplus_svr-10022-pub"
       )
     )
   )}"
