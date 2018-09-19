@@ -23,7 +23,8 @@ data "template_file" "cpc-front" {
 
   # Set puppet factors
   vars {
-    env    = "${var.environment}"
+    environment = "${var.environment}"
+    puppet_environment  = "${var.puppet_environment}"
     nodetype   = "${var.cpc-front_puppet_nodetype}"
     aws_account_id = "${var.aws_account_id}"
     kms_key = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
@@ -36,7 +37,8 @@ data "template_file" "cpc-back" {
 
   # Set puppet factors
   vars {
-    env    = "${var.environment}"
+    environment = "${var.environment}"
+    puppet_environment  = "${var.puppet_environment}"
     nodetype   = "${var.cpc-back_puppet_nodetype}"
     aws_account_id = "${var.aws_account_id}"
     kms_key = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"

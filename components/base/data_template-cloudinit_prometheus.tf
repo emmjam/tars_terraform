@@ -11,13 +11,14 @@ data "template_file" "prometheus_config" {
   template = "${file("${path.module}/templates/prometheus_setup.sh.tmpl")}"
 
   vars {
-    nodetype      = "prometheus"
-    environment   = "${var.environment}"
-    kms_key       = "${var.jmeter_puppet_kms_key}"
-    aws_account   = "${var.aws_account_id}"
-    aws_region    = "${var.aws_region}"
-    efs_id        = "${aws_efs_file_system.prometheus.id}"
-    mount_point   = "/var/lib/prometheus"
+    nodetype            = "prometheus"
+    environment         = "${var.environment}"
+    puppet_environment  = "${var.puppet_environment}"
+    kms_key             = "${var.jmeter_puppet_kms_key}"
+    aws_account         = "${var.aws_account_id}"
+    aws_region          = "${var.aws_region}"
+    efs_id              = "${aws_efs_file_system.prometheus.id}"
+    mount_point         = "/var/lib/prometheus"
   }
 }
 
