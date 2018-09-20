@@ -270,6 +270,10 @@ variable "target_dms_tars_rds_name" {
   type        = "string"
   description = "tars dms"
 }
+variable "target_dms_tars_rds_snapshot" {
+  type        = "string"
+  description = "tars dms"
+}
 
 
 variable "target_dms_on_prem_tars_rds_snapshot" {
@@ -426,6 +430,10 @@ variable "target_dms_cpc_rds_autoscale" {
   description = "cpc dms"
 }
 variable "target_dms_cpc_rds_name" {
+  type        = "string"
+  description = "cpc dms"
+}
+variable "target_dms_cpc_rds_snapshot" {
   type        = "string"
   description = "cpc dms"
 }
@@ -586,6 +594,10 @@ variable "target_dms_rsis_rds_autoscale" {
   description = "rsis dms"
 }
 variable "target_dms_rsis_rds_name" {
+  type        = "string"
+  description = "rsis dms"
+}
+variable "target_dms_rsis_rds_snapshot" {
   type        = "string"
   description = "rsis dms"
 }
@@ -750,7 +762,10 @@ variable "target_dms_mis_rds_name" {
   type        = "string"
   description = "mis dms"
 }
-
+variable "target_dms_mis_rds_snapshot" {
+  type        = "string"
+  description = "mis dms"
+}
 
 variable "target_dms_on_prem_mis_rds_snapshot" {
   type        = "string"

@@ -35,10 +35,9 @@ resource "aws_db_instance" "target_rsisdb_dms" {
   apply_immediately       = "${var.target_dms_rsis_rds_apply_immediately}"
   license_model           = "${var.target_dms_rsis_rds_license_model}"
   name                    = "${var.target_dms_rsis_rds_name}"
+  snapshot_identifier     = "${var.target_dms_rsis_rds_snapshot}"
   parameter_group_name    = "${aws_db_parameter_group.dms_oem.id}"
   option_group_name       = "${aws_db_option_group.dms_oem.id}"
-  # Please ensure this is the correct snapshot to restore before applying
-  snapshot_identifier     = "tars-dev01-tars-dms-rsisdmstg-20180720"
 
   vpc_security_group_ids = [
     "${aws_security_group.tars-dms.id}","${aws_security_group.dms-oem.id}"
