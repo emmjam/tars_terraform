@@ -47,5 +47,5 @@ resource "aws_mq_broker" "tars-awsmq" {
     console_access = false
   }
   subnet_ids = ["${module.tars_awsmq_subnets.subnet_ids}"]
-  publicly_accessible = true
+  publicly_accessible = false
 }
