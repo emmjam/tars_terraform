@@ -119,3 +119,12 @@ resource "aws_security_group_rule" "tars_batch_egress_rsis_sftp" {
   cidr_blocks              = ["${var.rsis_samba_server}"]
 }
 
+resource "aws_security_group_rule" "tars_batch_egress_dvla_ldap" {
+  description              = "Allow TCP/389 to DVLA LDAP"
+  type                     = "egress"
+  from_port                = 389
+  to_port                  = 389
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.tars-batch.id}"
+  cidr_blocks              = ["${var.dvsa_ldap_server}"]
+}

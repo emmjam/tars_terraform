@@ -175,3 +175,8 @@ variable "rsis_samba_server" {
   type = "string"
   description = "RSIS"
 }
+
+variable "dvsa_ldap_server" {
+  type = "string"
+  description = "DVSA LDAP server for priter lookup"
+}
