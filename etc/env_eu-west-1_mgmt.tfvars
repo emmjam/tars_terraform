@@ -34,6 +34,9 @@ prod_subdomains_name_servers = {
   prod = "ns-426.awsdns-53.com,ns-1049.awsdns-03.org,ns-2041.awsdns-63.co.uk,ns-611.awsdns-12.net"
 }
 
+# ACM Certname
+cert_name = "*"
+
 ##########################################
 # Guardduty
 ##########################################
@@ -141,6 +144,19 @@ bastion_scaledown_desired    = 1
 bastion_scaledown_recurrence = "00 19 * * 1-5"
 bastion_scaleup_desired      = 1
 bastion_scaleup_recurrence   = "00 07 * * 1-5"
+
+## Grafana
+grafana_instance_type        = "t2.micro"
+grafana_ami_build_id         = "243"
+grafana_asg_min_size         = 0
+grafana_asg_max_size         = 0
+grafana_scaledown_desired    = 0
+grafana_scaledown_recurrence = "00 19 * * 1-5"
+grafana_scaleup_desired      = 0
+grafana_scaleup_recurrence   = "00 07 * * 1-5"
+
+#Due to there being no wildcard cert in prod this is used.
+grafana_cert_name = "*"
 
 ## alb public
 alb_public_subnets_cidrs = [

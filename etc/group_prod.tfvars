@@ -326,6 +326,9 @@ grafana_scaledown_recurrence = "00 19 * * 1-5"
 grafana_scaleup_desired      = 1
 grafana_scaleup_recurrence   = "00 07 * * 1-5"
 
+#Due to there being no wildcard cert in prod this is used.
+grafana_cert_name = "grafana"
+
 ##  JMeter
 jmeter_instance_type              = "t2.micro"
 jmeter_asg_size_desired_on_create = 0

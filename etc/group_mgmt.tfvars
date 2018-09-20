@@ -54,6 +54,18 @@ ctrl_bastion_subnets = [
   "10.167.64.144/28",
 ]
 
+grafana_alb_subnets_cidrs = [
+  "10.167.64.160/28",
+  "10.167.64.176/28",
+  "10.167.64.192/28",
+]
+
+ctrl_grafana_subnets = [
+  "10.167.64.208/28",
+  "10.167.64.224/28",
+  "10.167.64.240/28",
+]
+
 mgmt_aws_account_id         = "645711882182"
 mgmt_aws_region             = "eu-west-1"
 mgmt_project                = "tars"

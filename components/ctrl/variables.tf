@@ -231,6 +231,11 @@ variable "ctrl_grafana_subnets" {
   description = ""
 }
 
+variable "grafana_cert_name" {
+  type = "string"
+  description = ""
+}
+
 variable "cert_name" {
   type = "string"
   description = "ACM cert name"
