@@ -11,10 +11,11 @@ data "template_file" "grafana_config" {
   template = "${file("${path.module}/templates/grafana_setup.sh.tmpl")}"
 
   vars {
-    nodetype      = "grafana"
-    environment   = "${var.environment}"
-    aws_account   = "${var.aws_account_id}"
-    aws_region    = "${var.aws_region}"
+    nodetype            = "grafana"
+    environment         = "${var.environment}"
+    puppet_environment  = "${var.puppet_environment}"
+    aws_account         = "${var.aws_account_id}"
+    aws_region          = "${var.aws_region}"
   }
 }
 
