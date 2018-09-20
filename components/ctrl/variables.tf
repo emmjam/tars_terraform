@@ -18,6 +18,11 @@ variable "environment" {
   description = ""
 }
 
+variable "puppet_environment" {
+  type        = "string"
+  description = "Environment for puppet on boot"
+}
+
 variable "component" {
   type        = "string"
   description = ""
