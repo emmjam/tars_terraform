@@ -374,3 +374,9 @@ dsa-drora-db-rac03 = "10.86.192.72"
 domain_name_servers = [
   "AmazonProvidedDNS",
 ]
+
+cpc_cert    = "cpc-prep"
+fyndi_cert  = "fyndi-prep-public"
+tars_cert   = "tars-prep-public"
+obs_cert    = "obs-prep-public"
+ibs_cert    = "ibs-prep-public"

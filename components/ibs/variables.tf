@@ -177,4 +177,8 @@ variable "cert_name" {
   type = "string"
   description = "ACM cert name"
 }
+variable "ibs_cert" {
+  type = "string"
+  description = "CPC ACM cert name"
+}
 

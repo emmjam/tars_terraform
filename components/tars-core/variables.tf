@@ -286,3 +286,8 @@ variable "cert_name" {
   type = "string"
   description = "ACM cert name"
 }
+
+variable "tars_cert" {
+  type = "string"
+  description = "CPC ACM cert name"
+}

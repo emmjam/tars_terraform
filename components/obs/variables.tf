@@ -146,3 +146,7 @@ variable "cert_name" {
   description = "ACM cert name"
 }
 
+variable "obs_cert" {
+  type = "string"
+  description = "CPC ACM cert name"
+}

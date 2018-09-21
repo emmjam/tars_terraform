@@ -179,3 +179,7 @@ variable "cert_name" {
   type = "string"
   description = "ACM cert name"
 }
+variable "fyndi_cert" {
+  type = "string"
+  description = "CPC ACM cert name"
+}
