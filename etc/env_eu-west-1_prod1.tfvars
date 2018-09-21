@@ -465,7 +465,7 @@ source_dms_tars_rds_username = "tarsuatadmin"
 source_dms_tars_rds_password = "jZKS9PsapxXfkg8a"
 source_dms_tars_rds_allocated_storage = "300"
 source_dms_tars_rds_name = "TARSDB"
-source_dms_tars_rds_snapshot = "tars-prod1-tars-dms-tarsdmssc-prod1-migrate"
+source_dms_tars_rds_snapshot = "tarsuatdms-07062018"
 
 source_dms_cpc_rds_storage_type = "gp2"
 source_dms_cpc_rds_engine = "oracle-se2"
