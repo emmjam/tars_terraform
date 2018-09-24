@@ -550,3 +550,8 @@ ibs_incapsula   = "5cdgrpe.x.incapdns.net"
 obs_incapsula   = "zv9vwoz.x.incapdns.net"
 irdt_incapsula  = "zi5ckxk.x.incapdns.net"
 
+cpc_cert    = "cpc-prod1"
+fyndi_cert  = "fyndi-prod1-public"
+tars_cert   = "tars-prod1-public"
+obs_cert    = "obs-prod1-public"
+ibs_cert    = "ibs-prod1-public"

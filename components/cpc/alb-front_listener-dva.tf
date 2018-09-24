@@ -4,7 +4,7 @@ resource "aws_alb_listener" "cpc-front-dva-7443" {
   port              = "443"
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-TLS-1-2-Ext-2018-06"
-  certificate_arn   = "${data.aws_acm_certificate.nonprod_tars_dvsacloud_uk.arn}"
+  certificate_arn   = "${data.aws_acm_certificate.cpc_tars_dvsacloud_uk.arn}"
 
   default_action {
     type             = "forward"

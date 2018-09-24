@@ -535,3 +535,9 @@ domain_name_servers = [
   "10.166.0.28",
   "10.166.0.43",
 ]
+
+cpc_cert    = "*"
+fyndi_cert  = "*"
+tars_cert   = "*"
+obs_cert    = "*"
+ibs_cert    = "*"

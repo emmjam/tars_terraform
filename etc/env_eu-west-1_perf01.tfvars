@@ -460,3 +460,9 @@ jmeter_asg_size_min               = 0
 
 # squidnat
 squidnat_instance_type = "m5.large"
+
+cpc_cert    = "*"
+fyndi_cert  = "*"
+tars_cert   = "*"
+obs_cert    = "*"
+ibs_cert    = "*"
