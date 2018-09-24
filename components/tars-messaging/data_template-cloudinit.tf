@@ -4,8 +4,6 @@ data "template_file" "messaging" {
 
   # Set puppet factors
   vars {
-    environment    = "${var.environment}"
-    kms_key = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
-    aws_account_id = "${var.aws_account_id}"
+    search_suffix = "${var.environment}.${var.private_domain_name}"
   }
 }
