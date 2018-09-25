@@ -143,8 +143,8 @@ ctrl_mgmt_vpc_cidr_block         = "10.167.64.0/22"         # TODO: use remote s
 ctrl_mgmt_tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote state
 
 ## jenkinsnode
-jenkinsnode_instance_type        = "m4.large"
-jenkinsnode_ami_build_id         = "80"
+jenkinsnode_instance_type        = "m5.large"
+jenkinsnode_ami_build_id         = "273"
 jenkinsnode_executors            = 5
 jenkinsnode_asg_min_size         = 0
 jenkinsnode_asg_max_size         = 3
@@ -154,7 +154,7 @@ jenkinsnode_scaleup_desired      = 1
 jenkinsnode_scaleup_recurrence   = "15 07 * * 1-5"
 
 jenkinsctrl_instance_type        = "m5.large"
-jenkinsctrl_ami_build_id         = "141"
+jenkinsctrl_ami_build_id         = "273"
 jenkinsctrl_executors            = 5
 jenkinsctrl_asg_min_size         = 0
 jenkinsctrl_asg_max_size         = 3
