@@ -18,7 +18,6 @@ module "obs" {
 
   asg_target_group_arns = [
         "${aws_alb_target_group.obs-8080.id}",
-        "${aws_alb_target_group.obs-internal-8080.id}",
         ]
 
   lc_additional_sg_ids = [

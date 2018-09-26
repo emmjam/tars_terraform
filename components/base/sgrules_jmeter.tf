@@ -81,3 +81,21 @@ resource "aws_security_group_rule" "jenkinsnode_egress_jmeter_ssh" {
   security_group_id        = "${aws_security_group.jenkinsnode.id}"
 }
 
+resource "aws_security_group_rule" "jenkinsnode_egress_natgw_https" {
+  type                     = "egress"
+  protocol                 = "tcp"
+  from_port                = "443"
+  to_port                  = "443"
+  security_group_id = "${aws_security_group.jmeter.id}"
+  cidr_blocks = [ "0.0.0.0/0" ]
+}
+
+resource "aws_security_group_rule" "jenkinsnode_egress_natgw_http" {
+  type                     = "egress"
+  protocol                 = "tcp"
+  from_port                = "80"
+  to_port                  = "80"
+  security_group_id = "${aws_security_group.jmeter.id}"
+  cidr_blocks = [ "0.0.0.0/0" ]
+}
+

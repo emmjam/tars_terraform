@@ -37,7 +37,7 @@ module "microservice_jmeter" {
   subnets_map_public_ip_on_launch = "false"
 
   subnets_route_tables = [
-    "${aws_route_table.private_nat.*.id}",
+    "${aws_route_table.private_natgw.id}",
   ]
 
   vpc_id = "${aws_vpc.vpc.id}"
