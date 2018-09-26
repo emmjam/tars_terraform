@@ -30,6 +30,16 @@ resource "aws_security_group_rule" "gitlab_ingress_elb_private_ssh" {
   source_security_group_id = "${aws_security_group.elb_private.id}"
 }
 
+resource "aws_security_group_rule" "gitlab_ingress_elb_private_8888" {
+  description              = "Allow TCP/8888 from ELB Private"
+  type                     = "ingress"
+  from_port                = 8888
+  to_port                  = 8888
+  protocol                 = "tcp"
+  security_group_id        = "${module.gitlab.security_group_id}"
+  source_security_group_id = "${aws_security_group.elb_private.id}"
+}
+
 resource "aws_security_group_rule" "gitlab_egress_db_5432" {
   description              = "Allow TCP/5432 to Postgres DB"
   type                     = "egress"
@@ -167,6 +177,16 @@ resource "aws_security_group_rule" "elb_private_egress_gitlab_ssh" {
   type                     = "egress"
   from_port                = 22
   to_port                  = 22
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.elb_private.id}"
+  source_security_group_id = "${module.gitlab.security_group_id}"
+}
+
+resource "aws_security_group_rule" "elb_private_egress_gitlab_8888" {
+  description              = "Allow TCP/8888 to GitLab"
+  type                     = "egress"
+  from_port                = 8888
+  to_port                  = 8888
   protocol                 = "tcp"
   security_group_id        = "${aws_security_group.elb_private.id}"
   source_security_group_id = "${module.gitlab.security_group_id}"
