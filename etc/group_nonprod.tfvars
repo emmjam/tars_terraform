@@ -414,6 +414,7 @@ whitelist = [
   "92.54.181.128/29",   # Informed Solutions
   "87.81.132.117/32",   # Informed Solutions
   "54.72.37.158/32",    # Selenium Elasticgrid Proxy
+  "54.76.206.25/32",    # Perf01 NATGW IP
 ]
 
 dvsa_dc_whitelist = [

@@ -11,6 +11,7 @@ resource "aws_vpc_endpoint" "s3" {
   route_table_ids = [
     "${aws_route_table.public.id}",
     "${aws_route_table.private_nat.*.id}",
-    "${aws_route_table.private_nonat.id}"
+    "${aws_route_table.private_nonat.id}",
+    "${aws_route_table.private_natgw.id}",
   ]
 }

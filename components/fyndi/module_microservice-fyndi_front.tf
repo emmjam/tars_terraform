@@ -18,7 +18,6 @@ module "fyndi-f" {
 
   asg_target_group_arns = [ 
     "${aws_alb_target_group.fyndi-f-8080.id}",
-    "${aws_alb_target_group.fyndi-internal-8080.id}",
   ]
 
   lc_additional_sg_ids = [

@@ -7,15 +7,6 @@ resource "aws_security_group_rule" "fyndi-f-ingress-fyndi-f-alb-8080" {
   source_security_group_id = "${aws_security_group.fyndi-f-alb.id}"
 }
 
-resource "aws_security_group_rule" "fyndi-ingress-fyndi_internal-alb-8080" {
-  type                     = "ingress"
-  protocol                 = "tcp"
-  from_port                = "8080"
-  to_port                  = "8080"
-  security_group_id        = "${aws_security_group.fyndi-f.id}"
-  source_security_group_id = "${aws_security_group.fyndi_internal-alb.id}"
-}
-
 resource "aws_security_group_rule" "fyndi-f-egress-fyndi-f-rds-3306" {
   type                     = "egress"
   protocol                 = "tcp"
