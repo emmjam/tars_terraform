@@ -23,6 +23,14 @@ resource "aws_elb" "gitlab_private" {
     lb_protocol       = "TCP"
   }
 
+  listener {
+    instance_port      = 8888
+    instance_protocol  = "HTTP"
+    lb_port            = "${var.elb_public_port}"
+    lb_protocol        = "${var.elb_public_protocol}"
+    ssl_certificate_id = "${var.elb_public_ssl_certificate_id}"
+  }
+  
   health_check {
     healthy_threshold   = 3
     unhealthy_threshold = 2
