@@ -284,6 +284,12 @@ prometheus_alb_private_cidrs = [
   "10.167.23.144/28",
 ]
 
+sftpplus_efs_subnets_cidrs = [
+  "10.167.23.160/28",
+  "10.167.23.176/28",
+  "10.167.23.192/28",
+]
+
 # Environment & Component for Accessing mgmt_prd remote state
 mgmt_component = "mgmt"
 

@@ -150,3 +150,8 @@ variable "cpc-back_subnets_cidrs" {
   type = "list"
 }
 
+variable "sftpplus_efs_subnets_cidrs" {
+  type = "list"
+  description = "SFTPPlus EFS subnets list"
+}
+
