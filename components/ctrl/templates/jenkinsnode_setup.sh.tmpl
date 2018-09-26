@@ -4,6 +4,7 @@ function log() {
   echo "[$(date)]$1" | tee -a /var/log/jenkinsnode_cloudinit.log
 }
 
+
 log '[INFO] Preparing configuration variables'
 CLIENT_NAME=$(hostname)
 MASTER_URL=${master_url}
