@@ -82,7 +82,7 @@ mgmt_bastion_subnets = [
 ]
 
 jenkinsctrl_instance_type        = "m5.large"
-jenkinsctrl_ami_build_id         = "273"
+jenkinsctrl_ami_build_id         = "275"
 jenkinsctrl_executors            = 5
 jenkinsctrl_asg_min_size         = 0
 jenkinsctrl_asg_max_size         = 3
