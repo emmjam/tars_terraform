@@ -121,3 +121,7 @@ output "igw" {
 output "subnets_mis_db" {
   value = "${module.subnets_mis.subnet_ids}"
 }
+
+output "prometheus_sg_id" {
+  value = "${aws_security_group.prometheus.id}"
+}
