@@ -191,3 +191,13 @@ resource "aws_security_group_rule" "dvsa_mgmt_ingress_tars_messaging_all_ports" 
   security_group_id = "${aws_security_group.tars-messaging-ad.id}"
   cidr_blocks       = ["${var.dvsa_mgmt_inbound}"]
 }
+
+resource "aws_security_group_rule" "dtars_messaging_egress_IRDT_printers" {
+  description       = "Allow all TCP/IP to DVSA IRDT Printers"
+  type              = "egress"
+  from_port         = -1
+  to_port           = -1
+  protocol          = -1
+  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  cidr_blocks       = ["${var.dvsa_irdt_printers}"]
+}

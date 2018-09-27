@@ -432,6 +432,9 @@ dvsa_mgmt_inbound = [
 # Used for DTC printer queue lookups
 dvsa_ldap_server = "10.166.0.14/32"
 
+# IRDT printer range
+dvsa_irdt_printers = "10.201.0.0/16"
+
 # WSUS is covered above in the DC whitelist
 dvsa_sccm_services = "10.84.192.157/32"
 dvsa_epo_services = "10.84.192.158/32"

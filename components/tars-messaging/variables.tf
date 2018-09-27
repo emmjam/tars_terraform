@@ -157,3 +157,8 @@ variable "cert_name" {
   type = "string"
   description = "ACM cert name"
 }
+
+variable "dvsa_irdt_printers" {
+  type = "string"
+  description = "IRDT Printer range"
+}
