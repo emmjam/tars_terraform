@@ -40,10 +40,10 @@ puppet_environment = "uat01"
 ###############################################################################
 
 #Monitoring
-prometheus_asg_min_size           = 0
-prometheus_asg_max_size           = 0
+prometheus_asg_min_size           = 1
+prometheus_asg_max_size           = 1
 prometheus_instance_type          = "t2.medium"
-prometheus_ami_build_id           = 236
+prometheus_ami_build_id           = 250
 prometheus_efs_provisioned_mibps  = 1
 
 ###############################################################################
