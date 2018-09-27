@@ -1,10 +1,10 @@
 # Get the wildfly batch AMI ID
 data "aws_ami" "oraclexe" {
-  name_regex = "OracleXE-230718"
+  name_regex = "OracleXE180828"
 
   most_recent = "true"
   owners = [
-    "652856684323",
+    "246976497890",
   ]
 
   filter {
