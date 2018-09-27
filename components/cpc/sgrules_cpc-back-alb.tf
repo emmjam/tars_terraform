@@ -66,4 +66,22 @@ resource "aws_security_group_rule" "tars_core_frontend_egress_cpc_backend_port_8
   source_security_group_id = "${aws_security_group.cpc-back-alb.id}"
 }
 
+resource "aws_security_group_rule" "tars_cpc_backend_ingress_tars_batch_port_8080" {
+  description              = "Allow TCP/8080 from TARSbatch"
+  type                     = "ingress"
+  from_port                = 8080
+  to_port                  = 8080
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.cpc-back-alb.id}"
+  source_security_group_id = "${data.terraform_remote_state.tars-batch.tars-batch-sg-id}"
+}
 
+resource "aws_security_group_rule" "tars_batch_egress_cpc_back" {
+  description              = "Allow TCP/8080 to cpc back ALB"
+  type                     = "egress"
+  from_port                = 8080
+  to_port                  = 8080
+  protocol                 = "tcp"
+  security_group_id        = "${data.terraform_remote_state.tars-batch.tars-batch-sg-id.id}"
+  source_security_group_id = "${aws_security_group.cpc-back-alb.id}"
+}
