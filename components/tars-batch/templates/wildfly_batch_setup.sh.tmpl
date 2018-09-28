@@ -22,12 +22,22 @@ echo "$${az}.${EFS_ID}.efs.$${region}.amazonaws.com:/ /efs nfs4 nfsvers=4.1,rsiz
 # Mount the configured target for Batch
 mount /efs
 
-
 cd /tmp/packer-puppet-masterless
 export FACTER_environment='${environment}'
 export FACTER_puppet_environment='${puppet_environment}'
 export FACTER_nodetype='${nodetype}'
 export FACTER_aws_account='${aws_account_id}'
-/opt/puppetlabs/bin/puppet apply --verbose --modulepath='/tmp/packer-puppet-masterless/module-0:/tmp/packer-puppet-masterless/module-1' --hiera_config='/tmp/packer-puppet-masterless/hiera.yaml' --detailed-exitcodes /tmp/packer-puppet-masterless/manifests/site.pp
+/opt/puppetlabs/bin/puppet apply --verbose --modulepath='/tmp/packer-puppet-masterless/module-0:/tmp/packer-puppet-masterless/module-1' --hiera_config='/tmp/packer-puppet-masterless/hiera.yaml'  /tmp/packer-puppet-masterless/manifests/site.pp
+
+# Now puppet has finished and we don't need to lookup KMS keys, we can override DNS
+# Override DNS to use DVSA Azure DNS. TF knows what the IP's are so lets do it here, rather than puppet
+echo "Setting DNS"
+echo "search ${search_suffix}" > /etc/resolv.conf
+servers=$(echo ${dvsa_dns_servers} | sed 's/,/ /g')
+for server in $$servers
+do
+  echo "nameserver $${server}" >> /etc/resolv.conf
+done
+
 
 log '[INFO] Wildfly batch configuration finished'
