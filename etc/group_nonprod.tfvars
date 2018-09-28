@@ -444,6 +444,13 @@ dvsa_dc_whitelist = [
   "10.166.0.0/26"
 ]
 
+# Used by any AWS based ec2's that need to use Azure DNS to resolve external stuff
+dvsa_dns_servers = [
+  "10.166.0.14/32",
+  "10.166.0.28/32",
+  "10.166.0.43/32"
+]
+
 # This will need changing when we know what the DVA IP is
 dva_whitelist = [
   "77.86.30.4/32",      # BJSS VPN (Decom ~06/18)
