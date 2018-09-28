@@ -128,3 +128,13 @@ resource "aws_security_group_rule" "tars_batch_egress_dvla_ldap" {
   security_group_id        = "${aws_security_group.tars-batch.id}"
   cidr_blocks              = ["${var.dvsa_ldap_server}"]
 }
+
+resource "aws_security_group_rule" "tars_batch_egress_dvsa_dns" {
+  description              = "Allow DNS to DVSA LDAP"
+  type                     = "egress"
+  from_port                = -1
+  to_port                  = -1
+  protocol                 = "-1"
+  security_group_id        = "${aws_security_group.tars-batch.id}"
+  cidr_blocks              = ["${var.dvsa_dns_servers}"]
+}

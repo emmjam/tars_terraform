@@ -180,3 +180,8 @@ variable "dvsa_ldap_server" {
   type = "string"
   description = "DVSA LDAP server for priter lookup"
 }
+
+variable "dvsa_dns_servers" {
+  type = "list"
+  description = "DVSA Azure DNS Servers"
+}
