@@ -29,6 +29,7 @@ all_users = [
   "andrew.lai@bjss.com",
   "dan.webb@bjss.com",
   "saul.kashani@bjss.com",
+  "mike.peachey@bjss.com",
 ]
 
 administrators = [
@@ -46,6 +47,7 @@ administrators = [
   "andrew.lai@bjss.com",
   "dan.webb@bjss.com",
   "saul.kashani@bjss.com",
+  "mike.peachey@bjss.com",
 ]
 
 power_users = [
