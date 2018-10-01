@@ -22,6 +22,7 @@ all_users = [
   "andrew.lai@bjss.com",
   "dan.webb@bjss.com",
   "saul.kashani@bjss.com",
+  "mike.peachey@bjss.com",
 ]
 
 administrators = [
@@ -34,6 +35,7 @@ administrators = [
   "sam.smart@bjss.com",
   "jamie.kelly@bjss.com",
   "saul.kashani@bjss.com",
+  "mike.peachey@bjss.com",
 ]
 
 ctrl_vpc_cidr = "10.167.64.0/22"
