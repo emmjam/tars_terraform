@@ -35,6 +35,7 @@ data "aws_iam_policy_document" "power_users" {
       "s3:*",
     ]
 
+    # TODO: peacheym: CVS?
     resources = [
       "arn:aws:s3:::${var.tf_state_bucket_prefix}-${data.aws_caller_identity.current.account_id}-${var.aws_region}*",
       "arn:aws:s3:::cvs-${var.environment}-acc-trail-temp*",

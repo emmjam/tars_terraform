@@ -7,12 +7,7 @@ module "awsconfig" {
   environment = "${var.environment}"
   component   = "${var.component}"
 
-  default_tags = "${merge(
-    var.default_tags,
-    map(
-      "Component", var.component
-    )
-  )}"
+  default_tags = "${local.default_tags}"
 
   aws_account_id = "${var.aws_account_id}"
 
