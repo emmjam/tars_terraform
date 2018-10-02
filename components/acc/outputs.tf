@@ -3,11 +3,11 @@ output "public_domain_name" {
 }
 
 output "public_domain_name_ns_records" {
-  value = "${aws_route53_zone.public_domain.name_servers}"
+  value = "${flatten(aws_route53_zone.public_domain.*.name_servers)}"
 }
 
 output "public_domain_name_zone_id" {
-  value = "${aws_route53_zone.public_domain.zone_id}"
+  value = "${element(concat(aws_route53_zone.public_domain.*.zone_id, list("")), 0)}"
 }
 
 output "account_alias" {
