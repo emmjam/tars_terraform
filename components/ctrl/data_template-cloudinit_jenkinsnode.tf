@@ -3,7 +3,7 @@ data "template_file" "jenkinsctrl" {
 
   vars {
     nodetype    = "jenkinsctrl"
-    domain_name = "${var.component}.${var.environment}.${var.private_domain_name}"
+    domain_name = "${local.vpc_domain_name}"
   }
 }
 
