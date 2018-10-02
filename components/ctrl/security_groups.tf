@@ -1,75 +1,51 @@
 resource "aws_security_group" "bastion_elb" {
-  name        = "${var.project}-${var.environment}-${var.component}-bastion-elb"
+  name        = "${local.csi}-bastion-elb"
   description = "SG for Bastion ELB"
   vpc_id      = "${aws_vpc.ctrl.id}"
 
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "bastion-elb"
-      ),
+      "Name", "${local.csi}/bastion-elb"
     )
   )}"
 }
 
 resource "aws_security_group" "bastion" {
-  name        = "${var.project}-${var.environment}-${var.component}-bastion"
+  name        = "${local.csi}-bastion"
   description = "SG for the ctrl Bastion server"
   vpc_id      = "${aws_vpc.ctrl.id}"
 
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "bastion"
-      ),
+      "Name", "${local.csi}/bastion"
     )
   )}"
 }
 
 resource "aws_security_group" "grafana_alb" {
-  name        = "${var.project}-${var.environment}-${var.component}-grafana-alb"
+  name        = "${local.csi}-grafana-alb"
   description = "SG for Grafana ALB"
   vpc_id      = "${aws_vpc.ctrl.id}"
 
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "grafana-elb"
-      ),
+      "Name", "${local.csi}/grafana-elb"
     )
   )}"
 }
 
 resource "aws_security_group" "grafana" {
-  name        = "${var.project}-${var.environment}-${var.component}-grafana"
+  name        = "${local.csi}-grafana"
   description = "SG for the ctrl Grafana server"
   vpc_id      = "${aws_vpc.ctrl.id}"
 
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "grafana"
-      ),
+      "Name", "${local.csi}/grafana"
     )
   )}"
 }

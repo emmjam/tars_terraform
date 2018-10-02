@@ -6,10 +6,13 @@ module "jenkinsnode" {
   environment = "${var.environment}"
   component   = "${var.component}"
 
-  vpc_id               = "${aws_vpc.ctrl.id}"
-  availability_zones   = "${data.aws_availability_zones.available.names}"
-  subnets_cidrs        = "${var.jenkinsctrl_subnets_cidrs}"
-  subnets_route_tables = ["${aws_route_table.private_nat.id}"]
+  vpc_id             = "${aws_vpc.ctrl.id}"
+  availability_zones = "${data.aws_availability_zones.available.names}"
+  subnets_cidrs      = "${var.jenkinsctrl_subnets_cidrs}"
+
+  subnets_route_tables = [
+    "${aws_route_table.private_nat.id}",
+  ]
 
   lc_ami_id        = "${data.aws_ami.jenkinsctrl.image_id}"
   lc_instance_type = "${var.jenkinsctrl_instance_type}"
@@ -20,6 +23,7 @@ module "jenkinsnode" {
   asg_size_max               = "${var.jenkinsctrl_asg_max_size}"
 
   default_tags      = "${var.default_tags}"
+
   asg_default_tags  = [
     "${var.asg_default_tags}",
   ]

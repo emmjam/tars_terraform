@@ -1,43 +1,43 @@
 # jenkinsnode-bastion
 resource "aws_security_group_rule" "jenkinsnode_ingress_bastion_ssh" {
-  description       = "Allow TCP/22 from Bastion"
-  type              = "ingress"
-  from_port         = 22
-  to_port           = 22
-  protocol          = "tcp"
-  security_group_id = "${module.jenkinsnode.security_group_id}"
+  description              = "Allow TCP/22 from Bastion"
+  type                     = "ingress"
+  from_port                = 22
+  to_port                  = 22
+  protocol                 = "tcp"
+  security_group_id        = "${module.jenkinsnode.security_group_id}"
   source_security_group_id = "${module.bastion.security_group_id}"
 }
 
 # jenkinsnode-jenkins_elb
 resource "aws_security_group_rule" "jenkinsnode_egress_jenkins_elb_http" {
-  description       = "Allow TCP/80 to Jenkins ELB"
-  type              = "egress"
-  from_port         = 80
-  to_port           = 80
-  protocol          = "tcp"
-  security_group_id = "${module.jenkinsnode.security_group_id}"
+  description              = "Allow TCP/80 to Jenkins ELB"
+  type                     = "egress"
+  from_port                = 80
+  to_port                  = 80
+  protocol                 = "tcp"
+  security_group_id        = "${module.jenkinsnode.security_group_id}"
   source_security_group_id = "${data.terraform_remote_state.mgmt.jenkins_elb_sg_id}"
 }
 
 resource "aws_security_group_rule" "jenkinsnode_egress_jenkins_elb_49187" {
-  description       = "Allow TCP/49187 to Jenkins ELB"
-  type              = "egress"
-  from_port         = 49187
-  to_port           = 49187
-  protocol          = "tcp"
-  security_group_id = "${module.jenkinsnode.security_group_id}"
+  description              = "Allow TCP/49187 to Jenkins ELB"
+  type                     = "egress"
+  from_port                = 49187
+  to_port                  = 49187
+  protocol                 = "tcp"
+  security_group_id        = "${module.jenkinsnode.security_group_id}"
   source_security_group_id = "${data.terraform_remote_state.mgmt.jenkins_elb_sg_id}"
 }
 
 # jenkinsnode-gitlab
 resource "aws_security_group_rule" "jenkinsnode_egress_gitlab_ssh" {
-  description       = "Allow TCP/22 to GitLab"
-  type              = "egress"
-  from_port         = 22
-  to_port           = 22
-  protocol          = "tcp"
-  security_group_id = "${module.jenkinsnode.security_group_id}"
+  description              = "Allow TCP/22 to GitLab"
+  type                     = "egress"
+  from_port                = 22
+  to_port                  = 22
+  protocol                 = "tcp"
+  security_group_id        = "${module.jenkinsnode.security_group_id}"
   source_security_group_id = "${data.terraform_remote_state.mgmt.gitlab_elb_sg_id}"
 }
 
@@ -49,7 +49,10 @@ resource "aws_security_group_rule" "jenkinsnode_egress_internet_https" {
   to_port           = 443
   protocol          = "tcp"
   security_group_id = "${module.jenkinsnode.security_group_id}"
-  cidr_blocks       = ["0.0.0.0/0"]
+
+  cidr_blocks = [
+    "0.0.0.0/0",
+  ]
 }
 
 resource "aws_security_group_rule" "jenkinsnode_egress_internet_http" {
@@ -59,7 +62,10 @@ resource "aws_security_group_rule" "jenkinsnode_egress_internet_http" {
   to_port           = 80
   protocol          = "tcp"
   security_group_id = "${module.jenkinsnode.security_group_id}"
-  cidr_blocks       = ["0.0.0.0/0"]
+
+  cidr_blocks = [
+    "0.0.0.0/0",
+  ]
 }
 
 resource "aws_security_group_rule" "jenkinsnode_egress_internet_ssh" {
@@ -69,7 +75,10 @@ resource "aws_security_group_rule" "jenkinsnode_egress_internet_ssh" {
   to_port           = 22
   protocol          = "tcp"
   security_group_id = "${module.jenkinsnode.security_group_id}"
-  cidr_blocks       = ["0.0.0.0/0"]
+
+  cidr_blocks = [
+    "0.0.0.0/0",
+  ]
 }
 
 #jenkinsnode-jenkinsnode -> required to allow SSH comms w/ Packer builder instance inside jenkinsnode sg
@@ -79,8 +88,8 @@ resource "aws_security_group_rule" "jenkinsnode_egress_self_ssh" {
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
-  self              = "true"
   security_group_id = "${module.jenkinsnode.security_group_id}"
+  self              = "true"
 }
 
 resource "aws_security_group_rule" "jenkinsnode_ingress_self_ssh" {
@@ -89,8 +98,8 @@ resource "aws_security_group_rule" "jenkinsnode_ingress_self_ssh" {
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
-  self              = "true"
   security_group_id = "${module.jenkinsnode.security_group_id}"
+  self              = "true"
 }
 
 # bastion
@@ -111,7 +120,10 @@ resource "aws_security_group_rule" "bastion_egress_all_ssh" {
   to_port           = 22
   protocol          = "tcp"
   security_group_id = "${module.bastion.security_group_id}"
-  cidr_blocks       = ["10.0.0.0/8"]
+
+  cidr_blocks = [
+    "10.0.0.0/8",
+  ]
 }
 
 resource "aws_security_group_rule" "bastion_elb_ingress_whitelist_ssh" {
@@ -121,7 +133,10 @@ resource "aws_security_group_rule" "bastion_elb_ingress_whitelist_ssh" {
   to_port           = 22
   protocol          = "tcp"
   security_group_id = "${aws_security_group.bastion_elb.id}"
-  cidr_blocks       = ["${var.whitelist}"]
+
+  cidr_blocks = [
+    "${var.whitelist}",
+  ]
 }
 
 resource "aws_security_group_rule" "bastion_elb_egress_bastion" {
@@ -136,22 +151,22 @@ resource "aws_security_group_rule" "bastion_elb_egress_bastion" {
 
 # Grafana
 resource "aws_security_group_rule" "grafana_ingress_bastion_ssh" {
-  description       = "Allow TCP/22 from Bastion"
-  type              = "ingress"
-  from_port         = 22
-  to_port           = 22
-  protocol          = "tcp"
-  security_group_id = "${module.grafana.security_group_id}"
+  description              = "Allow TCP/22 from Bastion"
+  type                     = "ingress"
+  from_port                = 22
+  to_port                  = 22
+  protocol                 = "tcp"
+  security_group_id        = "${module.grafana.security_group_id}"
   source_security_group_id = "${module.bastion.security_group_id}"
 }
 
 resource "aws_security_group_rule" "grafana_ingress_grafana_alb_http" {
-  description       = "Allow HTTP from Grafana ALB"
-  type              = "ingress"
-  from_port         = 80
-  to_port           = 80
-  protocol          = "tcp"
-  security_group_id = "${aws_security_group.grafana.id}"
+  description              = "Allow HTTP from Grafana ALB"
+  type                     = "ingress"
+  from_port                = 80
+  to_port                  = 80
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.grafana.id}"
   source_security_group_id = "${aws_security_group.grafana_alb.id}"
 }
 
@@ -163,7 +178,10 @@ resource "aws_security_group_rule" "grafana_alb_ingress_whitelist_https" {
   to_port           = 443
   protocol          = "tcp"
   security_group_id = "${aws_security_group.grafana_alb.id}"
-  cidr_blocks       = ["${var.whitelist}"]
+
+  cidr_blocks = [
+    "${var.whitelist}",
+  ]
 }
 
 resource "aws_security_group_rule" "grafana_alb_ingress_whitelist_http" {
@@ -173,15 +191,18 @@ resource "aws_security_group_rule" "grafana_alb_ingress_whitelist_http" {
   to_port           = 80
   protocol          = "tcp"
   security_group_id = "${aws_security_group.grafana_alb.id}"
-  cidr_blocks       = ["${var.whitelist}"]
+
+  cidr_blocks = [
+    "${var.whitelist}",
+  ]
 }
 
 resource "aws_security_group_rule" "grafana_egress_grafana_alb_http" {
-  description       = "Allow HTTP from Grafana ALB to Grafana"
-  type              = "egress"
-  from_port         = 80
-  to_port           = 80
-  protocol          = "tcp"
-  security_group_id = "${aws_security_group.grafana_alb.id}"
+  description              = "Allow HTTP from Grafana ALB to Grafana"
+  type                     = "egress"
+  from_port                = 80
+  to_port                  = 80
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.grafana_alb.id}"
   source_security_group_id = "${aws_security_group.grafana.id}"
 }

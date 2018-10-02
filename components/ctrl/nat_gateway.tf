@@ -4,15 +4,9 @@ resource "aws_nat_gateway" "ctrl" {
   subnet_id     = "${element(module.nat_subnets.subnet_ids,count.index)}"
 
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "nat",
-      ),
+      "Name", "${local.csi}/nat"
     )
   )}"
 }

@@ -10,15 +10,9 @@ resource "aws_vpc_peering_connection" "mgmt" {
   }
 
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "mgmt"
-      ),
+      "Name", "${local.csi}/mgmt",
       "Side", "Requester"
     )
   )}"
