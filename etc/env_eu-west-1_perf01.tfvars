@@ -467,6 +467,7 @@ jmeter_asg_size_min               = 0
 # squidnat
 squidnat_instance_type = "m5.large"
 
+private_cert_domain_name = "perf01.tars.dvsa.aws"
 cpc_cert    = "*"
 fyndi_cert  = "*"
 tars_cert   = "*"

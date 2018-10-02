@@ -59,6 +59,11 @@ variable "private_domain_name" {
   description = "R53 private domain for TARS"
 }
 
+variable "private_cert_domain_name" {
+  type        = "string"
+  description = "R53 private domain for TARS"
+}
+
 variable "tars_rds_allocated_storage" {
   type        = "string"
   description = "TARS RDS DB Allocated Storage"
@@ -291,3 +296,9 @@ variable "tars_cert" {
   type = "string"
   description = "CPC ACM cert name"
 }
+
+variable "tars_private_cert" {
+  type = "string"
+  description = "TARS Private ACM cert name"
+}
+

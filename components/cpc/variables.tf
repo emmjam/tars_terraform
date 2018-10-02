@@ -253,6 +253,16 @@ variable "cpc_cert" {
   description = "CPC ACM cert name"
 }
 
+variable "cpc_private_cert" {
+  type = "string"
+  description = "cpc private cert subdomain"
+}
+
+variable "private_cert_domain_name" {
+  type        = "string"
+  description = "R53 private domain for CPC"
+}
+
 variable "dvla_elise_server" {
   type = "string"
   description = "DVLA Elise"
