@@ -19,6 +19,8 @@ module "grafana" {
   lc_instance_type = "${var.grafana_instance_type}"
   lc_user_data     = "${data.template_cloudinit_config.grafana.rendered}"
 
+  # TODO: peacheym: This group is a duplicate. It should be removed and
+  #                 references to it replaced with the microservice's own group
   lc_additional_sg_ids = [
     "${aws_security_group.grafana.id}",
   ]
