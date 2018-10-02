@@ -162,3 +162,14 @@ variable "dvsa_irdt_printers" {
   type = "string"
   description = "IRDT Printer range"
 }
+
+variable "tars_pdf_cert" {
+  type = "string"
+  description = "tars pdf cert subdomain"
+}
+
+variable "private_cert_domain_name" {
+  type = "string"
+  description = "private tars cert root domain"
+}
+

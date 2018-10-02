@@ -384,8 +384,14 @@ domain_name_servers = [
   "AmazonProvidedDNS",
 ]
 
+private_cert_domain_name = "prep.tars.dvsa.aws"
+
+
 cpc_cert    = "cpc-prep"
+cpc_private_cert = "cpc-dvsa"
 fyndi_cert  = "fyndi-prep-public"
 tars_cert   = "tars-prep-public"
+tars_private_cert = "tars-prep-private"
+tars_pdf_cert = "tars-prep-pdf"
 obs_cert    = "obs-prep-public"
 ibs_cert    = "ibs-prep-public"
