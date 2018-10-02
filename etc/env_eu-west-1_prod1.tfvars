@@ -533,6 +533,86 @@ source_dms_mis_rds_allocated_storage = "300"
 source_dms_mis_rds_name = "MISDB"
 source_dms_mis_rds_snapshot = "tars-prod1-tars-dms-misdmssc-prod1-migrate"
 
+# Temp RDS's for testing prod build TS-4060
+test_target_tars_rds_storage_type = "gp2"
+test_target_tars_rds_engine = "oracle-se2"
+test_target_tars_rds_engine_version = "12.1.0.2.v11"
+test_target_tars_rds_instance_class = "db.r4.xlarge" # was "db.m4.4xlarge"
+test_target_tars_rds_port = "1521"
+test_target_tars_rds_public = "true"
+test_target_tars_rds_multi_az = "false" # it takes an age to build if true
+test_target_tars_rds_backup_retention = "7"
+test_target_tars_rds_backup_window = "02:38-03:08"
+test_target_tars_rds_maint_window = "sun:03:16-sun:03:46"
+test_target_tars_rds_skip_final_snapshot = true
+test_target_tars_rds_apply_immediately = "true"
+test_target_tars_rds_license_model = "license-included"
+test_target_tars_rds_autoscale = "True"
+test_target_tars_rds_username = "testtarsadmin"
+test_target_tars_rds_password = "pc2JLzyTBTSMpmh3"
+test_target_tars_rds_allocated_storage = "100"
+test_target_tars_rds_name = "TARSDB"
+
+# Temp RDS's for testing prod build TS-4060
+test_target_cpc_rds_storage_type = "gp2"
+test_target_cpc_rds_engine = "oracle-se2"
+test_target_cpc_rds_engine_version = "12.1.0.2.v11"
+test_target_cpc_rds_instance_class = "db.r4.xlarge" # was "db.m4.4xlarge"
+test_target_cpc_rds_port = "1521"
+test_target_cpc_rds_public = "true"
+test_target_cpc_rds_multi_az = "false" # it takes an age to build if true
+test_target_cpc_rds_backup_retention = "7"
+test_target_cpc_rds_backup_window = "02:38-03:08"
+test_target_cpc_rds_maint_window = "sun:03:16-sun:03:46"
+test_target_cpc_rds_skip_final_snapshot = true
+test_target_cpc_rds_apply_immediately = "true"
+test_target_cpc_rds_license_model = "license-included"
+test_target_cpc_rds_autoscale = "True"
+test_target_cpc_rds_username = "testcpcadmin"
+test_target_cpc_rds_password = "MvA74v7CXNcmyZp8"
+test_target_cpc_rds_allocated_storage = "300"
+test_target_cpc_rds_name = "CPCDB"
+
+# Temp RDS's for testing prod build TS-4060
+test_target_rsis_rds_storage_type = "gp2"
+test_target_rsis_rds_engine = "oracle-se2"
+test_target_rsis_rds_engine_version = "12.1.0.2.v11"
+test_target_rsis_rds_instance_class = "db.r4.xlarge" # was "db.m4.4xlarge"
+test_target_rsis_rds_port = "1521"
+test_target_rsis_rds_public = "true"
+test_target_rsis_rds_multi_az = "false" # it takes an age to build if true
+test_target_rsis_rds_backup_retention = "7"
+test_target_rsis_rds_backup_window = "02:38-03:08"
+test_target_rsis_rds_maint_window = "sun:03:16-sun:03:46"
+test_target_rsis_rds_skip_final_snapshot = true
+test_target_rsis_rds_apply_immediately = "true"
+test_target_rsis_rds_license_model = "license-included"
+test_target_rsis_rds_autoscale = "True"
+test_target_rsis_rds_username = "testrsisadmin"
+test_target_rsis_rds_password = "2RBgWMsz4HX5aWQq"
+test_target_rsis_rds_allocated_storage = "80"
+test_target_rsis_rds_name = "RSISDB"
+
+# Temp RDS's for testing prod build TS-4060
+test_target_mis_rds_storage_type = "gp2"
+test_target_mis_rds_engine = "oracle-se2"
+test_target_mis_rds_engine_version = "12.1.0.2.v11"
+test_target_mis_rds_instance_class = "db.r4.xlarge" # was "db.m4.4xlarge"
+test_target_mis_rds_port = "1521"
+test_target_mis_rds_public = "true"
+test_target_mis_rds_multi_az = "false" # it takes an age to build if true
+test_target_mis_rds_backup_retention = "7"
+test_target_mis_rds_backup_window = "02:38-03:08"
+test_target_mis_rds_maint_window = "sun:03:16-sun:03:46"
+test_target_mis_rds_skip_final_snapshot = true
+test_target_mis_rds_apply_immediately = "true"
+test_target_mis_rds_license_model = "license-included"
+test_target_mis_rds_autoscale = "True"
+test_target_mis_rds_username = "testmisadmin"
+test_target_mis_rds_password = "5rVdPzP248fN6LFD"
+test_target_mis_rds_allocated_storage = "300"
+test_target_mis_rds_name = "MISDB"
+
 # DMS Stuff
 xe_role_name = "OracleXE"
 

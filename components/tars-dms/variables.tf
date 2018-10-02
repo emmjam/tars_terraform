@@ -792,3 +792,294 @@ variable "dsa-drora-db-rac03" {
   type = "string"
   description = ""
 }
+
+variable "test_target_tars_rds_storage_type" {
+  type = "string"
+}
+
+variable "test_target_tars_rds_engine" {
+  type = "string"
+}
+variable "test_target_tars_rds_engine_version" {
+  type = "string"
+}
+
+variable "test_target_tars_rds_instance_class" {
+  type = "string"
+}
+
+variable "test_target_tars_rds_port" {
+  type = "string"
+}
+
+variable "test_target_tars_rds_public" {
+  type = "string"
+}
+
+variable "test_target_tars_rds_multi_az" {
+  type = "string"
+}
+
+variable "test_target_tars_rds_backup_retention" {
+  type = "string"
+}
+
+variable "test_target_tars_rds_backup_window" {
+  type = "string"
+}
+
+variable "test_target_tars_rds_maint_window" {
+  type = "string"
+}
+
+variable "test_target_tars_rds_skip_final_snapshot" {
+  type = "string"
+}
+
+variable "test_target_tars_rds_apply_immediately" {
+  type = "string"
+}
+
+variable "test_target_tars_rds_license_model" {
+  type = "string"
+}
+
+variable "test_target_tars_rds_autoscale" {
+  type = "string"
+}
+
+variable "test_target_tars_rds_username" {
+  type = "string"
+}
+
+variable "test_target_tars_rds_password" {
+  type = "string"
+}
+
+variable "test_target_tars_rds_allocated_storage" {
+  type = "string"
+}
+
+variable "test_target_tars_rds_name" {
+  type = "string"
+}
+
+
+###
+
+variable "test_target_cpc_rds_storage_type" {
+  type = "string"
+}
+
+variable "test_target_cpc_rds_engine" {
+  type = "string"
+}
+variable "test_target_cpc_rds_engine_version" {
+  type = "string"
+}
+
+variable "test_target_cpc_rds_instance_class" {
+  type = "string"
+}
+
+variable "test_target_cpc_rds_port" {
+  type = "string"
+}
+
+variable "test_target_cpc_rds_public" {
+  type = "string"
+}
+
+variable "test_target_cpc_rds_multi_az" {
+  type = "string"
+}
+
+variable "test_target_cpc_rds_backup_retention" {
+  type = "string"
+}
+
+variable "test_target_cpc_rds_backup_window" {
+  type = "string"
+}
+
+variable "test_target_cpc_rds_maint_window" {
+  type = "string"
+}
+
+variable "test_target_cpc_rds_skip_final_snapshot" {
+  type = "string"
+}
+
+variable "test_target_cpc_rds_apply_immediately" {
+  type = "string"
+}
+
+variable "test_target_cpc_rds_license_model" {
+  type = "string"
+}
+
+variable "test_target_cpc_rds_autoscale" {
+  type = "string"
+}
+
+variable "test_target_cpc_rds_username" {
+  type = "string"
+}
+
+variable "test_target_cpc_rds_password" {
+  type = "string"
+}
+
+variable "test_target_cpc_rds_allocated_storage" {
+  type = "string"
+}
+
+variable "test_target_cpc_rds_name" {
+  type = "string"
+}
+
+###
+
+variable "test_target_mis_rds_storage_type" {
+  type = "string"
+}
+
+variable "test_target_mis_rds_engine" {
+  type = "string"
+}
+variable "test_target_mis_rds_engine_version" {
+  type = "string"
+}
+
+variable "test_target_mis_rds_instance_class" {
+  type = "string"
+}
+
+variable "test_target_mis_rds_port" {
+  type = "string"
+}
+
+variable "test_target_mis_rds_public" {
+  type = "string"
+}
+
+variable "test_target_mis_rds_multi_az" {
+  type = "string"
+}
+
+variable "test_target_mis_rds_backup_retention" {
+  type = "string"
+}
+
+variable "test_target_mis_rds_backup_window" {
+  type = "string"
+}
+
+variable "test_target_mis_rds_maint_window" {
+  type = "string"
+}
+
+variable "test_target_mis_rds_skip_final_snapshot" {
+  type = "string"
+}
+
+variable "test_target_mis_rds_apply_immediately" {
+  type = "string"
+}
+
+variable "test_target_mis_rds_license_model" {
+  type = "string"
+}
+
+variable "test_target_mis_rds_autoscale" {
+  type = "string"
+}
+
+variable "test_target_mis_rds_username" {
+  type = "string"
+}
+
+variable "test_target_mis_rds_password" {
+  type = "string"
+}
+
+variable "test_target_mis_rds_allocated_storage" {
+  type = "string"
+}
+
+variable "test_target_mis_rds_name" {
+  type = "string"
+}
+
+###
+
+variable "test_target_rsis_rds_storage_type" {
+  type = "string"
+}
+
+variable "test_target_rsis_rds_engine" {
+  type = "string"
+}
+variable "test_target_rsis_rds_engine_version" {
+  type = "string"
+}
+
+variable "test_target_rsis_rds_instance_class" {
+  type = "string"
+}
+
+variable "test_target_rsis_rds_port" {
+  type = "string"
+}
+
+variable "test_target_rsis_rds_public" {
+  type = "string"
+}
+
+variable "test_target_rsis_rds_multi_az" {
+  type = "string"
+}
+
+variable "test_target_rsis_rds_backup_retention" {
+  type = "string"
+}
+
+variable "test_target_rsis_rds_backup_window" {
+  type = "string"
+}
+
+variable "test_target_rsis_rds_maint_window" {
+  type = "string"
+}
+
+variable "test_target_rsis_rds_skip_final_snapshot" {
+  type = "string"
+}
+
+variable "test_target_rsis_rds_apply_immediately" {
+  type = "string"
+}
+
+variable "test_target_rsis_rds_license_model" {
+  type = "string"
+}
+
+variable "test_target_rsis_rds_autoscale" {
+  type = "string"
+}
+
+variable "test_target_rsis_rds_username" {
+  type = "string"
+}
+
+variable "test_target_rsis_rds_password" {
+  type = "string"
+}
+
+variable "test_target_rsis_rds_allocated_storage" {
+  type = "string"
+}
+
+variable "test_target_rsis_rds_name" {
+  type = "string"
+}
