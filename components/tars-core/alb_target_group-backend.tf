@@ -14,7 +14,7 @@ resource "aws_alb_target_group" "tars-backend-8080" {
   health_check {
     path                = "/DSAAuthenticationcationJWSService?wsdl"
     timeout             = 5
-    interval            = 10
+    interval            = 300
     healthy_threshold   = 3
     unhealthy_threshold = 3
     matcher             = 200
