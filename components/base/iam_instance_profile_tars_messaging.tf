@@ -1,25 +1,11 @@
 # Create the tars core server instance profile
 resource "aws_iam_instance_profile" "tars-messaging" {
-  name = "${format(
-     "%s-%s-%s-%s",
-     var.project,
-     var.environment,
-     var.component,
-     "messaging"
-   )}"
-
+  name = "${local.csi}-messaging"
   role = "${aws_iam_role.tars-messaging.name}"
 }
 
 resource "aws_iam_role" "tars-messaging" {
-  name = "${format(
-     "%s-%s-%s-%s",
-     var.project,
-     var.environment,
-     var.component,
-     "messaging"
-   )}"
-
+  name               = "${local.csi}-messaging"
   description        = "Allows EC2 instances to call AWS services on your behalf."
   assume_role_policy = "${data.aws_iam_policy_document.ec2_assumerole.json}"
 }

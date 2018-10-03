@@ -7,17 +7,18 @@ data "aws_iam_policy_document" "messagingnode" {
     actions = [
       "cloudwatch:PutMetricData",
       "ec2:DescribeTags",
-      "logs:PutLogEvents",
-      "logs:DescribeLogStreams",
-      "logs:DescribeLogGroups",
+      "logs:CreateLogGroup",
       "logs:CreateLogStream",
-      "logs:CreateLogGroup"
+      "logs:DescribeLogGroups",
+      "logs:DescribeLogStreams",
+      "logs:PutLogEvents",
     ]
 
     resources = [
       "*",
     ]
   }
+
   statement {
     sid    = "AllowCW2"
     effect = "Allow"
@@ -30,6 +31,7 @@ data "aws_iam_policy_document" "messagingnode" {
       "arn:aws:ssm:*:*:parameter/AmazonCloudWatch-*",
     ]
   }
+
   statement {
     sid    = "AllowADLookup"
     effect = "Allow"
@@ -46,7 +48,7 @@ data "aws_iam_policy_document" "messagingnode" {
 }
 
 resource "aws_iam_policy" "messagingnode" {
-  name        = "${var.project}-${var.environment}-${var.component}-messagingnode"
-  description = "IAM policy for ${var.project}-${var.environment}-${var.component}-messagingnode"
+  name        = "${local.csi}-messagingnode"
+  description = "IAM policy for ${local.csi}-messagingnode"
   policy      = "${data.aws_iam_policy_document.messagingnode.json}"
 }

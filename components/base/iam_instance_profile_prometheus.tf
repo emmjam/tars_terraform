@@ -5,7 +5,6 @@ resource "aws_iam_role_policy_attachment" "hieradata-prometheus" {
 }
 
 resource "aws_iam_role_policy_attachment" "prometheus" {
-    role       = "${module.prometheus.iam_role_name}"
-    policy_arn = "${aws_iam_policy.prometheus.arn}"
+  role       = "${module.prometheus.iam_role_name}"
+  policy_arn = "${aws_iam_policy.prometheus.arn}"
 }
-

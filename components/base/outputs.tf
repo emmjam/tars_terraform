@@ -20,7 +20,9 @@ output "subnets_tars_backend_elb" {
 }
 
 output "subnet_cidrs_tars_backend" {
-  value = [ "${var.tars_backend_subnets_cidrs}" ]
+  value = [
+    "${var.tars_backend_subnets_cidrs}",
+  ]
 }
 
 output "subnets_tars_web" {

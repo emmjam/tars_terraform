@@ -3,7 +3,7 @@ data "template_file" "jmeter" {
 
   vars {
     nodetype    = "jmeter"
-    domain_name = "${var.environment}.${var.private_domain_name}"
+    domain_name = "${local.vpc_domain_name}"
   }
 }
 
@@ -11,14 +11,13 @@ data "template_file" "jmeter_config" {
   template = "${file("${path.module}/templates/jmeter_setup.sh.tmpl")}"
 
   vars {
-    environment = "${var.environment}"
-    puppet_environment  = "${var.puppet_environment}"
-    nodetype   = "${var.jmeter_puppet_nodetype}"
-    kms_key = "${var.jmeter_puppet_kms_key}"
-    aws_account = "${var.aws_account_id}"
+    environment        = "${var.environment}"
+    puppet_environment = "${var.puppet_environment}"
+    nodetype           = "${var.jmeter_puppet_nodetype}"
+    kms_key            = "${var.jmeter_puppet_kms_key}"
+    aws_account        = "${var.aws_account_id}"
   }
 }
-
 
 data "template_cloudinit_config" "jmeter" {
   gzip          = true
@@ -33,6 +32,4 @@ data "template_cloudinit_config" "jmeter" {
     content_type = "text/x-shellscript"
     content      = "${data.template_file.jmeter_config.rendered}"
   }
-
 }
-

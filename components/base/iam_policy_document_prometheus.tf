@@ -16,7 +16,7 @@ data "aws_iam_policy_document" "prometheus" {
 }
 
 resource "aws_iam_policy" "prometheus" {
-  name        = "${var.project}-${var.environment}-${var.component}-prometheus"
-  description = "IAM policy for ${var.project}-${var.environment}-${var.component}-prometheus"
+  name        = "${local.csi}-prometheus"
+  description = "IAM policy for ${local.csi}-prometheus"
   policy      = "${data.aws_iam_policy_document.prometheus.json}"
 }

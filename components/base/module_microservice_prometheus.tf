@@ -9,10 +9,15 @@ module "prometheus" {
   vpc_id               = "${aws_vpc.vpc.id}"
   availability_zones   = "${data.aws_availability_zones.available.names}"
   subnets_cidrs        = "${var.prometheus_subnets_cidrs}"
-  subnets_route_tables = ["${aws_route_table.private_nat.*.id}"]
+
+  subnets_route_tables = [
+    "${aws_route_table.private_nat.*.id}",
+  ]
   
-  lc_additional_sg_ids = [ "${aws_security_group.core.id}",
-                           "${aws_security_group.prometheus.id}", ]
+  lc_additional_sg_ids = [
+    "${aws_security_group.core.id}",
+    "${aws_security_group.prometheus.id}",
+  ]
 
   lc_ami_id        = "${data.aws_ami.prometheus.image_id}"
   lc_instance_type = "${var.prometheus_instance_type}"
@@ -20,14 +25,15 @@ module "prometheus" {
 
   asg_target_group_arns = [ 
     "${aws_alb_target_group.prometheus-80.id}",
-    "${aws_alb_target_group.prometheus-9090.id}"
+    "${aws_alb_target_group.prometheus-9090.id}",
   ]
 
   asg_size_min               = "${var.prometheus_asg_min_size}"
   asg_size_desired_on_create = "${var.prometheus_asg_min_size}"
   asg_size_max               = "${var.prometheus_asg_max_size}"
 
-  default_tags      = "${var.default_tags}"
+  default_tags = "${var.default_tags}"
+
   asg_default_tags  = [
     "${var.asg_default_tags}",
   ]

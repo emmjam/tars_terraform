@@ -2,6 +2,7 @@ data "terraform_remote_state" "ctrl" {
   backend = "s3"
 
   config {
+    # TODO: peacheym: Make this an explicit variable value, or a local.
     bucket = "${var.tf_state_bucket_prefix}-${var.aws_account_id}-${var.aws_region}"
 
     key = "${format(

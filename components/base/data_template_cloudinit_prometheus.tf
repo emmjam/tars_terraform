@@ -3,7 +3,7 @@ data "template_file" "prometheus" {
 
   vars {
     nodetype    = "prometheus"
-    domain_name = "${var.environment}.${var.private_domain_name}"
+    domain_name = "${local.vpc_domain_name}"
   }
 }
 
@@ -22,7 +22,6 @@ data "template_file" "prometheus_config" {
   }
 }
 
-
 data "template_cloudinit_config" "prometheus" {
   gzip          = true
   base64_encode = true
@@ -36,6 +35,4 @@ data "template_cloudinit_config" "prometheus" {
     content_type = "text/x-shellscript"
     content      = "${data.template_file.prometheus_config.rendered}"
   }
-
 }
-

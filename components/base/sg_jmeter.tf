@@ -1,33 +1,12 @@
 resource "aws_security_group" "jmeter" {
-  name = "${format(
-    "%s-%s-%s/%s",
-    var.project,
-    var.environment,
-    var.component,
-    "jmeter"
-  )}"
-
-  description = "${format(
-    "%s-%s-%s/%s",
-    var.project,
-    var.environment,
-    var.component,
-    "jmeter"
-  )}"
-
-  vpc_id = "${aws_vpc.vpc.id}"
+  name        = "${local.csi}/jmeter"
+  description = "${local.csi}/jmeter"
+  vpc_id      = "${aws_vpc.vpc.id}"
 
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "jmeter"
-      ),
-      "Component", var.component
+      "Name", "${local.csi}/jmeter"
     )
   )}"
 }

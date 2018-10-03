@@ -3,6 +3,7 @@ data "terraform_remote_state" "mgmt" {
   backend = "s3"
 
   config {
+    # TODO: peacheym: Make this an explicit variable value, or a local.
     bucket = "${var.tf_state_bucket_prefix}-${var.mgmt_aws_account_id}-${var.mgmt_aws_region}"
 
     key = "${format(

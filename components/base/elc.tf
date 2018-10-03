@@ -1,19 +1,6 @@
 resource "aws_elasticache_subnet_group" "main" {
-  name = "${format(
-    "%s-%s-%s-%s",
-    var.project,
-    var.environment,
-    var.component,
-    "ec"
-  )}"
-
-  description = "${format(
-    "%s-%s-%s-%s",
-    var.project,
-    var.environment,
-    var.component,
-    "ec"
-  )}"
+  name        = "${local.csi}-ec"
+  description = "${local.csi}-ec"
 
   subnet_ids = [
     "${module.elc_subnets.subnet_ids}",
@@ -21,7 +8,7 @@ resource "aws_elasticache_subnet_group" "main" {
 }
 
 resource "aws_elasticache_cluster" "ec" {
-  cluster_id           = "${var.project}-${var.environment}-${var.component}-ec" 
+  cluster_id           = "${local.csi}-ec" 
   engine               = "${var.elc_main_engine}"
   engine_version       = "${var.elc_main_engine_version}"
   node_type            = "${var.elc_main_node_type}"
@@ -35,17 +22,9 @@ resource "aws_elasticache_cluster" "ec" {
   ]
 
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s-%s",
-        var.project,
-        var.environment,
-        var.component,
-        "ec"
-      ),
-      "Component", var.component
+      "Name", "${local.csi}-ec"
     )
   )}"
 }
-

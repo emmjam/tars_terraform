@@ -3,8 +3,8 @@ resource "aws_security_group_rule" "squidnat_ingress_core_https" {
   protocol                 = "tcp"
   from_port                = "443"
   to_port                  = "443"
-  source_security_group_id = "${aws_security_group.core.id}"
   security_group_id        = "${module.squidnat.security_group_id}"
+  source_security_group_id = "${aws_security_group.core.id}"
 }
 
 resource "aws_security_group_rule" "squidnat_ingress_core_http" {
@@ -12,8 +12,8 @@ resource "aws_security_group_rule" "squidnat_ingress_core_http" {
   protocol                 = "tcp"
   from_port                = "80"
   to_port                  = "80"
-  source_security_group_id = "${aws_security_group.core.id}"
   security_group_id        = "${module.squidnat.security_group_id}"
+  source_security_group_id = "${aws_security_group.core.id}"
 }
 
 resource "aws_security_group_rule" "squidnat_ingress_core_explicit" {
@@ -21,7 +21,6 @@ resource "aws_security_group_rule" "squidnat_ingress_core_explicit" {
   protocol                 = "tcp"
   from_port                = "3128"
   to_port                  = "3128"
-  source_security_group_id = "${aws_security_group.core.id}"
   security_group_id        = "${module.squidnat.security_group_id}"
+  source_security_group_id = "${aws_security_group.core.id}"
 }
-

@@ -16,16 +16,9 @@ module "subnets_cpc_rds" {
   ]
 
   route_tables = [
-    "${aws_route_table.private_nonat.id}"
+    "${aws_route_table.private_nonat.id}",
   ]
 
-  vpc_id = "${aws_vpc.vpc.id}"
-
-  # Apply default tags, and merge with additional tags
-  default_tags = "${merge(
-    var.default_tags,
-    map(
-      "Component", var.component
-    )
-  )}"
+  vpc_id       = "${aws_vpc.vpc.id}"
+  default_tags = "${local.default_tags}"
 }

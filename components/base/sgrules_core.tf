@@ -26,8 +26,14 @@ resource "aws_security_group_rule" "core_egress_dns" {
   protocol                 = "udp"
   from_port                = "53"
   to_port                  = "53"
-  cidr_blocks              = ["10.166.0.14/32", "10.166.0.28/32", "10.166.0.43/32"]
   security_group_id        = "${aws_security_group.core.id}"
+
+  # TODO: peacheym: Parameterise this list
+  cidr_blocks = [
+    "10.166.0.14/32",
+    "10.166.0.28/32",
+    "10.166.0.43/32",
+  ]
 }
 
 resource "aws_security_group_rule" "core_egress_squidnat_http" {
@@ -59,7 +65,6 @@ resource "aws_security_group_rule" "core_egress_kms" {
   security_group_id        = "${aws_security_group.core.id}"
   source_security_group_id = "${aws_security_group.kms_endpoint.id}"
 }
-
 
 # Jenkins Node ssh access
 
