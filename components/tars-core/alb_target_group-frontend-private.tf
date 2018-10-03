@@ -16,7 +16,7 @@ resource "aws_alb_target_group" "tars-frontend-private-8443" {
     path                = "/DSAWeb/health_check.jsp"
     protocol            = "HTTPS"
     timeout             = 5
-    interval            = 10
+    interval            = 300
     healthy_threshold   = 3
     unhealthy_threshold = 3
     matcher             = 200
@@ -26,6 +26,5 @@ resource "aws_alb_target_group" "tars-frontend-private-8443" {
     type = "lb_cookie"
     enabled = true
   }
-  
-}
 
+}
