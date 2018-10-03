@@ -130,7 +130,7 @@ resource "aws_security_group_rule" "tars_batch_egress_dvla_ldap" {
 }
 
 resource "aws_security_group_rule" "tars_batch_egress_dvsa_dns" {
-  description              = "Allow DNS to DVSA LDAP"
+  description              = "Allow DNS to DVSA DNS"
   type                     = "egress"
   from_port                = -1
   to_port                  = -1
