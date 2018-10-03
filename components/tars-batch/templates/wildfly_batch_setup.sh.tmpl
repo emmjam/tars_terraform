@@ -33,7 +33,7 @@ export FACTER_aws_account='${aws_account_id}'
 # Override DNS to use DVSA Azure DNS. TF knows what the IP's are so lets do it here, rather than puppet
 echo "Setting DNS"
 echo "search ${search_suffix}" > /etc/resolv.conf
-servers=$(echo ${dvsa_dns_servers} | sed 's/,/ /g')
+servers=$(echo ${dvsa_dns_servers} | sed 's/,/ /g' | sed 's,/32,,g')
 for server in $$servers
 do
   echo "nameserver $${server}" >> /etc/resolv.conf
