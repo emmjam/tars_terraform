@@ -6,4 +6,3 @@ resource "aws_route53_zone" "public_domain" {
 }
 
 # TODO: import MX/TXT records
-

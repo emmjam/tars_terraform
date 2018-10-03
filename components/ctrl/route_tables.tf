@@ -2,15 +2,9 @@ resource "aws_route_table" "public" {
   vpc_id = "${aws_vpc.ctrl.id}"
 
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "public",
-      ),
+      "Name", "${local.csi}/public"
     )
   )}"
 }
@@ -19,15 +13,9 @@ resource "aws_route_table" "private_nat" {
   vpc_id = "${aws_vpc.ctrl.id}"
 
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "private-nat",
-      ),
+      "Name", "${local.csi}/private-nat"
     )
   )}"
 }
@@ -36,15 +24,9 @@ resource "aws_route_table" "private" {
   vpc_id = "${aws_vpc.ctrl.id}"
 
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "private",
-      ),
+      "Name", "${local.csi}/private"
     )
   )}"
 }

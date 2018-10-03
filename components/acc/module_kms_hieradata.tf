@@ -9,5 +9,5 @@ module "kms_hieradata" {
   alias           = "alias/hieradata"
   deletion_window = "30"
 
-  default_tags = "${var.default_tags}"
+  default_tags = "${local.default_tags}"
 }
