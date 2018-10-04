@@ -1,11 +1,6 @@
 # R53 record for the TARS batch ALB
 resource "aws_route53_record" "tars-batch" {
-  name = "${format(
-    "%s-%s",
-    var.project,
-    "batch"
-  )}"
-
+  name    = "tars-batch"
   zone_id = "${data.terraform_remote_state.base.private_zone_id}"
   type    = "A"
 

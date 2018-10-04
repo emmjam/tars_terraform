@@ -1,13 +1,6 @@
 # Create LC for the TARS batch server
 resource "aws_launch_configuration" "tars-batch" {
-  name_prefix = "${format(
-    "%s-%s-%s-%s-",
-    var.project,
-    var.environment,
-    var.component,
-    "wf-batch"
-  )}"
-
+  name_prefix          = "${local.csi}-wf-batch-"
   image_id             = "${data.aws_ami.wildfly-batch.image_id}"
   instance_type        = "${var.wildfly-batch_instance_type}"
   spot_price           = "${var.lc_spot_price}"
