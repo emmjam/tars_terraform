@@ -1,12 +1,6 @@
 # CPC ALB target group for port 8443
 resource "aws_alb_target_group" "cpc-front-dvsa-8443" {
-  name = "${format(
-    "%s-%s-%s-%s",
-    var.project,
-    var.environment,
-    var.component,
-    "dvsa-8443"
-  )}"
+  name     = "${local.csi}-dvsa-8443"
   port     = "8443"
   protocol = "HTTPS"
   vpc_id   = "${data.terraform_remote_state.base.vpc_id}"
@@ -22,11 +16,9 @@ resource "aws_alb_target_group" "cpc-front-dvsa-8443" {
   }
 
   stickiness {
-    type = "lb_cookie"
+    type    = "lb_cookie"
     enabled = true
   }
-
-
 }
 
 resource "aws_autoscaling_attachment" "cpc-front-dvsa-8443" {

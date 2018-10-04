@@ -31,4 +31,10 @@ locals {
       "Component", var.component
     )
   )}"
+
+  vpc_domain_name = "${var.environment}.${var.private_domain_name}"
+
+  # If environment = prod, just use component, else use component-environment
+  default_short_name = "${var.component}-${var.environment}"
+  dva_dns_short_name = "${var.environment == "prod" ? var.component : local.default_short_name}"
 }

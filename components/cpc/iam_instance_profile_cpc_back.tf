@@ -5,6 +5,6 @@ resource "aws_iam_role_policy_attachment" "cpc_back_hieradata" {
 }
 
 resource "aws_iam_role_policy_attachment" "cpc_back_cloudwatch" {
-    role       = "${module.cpc-back.iam_role_name}"
-    policy_arn = "${data.terraform_remote_state.base.iam_policy_cloudwatch_arn}"
+  role       = "${module.cpc-back.iam_role_name}"
+  policy_arn = "${data.terraform_remote_state.base.iam_policy_cloudwatch_arn}"
 }

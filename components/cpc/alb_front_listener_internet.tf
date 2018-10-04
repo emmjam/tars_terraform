@@ -23,7 +23,10 @@ resource "aws_lb_listener_rule" "cpc-front-internet-9443-delegated" {
 
   condition {
     field  = "path-pattern"
-    values = ["/delegated/*"]
+
+    values = [
+      "/delegated/*",
+    ]
   }
 }
 
@@ -38,7 +41,10 @@ resource "aws_lb_listener_rule" "cpc-front-internet-9443-cpcode" {
 
   condition {
     field  = "path-pattern"
-    values = ["/cpcode/*"]
+
+    values = [
+      "/cpcode/*",
+    ]
   }
 }
 
@@ -53,6 +59,9 @@ resource "aws_lb_listener_rule" "cpc-front-internet-9443-cpctrain" {
 
   condition {
     field  = "path-pattern"
-    values = ["/cpctrain/*"]
+
+    values = [
+      "/cpctrain/*",
+    ]
   }
 }

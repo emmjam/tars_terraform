@@ -24,12 +24,18 @@ variable "puppet_environment" {
   description = "Environment for puppet on boot"
 }
 
+# TODO: peacheym: Valid description
 variable "whitelist" {
   type        = "list"
+  description = ""
+  default     = []
 }
 
+# TODO: peacheym: Valid description
 variable "dva_whitelist" {
   type        = "list"
+  description = ""
+  default     = []
 }
 
 variable "account_component_name" {
@@ -62,7 +68,12 @@ variable "private_domain_name" {
 variable "asg_termination_policies" {
   type        = "list"
   description = "A list of policies to decide how the instances in the auto scale group should be terminated"
-  default     = ["OldestInstance", "OldestLaunchConfiguration", "ClosestToNextInstanceHour"]
+
+  default = [
+    "OldestInstance",
+    "OldestLaunchConfiguration",
+    "ClosestToNextInstanceHour",
+  ]
 }
 
 variable "asg_enabled_metrics" {
@@ -103,30 +114,32 @@ variable "aws_account_id" {
 }
 
 variable "mgmt_aws_account_id" {
-  type = "string"
+  type        = "string"
   description = ""
 }
 
 variable "cpc-front_asg_max_size" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "cpc-front_asg_min_size" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "cpc-front_instance_type" {
-  type = "string"
+  type        = "string"
   description = ""
 }
 
 variable "cpc-front_puppet_nodetype" {
-  type = "string"
+  type        = "string"
   description = ""
 }
 
 variable "cpc-back_puppet_nodetype" {
-  type = "string"
+  type        = "string"
   description = ""
 }
 
@@ -222,39 +235,44 @@ variable "cpc_rds_autoscale" {
 }
 
 variable "cpc-front_subnets_cidrs" {
-  type = "list"
+  type        = "list"
   description = ""
+  default     = []
 }
 
 variable "cpc-back_asg_max_size" {
-  type = "string"
-  description = ""
-}
-variable "cpc-back_asg_min_size" {
-  type = "string"
-  description = ""
-}
-variable "cpc-back_instance_type" {
-  type = "string"
-  description = ""
-}
-variable "cpc-back_subnets_cidrs" {
-  type = "list"
+  type        = "string"
   description = ""
 }
 
+variable "cpc-back_asg_min_size" {
+  type        = "string"
+  description = ""
+}
+
+variable "cpc-back_instance_type" {
+  type        = "string"
+  description = ""
+}
+
+variable "cpc-back_subnets_cidrs" {
+  type        = "list"
+  description = ""
+  default     = []
+}
+
 variable "cert_name" {
-  type = "string"
+  type        = "string"
   description = "ACM cert name"
 }
 
 variable "cpc_cert" {
-  type = "string"
+  type        = "string"
   description = "CPC ACM cert name"
 }
 
 variable "cpc_private_cert" {
-  type = "string"
+  type        = "string"
   description = "cpc private cert subdomain"
 }
 
@@ -264,40 +282,46 @@ variable "private_cert_domain_name" {
 }
 
 variable "dvla_elise_server" {
-  type = "string"
+  type        = "string"
   description = "DVLA Elise"
 }
 
 variable "cpc-front_scaledown_desired" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "cpc-front_scaleup_desired" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "cpc-front_scaledown_recurrence" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "cpc-front_scaleup_recurrence" {
-  type = "string"
+  type        = "string"
   description = ""
 }
 
 variable "cpc-back_scaledown_desired" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "cpc-back_scaleup_desired" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "cpc-back_scaledown_recurrence" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "cpc-back_scaleup_recurrence" {
-  type = "string"
+  type        = "string"
   description = ""
 }

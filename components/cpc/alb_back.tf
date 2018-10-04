@@ -1,29 +1,20 @@
 # CPC Back ALB 
 resource "aws_alb" "cpc-back" {
-  name = "${format(
-    "%s-%s-%s-%s",
-    var.project,
-    var.environment,
-    var.component,
-    "cpc-back"
-  )}"
-
+  name     = "${local.csi}-cpc-back"
   internal = true
 
-  security_groups = ["${aws_security_group.cpc-back-alb.id}"]
+  security_groups = [
+    "${aws_security_group.cpc-back-alb.id}",
+  ]
 
-  subnets = ["${module.cpc-back.subnet_ids}"]
+  subnets = [
+    "${module.cpc-back.subnet_ids}",
+  ]
+
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "cpc-back"
-      ),
+      "Name", "${local.csi}/cpc-back"
     )
   )}"
 }
-

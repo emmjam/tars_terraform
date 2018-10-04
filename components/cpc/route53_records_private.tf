@@ -1,12 +1,6 @@
 # Create the R53 record for the CPC DB
 resource "aws_route53_record" "cpcdb" {
-  name = "${format(
-    "%s-%s-%s",
-    var.component,
-    "core",
-    "db"
-  )}"
-
+  name    = "cpc-core-db"
   zone_id = "${data.terraform_remote_state.base.private_zone_id}"
   type    = "A"
 
@@ -19,12 +13,7 @@ resource "aws_route53_record" "cpcdb" {
 
 # Create the R53 record for the CPC Backend ALB
 resource "aws_route53_record" "cpc-backend" {
-  name = "${format(
-    "%s-%s",
-    var.component,
-    "backend"
-  )}"
-
+  name    = "cpc-backend"
   zone_id = "${data.terraform_remote_state.base.private_zone_id}"
   type    = "A"
 
@@ -36,12 +25,7 @@ resource "aws_route53_record" "cpc-backend" {
 }
 
 resource "aws_route53_record" "cpc-dvsa" {
-  name = "${format(
-    "%s-%s",
-    var.component,
-    "dvsa"
-  )}"
-
+  name    = "cpc-dvsa"
   zone_id = "${data.terraform_remote_state.base.private_zone_id}"
   type    = "A"
 
