@@ -1,13 +1,6 @@
 # ALB for public facing tars
 resource "aws_alb" "tars-private-facing" {
-  name = "${format(
-    "%s-%s-%s-%s",
-    var.project,
-    var.environment,
-    var.component,
-    "private"
-  )}"
-
+  name     = "${local.csi}-private"
   internal = "true"
 
   access_logs {
@@ -16,20 +9,18 @@ resource "aws_alb" "tars-private-facing" {
     enabled = true
   }
 
-  security_groups = ["${aws_security_group.tars-alb-private.id}"]
+  security_groups = [
+    "${aws_security_group.tars-alb-private.id}",
+  ]
 
-  subnets = ["${data.terraform_remote_state.base.subnets_tars_web}"]
+  subnets = [
+    "${data.terraform_remote_state.base.subnets_tars_web}",
+  ]
 
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "private"
-      ),
+      "Name", "${local.csi}/private"
     )
   )}"
 }

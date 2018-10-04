@@ -1,12 +1,6 @@
 # CPC ALB target group for port 7443
 resource "aws_alb_target_group" "cpc-front-dva-7443" {
-  name = "${format(
-    "%s-%s-%s-%s",
-    var.project,
-    var.environment,
-    var.component,
-    "dva-7443"
-  )}"
+  name     = "${local.csi}-dva-7443"
   port     = "7443"
   protocol = "HTTPS"
   vpc_id   = "${data.terraform_remote_state.base.vpc_id}"
@@ -25,7 +19,4 @@ resource "aws_alb_target_group" "cpc-front-dva-7443" {
     type = "lb_cookie"
     enabled = true
   }
-
-
 }
-

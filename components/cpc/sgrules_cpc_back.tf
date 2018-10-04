@@ -27,16 +27,6 @@ resource "aws_security_group_rule" "cpc_back_egress_kms_endpoint" {
   source_security_group_id = "${data.terraform_remote_state.base.kms_sg_id}"
 }
 
-resource "aws_security_group_rule" "active_mq_ingress_cpc_back" {
-  description              = "Allow TCP/61617 from CPC Back"
-  type                     = "ingress"
-  from_port                = 61617
-  to_port                  = 61617
-  protocol                 = "tcp"
-  security_group_id        = "${data.terraform_remote_state.base.awsmq_sg_id}"
-  source_security_group_id = "${module.cpc-back.security_group_id}"
-}
-
 resource "aws_security_group_rule" "cpc_back_egress_active_mq" {
   description              = "Allow TCP/61617 to AWS MQ"
   type                     = "egress"
@@ -57,25 +47,19 @@ resource "aws_security_group_rule" "cpc_back_egress_tars_back_alb" {
   source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-backend-alb-sg-id}"
 }
 
-resource "aws_security_group_rule" "tars_back_alb_ingress_cpc_back" {
-  description              = "Allow TCP/8080 from CPC back"
-  type                     = "ingress"
-  from_port                = 8080
-  to_port                  = 8080
-  protocol                 = "tcp"
-  security_group_id        = "${data.terraform_remote_state.tars-core.tars-core-backend-alb-sg-id}"
-  source_security_group_id = "${module.cpc-back.security_group_id}"
+resource "aws_security_group_rule" "cpc_back_egress_dvla_elise" {
+  description       = "Allow TCP/443 to DVLA Elise"
+  type              = "egress"
+  from_port         = 443
+  to_port           = 443
+  protocol          = "tcp"
+  security_group_id = "${module.cpc-back.security_group_id}"
+
+  cidr_blocks = [
+    "${var.dvla_elise_server}",
+  ]
 }
 
-resource "aws_security_group_rule" "cpc_back_egress_dvla_elise" {
-  description              = "Allow TCP/443 to DVLA Elise"
-  type                     = "egress"
-  from_port                = 443
-  to_port                  = 443
-  protocol                 = "tcp"
-  security_group_id        = "${module.cpc-back.security_group_id}"
-  cidr_blocks              = ["${var.dvla_elise_server}"]
-}
 resource "aws_security_group_rule" "cpc_back_egress_cpc_back_alb" {
   description              = "Allow TCP/8080 to CPC back ALB"
   type                     = "egress"

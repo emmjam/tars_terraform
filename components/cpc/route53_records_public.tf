@@ -1,13 +1,6 @@
 # Create the R53 record for the public ALB
 resource "aws_route53_record" "cpc-internet" {
-  name = "${format(
-    "%s-%s-%s-%s",
-    var.project,
-    var.environment,
-    var.component,
-    "internet"
-  )}"
-
+  name    = "${local.csi}-internet"
   zone_id = "${data.terraform_remote_state.acc.public_domain_name_zone_id}"
   type    = "A"
 
@@ -18,16 +11,8 @@ resource "aws_route53_record" "cpc-internet" {
   }
 }
 
-
-# If environment = prod, just use component, else use component-environment
-locals {
-  default_short_name = "${var.component}-${var.environment}"
-  dva_dns_short_name = "${var.environment == "prod" ? var.component : local.default_short_name}"
-}
-
 resource "aws_route53_record" "cpc-dva" {
-  name = "${local.dva_dns_short_name}"
-
+  name    = "${local.dva_dns_short_name}"
   zone_id = "${data.terraform_remote_state.acc.public_domain_name_zone_id}"
   type    = "A"
 
@@ -39,14 +24,7 @@ resource "aws_route53_record" "cpc-dva" {
 }
 
 resource "aws_route53_record" "cpc-dvsa-internet" {
-  name = "${format(
-    "%s-%s-%s-%s",
-    var.project,
-    var.environment,
-    var.component,
-    "dvsa-internet"
-  )}"
-
+  name    = "${local.csi}-dvsa-internet"
   zone_id = "${data.terraform_remote_state.acc.public_domain_name_zone_id}"
   type    = "A"
 

@@ -2,3 +2,7 @@
 output "tars-batch-sg-id" {
   value = "${aws_security_group.tars-batch.id}"
 }
+
+output "batch_efs_id" {
+  value = "${aws_efs_file_system.batch.id}"
+}

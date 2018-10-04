@@ -1,13 +1,6 @@
 # Define the LC for the tars backend core server
 resource "aws_launch_configuration" "tars-backend" {
-  name_prefix = "${format(
-    "%s-%s-%s-%s-",
-    var.project,
-    var.environment,
-    var.component,
-    "wf-back"
-  )}"
-
+  name_prefix          = "${local.csi}-wf-back-"
   image_id             = "${data.aws_ami.wildfly-back.image_id}"
   instance_type        = "${var.wildfly-back_instance_type}"
   spot_price           = "${var.lc_spot_price}"

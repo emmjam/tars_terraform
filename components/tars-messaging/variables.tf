@@ -42,6 +42,7 @@ variable "default_tags" {
 variable "whitelist" {
   type        = "list"
   description = "TARS Servers inbound whitelisted IP's"
+  default     = []
 }
 
 variable "tf_state_bucket_prefix" {
@@ -57,7 +58,12 @@ variable "private_domain_name" {
 variable "asg_termination_policies" {
   type        = "list"
   description = "A list of policies to decide how the instances in the auto scale group should be terminated"
-  default     = ["OldestInstance", "OldestLaunchConfiguration", "ClosestToNextInstanceHour"]
+
+  default = [
+    "OldestInstance",
+    "OldestLaunchConfiguration",
+    "ClosestToNextInstanceHour",
+  ]
 }
 
 variable "asg_enabled_metrics" {
@@ -104,72 +110,79 @@ variable "aws_account_id" {
 }
 
 variable "mgmt_aws_account_id" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-messaging_asg_max_size" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-messaging_asg_min_size" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-messaging_instance_type" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-messaging_puppet_kms_key" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-messaging_puppet_nodetype" {
-  type = "string"
+  type        = "string"
   description = ""
 }
 
 variable "wildfly-messaging_scaleup_desired" {
-  type = "string"
+  type        = "string"
   description = ""
 }
 
 variable "dvsa_dc_whitelist" {
   type        = "list"
   description = "DVSA DC whitelist"
+  default     = []
 }
 
 variable "dvsa_sccm_services" {
-  type = "string"
+  type        = "string"
   description = "DVSA SCCM IP"
 }
 
 variable "dvsa_epo_services" {
-  type = "string"
+  type        = "string"
   description = "DVSA EPO IP"
 }
 
 variable "dvsa_mgmt_inbound" {
   type        = "list"
   description = "DVSA mgmt servers inbound"
+  default     = []
 }
 
 variable "cert_name" {
-  type = "string"
+  type        = "string"
   description = "ACM cert name"
 }
 
 variable "dvsa_irdt_printers" {
-  type = "string"
+  type        = "string"
   description = "IRDT Printer range"
 }
 
 variable "tars_pdf_cert" {
-  type = "string"
+  type        = "string"
   description = "tars pdf cert subdomain"
 }
 
 variable "private_cert_domain_name" {
-  type = "string"
+  type        = "string"
   description = "private tars cert root domain"
 }
 

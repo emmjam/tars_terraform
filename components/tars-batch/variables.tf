@@ -58,7 +58,12 @@ variable "private_domain_name" {
 variable "asg_termination_policies" {
   type        = "list"
   description = "A list of policies to decide how the instances in the auto scale group should be terminated"
-  default     = ["OldestInstance", "OldestLaunchConfiguration", "ClosestToNextInstanceHour"]
+
+  default = [
+    "OldestInstance",
+    "OldestLaunchConfiguration",
+    "ClosestToNextInstanceHour",
+  ]
 }
 
 variable "asg_enabled_metrics" {
@@ -105,83 +110,93 @@ variable "aws_account_id" {
 }
 
 variable "mgmt_aws_account_id" {
-  type = "string"
+  type        = "string"
   description = ""
 }
 
 variable "wildfly-batch_asg_max_size" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-batch_asg_min_size" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-batch_instance_type" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-batch_puppet_kms_key" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-batch_puppet_nodetype" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-batch_scaledown_desired" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-batch_scaledown_recurrence" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-batch_scaleup_desired" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-batch_scaleup_recurrence" {
-  type = "string"
+  type        = "string"
   description = ""
 }
 
 variable "batch_efs_subnets_cidrs" {
-  type = "list"
+  type        = "list"
   description = "Batch EFS subnets list"
+  default     = []
 }
 
 variable "cert_name" {
-  type = "string"
+  type        = "string"
   description = "ACM cert name"
 }
 
 variable "avarto_sftp_server" {
-  type = "string"
+  type        = "string"
   description = "Avarto"
 }
 
 variable "sweda_samba_server" {
-  type = "string"
+  type        = "string"
   description = "Sweda"
 }
 
 variable "dvla_adli_server" {
-  type = "string"
+  type        = "string"
   description = "ADLI"
 }
 
 variable "rsis_samba_server" {
-  type = "string"
+  type        = "string"
   description = "RSIS"
 }
 
 variable "dvsa_ldap_server" {
-  type = "string"
+  type        = "string"
   description = "DVSA LDAP server for priter lookup"
 }
 
 variable "dvsa_dns_servers" {
-  type = "list"
+  type        = "list"
   description = "DVSA Azure DNS Servers"
+  default     = []
 }

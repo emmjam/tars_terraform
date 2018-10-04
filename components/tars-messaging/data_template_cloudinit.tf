@@ -4,6 +4,6 @@ data "template_file" "messaging" {
 
   # Set puppet factors
   vars {
-    search_suffix = "${var.environment}.${var.private_domain_name}"
+    search_suffix = "${local.vpc_domain_name}"
   }
 }

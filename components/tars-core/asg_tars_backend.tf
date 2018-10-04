@@ -1,23 +1,26 @@
 # ASG for the tars core backend server
 resource "aws_autoscaling_group" "tars-backend" {
-  name_prefix = "${format(
-    "%s-%s-%s-%s-",
-    var.project,
-    var.environment,
-    var.component,
-    "tars-back"
-  )}"
-
+  name_prefix          = "${local.csi}-tars-back-"
   launch_configuration = "${aws_launch_configuration.tars-backend.id}"
   max_size             = "${var.wildfly-back_asg_max_size}"
   min_size             = "${var.wildfly-back_asg_min_size}"
-  termination_policies = ["${var.asg_termination_policies}"]
-  vpc_zone_identifier  = ["${data.terraform_remote_state.base.subnets_tars_backend}"]
-  target_group_arns    = [
+
+  termination_policies = [
+    "${var.asg_termination_policies}",
+  ]
+
+  vpc_zone_identifier = [
+    "${data.terraform_remote_state.base.subnets_tars_backend}",
+  ]
+
+  target_group_arns = [
     "${aws_alb_target_group.tars-backend-8080.arn}",
     # "${aws_alb_target_group.tars-backend-9990.arn}",
-    ]
-  enabled_metrics      = ["${var.asg_enabled_metrics}"]
+  ]
+
+  enabled_metrics = [
+    "${var.asg_enabled_metrics}",
+  ]
 
   tags = [
     "${concat(
@@ -25,13 +28,7 @@ resource "aws_autoscaling_group" "tars-backend" {
       list(
         map(
           "key", "Name",
-          "value", format(
-            "%s-%s-%s/%s",
-            var.project,
-            var.environment,
-            var.component,
-            "tars-back"
-          ),
+          "value", "${local.csi}/tars-back",
           "propagate_at_launch", "true"
         ),
         map(

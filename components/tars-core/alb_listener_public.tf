@@ -23,7 +23,9 @@ resource "aws_lb_listener_rule" "host_based_routing" {
 
   condition {
     field  = "host-header"
-    values = ["${aws_route53_record.irdt-public.fqdn}"]
+
+    values = [
+      "${aws_route53_record.irdt-public.fqdn}",
+    ]
   }
 }
-

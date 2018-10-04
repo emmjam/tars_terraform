@@ -53,4 +53,3 @@ resource "aws_route53_record" "tars-core-private" {
     evaluate_target_health = true
   }
 }
-

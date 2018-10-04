@@ -23,6 +23,9 @@ resource "aws_lb_listener_rule" "cpc-front-dvsa-8443" {
 
   condition {
     field  = "path-pattern"
-    values = ["/cpctrain/*"]
+
+    values = [
+      "/cpctrain/*",
+    ]
   }
 }
