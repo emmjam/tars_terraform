@@ -2,16 +2,11 @@
 resource "aws_internet_gateway" "tars" {
   vpc_id = "${aws_vpc.vpc.id}"
 
+  # TODO: peacheym: ig in Name tag is superfluous
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "ig"
-      ),
+      "Name", "${local.csi}/ig"
     )
   )}"
 }

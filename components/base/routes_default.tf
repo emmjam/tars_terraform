@@ -16,4 +16,3 @@ resource "aws_route" "internet_natgw" {
   destination_cidr_block = "0.0.0.0/0"
   nat_gateway_id         = "${aws_nat_gateway.tars.id}"
 }
-

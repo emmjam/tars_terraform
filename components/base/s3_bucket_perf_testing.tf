@@ -1,18 +1,5 @@
 resource "aws_s3_bucket" "perf-testing" {
-  bucket        = "${replace(
-    format(
-      "%s-%s-%s-%s-%s-%s",
-      var.project,
-      var.aws_account_id,
-      var.aws_region,
-      var.environment,
-      var.component,
-      "perf-testing"
-    ),
-    "_",
-    ""
-  )}"
-
+  bucket        = "${local.csi_global}-perf-testing"
   acl           = "private"
   force_destroy = "true"
 
@@ -47,40 +34,15 @@ resource "aws_s3_bucket" "perf-testing" {
     }
   }
 
-  # Enable Logging to Self
   logging {
     target_bucket = "${aws_s3_bucket.bucketlogs.id}"
-    target_prefix = "${replace(
-    format(
-      "%s-%s-%s-%s-%s-%s",
-      var.project,
-      var.aws_account_id,
-      var.aws_region,
-      var.environment,
-      var.component,
-      "perf-testing"
-    ),
-    "_",
-    ""
-  )}"
+    target_prefix = "${local.csi_global}-perf-testing/"
   }
 
   tags = "${merge(
-    "${var.default_tags}",
+    local.default_tags,
     map(
-      "Name", replace(
-    format(
-      "%s-%s-%s-%s-%s-%s",
-      var.project,
-      var.aws_account_id,
-      var.aws_region,
-      var.environment,
-      var.component,
-      "perf-testing"
-    ),
-    "_",
-    ""
-  )
+      "Name", "${local.csi_global}-perf-testing"
     )
   )}"
 }

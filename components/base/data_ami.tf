@@ -16,8 +16,11 @@ data "aws_ami" "jenkinsnode" {
   ]
 
   filter {
-    name   = "state"
-    values = ["available"]
+    name = "state"
+
+    values = [
+      "available",
+    ]
   }
 }
 
@@ -31,14 +34,18 @@ data "aws_ami" "squidnat" {
   )}"
 
   most_recent = "true"
-  owners      = [
+
+  owners = [
     "${data.aws_caller_identity.current.account_id}",
     "${var.mgmt_aws_account_id}",
   ]
 
   filter {
     name   = "state"
-    values = ["available"]
+
+    values = [
+      "available",
+    ]
   }
 }
 
@@ -52,14 +59,18 @@ data "aws_ami" "jmeter" {
   )}"
 
   most_recent = "true"
-  owners      = [
+
+  owners = [
     "${data.aws_caller_identity.current.account_id}",
     "${var.mgmt_aws_account_id}",
   ]
 
   filter {
-    name   = "state"
-    values = ["available"]
+    name = "state"
+
+    values = [
+      "available",
+    ]
   }
 }
 
@@ -73,13 +84,17 @@ data "aws_ami" "prometheus" {
   )}"
 
   most_recent = "true"
+
   owners = [
     "${data.aws_caller_identity.current.account_id}",
     "${var.mgmt_aws_account_id}",
   ]
 
   filter {
-    name   = "state"
-    values = ["available"]
+    name = "state"
+
+    values = [
+      "available",
+    ]
   }
 }

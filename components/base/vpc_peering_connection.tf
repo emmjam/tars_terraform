@@ -10,19 +10,10 @@ resource "aws_vpc_peering_connection" "ctrl" {
     "allow_remote_vpc_dns_resolution" = "true"
   }
 
-  # Requester is grammatically incorrect, but is the
-  # form terraform uses and so we standardise on it
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "ctrl"
-      ),
-      "Component", var.component
+      "Name", "${local.csi}/ctrl"
     )
   )}"
 }
@@ -40,15 +31,9 @@ resource "aws_vpc_peering_connection" "mgmt" {
   }
 
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "mgmt"
-      ),
+      "Name", "${local.csi}/mgmt",
       "Side", "Requester"
     )
   )}"
@@ -57,6 +42,7 @@ resource "aws_vpc_peering_connection" "mgmt" {
 # Peer with the DVSA AD account
 resource "aws_vpc_peering_connection" "dvsa_ad" {
   count = "${var.ad_peering_enabled}"
+
   vpc_id        = "${aws_vpc.vpc.id}"
   peer_owner_id = "${var.ad_account}"
   peer_vpc_id   = "${var.ad_peering_vpc}"
@@ -68,15 +54,9 @@ resource "aws_vpc_peering_connection" "dvsa_ad" {
   }
 
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "dvsa_ad"
-      ),
+      "Name", "${local.csi}/dvsa_ad",
       "Side", "Requester"
     )
   )}"

@@ -16,4 +16,3 @@ resource "aws_route" "private_nat_mgmt" {
   destination_cidr_block    = "${var.mgmt_vpc_cidr_block}"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.mgmt.id}"
 }
-

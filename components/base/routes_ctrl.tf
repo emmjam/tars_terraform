@@ -34,5 +34,3 @@ resource "aws_route" "private_natgw_ctrl" {
   destination_cidr_block    = "${data.terraform_remote_state.ctrl.vpc_cidr_block}"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ctrl.id}"
 }
-
-

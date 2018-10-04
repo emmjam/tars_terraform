@@ -4,16 +4,9 @@ resource "aws_route_table" "public" {
 
   # Apply default tags, and merge with additional tags
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "public"
-      ),
-      "Component", var.component
+      "Name", "${local.csi}/public"
     )
   )}"
 }
@@ -24,16 +17,9 @@ resource "aws_route_table" "private_nat" {
 
   # Apply default tags, and merge with additional tags
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "private_nat"
-      ),
-      "Component", var.component
+      "Name", "${local.csi}/private_nat"
     )
   )}"
 }
@@ -43,16 +29,9 @@ resource "aws_route_table" "private_nonat" {
 
   # Apply default tags, and merge with additional tags
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "private_nonat"
-      ),
-      "Component", var.component
+      "Name", "${local.csi}/private_nonat"
     )
   )}"
 }
@@ -62,17 +41,9 @@ resource "aws_route_table" "private_natgw" {
 
   # Apply default tags, and merge with additional tags
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "private_natgw"
-      ),
-      "Component", var.component
+      "Name", "${local.csi}/private_natgw"
     )
   )}"
 }
-
