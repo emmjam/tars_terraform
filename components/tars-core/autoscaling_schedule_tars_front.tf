@@ -1,12 +1,5 @@
 resource "aws_autoscaling_schedule" "tars_front_down" {
-  scheduled_action_name = "${format(
-    "%s-%s-%s/%s",
-    var.project,
-    var.environment,
-    var.component,
-    "jenkins-down"
-  )}"
-
+  scheduled_action_name  = "${local.csi}/jenkins-down"
   min_size               = "${var.wildfly-front_asg_min_size}"
   max_size               = "${var.wildfly-front_asg_max_size}"
   desired_capacity       = "${var.wildfly-front_scaledown_desired}"
@@ -15,14 +8,7 @@ resource "aws_autoscaling_schedule" "tars_front_down" {
 }
 
 resource "aws_autoscaling_schedule" "tars_front_up" {
-  scheduled_action_name = "${format(
-    "%s-%s-%s/%s",
-    var.project,
-    var.environment,
-    var.component,
-    "jenkins-up"
-  )}"
-
+  scheduled_action_name  = "${local.csi}/jenkins-up"
   min_size               = "${var.wildfly-front_asg_min_size}"
   max_size               = "${var.wildfly-front_asg_max_size}"
   desired_capacity       = "${var.wildfly-front_scaleup_desired}"

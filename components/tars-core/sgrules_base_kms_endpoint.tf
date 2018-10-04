@@ -1,5 +1,7 @@
 # SG rules for the KMS endpoint
 # Allow the tars frontend to use the KMS endpoint
+#
+# TODO: peacheym: These are too wide - tcp/443 is sufficient
 resource "aws_security_group_rule" "kms_endpoint_ingress_tars_core_frontend" {
   description              = "Allow use of KMS endpoint"
   type                     = "ingress"

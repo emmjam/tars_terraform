@@ -37,4 +37,3 @@ resource "aws_security_group_rule" "backend_egress_elc_port_11211" {
   source_security_group_id = "${data.terraform_remote_state.base.elc_sg_id}"
   security_group_id        = "${aws_security_group.tars-core-backend.id}"
 }
-

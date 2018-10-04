@@ -46,7 +46,8 @@ variable "default_tags" {
 
 variable "whitelist" {
   type        = "list"
-  description = "TARS Core Servers inbound whitelisted IP's"
+  description = "TARS Core Servers inbound whitelisted IPs"
+  default     = []
 }
 
 variable "tf_state_bucket_prefix" {
@@ -137,7 +138,7 @@ variable "tars_rds_username" {
 variable "tars_rds_apply_immediately" {
   type        = "string"
   description = "TARS RDS Apply changes immediately"
-  default = "false"
+  default     = "false"
 }
 
 variable "tars_rds_license_model" {
@@ -158,12 +159,18 @@ variable "tars_rds_autoscale" {
 variable "rds_subnets_cidrs" {
   type        = "list"
   description = "TARS RDS Subnet CIDR's"
+  default     = []
 }
 
 variable "asg_termination_policies" {
   type        = "list"
   description = "A list of policies to decide how the instances in the auto scale group should be terminated"
-  default     = ["OldestInstance", "OldestLaunchConfiguration", "ClosestToNextInstanceHour"]
+
+  default = [
+    "OldestInstance",
+    "OldestLaunchConfiguration",
+    "ClosestToNextInstanceHour",
+  ]
 }
 
 variable "asg_enabled_metrics" {
@@ -210,95 +217,111 @@ variable "aws_account_id" {
 }
 
 variable "mgmt_aws_account_id" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-back_asg_max_size" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-back_asg_min_size" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-back_scaledown_desired" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-back_scaleup_desired" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-back_scaledown_recurrence" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-back_scaleup_recurrence" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-back_instance_type" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-back_puppet_kms_key" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-back_puppet_nodetype" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-front_asg_max_size" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-front_asg_min_size" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-front_scaledown_desired" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-front_scaleup_desired" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-front_scaledown_recurrence" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-front_scaleup_recurrence" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-front_instance_type" {
-  type = "string"
+  type        = "string"
   description = ""
 }
 
 variable "wildfly-front_puppet_kms_key" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-front_puppet_nodetype" {
-  type = "string"
+  type        = "string"
   description = ""
 }
 
 variable "cert_name" {
-  type = "string"
+  type        = "string"
   description = "ACM cert name"
 }
 
 variable "tars_cert" {
-  type = "string"
+  type        = "string"
   description = "CPC ACM cert name"
 }
 
 variable "tars_private_cert" {
-  type = "string"
+  type        = "string"
   description = "TARS Private ACM cert name"
 }
-

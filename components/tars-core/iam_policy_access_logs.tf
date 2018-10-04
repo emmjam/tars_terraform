@@ -1,4 +1,5 @@
 # Policy for S3 access log bucket
+# TODO: peacheym: Redundancy and specificity in resource name
 data "aws_iam_policy_document" "alb_s3_access_logs_iam_policy_document" {
   statement {
     sid = "AllowELBLogging"
@@ -8,8 +9,11 @@ data "aws_iam_policy_document" "alb_s3_access_logs_iam_policy_document" {
     ]
 
     principals {
-      type        = "AWS"
-      identifiers = ["${data.aws_elb_service_account.main.arn}"]
+      type = "AWS"
+
+      identifiers = [
+        "${data.aws_elb_service_account.main.arn}",
+      ]
     }
 
     resources = [
@@ -18,8 +22,8 @@ data "aws_iam_policy_document" "alb_s3_access_logs_iam_policy_document" {
   }
 }
 
+# TODO: peacheym: Resource name seems incorrect
 resource "aws_s3_bucket_policy" "squid_elb_s3_access_logs" {
   bucket = "${module.access_logs_bucket.id}"
   policy = "${data.aws_iam_policy_document.alb_s3_access_logs_iam_policy_document.json}"
 }
-

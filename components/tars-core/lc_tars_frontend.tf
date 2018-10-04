@@ -1,13 +1,6 @@
 # Define the LC for the tars frontend core server
 resource "aws_launch_configuration" "tars-frontend" {
-  name_prefix = "${format(
-    "%s-%s-%s-%s-",
-    var.project,
-    var.environment,
-    var.component,
-    "wf-front"
-  )}"
-
+  name_prefix          = "${local.csi}-wf-front-"
   image_id             = "${data.aws_ami.wildfly-front.image_id}"
   instance_type        = "${var.wildfly-front_instance_type}"
   spot_price           = "${var.lc_spot_price}"

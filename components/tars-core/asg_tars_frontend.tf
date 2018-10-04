@@ -1,24 +1,27 @@
 # ASG for the tars core frontend server
 resource "aws_autoscaling_group" "tars-frontend" {
-  name_prefix = "${format(
-    "%s-%s-%s-%s-",
-    var.project,
-    var.environment,
-    var.component,
-    "tars-front"
-  )}"
-
+  name_prefix          = "${local.csi}-tars-front-"
   launch_configuration = "${aws_launch_configuration.tars-frontend.id}"
   max_size             = "${var.wildfly-front_asg_max_size}"
   min_size             = "${var.wildfly-front_asg_min_size}"
-  termination_policies = ["${var.asg_termination_policies}"]
-  vpc_zone_identifier  = ["${data.terraform_remote_state.base.subnets_tars_web}"]
-  target_group_arns    = [
+
+  termination_policies = [
+    "${var.asg_termination_policies}",
+  ]
+
+  vpc_zone_identifier = [
+    "${data.terraform_remote_state.base.subnets_tars_web}",
+  ]
+
+  target_group_arns = [
     "${aws_alb_target_group.tars-frontend-8443.arn}",
     "${aws_alb_target_group.irdt-frontend-7443.arn}",
     "${aws_alb_target_group.tars-frontend-private-8443.arn}",
-    ]
-  enabled_metrics      = ["${var.asg_enabled_metrics}"]
+  ]
+
+  enabled_metrics = [
+    "${var.asg_enabled_metrics}",
+  ]
 
   tags = [
     "${concat(
@@ -26,13 +29,7 @@ resource "aws_autoscaling_group" "tars-frontend" {
       list(
         map(
           "key", "Name",
-          "value", format(
-            "%s-%s-%s/%s",
-            var.project,
-            var.environment,
-            var.component,
-            "tars-front"
-          ),
+          "value", "${local.csi}/tars-front",
           "propagate_at_launch", "true"
         ),
         map(

@@ -4,7 +4,7 @@ data "template_file" "wildfly-back-common" {
 
   vars {
     nodetype    = "tars-back"
-    domain_name = "${var.environment}.${var.private_domain_name}"
+    domain_name = "${local.vpc_domain_name}"
   }
 }
 
@@ -14,11 +14,11 @@ data "template_file" "wildfly-back-config" {
 
   # Set puppet factors
   vars {
-    environment = "${var.environment}"
-    puppet_environment  = "${var.puppet_environment}"
-    nodetype   = "${var.wildfly-back_puppet_nodetype}"
-    kms_key = "${var.wildfly-back_puppet_kms_key}"
-    aws_account_id = "${var.aws_account_id}"
+    environment        = "${var.environment}"
+    puppet_environment = "${var.puppet_environment}"
+    nodetype           = "${var.wildfly-back_puppet_nodetype}"
+    kms_key            = "${var.wildfly-back_puppet_kms_key}"
+    aws_account_id     = "${var.aws_account_id}"
   }
 }
 

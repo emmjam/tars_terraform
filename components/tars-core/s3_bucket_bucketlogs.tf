@@ -1,22 +1,12 @@
+# TODO: peacheym: There should only need to be one logging
+#                 bucket per environment. Re-use base.
+#
 # A generic standard private S3 bucket with versioning,
 # logging and lifecycle management to be used as a target
 # for logs for any other bucket created by this component
 # or any module called by this component
 resource "aws_s3_bucket" "bucketlogs" {
-  bucket = "${replace(
-    format(
-      "%s-%s-%s-%s-%s-%s",
-      var.project,
-      var.aws_account_id,
-      var.aws_region,
-      var.environment,
-      var.component,
-      "bucketlogs"
-    ),
-    "_",
-    ""
-  )}"
-
+  bucket        = "${local.csi_global}-bucketlogs"
   acl           = "log-delivery-write"
   force_destroy = "true"
 
@@ -29,34 +19,10 @@ resource "aws_s3_bucket" "bucketlogs" {
   logging {
     # Same as this bucket's name construction
     # Wish terraform would fix ${self.id}
-    target_bucket = "${replace(
-      format(
-        "%s-%s-%s-%s-%s-%s",
-        var.project,
-        var.aws_account_id,
-        var.aws_region,
-        var.environment,
-        var.component,
-        "bucketlogs"
-      ),
-      "_",
-      ""
-    )}"
+    target_bucket = "${local.csi_global}-bucketlogs"
 
-    # Prefix with this bucket's name and a slash 
-    target_prefix = "${replace(
-      format(
-        "%s-%s-%s-%s-%s-%s",
-        var.project,
-        var.aws_account_id,
-        var.aws_region,
-        var.environment,
-        var.component,
-        "bucketlogs"
-      ),
-      "_",
-      ""
-    )}/"
+    # Prefix with this bucket's name and a slash
+    target_prefix = "${local.csi_global}-bucketlogs/"
   }
 
   # Rotate logs out to cheaper storage
@@ -96,22 +62,9 @@ resource "aws_s3_bucket" "bucketlogs" {
   }
 
   tags = "${merge(
-    "${var.default_tags}",
+    local.default_tags,
     map(
-      "Name", replace(
-        format(
-          "%s-%s-%s-%s-%s-%s",
-          var.project,
-          var.aws_account_id,
-          var.aws_region,
-          var.environment,
-          var.component,
-          "bucketlogs"
-        ),
-        "_",
-        ""
-      ),
-      "Component", var.component
+      "Name", "${local.csi_global}-bucketlogs"
     )
   )}"
 }

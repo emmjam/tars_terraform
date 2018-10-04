@@ -39,6 +39,7 @@ resource "aws_security_group_rule" "tars_core_backend_ingress_bastion" {
   source_security_group_id = "${data.terraform_remote_state.ctrl.bastion_sg_id}"
 }
 
+# TODO: peacheym: This is too wide. This only needs to be tcp/443
 resource "aws_security_group_rule" "tars_core_backend_egress_kms_endpoint" {
   description              = "Allow use of KMS endpoint"
   type                     = "egress"
