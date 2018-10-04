@@ -322,13 +322,13 @@ tars_rds_allocated_storage = "300"
 tars_rds_autoscale = "False"
 
 # CPCSDB
-cpc_rds_username = "tarscpcadmin"
+cpc_rds_username = "cpcuatadmin"
 
-cpc_rds_password = "YwBWc8HvweT3Lun8"
+cpc_rds_password = "Mg28yDQjuEWndbtz"
 
 # CPCTSDB
-cpc_rds_allocated_storage = "20" # 20 Gigabyte - was 1500GB
-cpc_rds_snapshot = "tars-dev01-cpc-cpcdb-20180720"
+cpc_rds_allocated_storage = "100"
+cpc_rds_snapshot = "tars-uat01-cpc-cpcdb-20181004"
 
 # IBSDB
 ibs_rds_username = "ibsuatadmin"
