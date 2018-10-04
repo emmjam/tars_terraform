@@ -1,11 +1,6 @@
 # R53 record for the tars messaging ALB
 resource "aws_route53_record" "tars-messaging" {
-  name = "${format(
-    "%s-%s",
-    var.project,
-    "messaging"
-  )}"
-
+  name    = "tars-messaging"
   zone_id = "${data.terraform_remote_state.base.private_zone_id}"
   type    = "A"
 
@@ -15,7 +10,6 @@ resource "aws_route53_record" "tars-messaging" {
     evaluate_target_health = true
   }
 }
-
 
 resource "aws_route53_record" "tars-messaging-private" {
   name = "${format(

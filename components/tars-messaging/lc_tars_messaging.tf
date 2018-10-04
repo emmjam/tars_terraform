@@ -1,13 +1,6 @@
 # LC for the messaging server
 resource "aws_launch_configuration" "tars-messaging" {
-  name_prefix = "${format(
-    "%s-%s-%s-%s-",
-    var.project,
-    var.environment,
-    var.component,
-    "wf-messaging"
-  )}"
-
+  name_prefix          = "${local.csi}-wf-messaging-"
   image_id             = "${data.aws_ami.wildfly-messaging.image_id}"
   instance_type        = "${var.wildfly-messaging_instance_type}"
   spot_price           = "${var.lc_spot_price}"
@@ -18,12 +11,13 @@ resource "aws_launch_configuration" "tars-messaging" {
   security_groups = [
     "${aws_security_group.tars-messaging.id}",
     "${data.terraform_remote_state.base.core_sg_id}",
-    "${aws_security_group.tars-messaging-ad.id}"
+    "${aws_security_group.tars-messaging-ad.id}",
   ]
 
   lifecycle {
     create_before_destroy = true
   }
+
   # Debugging
   #associate_public_ip_address = true
 }
