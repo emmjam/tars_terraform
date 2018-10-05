@@ -25,3 +25,10 @@ resource "aws_vpn_gateway_route_propagation" "private_nat_to_transit_vpc" {
   vpn_gateway_id = "${aws_vpn_gateway.vpn_gw.id}"
   route_table_id = "${element(aws_route_table.private_nat.*.id, count.index)}"
 }
+
+resource "aws_vpn_gateway_route_propagation" "public_to_transit_vpc" {
+  count          = "${var.transit_peering_enabled}"
+  vpn_gateway_id = "${aws_vpn_gateway.vpn_gw.id}"
+  route_table_id = "${aws_route_table.public.id}"
+}
+
