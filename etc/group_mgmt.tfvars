@@ -23,6 +23,10 @@ all_users = [
   "dan.webb@bjss.com",
   "saul.kashani@bjss.com",
   "mike.peachey@bjss.com",
+  "gordon.smith@irmsecurity.com",
+  "martin.lowe@irmsecurity.com",
+  "richard.odonnell@irmsecurity.com",
+  "james.knotwell@irmsecurity.com",
 ]
 
 administrators = [
@@ -36,6 +40,13 @@ administrators = [
   "jamie.kelly@bjss.com",
   "saul.kashani@bjss.com",
   "mike.peachey@bjss.com",
+]
+
+ithc_ro_users = [
+  "gordon.smith@irmsecurity.com",
+  "martin.lowe@irmsecurity.com",
+  "richard.odonnell@irmsecurity.com",
+  "james.knotwell@irmsecurity.com",
 ]
 
 ctrl_vpc_cidr = "10.167.64.0/22"
@@ -118,4 +129,3 @@ whitelist = [
 ]
 
 ops_team_email = "mark.thompson@bjss.com"
-
