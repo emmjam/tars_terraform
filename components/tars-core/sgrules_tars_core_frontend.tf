@@ -1,14 +1,4 @@
 # TARS Core frontend rules
-resource "aws_security_group_rule" "tars_core_frontend_ingress_public_alb_port_9990" {
-  description              = "Allow TCP/9990 from frontend public ALB"
-  type                     = "ingress"
-  from_port                = 9990
-  to_port                  = 9990
-  protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-core-frontend.id}"
-  source_security_group_id = "${aws_security_group.tars-alb-public.id}"
-}
-
 resource "aws_security_group_rule" "tars_core_frontend_ingress_public_alb_port_8443" {
   description              = "Allow TCP/8443 from frontend public ALB"
   type                     = "ingress"
@@ -27,16 +17,6 @@ resource "aws_security_group_rule" "tars_core_frontend_ingress_public_alb_port_7
   protocol                 = "tcp"
   security_group_id        = "${aws_security_group.tars-core-frontend.id}"
   source_security_group_id = "${aws_security_group.tars-alb-public.id}"
-}
-
-resource "aws_security_group_rule" "tars_core_frontend_ingress_private_alb_port_9990" {
-  description              = "Allow TCP/9990 from frontend private ALB"
-  type                     = "ingress"
-  from_port                = 9990
-  to_port                  = 9990
-  protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-core-frontend.id}"
-  source_security_group_id = "${aws_security_group.tars-alb-private.id}"
 }
 
 resource "aws_security_group_rule" "tars_core_frontend_ingress_private_alb_port_8443" {

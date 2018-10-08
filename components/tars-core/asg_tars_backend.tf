@@ -15,7 +15,6 @@ resource "aws_autoscaling_group" "tars-backend" {
 
   target_group_arns = [
     "${aws_alb_target_group.tars-backend-8080.arn}",
-    # "${aws_alb_target_group.tars-backend-9990.arn}",
   ]
 
   enabled_metrics = [
