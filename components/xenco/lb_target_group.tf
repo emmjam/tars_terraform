@@ -1,9 +1,8 @@
 resource "aws_lb_target_group" "xenco" {
-  name     = "${local.csi}-xenco"
-  port     = "16385"
-  protocol = "TCP"
-  vpc_id   = "${data.terraform_remote_state.base.vpc_id}"
-
+  name        = "${local.csi}-xenco"
+  port        = "16385"
+  protocol    = "TCP"
+  vpc_id      = "${data.terraform_remote_state.base.vpc_id}"
   target_type = "instance"
 
   health_check {
@@ -14,11 +13,10 @@ resource "aws_lb_target_group" "xenco" {
     interval            = "10"
   }
 
-
   tags = "${merge(
     local.default_tags,
-    map("Name", "${local.csi}-xenco_lb")
+    map(
+      "Name", "${local.csi}-xenco"
+    )
   )}"
-
 }
-

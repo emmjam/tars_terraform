@@ -8,6 +8,7 @@ data "aws_ami" "cpc-batch" {
   )}"
 
   most_recent = "true"
+
   owners = [
     "${data.aws_caller_identity.current.account_id}",
     "${var.mgmt_aws_account_id}",
@@ -15,7 +16,9 @@ data "aws_ami" "cpc-batch" {
 
   filter {
     name   = "state"
-    values = ["available"]
+
+    values = [
+      "available",
+    ]
   }
 }
-

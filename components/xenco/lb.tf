@@ -1,8 +1,12 @@
 resource "aws_lb" "xenco" {
   name = "${local.csi}"
   
-  internal           = "true"
-  subnets            = ["${module.lb_subnets.subnet_ids}"]
+  internal = "true"
+
+  subnets = [
+    "${module.lb_subnets.subnet_ids}",
+  ]
+
   load_balancer_type = "network"
 
   idle_timeout = "300"
@@ -11,7 +15,8 @@ resource "aws_lb" "xenco" {
 
   tags = "${merge(
     local.default_tags,
-    map("Name", "${local.csi}")
+    map(
+      "Name", local.csi
+    )
   )}"
-
 }

@@ -21,8 +21,5 @@ module "subnets_cpc_batch_efs" {
 
   vpc_id = "${data.terraform_remote_state.base.vpc_id}"
 
-  # Apply default tags, and merge with additional tags
-  default_tags = "${merge(
-    var.default_tags
-  )}"
+  default_tags = "${local.default_tags}"
 }

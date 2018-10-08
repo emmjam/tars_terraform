@@ -1,11 +1,6 @@
+# TODO: peacheym: ixenco?
 resource "aws_route53_record" "ixenco" {
-  name = "${format(
-    "%s-%s-%s",
-    var.project,
-    "xenco",
-    "lb"
-  )}"
-
+  name    = "tars-xenco-lb"
   zone_id = "${data.terraform_remote_state.base.private_zone_id}"
   type    = "A"
 
@@ -15,4 +10,3 @@ resource "aws_route53_record" "ixenco" {
     evaluate_target_health = true
   }
 }
-

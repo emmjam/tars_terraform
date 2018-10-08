@@ -58,35 +58,38 @@ variable "xenco_whitelist" {
 variable "xenco_subnets_cidrs" {
   type        = "list"
   description = "Xenco dev subnet CIDR's"
+  default     = []
 }
 
 variable "xenco_lb_subnets_cidrs" {
-  type = "list"
+  type        = "list"
   description = ""
+  default     = []
 }
 
 variable "xenco_instance_type" {
-  type = "string"
+  type        = "string"
   description = ""
 }
 
 variable "xenco_key_name" {
-  type = "string"
+  type        = "string"
   description = ""
 }
 
 variable "xenco_asg_max_size" {
-  type = "string"
+  type        = "string"
   description = ""
 }
 
 variable "xenco_asg_min_size" {
-  type = "string"
+  type        = "string"
   description = ""
 }
 
 variable "mgmt_aws_account_id" {
-  type = "string"
+  type        = "string"
+  description = ""
 }
 
 variable "tf_state_bucket_prefix" {
@@ -100,6 +103,6 @@ variable "aws_account_id" {
 }
 
 variable "ami_build_id" {
-  type = "string"
+  type        = "string"
+  description = ""
 }
-
