@@ -5,7 +5,10 @@ resource "aws_security_group_rule" "whitelist_ingress_ssh" {
   to_port           = "16385"
   protocol          = "tcp"
   security_group_id = "${module.xenco.security_group_id}"
-  cidr_blocks       = [ "${data.terraform_remote_state.base.subnet_cidrs_tars_backend}" ]
+
+  cidr_blocks = [
+    "${data.terraform_remote_state.base.subnet_cidrs_tars_backend}",
+  ]
 }
 
 resource "aws_security_group_rule" "lbt_ingress_ssh" {
@@ -15,6 +18,8 @@ resource "aws_security_group_rule" "lbt_ingress_ssh" {
   to_port           = "16385"
   protocol          = "tcp"
   security_group_id = "${module.xenco.security_group_id}"
-  cidr_blocks       = [ "${var.xenco_lb_subnets_cidrs}" ]
-}
 
+  cidr_blocks = [
+    "${var.xenco_lb_subnets_cidrs}",
+  ]
+}
