@@ -1,19 +1,21 @@
 # ASG for the cpc batch server
 resource "aws_autoscaling_group" "cpc-batch" {
-  name_prefix = "${format(
-    "%s-%s-%s-%s-",
-    var.project,
-    var.environment,
-    var.component,
-    "cpc-batch"
-  )}"
-
+  name_prefix          = "${local.csi}-cpc-batch-"
   launch_configuration = "${aws_launch_configuration.cpc-batch.id}"
   max_size             = "${var.cpc-batch_asg_max_size}"
   min_size             = "${var.cpc-batch_asg_min_size}"
-  termination_policies = ["${var.asg_termination_policies}"]
-  vpc_zone_identifier  = ["${data.terraform_remote_state.cpc.subnet_cidrs_cpc_backend}"]
-  enabled_metrics      = ["${var.asg_enabled_metrics}"]
+
+  termination_policies = [
+    "${var.asg_termination_policies}",
+  ]
+
+  vpc_zone_identifier = [
+    "${data.terraform_remote_state.cpc.subnet_cidrs_cpc_backend}",
+  ]
+
+  enabled_metrics = [
+    "${var.asg_enabled_metrics}",
+  ]
 
   tags = [
     "${concat(
@@ -21,13 +23,7 @@ resource "aws_autoscaling_group" "cpc-batch" {
       list(
         map(
           "key", "Name",
-          "value", format(
-            "%s-%s-%s/%s",
-            var.project,
-            var.environment,
-            var.component,
-            "cpc-batch"
-          ),
+          "value", "${local.csi}/cpc-batch",
           "propagate_at_launch", "true"
         ),
         map(

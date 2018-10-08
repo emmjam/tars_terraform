@@ -1,13 +1,6 @@
 # Define the LC for the cpc batch server
 resource "aws_launch_configuration" "cpc-batch" {
-  name_prefix = "${format(
-    "%s-%s-%s-%s-",
-    var.project,
-    var.environment,
-    var.component,
-    "cpc-batch"
-  )}"
-
+  name_prefix          = "${local.csi}-cpc-batch-"
   image_id             = "${data.aws_ami.cpc-batch.image_id}"
   instance_type        = "${var.cpc-batch_instance_type}"
   spot_price           = "${var.lc_spot_price}"
