@@ -76,7 +76,7 @@ dvsa_ro_users = [
   "matthew.bell@dvsa.gov.uk",
   "alice.haws@dvsa.gov.uk",
   "paul.duffy@dvsa.gov.uk",
-  "tim.hicnhey@dvsa.gov.uk"
+  "tim.hinchey@dvsa.gov.uk"
 ]
 
 ###############################################################################
