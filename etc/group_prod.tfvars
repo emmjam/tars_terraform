@@ -341,7 +341,7 @@ bastion_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## Grafana
 grafana_instance_type        = "t2.micro"
-grafana_ami_build_id         = "293"
+grafana_ami_build_id         = "295"
 grafana_asg_min_size         = 1
 grafana_asg_max_size         = 1
 grafana_scaledown_desired    = 1
