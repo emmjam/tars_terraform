@@ -93,3 +93,14 @@ resource "aws_security_group_rule" "tars_backend_ingress_oracle_mis" {
   security_group_id        = "${data.terraform_remote_state.tars-core.tars-core-backend-alb-sg-id}"
   source_security_group_id = "${aws_security_group.tars-mis-db.id}"
 }
+
+# prometheus to MIS
+resource "aws_security_group_rule" "oracle_mis_ingress_prometheus" {
+  description               = "Allow TCP/1521 from Prometheus to MISDB"
+  type                      = "ingress"
+  from_port                 = 1521
+  to_port                   = 1521
+  protocol                  = "tcp"
+  security_group_id         = "${aws_security_group.tars-mis-db.id}"
+  source_security_group_id  = "${data.terraform_remote_state.base.prometheus_sg_id}"
+}
