@@ -34,6 +34,7 @@ all_users = [
   "martin.lowe@irmsecurity.com",
   "richard.odonnell@irmsecurity.com",
   "james.knotwell@irmsecurity.com",
+  "tim.hinchey@dvsa.gov.uk"
 ]
 
 administrators = [
@@ -74,7 +75,8 @@ ithc_ro_users = [
 dvsa_ro_users = [
   "matthew.bell@dvsa.gov.uk",
   "alice.haws@dvsa.gov.uk",
-  "paul.duffy@dvsa.gov.uk"
+  "paul.duffy@dvsa.gov.uk",
+  "tim.hicnhey@dvsa.gov.uk"
 ]
 
 ###############################################################################
