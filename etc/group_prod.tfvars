@@ -408,7 +408,9 @@ whitelist = [
   "45.64.64.0/22",
   "107.154.0.0/16",
   "45.60.0.0/16",
-  "45.223.0.0/16"       # End Incapsula IPs
+  "45.223.0.0/16",      # End Incapsula IPs
+  "92.207.224.144/28",  # ITHC Access TS-4272
+  "5.101.139.0/29"      # ITHC Access TS-4272
 ]
 
 dvsa_dc_whitelist = [
