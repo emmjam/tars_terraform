@@ -26,6 +26,8 @@ variable "puppet_environment" {
 
 variable "whitelist" {
   type        = "list"
+  description = ""
+  default     = []
 }
 
 variable "account_component_name" {
@@ -58,7 +60,12 @@ variable "private_domain_name" {
 variable "asg_termination_policies" {
   type        = "list"
   description = "A list of policies to decide how the instances in the auto scale group should be terminated"
-  default     = ["OldestInstance", "OldestLaunchConfiguration", "ClosestToNextInstanceHour"]
+
+  default = [
+    "OldestInstance",
+    "OldestLaunchConfiguration",
+    "ClosestToNextInstanceHour",
+  ]
 }
 
 variable "asg_enabled_metrics" {
@@ -99,41 +106,48 @@ variable "aws_account_id" {
 }
 
 variable "mgmt_aws_account_id" {
-  type = "string"
+  type        = "string"
   description = ""
 }
 
 variable "ibs_asg_max_size" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "ibs_asg_min_size" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "ibs_scaledown_desired" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "ibs_scaledown_recurrence" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "ibs_scaleup_desired" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "ibs_scaleup_recurrence" {
-  type = "string"
+  type        = "string"
   description = ""
 }
 
 variable "ibs_subnets_cidrs" {
-  type = "list"
+  type        = "list"
   description = ""
+  default     = []
 }
+
 variable "ibs_puppet_nodetype" {
-  type = "string"
+  type        = "string"
   description = ""
 }
 
@@ -143,14 +157,17 @@ variable "ibs_rds_instance_class" {
 }
 
 variable "ibs_rds_username" {
+  type        = "string"
   description = "The ID's of the VPC subnets that the RDS cluster instances will be created in"
 }
 
 variable "ibs_rds_password" {
+  type        = "string"
   description = "The ID's of the VPC subnets that the RDS cluster instances will be created in"
 }
 
 variable "ibs_rds_snapshot" {
+  type        = "string"
   description = "The DB snapshot to use for the IBS DB used for IBS / FYNDI"
 }
 
@@ -163,22 +180,23 @@ variable "ibs_rds_maint_window" {
   type        = "string"
   description = ""
 }
+
 variable "ibs_rds_backup_window" {
   type        = "string"
   description = ""
 }
 
 variable "ibs_instance_type" {
-  type = "string"
+  type        = "string"
   description = ""
 }
 
 variable "cert_name" {
-  type = "string"
+  type        = "string"
   description = "ACM cert name"
 }
+
 variable "ibs_cert" {
-  type = "string"
+  type        = "string"
   description = "CPC ACM cert name"
 }
-

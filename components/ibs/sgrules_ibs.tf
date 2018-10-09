@@ -7,7 +7,6 @@ resource "aws_security_group_rule" "ibs-ingress-ibs-alb-8080" {
   source_security_group_id = "${aws_security_group.ibs-alb.id}"
 }
 
-
 resource "aws_security_group_rule" "ibs-egress-ibs-rds-3306" {
   type                     = "egress"
   protocol                 = "tcp"
@@ -26,16 +25,3 @@ resource "aws_security_group_rule" "ibs-egress-tars-backend-8080" {
   security_group_id        = "${aws_security_group.ibs.id}"
   source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-backend-alb-sg-id}"
 }
-
-resource "aws_security_group_rule" "ibs-ingress-tars-backend-8080" {
-  description              = "Allow TCP/8080 from IBS"
-  type                     = "ingress"
-  protocol                 = "tcp"
-  from_port                = "8080"
-  to_port                  = "8080"
-  security_group_id        = "${data.terraform_remote_state.tars-core.tars-core-backend-alb-sg-id}"
-  source_security_group_id = "${aws_security_group.ibs.id}"
-}
-
-
-
