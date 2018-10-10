@@ -51,6 +51,10 @@ guardduty_member_list = [
     account_id = "652856684323"
     email      = "TARSNonProdAWS@dvsa.gov.uk"
   },
+  {
+    account_id = "246976497890"
+    email      = "TARSProdAWS@dvsa.gov.uk"
+  },
 ]
 
 

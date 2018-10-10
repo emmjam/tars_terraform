@@ -55,7 +55,7 @@ prometheus_efs_provisioned_mibps  = 5
 ##############################################################################
 
 guardduty_master_enabled = "0"
-guardduty_member_enabled = "0"
+guardduty_member_enabled = "1"
 
 ###############################################################################
 # prod
