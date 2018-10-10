@@ -32,8 +32,13 @@ all_users = [
   "mike.peachey@bjss.com",
   "gordon.smith@irmsecurity.com",
   "martin.lowe@irmsecurity.com",
+  "catherine.rooney@irmsecurity.com",
+  "liam.best@irmsecurity.com",
+  "oliver.loveless@irmsecurity.com",
+  "toby.flaxman@irmsecurity.com",
+  "luke.garbett@irmsecurity.com",
+  "john.moss@irmsecurity.com",
   "richard.odonnell@irmsecurity.com",
-  "james.knotwell@irmsecurity.com",
   "tim.hinchey@dvsa.gov.uk"
 ]
 
