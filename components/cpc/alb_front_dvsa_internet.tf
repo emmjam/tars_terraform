@@ -1,7 +1,8 @@
-# CPC FRONT DVSA ALB 
+# CPC FRONT DVSA ALB
 resource "aws_alb" "cpc-front-dvsa-internet" {
   name     = "${local.csi}-dvsa-internet"
   internal = false
+  idle_timeout = 300
 
   security_groups = [
     "${aws_security_group.cpc-front-dvsa-internet-alb.id}",

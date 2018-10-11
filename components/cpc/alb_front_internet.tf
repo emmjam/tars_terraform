@@ -1,7 +1,8 @@
-# CPC FRONT Internet ALB 
+# CPC FRONT Internet ALB
 resource "aws_alb" "cpc-front-internet" {
   name     = "${local.csi}-internet"
   internal = false
+  idle_timeout = 300
 
   security_groups = [
     "${aws_security_group.cpc-front-internet-alb.id}",
@@ -18,4 +19,3 @@ resource "aws_alb" "cpc-front-internet" {
     )
   )}"
 }
-

@@ -2,6 +2,7 @@
 resource "aws_alb" "tars-public-facing" {
   name     = "${local.csi}-public"
   internal = "false"
+  idle_timeout = 300
 
   security_groups = [
     "${aws_security_group.tars-alb-public.id}",

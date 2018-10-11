@@ -9,6 +9,7 @@ resource "aws_alb" "ibs" {
   )}"
 
   internal = false
+  idle_timeout = 300
 
   access_logs {
     bucket  = "${module.access_logs_bucket.id}"
@@ -33,4 +34,3 @@ resource "aws_alb" "ibs" {
     )
   )}"
 }
-

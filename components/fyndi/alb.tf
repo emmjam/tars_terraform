@@ -9,6 +9,7 @@ resource "aws_alb" "fyndi-f" {
   )}"
 
   internal = false
+  idle_timeout = 300
 
   access_logs {
     bucket  = "${module.access_logs_bucket.id}"
@@ -44,6 +45,7 @@ resource "aws_alb" "fyndi-b" {
   )}"
 
   internal = true
+  idle_timeout = 300
 
   access_logs {
     bucket  = "${module.access_logs_bucket.id}"
