@@ -2,6 +2,7 @@
 resource "aws_alb" "tars-alb-backend-private" {
   name     = "${local.csi}-backend"
   internal = true
+  idle_timeout = 300
 
   access_logs {
     bucket  = "${module.access_logs_bucket.id}"

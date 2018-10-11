@@ -1,4 +1,4 @@
-# CPC Back ALB 
+# CPC Back ALB
 resource "aws_alb" "cpc-back" {
   name     = "${local.csi}-cpc-back"
   internal = true
