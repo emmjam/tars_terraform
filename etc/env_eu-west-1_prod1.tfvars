@@ -46,6 +46,13 @@ prometheus_instance_type          = "t2.medium"
 prometheus_ami_build_id           = 296
 prometheus_efs_provisioned_mibps  = 5
 
+#EFS Backups
+#smarts: to be enabled after testing in another env
+efs_backup_asg_min_size           = 0
+efs_backup_asg_max_size           = 0
+efs_backup_instance_type          = "t3.nano"
+efs_backup_ami_build_id           = 309
+
 ###############################################################################
 # CTRL
 ###############################################################################
@@ -295,6 +302,12 @@ sftpplus_efs_subnets_cidrs = [
   "10.167.135.160/28",
   "10.167.135.176/28",
   "10.167.135.192/28",
+]
+
+efs_backup_subnets_cidrs = [
+  "10.167.135.208/28",
+  "10.167.135.224/28",
+  "10.167.135.240/28",
 ]
 
 # Environment & Component for Accessing mgmt_prd remote state
