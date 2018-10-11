@@ -101,7 +101,6 @@ ithc_ro_users = [
   "gordon.smith@irmsecurity.com",
   "martin.lowe@irmsecurity.com",
   "richard.odonnell@irmsecurity.com",
-  "james.knotwell@irmsecurity.com",
 ]
 
 dvsa_ro_users = [

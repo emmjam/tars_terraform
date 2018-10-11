@@ -51,7 +51,6 @@ ithc_ro_users = [
   "gordon.smith@irmsecurity.com",
   "martin.lowe@irmsecurity.com",
   "richard.odonnell@irmsecurity.com",
-  "james.knotwell@irmsecurity.com",
 ]
 
 ctrl_vpc_cidr = "10.167.64.0/22"
