@@ -16,4 +16,3 @@ resource "aws_route53_record" "obs-front" {
     evaluate_target_health = true
   }
 }
-
