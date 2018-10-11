@@ -74,7 +74,6 @@ ithc_ro_users = [
   "gordon.smith@irmsecurity.com",
   "martin.lowe@irmsecurity.com",
   "richard.odonnell@irmsecurity.com",
-  "james.knotwell@irmsecurity.com",
 ]
 
 dvsa_ro_users = [
@@ -220,20 +219,20 @@ ibs_rds_maint_window = "sun:03:16-sun:03:46"
 fyndi-f_instance_type  = "m4.large"
 fyndi-f_puppet_nodetype    = "fyndi-front"
 fyndi-f_asg_min_size         = 0
-fyndi-f_asg_max_size         = 3
+fyndi-f_asg_max_size         = 2
 fyndi-f_scaledown_desired    = 0
 fyndi-f_scaledown_recurrence = "00 18 * * 1-5"
-fyndi-f_scaleup_desired      = 1
+fyndi-f_scaleup_desired      = 2
 fyndi-f_scaleup_recurrence   = "00 08 * * 1-5"
 
 ## fyndi_back
 fyndi-b_instance_type  = "m4.large"
 fyndi-b_puppet_nodetype    = "fyndi-back"
 fyndi-b_asg_min_size         = 0
-fyndi-b_asg_max_size         = 3
+fyndi-b_asg_max_size         = 2
 fyndi-b_scaledown_desired    = 0
 fyndi-b_scaledown_recurrence = "00 18 * * 1-5"
-fyndi-b_scaleup_desired      = 1
+fyndi-b_scaleup_desired      = 2
 fyndi-b_scaleup_recurrence   = "00 08 * * 1-5"
 
 ## wildfly-messaging
@@ -277,7 +276,7 @@ cpc-back_asg_min_size         = 0
 cpc-back_asg_max_size         = 2
 cpc-back_scaledown_desired    = 0
 cpc-back_scaledown_recurrence = "00 22 * * 1-5"
-cpc-back_scaleup_desired      = 1
+cpc-back_scaleup_desired      = 2
 cpc-back_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## cpc-front
@@ -288,7 +287,7 @@ cpc-front_asg_min_size         = 0
 cpc-front_asg_max_size         = 2
 cpc-front_scaledown_desired    = 0
 cpc-front_scaledown_recurrence = "00 22 * * 1-5"
-cpc-front_scaleup_desired      = 1
+cpc-front_scaleup_desired      = 2
 cpc-front_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## sftpplus-svr
