@@ -1,11 +1,6 @@
 # Create the R53 record for the TARS DB
 resource "aws_route53_record" "ibsdb" {
-  name = "${format(
-    "%s-%s",
-    var.component,
-    "db"
-  )}"
-
+  name    = "ibs-db"
   zone_id = "${data.terraform_remote_state.base.private_zone_id}"
   type    = "CNAME"
 

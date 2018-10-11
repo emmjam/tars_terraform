@@ -7,18 +7,26 @@ module "ibs" {
   component   = "${var.component}"
 
   vpc_id             = "${data.terraform_remote_state.base.vpc_id}"
-  availability_zones = "${data.aws_availability_zones.available.names}"
 
-  subnets_cidrs                   = "${var.ibs_subnets_cidrs}"
-  subnets_route_tables            = ["${data.terraform_remote_state.base.private_nat_route_table_id}"]
+  availability_zones = [
+    "${data.aws_availability_zones.available.names}",
+  ]
+
+  subnets_cidrs = [
+    "${var.ibs_subnets_cidrs}",
+  ]
+
+  subnets_route_tables = [
+    "${data.terraform_remote_state.base.private_nat_route_table_id}",
+  ]
 
   lc_ami_id        = "${data.aws_ami.ibs.image_id}"
   lc_instance_type = "${var.ibs_instance_type}"
   lc_user_data     = "${data.template_cloudinit_config.ibs.rendered}"
 
   asg_target_group_arns = [
-        "${aws_alb_target_group.ibs-8080.id}",
-        ]
+    "${aws_alb_target_group.ibs-8080.id}",
+  ]
 
   lc_additional_sg_ids = [
     "${aws_security_group.ibs.id}",
@@ -30,7 +38,8 @@ module "ibs" {
   asg_size_max               = "${var.ibs_asg_max_size}"
   asg_load_balancers         = []
 
-  default_tags      = "${var.default_tags}"
+  default_tags = "${local.default_tags}"
+
   asg_default_tags  = [
     "${var.asg_default_tags}",
   ]

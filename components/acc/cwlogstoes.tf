@@ -32,4 +32,3 @@ resource "aws_lambda_permission" "logstoes_allow_cwlogs_app_cloudtrail" {
     element(var.logs_list,count.index)
   )}"
 }
-

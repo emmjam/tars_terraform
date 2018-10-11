@@ -1,31 +1,13 @@
 module "access_logs_bucket" {
   source = "../../modules/standard-bucket"
 
+  name       = "${local.csi_global}-access_logs"
   log_bucket = "${aws_s3_bucket.bucketlogs.id}"
 
-  name = "${format(
-    "%s-%s-%s-%s-%s-%s",
-    var.project,
-    var.aws_account_id,
-    var.aws_region,
-    var.environment,
-    var.component,
-    "access_logs"
-  )}"
-
   tags = "${merge(
-    "${var.default_tags}",
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s-%s-%s-%s-logs",
-        var.project,
-        var.aws_account_id,
-        var.aws_region,
-        var.environment,
-        var.component,
-        "access_logs" 
-      ),
+      "Name", "${local.csi_global}-access_logs"
     )
   )}"
 }
-

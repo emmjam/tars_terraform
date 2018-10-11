@@ -16,4 +16,3 @@ resource "aws_route53_record" "ibs-front" {
     evaluate_target_health = true
   }
 }
-

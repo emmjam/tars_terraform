@@ -4,7 +4,7 @@ data "template_file" "common" {
 
   vars {
     nodetype    = "ibs"
-    domain_name = "${var.environment}.${var.private_domain_name}"
+    domain_name = "${local.vpc_domain_name}"
   }
 }
 
@@ -14,11 +14,11 @@ data "template_file" "ibs" {
 
   # Set puppet factors
   vars {
-    environment = "${var.environment}"
-    puppet_environment  = "${var.puppet_environment}"
-    nodetype   = "${var.ibs_puppet_nodetype}"
-    kms_key = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
-    aws_account_id = "${var.aws_account_id}"
+    environment        = "${var.environment}"
+    puppet_environment = "${var.puppet_environment}"
+    nodetype           = "${var.ibs_puppet_nodetype}"
+    kms_key            = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
+    aws_account_id     = "${var.aws_account_id}"
   }
 }
 

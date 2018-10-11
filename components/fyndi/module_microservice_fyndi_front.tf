@@ -6,11 +6,19 @@ module "fyndi-f" {
   environment = "${var.environment}"
   component   = "${var.component}"
 
-  vpc_id             = "${data.terraform_remote_state.base.vpc_id}"
-  availability_zones = "${data.aws_availability_zones.available.names}"
+  vpc_id = "${data.terraform_remote_state.base.vpc_id}"
 
-  subnets_cidrs                   = "${var.fyndi-f_subnets_cidrs}"
-  subnets_route_tables            = ["${data.terraform_remote_state.base.private_nonat_route_table_id}"]
+  availability_zones = [
+    "${data.aws_availability_zones.available.names}",
+  ]
+
+  subnets_cidrs = [
+    "${var.fyndi-f_subnets_cidrs}",
+  ]
+
+  subnets_route_tables = [
+    "${data.terraform_remote_state.base.private_nonat_route_table_id}",
+  ]
 
   lc_ami_id        = "${data.aws_ami.fyndi-f.image_id}"
   lc_instance_type = "${var.fyndi-f_instance_type}"
@@ -30,7 +38,8 @@ module "fyndi-f" {
   asg_size_max               = "${var.fyndi-f_asg_max_size}"
   asg_load_balancers         = []
 
-  default_tags      = "${var.default_tags}"
+  default_tags = "${local.default_tags}"
+
   asg_default_tags  = [
     "${var.asg_default_tags}",
   ]
