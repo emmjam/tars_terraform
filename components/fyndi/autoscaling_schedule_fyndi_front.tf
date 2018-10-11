@@ -1,12 +1,5 @@
 resource "aws_autoscaling_schedule" "fyndi-f_down" {
-  scheduled_action_name = "${format(
-    "%s-%s-%s/%s",
-    var.project,
-    var.environment,
-    var.component,
-    "fyndi-f-down"
-  )}"
-
+  scheduled_action_name  = "${local.csi}/fyndi-f-down"
   min_size               = "${var.fyndi-f_asg_min_size}"
   max_size               = "${var.fyndi-f_asg_max_size}"
   desired_capacity       = "${var.fyndi-f_scaledown_desired}"
@@ -15,14 +8,7 @@ resource "aws_autoscaling_schedule" "fyndi-f_down" {
 }
 
 resource "aws_autoscaling_schedule" "fyndi-f_up" {
-  scheduled_action_name = "${format(
-    "%s-%s-%s/%s",
-    var.project,
-    var.environment,
-    var.component,
-    "fyndi-f-up"
-  )}"
-
+  scheduled_action_name  = "${local.csi}/fyndi-f-up"
   min_size               = "${var.fyndi-f_asg_min_size}"
   max_size               = "${var.fyndi-f_asg_max_size}"
   desired_capacity       = "${var.fyndi-f_scaleup_desired}"

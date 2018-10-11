@@ -1,11 +1,6 @@
 # Create the R53 record for the FYNDI Backend ALB
 resource "aws_route53_record" "fyndi-backend" {
-  name = "${format(
-    "%s-%s",
-    var.component,
-    "backend"
-  )}"
-
+  name    = "fyndi-backend"
   zone_id = "${data.terraform_remote_state.base.private_zone_id}"
   type    = "A"
 
