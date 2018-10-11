@@ -343,9 +343,9 @@ cpc_rds_snapshot = "cpcdev01-180621"
 # IBSDB
 ibs_rds_username = "ibsprepadmin"
 
-ibs_rds_password = "sPPmE94NsvmfTmqj5K5YvFxZLmnm9T"
+ibs_rds_password = "wZMJ2KWX8ZEEwJqbRmS7FEbWryBFhmWU"
 
-ibs_rds_snapshot = "prod-ibsdb-with-users-and-geo-data"
+ibs_rds_snapshot = "prep-ibsdb-with-users-and-geo-data2"
 
 #############################################################################
 # Transit VPC peering
