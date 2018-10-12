@@ -127,3 +127,7 @@ output "subnets_mis_db" {
 output "prometheus_sg_id" {
   value = "${aws_security_group.prometheus.id}"
 }
+
+output "efs_backup_sg_id" {
+  value = "${module.efs_backup.security_group_id}"
+}
