@@ -114,11 +114,6 @@ base_peers_xacct = [
     account_id = "652856684323"
   },
   {
-    vpc_id     = "vpc-0d5b870a03ca18430"   # tarsnonprod/train
-    cidr_block = "10.167.144.0/21"
-    account_id = "652856684323"
-  },
-  {
     vpc_id     = "vpc-1c88d57a"   # tarsprod/prod
     cidr_block = "10.167.128.0/21"
     account_id = "246976497890"
@@ -127,6 +122,11 @@ base_peers_xacct = [
     vpc_id     = "vpc-0b238d4af5302abf1"   # tarsprod/prep
     cidr_block = "10.167.136.0/21"
     account_id = "246976497890"
+  },
+  {
+    vpc_id     = "vpc-0d5b870a03ca18430"   # tarsnonprod/train
+    cidr_block = "10.167.144.0/21"
+    account_id = "652856684323"
   },
 ]
 
