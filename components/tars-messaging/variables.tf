@@ -186,3 +186,7 @@ variable "private_cert_domain_name" {
   description = "private tars cert root domain"
 }
 
+variable "dvsa_printers" {
+  type = "list"
+  description = "DVSA print servers"
+}
