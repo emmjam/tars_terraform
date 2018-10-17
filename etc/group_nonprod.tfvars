@@ -22,7 +22,6 @@ all_users = [
   "michael.taylor@bjss.com",
   "rob.hart@dvsa.gov.uk",
   "sam.smart@bjss.com",
-  "allan.todd@bjss.com",
   "david.giles@bjss.com",
   "paul.hepple@capita.co.uk",
   "rob.whyte@capita.co.uk",
@@ -90,7 +89,6 @@ administrators = [
 ]
 
 power_users = [
-  "allan.todd@bjss.com",
   "rob.hart@dvsa.gov.uk",
 ]
 
