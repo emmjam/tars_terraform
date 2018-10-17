@@ -141,6 +141,7 @@ whitelist = [
   "213.160.121.250/32", # DVSA Notts Corp & Wifi
   "77.86.30.4/32",      # BJSS VPN (Decom ~06/18)
   "148.253.134.213/32", # BJSS VPN 04/18
+  "148.253.134.212/32", # BJSS Guest Wifi 10/18
   "195.205.13.211/32",  # Capita (WM Proxy)
   "195.27.53.211/32",   # Capita (LD Proxy)
   "85.115.52.201/32",   # Capita (Cloud Proxy)
