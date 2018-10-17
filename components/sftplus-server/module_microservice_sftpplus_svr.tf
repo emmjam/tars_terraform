@@ -6,11 +6,19 @@ module "sftpplus_svr" {
   environment = "${var.environment}"
   component   = "${var.component}"
 
-  vpc_id             = "${data.terraform_remote_state.base.vpc_id}"
-  availability_zones = "${data.aws_availability_zones.available.names}"
+  vpc_id = "${data.terraform_remote_state.base.vpc_id}"
 
-  subnets_cidrs                   = "${var.cpc_sftp_subnets_cidrs}"
-  subnets_route_tables            = ["${data.terraform_remote_state.base.public_route_table_id}"]
+  availability_zones = [
+    "${data.aws_availability_zones.available.names}",
+  ]
+
+  subnets_cidrs = [
+    "${var.cpc_sftp_subnets_cidrs}",
+  ]
+
+  subnets_route_tables = [
+    "${data.terraform_remote_state.base.public_route_table_id}",
+  ]
 
   lc_ami_id        = "${data.aws_ami.sftpplus_svr.image_id}"
   lc_instance_type = "${var.sftpplus-svr_instance_type}"
@@ -30,5 +38,5 @@ module "sftpplus_svr" {
     "${aws_lb_target_group.sftpplus_svr-10022-pub.arn}",
   ]
 
-  default_tags = "${var.default_tags}"
+  default_tags = "${local.default_tags}"
 }

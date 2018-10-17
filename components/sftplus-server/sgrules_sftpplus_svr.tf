@@ -6,17 +6,10 @@ resource "aws_security_group_rule" "sftpplus_ingress_cpc" {
   to_port           = "10022"
   protocol          = "tcp"
   security_group_id = "${module.sftpplus_svr.security_group_id}"
-  cidr_blocks       = [ "${var.cpc-back_subnets_cidrs}" ] # CPC Batch uses CPC Back subnet
-}
 
-resource "aws_security_group_rule" "cpc_egress_sftpplus_nlb" {
-  description       = "Allow TCP/15021 from SFTPPlus to CPC Batch"
-  type              = "egress"
-  from_port         = "15021"
-  to_port           = "15021"
-  protocol          = "tcp"
-  security_group_id = "${data.terraform_remote_state.cpc-batch.cpc-batch-sg-id}"
-  cidr_blocks       = [ "${var.cpc_sftp_subnets_cidrs}"]
+  cidr_blocks = [
+    "${var.cpc-back_subnets_cidrs}", # CPC Batch uses CPC Back subnet
+  ]
 }
 
 # Health checks from NLBs
@@ -27,7 +20,10 @@ resource "aws_security_group_rule" "sftpplus_ingress_nlb" {
   to_port           = "10022"
   protocol          = "tcp"
   security_group_id = "${module.sftpplus_svr.security_group_id}"
-  cidr_blocks       = [ "${var.cpc_sftp_subnets_cidrs}" ]
+
+  cidr_blocks = [
+    "${var.cpc_sftp_subnets_cidrs}",
+  ]
 }
 
 # Public load balancer for DVA
@@ -38,5 +34,17 @@ resource "aws_security_group_rule" "sftpplus_ingress_dva" {
   to_port           = "10022"
   protocol          = "tcp"
   security_group_id = "${module.sftpplus_svr.security_group_id}"
-  cidr_blocks       = ["${var.dva_whitelist}"]
+
+  cidr_blocks = [
+    "${var.dva_whitelist}",
+  ]
+}
+
+resource "aws_security_group_rule" "sftpplus_egress_sftpplus_efs_nfs" {
+  type                     = "egress"
+  from_port                = "2049"
+  to_port                  = "2049"
+  protocol                 = "tcp"
+  security_group_id        = "${module.sftpplus_svr.security_group_id}"
+  source_security_group_id = "${aws_security_group.sftpplus_efs.id}"
 }

@@ -13,6 +13,7 @@ variable "environment" {
   description = "TF Scaffold environment"
 }
 
+# TODO: peacheym: This is not what this component is called
 variable "component" {
   type        = "string"
   description = "TF Scaffold component"
@@ -26,6 +27,8 @@ variable "puppet_environment" {
 
 variable "dva_whitelist" {
   type        = "list"
+  description = ""
+  default     = []
 }
 
 variable "account_component_name" {
@@ -42,7 +45,7 @@ variable "account_environment" {
 variable "default_tags" {
   type        = "map"
   description = "Default tags"
-
+  default     = {}
 }
 
 variable "tf_state_bucket_prefix" {
@@ -58,7 +61,12 @@ variable "private_domain_name" {
 variable "asg_termination_policies" {
   type        = "list"
   description = "A list of policies to decide how the instances in the auto scale group should be terminated"
-  default     = ["OldestInstance", "OldestLaunchConfiguration", "ClosestToNextInstanceHour"]
+
+  default = [
+    "OldestInstance",
+    "OldestLaunchConfiguration",
+    "ClosestToNextInstanceHour",
+  ]
 }
 
 variable "asg_enabled_metrics" {
@@ -99,59 +107,69 @@ variable "aws_account_id" {
 }
 
 variable "mgmt_aws_account_id" {
-  type = "string"
+  type        = "string"
   description = ""
 }
 
 variable "sftpplus-svr_instance_type" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "cpc_sftp_subnets_cidrs" {
-  type = "list"
+  type        = "list"
   description = ""
+  default     = []
 }
+
 variable "sftpplus-svr_puppet_nodetype" {
-  type = "string"
+  type        = "string"
   description = ""
 }
 
 variable "sftpplus-svr_asg_max_size" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "sftpplus-svr_asg_min_size" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "sftpplus-svr_scaledown_desired" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "sftpplus-svr_scaledown_recurrence" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "sftpplus-svr_scaleup_desired" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "sftpplus-svr_scaleup_recurrence" {
-  type = "string"
+  type        = "string"
   description = ""
 }
 
 variable "cert_name" {
-  type = "string"
+  type        = "string"
   description = "ACM cert name"
 }
 
 variable "cpc-back_subnets_cidrs" {
-  type = "list"
+  type        = "list"
+  description = ""
+  default     = []
 }
 
 variable "sftpplus_efs_subnets_cidrs" {
-  type = "list"
+  type        = "list"
   description = "SFTPPlus EFS subnets list"
+  default     = []
 }
-

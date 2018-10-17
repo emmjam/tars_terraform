@@ -1,32 +1,28 @@
 # sftplus Server internal
 resource "aws_lb" "sftpplus-svr-private" {
-  name = "${format(
-    "%s-%s-%s-%s",
-    var.project,
-    var.environment,
-    var.component,
-    "cpc"
-  )}"
 
+  name     = "${local.csi}-cpc"
   internal = true
-  subnets = ["${module.sftpplus_svr.subnet_ids}"]
+
+  subnets = [
+    "${module.sftpplus_svr.subnet_ids}",
+  ]
+
   load_balancer_type = "network"
+  idle_timeout       = "300"
 
-  idle_timeout = "300"
-
+  # TODO: peacheym:
+  # Is this necessary? Are we protecting public IP assignments?
+  # If it's necessary to prevent terraform from being able to
+  # destroy something it created, shouldn't it use EIPs instead?
+  # Deletion protection is generally reserved for snowflakes
+  # such as production databases.
   enable_deletion_protection = true
 
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "sftpplus-svr"
-      ),
+      "Name", "${local.csi}-cpc"
     )
   )}"
 }
-
