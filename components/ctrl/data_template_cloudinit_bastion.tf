@@ -3,7 +3,7 @@ data "template_file" "bastion" {
 
   vars {
     nodetype    = "bastion"
-    domain_name = "${var.environment}.${var.private_domain_name}"
+    domain_name = "${local.vpc_domain_name}"
   }
 }
 

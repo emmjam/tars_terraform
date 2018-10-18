@@ -15,8 +15,11 @@ data "aws_ami" "jenkinsctrl" {
   ]
 
   filter {
-    name   = "state"
-    values = ["available"]
+    name = "state"
+
+    values = [
+      "available",
+    ]
   }
 }
 
@@ -30,14 +33,18 @@ data "aws_ami" "bastion" {
   )}"
 
   most_recent = "true"
+
   owners = [
     "${data.aws_caller_identity.current.account_id}",
     "${var.mgmt_aws_account_id}",
   ]
 
   filter {
-    name   = "state"
-    values = ["available"]
+    name = "state"
+
+    values = [
+      "available",
+    ]
   }
 }
 
@@ -51,13 +58,17 @@ data "aws_ami" "grafana" {
   )}"
 
   most_recent = "true"
+
   owners = [
     "${data.aws_caller_identity.current.account_id}",
     "${var.mgmt_aws_account_id}",
   ]
 
   filter {
-    name   = "state"
-    values = ["available"]
+    name = "state"
+
+    values = [
+      "available",
+    ]
   }
 }

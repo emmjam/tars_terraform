@@ -1,15 +1,14 @@
 resource "aws_elb" "bastion" {
-  name = "${format(
-    "%s-%s-%s-%s",
-    var.project,
-    var.environment,
-    var.component,
-    "bastion"
-  )}"
-
+  name            = "${local.csi}-bastion"
   internal        = "false"
-  subnets         = ["${module.bastion_elb_subnets.subnet_ids}"]
-  security_groups = ["${aws_security_group.bastion_elb.id}"]
+
+  subnets = [
+    "${module.bastion_elb_subnets.subnet_ids}",
+  ]
+
+  security_groups = [
+    "${aws_security_group.bastion_elb.id}",
+  ]
 
   cross_zone_load_balancing   = "true"
   idle_timeout                = "400"
@@ -32,15 +31,9 @@ resource "aws_elb" "bastion" {
   }
 
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-      "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "bastion"
-      ),
+      "Name", "${local.csi}-bastion"
     )
   )}"
 }
