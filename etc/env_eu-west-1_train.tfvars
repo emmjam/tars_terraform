@@ -339,13 +339,13 @@ ibs_rds_snapshot = "sit01-ibs-subnet-move"
 # MISDB
 mis_rds_username = "misdevadmin"
 mis_rds_password = "password"
-mis_rds_allocated_storage = "20"
+mis_rds_allocated_storage = "80"
 mis_rds_snapshot = "tars-dev01-tars-dms-misopdmstg-20180720"
 
 # RSISDB
 rsis_rds_username = "rsisdevadmin"
 rsis_rds_password = "password"
-rsis_rds_allocated_storage = "20"
+rsis_rds_allocated_storage = "80"
 rsis_rds_snapshot = "tars-dev01-tars-dms-rsisdmssc-20180719"
 
 #############################################################################
