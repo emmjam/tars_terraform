@@ -1,11 +1,6 @@
 # Create the R53 record for the Internal ALB
 resource "aws_route53_record" "sftpplus_svr" {
-  name = "${format(
-    "%s-%s",
-    var.component,
-    "private"
-  )}"
-
+  name    = "sftpplus-private"
   zone_id = "${data.terraform_remote_state.base.private_zone_id}"
   type    = "A"
 
@@ -15,4 +10,3 @@ resource "aws_route53_record" "sftpplus_svr" {
     evaluate_target_health = true
   }
 }
-

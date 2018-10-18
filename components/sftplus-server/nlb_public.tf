@@ -1,18 +1,11 @@
 # sftplus Server public
 resource "aws_lb" "sftpplus-svr-public" {
-  name = "${format(
-    "%s-%s-%s-%s",
-    var.project,
-    var.environment,
-    var.component,
-    "public"
-  )}"
-
-  internal = false
+  name               = "${local.csi}-public"
+  internal           = false
   load_balancer_type = "network"
+  idle_timeout       = "300"
 
-  idle_timeout = "300"
-
+  # TODO: peacheym: Why?
   enable_deletion_protection = true
 
   subnet_mapping {
@@ -31,16 +24,9 @@ resource "aws_lb" "sftpplus-svr-public" {
   }
 
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "sftpplus-svr"
-      ),
+      "Name", "${local.csi}-public"
     )
   )}"
 }
-

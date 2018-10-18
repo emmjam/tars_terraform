@@ -1,12 +1,5 @@
 resource "aws_autoscaling_schedule" "sftpplus_svr_down" {
-  scheduled_action_name = "${format(
-    "%s-%s-%s/%s",
-    var.project,
-    var.environment,
-    var.component,
-    "sftpplus-svr-down"
-  )}"
-
+  scheduled_action_name  = "${local.csi}/sftpplus-svr-down"
   min_size               = "${var.sftpplus-svr_asg_min_size}"
   max_size               = "${var.sftpplus-svr_asg_max_size}"
   desired_capacity       = "${var.sftpplus-svr_scaledown_desired}"
@@ -15,18 +8,10 @@ resource "aws_autoscaling_schedule" "sftpplus_svr_down" {
 }
 
 resource "aws_autoscaling_schedule" "sftpplus_svr_up" {
-  scheduled_action_name = "${format(
-    "%s-%s-%s/%s",
-    var.project,
-    var.environment,
-    var.component,
-    "sftpplus-svr-up"
-  )}"
-
+  scheduled_action_name  = "${local.csi}/sftpplus-svr-up"
   min_size               = "${var.sftpplus-svr_asg_min_size}"
   max_size               = "${var.sftpplus-svr_asg_max_size}"
   desired_capacity       = "${var.sftpplus-svr_scaleup_desired}"
   recurrence             = "${var.sftpplus-svr_scaleup_recurrence}"
   autoscaling_group_name = "${module.sftpplus_svr.autoscaling_group_id}"
 }
-

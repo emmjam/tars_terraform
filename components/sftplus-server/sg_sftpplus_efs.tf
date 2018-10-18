@@ -1,32 +1,12 @@
 resource "aws_security_group" "sftpplus_efs" {
-  name = "${format(
-    "%s-%s-%s-%s",
-    var.project,
-    var.environment,
-    var.component,
-    "sftpplus-efs"
-  )}"
-
-  description = "${format(
-    "%s-%s-%s-%s",
-    var.project,
-    var.environment,
-    var.component,
-    "sftpplus-efs"
-  )}"
-
-  vpc_id = "${data.terraform_remote_state.base.vpc_id}"
+  name        = "${local.csi}-sftpplus-efs"
+  description = "${local.csi}-sftpplus-efs"
+  vpc_id      = "${data.terraform_remote_state.base.vpc_id}"
 
   tags = "${merge(
-    "${var.default_tags}",
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s-%s",
-        var.project,
-        var.environment,
-        var.component,
-        "sftpplus-efs"
-      ),
+      "Name", "${local.csi}-sftpplus-efs"
     )
   )}"
 }
