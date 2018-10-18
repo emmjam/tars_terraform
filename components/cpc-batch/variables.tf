@@ -134,3 +134,9 @@ variable "cpc_efs_subnets_cidrs" {
   description = "CPC EFS subnets list"
   default     = []
 }
+
+variable "cpc_sftp_subnets_cidrs" {
+  type        = "list"
+  description = ""
+  default     = []
+}
