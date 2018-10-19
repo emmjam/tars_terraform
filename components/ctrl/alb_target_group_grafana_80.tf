@@ -1,11 +1,5 @@
 resource "aws_alb_target_group" "grafana-80" {
-  name = "${format(
-    "%s-%s-%s-%s",
-    var.project,
-    var.environment,
-    var.component,
-    "grafana-80"
-  )}"
+  name     = "${local.csi}-grafana-80"
   port     = "80"
   protocol = "HTTP"
   vpc_id   = "${aws_vpc.ctrl.id}"

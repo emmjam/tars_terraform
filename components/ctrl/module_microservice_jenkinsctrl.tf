@@ -6,9 +6,15 @@ module "jenkinsnode" {
   environment = "${var.environment}"
   component   = "${var.component}"
 
-  vpc_id             = "${aws_vpc.ctrl.id}"
-  availability_zones = "${data.aws_availability_zones.available.names}"
-  subnets_cidrs      = "${var.jenkinsctrl_subnets_cidrs}"
+  vpc_id = "${aws_vpc.ctrl.id}"
+
+  availability_zones = [
+    "${data.aws_availability_zones.available.names}",
+  ]
+
+  subnets_cidrs = [
+    "${var.jenkinsctrl_subnets_cidrs}",
+  ]
 
   subnets_route_tables = [
     "${aws_route_table.private_nat.id}",
@@ -22,7 +28,7 @@ module "jenkinsnode" {
   asg_size_desired_on_create = "${var.jenkinsctrl_asg_min_size}"
   asg_size_max               = "${var.jenkinsctrl_asg_max_size}"
 
-  default_tags      = "${var.default_tags}"
+  default_tags = "${local.default_tags}"
 
   asg_default_tags  = [
     "${var.asg_default_tags}",

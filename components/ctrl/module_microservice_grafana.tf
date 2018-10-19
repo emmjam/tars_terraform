@@ -6,10 +6,15 @@ module "grafana" {
   environment = "${var.environment}"
   component   = "${var.component}"
 
-  vpc_id             = "${aws_vpc.ctrl.id}"
-  availability_zones = "${data.aws_availability_zones.available.names}"
+  vpc_id = "${aws_vpc.ctrl.id}"
 
-  subnets_cidrs = "${var.ctrl_grafana_subnets}"
+  availability_zones = [
+    "${data.aws_availability_zones.available.names}",
+  ]
+
+  subnets_cidrs = [
+    "${var.ctrl_grafana_subnets}",
+  ]
 
   subnets_route_tables = [
     "${aws_route_table.private.*.id}",
@@ -33,7 +38,7 @@ module "grafana" {
     "${aws_alb_target_group.grafana-80.id}",
   ]
 
-  default_tags = "${var.default_tags}"
+  default_tags = "${local.default_tags}"
 
   asg_default_tags  = [
     "${var.asg_default_tags}",

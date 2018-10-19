@@ -8,7 +8,7 @@ resource "aws_vpc_dhcp_options" "ctrl" {
   tags = "${merge(
     local.default_tags,
     map(
-      "Name", "${local.csi}/ctrl"
+      "Name", local.csi
     )
   )}"
 }

@@ -6,7 +6,7 @@ resource "aws_nat_gateway" "ctrl" {
   tags = "${merge(
     local.default_tags,
     map(
-      "Name", "${local.csi}/nat"
+      "Name", "${local.csi}"
     )
   )}"
 }

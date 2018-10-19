@@ -1,12 +1,5 @@
 resource "aws_autoscaling_schedule" "bastion_down" {
-  scheduled_action_name = "${format(
-    "%s-%s-%s/%s",
-    var.project,
-    var.environment,
-    var.component,
-    "bastion-down"
-  )}"
-
+  scheduled_action_name  = "${local.csi}/bastion-down"
   min_size               = "${var.bastion_asg_min_size}"
   max_size               = "${var.bastion_asg_max_size}"
   desired_capacity       = "${var.bastion_scaledown_desired}"
@@ -15,14 +8,7 @@ resource "aws_autoscaling_schedule" "bastion_down" {
 }
 
 resource "aws_autoscaling_schedule" "bastion_up" {
-  scheduled_action_name = "${format(
-    "%s-%s-%s/%s",
-    var.project,
-    var.environment,
-    var.component,
-    "bastion-up"
-  )}"
-
+  scheduled_action_name  = "${local.csi}/bastion-up"
   min_size               = "${var.bastion_asg_min_size}"
   max_size               = "${var.bastion_asg_max_size}"
   desired_capacity       = "${var.bastion_scaleup_desired}"

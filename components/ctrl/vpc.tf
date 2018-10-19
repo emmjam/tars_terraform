@@ -7,7 +7,7 @@ resource "aws_vpc" "ctrl" {
   tags = "${merge(
     local.default_tags,
     map(
-      "Name", "${local.csi}/ctrl"
+      "Name", local.csi
     )
   )}"
 }

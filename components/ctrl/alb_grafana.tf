@@ -1,12 +1,5 @@
 resource "aws_alb" "grafana" {
-  name = "${format(
-    "%s-%s-%s-%s",
-    var.project,
-    var.environment,
-    var.component,
-    "grafana"
-  )}"
-
+  name     = "${local.csi}-grafana"
   internal = "false"
 
   security_groups = [
@@ -18,15 +11,9 @@ resource "aws_alb" "grafana" {
   ]
 
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-      "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "grafana"
-      ),
+      "Name", "${local.csi}-grafana"
     )
   )}"
 }
