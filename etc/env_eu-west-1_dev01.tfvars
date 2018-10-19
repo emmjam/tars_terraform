@@ -588,10 +588,10 @@ wildfly-batch_scaleup_recurrence   = "00 00 * * 1-5"
 
 ## obs
 obs_asg_min_size         = 0
-obs_asg_max_size         = 2
+obs_asg_max_size         = 1
 obs_scaledown_desired    = 0
 obs_scaledown_recurrence = "00 20 * * 1-5"
-obs_scaleup_desired      = 2
+obs_scaleup_desired      = 1
 obs_scaleup_recurrence   = "00 00 * * 1-5"
 
 ## ibs
