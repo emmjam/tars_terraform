@@ -95,3 +95,17 @@ resource "aws_security_group_rule" "wan_ingress_tars_messaging_port_3389" {
     "0.0.0.0/0",
   ]
 }
+
+# Allow the messaging nodes to talk to Azure Monitoring Agent servers
+resource "aws_security_group_rule" "tars_messaging_egress_internet_443" {
+  description       = "Allow TCP/443 to internet"
+  type              = "egress"
+  from_port         = 443
+  to_port           = 443
+  protocol          = "tcp"
+  security_group_id = "${aws_security_group.tars-messaging.id}"
+
+  cidr_blocks = [
+    "0.0.0.0/0",
+  ]
+}
