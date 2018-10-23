@@ -333,7 +333,7 @@ cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 # CPCDB
 cpc_rds_storage_type = "gp2"
 cpc_rds_engine = "oracle-se2"
-cpc_rds_engine_version = "12.1.0.2.v11"
+cpc_rds_engine_version = "12.1.0.2.v13"
 cpc_rds_instance_class = "db.r4.xlarge"
 cpc_rds_port = "1521"
 cpc_rds_public = "false"
@@ -541,7 +541,7 @@ logs_list = []
 # TARSDB
 tars_rds_storage_type = "gp2"
 tars_rds_engine = "oracle-se2"
-tars_rds_engine_version = "12.1.0.2.v11"
+tars_rds_engine_version = "12.1.0.2.v13"
 tars_rds_instance_class = "db.r4.xlarge"
 tars_rds_port = "1521"
 tars_rds_public = "false"
@@ -557,7 +557,7 @@ tars_rds_autoscale = "True"
 # MISDB
 mis_rds_storage_type = "gp2"
 mis_rds_engine = "oracle-se2"
-mis_rds_engine_version = "12.1.0.2.v11"
+mis_rds_engine_version = "12.1.0.2.v13"
 mis_rds_instance_class = "db.r4.xlarge"
 mis_rds_port = "1521"
 mis_rds_public = "false"
@@ -573,7 +573,7 @@ mis_rds_autoscale = "True"
 # RSISDB
 rsis_rds_storage_type = "gp2"
 rsis_rds_engine = "oracle-se2"
-rsis_rds_engine_version = "12.1.0.2.v11"
+rsis_rds_engine_version = "12.1.0.2.v13"
 rsis_rds_instance_class = "db.r4.xlarge"
 rsis_rds_port = "1521"
 rsis_rds_public = "false"
@@ -591,7 +591,7 @@ sris_rds_autoscale = "True"
 tars_dms_allocated_storage = "50"
 tars_dms_apply_immediately = true
 tars_dms_auto_minor_version_upgrade = true
-tars_dms_engine_version = "2.4.2"
+tars_dms_engine_version = "2.4.3"
 tars_dms_multi_az = false
 tars_dms_maint_window = "sun:03:16-sun:03:46"
 tars_dms_publicly_accessible = false

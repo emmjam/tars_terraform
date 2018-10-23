@@ -30,6 +30,11 @@ variable "account_environment" {
   description = "The environment name for the account level scope for the account in which this component is deployed"
 }
 
+variable "aws_account_id" {
+  type        = "string"
+  description = "AWS Account ID"
+}
+
 variable "default_tags" {
   type        = "map"
   description = "Defautl tags to use"
