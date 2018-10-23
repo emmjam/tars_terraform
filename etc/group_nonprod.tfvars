@@ -60,6 +60,8 @@ all_users = [
   "luke.garbett@irmsecurity.com",
   "john.moss@irmsecurity.com",
   "richard.odonnell@irmsecurity.com",
+  "manoj.patil@capita.co.uk",
+
 ]
 
 administrators = [
@@ -113,6 +115,7 @@ capita_support_ro_users = [
   "rob.morrison3@capita.co.uk",
   "pratap.prusty@capita.co.uk",
   "boby.jacob@capita.co.uk",
+  "manoj.patil@capita.co.uk",
 ]
 
 ithc_ro_users = [
