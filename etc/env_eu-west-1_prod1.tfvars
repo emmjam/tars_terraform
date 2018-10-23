@@ -563,7 +563,7 @@ test_target_tars_rds_license_model = "license-included"
 test_target_tars_rds_autoscale = "True"
 test_target_tars_rds_username = "testtarsadmin"
 test_target_tars_rds_password = "pc2JLzyTBTSMpmh3"
-test_target_tars_rds_allocated_storage = "100"
+test_target_tars_rds_allocated_storage = "200"
 test_target_tars_rds_name = "TARSDB"
 
 # Temp RDS's for testing prod build TS-4060
