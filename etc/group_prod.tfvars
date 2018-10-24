@@ -39,15 +39,6 @@ all_users = [
   "stephen.davies@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
   "mike.peachey@bjss.com",
-  "gordon.smith@irmsecurity.com",
-  "martin.lowe@irmsecurity.com",
-  "catherine.rooney@irmsecurity.com",
-  "liam.best@irmsecurity.com",
-  "oliver.loveless@irmsecurity.com",
-  "toby.flaxman@irmsecurity.com",
-  "luke.garbett@irmsecurity.com",
-  "john.moss@irmsecurity.com",
-  "richard.odonnell@irmsecurity.com",
   "tim.hinchey@dvsa.gov.uk"
 ]
 
@@ -86,12 +77,6 @@ dms_users = [
 ]
 
 capita_users = [
-]
-
-ithc_ro_users = [
-  "gordon.smith@irmsecurity.com",
-  "martin.lowe@irmsecurity.com",
-  "richard.odonnell@irmsecurity.com",
 ]
 
 dvsa_ro_users = [
@@ -434,8 +419,6 @@ whitelist = [
   "107.154.0.0/16",
   "45.60.0.0/16",
   "45.223.0.0/16",      # End Incapsula IPs
-  "92.207.224.144/28",  # ITHC Access TS-4272
-  "5.101.139.0/29"      # ITHC Access TS-4272
 ]
 
 dvsa_dc_whitelist = [
