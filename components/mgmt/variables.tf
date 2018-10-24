@@ -453,3 +453,20 @@ variable "prod_subdomains_name_servers" {
   description = "Map of accounts with NS records in a form: '<record_name> = <comma seperated list of NS addresses>'"
   default     = {}
 }
+
+##
+# ECR
+##
+
+##
+# Trusted Principals for Pulling Docker Images
+#
+# We can merge this into master list of "managed accounts" when we have a better
+# grip on what categories of permission delegation we can centralise
+##
+
+variable "ecr_repository_ro_principals" {
+  type        = "list"
+  description = "The list of AWS Account IDs that we grant delegated read access to for Amazon ECR Repositories"
+  default     = []
+}
