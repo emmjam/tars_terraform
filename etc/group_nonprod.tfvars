@@ -51,17 +51,7 @@ all_users = [
   "stephen.davies@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
   "mike.peachey@bjss.com",
-  "gordon.smith@irmsecurity.com",
-  "martin.lowe@irmsecurity.com",
-  "catherine.rooney@irmsecurity.com",
-  "liam.best@irmsecurity.com",
-  "oliver.loveless@irmsecurity.com",
-  "toby.flaxman@irmsecurity.com",
-  "luke.garbett@irmsecurity.com",
-  "john.moss@irmsecurity.com",
-  "richard.odonnell@irmsecurity.com",
   "manoj.patil@capita.co.uk",
-
 ]
 
 administrators = [
@@ -116,12 +106,6 @@ capita_support_ro_users = [
   "pratap.prusty@capita.co.uk",
   "boby.jacob@capita.co.uk",
   "manoj.patil@capita.co.uk",
-]
-
-ithc_ro_users = [
-  "gordon.smith@irmsecurity.com",
-  "martin.lowe@irmsecurity.com",
-  "richard.odonnell@irmsecurity.com",
 ]
 
 dvsa_ro_users = [
@@ -451,8 +435,6 @@ whitelist = [
   "87.81.132.117/32",   # Informed Solutions
   "54.72.37.158/32",    # Selenium Elasticgrid Proxy
   "54.76.206.25/32",    # Perf01 NATGW IP
-  "92.207.224.144/28",  # ITHC Access TS-4272
-  "5.101.139.0/29"      # ITHC Access TS-4272
 ]
 
 dvsa_dc_whitelist = [

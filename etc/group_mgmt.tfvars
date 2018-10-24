@@ -33,15 +33,6 @@ all_users = [
   "stephen.davies@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
   "mike.peachey@bjss.com",
-  "gordon.smith@irmsecurity.com",
-  "martin.lowe@irmsecurity.com",
-  "catherine.rooney@irmsecurity.com",
-  "liam.best@irmsecurity.com",
-  "oliver.loveless@irmsecurity.com",
-  "toby.flaxman@irmsecurity.com",
-  "luke.garbett@irmsecurity.com",
-  "john.moss@irmsecurity.com",
-  "richard.odonnell@irmsecurity.com",
 ]
 
 administrators = [
@@ -65,12 +56,6 @@ administrators = [
   "stephen.davies@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
   "mike.peachey@bjss.com",
-]
-
-ithc_ro_users = [
-  "gordon.smith@irmsecurity.com",
-  "martin.lowe@irmsecurity.com",
-  "richard.odonnell@irmsecurity.com",
 ]
 
 ctrl_vpc_cidr = "10.167.64.0/22"
