@@ -616,7 +616,7 @@ tars_dms_engine_version = "2.4.2"
 tars_dms_multi_az = false
 tars_dms_maint_window = "sun:03:16-sun:03:46"
 tars_dms_publicly_accessible = false
-tars_dms_replication_instance_class = "dms.t2.medium"
+tars_dms_replication_instance_class = "dms.r4.large"
 
 # IBSDB
 ibs_rds_instance_class = "db.t2.small" //Aurora doesn't support t2.micro
