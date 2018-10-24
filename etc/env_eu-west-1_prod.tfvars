@@ -330,20 +330,20 @@ tars_rds_password = "YTN5f3RN8kV8u9mX"
 
 # TARSDB
 tars_rds_allocated_storage = "300"
-tars_rds_snapshot = "tarsuat-050418"
+tars_rds_snapshot = "tars-prod1-tars-core-tarsdb-241018"
 
 # MISDB
 mis_rds_username = "misuatadmin"
 mis_rds_password = "BaLhNU73XCpFCNXP"
 mis_rds_allocated_storage = "500"
-mis_rds_snapshot = "arn:aws:rds:eu-west-1:652856684323:snapshot:misuat01-20180720"
+mis_rds_snapshot = "arn:aws:rds:eu-west-1:652856684323:snapshot:tars-prod1-tars-reporting-misdb-241018"
 mis_rds_autoscale = "False"
 
 # RSISDB
 rsis_rds_username = "tarsrsisadmin"
 rsis_rds_password = "pbj9VQTE4T5GDVbF"
 rsis_rds_allocated_storage = "300"
-rsis_rds_snapshot = "arn:aws:rds:eu-west-1:652856684323:snapshot:tarsrsis01-20180720"
+rsis_rds_snapshot = "arn:aws:rds:eu-west-1:652856684323:snapshot:tars-prod1-tars-reporting-rsisdb-241018"
 rsis_rds_autoscale = "False"
 
 # CPCSDB
@@ -395,9 +395,9 @@ target_dms_tars_rds_username = "tarsdmsadmin"
 target_dms_tars_rds_password = "password"
 target_dms_tars_rds_allocated_storage = "300"
 target_dms_tars_rds_name = "TARSDB"
-target_dms_tars_rds_snapshot = "tars-prod-tars-dms-tarsdmstg-prod-migrate"
+target_dms_tars_rds_snapshot = "tars-prod1-tars-dms-tarsdmstg-241018"
 
-target_dms_on_prem_tars_rds_snapshot = "tars-prod-tars-dms-tarsopdmstg-prod-migrate"
+target_dms_on_prem_tars_rds_snapshot = "tars-prod1-tars-dms-tarsopdmstg-241018"
 
 target_dms_cpc_rds_storage_type = "gp2"
 target_dms_cpc_rds_engine = "oracle-se2"
@@ -417,9 +417,9 @@ target_dms_cpc_rds_username = "cpcdmsadmin"
 target_dms_cpc_rds_password = "password"
 target_dms_cpc_rds_allocated_storage = "100"
 target_dms_cpc_rds_name = "CPCDB"
-target_dms_cpc_rds_snapshot = "tars-prod-tars-dms-cpcdmstg-prod-migrate"
+target_dms_cpc_rds_snapshot = "tars-prod1-tars-dms-cpcdmstg-241018"
 
-target_dms_on_prem_cpc_rds_snapshot = "tars-prod-tars-dms-cpcopdmstg-prod-migrate"
+target_dms_on_prem_cpc_rds_snapshot = "tars-prod1-tars-dms-cpcopdmstg-241018"
 
 target_dms_rsis_rds_storage_type = "gp2"
 target_dms_rsis_rds_engine = "oracle-se2"
@@ -439,9 +439,9 @@ target_dms_rsis_rds_username = "rsisdmsadmin"
 target_dms_rsis_rds_password = "password"
 target_dms_rsis_rds_allocated_storage = "80"
 target_dms_rsis_rds_name = "RSISDB"
-target_dms_rsis_rds_snapshot = "tars-prod-tars-dms-rsisdmstg-prod-migrate"
+target_dms_rsis_rds_snapshot = "tars-prod1-tars-dms-rsisdmstg-241018"
 
-target_dms_on_prem_rsis_rds_snapshot = "tars-prod-tars-dms-rsisopdmstg-prod-migrate"
+target_dms_on_prem_rsis_rds_snapshot = "tars-prod1-tars-dms-rsisopdmstg-241018"
 
 target_dms_mis_rds_storage_type = "gp2"
 target_dms_mis_rds_engine = "oracle-se2"
@@ -461,9 +461,9 @@ target_dms_mis_rds_username = "misdmsadmin"
 target_dms_mis_rds_password = "password"
 target_dms_mis_rds_allocated_storage = "300"
 target_dms_mis_rds_name = "MISDB"
-target_dms_mis_rds_snapshot = "tars-prod-tars-dms-misdmstg-prod-migrate"
+target_dms_mis_rds_snapshot = "tars-prod1-tars-dms-misdmstg-241018"
 
-target_dms_on_prem_mis_rds_snapshot = "tars-prod-tars-dms-misopdmstg-prod-migrate"
+target_dms_on_prem_mis_rds_snapshot = "tars-prod1-tars-dms-misopdmstg-241018"
 
 # Source DMS RDS instances
 source_dms_tars_rds_storage_type = "gp2"
@@ -484,7 +484,7 @@ source_dms_tars_rds_username = "tarsuatadmin"
 source_dms_tars_rds_password = "jZKS9PsapxXfkg8a"
 source_dms_tars_rds_allocated_storage = "300"
 source_dms_tars_rds_name = "TARSDB"
-source_dms_tars_rds_snapshot = "tarsuatdms-07062018"
+source_dms_tars_rds_snapshot = "tars-prod1-tars-dms-tarsdmssc-241018"
 
 source_dms_cpc_rds_storage_type = "gp2"
 source_dms_cpc_rds_engine = "oracle-se2"
@@ -504,7 +504,7 @@ source_dms_cpc_rds_username = "cpcuatadmin"
 source_dms_cpc_rds_password = "Mg28yDQjuEWndbtz"
 source_dms_cpc_rds_allocated_storage = "100"
 source_dms_cpc_rds_name = "CPCDB"
-source_dms_cpc_rds_snapshot = "tars-prod-tars-dms-cpcdmssc-prod-migrate"
+source_dms_cpc_rds_snapshot = "tars-prod1-tars-dms-cpcdmssc-241018"
 
 source_dms_rsis_rds_storage_type = "gp2"
 source_dms_rsis_rds_engine = "oracle-se2"
@@ -524,7 +524,7 @@ source_dms_rsis_rds_username = "tarsrsisadmin"
 source_dms_rsis_rds_password = "FC2Vyu8ejnWCKfYU"
 source_dms_rsis_rds_allocated_storage = "80"
 source_dms_rsis_rds_name = "RSISDB"
-source_dms_rsis_rds_snapshot = "tars-prod-tars-dms-rsisdmssc-prod-migrate"
+source_dms_rsis_rds_snapshot = "tars-prod1-tars-dms-rsisdmssc-241018"
 
 source_dms_mis_rds_storage_type = "gp2"
 source_dms_mis_rds_engine = "oracle-se2"
@@ -544,7 +544,7 @@ source_dms_mis_rds_username = "misuatadmin"
 source_dms_mis_rds_password = "W53dBTJhdsdAuf3V"
 source_dms_mis_rds_allocated_storage = "300"
 source_dms_mis_rds_name = "MISDB"
-source_dms_mis_rds_snapshot = "tars-prod-tars-dms-misdmssc-prod-migrate"
+source_dms_mis_rds_snapshot = "tars-prod1-tars-dms-misdmssc-241018"
 
 # Temp RDS's for testing prod build TS-4060
 test_target_tars_rds_storage_type = "gp2"
