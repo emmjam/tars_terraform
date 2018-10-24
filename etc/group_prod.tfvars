@@ -506,8 +506,8 @@ dvla_adli_server = "51.231.10.92/32"
 dvla_elise_server = "51.231.10.81/32"
 rsis_samba_server = "10.14.0.140/32"
 
-# Capita TARS UAT DB subnets for DMS
-capita_db_subnets = "10.86.192.0/23"
+# Capita TARS Prod DB subnets for DMS
+capita_db_subnets = "10.84.192.0/23"
 
 capita_db_from_port = "6720"
 capita_db_to_port = "6721"
