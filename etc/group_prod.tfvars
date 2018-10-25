@@ -39,7 +39,8 @@ all_users = [
   "stephen.davies@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
   "mike.peachey@bjss.com",
-  "tim.hinchey@dvsa.gov.uk"
+  "tim.hinchey@dvsa.gov.uk",
+  "bryan.williams@bjss.com",
 ]
 
 administrators = [

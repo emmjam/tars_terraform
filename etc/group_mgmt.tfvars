@@ -33,6 +33,7 @@ all_users = [
   "stephen.davies@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
   "mike.peachey@bjss.com",
+  "bryan.williams@bjss.com",
 ]
 
 administrators = [
