@@ -500,7 +500,7 @@ squidnat_instance_type = "m5.large"
 
 ops_team_email = "mark.thompson@bjss.com"
 
-public_domain_name = "live.tars.dvsacloud.uk"
+public_domain_name = "prod.tars.dvsacloud.uk"
 
 aws_account_alias = "tarslive"
 
