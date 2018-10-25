@@ -52,6 +52,7 @@ all_users = [
   "ogbonna.quarcoopome-harper@bjss.com",
   "mike.peachey@bjss.com",
   "manoj.patil@capita.co.uk",
+  "bryan.williams@bjss.com",
 ]
 
 administrators = [
