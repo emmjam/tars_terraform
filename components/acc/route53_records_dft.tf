@@ -1,5 +1,4 @@
 resource "aws_route53_record" "dft" {
-  count   = "${var.aws_account_alias == "tarsprod" ? 1 : 0}"
   name    = "dft"
   zone_id = "${aws_route53_zone.public_domain.id}"
   type    = "A"
@@ -9,7 +8,6 @@ resource "aws_route53_record" "dft" {
 }
 
 resource "aws_route53_record" "driverpracticaltest" {
-  count   = "${var.aws_account_alias == "tarsprod" ? 1 : 0}"
   name    = "driverpracticaltest"
   zone_id = "${aws_route53_zone.public_domain.id}"
   type    = "A"
@@ -18,7 +16,6 @@ resource "aws_route53_record" "driverpracticaltest" {
 }
 
 resource "aws_route53_record" "finddrivinginstructor" {
-  count   = "${var.aws_account_alias == "tarsprod" ? 1 : 0}"
   name    = "finddrivinginstructor"
   zone_id = "${aws_route53_zone.public_domain.id}"
   type    = "A"

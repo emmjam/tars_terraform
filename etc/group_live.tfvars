@@ -1,6 +1,6 @@
 ## Tfvars
 
-account_environment = "prod"
+account_environment = "live"
 
 aws_account_id = "246976497890"
 
@@ -111,7 +111,7 @@ ctrl_vpc_cidr = "10.167.56.0/22"
 ctrl_aws_account_id         = "246976497890"
 ctrl_aws_region             = "eu-west-1"
 ctrl_project                = "tars"
-ctrl_environment            = "prod"
+ctrl_environment            = "live"
 ctrl_component              = "ctrl"
 ctrl_vpc_id                 = "vpc-26e49240"           # TODO: use remote state
 ctrl_vpc_cidr_block         = "10.167.56.0/22"         # TODO: use remote state
@@ -503,7 +503,7 @@ ops_team_email = "mark.thompson@bjss.com"
 
 public_domain_name = "prod.tars.dvsacloud.uk"
 
-aws_account_alias = "tarsprod"
+aws_account_alias = "tarslive"
 
 # ACM Certname
 cert_name = "tars-prod-public"
