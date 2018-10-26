@@ -3,8 +3,8 @@ data "template_file" "jenkinsnode" {
   template = "${file("${path.module}/templates/cloudinit_common.yaml.tmpl")}"
 
   vars {
-    nodetype    = "jenkinsnode"
-    domain_name = "${local.vpc_domain_name}"
+    NODETYPE    = "jenkinsnode"
+    DOMAIN_NAME = "${local.vpc_domain_name}"
   }
 }
 
@@ -13,10 +13,10 @@ data "template_file" "jenkinsnode_config" {
   template = "${file("${path.module}/templates/jenkinsnode_setup.sh.tmpl")}"
 
   vars {
-    master_url    = "jenkins.mgmt.mgmt.tars.dvsa.aws"                        # TODO: use remote state
-    # account_alias = "${data.terraform_remote_state.acc.account_alias}"
-    account_alias = "${var.environment}"
-    executors     = "${var.jenkinsnode_executors}"
+    MASTER_URL    = "jenkins.mgmt.mgmt.tars.dvsa.aws"                        # TODO: use remote state
+    # ACCOUNT_ALIAS = "${data.terraform_remote_state.acc.account_alias}"
+    ACCOUNT_ALIAS = "${var.environment}"
+    EXECUTORS     = "${var.jenkinsnode_executors}"
   }
 }
 

@@ -2,8 +2,8 @@ data "template_file" "jmeter" {
   template = "${file("${path.module}/templates/cloudinit_common.yaml.tmpl")}"
 
   vars {
-    nodetype    = "jmeter"
-    domain_name = "${local.vpc_domain_name}"
+    NODETYPE    = "jmeter"
+    DOMAIN_NAME = "${local.vpc_domain_name}"
   }
 }
 
@@ -11,10 +11,10 @@ data "template_file" "jmeter_config" {
   template = "${file("${path.module}/templates/jmeter_setup.sh.tmpl")}"
 
   vars {
-    environment    = "${var.environment}"
-    nodetype       = "${var.jmeter_puppet_nodetype}"
-    kms_key        = "${var.jmeter_puppet_kms_key}"
-    aws_account_id = "${var.aws_account_id}"
+    ENVIRONMENT    = "${var.environment}"
+    NODETYPE       = "${var.jmeter_puppet_nodetype}"
+    KMS_KEY        = "${var.jmeter_puppet_kms_key}"
+    AWS_ACCOUNT_ID = "${var.aws_account_id}"
   }
 }
 

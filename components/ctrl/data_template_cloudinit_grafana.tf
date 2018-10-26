@@ -2,8 +2,8 @@ data "template_file" "grafana" {
   template = "${file("${path.module}/templates/cloudinit_common.yaml.tmpl")}"
 
   vars {
-    nodetype    = "grafana"
-    domain_name = "${local.vpc_domain_name}"
+    NODETYPE    = "grafana"
+    DOMAIN_NAME = "${local.vpc_domain_name}"
   }
 }
 
@@ -11,10 +11,10 @@ data "template_file" "grafana_config" {
   template = "${file("${path.module}/templates/grafana_setup.sh.tmpl")}"
 
   vars {
-    nodetype       = "grafana"
-    environment    = "${var.environment}"
-    aws_account_id = "${var.aws_account_id}"
-    aws_region     = "${var.aws_region}"
+    NODETYPE       = "grafana"
+    ENVIRONMENT    = "${var.environment}"
+    AWS_ACCOUNT_ID = "${var.aws_account_id}"
+    AWS_REGION     = "${var.aws_region}"
   }
 }
 

@@ -3,8 +3,8 @@ data "template_file" "common-front" {
   template = "${file("${path.module}/templates/cloudinit_common.yaml.tmpl")}"
 
   vars {
-    nodetype    = "fyndi-f"
-    domain_name = "${local.vpc_domain_name}"
+    NODETYPE    = "fyndi-f"
+    DOMAIN_NAME = "${local.vpc_domain_name}"
   }
 }
 
@@ -12,8 +12,8 @@ data "template_file" "common-back" {
   template = "${file("${path.module}/templates/cloudinit_common.yaml.tmpl")}"
 
   vars {
-    nodetype    = "fyndi-b"
-    domain_name = "${local.vpc_domain_name}"
+    NODETYPE    = "fyndi-b"
+    DOMAIN_NAME = "${local.vpc_domain_name}"
   }
 }
 
@@ -23,10 +23,10 @@ data "template_file" "fyndi-f" {
 
   # Set puppet factors
   vars {
-    environment    = "${var.environment}"
-    nodetype       = "${var.fyndi-f_puppet_nodetype}"
-    kms_key        = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
-    aws_account_id = "${var.aws_account_id}"
+    ENVIRONMENT    = "${var.environment}"
+    NODETYPE       = "${var.fyndi-f_puppet_nodetype}"
+    KMS_KEY        = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
+    AWS_ACCOUNT_ID = "${var.aws_account_id}"
   }
 }
 
@@ -35,10 +35,10 @@ data "template_file" "fyndi-b" {
 
   # Set puppet factors
   vars {
-    environment    = "${var.environment}"
-    nodetype       = "${var.fyndi-b_puppet_nodetype}"
-    kms_key        = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
-    aws_account_id = "${var.aws_account_id}"
+    ENVIRONMENT    = "${var.environment}"
+    NODETYPE       = "${var.fyndi-b_puppet_nodetype}"
+    KMS_KEY        = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
+    AWS_ACCOUNT_ID = "${var.aws_account_id}"
   }
 }
 

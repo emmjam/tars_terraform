@@ -6,7 +6,7 @@ function log() {
 
 log '[INFO] Running puppet to configure environment'
 
-sed -E -i "s/'[a-z0-9]{8}\-[a-z0-9]{4}\-[a-z0-9]{4}\-[a-f0-9]{4}\-[a-z0-9]{12}'/'${kms_key}'/g" /etc/eyaml/config.yaml
+sed -E -i "s/'[a-z0-9]{8}\-[a-z0-9]{4}\-[a-z0-9]{4}\-[a-f0-9]{4}\-[a-z0-9]{12}'/'${KMS_KEY}'/g" /etc/eyaml/config.yaml
 
 # Ensure the EFS directory exists
 mkdir -p /efs;
@@ -22,10 +22,13 @@ echo "$${az}.${EFS_ID}.efs.$${region}.amazonaws.com:/ /efs nfs4 nfsvers=4.1,rsiz
 # Mount the configured target for EFS
 mount /efs
 
+# Shift this to cloud-init config yaml
+facts_path="/opt/puppetlabs/facter/facts.d"
+echo -n 'environment: ${ENVIRONMENT}'    > "$${facts_path}/environment.yaml"
+echo -n 'nodetype: ${NODETYPE}'          > "$${facts_path}/nodetype.yaml"
+echo -n 'aws_account: ${AWS_ACCOUNT_ID}' > "$${facts_path}/aws_account.yaml"
+
 cd /tmp/packer-puppet-masterless
-export FACTER_environment='${environment}'
-export FACTER_nodetype='${nodetype}'
-export FACTER_aws_account='${aws_account_id}'
 
 # TODO: peacheym: Convert this script to use standardised
 # error handling, remove the "set -e" and then

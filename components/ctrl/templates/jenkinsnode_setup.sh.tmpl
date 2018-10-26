@@ -4,18 +4,17 @@ function log() {
   echo "[$(date)]$1" | tee -a /var/log/jenkinsnode_cloudinit.log
 }
 
-
 log '[INFO] Preparing configuration variables'
-CLIENT_NAME=$(hostname)
-MASTER_URL=${master_url}
-LABELS="${account_alias} $${CLIENT_NAME}"
-EXECUTORS=${executors}
+client_name="$(hostname)"
+master_url="${MASTER_URL}"
+labels="${ACCOUNT_ALIAS} $${client_name}"
+executors="${EXECUTORS}"
 
 log '[INFO] Injecting custom values to config file'
-sed -i 's|unknown_client_name|'$${CLIENT_NAME}'|g' /etc/sysconfig/jenkinsnode
-sed -i 's|unknown_master_url|http://'$${MASTER_URL}'|g' /etc/sysconfig/jenkinsnode
-sed -i 's|unknown_labels|'"$${LABELS}"'|g' /etc/sysconfig/jenkinsnode
-sed -i 's|unknown_executors_number|'$${EXECUTORS}'|g' /etc/sysconfig/jenkinsnode
+sed -i 's|unknown_client_name|'$${client_name}'|g' /etc/sysconfig/jenkinsnode
+sed -i 's|unknown_master_url|http://'$${master_url}'|g' /etc/sysconfig/jenkinsnode
+sed -i 's|unknown_labels|'"$${labels}"'|g' /etc/sysconfig/jenkinsnode
+sed -i 's|unknown_executors_number|'$${executors}'|g' /etc/sysconfig/jenkinsnode
 
 log '[INFO] Starting JenkinsNode'
 /etc/init.d/jenkinsnode start

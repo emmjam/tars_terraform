@@ -8,23 +8,23 @@ bootcmd:
   - "chkconfig --del dvsa_update_hostname"
   - "rm -f /etc/init.d/dvsa_update_hostname"
   - "rm -f /etc/sysconfig/network-scripts/dvsa_hosts_update.sh"
-  - "hostname ${nodetype}-$INSTANCE_ID.${environment}.${root_domain_name}"
-  - "sed -i \"1i$(curl -fs http://169.254.169.254/latest/meta-data/local-ipv4)	${nodetype}-$INSTANCE_ID.${environment}.${root_domain_name}	${nodetype}-$INSTANCE_ID\" /etc/hosts"
+  - "hostname ${NODETYPE}-$INSTANCE_ID.${ENVIRONMENT}.${ROOT_DOMAIN_NAME}"
+  - "sed -i \"1i$(curl -fs http://169.254.169.254/latest/meta-data/local-ipv4)	${NODETYPE}-$INSTANCE_ID.${ENVIRONMENT}.${ROOT_DOMAIN_NAME}	${NODETYPE}-$INSTANCE_ID\" /etc/hosts"
   - "sed -i -e '/HOSTNAME=/d' /etc/sysconfig/network"
-  - "echo \"HOSTNAME=${nodetype}-$INSTANCE_ID.${environment}.${root_domain_name}\" >> /etc/sysconfig/network"
-  - "echo \"${nodetype}-$INSTANCE_ID\" > /etc/hostname"
-  - "echo \"${squid_whitelist_rendered}\" | tr \" \" \"\\n\" > /etc/squid/whitelist.cidr"
+  - "echo \"HOSTNAME=${NODETYPE}-$INSTANCE_ID.${ENVIRONMENT}.${ROOT_DOMAIN_NAME}\" >> /etc/sysconfig/network"
+  - "echo \"${NODETYPE}-$INSTANCE_ID\" > /etc/hostname"
+  - "echo \"${SQUID_WHITELIST_RENDERED}\" | tr \" \" \"\\n\" > /etc/squid/whitelist.cidr"
   - "iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-port 3130"
   - "iptables -t nat -A PREROUTING -p tcp --dport 80  -j REDIRECT --to-port 3129"
   - "service iptables save"
 
 write_files:
   - content: |
-      environment: ${environment}
+      environment: ${ENVIRONMENT}
     path: /opt/puppetlabs/facter/facts.d/environment.yaml
     permissions: '0644'
   - content: |
-      nodetype: ${nodetype}
+      nodetype: ${NODETYPE}
     path: /opt/puppetlabs/facter/facts.d/nodetype.yaml
     permissions: '0644'
 

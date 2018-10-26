@@ -2,8 +2,8 @@ data "template_file" "bastion" {
   template = "${file("${path.module}/templates/cloudinit_common.yaml.tmpl")}"
 
   vars {
-    nodetype    = "bastion"
-    domain_name = "${local.vpc_domain_name}"
+    NODETYPE    = "bastion"
+    DOMAIN_NAME = "${local.vpc_domain_name}"
   }
 }
 

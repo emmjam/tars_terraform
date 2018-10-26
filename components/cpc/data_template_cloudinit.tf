@@ -3,8 +3,8 @@ data "template_file" "common-back" {
   template = "${file("${path.module}/templates/cloudinit_common.yaml.tmpl")}"
 
   vars {
-    nodetype    = "cpc-back"
-    domain_name = "${local.vpc_domain_name}"
+    NODETYPE    = "cpc-back"
+    DOMAIN_NAME = "${local.vpc_domain_name}"
   }
 }
 
@@ -12,8 +12,8 @@ data "template_file" "common-front" {
   template = "${file("${path.module}/templates/cloudinit_common.yaml.tmpl")}"
 
   vars {
-    nodetype    = "cpc-front"
-    domain_name = "${local.vpc_domain_name}"
+    NODETYPE    = "cpc-front"
+    DOMAIN_NAME = "${local.vpc_domain_name}"
   }
 }
 
@@ -23,10 +23,10 @@ data "template_file" "cpc-front" {
 
   # Set puppet factors
   vars {
-    environment    = "${var.environment}"
-    nodetype       = "${var.cpc-front_puppet_nodetype}"
-    aws_account_id = "${var.aws_account_id}"
-    kms_key        = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
+    ENVIRONMENT    = "${var.environment}"
+    NODETYPE       = "${var.cpc-front_puppet_nodetype}"
+    AWS_ACCOUNT_ID = "${var.aws_account_id}"
+    KMS_KEY        = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
   }
 }
 
@@ -36,10 +36,10 @@ data "template_file" "cpc-back" {
 
   # Set puppet factors
   vars {
-    environment    = "${var.environment}"
-    nodetype       = "${var.cpc-back_puppet_nodetype}"
-    aws_account_id = "${var.aws_account_id}"
-    kms_key        = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
+    ENVIRONMENT    = "${var.environment}"
+    NODETYPE       = "${var.cpc-back_puppet_nodetype}"
+    AWS_ACCOUNT_ID = "${var.aws_account_id}"
+    KMS_KEY        = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
   }
 }
 

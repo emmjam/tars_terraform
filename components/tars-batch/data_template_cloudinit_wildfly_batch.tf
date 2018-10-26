@@ -3,8 +3,8 @@ data "template_file" "wildfly-batch-common" {
   template = "${file("${path.module}/templates/cloudinit_common.yaml.tmpl")}"
 
   vars {
-    nodetype    = "tars-batch"
-    domain_name = "${local.vpc_domain_name}"
+    NODETYPE    = "tars-batch"
+    DOMAIN_NAME = "${local.vpc_domain_name}"
   }
 }
 
@@ -14,14 +14,14 @@ data "template_file" "wildfly-batch-config" {
 
   # Set puppet factors
   vars {
-    environment      = "${var.environment}"
-    nodetype         = "${var.wildfly-batch_puppet_nodetype}"
-    kms_key          = "${var.wildfly-batch_puppet_kms_key}"
+    ENVIRONMENT      = "${var.environment}"
+    NODETYPE         = "${var.wildfly-batch_puppet_nodetype}"
+    KMS_KEY          = "${var.wildfly-batch_puppet_kms_key}"
     EFS_ID           = "${aws_efs_file_system.batch.id}"
     MOUNT_POINT      = "/efs"
-    aws_account_id   = "${var.aws_account_id}"
-    dvsa_dns_servers = "${join(",", var.dvsa_dns_servers)}"
-    search_suffix    = "${local.vpc_domain_name}"
+    AWS_ACCOUNT_ID   = "${var.aws_account_id}"
+    DVSA_DNS_SERVERS = "${join(",", var.dvsa_dns_servers)}"
+    SEARCH_SUFFIX    = "${local.vpc_domain_name}"
   }
 }
 

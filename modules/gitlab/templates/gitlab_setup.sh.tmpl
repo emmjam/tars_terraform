@@ -5,75 +5,75 @@ function log() {
 }
 
 log '[INFO] Preparing configuration variables'
-INSTANCE_ID=$(curl http://169.254.169.254/latest/meta-data/instance-id)
-GITLAB_HOME='/gitlab-data'
-EBS_VOLUME_ID=${ebs_volume_id}
-EBS_DEVICE_NAME=${ebs_device_name}
-AWS_REGION=${aws_region}
-DB_ENDPOINT=${db_endpoint}
-REDIS_ENDPOINT=${redis_endpoint}
-GITLAB_EXTERNAL_URL=${external_url}
+instance_id=$(curl http://169.254.169.254/latest/meta-data/instance-id)
+gitlab_home='/gitlab-data'
+ebs_volume_id=${EBS_VOLUME_ID}
+ebs_device_name=${EBS_DEVICE_NAME}
+aws_region=${AWS_REGION}
+db_endpoint=${DB_ENDPOINT}
+redis_endpoint=${REDIS_ENDPOINT}
+gitlab_external_url=${EXTERNAL_URL}
 
 log '[INFO] Attaching EBS volume'
-ATTACH_RETRIES=10
-until [ $${ATTACH_RETRIES} -eq 0 ]; do
+attach_retries=10
+until [ $${attach_retries} -eq 0 ]; do
   aws ec2 attach-volume \
-    --volume-id $${EBS_VOLUME_ID} \
-    --instance-id $${INSTANCE_ID} \
-    --device $${EBS_DEVICE_NAME} \
-    --region $${AWS_REGION} \
+    --volume-id $${ebs_volume_id} \
+    --instance-id $${instance_id} \
+    --device $${ebs_device_name} \
+    --region $${aws_region} \
     && break
-  let ATTACH_RETRIES=$${ATTACH_RETRIES}-1
+  let attach_retries=$${attach_retries}-1
   sleep 10
 done
 
 log '[INFO] Waiting for EBS volume to be attached'
-ATTACH_STATUS='unknown'
-ATTACH_RETRIES=10
-until [ $${ATTACH_STATUS} == 'attached' ]; do
-  ATTACH_STATUS=$(aws ec2 describe-volumes \
-    --volume-ids $${EBS_VOLUME_ID} \
+attach_status='unknown'
+attach_retries=10
+until [ $${attach_status} == 'attached' ]; do
+  attach_status=$(aws ec2 describe-volumes \
+    --volume-ids $${ebs_volume_id} \
     --query Volumes[].Attachments[].State \
-    --region $${AWS_REGION} \
+    --region $${aws_region} \
     --output text)
-  let ATTACH_RETRIES=$${ATTACH_RETRIES}-1
-  if [ $${ATTACH_RETRIES} -eq 0 ]; then 
-    log "[ERROR] Could not attach EBS volume after $${ATTACH_RETRIES} retries"
+  let attach_retries=$${attach_retries}-1
+  if [ $${attach_retries} -eq 0 ]; then 
+    log "[ERROR] Could not attach EBS volume after $${attach_retries} retries"
     exit 1
   fi
   sleep 5
 done
 
-BOOTSTRAP=false
-CHECK_EBS=$(file -s $${EBS_DEVICE_NAME})
-if [[ $${CHECK_EBS} == "$${EBS_DEVICE_NAME}: data" ]]; then
+bootstrap=false
+check_ebs=$(file -s $${ebs_device_name})
+if [[ $${check_ebs} == "$${ebs_device_name}: data" ]]; then
   log '[INFO] Creating ext4 file system on EBS'
-  mkfs -t ext4 $${EBS_DEVICE_NAME}
-  BOOTSTRAP=true
+  mkfs -t ext4 $${ebs_device_name}
+  bootstrap=true
 else
   log '[INFO] EBS volume already contains a filesystem'
 fi
 
 log '[INFO] Mounting'
-mount $${EBS_DEVICE_NAME} $${GITLAB_HOME}
+mount $${ebs_device_name} $${gitlab_home}
 
 log '[INFO] Adding new configuration entry to FSTAB'
-echo "$${EBS_DEVICE_NAME}  $${GITLAB_HOME}  ext4  defaults,nofail  0 0" >> /etc/fstab
+echo "$${ebs_device_name}  $${gitlab_home}  ext4  defaults,nofail  0 0" >> /etc/fstab
 
-if [ $${BOOTSTRAP} = true ]; then
+if [ $${bootstrap} = true ]; then
   log '[INFO] Backing up gitlab-secrets.json'
-  mkdir -p $${GITLAB_HOME}/config_backup
-  cp /etc/gitlab/gitlab-secrets.json $${GITLAB_HOME}/config_backup/
+  mkdir -p $${gitlab_home}/config_backup
+  cp /etc/gitlab/gitlab-secrets.json $${gitlab_home}/config_backup/
 else
   log '[INFO] Restoring gitlab-secrets.json'
   rm -f /etc/gitlab/gitlab-secrets.json
-  cp $${GITLAB_HOME}/config_backup/gitlab-secrets.json /etc/gitlab/
+  cp $${gitlab_home}/config_backup/gitlab-secrets.json /etc/gitlab/
 fi
 
 log '[INFO] Injecting external url and endpoints to config file'
-sed -i 's|http://unknown_external_url|https://'$${GITLAB_EXTERNAL_URL}'|g' /etc/gitlab/gitlab.rb
-sed -i 's|db_unknown_host|'$${DB_ENDPOINT}'|g' /etc/gitlab/gitlab.rb
-sed -i 's|redis_unknown_host|'$${REDIS_ENDPOINT}'|g' /etc/gitlab/gitlab.rb
+sed -i 's|http://unknown_external_url|https://'$${gitlab_external_url}'|g' /etc/gitlab/gitlab.rb
+sed -i 's|db_unknown_host|'$${db_endpoint}'|g' /etc/gitlab/gitlab.rb
+sed -i 's|redis_unknown_host|'$${redis_endpoint}'|g' /etc/gitlab/gitlab.rb
 
 log '[INFO] Reconfiguring and starting GitLab'
 gitlab-ctl reconfigure

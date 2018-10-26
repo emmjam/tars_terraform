@@ -11,7 +11,7 @@ $dnslist = (Get-SSMParameterValue -Name AD-DNS-List).Parameters[0].Value
 Get-NetAdapter | Set-DnsClientServerAddress -ServerAddresses $dnslist
 
 #Set DNS Search suffix
-Set-DnsClientGlobalSetting -SuffixSearchList @("${search_suffix}","dsa.gsi.gov.uk","eu-west-1.ec2-utilities.amazonaws.com","us-east-1.ec2-utilities.amazonaws.com","eu-west-1.compute.internal")
+Set-DnsClientGlobalSetting -SuffixSearchList @("${SEARCH_SUFFIX}","dsa.gsi.gov.uk","eu-west-1.ec2-utilities.amazonaws.com","us-east-1.ec2-utilities.amazonaws.com","eu-west-1.compute.internal")
 
 # Get Domain and OU information that stored in the ssm parameter store
 $DomainName = (Get-SSMParameterValue -Name AD-domainName).Parameters[0].Value

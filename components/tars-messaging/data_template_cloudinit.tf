@@ -4,6 +4,6 @@ data "template_file" "messaging" {
 
   # Set puppet factors
   vars {
-    search_suffix = "${local.vpc_domain_name}"
+    SEARCH_SUFFIX = "${local.vpc_domain_name}"
   }
 }

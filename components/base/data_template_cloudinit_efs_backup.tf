@@ -2,8 +2,8 @@ data "template_file" "efs_backup" {
   template = "${file("${path.module}/templates/cloudinit_common.yaml.tmpl")}"
 
   vars {
-    nodetype    = "efs-backup"
-    domain_name = "${local.vpc_domain_name}"
+    NODETYPE    = "efs-backup"
+    DOMAIN_NAME = "${local.vpc_domain_name}"
   }
 }
 
@@ -11,11 +11,11 @@ data "template_file" "efs_backup_config" {
   template = "${file("${path.module}/templates/efs_backup_setup.sh.tmpl")}"
 
   vars {
-    nodetype       = "efs-backup"
-    environment    = "${var.environment}"
-    aws_account_id = "${var.aws_account_id}"
-    aws_region     = "${var.aws_region}"
-    backup_bucket  = "${aws_s3_bucket.efs_backups.bucket}"
+    NODETYPE       = "efs-backup"
+    ENVIRONMENT    = "${var.environment}"
+    AWS_ACCOUNT_ID = "${var.aws_account_id}"
+    AWS_REGION     = "${var.aws_region}"
+    BACKUP_BUCKET  = "${aws_s3_bucket.efs_backups.bucket}"
   }
 }
 

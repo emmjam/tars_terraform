@@ -1,17 +1,20 @@
 #!/bin/bash -xe
 
 function log() {
-  echo "[$(date)]$1" | tee -a /var/log/${nodetype}_cloudinit.log
+  echo "[$(date)]$1" | tee -a /var/log/${NODETYPE}_cloudinit.log
 }
 
 # Puppet will restart the prometheus service
 
 log '[INFO] Running puppet to configure environment'
 
+# Shift this to cloud-init config yaml
+facts_path="/opt/puppetlabs/facter/facts.d"
+echo -n 'environment: ${ENVIRONMENT}'    > "$${facts_path}/environment.yaml"
+echo -n 'nodetype: ${NODETYPE}'          > "$${facts_path}/nodetype.yaml"
+echo -n 'aws_account: ${AWS_ACCOUNT_ID}' > "$${facts_path}/aws_account.yaml"
+
 cd /tmp/packer-puppet-masterless
-export FACTER_environment='${environment}'
-export FACTER_nodetype='${nodetype}'
-export FACTER_aws_account='${aws_account_id}'
 
 # TODO: peacheym: Convert this script to use standardised
 # error handling, remove the "set -e" and then
@@ -22,4 +25,4 @@ export FACTER_aws_account='${aws_account_id}'
   --hiera_config='/tmp/packer-puppet-masterless/hiera.yaml' \
   /tmp/packer-puppet-masterless/manifests/site.pp
 
-log '[INFO] ${nodetype} configuration finished'
+log '[INFO] ${NODETYPE} configuration finished'
