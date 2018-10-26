@@ -37,8 +37,8 @@ data "template_file" "squidnat_puppet" {
   # Set puppet factors
   vars {
     environment    = "${var.environment}"
-    nodetype   = "${var.squidnat_puppet_nodetype}"
-    kms_key = "${var.kms_key_id}"
+    nodetype       = "${var.squidnat_puppet_nodetype}"
+    kms_key        = "${var.kms_key_id}"
     aws_account_id = "${var.aws_account_id}"
   }
 }

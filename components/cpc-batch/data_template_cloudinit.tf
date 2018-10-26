@@ -14,13 +14,12 @@ data "template_file" "cpc-batch" {
 
   # Set puppet factors
   vars {
-    environment        = "${var.environment}"
-    puppet_environment = "${var.puppet_environment}"
-    nodetype           = "${var.cpc-batch_puppet_nodetype}"
-    aws_account_id     = "${var.aws_account_id}"
-    kms_key            = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
-    EFS_ID             = "${aws_efs_file_system.cpc-batch-efs.id}"
-    MOUNT_POINT        = "/efs"
+    environment    = "${var.environment}"
+    nodetype       = "${var.cpc-batch_puppet_nodetype}"
+    aws_account_id = "${var.aws_account_id}"
+    kms_key        = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
+    EFS_ID         = "${aws_efs_file_system.cpc-batch-efs.id}"
+    MOUNT_POINT    = "/efs"
   }
 }
 

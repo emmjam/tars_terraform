@@ -14,13 +14,12 @@ data "template_file" "sftpplus_svr" {
 
   # Set puppet factors
   vars {
-    environment        = "${var.environment}"
-    puppet_environment = "${var.puppet_environment}"
-    nodetype           = "${var.sftpplus-svr_puppet_nodetype}"
-    kms_key            = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
-    aws_account_id     = "${var.aws_account_id}"
-    EFS_ID             = "${aws_efs_file_system.sftpplus.id}"
-    MOUNT_POINT        = "/efs"
+    environment    = "${var.environment}"
+    nodetype       = "${var.sftpplus-svr_puppet_nodetype}"
+    kms_key        = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
+    aws_account_id = "${var.aws_account_id}"
+    EFS_ID         = "${aws_efs_file_system.sftpplus.id}"
+    MOUNT_POINT    = "/efs"
   }
 }
 

@@ -11,12 +11,11 @@ data "template_file" "efs_backup_config" {
   template = "${file("${path.module}/templates/efs_backup_setup.sh.tmpl")}"
 
   vars {
-    nodetype            = "efs-backup"
-    environment         = "${var.environment}"
-    puppet_environment  = "${var.puppet_environment}"
-    aws_account         = "${var.aws_account_id}"
-    aws_region          = "${var.aws_region}"
-    backup_bucket       = "${aws_s3_bucket.efs_backups.bucket}"
+    nodetype       = "efs-backup"
+    environment    = "${var.environment}"
+    aws_account_id = "${var.aws_account_id}"
+    aws_region     = "${var.aws_region}"
+    backup_bucket  = "${aws_s3_bucket.efs_backups.bucket}"
   }
 }
 

@@ -14,11 +14,10 @@ data "template_file" "wildfly-front-config" {
 
   # Set puppet factors
   vars {
-    environment        = "${var.environment}"
-    puppet_environment = "${var.puppet_environment}"
-    nodetype           = "${var.wildfly-front_puppet_nodetype}"
-    kms_key            = "${var.wildfly-front_puppet_kms_key}"
-    aws_account_id     = "${var.aws_account_id}"
+    environment    = "${var.environment}"
+    nodetype       = "${var.wildfly-front_puppet_nodetype}"
+    kms_key        = "${var.wildfly-front_puppet_kms_key}"
+    aws_account_id = "${var.aws_account_id}"
   }
 }
 

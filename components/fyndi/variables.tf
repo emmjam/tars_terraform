@@ -19,11 +19,6 @@ variable "component" {
   default     = "fyndi"
 }
 
-variable "puppet_environment" {
-  type        = "string"
-  description = "Environment for puppet on boot"
-}
-
 variable "whitelist" {
   type        = "list"
   description = ""

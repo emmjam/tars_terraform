@@ -14,11 +14,10 @@ data "template_file" "xenco" {
 
   # Set puppet factors
   vars {
-    environment        = "${var.environment}"
-    puppet_environment = "${var.puppet_environment}"
-    nodetype           = "xenco"
-    kms_key            = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
-    aws_account_id     = "${var.aws_account_id}"
+    environment    = "${var.environment}"
+    nodetype       = "xenco"
+    kms_key        = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
+    aws_account_id = "${var.aws_account_id}"
   }
 }
 

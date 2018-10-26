@@ -19,11 +19,6 @@ variable "component" {
   default     = "cpc"
 }
 
-variable "puppet_environment" {
-  type        = "string"
-  description = "Environment for puppet on boot"
-}
-
 # TODO: peacheym: Valid description
 variable "whitelist" {
   type        = "list"

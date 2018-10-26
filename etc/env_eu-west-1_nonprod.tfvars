@@ -5,8 +5,6 @@ project = "tars"
 
 environment = "nonprod"
 
-puppet_environment = "nonprod"
-
 aws_region = "eu-west-1"
 
 tf_state_bucket_prefix = "tars-terraformscaffold"
