@@ -24,11 +24,6 @@ asg_default_tags = [
     "key"                 = "Environment"
     "value"               = "prep"
     "propagate_at_launch" = "true"
-  },
-  {
-    "key"                 = "Group"
-    "value"               = "prep"
-    "propagate_at_launch" = "true"
   }
 ]
 
