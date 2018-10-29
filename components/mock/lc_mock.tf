@@ -1,13 +1,6 @@
 # Create LC for the TARS mock server
 resource "aws_launch_configuration" "tars-mock" {
-  name_prefix = "${format(
-    "%s-%s-%s-%s-",
-    var.project,
-    var.environment,
-    var.component,
-    "wf-mock"
-  )}"
-
+  name_prefix          = "${local.csi}-wf-mock-"
   image_id             = "${data.aws_ami.wildfly-mock.image_id}"
   instance_type        = "${var.wildfly-mock_instance_type}"
   spot_price           = "${var.lc_spot_price}"

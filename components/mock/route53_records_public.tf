@@ -2,7 +2,7 @@
 resource "aws_route53_record" "tars-mock-public" {
   name = "${format(
     "%s-%s-%s",
-    var.component,
+    "mock",
     var.environment,
     "public"
   )}"
@@ -16,4 +16,3 @@ resource "aws_route53_record" "tars-mock-public" {
     evaluate_target_health = true
   }
 }
-

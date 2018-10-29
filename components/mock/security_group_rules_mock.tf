@@ -39,4 +39,3 @@ resource "aws_security_group_rule" "tars_mock_egress_kms_endpoint" {
   security_group_id        = "${aws_security_group.tars-mock.id}"
   source_security_group_id = "${data.terraform_remote_state.base.kms_sg_id}"
 }
-
