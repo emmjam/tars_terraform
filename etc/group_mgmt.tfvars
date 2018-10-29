@@ -104,16 +104,6 @@ mgmt_bastion_subnets = [
   "10.200.1.128/28",
 ]
 
-jenkinsctrl_instance_type        = "m5.large"
-jenkinsctrl_ami_build_id         = "275"
-jenkinsctrl_executors            = 5
-jenkinsctrl_asg_min_size         = 0
-jenkinsctrl_asg_max_size         = 3
-jenkinsctrl_scaledown_desired    = 1
-jenkinsctrl_scaledown_recurrence = "00 19 * * 1-5"
-jenkinsctrl_scaleup_desired      = 1
-jenkinsctrl_scaleup_recurrence   = "15 07 * * 1-5"
-
 jenkinsctrl_subnets_cidrs = [
   "10.167.64.16/28",
   "10.167.64.32/28",
