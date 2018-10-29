@@ -47,3 +47,17 @@ resource "aws_security_group_rule" "cpc_batch_egress_tars_back_alb" {
   security_group_id        = "${aws_security_group.cpc_batch.id}"
   source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-backend-alb-sg-id}"
 }
+
+resource "aws_security_group_rule" "cpc_egress_sftpplus_nlb" {
+  description       = "Allow TCP/15021 from SFTPPlus to CPC Batch"
+  type              = "egress"
+  from_port         = "15021"
+  to_port           = "15021"
+  protocol          = "tcp"
+  security_group_id = "${aws_security_group.cpc_batch.id}"
+
+  cidr_blocks = [
+    "${var.cpc_sftp_subnets_cidrs}",
+  ]
+}
+
