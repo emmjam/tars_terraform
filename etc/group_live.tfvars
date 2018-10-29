@@ -482,6 +482,17 @@ ops_team_email = "mark.thompson@bjss.com"
 
 public_domain_name = "prod.tars.dvsacloud.uk"
 
+# This is new. This is to start the long hike to having
+# one consistent domain name structure across the project.
+# This will be used by the ctrl component initially in order
+# to have a private hosted zone local to the VPC that matches
+# the appropriate structure. This variable can then be used
+# to expand the single structure wider as different components
+# become malleable. One day, all groups may share one single
+# domain root and make use of it for all domain purposes,
+# public *and* private
+root_domain_name = "tars.dvsacloud.uk"
+
 aws_account_alias = "tarslive"
 
 # ACM Certname

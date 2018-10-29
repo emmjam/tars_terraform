@@ -74,6 +74,20 @@ variable "public_domain_name" {
   description = "public domain name for the hosted zone"
 }
 
+# This is new. This is to start the long hike to having
+# one consistent domain name structure across the project.
+# This will be used by the ctrl component initially in order
+# to have a private hosted zone local to the VPC that matches
+# the appropriate structure. This variable can then be used
+# to expand the single structure wider as different components
+# become malleable. One day, all groups may share one single
+# domain root and make use of it for all domain purposes,
+# public *and* private
+variable "root_domain_name" {
+  type        = "string"
+  description = "See code comments in components/ctrl/variables.tf"
+}
+
 ## Jenkinsctrl
 
 variable "jenkinsctrl_ami_build_id" {
