@@ -165,7 +165,7 @@ ctrl_mgmt_tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote s
 
 ## jenkinsnode
 jenkinsnode_instance_type        = "m5.large"
-jenkinsnode_ami_build_id         = "275"
+jenkinsnode_ami_build_id         = "335"
 jenkinsnode_executors            = 5
 jenkinsnode_asg_min_size         = 1
 jenkinsnode_asg_max_size         = 3
@@ -173,16 +173,6 @@ jenkinsnode_scaledown_desired    = 1
 jenkinsnode_scaledown_recurrence = "00 19 * * 1-5"
 jenkinsnode_scaleup_desired      = 1
 jenkinsnode_scaleup_recurrence   = "15 07 * * 1-5"
-
-jenkinsctrl_instance_type        = "m5.large"
-jenkinsctrl_ami_build_id         = "275"
-jenkinsctrl_executors            = 5
-jenkinsctrl_asg_min_size         = 0
-jenkinsctrl_asg_max_size         = 3
-jenkinsctrl_scaledown_desired    = 1
-jenkinsctrl_scaledown_recurrence = "00 19 * * 1-5"
-jenkinsctrl_scaleup_desired      = 1
-jenkinsctrl_scaleup_recurrence   = "15 07 * * 1-5"
 
 jenkinsctrl_subnets_cidrs = [
   "10.167.60.16/28",
@@ -362,29 +352,6 @@ aws_mq_config_description    = "TARS MQ Configuration"
 aws_mq_config_name           = "tars-awsmq"
 aws_mq_config_engine_type    = "ActiveMQ"
 aws_mq_config_engine_version = "5.15.0"
-
-## bastion
-bastion_instance_type        = "t2.micro"
-bastion_ami_build_id         = "334"
-bastion_asg_min_size         = 0
-bastion_asg_max_size         = 3
-bastion_scaledown_desired    = 1
-bastion_scaledown_recurrence = "00 19 * * 1-5"
-bastion_scaleup_desired      = 1
-bastion_scaleup_recurrence   = "00 07 * * 1-5"
-
-## Grafana
-grafana_instance_type        = "t2.micro"
-grafana_ami_build_id         = "315"
-grafana_asg_min_size         = 1
-grafana_asg_max_size         = 1
-grafana_scaledown_desired    = 1
-grafana_scaledown_recurrence = "00 19 * * 1-5"
-grafana_scaleup_desired      = 1
-grafana_scaleup_recurrence   = "00 07 * * 1-5"
-
-#Due to there being no wildcard cert in prod this is used.
-grafana_cert_name = "*"
 
 ##  JMeter
 jmeter_instance_type              = "t2.micro"
