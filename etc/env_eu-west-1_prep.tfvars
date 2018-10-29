@@ -24,16 +24,8 @@ asg_default_tags = [
     "key"                 = "Environment"
     "value"               = "prep"
     "propagate_at_launch" = "true"
-  },
-  {
-    "key"                 = "Group"
-    "value"               = "prep"
-    "propagate_at_launch" = "true"
   }
 ]
-
-#This is to address a tech debt issue.
-puppet_environment = "prep"
 
 ###############################################################################
 # BASE

@@ -2,8 +2,8 @@ data "template_file" "prometheus" {
   template = "${file("${path.module}/templates/cloudinit_common.yaml.tmpl")}"
 
   vars {
-    nodetype    = "prometheus"
-    domain_name = "${local.vpc_domain_name}"
+    NODETYPE    = "prometheus"
+    DOMAIN_NAME = "${local.vpc_domain_name}"
   }
 }
 
@@ -11,14 +11,13 @@ data "template_file" "prometheus_config" {
   template = "${file("${path.module}/templates/prometheus_setup.sh.tmpl")}"
 
   vars {
-    nodetype            = "prometheus"
-    environment         = "${var.environment}"
-    puppet_environment  = "${var.puppet_environment}"
-    kms_key             = "${var.jmeter_puppet_kms_key}"
-    aws_account         = "${var.aws_account_id}"
-    aws_region          = "${var.aws_region}"
-    efs_id              = "${aws_efs_file_system.prometheus.id}"
-    mount_point         = "/var/lib/prometheus"
+    NODETYPE       = "prometheus"
+    ENVIRONMENT    = "${var.environment}"
+    KMS_KEY        = "${var.jmeter_puppet_kms_key}"
+    AWS_ACCOUNT_ID = "${var.aws_account_id}"
+    AWS_REGION     = "${var.aws_region}"
+    EFS_ID         = "${aws_efs_file_system.prometheus.id}"
+    MOUNT_POINT    = "/var/lib/prometheus"
   }
 }
 

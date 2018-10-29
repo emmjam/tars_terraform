@@ -1,8 +1,8 @@
 #cloud-config
 bootcmd:
-  - "hostname gitlab-$INSTANCE_ID.${domain_name}"
-  - "sed -i \"1i$(curl -fs http://169.254.169.254/latest/meta-data/local-ipv4) gitlab-$INSTANCE_ID.${domain_name} gitlab-$INSTANCE_ID\" /etc/hosts"
+  - "hostname gitlab-$INSTANCE_ID.${DOMAIN_NAME}"
+  - "sed -i \"1i$(curl -fs http://169.254.169.254/latest/meta-data/local-ipv4) gitlab-$INSTANCE_ID.${DOMAIN_NAME} gitlab-$INSTANCE_ID\" /etc/hosts"
   - "sed -i -e '/HOSTNAME=/d' /etc/sysconfig/network"
-  - "echo \"HOSTNAME=gitlab-$INSTANCE_ID.${domain_name}\" >> /etc/sysconfig/network"
+  - "echo \"HOSTNAME=gitlab-$INSTANCE_ID.${DOMAIN_NAME}\" >> /etc/sysconfig/network"
   - "echo \"gitlab-$INSTANCE_ID\" > /etc/hostname"
 preserve_hostname: true

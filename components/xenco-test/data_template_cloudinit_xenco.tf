@@ -3,10 +3,9 @@ data "template_file" "xenco" {
   template = "${file("${path.module}/templates/xenco_setup.sh.tmpl")}"
 
   vars {
-     rpms = "${lookup(var.xenconode,"rpms_to_install")}"
-     xenco_ssh_key = "${var.xenco_ssh_pub_key}"
+     RPMS          = "${lookup(var.xenconode,"rpms_to_install")}"
+     XENCO_SSH_KEY = "${var.xenco_ssh_pub_key}"
   }
-  
 }
 
 # Render the template ready for the LC

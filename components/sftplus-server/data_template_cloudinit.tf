@@ -3,8 +3,8 @@ data "template_file" "common" {
   template = "${file("${path.module}/templates/cloudinit_common.yaml.tmpl")}"
 
   vars {
-    nodetype    = "sftpplus_svr"
-    domain_name = "${local.vpc_domain_name}"
+    NODETYPE    = "sftpplus_svr"
+    DOMAIN_NAME = "${local.vpc_domain_name}"
   }
 }
 
@@ -14,13 +14,12 @@ data "template_file" "sftpplus_svr" {
 
   # Set puppet factors
   vars {
-    environment        = "${var.environment}"
-    puppet_environment = "${var.puppet_environment}"
-    nodetype           = "${var.sftpplus-svr_puppet_nodetype}"
-    kms_key            = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
-    aws_account_id     = "${var.aws_account_id}"
-    EFS_ID             = "${aws_efs_file_system.sftpplus.id}"
-    MOUNT_POINT        = "/efs"
+    ENVIRONMENT    = "${var.environment}"
+    NODETYPE       = "${var.sftpplus-svr_puppet_nodetype}"
+    KMS_KEY        = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
+    AWS_ACCOUNT_ID = "${var.aws_account_id}"
+    EFS_ID         = "${aws_efs_file_system.sftpplus.id}"
+    MOUNT_POINT    = "/efs"
   }
 }
 

@@ -6,6 +6,18 @@ aws_account_id = "246976497890"
 
 private_domain_name = "tars.dvsa.aws"
 
+default_tags = {
+  Group = "live"
+}
+
+asg_default_tags = [
+  {
+    "key"                 = "Group"
+    "value"               = "live"
+    "propagate_at_launch" = "true"
+  }
+]
+
 ###############################################################################
 # ACCOUNT
 ###############################################################################

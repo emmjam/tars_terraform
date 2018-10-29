@@ -2,7 +2,7 @@ data "template_file" "os_config" {
   template = "${file("${path.module}/templates/cloud_init_setup.yaml.tmpl")}"
 
   vars {
-    domain_name = "${var.domain_name}"
+    DOMAIN_NAME = "${var.domain_name}"
   }
 }
 
@@ -10,10 +10,10 @@ data "template_file" "jenkins_blue_config" {
   template = "${file("${path.module}/templates/jenkins_blue_setup.sh.tmpl")}"
 
   vars {
-    jenkins_blue_version = "${var.jenkins_blue_version}"
-    ebs_volume_id        = "${aws_ebs_volume.jenkins.id}"
-    ebs_device_name      = "${var.ebs_device_name}"
-    aws_region           = "${data.aws_region.current.name}"
+    JENKINS_BLUE_VERSION = "${var.jenkins_blue_version}"
+    EBS_VOLUME_ID        = "${aws_ebs_volume.jenkins.id}"
+    EBS_DEVICE_NAME      = "${var.ebs_device_name}"
+    AWS_REGION           = "${data.aws_region.current.name}"
   }
 }
 
@@ -21,7 +21,7 @@ data "template_file" "jenkins_green_config" {
   template = "${file("${path.module}/templates/jenkins_green_setup.sh.tmpl")}"
 
   vars {
-    jenkins_green_version = "${var.jenkins_green_version}"
+    JENKINS_GREEN_VERSION = "${var.jenkins_green_version}"
   }
 }
 

@@ -20,11 +20,6 @@ variable "component" {
   default     = "sftpplus"
 }
 
-variable "puppet_environment" {
-  type        = "string"
-  description = "Environment for puppet on boot"
-}
-
 variable "dva_whitelist" {
   type        = "list"
   description = ""

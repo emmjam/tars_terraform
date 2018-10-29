@@ -2,7 +2,7 @@ data "template_file" "os_config" {
   template = "${file("${path.module}/templates/cloud_init_setup.yaml.tmpl")}"
 
   vars {
-    domain_name = "${var.domain_name}"
+    DOMAIN_NAME = "${var.domain_name}"
   }
 }
 
@@ -20,13 +20,13 @@ data "template_file" "gitlab_config" {
   template = "${file("${path.module}/templates/gitlab_setup.sh.tmpl")}"
 
   vars {
-    ebs_volume_id   = "${aws_ebs_volume.gitlab.id}"
-    ebs_device_name = "${var.ebs_device_name}"
-    aws_region      = "${data.aws_region.current.name}"
-    db_endpoint     = "${aws_route53_record.db.fqdn}"
-    redis_endpoint  = "${var.redis_endpoint}"
-#    redis_endpoint  = "${data.aws_elasticache_cluster.gitlab.cluster_address}"
-    external_url    = "${var.elb_public_external_address}"
+    EBS_VOLUME_ID   = "${aws_ebs_volume.gitlab.id}"
+    EBS_DEVICE_NAME = "${var.ebs_device_name}"
+    AWS_REGION      = "${data.aws_region.current.name}"
+    DB_ENDPOINT     = "${aws_route53_record.db.fqdn}"
+    REDIS_ENDPOINT  = "${var.redis_endpoint}"
+#    REDIS_ENDPOINT  = "${data.aws_elasticache_cluster.gitlab.cluster_address}"
+    EXTERNAL_URL    = "${var.elb_public_external_address}"
   }
 }
 

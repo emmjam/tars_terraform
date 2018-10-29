@@ -19,11 +19,6 @@ variable "component" {
   default     = "tars-core"
 }
 
-variable "puppet_environment" {
-  type        = "string"
-  description = "Environment for puppet on boot"
-}
-
 variable "account_component_name" {
   type        = "string"
   description = "The name of the account-level component as used in remote state"

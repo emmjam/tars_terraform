@@ -3,8 +3,8 @@ data "template_file" "common" {
   template = "${file("${path.module}/templates/cloudinit_common.yaml.tmpl")}"
 
   vars {
-    nodetype    = "ibs"
-    domain_name = "${local.vpc_domain_name}"
+    NODETYPE    = "ibs"
+    DOMAIN_NAME = "${local.vpc_domain_name}"
   }
 }
 
@@ -14,11 +14,10 @@ data "template_file" "ibs" {
 
   # Set puppet factors
   vars {
-    environment        = "${var.environment}"
-    puppet_environment = "${var.puppet_environment}"
-    nodetype           = "${var.ibs_puppet_nodetype}"
-    kms_key            = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
-    aws_account_id     = "${var.aws_account_id}"
+    ENVIRONMENT    = "${var.environment}"
+    NODETYPE       = "${var.ibs_puppet_nodetype}"
+    KMS_KEY        = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
+    AWS_ACCOUNT_ID = "${var.aws_account_id}"
   }
 }
 

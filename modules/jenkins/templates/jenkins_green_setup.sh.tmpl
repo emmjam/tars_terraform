@@ -5,29 +5,29 @@ function log() {
 }
 
 log '[INFO] Preparing configuration variables'
-INSTANCE_ID=$(curl http://169.254.169.254/latest/meta-data/instance-id)
-JENKINS_VERSION=${jenkins_green_version}
-JENKINS_HOME='/var/lib/jenkins'
+instance_id=$(curl http://169.254.169.254/latest/meta-data/instance-id)
+jenkins_version=${JENKINS_GREEN_VERSION}
+jenkins_home='/var/lib/jenkins'
 
 log '[INFO] Setting Java8 as default'
 /usr/sbin/alternatives --set java /usr/lib/jvm/jre-1.8.0-openjdk.x86_64/bin/java
 
 log '[INFO] Setting up Jenkins package name'
-if [ $${JENKINS_VERSION} == 'latest' ]; then
-  JENKINS_PACKAGE='jenkins'
+if [ $${jenkins_version} == 'latest' ]; then
+  jenkins_package='jenkins'
 else
-  JENKINS_PACKAGE="jenkins-$${JENKINS_VERSION}"
+  jenkins_package="jenkins-$${jenkins_version}"
 fi
-log "[INFO] Package name: $${JENKINS_PACKAGE}"
+log "[INFO] Package name: $${jenkins_package}"
 
 log '[INFO] Configuring Jenkins Yum Repository'
 wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
 rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 
-log "[INFO] Installing Jenkins ver. $${JENKINS_VERSION}"
-yum install -y $${JENKINS_PACKAGE}
-mkdir -p $${JENKINS_HOME}
-chown jenkins:jenkins -R $${JENKINS_HOME}
+log "[INFO] Installing Jenkins ver. $${jenkins_version}"
+yum install -y $${jenkins_package}
+mkdir -p $${jenkins_home}
+chown jenkins:jenkins -R $${jenkins_home}
 chkconfig jenkins off
 
 # everything else has to be configured manually

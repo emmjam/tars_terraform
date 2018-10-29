@@ -3,8 +3,8 @@ data "template_file" "wildfly-back-common" {
   template = "${file("${path.module}/templates/cloudinit_common.yaml.tmpl")}"
 
   vars {
-    nodetype    = "tars-back"
-    domain_name = "${local.vpc_domain_name}"
+    NODETYPE    = "tars-back"
+    DOMAIN_NAME = "${local.vpc_domain_name}"
   }
 }
 
@@ -14,11 +14,10 @@ data "template_file" "wildfly-back-config" {
 
   # Set puppet factors
   vars {
-    environment        = "${var.environment}"
-    puppet_environment = "${var.puppet_environment}"
-    nodetype           = "${var.wildfly-back_puppet_nodetype}"
-    kms_key            = "${var.wildfly-back_puppet_kms_key}"
-    aws_account_id     = "${var.aws_account_id}"
+    ENVIRONMENT    = "${var.environment}"
+    NODETYPE       = "${var.wildfly-back_puppet_nodetype}"
+    KMS_KEY        = "${var.wildfly-back_puppet_kms_key}"
+    AWS_ACCOUNT_ID = "${var.aws_account_id}"
   }
 }
 
