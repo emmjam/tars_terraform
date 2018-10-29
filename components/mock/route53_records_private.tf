@@ -1,11 +1,6 @@
 # R53 record for the TARS mock ALB
 resource "aws_route53_record" "tars-mock" {
-  name = "${format(
-    "%s-%s",
-    var.project,
-    var.component
-  )}"
-
+  name    = "tars-mock"
   zone_id = "${data.terraform_remote_state.base.private_zone_id}"
   type    = "A"
 

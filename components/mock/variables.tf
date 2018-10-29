@@ -52,7 +52,12 @@ variable "private_domain_name" {
 variable "asg_termination_policies" {
   type        = "list"
   description = "A list of policies to decide how the instances in the auto scale group should be terminated"
-  default     = ["OldestInstance", "OldestLaunchConfiguration", "ClosestToNextInstanceHour"]
+
+  default = [
+    "OldestInstance",
+    "OldestLaunchConfiguration",
+    "ClosestToNextInstanceHour",
+  ]
 }
 
 variable "asg_enabled_metrics" {
@@ -99,35 +104,42 @@ variable "aws_account_id" {
 }
 
 variable "mgmt_aws_account_id" {
-  type = "string"
+  type        = "string"
   description = ""
 }
 
 variable "wildfly-mock_asg_max_size" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-mock_asg_min_size" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-mock_instance_type" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-mock_puppet_kms_key" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "wildfly-mock_puppet_nodetype" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "cert_name" {
-  type = "string"
+  type        = "string"
   description = "ACM cert name"
 }
 
 variable "whitelist" {
-type        = "list"
+  type        = "list"
+  description = ""
+  default     = []
 }

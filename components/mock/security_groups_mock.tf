@@ -1,19 +1,13 @@
 # SG for TARS mock server
 resource "aws_security_group" "tars-mock" {
-  name        = "${var.project}-${var.environment}-${var.component}-tars-mock"
+  name        = "${local.csi}-tars-mock"
   description = "TARS mock"
   vpc_id      = "${data.terraform_remote_state.base.vpc_id}"
 
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "tars-mock"
-      ),
+      "Name", "${local.csi}-tars-mock"
     )
   )}"
 }
