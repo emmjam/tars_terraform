@@ -208,6 +208,11 @@ variable "cpc_rds_username" {
   description = "cpc RDS Username"
 }
 
+variable "cpc_rds_sid_name" {
+  type        = "string"
+  description = "Oracle SID name"
+}
+
 variable "cpc_rds_apply_immediately" {
   type        = "string"
   description = "cpc RDS Apply changes immediately"

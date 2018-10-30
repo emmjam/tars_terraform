@@ -347,14 +347,14 @@ ibs_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 ibs_rds_snapshot = "uat01-ibs-subnet-move"
 
 # MISDB
-mis_rds_username = "misuatadmin"
+mis_rds_username = "misdmsadmin"
 mis_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 mis_rds_allocated_storage = "300"
 mis_rds_snapshot = "tars-uat01-tars-reporting-misdb-20180816"
 mis_rds_autoscale = "False"
 
 # RSISDB
-rsis_rds_username = "rsisuatadmin"
+rsis_rds_username = "tarsrsisadmin"
 rsis_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 rsis_rds_allocated_storage = "300"
 rsis_rds_snapshot = "tars-uat01-tars-reporting-rsisdb-20180816"

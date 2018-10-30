@@ -32,11 +32,12 @@ resource "aws_db_instance" "rsisdb" {
   backup_retention_period = "${var.rsis_rds_backup_retention}"
   backup_window           = "${var.rsis_rds_backup_window}"
   maintenance_window      = "${var.rsis_rds_maint_window}"
-  parameter_group_name    = "${aws_db_parameter_group.rsisdb.id}"
   apply_immediately       = "${var.rsis_rds_apply_immediately}"
   license_model           = "${var.rsis_rds_license_model}"
   snapshot_identifier     = "${var.rsis_rds_snapshot}"
-  option_group_name       = "${aws_db_option_group.tars_rsis_timezone.id}"
+  parameter_group_name    = "${aws_db_parameter_group.rsis.id}"
+  option_group_name       = "${aws_db_option_group.rsis.id}"
+  name                    = "${var.rsis_rds_sid_name}"
   timeouts {
     update = "6h"
   }

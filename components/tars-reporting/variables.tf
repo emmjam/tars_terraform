@@ -145,6 +145,11 @@ variable "mis_rds_autoscale" {
   description = "Auto shutdown/restart RDS Instances tag"
 }
 
+variable "mis_rds_sid_name" {
+  type        = "string"
+  description = "Oracle SID name"
+}
+
 variable "mis_rds_subnets_cidrs" {
   type        = "list"
   description = "MIS RDS Subnet CIDR's"
@@ -246,3 +251,7 @@ variable "rsis_rds_autoscale" {
   description = "Auto shutdown/restart RDS Instances tag"
 }
 
+variable "rsis_rds_sid_name" {
+  type        = "string"
+  description = "Oracle SID name"
+}
