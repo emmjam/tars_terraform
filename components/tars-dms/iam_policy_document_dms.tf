@@ -4,7 +4,7 @@ data "aws_iam_policy_document" "enable_dms" {
     effect = "Allow"
 
     actions = [
-      "dms:*"
+      "dms:*",
     ]
 
     resources = [
@@ -20,7 +20,7 @@ data "aws_iam_policy_document" "enable_dms" {
       "iam:GetRole",
       "iam:PassRole",
       "iam:CreateRole",
-      "iam:AttachRolePolicy"
+      "iam:AttachRolePolicy",
     ]
 
     resources = [
@@ -40,7 +40,7 @@ data "aws_iam_policy_document" "enable_dms" {
       "ec2:DescribeSecurityGroups",
       "ec2:ModifyNetworkInterfaceAttribute",
       "ec2:CreateNetworkInterface",
-      "ec2:DeleteNetworkInterface"
+      "ec2:DeleteNetworkInterface",
     ]
 
     resources = [
@@ -55,7 +55,7 @@ data "aws_iam_policy_document" "enable_dms" {
     actions = [
       "cloudwatch:Get*",
       "cloudwatch:List*",
-      "cloudwatch:PutDashboard"
+      "cloudwatch:PutDashboard",
     ]
 
     resources = [
@@ -70,7 +70,7 @@ data "aws_iam_policy_document" "enable_dms" {
     actions = [
       "cloudwatch:deleteAlarms",
       "cloudwatch:describeAlarmHistory",
-      "cloudwatch:putMetricAlarm"
+      "cloudwatch:putMetricAlarm",
     ]
 
     resources = [
@@ -86,7 +86,7 @@ data "aws_iam_policy_document" "enable_dms" {
       "logs:DescribeLogGroups",
       "logs:DescribeLogStreams",
       "logs:FilterLogEvents",
-      "logs:GetLogEvents"
+      "logs:GetLogEvents",
     ]
 
     resources = [
@@ -102,12 +102,11 @@ data "aws_iam_policy_document" "enable_dms" {
       "logs:DescribeLogGroups",
       "logs:DescribeLogStreams",
       "logs:FilterLogEvents",
-      "logs:GetLogEvents"
+      "logs:GetLogEvents",
     ]
 
     resources = [
       "*",
     ]
   }
-
 }

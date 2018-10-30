@@ -1,6 +1,6 @@
 # Create a new replication instance
 resource "aws_dms_replication_instance" "tars_dms_replication_instance-tars2" {
-  replication_instance_id      = "${format(
+  replication_instance_id = "${format(
     "%s-%s-%s-%s",
     var.project,
     "onprem",
@@ -20,7 +20,7 @@ resource "aws_dms_replication_instance" "tars_dms_replication_instance-tars2" {
   replication_subnet_group_id  = "${aws_dms_replication_subnet_group.tars_dms_replication.id}"
 
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
       "Name", format(
         "%s-%s-%s-%s",

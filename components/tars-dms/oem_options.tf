@@ -6,11 +6,12 @@ resource "aws_db_option_group" "dms_oem" {
 
   option {
     option_name = "OEM"
+    port        = "5500"
 
-    port = "5500"
-    vpc_security_group_memberships = ["${aws_security_group.dms-oem.id}"]
+    vpc_security_group_memberships = [
+      "${aws_security_group.dms-oem.id}",
+    ]
   }
-
 }
 
 resource "aws_db_parameter_group" "dms_oem" {
@@ -22,7 +23,6 @@ resource "aws_db_parameter_group" "dms_oem" {
     value        = "120"
     apply_method = "immediate"
   }
-
 }
 
 resource "aws_db_option_group" "tars_test" {
@@ -33,9 +33,11 @@ resource "aws_db_option_group" "tars_test" {
 
   option {
     option_name = "OEM"
+    port        = "5500"
 
-    port = "5500"
-    vpc_security_group_memberships = ["${aws_security_group.dms-oem.id}"]
+    vpc_security_group_memberships = [
+      "${aws_security_group.dms-oem.id}",
+    ]
   }
 
   option {
@@ -50,6 +52,7 @@ resource "aws_db_option_group" "tars_test" {
   option {
     option_name = "STATSPACK"
   }
+
   option {
     option_name = "SQLT"
   }
@@ -63,9 +66,11 @@ resource "aws_db_option_group" "cpc_test" {
 
   option {
     option_name = "OEM"
+    port        = "5500"
 
-    port = "5500"
-    vpc_security_group_memberships = ["${aws_security_group.dms-oem.id}"]
+    vpc_security_group_memberships = [
+      "${aws_security_group.dms-oem.id}",
+    ]
   }
 
   option {
@@ -80,6 +85,7 @@ resource "aws_db_option_group" "cpc_test" {
   option {
     option_name = "STATSPACK"
   }
+
   option {
     option_name = "SQLT"
   }
@@ -93,9 +99,11 @@ resource "aws_db_option_group" "mis_test" {
 
   option {
     option_name = "OEM"
+    port        = "5500"
 
-    port = "5500"
-    vpc_security_group_memberships = ["${aws_security_group.dms-oem.id}"]
+    vpc_security_group_memberships = [
+      "${aws_security_group.dms-oem.id}",
+    ]
   }
 
   option {
@@ -110,6 +118,7 @@ resource "aws_db_option_group" "mis_test" {
   option {
     option_name = "STATSPACK"
   }
+
   option {
     option_name = "SQLT"
   }
@@ -123,9 +132,11 @@ resource "aws_db_option_group" "rsis_test" {
 
   option {
     option_name = "OEM"
+    port        = "5500"
 
-    port = "5500"
-    vpc_security_group_memberships = ["${aws_security_group.dms-oem.id}"]
+    vpc_security_group_memberships = [
+      "${aws_security_group.dms-oem.id}",
+    ]
   }
 
   option {
@@ -140,6 +151,7 @@ resource "aws_db_option_group" "rsis_test" {
   option {
     option_name = "STATSPACK"
   }
+
   option {
     option_name = "SQLT"
   }

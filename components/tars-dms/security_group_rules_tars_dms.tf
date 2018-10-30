@@ -1,23 +1,23 @@
 # DMS rules
 # Generic rules for the dms replication instance, and to be attached to the source/target dbs
 resource "aws_security_group_rule" "tars_dms_ingress_1521" {
-  description              = "Allow TCP/1521 inbound"
-  type                     = "ingress"
-  from_port                = 1521
-  to_port                  = 1521
-  protocol                 = "tcp"
-  self                     = true
-  security_group_id        = "${aws_security_group.tars-dms.id}"
+  description       = "Allow TCP/1521 inbound"
+  type              = "ingress"
+  from_port         = 1521
+  to_port           = 1521
+  protocol          = "tcp"
+  security_group_id = "${aws_security_group.tars-dms.id}"
+  self              = true
 }
 
 resource "aws_security_group_rule" "tars_dms_egress_1521" {
-  description              = "Allow TCP/1521 outbound"
-  type                     = "egress"
-  from_port                = 1521
-  to_port                  = 1521
-  protocol                 = "tcp"
-  self                     = true
-  security_group_id        = "${aws_security_group.tars-dms.id}"
+  description       = "Allow TCP/1521 outbound"
+  type              = "egress"
+  from_port         = 1521
+  to_port           = 1521
+  protocol          = "tcp"
+  security_group_id = "${aws_security_group.tars-dms.id}"
+  self              = true
 }
 
 resource "aws_security_group_rule" "tars_dms_egress_capita_db" {
@@ -27,7 +27,10 @@ resource "aws_security_group_rule" "tars_dms_egress_capita_db" {
   to_port           = "${var.capita_db_to_port}"
   protocol          = "tcp"
   security_group_id = "${aws_security_group.tars-dms.id}"
-  cidr_blocks       = [ "${var.capita_db_subnets}"]
+
+  cidr_blocks = [
+    "${var.capita_db_subnets}",
+  ]
 }
 
 resource "aws_security_group_rule" "tars_dms_ingress_XE" {
@@ -60,7 +63,6 @@ resource "aws_security_group_rule" "dms_egress_tars_rds_1521" {
   source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-db-sg-id}"
 }
 
-
 resource "aws_security_group_rule" "tars_rds_ingress_dms_1521" {
   description              = "Allow TCP/1521 inbound from dms"
   type                     = "egress"
@@ -70,6 +72,7 @@ resource "aws_security_group_rule" "tars_rds_ingress_dms_1521" {
   security_group_id        = "${data.terraform_remote_state.tars-core.tars-core-db-sg-id}"
   source_security_group_id = "${aws_security_group.tars-dms.id}"
 }
+
 resource "aws_security_group_rule" "dms_egress_cpc_rds_1521" {
   description              = "Allow TCP/1521 outbound to cpc RDS"
   type                     = "egress"

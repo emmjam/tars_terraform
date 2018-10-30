@@ -1,5 +1,6 @@
 # tarsdb subnet group
 resource "aws_db_subnet_group" "tarsdb_dms" {
+  # TODO: peacheym: Why?
   name = "${format(
     "%s-%s-%s-%s",
     var.project,
@@ -17,6 +18,6 @@ resource "aws_db_subnet_group" "tarsdb_dms" {
   )}"
 
   subnet_ids = [
-    "${module.subnets_rds.subnet_ids}"
+    "${module.subnets_rds.subnet_ids}",
   ]
 }

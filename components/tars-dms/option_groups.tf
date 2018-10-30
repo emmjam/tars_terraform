@@ -7,9 +7,10 @@ resource "aws_db_option_group" "dms_oem" {
 
   option {
     option_name = "OEM"
+    port        = "5500"
 
-    port = "5500"
-    vpc_security_group_memberships = ["${aws_security_group.dms-oem.id}"]
+    vpc_security_group_memberships = [
+      "${aws_security_group.dms-oem.id}",
+    ]
   }
-
 }
