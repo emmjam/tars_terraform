@@ -1,6 +1,6 @@
 # Get the wildfly batch AMI ID
 data "aws_ami" "oraclexe" {
-  name_regex = "OracleXE180828"
+  name_regex = "oraclexe-241018"
 
   most_recent = "true"
 
