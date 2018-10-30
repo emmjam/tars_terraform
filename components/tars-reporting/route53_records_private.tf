@@ -1,12 +1,6 @@
 # Create the R53 record for the MIS DB
 resource "aws_route53_record" "misdb" {
-  name = "${format(
-    "%s-%s-%s",
-    var.project,
-    "mis",
-    "db"
-  )}"
-
+  name    = "tars-mis-db"
   zone_id = "${data.terraform_remote_state.base.private_zone_id}"
   type    = "A"
 
@@ -18,13 +12,7 @@ resource "aws_route53_record" "misdb" {
 }
 
 resource "aws_route53_record" "rsisdb" {
-  name = "${format(
-    "%s-%s-%s",
-    var.project,
-    "rsis",
-    "db"
-  )}"
-
+  name    = "tars-rsis-db"
   zone_id = "${data.terraform_remote_state.base.private_zone_id}"
   type    = "A"
 
@@ -34,4 +22,3 @@ resource "aws_route53_record" "rsisdb" {
     evaluate_target_health = true
   }
 }
-

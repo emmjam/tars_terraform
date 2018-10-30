@@ -1,5 +1,12 @@
-resource "aws_db_option_group" "cpc" {
-  name                     = "cpc"
+resource "aws_db_option_group" "tars_mis_timezone" {
+  name = "${format(
+    "%s-%s-%s-%s",
+    var.project,
+    "mis-reporting",
+    var.environment,
+    "tz-option-group"
+  )}"
+
   option_group_description = "Terraform Option Group"
   engine_name              = "oracle-se2"
   major_engine_version     = "12.1"
@@ -11,12 +18,5 @@ resource "aws_db_option_group" "cpc" {
       name  = "TIME_ZONE"
       value = "Europe/London"
     }
-  }
-
-  option {
-    option_name = "STATSPACK"
-  }
-  option {
-    option_name = "SQLT"
   }
 }

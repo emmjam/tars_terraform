@@ -1,6 +1,11 @@
-resource "aws_db_option_group" "tars_core" {
-
-  name = "${local.csi}-option-group"
+resource "aws_db_option_group" "tars_rsis_timezone" {
+  name = "${format(
+    "%s-%s-%s-%s",
+    var.project,
+    "rsis-reporting",
+    var.environment,
+    "tz-option-group"
+  )}"
 
   option_group_description = "Terraform Option Group"
   engine_name              = "oracle-se2"
@@ -14,11 +19,4 @@ resource "aws_db_option_group" "tars_core" {
       value = "Europe/London"
     }
   }
-  option {
-    option_name = "STATSPACK"
-  }
-  option {
-    option_name = "SQLT"
-  }
-
 }

@@ -94,5 +94,4 @@ resource "aws_db_parameter_group" "tars-core" {
     value        = "14400"
     apply_method = "immediate"
   }
-
 }
