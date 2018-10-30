@@ -23,5 +23,5 @@ module "xenconode" {
   subnets_map_public_ip_on_launch = true
   lc_key_name = "${lookup(var.xenconode,"key_name")}"
 
-  default_tags = "${var.default_tags}"
+  default_tags = "${local.default_tags}"
 }

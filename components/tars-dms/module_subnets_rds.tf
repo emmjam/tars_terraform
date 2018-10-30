@@ -16,14 +16,14 @@ module "subnets_rds" {
   ]
 
   route_tables = [
-    ["${data.terraform_remote_state.base.private_nonat_route_table_id}"]
+    "${data.terraform_remote_state.base.private_nonat_route_table_id}",
   ]
 
   vpc_id = "${data.terraform_remote_state.base.vpc_id}"
 
   # Apply default tags, and merge with additional tags
   default_tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
       "Component", var.component
     )

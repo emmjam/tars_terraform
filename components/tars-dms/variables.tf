@@ -37,7 +37,7 @@ variable "aws_account_id" {
 
 variable "default_tags" {
   type        = "map"
-  description = "Defautl tags to use"
+  description = "Default tags to use"
 
   default = {
     Component = "tars-dms"
@@ -47,6 +47,7 @@ variable "default_tags" {
 variable "whitelist" {
   type        = "list"
   description = "TARS Servers inbound whitelisted IP's"
+  default     = []
 }
 
 variable "tf_state_bucket_prefix" {
@@ -109,6 +110,7 @@ variable "capita_db_from_port" {
   type        = "string"
   description = "Start of DB port range"
 }
+
 variable "capita_db_to_port" {
   type        = "string"
   description = "End of DB port range"
@@ -117,6 +119,7 @@ variable "capita_db_to_port" {
 variable "test_database_subnets_cidrs" {
   type        = "list"
   description = "RDS test subnets"
+  default     = []
 }
 
 variable "transit_peering_enabled" {
@@ -125,6 +128,6 @@ variable "transit_peering_enabled" {
 }
 
 variable "xe_role_name" {
-  type = "string"
+  type        = "string"
   description = ""
 }
