@@ -1,4 +1,3 @@
-
 resource "aws_lb_target_group" "mock-nlb" {
   name     = "${local.csi}-22"
   port     = "22"

@@ -53,6 +53,7 @@ variable "xenconode" {
 variable "xenco_subnets_cidrs" {
   type        = "list"
   description = "Xenco dev subnet CIDR's"
+  default     = []
 }
 
 variable "xenco_ssh_pub_key" {

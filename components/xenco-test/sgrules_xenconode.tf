@@ -5,7 +5,10 @@ resource "aws_security_group_rule" "whitelist_ingress_ssh" {
   to_port           = 22
   protocol          = "tcp"
   security_group_id = "${module.xenconode.security_group_id}"
-  cidr_blocks       = [ "${var.xenco_whitelist}"]
+
+  cidr_blocks = [
+    "${var.xenco_whitelist}",
+  ]
 }
 
 resource "aws_security_group_rule" "internet_egress" {
@@ -15,5 +18,8 @@ resource "aws_security_group_rule" "internet_egress" {
   to_port           = "-1"
   protocol          = "-1"
   security_group_id = "${module.xenconode.security_group_id}"
-  cidr_blocks       = [ "0.0.0.0/0"]
+
+  cidr_blocks = [
+    "0.0.0.0/0",
+  ]
 }
