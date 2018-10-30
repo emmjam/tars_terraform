@@ -1,16 +1,6 @@
 resource "aws_db_option_group" "tars_core" {
-  # TODO: peacheym: CSI was corrupt at creation
-  #                 with component and environment the
-  #                 wrong way around. Fix to use:
-  # name = "${local.csi}-tz-option-group"
 
-  name = "${format(
-    "%s-%s-%s-%s",
-    var.project,
-    var.component,
-    var.environment,
-    "option-group"
-  )}"
+  name = "${local.csi}-option-group"
 
   option_group_description = "Terraform Option Group"
   engine_name              = "oracle-se2"
