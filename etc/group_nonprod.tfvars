@@ -536,6 +536,7 @@ tars_rds_skip_final_snapshot = true
 tars_rds_apply_immediately = "true"
 tars_rds_license_model = "license-included"
 tars_rds_autoscale = "True"
+tars_rds_sid_name = "TARSDB"
 
 # MISDB
 mis_rds_storage_type = "gp2"
@@ -552,6 +553,7 @@ mis_rds_skip_final_snapshot = true
 mis_rds_apply_immediately = "true"
 mis_rds_license_model = "license-included"
 mis_rds_autoscale = "True"
+mis_rds_sid_name = "MISDB"
 
 # RSISDB
 rsis_rds_storage_type = "gp2"
@@ -568,9 +570,26 @@ rsis_rds_skip_final_snapshot = true
 rsis_rds_apply_immediately = "true"
 rsis_rds_license_model = "license-included"
 rsis_rds_autoscale = "True"
+rsis_rds_sid_name = "RSISDB"
+
+# CPCDB
+cpc_rds_storage_type = "gp2"
+cpc_rds_engine = "oracle-se2"
+cpc_rds_engine_version = "12.1.0.2.v13"
+cpc_rds_instance_class = "db.t2.medium" # was "db.m4.4xlarge"
+cpc_rds_port = "1521"
+cpc_rds_public = "false"
+cpc_rds_multi_az = "false" # it takes an age to build if true
+cpc_rds_backup_retention = "7"
+cpc_rds_backup_window = "02:38-03:08"
+cpc_rds_maint_window = "sun:03:16-sun:03:46"
+cpc_rds_skip_final_snapshot = true
+cpc_rds_apply_immediately = "true"
+cpc_rds_license_model = "license-included"
+cpc_rds_autoscale = "True"
+cpc_rds_sid_name = "CPCDB"
 
 # DMS Replication instance
-
 tars_dms_allocated_storage = "50"
 tars_dms_apply_immediately = true
 tars_dms_auto_minor_version_upgrade = true
@@ -635,18 +654,3 @@ logs_list = [
   "/opt/tomcat/logs/fyndi.log",
 ]
 
-# CPCDB
-cpc_rds_storage_type = "gp2"
-cpc_rds_engine = "oracle-se2"
-cpc_rds_engine_version = "12.1.0.2.v13"
-cpc_rds_instance_class = "db.t2.medium" # was "db.m4.4xlarge"
-cpc_rds_port = "1521"
-cpc_rds_public = "false"
-cpc_rds_multi_az = "false" # it takes an age to build if true
-cpc_rds_backup_retention = "7"
-cpc_rds_backup_window = "02:38-03:08"
-cpc_rds_maint_window = "sun:03:16-sun:03:46"
-cpc_rds_skip_final_snapshot = true
-cpc_rds_apply_immediately = "true"
-cpc_rds_license_model = "license-included"
-cpc_rds_autoscale = "True"

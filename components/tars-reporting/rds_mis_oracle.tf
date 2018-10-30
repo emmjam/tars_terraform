@@ -32,11 +32,12 @@ resource "aws_db_instance" "misdb" {
   backup_retention_period = "${var.mis_rds_backup_retention}"
   backup_window           = "${var.mis_rds_backup_window}"
   maintenance_window      = "${var.mis_rds_maint_window}"
-  parameter_group_name    = "${aws_db_parameter_group.misdb.id}"
   apply_immediately       = "${var.mis_rds_apply_immediately}"
   license_model           = "${var.mis_rds_license_model}"
   snapshot_identifier     = "${var.mis_rds_snapshot}"
-  option_group_name       = "${aws_db_option_group.tars_mis_timezone.id}"
+  parameter_group_name    = "${aws_db_parameter_group.mis.id}"
+  option_group_name       = "${aws_db_option_group.mis.id}"
+  name                    = "${var.mis_rds_sid_name}"
 
   vpc_security_group_ids = [
     "${aws_security_group.tars-mis-db.id}",

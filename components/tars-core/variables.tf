@@ -151,6 +151,11 @@ variable "tars_rds_autoscale" {
   description = "Auto shutdown/restart RDS Instances tag"
 }
 
+variable "tars_rds_sid_name" {
+  type        = "string"
+  description = "Oracle SID name"
+}
+
 variable "rds_subnets_cidrs" {
   type        = "list"
   description = "TARS RDS Subnet CIDR's"

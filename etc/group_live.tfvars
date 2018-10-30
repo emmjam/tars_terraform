@@ -318,22 +318,6 @@ cpc-batch_scaledown_recurrence = "00 22 * * 1-5"
 cpc-batch_scaleup_desired      = 1
 cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
-# CPCDB
-cpc_rds_storage_type = "gp2"
-cpc_rds_engine = "oracle-se2"
-cpc_rds_engine_version = "12.1.0.2.v13"
-cpc_rds_instance_class = "db.r4.xlarge"
-cpc_rds_port = "1521"
-cpc_rds_public = "false"
-cpc_rds_multi_az = "true" # it takes an age to build if true
-cpc_rds_backup_retention = "7"
-cpc_rds_backup_window = "02:38-03:08"
-cpc_rds_maint_window = "sun:03:16-sun:03:46"
-cpc_rds_skip_final_snapshot = false
-cpc_rds_apply_immediately = "true"
-cpc_rds_license_model = "license-included"
-cpc_rds_autoscale = "False"
-
 aws_mq_config_description    = "TARS MQ Configuration"
 aws_mq_config_name           = "tars-awsmq"
 aws_mq_config_engine_type    = "ActiveMQ"
@@ -516,7 +500,7 @@ logs_list = []
 tars_rds_storage_type = "gp2"
 tars_rds_engine = "oracle-se2"
 tars_rds_engine_version = "12.1.0.2.v13"
-tars_rds_instance_class = "db.r4.xlarge"
+tars_rds_instance_class = "m4.2xlarge"
 tars_rds_port = "1521"
 tars_rds_public = "false"
 tars_rds_multi_az = "true" # it takes an age to build if true
@@ -527,12 +511,13 @@ tars_rds_skip_final_snapshot = true
 tars_rds_apply_immediately = "true"
 tars_rds_license_model = "license-included"
 tars_rds_autoscale = "True"
+tars_rds_sid_name = "TARSDB"
 
 # MISDB
 mis_rds_storage_type = "gp2"
 mis_rds_engine = "oracle-se2"
 mis_rds_engine_version = "12.1.0.2.v13"
-mis_rds_instance_class = "db.r4.xlarge"
+mis_rds_instance_class = "db.m4.xlarge"
 mis_rds_port = "1521"
 mis_rds_public = "false"
 mis_rds_multi_az = "true" # it takes an age to build if true
@@ -543,12 +528,13 @@ mis_rds_skip_final_snapshot = true
 mis_rds_apply_immediately = "true"
 mis_rds_license_model = "license-included"
 mis_rds_autoscale = "True"
+mis_rds_sid_name = "MISDB"
 
 # RSISDB
 rsis_rds_storage_type = "gp2"
 rsis_rds_engine = "oracle-se2"
 rsis_rds_engine_version = "12.1.0.2.v13"
-rsis_rds_instance_class = "db.r4.xlarge"
+rsis_rds_instance_class = "db.m4.xlarge"
 rsis_rds_port = "1521"
 rsis_rds_public = "false"
 rsis_rds_multi_az = "true" # it takes an age to build if true
@@ -558,10 +544,27 @@ rsis_rds_maint_window = "sun:03:16-sun:03:46"
 rsis_rds_skip_final_snapshot = true
 rsis_rds_apply_immediately = "true"
 rsis_rds_license_model = "license-included"
-sris_rds_autoscale = "True"
+rsis_rds_autoscale = "True"
+rsis_rds_sid_name = "RSISDB"
+
+# CPCDB
+cpc_rds_storage_type = "gp2"
+cpc_rds_engine = "oracle-se2"
+cpc_rds_engine_version = "12.1.0.2.v13"
+cpc_rds_instance_class = "db.r4.xlarge"
+cpc_rds_port = "1521"
+cpc_rds_public = "false"
+cpc_rds_multi_az = "true" # it takes an age to build if true
+cpc_rds_backup_retention = "7"
+cpc_rds_backup_window = "02:38-03:08"
+cpc_rds_maint_window = "sun:03:16-sun:03:46"
+cpc_rds_skip_final_snapshot = false
+cpc_rds_apply_immediately = "true"
+cpc_rds_license_model = "license-included"
+cpc_rds_autoscale = "False"
+cpc_rds_sid_name = "CPCDB"
 
 # DMS Replication instance
-
 tars_dms_allocated_storage = "50"
 tars_dms_apply_immediately = true
 tars_dms_auto_minor_version_upgrade = true

@@ -20,7 +20,9 @@ resource "aws_db_instance" "tarsdb" {
   apply_immediately         = "${var.tars_rds_apply_immediately}"
   license_model             = "${var.tars_rds_license_model}"
   snapshot_identifier       = "${var.tars_rds_snapshot}"
-  option_group_name         = "${aws_db_option_group.tars_core_timezone.id}"
+  parameter_group_name      = "${aws_db_parameter_group.tars-core.id}"
+  option_group_name         = "${aws_db_option_group.tars_core.id}"
+  name                      = "${var.tars_rds_sid_name}"
 
   vpc_security_group_ids = [
     "${aws_security_group.tars-core-db.id}",
