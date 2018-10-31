@@ -344,6 +344,7 @@ rsis_rds_snapshot = ""
 cpc_rds_username = "cpcadmin"
 cpc_rds_password = "fgvRRVEJPAf2L3wC"
 cpc_rds_allocated_storage = "100"
+cpc_rds_snapshot = ""
 
 # IBSDB
 ibs_rds_username = "ibsprodadmin"
