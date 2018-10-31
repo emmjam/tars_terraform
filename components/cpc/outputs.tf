@@ -15,6 +15,10 @@ output "cpc-back-sg-id" {
   value = "${module.cpc-back.security_group_id}"
 }
 
+output "cpc-front-sg-id" {
+  value = "${module.cpc-front.security_group_id}"
+}
+
 output "cpc-alb-target-group-internet-frontend" {
   value = "${aws_alb_target_group.cpc-front-internet-9443.arn}"
 }
