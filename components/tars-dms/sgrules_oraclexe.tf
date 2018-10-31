@@ -23,6 +23,36 @@ resource "aws_security_group_rule" "oraclexe_egress_tars_rds_1521" {
   source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-db-sg-id}"
 }
 
+resource "aws_security_group_rule" "oraclexe_egress_cpc_rds_1521" {
+  description              = "Allow TCP/1521 outbound"
+  type                     = "egress"
+  from_port                = 1521
+  to_port                  = 1521
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.oraclexe.id}"
+  source_security_group_id = "${data.terraform_remote_state.cpc.cpc-db-sg-id}"
+}
+
+resource "aws_security_group_rule" "oraclexe_egress_mis_rds_1521" {
+  description              = "Allow TCP/1521 outbound"
+  type                     = "egress"
+  from_port                = 1521
+  to_port                  = 1521
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.oraclexe.id}"
+  source_security_group_id = "${data.terraform_remote_state.tars-reporting.mis-db-sg-id}"
+}
+
+resource "aws_security_group_rule" "oraclexe_egress_rsis_rds_1521" {
+  description              = "Allow TCP/1521 outbound"
+  type                     = "egress"
+  from_port                = 1521
+  to_port                  = 1521
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.oraclexe.id}"
+  source_security_group_id = "${data.terraform_remote_state.tars-reporting.rsis-db-sg-id}"
+}
+
 resource "aws_security_group_rule" "oraclexe_egress_internet" {
   description       = "Allow internet"
   type              = "egress"
