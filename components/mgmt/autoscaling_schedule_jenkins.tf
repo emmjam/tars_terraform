@@ -1,12 +1,5 @@
 resource "aws_autoscaling_schedule" "jenkins_down" {
-  scheduled_action_name = "${format(
-    "%s-%s-%s/%s",
-    var.project,
-    var.environment,
-    var.component,
-    "jenkins-down"
-  )}"
-
+  scheduled_action_name  = "${local.csi}/jenkins-down"
   min_size               = "${var.jenkins_asg_min_size}"
   max_size               = "${var.jenkins_asg_max_size}"
   desired_capacity       = "${var.jenkins_scaledown_desired}"
@@ -15,14 +8,7 @@ resource "aws_autoscaling_schedule" "jenkins_down" {
 }
 
 resource "aws_autoscaling_schedule" "jenkins_up" {
-  scheduled_action_name = "${format(
-    "%s-%s-%s/%s",
-    var.project,
-    var.environment,
-    var.component,
-    "jenkins-up"
-  )}"
-
+  scheduled_action_name  = "${local.csi}/jenkins-up"
   min_size               = "${var.jenkins_asg_min_size}"
   max_size               = "${var.jenkins_asg_max_size}"
   desired_capacity       = "${var.jenkins_scaleup_desired}"

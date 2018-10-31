@@ -1,4 +1,3 @@
-
 data "aws_ami" "jenkins" {
   name_regex = "${format(
     "%s-%s-%s/%s",
@@ -9,11 +8,17 @@ data "aws_ami" "jenkins" {
   )}"
 
   most_recent = "true"
-  owners      = ["${data.aws_caller_identity.current.account_id}"]
+
+  owners = [
+    "${data.aws_caller_identity.current.account_id}",
+  ]
 
   filter {
-    name   = "state"
-    values = ["available"]
+    name = "state"
+
+    values = [
+      "available",
+    ]
   }
 }
 
@@ -27,10 +32,16 @@ data "aws_ami" "gitlab" {
   )}"
 
   most_recent = "true"
-  owners      = ["${data.aws_caller_identity.current.account_id}"]
+
+  owners = [
+    "${data.aws_caller_identity.current.account_id}",
+  ]
 
   filter {
-    name   = "state"
-    values = ["available"]
+    name = "state"
+
+    values = [
+      "available",
+    ]
   }
 }

@@ -5,15 +5,9 @@ resource "aws_vpc" "mgmt" {
   instance_tenancy     = "default"
 
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "mgmt"
-      ),
+      "Name", local.csi
     )
   )}"
 }

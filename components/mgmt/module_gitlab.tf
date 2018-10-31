@@ -4,10 +4,16 @@ module "gitlab" {
   environment = "${var.environment}"
   component   = "${var.component}"
 
-  vpc_id             = "${aws_vpc.mgmt.id}"
-  availability_zones = "${data.aws_availability_zones.available.names}"
-  hosted_zone_id     = "${aws_route53_zone.mgmt.zone_id}"
-  domain_name        = "${var.component}.${var.environment}.${var.private_domain_name}"
+  vpc_id = "${aws_vpc.mgmt.id}"
+
+  availability_zones = [
+    "${data.aws_availability_zones.available.names}",
+  ]
+
+  hosted_zone_id = "${aws_route53_zone.mgmt.zone_id}"
+
+  # TODO: peacheym: gitlab and jenkins have different domain name values?
+  domain_name = "${var.component}.${local.vpc_domain_name}"
 
   lc_instance_type = "${var.gitlab_instance_type}"
   lc_ami_id        = "${data.aws_ami.gitlab.image_id}"
@@ -20,21 +26,47 @@ module "gitlab" {
   ebs_volume_type = "${var.gitlab_ebs_volume_type}"
   ebs_volume_size = "${var.gitlab_ebs_volume_size}"
 
-  gitlab_subnet_cidrs            = ["${var.gitlab_subnets_cidrs}"]
-  gitlab_private_route_table_ids = ["${aws_route_table.private_nat.*.id}"]
-  gitlab_whitelist               = "${var.whitelist}"
+  gitlab_subnet_cidrs = [
+    "${var.gitlab_subnets_cidrs}",
+  ]
 
-  elb_private_subnets_cidrs     = "${var.gitlab_elb_private_subnets_cidrs}"
-  elb_private_route_table_ids   = ["${aws_route_table.private.*.id}"]
-  elb_subnets_cidrs             = "${var.gitlab_elb_subnets_cidrs}"
-  elb_public_route_table_ids    = ["${aws_route_table.public.id}"]
+  gitlab_private_route_table_ids = [
+    "${aws_route_table.private_nat.*.id}",
+  ]
+
+  gitlab_whitelist = [
+    "${var.whitelist}",
+  ]
+
+  elb_private_subnets_cidrs = [
+    "${var.gitlab_elb_private_subnets_cidrs}",
+  ]
+
+  elb_private_route_table_ids = [
+    "${aws_route_table.private.*.id}",
+  ]
+
+  elb_subnets_cidrs = [
+    "${var.gitlab_elb_subnets_cidrs}",
+  ]
+
+  elb_public_route_table_ids = [
+    "${aws_route_table.public.id}",
+  ]
+
+  elb_public_external_address   = "${aws_route53_record.gitlab.fqdn}"
   elb_public_port               = "${var.gitlab_elb_public_public_port}"
   elb_public_protocol           = "${var.gitlab_elb_public_public_protocol}"
   elb_public_ssl_certificate_id = "${data.aws_acm_certificate.tars_dvsacloud_uk.arn}"
-  elb_public_external_address   = "${aws_route53_record.gitlab.fqdn}"
 
-  db_subnets_cidrs           = "${var.gitlab_db_subnets_cidrs}"
-  db_private_route_table_ids = ["${aws_route_table.private.*.id}"]
+  db_subnets_cidrs = [
+    "${var.gitlab_db_subnets_cidrs}",
+  ]
+
+  db_private_route_table_ids = [
+    "${aws_route_table.private.*.id}",
+  ]
+
   db_name                    = "${var.gitlab_db_db_name}"
   db_allocated_storage       = "${var.gitlab_db_allocated_storage}"
   db_storage_type            = "${var.gitlab_db_storage_type}"
@@ -49,8 +81,12 @@ module "gitlab" {
   db_skip_final_snapshot     = "${var.gitlab_db_skip_final_snapshot}"
   db_pg_family               = "${var.gitlab_db_pg_family}"
 
-  redis_subnets_cidrs            = "${var.gitlab_redis_subnets_cidrs}"
-  redis_private_route_table_ids  = ["${aws_route_table.private.*.id}"]
+  redis_subnets_cidrs = "${var.gitlab_redis_subnets_cidrs}"
+
+  redis_private_route_table_ids = [
+    "${aws_route_table.private.*.id}",
+  ]
+
   redis_engine_version           = "${var.gitlab_redis_engine_version}"
   redis_parameter_group_name     = "${var.gitlab_redis_parameter_group_name}"
   redis_node_type                = "${var.gitlab_redis_node_type}"
@@ -59,5 +95,5 @@ module "gitlab" {
   redis_snapshot_retention_limit = "${var.gitlab_redis_snapshot_retention_limit}"
   redis_endpoint                 = "${var.gitlab_redis_endpoint_address}"
 
-  default_tags = "${var.default_tags}"
+  default_tags = "${local.default_tags}"
 }

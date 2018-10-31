@@ -1,16 +1,9 @@
 resource "aws_alb" "public" {
-  name = "${format(
-    "%s-%s-%s-%s",
-    var.project,
-    var.environment,
-    var.component,
-    "public"
-  )}"
-
+  name     = "${local.csi}-public"
   internal = "false"
 
   enable_cross_zone_load_balancing = true
-  enable_http2 = true
+  enable_http2                     = true
 
   security_groups = [
     "${aws_security_group.alb_public.id}",
@@ -21,15 +14,9 @@ resource "aws_alb" "public" {
   ]
 
   tags = "${merge(
-    var.default_tags,
+    local.default_tags,
     map(
-      "Name", format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "public"
-      ),
+      "Name", "${local.csi}-public"
     )
   )}"
 }

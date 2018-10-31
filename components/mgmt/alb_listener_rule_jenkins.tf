@@ -10,6 +10,8 @@ resource "aws_alb_listener_rule" "jenkins" {
   condition {
     field = "host-header"
 
-    values = ["${aws_route53_record.jenkins.fqdn}"]
+    values = [
+      "${aws_route53_record.jenkins.fqdn}",
+    ]
   }
 }

@@ -1,0 +1,14 @@
+# TODO: peacheym:
+#
+# I am not touching this right now because it appears to be functioning
+# however this module has been taken from the wrong place and is not the
+# expected configuration. The correct module should not make any use
+# of the "archive" terraform provider.
+#
+# Additionally the call to this module passes in a list variable,
+# but when doing so it passes in a single string value, which is a
+# comma separated list.
+#
+# I recommend someone getting on top of this and working it out,
+# or at the earliest convenience provided by terraform support for it,
+# migrate to the AWS snapshot scheduling service.
