@@ -29,12 +29,12 @@ variable "default_tags" {
 }
 
 variable "account_environment" {
-  type = "string"
+  type        = "string"
   description = "Test shortname of current AWS account"
 }
 
 variable "aws_account_id" {
-  type = "string"
+  type        = "string"
   description = "AWS Account ID of current account"
 }
 
@@ -79,6 +79,7 @@ variable "whitelist" {
 variable "jenkins_blue_subnets_cidrs" {
   type        = "list"
   description = ""
+  default     = []
 }
 
 variable "jenkins_blue_version" {
@@ -101,41 +102,49 @@ variable "jenkins_green_version" {
 variable "jenkins_elb_subnets_cidrs" {
   type        = "list"
   description = ""
+  default     = []
 }
 
 variable "jenkinsnode_subnets_cidrs" {
   type        = "list"
   description = ""
+  default     = []
 }
 
 variable "gitlab_subnets_cidrs" {
   type        = "list"
   description = ""
+  default     = []
 }
 
 variable "gitlab_elb_private_subnets_cidrs" {
   type        = "list"
   description = ""
+  default     = []
 }
 
 variable "gitlab_elb_subnets_cidrs" {
   type        = "list"
   description = ""
+  default     = []
 }
 
 variable "gitlab_db_subnets_cidrs" {
   type        = "list"
   description = ""
+  default     = []
 }
 
 variable "gitlab_redis_subnets_cidrs" {
   type        = "list"
   description = ""
+  default     = []
 }
 
 variable "alb_public_subnets_cidrs" {
   type        = "list"
   description = ""
+  default     = []
 }
 
 variable "ctrl_peers" {
@@ -150,295 +159,307 @@ variable "deployer_pub_key" {
 }
 
 variable "ctrl_peers_xacct" {
-  type = "list"
+  type        = "list"
   description = ""
+  default     = []
 }
+
 variable "ctrl_peers_local" {
-  type = "list"
+  type        = "list"
   description = ""
+  default     = []
 }
+
 variable "base_peers_xacct" {
-  type = "list"
+  type        = "list"
   description = ""
+  default     = []
 }
 
 variable "base_peers_local" {
-  type = "list"
+  type        = "list"
   description = ""
+  default     = []
 }
 
 # EBS Snapshots
 
 variable "ebs_snapshot_cleanup_cloudwatch_log_retention_in_days" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "ebs_snapshot_cleanup_cw_metric_log_error_pattern" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "ebs_snapshot_cleanup_cw_rule_schedule_expression" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "ebs_snapshot_cleanup_memory_size" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "ebs_snapshot_cleanup_min_num_of_snapshots_to_retain" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "ebs_snapshot_cleanup_min_retention_days" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "ebs_snapshot_cleanup_publish" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "ebs_snapshot_cleanup_s3_key" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "ebs_snapshot_cleanup_timeout" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "ebs_snapshot_cloudwatch_log_retention_in_days" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "ebs_snapshot_cw_metric_log_error_pattern" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "ebs_snapshot_cw_rule_schedule_expression" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "ebs_snapshot_is_enabled" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "ebs_snapshot_memory_size" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "ebs_snapshot_publish" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "ebs_snapshot_s3_key" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "ebs_snapshot_timeout" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
 
 #### Gitlab
 
 variable "gitlab_ami_build_id" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_db_allocated_storage" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_db_backup_retention_period" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_db_backup_window" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_db_db_name" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_db_engine_version" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_db_instance_class" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_db_maintenance_window" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_db_multi_az" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_db_password" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_db_pg_family" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_db_skip_final_snapshot" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_db_storage_type" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_db_username" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_ebs_volume_size" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_ebs_volume_type" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_elb_public_public_port" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_elb_public_public_protocol" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_instance_type" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_redis_endpoint_address" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_redis_engine_version" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_redis_maintenance_window" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_redis_node_type" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_redis_parameter_group_name" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_redis_snapshot_retention_limit" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "gitlab_redis_snapshot_window" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
 
 ## Jenkins
 
 variable "jenkins_asg_max_size" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "jenkins_asg_min_size" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "jenkins_ami_build_id" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "jenkins_blue_nodes_number" {
-  type = "string"
+  type        = "string"
   description = ""
-  
 }
+
 variable "jenkins_ebs_volume_size" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "jenkins_ebs_volume_type" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "jenkins_instance_type" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "jenkins_scaledown_desired" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "jenkins_scaledown_recurrence" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "jenkins_scaleup_desired" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "jenkins_scaleup_recurrence" {
-  type = "string"
+  type        = "string"
   description = ""
 }
+
 variable "mgmt_vpc_id" {
-  type = "string"
+  type        = "string"
   description = ""
 }
 

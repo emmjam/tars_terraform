@@ -1,4 +1,7 @@
 data "aws_acm_certificate" "tars_dvsacloud_uk" {
-  domain   = "*.${data.terraform_remote_state.acc.public_domain_name}"
-  statuses = ["ISSUED"]
+  domain = "*.${data.terraform_remote_state.acc.public_domain_name}"
+
+  statuses = [
+    "ISSUED",
+  ]
 }

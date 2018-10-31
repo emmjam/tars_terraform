@@ -12,20 +12,17 @@ resource "aws_vpc_peering_connection_accepter" "base_peers_xacct" {
   # Accepter is grammatically incorrect, but is the
   # form terraform uses and so we standardise on it
   tags = "${merge(
-    "${var.default_tags}",
+    local.default_tags,
     map(
       "Name", format(
-        "%s-%s-%s/%s/%s",
-        var.project,
-        var.environment,
-        var.component,
+        "%s/%s/%s",
+        local.csi,
         "base_peers_xacct",
         element(
           data.aws_vpc_peering_connection.base_peers_xacct.*.owner_id,
           count.index
         )
       ),
-      "Component", var.component,
       "Side", "Accepter"
     )
   )}"
