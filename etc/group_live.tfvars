@@ -458,7 +458,7 @@ rsis_samba_server = "10.14.0.140/32"
 capita_db_subnets = "10.84.192.0/23"
 
 capita_db_from_port = "6720"
-capita_db_to_port = "6721"
+capita_db_to_port = "6722"
 
 # squidnat
 squidnat_instance_type = "m5.large"

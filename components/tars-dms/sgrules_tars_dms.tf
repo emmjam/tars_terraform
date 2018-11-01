@@ -21,7 +21,7 @@ resource "aws_security_group_rule" "tars_dms_egress_1521" {
 }
 
 resource "aws_security_group_rule" "tars_dms_egress_capita_db" {
-  description       = "Allow TCP/6720-6721 to Capita on-premise DB"
+  description       = "Allow TCP/6720-6722 to Capita on-premise DB"
   type              = "egress"
   from_port         = "${var.capita_db_from_port}"
   to_port           = "${var.capita_db_to_port}"
