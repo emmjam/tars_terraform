@@ -5,11 +5,9 @@
 ################################################################################
 
 resource "aws_db_parameter_group" "mis" {
-
   name        = "${local.csi}-misdb"
   description = "${local.csi}-misdb"
-
-  family = "oracle-se2-12.1"
+  family      = "oracle-se2-12.1"
 
   parameter {
     name         = "archive_lag_target"
@@ -52,5 +50,4 @@ resource "aws_db_parameter_group" "mis" {
     value        = "7200"
     apply_method = "immediate"
   }
-
 }

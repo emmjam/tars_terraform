@@ -153,6 +153,7 @@ variable "mis_rds_sid_name" {
 variable "mis_rds_subnets_cidrs" {
   type        = "list"
   description = "MIS RDS Subnet CIDR's"
+  default     = []
 }
 
 variable "mgmt_aws_account_id" {

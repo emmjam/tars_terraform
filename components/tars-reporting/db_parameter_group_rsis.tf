@@ -5,11 +5,9 @@
 ################################################################################
 
 resource "aws_db_parameter_group" "rsis" {
-
   name        = "${local.csi}-rsisdb"
   description = "${local.csi}-rsisdb"
-
-  family = "oracle-se2-12.1"
+  family      = "oracle-se2-12.1"
 
   parameter {
     name         = "audit_trail"
@@ -58,5 +56,4 @@ resource "aws_db_parameter_group" "rsis" {
     value        = "7800"
     apply_method = "immediate"
   }
-
 }
