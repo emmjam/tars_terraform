@@ -140,3 +140,8 @@ variable "cpc_sftp_subnets_cidrs" {
   description = ""
   default     = []
 }
+
+variable "dvla_elise_server" {
+  type        = "string"
+  description = "DVLA Elise"
+}
