@@ -325,3 +325,31 @@ variable "tars_private_cert" {
   type        = "string"
   description = "TARS Private ACM cert name"
 }
+
+# Added by TS-4753
+# To be removed by TS-4722 and TS-4756
+# TEMP UAT DB's in Prod
+variable "uat_dbs_in_prod" {
+  type        = "string"
+  description = "Temporarily have UAT DB's in prod to shakedown prod app"
+}
+
+variable "tmp_tars_rds_username" {
+  type        = "string"
+  description = "Temp UAT DB in prod"
+}
+
+variable "tmp_tars_rds_password" {
+  type        = "string"
+  description = "Temp UAT DB in prod"
+}
+
+variable "tmp_tars_rds_allocated_storage" {
+  type        = "string"
+  description = "Temp UAT DB in prod"
+}
+
+variable "tmp_tars_rds_snapshot" {
+  type        = "string"
+  description = "Temp UAT DB in prod"
+}
