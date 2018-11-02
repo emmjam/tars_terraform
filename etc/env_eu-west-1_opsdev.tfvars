@@ -40,7 +40,7 @@ asg_default_tags = [
 prometheus_asg_min_size           = 1
 prometheus_asg_max_size           = 1
 prometheus_instance_type          = "t2.medium"
-prometheus_ami_build_id           = 342
+prometheus_ami_build_id           = 372
 prometheus_efs_provisioned_mibps  = 1
 
 #EFS Backups
@@ -374,3 +374,6 @@ xenco_whitelist = [
 xenco_ssh_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAgEAglcxWvitvW4CTzgOZdQJF7FziHgkN5BIdLmjo+AqIxQqzWcGWYKYAJ7QHgKF1hT1Z6t0cYHR+AWIUb+lW2/52m0timHKftucWkTZBzEgpRrzgxhEgJJmfIE++MUtKGMPhE4lEpQ3KgrOwC1jiIkOq9R2CchYZr8rsM9abfet5tjgg/sjxvEUXI0pfByuqtm/s4XygAJMq1dIAfdJkxg9xutm/+t38dfFwbjlRJNwdCCJjBQywzrTVO69rika6gESNtHb75izagyy47HGwi9LxLZgODtAlyeVhSsfxoOgrIV6vOwBb/dEW7hz49mROp3T+2ZzXm85uDRdb/58g6BSIJ6uD81qSRf3W4cBmzB4EklKxlW5zD2aXyNxQescSmTD6VhcU+8EQlZRUhIBZ4DXfmpmQc354tFL1BHyxbqQubUtlfsX9kZUXocgt4aLnglnBbIlWaX+9NqNkOPaJIBxBQo1F6oNb97WtO9o2YBpk63vUv/wuCHH6T3jTThBYYnEveXujHUuZZeAJ11qB4jiyx4a/kjOxY7hI5NT336RCrwG1l5kM8w44XTzQzOoY9A6stsEr7DJhZ24OQ0kX9PuziMCWXLH4Z23fEM4t+tFvXFRD9K5RKASkGqNum9AViZxsZr4uLzqsUyGTOYIDrxlc1X/6s7neAWINQtWFvig4Hc= rsa-key-20180501"
 
 private_cert_domain_name = "dvsa.tars.dev-dvsacloud.uk"
+
+apache_ami_build_id = 371
+

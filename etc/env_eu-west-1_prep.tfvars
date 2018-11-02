@@ -35,7 +35,7 @@ asg_default_tags = [
 prometheus_asg_min_size           = 1
 prometheus_asg_max_size           = 1
 prometheus_instance_type          = "t2.medium"
-prometheus_ami_build_id           = 342
+prometheus_ami_build_id           = 372
 prometheus_efs_provisioned_mibps  = 5
 
 #EFS Backups
@@ -393,11 +393,14 @@ domain_name_servers = [
 private_cert_domain_name = "prep.tars.dvsa.aws"
 
 
-cpc_cert    = "cpc-prep"
-cpc_private_cert = "cpc-dvsa"
-fyndi_cert  = "fyndi-prep-public"
-tars_cert   = "tars-prep-public"
-tars_private_cert = "tars-core-private"
-tars_pdf_cert = "tars-prep-pdf"
-obs_cert    = "obs-prep-public"
-ibs_cert    = "ibs-prep-public"
+cpc_cert            = "cpc-prep"
+cpc_private_cert    = "cpc-dvsa"
+fyndi_cert          = "fyndi-prep-public"
+tars_cert           = "tars-prep-public"
+tars_private_cert   = "tars-core-private"
+tars_pdf_cert       = "tars-prep-pdf"
+obs_cert            = "obs-prep-public"
+ibs_cert            = "ibs-prep-public"
+apache_cert         = "routing-prod-public"
+
+apache_ami_build_id = 371

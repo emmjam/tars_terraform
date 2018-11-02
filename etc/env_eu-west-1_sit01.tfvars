@@ -40,7 +40,7 @@ asg_default_tags = [
 prometheus_asg_min_size           = 0
 prometheus_asg_max_size           = 0
 prometheus_instance_type          = "t2.medium"
-prometheus_ami_build_id           = 342
+prometheus_ami_build_id           = 372
 prometheus_efs_provisioned_mibps  = 1
 
 #EFS Backups
@@ -376,3 +376,6 @@ domain_name_servers = [
 ]
 
 private_cert_domain_name = "sit01.tars.dvsa.aws"
+
+apache_ami_build_id = 371
+
