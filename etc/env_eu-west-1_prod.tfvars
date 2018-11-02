@@ -388,14 +388,17 @@ irdt_incapsula  = "zi5ckxk.x.incapdns.net"
 
 private_cert_domain_name = "prod.tars.dvsa.aws"
 
-cpc_cert    = "cpc-prod"
-cpc_private_cert = "cpc-dvsa"
-fyndi_cert  = "fyndi-prod-public"
-tars_cert   = "tars-prod-public"
-tars_private_cert = "tars-core-private"
-tars_pdf_cert = "tars-prod-pdf"
-obs_cert    = "obs-prod-public"
-ibs_cert    = "ibs-prod-public"
+cpc_internet_cert       = "tars-prod-cpc-internet"
+cpc_dvsa_internet_cert  = "tars-prod-cpc-dvsa-internet"
+cpc_cert                = "cpc-prod"
+cpc_private_cert        = "cpc-dvsa"
+fyndi_cert              = "fyndi-prod-public"
+tars_cert               = "tars-prod-public"
+tars_private_cert       = "tars-core-private"
+tars_pdf_cert           = "tars-prod-pdf"
+obs_cert                = "obs-prod-public"
+ibs_cert                = "ibs-prod-public"
+irdt_cert               = "irdt-prod-public"
 
 
 ## wildfly-batch temporary 'off' schedule

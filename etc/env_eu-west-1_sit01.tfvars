@@ -376,8 +376,3 @@ domain_name_servers = [
 ]
 
 private_cert_domain_name = "sit01.tars.dvsa.aws"
-cpc_cert    = "*"
-fyndi_cert  = "*"
-tars_cert   = "*"
-obs_cert    = "*"
-ibs_cert    = "*"

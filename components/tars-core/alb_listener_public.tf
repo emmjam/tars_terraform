@@ -29,3 +29,9 @@ resource "aws_lb_listener_rule" "host_based_routing" {
     ]
   }
 }
+
+#Additional cert for IRDT
+resource "aws_lb_listener_certificate" "irdt" {
+  listener_arn    = "${aws_alb_listener.tars-public-443.arn}"
+  certificate_arn = "${data.aws_acm_certificate.irdt.arn}"
+}

@@ -316,6 +316,11 @@ variable "cert_name" {
   description = "ACM cert name"
 }
 
+variable "irdt_cert" {
+  type        = "string"
+  description = "ACM cert name"
+}
+
 variable "tars_cert" {
   type        = "string"
   description = "CPC ACM cert name"
