@@ -61,3 +61,16 @@ resource "aws_security_group_rule" "cpc_egress_sftpplus_nlb" {
   ]
 }
 
+resource "aws_security_group_rule" "cpc_batch_egress_dvla_elise" {
+  description       = "Allow TCP/443 to DVLA Elise"
+  type              = "egress"
+  from_port         = 443
+  to_port           = 443
+  protocol          = "tcp"
+  security_group_id = "${aws_security_group.cpc_batch.id}"
+
+  cidr_blocks = [
+    "${var.dvla_elise_server}",
+  ]
+}
+
