@@ -238,11 +238,14 @@ jenkinsnode_subnets_cidrs = [
 # ACTIVE_STANDBY_MULTI_AZ requires 2
 awsmq_subnets_cidrs = [
   "10.167.149.208/28",
-#  "10.167.149.224/28",
-#  "10.167.149.240/28",
 ]
 
-#  "10.167.150.0/28",
+apache_subnet_cidrs = [
+  "10.167.149.224/28",
+  "10.167.149.240/28",
+  "10.167.150.0/28",
+]
+
 #  "10.167.150.16/28",
 
 test_database_subnets_cidrs = [

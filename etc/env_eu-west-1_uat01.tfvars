@@ -236,7 +236,6 @@ jenkinsnode_subnets_cidrs = [
 awsmq_subnets_cidrs = [
   "10.167.13.208/28",
 #  "10.167.13.224/28",
-
 ]
 
 efs_backup_subnets_cidrs = [
