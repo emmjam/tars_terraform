@@ -664,6 +664,7 @@ logs_list = [
   "/opt/tomcat/logs/fyndi.log",
 ]
 
+
 # Added by TS-4753
 # To be removed by TS-4722 and TS-4756
 # TEMP UAT DB's in Prod
@@ -685,3 +686,15 @@ tmp_cpc_rds_password = ""
 tmp_cpc_rds_allocated_storage = ""
 tmp_cpc_rds_snapshot = ""
 
+cpc_internet_cert       = "*"
+cpc_dvsa_internet_cert  = "*"
+cpc_cert                = "*"
+cpc_private_cert        = "*"
+fyndi_cert              = "*"
+tars_cert               = "*"
+tars_private_cert       = "*"
+tars_pdf_cert           = "*"
+obs_cert                = "*"
+ibs_cert                = "*"
+irdt_cert               = "*"
+apache_cert             = "*"

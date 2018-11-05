@@ -40,7 +40,7 @@ asg_default_tags = [
 prometheus_asg_min_size           = 1
 prometheus_asg_max_size           = 1
 prometheus_instance_type          = "t2.medium"
-prometheus_ami_build_id           = 342
+prometheus_ami_build_id           = 372
 prometheus_efs_provisioned_mibps  = 1
 
 #EFS Backups
@@ -477,8 +477,6 @@ jmeter_asg_size_min               = 0
 squidnat_instance_type = "m5.large"
 
 private_cert_domain_name = "perf01.tars.dvsa.aws"
-cpc_cert    = "*"
-fyndi_cert  = "*"
-tars_cert   = "*"
-obs_cert    = "*"
-ibs_cert    = "*"
+
+apache_ami_build_id = 371
+

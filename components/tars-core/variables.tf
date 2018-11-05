@@ -316,6 +316,11 @@ variable "cert_name" {
   description = "ACM cert name"
 }
 
+variable "irdt_cert" {
+  type        = "string"
+  description = "ACM cert name"
+}
+
 variable "tars_cert" {
   type        = "string"
   description = "CPC ACM cert name"
@@ -352,4 +357,59 @@ variable "tmp_tars_rds_allocated_storage" {
 variable "tmp_tars_rds_snapshot" {
   type        = "string"
   description = "Temp UAT DB in prod"
+}
+
+variable "apache_asg_max_size" {
+  type        = "string"
+  description = ""
+}
+
+variable "apache_asg_min_size" {
+  type        = "string"
+  description = ""
+}
+
+variable "apache_scaledown_desired" {
+  type        = "string"
+  description = ""
+}
+
+variable "apache_scaleup_desired" {
+  type        = "string"
+  description = ""
+}
+
+variable "apache_scaledown_recurrence" {
+  type        = "string"
+  description = ""
+}
+
+variable "apache_scaleup_recurrence" {
+  type        = "string"
+  description = ""
+}
+
+variable "apache_instance_type" {
+  type        = "string"
+  description = ""
+}
+
+variable "apache_puppet_kms_key" {
+  type        = "string"
+  description = ""
+}
+
+variable "apache_ami_build_id" {
+  type        = "string"
+  description = ""
+}
+
+variable "apache_cert" {
+  type        = "string"
+  description = ""
+}
+
+variable "apache_subnet_cidrs" {
+  type        = "list"
+  description = ""
 }

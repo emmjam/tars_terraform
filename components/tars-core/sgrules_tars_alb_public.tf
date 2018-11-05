@@ -9,6 +9,7 @@ resource "aws_security_group_rule" "tars_alb_public_ingress_whitelist_port_443" 
 
   cidr_blocks = [
     "${var.whitelist}",
+    "${formatlist("%s/32", data.terraform_remote_state.base.nat_gw_ip)}",
   ]
 }
 

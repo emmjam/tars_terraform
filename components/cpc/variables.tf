@@ -266,6 +266,16 @@ variable "cert_name" {
   description = "ACM cert name"
 }
 
+variable "cpc_internet_cert" {
+  type        = "string"
+  description = "CPC ACM cert name"
+}
+
+variable "cpc_dvsa_internet_cert" {
+  type        = "string"
+  description = "CPC ACM cert name"
+}
+
 variable "cpc_cert" {
   type        = "string"
   description = "CPC ACM cert name"

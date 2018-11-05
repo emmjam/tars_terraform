@@ -40,7 +40,7 @@ asg_default_tags = [
 prometheus_asg_min_size           = 1
 prometheus_asg_max_size           = 1
 prometheus_instance_type          = "t2.medium"
-prometheus_ami_build_id           = 342
+prometheus_ami_build_id           = 372
 prometheus_efs_provisioned_mibps  = 5
 
 #EFS Backups
@@ -247,11 +247,13 @@ jenkinsnode_subnets_cidrs = [
 awsmq_subnets_cidrs = [
   "10.167.133.208/28",
   "10.167.133.224/28",
-#  "10.167.133.240/28",
 ]
 
-#  "10.167.134.0/28",
-#  "10.167.134.16/28",
+apache_subnet_cidrs = [
+  "10.167.133.240/28",
+  "10.167.134.0/28",
+  "10.167.134.16/28",
+]
 
 test_database_subnets_cidrs = [
   "10.167.134.32/27",
@@ -388,14 +390,18 @@ irdt_incapsula  = "zi5ckxk.x.incapdns.net"
 
 private_cert_domain_name = "prod.tars.dvsa.aws"
 
-cpc_cert    = "cpc-prod"
-cpc_private_cert = "cpc-dvsa"
-fyndi_cert  = "fyndi-prod-public"
-tars_cert   = "tars-prod-public"
-tars_private_cert = "tars-core-private"
-tars_pdf_cert = "tars-prod-pdf"
-obs_cert    = "obs-prod-public"
-ibs_cert    = "ibs-prod-public"
+cpc_internet_cert       = "tars-prod-cpc-internet"
+cpc_dvsa_internet_cert  = "tars-prod-cpc-dvsa-internet"
+cpc_cert                = "cpc-prod"
+cpc_private_cert        = "cpc-dvsa"
+fyndi_cert              = "fyndi-prod-public"
+tars_cert               = "tars-prod-public"
+tars_private_cert       = "tars-core-private"
+tars_pdf_cert           = "tars-prod-pdf"
+obs_cert                = "obs-prod-public"
+ibs_cert                = "ibs-prod-public"
+irdt_cert               = "irdt-prod-public"
+apache_cert             = "routing-prod-public"
 
 
 ## wildfly-batch temporary 'off' schedule
@@ -413,6 +419,8 @@ cpc-batch_scaledown_desired    = 0
 cpc-batch_scaledown_recurrence = "00 22 * * 1-5"
 cpc-batch_scaleup_desired      = 0
 cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
+
+apache_ami_build_id = 371
 
 # Added by TS-4753
 # To be removed by TS-4722 and TS-4756

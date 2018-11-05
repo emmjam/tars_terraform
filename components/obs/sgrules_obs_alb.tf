@@ -7,6 +7,7 @@ resource "aws_security_group_rule" "obs-alb_ingress_public" {
 
   cidr_blocks = [
     "${var.whitelist}",
+    "${formatlist("%s/32", data.terraform_remote_state.base.nat_gw_ip)}",
   ]
 }
 

@@ -8,6 +8,7 @@ resource "aws_security_group_rule" "cpc-front-alb_ingress_public-443" {
   # Needs changing to be generic internet when we're ready
   cidr_blocks = [
     "${var.whitelist}",
+    "${formatlist("%s/32", data.terraform_remote_state.base.nat_gw_ip)}",
   ]
 }
 
