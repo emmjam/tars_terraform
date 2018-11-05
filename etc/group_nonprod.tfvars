@@ -326,6 +326,17 @@ cpc-batch_scaledown_recurrence = "00 22 * * 1-5"
 cpc-batch_scaleup_desired      = 1
 cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
+
+## apache
+apache_instance_type         = "t2.medium"
+apache_puppet_kms_key        = "38af52b4-66c9-473c-b61a-c9589605ffd8"
+apache_asg_min_size          = 0
+apache_asg_max_size          = 1
+apache_scaledown_desired     = 0
+apache_scaledown_recurrence  = "00 22 * * 1-5"
+apache_scaleup_desired       = 1
+apache_scaleup_recurrence    = "00 07 * * 1-5"
+
 ## AWS MQ
 aws_mq_engine_type             = "ActiveMQ"
 aws_mq_engine_version          = "5.15.0"

@@ -238,11 +238,14 @@ jenkinsnode_subnets_cidrs = [
 # ACTIVE_STANDBY_MULTI_AZ requires 2
 awsmq_subnets_cidrs = [
   "10.167.37.208/28",
-#  "10.167.37.224/28",
-#  "10.167.37.240/28",
 ]
 
-#  "10.167.38.0/28",
+apache_subnet_cidrs = [
+  "10.167.37.224/28",
+  "10.167.37.240/28",
+  "10.167.38.0/28",
+]
+
 #  "10.167.38.16/28",
 
 test_database_subnets_cidrs = [
@@ -466,6 +469,17 @@ wildfly-mock_scaledown_desired    = 1
 wildfly-mock_scaledown_recurrence = "00 16 * * 1-7"
 wildfly-mock_scaleup_desired      = 1
 wildfly-mock_scaleup_recurrence   = "00 04 * * 1-7"
+
+## apache
+apache_instance_type         = "m4.large"
+apache_puppet_kms_key        = "38af52b4-66c9-473c-b61a-c9589605ffd8"
+apache_asg_min_size          = 0
+apache_asg_max_size          = 2
+apache_scaledown_desired     = 2
+apache_scaledown_recurrence  = "00 22 * * 1-5"
+apache_scaleup_desired       = 2
+apache_scaleup_recurrence    = "00 07 * * 1-5"
+
 
 ##  JMeter
 jmeter_instance_type              = "m5.large"
