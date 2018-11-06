@@ -258,3 +258,10 @@ variable "cert_name" {
   type        = "string"
   description = "ACM cert name"
 }
+
+variable "dvsa_external_mail_domain" {
+  type = "string"
+  description = "Email from domain used in production, DNS managed externally"
+  default = ""
+}
+
