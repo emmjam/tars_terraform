@@ -20,7 +20,7 @@ resource "aws_db_instance" "cpcdb" {
   license_model             = "${var.cpc_rds_license_model}"
   snapshot_identifier       = "${var.cpc_rds_snapshot}"
   parameter_group_name      = "${aws_db_parameter_group.cpc.id}"
-  option_group_name         = "${aws_db_option_group.cpc.id}"
+  option_group_name         = "${aws_db_option_group.cpcdb.id}"
   name                      = "${var.cpc_rds_sid_name}"
 
   vpc_security_group_ids = [
