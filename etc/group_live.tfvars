@@ -585,6 +585,8 @@ tars_dms_maint_window = "sun:03:16-sun:03:46"
 tars_dms_publicly_accessible = false
 tars_dms_replication_instance_class = "dms.r4.2xlarge"
 
+dvsa_external_mail_domain = "dvsa.gov.uk"
+
 # Added by TS-4753
 # To be removed by TS-4722 and TS-4756
 # TEMP UAT DB's in Prod
