@@ -28,6 +28,17 @@ variable "default_tags" {
   }
 }
 
+variable "asg_default_tags" {
+  type        = "list"
+  description = ""
+  default     = []
+}
+
+variable "aws_account_alias" {
+  type        = "string"
+  description = "The IAM AWS Account alias"
+}
+
 variable "account_environment" {
   type        = "string"
   description = "Test shortname of current AWS account"
@@ -491,3 +502,31 @@ variable "ecr_repository_ro_principals" {
   description = "The list of AWS Account IDs that we grant delegated read access to for Amazon ECR Repositories"
   default     = []
 }
+
+##
+# Nexus
+##
+
+variable "nexus_config" {
+  type        = "map"
+  description = "Map of parameters describing the configuration of the nexus microservice"
+  default     = {}
+}
+
+variable "nexus_subnets_cidrs" {
+  type        = "list"
+  description = "List of subnet CIDRs for nexus"
+}
+
+variable "nexus_efs_subnets_cidrs" {
+  type        = "list"
+  description = "List of CIDR blocks for provisioning Nexus Master EFS Mount Target subnets"
+  default     = []
+}
+
+/*
+variable "nexus_ami_build_id" {
+  type        = "string"
+  description = ""
+}
+*/
