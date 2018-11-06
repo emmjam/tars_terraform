@@ -1,0 +1,16 @@
+#cloud-config
+# vim: set syntax=yaml tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab :
+write_files:
+  - content: |
+      environment: '${ENVIRONMENT}'
+    path: '/opt/puppetlabs/facter/facts.d/environment.yaml'
+    permissions: '0644'
+  - content: |
+      nodetype: '${NODETYPE}'
+      role: '${NODETYPE}'
+    path: '/opt/puppetlabs/facter/facts.d/nodetype.yaml'
+    permissions: '0644'
+  - content: |
+      aws_account: '${AWS_ACCOUNT_ID}'
+    path: '/opt/puppetlabs/facter/facts.d/aws_account.yaml'
+    permissions: '0644'

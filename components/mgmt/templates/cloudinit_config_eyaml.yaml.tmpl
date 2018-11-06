@@ -1,0 +1,11 @@
+#cloud-config
+# vim: set syntax=yaml tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab :
+write_files:
+  - path: '/etc/eyaml/config.yaml'
+    permissions: '0644'
+    owner: root:root
+    content: |
+      ---
+      encrypt_method: kms
+      kms_key_id: '${KMS_KEY_ID}'
+      kms_aws_region: '${AWS_REGION}'

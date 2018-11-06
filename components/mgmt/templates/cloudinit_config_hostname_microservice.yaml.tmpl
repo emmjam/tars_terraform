@@ -1,0 +1,9 @@
+#cloud-config
+# vim: set syntax=yaml tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab :
+bootcmd:
+  - "hostname ${NODETYPE}-$INSTANCE_ID"
+  - "sed -i \"1i$(curl -fs http://169.254.169.254/latest/meta-data/local-ipv4)	${NODETYPE}-$INSTANCE_ID.${VPC_DOMAIN_NAME}	${NODETYPE}-$INSTANCE_ID\" /etc/hosts"
+  - "sed -i -e '/HOSTNAME=/d' /etc/sysconfig/network"
+  - "echo \"HOSTNAME=${NODETYPE}-$INSTANCE_ID.${VPC_DOMAIN_NAME}\" >> /etc/sysconfig/network"
+  - "echo \"${NODETYPE}-$INSTANCE_ID\" > /etc/hostname"
+preserve_hostname: true

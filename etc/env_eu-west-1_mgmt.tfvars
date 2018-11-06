@@ -14,6 +14,24 @@ default_tags = {
   Environment = "mgmt"
 }
 
+asg_default_tags = [
+  {
+    "key"                 = "Project"
+    "value"               = "tars"
+    "propagate_at_launch" = "true"
+  },
+  {
+    "key"                 = "Environment"
+    "value"               = "mgmt"
+    "propagate_at_launch" = "true"
+  },
+  {
+    "key"                 = "Group"
+    "value"               = "mgmt"
+    "propagate_at_launch" = "true"
+  }
+]
+
 private_domain_name = "tars.dvsa.aws"
 
 ##########
@@ -331,4 +349,28 @@ ecr_repository_ro_principals = [
   "246976497890", # tarsprod
   "645711882182", # tarsmgmt
   "652856684323", # tarsnonprod
+]
+
+##
+# Nexus
+##
+
+nexus_config = {
+  asg_min       = "0"
+  asg_max       = "1"
+  asg_desired   = "1"
+  instance_type = "t3.medium"
+  listen_port   = "8081"
+}
+
+nexus_subnets_cidrs = [
+  "10.200.4.0/28",
+  "10.200.4.16/28",
+  "10.200.4.32/28",
+]
+
+nexus_efs_subnets_cidrs = [
+  "10.200.4.48/28",
+  "10.200.4.64/28",
+  "10.200.4.80/28",
 ]
