@@ -1,5 +1,5 @@
-resource "aws_db_option_group" "cpc" {
-  name                     = "cpc"
+resource "aws_db_option_group" "cpcdb" {
+  name                     = "${local.csi}-option-group"
   option_group_description = "Terraform Option Group"
   engine_name              = "oracle-se2"
   major_engine_version     = "12.1"

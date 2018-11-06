@@ -317,7 +317,7 @@ tars_rds_password = "password"
 # TARSDB
 tars_rds_allocated_storage = "20" # 20 Gigabyte - was 1500GB
 
-tars_rds_snapshot = "tars-opsdev-tars-core-tarsdb-20181105"
+tars_rds_snapshot = "tars-opsdev-tars-core-tarsdb-20181106"
 
 # CPCSDB
 cpc_rds_username = "tarscpcadmin"
@@ -326,7 +326,7 @@ cpc_rds_password = "YwBWc8HvweT3Lun8"
 
 # CPCTSDB
 cpc_rds_allocated_storage = "20" # 20 Gigabyte - was 1500GB
-cpc_rds_snapshot = "tars-opsdev-cpc-cpcdb-20181105"
+cpc_rds_snapshot = "tars-opsdev-cpc-cpcdb-20181106"
 
 
 # IBSDB
@@ -337,13 +337,13 @@ ibs_rds_password = "password"
 ibs_rds_snapshot = "sit01-ibs-subnet-move"
 
 # MISDB
-mis_rds_username = "misdevadmin"
+mis_rds_username = "misdmsadmin"
 mis_rds_password = "password"
 mis_rds_allocated_storage = "300"
 mis_rds_snapshot = "tars-dev01-tars-dms-misopdmstg-20180720"
 
 # RSISDB
-rsis_rds_username = "rsisdevadmin"
+rsis_rds_username = "tarsrsisadmin"
 rsis_rds_password = "password"
 rsis_rds_allocated_storage = "80"
 rsis_rds_snapshot = "tars-dev01-tars-dms-rsisdmssc-20180719"
