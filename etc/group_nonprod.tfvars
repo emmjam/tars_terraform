@@ -404,7 +404,6 @@ whitelist = [
   "213.160.121.250/32", # DVSA Notts Corp & Wifi
   "77.86.30.4/32",      # BJSS VPN (Decom ~06/18)
   "148.253.134.213/32", # BJSS VPN 04/18
-  "148.253.134.212/32", # BJSS Guest Wifi 10/18
   "195.205.13.211/32",  # Capita (WM Proxy)
   "195.27.53.211/32",   # Capita (LD Proxy)
   "85.115.52.201/32",   # Capita (Cloud Proxy)
@@ -414,7 +413,6 @@ whitelist = [
   "92.54.181.128/29",   # Informed Solutions
   "87.81.132.117/32",   # Informed Solutions
   "54.72.37.158/32",    # Selenium Elasticgrid Proxy
-  "54.76.206.25/32",    # Perf01 NATGW IP
   "199.83.128.0/21",    # Begin Incapsula IPs
   "198.143.32.0/19",
   "149.126.72.0/21",
