@@ -357,7 +357,7 @@ mis_rds_allocated_storage = "300"
 mis_rds_autoscale = "False"
 
 # RSISDB
-rsis_rds_username = "rsissitadmin"
+rsis_rds_username = "tarsrsisadmin"
 rsis_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 rsis_rds_snapshot = "tars-dev01-tars-dms-rsisdmssc-20180719"
 rsis_rds_allocated_storage = "300"
