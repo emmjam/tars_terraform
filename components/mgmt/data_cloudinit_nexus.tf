@@ -24,6 +24,7 @@ data "template_file" "cloudinit_config_efs_mount" {
   template = "${file("${path.module}/templates/cloudinit_config_efs_mount.sh.tmpl")}"
 
    vars {
+     AWS_REGION     = "${var.aws_region}"
      EFS_ID      = "${aws_efs_file_system.nexus.id}"
      MOUNT_POINT = "/opt/sonatype-work/nexus3"
    }
