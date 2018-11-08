@@ -325,7 +325,7 @@ tars_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 
 # TARSDB
 tars_rds_allocated_storage = "300"
-tars_rds_snapshot = "tars-uat01-tars-core-tarsdb-20180720"
+tars_rds_snapshot = "tars-uat01-tars-core-tarsdb-20181108"
 tars_rds_autoscale = "False"
 
 
@@ -349,14 +349,14 @@ ibs_rds_snapshot = "uat01-ibs-subnet-move"
 mis_rds_username = "misdmsadmin"
 mis_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 mis_rds_allocated_storage = "300"
-mis_rds_snapshot = "tars-uat01-tars-reporting-misdb-20181108-1"
+mis_rds_snapshot = "tars-uat01-tars-reporting-misdb-20181108"
 mis_rds_autoscale = "False"
 
 # RSISDB
 rsis_rds_username = "tarsrsisadmin"
 rsis_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 rsis_rds_allocated_storage = "300"
-rsis_rds_snapshot = "tars-uat01-tars-reporting-rsisdb-20181108-1"
+rsis_rds_snapshot = "tars-uat01-tars-reporting-rsisdb-20181108"
 rsis_rds_autoscale = "False"
 
 #############################################################################
@@ -395,3 +395,10 @@ private_cert_domain_name = "uat01.tars.dvsa.aws"
 
 apache_ami_build_id = 371
 
+# Temporary allocation -
+# To be removed when overall range is increased
+apache_subnet_cidrs = [
+ "10.167.12.224/28",
+ "10.167.12.240/28",
+ "10.167.13.96/28",
+]
