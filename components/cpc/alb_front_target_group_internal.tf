@@ -1,6 +1,6 @@
 # CPC ALB target group for port 9443
-resource "aws_alb_target_group" "cpc-front-internet-9443" {
-  name     = "${local.csi}-internet-9443"
+resource "aws_alb_target_group" "cpc-front-internal-9443" {
+  name     = "${local.csi}-internal-9443"
   port     = "9443"
   protocol = "HTTPS"
   vpc_id   = "${data.terraform_remote_state.base.vpc_id}"

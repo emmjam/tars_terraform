@@ -94,3 +94,29 @@ resource "aws_route53_record" "pearsonssftp" {
     "sftpuk2.pearsonvue.com",
   ]
 }
+
+resource "aws_route53_record" "irdt-internal" {
+  name = "irdt-internal"
+
+  zone_id = "${data.terraform_remote_state.base.private_zone_id}"
+  type    = "A"
+
+  alias {
+    name                   = "${aws_alb.tars-internal.dns_name}"
+    zone_id                = "${aws_alb.tars-internal.zone_id}"
+    evaluate_target_health = true
+  }
+}
+
+resource "aws_route53_record" "tars-core-internal" {
+  name = "tars-core-internal"
+
+  zone_id = "${data.terraform_remote_state.base.private_zone_id}"
+  type    = "A"
+
+  alias {
+    name                   = "${aws_alb.tars-internal.dns_name}"
+    zone_id                = "${aws_alb.tars-internal.zone_id}"
+    evaluate_target_health = true
+  }
+}

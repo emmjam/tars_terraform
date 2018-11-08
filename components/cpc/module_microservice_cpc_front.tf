@@ -23,7 +23,7 @@ module "cpc-front" {
     "${aws_alb_target_group.cpc-front-dvsa-8443.id}",
     "${aws_alb_target_group.cpc-front-dvsa-internet-8443.id}",
     "${aws_alb_target_group.cpc-front-dva-7443.id}",
-    "${aws_alb_target_group.cpc-front-internet-9443.id}",
+    "${aws_alb_target_group.cpc-front-internal-9443.id}",
   ]
 
   lc_additional_sg_ids = [

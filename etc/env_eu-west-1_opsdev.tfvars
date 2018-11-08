@@ -62,9 +62,21 @@ vpc_cidr = "10.167.0.0/21"
 
 ## alb public
 alb_public_subnets_cidrs = [
-  "10.167.0.0/26",
-  "10.167.0.64/26",
-  "10.167.0.128/26",
+  "10.167.0.0/27",
+  "10.167.0.32/27",
+  "10.167.0.64/27",
+]
+
+tars_alb_internal = [
+  "10.167.0.96/28",
+  "10.167.0.112/28",
+  "10.167.0.128/28",
+]
+
+obs_alb_internal = [
+  "10.167.0.144/28",
+  "10.167.0.160/28",
+  "10.167.0.176/28",
 ]
 
 # TARS Frontend/IBS/OBS Web subnets
@@ -260,7 +272,7 @@ jmeter_subnets_cidrs = [
   "10.167.6.160/28",
 ]
 
-third_party_subnets_cidrs = [
+cpc_alb_internal = [
   "10.167.6.176/28",
   "10.167.6.192/28",
   "10.167.6.208/28",
@@ -378,5 +390,5 @@ xenco_ssh_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAgEAglcxWvitvW4CTzgOZdQJF7F
 
 private_cert_domain_name = "dvsa.tars.dev-dvsacloud.uk"
 
-apache_ami_build_id = 371
+apache_ami_build_id = 390
 

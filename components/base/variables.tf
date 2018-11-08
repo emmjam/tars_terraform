@@ -86,6 +86,24 @@ variable "awsmq_subnets_cidrs" {
   default     = []
 }
 
+variable "tars_alb_internal" {
+  type        = "list"
+  description = "TARS Internal ALB Subnet CIDR's"
+  default     = []
+}
+
+variable "obs_alb_internal" {
+  type        = "list"
+  description = "OBS Internal ALB Subnet CIDR's"
+  default     = []
+}
+
+variable "cpc_alb_internal" {
+  type        = "list"
+  description = "CPC Internal ALB Subnet CIDR's"
+  default     = []
+}
+
 variable "alb_public_subnets_cidrs" {
   type        = "list"
   description = "TARS Public Facing ALB Subnet CIDR's"

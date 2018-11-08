@@ -62,9 +62,21 @@ vpc_cidr = "10.167.24.0/21"
 
 ## alb public
 alb_public_subnets_cidrs = [
-  "10.167.24.0/26",
-  "10.167.24.64/26",
-  "10.167.24.128/26",
+  "10.167.24.0/27",
+  "10.167.24.32/27",
+  "10.167.24.64/27",
+]
+
+tars_alb_internal = [
+  "10.167.24.96/28",
+  "10.167.24.112/28",
+  "10.167.24.128/28",
+]
+
+obs_alb_internal = [
+  "10.167.24.144/28",
+  "10.167.24.160/28",
+  "10.167.24.176/28",
 ]
 
 # TARS Frontend/IBS/OBS Web subnets
@@ -260,7 +272,7 @@ jmeter_subnets_cidrs = [
   "10.167.30.160/28",
 ]
 
-third_party_subnets_cidrs = [
+cpc_alb_internal = [
   "10.167.30.176/28",
   "10.167.30.192/28",
   "10.167.30.208/28",
@@ -637,4 +649,4 @@ wildfly-mock_scaledown_recurrence = "00 20 * * 1-5"
 wildfly-mock_scaleup_desired      = 1
 wildfly-mock_scaleup_recurrence   = "00 00 * * 1-5"
 
-apache_ami_build_id = 371
+apache_ami_build_id = 390
