@@ -336,7 +336,7 @@ cpc_rds_password = "Mg28yDQjuEWndbtz"
 
 # CPCTSDB
 cpc_rds_allocated_storage = "100" # 20 Gigabyte - was 1500GB
-cpc_rds_snapshot = "cpcuat01-inc-seq-views-cpc01-2018-08-01"
+cpc_rds_snapshot = "tars-uat01-cpc-cpcdb-20181108"
 
 # IBSDB
 ibs_rds_username = "tarsuatadmin"
@@ -349,14 +349,14 @@ ibs_rds_snapshot = "uat01-ibs-subnet-move"
 mis_rds_username = "misdmsadmin"
 mis_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 mis_rds_allocated_storage = "300"
-mis_rds_snapshot = "tars-uat01-tars-reporting-misdb-20180816"
+mis_rds_snapshot = "tars-uat01-tars-reporting-misdb-20181108-1"
 mis_rds_autoscale = "False"
 
 # RSISDB
 rsis_rds_username = "tarsrsisadmin"
 rsis_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 rsis_rds_allocated_storage = "300"
-rsis_rds_snapshot = "tars-uat01-tars-reporting-rsisdb-20180816"
+rsis_rds_snapshot = "tars-uat01-tars-reporting-rsisdb-20181108-1"
 rsis_rds_autoscale = "False"
 
 #############################################################################
