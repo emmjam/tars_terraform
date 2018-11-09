@@ -423,6 +423,7 @@ whitelist = [
   "107.154.0.0/16",
   "45.60.0.0/16",
   "45.223.0.0/16",      # End Incapsula IPs
+  "54.76.206.25/32",    # Perf01 NATGW IP
 ]
 
 dvsa_dc_whitelist = [
