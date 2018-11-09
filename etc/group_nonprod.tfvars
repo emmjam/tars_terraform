@@ -53,6 +53,7 @@ all_users = [
   "mike.peachey@bjss.com",
   "manoj.patil@capita.co.uk",
   "bryan.williams@bjss.com",
+  "test.test@test.com",
 ]
 
 administrators = [
