@@ -166,6 +166,16 @@ variable "dvsa_mgmt_inbound" {
   default     = []
 }
 
+variable "dvsa_icmp_monitoring" {
+  type        = "list"
+  description = "DVSA ICMP for Monitoring Messaging"
+}
+
+variable "dvsa_win_monitoring" {
+  type        = "list"
+  description = "DVSA ports for Monitoring Messaging"
+}
+
 variable "cert_name" {
   type        = "string"
   description = "ACM cert name"

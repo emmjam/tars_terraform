@@ -477,6 +477,18 @@ dvsa_mgmt_inbound = [
   "10.69.3.4/32"
 ]
 
+dvsa_icmp_monitoring = [
+  "10.69.3.0/26",
+  "10.69.131.0/26",
+]
+
+dvsa_win_monitoring = [
+  "10.69.3.15/32",
+  "10.69.3.16/32",
+  "10.69.3.17/32",
+  "10.69.3.18/32",
+]
+
 # Used for DTC printer queue lookups
 dvsa_ldap_server = "10.166.0.14/32"
 
