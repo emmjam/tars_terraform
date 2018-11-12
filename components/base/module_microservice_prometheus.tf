@@ -24,7 +24,6 @@ module "prometheus" {
   lc_user_data     = "${data.template_cloudinit_config.prometheus.rendered}"
 
   asg_target_group_arns = [ 
-    "${aws_alb_target_group.prometheus-80.id}",
     "${aws_alb_target_group.prometheus-9090.id}",
   ]
 

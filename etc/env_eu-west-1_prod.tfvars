@@ -70,9 +70,21 @@ vpc_cidr = "10.167.128.0/21"
 
 ## alb public
 alb_public_subnets_cidrs = [
-  "10.167.128.0/26",
-  "10.167.128.64/26",
-  "10.167.128.128/26",
+  "10.167.128.0/27",
+  "10.167.128.32/27",
+  "10.167.128.64/27",
+]
+
+tars_alb_internal = [
+  "10.167.128.96/28",
+  "10.167.128.112/28",
+  "10.167.128.128/28",
+]
+
+obs_alb_internal = [
+  "10.167.128.144/28",
+  "10.167.128.160/28",
+  "10.167.128.176/28",
 ]
 
 # TARS Frontend/IBS/OBS Web subnets
@@ -267,7 +279,7 @@ jmeter_subnets_cidrs = [
   "10.167.134.160/28",
 ]
 
-third_party_subnets_cidrs = [
+cpc_alb_internal = [
   "10.167.134.176/28",
   "10.167.134.192/28",
   "10.167.134.208/28",
@@ -420,7 +432,7 @@ cpc-batch_scaledown_recurrence = "00 22 * * 1-5"
 cpc-batch_scaleup_desired      = 0
 cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
-apache_ami_build_id = 371
+apache_ami_build_id = 390
 
 # Added by TS-4753
 # To be removed by TS-4722 and TS-4756

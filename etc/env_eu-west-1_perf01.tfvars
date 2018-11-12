@@ -62,9 +62,21 @@ vpc_cidr = "10.167.32.0/21"
 
 ## alb public
 alb_public_subnets_cidrs = [
-  "10.167.32.0/26",
-  "10.167.32.64/26",
-  "10.167.32.128/26",
+  "10.167.32.0/27",
+  "10.167.32.32/27",
+  "10.167.32.64/27",
+]
+
+tars_alb_internal = [
+  "10.167.32.96/28",
+  "10.167.32.112/28",
+  "10.167.32.128/28",
+]
+
+obs_alb_internal = [
+  "10.167.32.144/28",
+  "10.167.32.160/28",
+  "10.167.32.176/28",
 ]
 
 # TARS Frontend/IBS/OBS Web subnets
@@ -260,7 +272,7 @@ jmeter_subnets_cidrs = [
   "10.167.38.160/28",
 ]
 
-third_party_subnets_cidrs = [
+cpc_alb_internal = [
   "10.167.38.176/28",
   "10.167.38.192/28",
   "10.167.38.208/28",
@@ -492,4 +504,4 @@ squidnat_instance_type = "m5.large"
 
 private_cert_domain_name = "perf01.tars.dvsa.aws"
 
-apache_ami_build_id = 371
+apache_ami_build_id = 390

@@ -62,9 +62,21 @@ vpc_cidr = "10.167.8.0/21"
 
 ## alb public
 alb_public_subnets_cidrs = [
-  "10.167.8.0/26",
-  "10.167.8.64/26",
-  "10.167.8.128/26",
+  "10.167.8.0/27",
+  "10.167.8.32/27",
+  "10.167.8.64/27",
+]
+
+tars_alb_internal = [
+  "10.167.8.96/28",
+  "10.167.8.112/28",
+  "10.167.8.128/28",
+]
+
+obs_alb_internal = [
+  "10.167.8.144/28",
+  "10.167.8.160/28",
+  "10.167.8.176/28",
 ]
 
 # TARS Frontend/IBS/OBS Web subnets
@@ -256,7 +268,7 @@ jmeter_subnets_cidrs = [
   "10.167.14.160/28",
 ]
 
-third_party_subnets_cidrs = [
+cpc_alb_internal = [
   "10.167.14.176/28",
   "10.167.14.192/28",
   "10.167.14.208/28",
@@ -393,7 +405,7 @@ domain_name_servers = [
 
 private_cert_domain_name = "uat01.tars.dvsa.aws"
 
-apache_ami_build_id = 371
+apache_ami_build_id = 390
 
 # Temporary allocation -
 # To be removed when overall range is increased

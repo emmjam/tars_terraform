@@ -64,9 +64,21 @@ vpc_cidr = "10.167.136.0/21"
 
 ## alb public
 alb_public_subnets_cidrs = [
-  "10.167.136.0/26",
-  "10.167.136.64/26",
-  "10.167.136.128/26",
+  "10.167.136.0/27",
+  "10.167.136.32/27",
+  "10.167.136.64/27",
+]
+
+tars_alb_internal = [
+  "10.167.136.96/28",
+  "10.167.136.112/28",
+  "10.167.136.128/28",
+]
+
+obs_alb_internal = [
+  "10.167.136.144/28",
+  "10.167.136.160/28",
+  "10.167.136.176/28",
 ]
 
 # TARS Frontend/IBS/OBS Web subnets
@@ -261,7 +273,7 @@ jmeter_subnets_cidrs = [
   "10.167.142.160/28",
 ]
 
-third_party_subnets_cidrs = [
+cpc_alb_internal = [
   "10.167.142.176/28",
   "10.167.142.192/28",
   "10.167.142.208/28",
@@ -405,4 +417,4 @@ obs_cert            = "obs-prep-public"
 ibs_cert            = "ibs-prep-public"
 apache_cert         = "routing-prod-public"
 
-apache_ami_build_id = 371
+apache_ami_build_id = 390

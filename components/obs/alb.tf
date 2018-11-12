@@ -1,7 +1,7 @@
 # OBS ALB
 resource "aws_alb" "obs" {
   name         = "${local.csi}-obs"
-  internal     = false
+  internal     = true
   idle_timeout = 300
 
   access_logs {
@@ -15,7 +15,7 @@ resource "aws_alb" "obs" {
   ]
 
   subnets = [
-    "${data.terraform_remote_state.base.subnets_alb_public}",
+    "${data.terraform_remote_state.base.subnets_obs_alb_internal}",
   ]
 
   idle_timeout = 300

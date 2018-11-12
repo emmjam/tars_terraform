@@ -1,10 +1,8 @@
 # TARS Batch ALB Listener for port 8080
 resource "aws_alb_listener" "obs-8080" {
   load_balancer_arn = "${aws_alb.obs.arn}"
-  port              = "443"
-  protocol          = "HTTPS"
-  ssl_policy        = "ELBSecurityPolicy-TLS-1-2-Ext-2018-06"
-  certificate_arn   = "${data.aws_acm_certificate.obs_tars_dvsacloud_uk.arn}"
+  port              = "80"
+  protocol          = "HTTP"
 
   default_action {
     type             = "forward"

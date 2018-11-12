@@ -7,14 +7,6 @@ data "aws_acm_certificate" "nonprod_tars_dvsacloud_uk" {
   ]
 }
 
-data "aws_acm_certificate" "cpc_front_internet" {
-  domain = "${var.cpc_internet_cert}.${data.terraform_remote_state.acc.public_domain_name}"
-
-  statuses = [
-    "ISSUED",
-  ]
-}
-
 data "aws_acm_certificate" "cpc_front_dvsa_internet" {
   domain = "${var.cpc_dvsa_internet_cert}.${data.terraform_remote_state.acc.public_domain_name}"
 

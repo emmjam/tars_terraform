@@ -11,6 +11,18 @@ output "subnets_alb_public" {
   value = "${module.alb_public_subnets.subnet_ids}"
 }
 
+output "subnets_cpc_alb_internal" {
+  value = "${module.cpc_alb_internal.subnet_ids}"
+}
+
+output "subnets_tars_alb_internal" {
+  value = "${module.tars_alb_internal.subnet_ids}"
+}
+
+output "subnets_obs_alb_internal" {
+  value = "${module.obs_alb_internal.subnet_ids}"
+}
+
 output "subnets_tars_backend" {
   value = "${module.tars_backend_subnets.subnet_ids}"
 }

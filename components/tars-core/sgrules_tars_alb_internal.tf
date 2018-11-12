@@ -1,16 +1,11 @@
-# TARS public facing alb rules
-resource "aws_security_group_rule" "tars_alb_public_ingress_whitelist_port_443" {
-  description       = "Allow TCP/443 from Internet"
-  type              = "ingress"
-  from_port         = 443
-  to_port           = 443
-  protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-alb-public.id}"
-
-  cidr_blocks = [
-    "${var.whitelist}",
-    "${formatlist("%s/32", data.terraform_remote_state.base.nat_gw_ip)}",
-  ]
+resource "aws_security_group_rule" "tars_alb_internal_ingress_apache" {
+  description              = "Allow TCP/80 from Apache"
+  type                     = "ingress"
+  from_port                = 80
+  to_port                  = 80
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.tars-alb-internal.id}"
+  source_security_group_id = "${module.apache.security_group_id}"
 }
 
 resource "aws_security_group_rule" "tars_alb_public_egress_tars_front_port_8443" {
@@ -19,7 +14,7 @@ resource "aws_security_group_rule" "tars_alb_public_egress_tars_front_port_8443"
   from_port                = 8443
   to_port                  = 8443
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-alb-public.id}"
+  security_group_id        = "${aws_security_group.tars-alb-internal.id}"
   source_security_group_id = "${aws_security_group.tars-core-frontend.id}"
 }
 
@@ -29,6 +24,6 @@ resource "aws_security_group_rule" "tars_alb_public_egress_irdt_front_port_7443_
   from_port                = 7443
   to_port                  = 7443
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-alb-public.id}"
+  security_group_id        = "${aws_security_group.tars-alb-internal.id}"
   source_security_group_id = "${aws_security_group.tars-core-frontend.id}"
 }
