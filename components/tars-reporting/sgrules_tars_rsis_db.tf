@@ -54,3 +54,14 @@ resource "aws_security_group_rule" "rsis_rds_egress_tars_db" {
   security_group_id         = "${aws_security_group.tars-rsis-db.id}"
   source_security_group_id  = "${data.terraform_remote_state.tars-core.tars-core-db-sg-id}"
 }
+
+# TARS BATCH to RSIS DB
+resource "aws_security_group_rule" "rsis_rds_ingress_tars_batch_sg" {
+  description              = "Allow TCP/1521 from tars-batch"
+  type                     = "ingress"
+  from_port                = "1521"
+  to_port                  = "1521"
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.tars-rsis-db.id}"
+  source_security_group_id = "${data.terraform_remote_state.tars-batch.tars-batch-sg-id}"
+}
