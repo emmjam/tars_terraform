@@ -372,6 +372,9 @@ ctrl_grafana_subnets = [
 whitelist = [
   "135.196.73.204/32",  # DVSA Notts
   "213.160.121.250/32", # DVSA Notts Corp & Wifi
+  "10.201.80.0/21",     # DVSA Notts Internal
+  "10.69.3.64/26",      # DVSA ZPA VPN
+  "10.69.131.64/26",    # DVSA ZPA VPN
   "77.86.30.4/32",      # BJSS VPN (Decom ~06/18)
   "148.253.134.213/32", # BJSS VPN 04/18
   "148.253.134.212/32", # BJSS Guest Wifi 10/18
@@ -394,6 +397,13 @@ whitelist = [
   "107.154.0.0/16",
   "45.60.0.0/16",
   "45.223.0.0/16",      # End Incapsula IPs
+  "10.69.3.15/32",      # Begin DVSA MS-RDS
+  "10.69.3.16/32",
+  "10.69.3.17/32",
+  "10.69.3.18/32",
+  "10.69.1.70/31",
+  "10.84.192.159/32",
+  "10.84.192.161/32",      # End DVSA MS-RDS
 ]
 
 dvsa_dc_whitelist = [
