@@ -402,6 +402,7 @@ ctrl_grafana_subnets = [
 whitelist = [
   "135.196.73.204/32",  # DVSA Notts
   "213.160.121.250/32", # DVSA Notts Corp & Wifi
+  "10.201.80.0/21", # DVSA Notts Internal
   "77.86.30.4/32",      # BJSS VPN (Decom ~06/18)
   "148.253.134.213/32", # BJSS VPN 04/18
   "195.205.13.211/32",  # Capita (WM Proxy)
