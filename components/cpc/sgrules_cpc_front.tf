@@ -1,10 +1,10 @@
-resource "aws_security_group_rule" "cpc-front-ingress-cpc-front-internet-alb-9443" {
+resource "aws_security_group_rule" "cpc-front-ingress-cpc-front-internal-alb-9443" {
   type                     = "ingress"
   protocol                 = "tcp"
   from_port                = "9443"
   to_port                  = "9443"
   security_group_id        = "${module.cpc-front.security_group_id}"
-  source_security_group_id = "${aws_security_group.cpc-front-internet-alb.id}"
+  source_security_group_id = "${aws_security_group.cpc-front-internal-alb.id}"
 }
 
 resource "aws_security_group_rule" "cpc-front-ingress-cpc-front-dvs-alb-7443" {
