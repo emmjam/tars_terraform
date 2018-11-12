@@ -78,3 +78,13 @@ resource "aws_security_group_rule" "mis_rds_ingress_jenkinsnode" {
   source_security_group_id = "${data.terraform_remote_state.base.jenkinsnode_sg_id}"
 }
 
+# TARS BATCH to MIS DB
+resource "aws_security_group_rule" "mis_rds_ingress_tars_batch_sg" {
+  description              = "Allow TCP/1521 from tars-batch"
+  type                     = "ingress"
+  from_port                = "1521"
+  to_port                  = "1521"
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.tars-mis-db.id}"
+  source_security_group_id = "${data.terraform_remote_state.tars-batch.tars-batch-sg-id}"
+}
