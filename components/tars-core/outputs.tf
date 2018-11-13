@@ -22,3 +22,10 @@ output "tars-core-apache-sg-id" {
 output "tars-core-alb-target-group-irdt-frontend" {
   value = "${aws_alb_target_group.irdt-frontend-7443.arn}"
 }
+
+output "tars-apache-dns-name" {
+  value = "${aws_alb.apache_public.dns_name}"
+}
+output "tars-apache-dns-zone-id" {
+  value = "${aws_alb.apache_public.zone_id}"
+}
