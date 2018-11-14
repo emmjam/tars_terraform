@@ -134,9 +134,9 @@ variable "fyndi_back_alb_subnets_cidrs" {
   default     = []
 }
 
-variable "ibs_db_subnets_cidrs" {
+variable "tars_dvsa_alb_cidrs" {
   type        = "list"
-  description = "IBS DB CIDRs"
+  description = "TARS dvsa public ALB"
   default     = []
 }
 

@@ -1,5 +1,5 @@
 resource "aws_security_group_rule" "tars_alb_internal_ingress_apache" {
-  description              = "Allow TCP/80 from Apache"
+  description              = "Allow TCP/443 from Apache"
   type                     = "ingress"
   from_port                = 80
   to_port                  = 80

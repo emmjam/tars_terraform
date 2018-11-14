@@ -1,22 +1,22 @@
-# Subnets for the IBS RDS DB's
-module "subnets_ibs_rds" {
+# Subnets for the TARS
+module "tars_dvsa_alb_subnets" {
   source = "../../modules/subnets"
 
   project     = "${var.project}"
   environment = "${var.environment}"
   component   = "${var.component}"
-  name        = "ibs-rds"
+  name        = "tars-dvsa-alb"
 
   availability_zones = [
     "${data.aws_availability_zones.available.names}",
   ]
 
   cidrs = [
-    "${var.ibs_db_subnets_cidrs}",
+    "${var.tars_dvsa_alb_cidrs}",
   ]
 
   route_tables = [
-    "${aws_route_table.private_nonat.id}",
+    "${aws_route_table.public.id}",
   ]
 
   vpc_id       = "${aws_vpc.vpc.id}"
