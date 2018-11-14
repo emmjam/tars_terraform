@@ -308,6 +308,11 @@ sftpplus-svr_scaledown_recurrence = "00 20 * * 1-5"
 sftpplus-svr_scaleup_desired      = 1
 sftpplus-svr_scaleup_recurrence   = "00 04 * * 1-5"
 
+### Business Objects
+bobj_asg_max_size = 1
+bobj_asg_min_size = 0
+bobj_instance_type = "m5.large"
+
 ## Xenco
 xenco_key_name = ""
 xenco_asg_max_size = "1"

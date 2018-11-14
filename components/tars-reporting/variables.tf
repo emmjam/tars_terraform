@@ -265,6 +265,63 @@ variable "uat_dbs_in_prod" {
   description = "Temporarily have UAT DB's in prod to shakedown prod app"
 }
 
+variable "bobj_subnets_cidrs" {
+  type = "list"
+  description = ""
+}
+
+variable "bobj_instance_type" {
+  type = "string"
+  description = ""
+}
+
+variable "bobj_asg_min_size" {
+  type = "string"
+  description = ""
+}
+
+variable "bobj_asg_max_size" {
+  type = "string"
+  description = ""
+}
+
+variable "dvsa_sccm_services" {
+  type        = "string"
+  description = "DVSA SCCM IP"
+}
+
+variable "dvsa_epo_services" {
+  type        = "string"
+  description = "DVSA EPO IP"
+}
+
+variable "dvsa_mgmt_inbound" {
+  type        = "list"
+  description = "DVSA mgmt servers inbound"
+  default     = []
+}
+
+variable "dvsa_icmp_monitoring" {
+  type        = "list"
+  description = "DVSA ICMP for Monitoring Messaging"
+}
+
+variable "dvsa_win_monitoring" {
+  type        = "list"
+  description = "DVSA ports for Monitoring Messaging"
+}
+
+variable "dvsa_dc_whitelist" {
+  type        = "list"
+  description = "DVSA IPs"
+}
+
+variable "asg_default_tags" {
+  type        = "list"
+  description = "See code comments"
+  default     = []
+}
+
 variable "tmp_mis_rds_username" {
   type        = "string"
   description = "Temp UAT DB in prod"

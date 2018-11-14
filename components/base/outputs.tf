@@ -124,6 +124,10 @@ output "iam_policy_cloudwatch_arn" {
   value = "${aws_iam_policy.cloudwatch.arn}"
 }
 
+output "iam_policy_bobjnode_arn" {
+  value = "${aws_iam_policy.bobjnode.arn}"
+}
+
 output "subnets_ibs_db" {
   value = "${module.subnets_ibs_rds.subnet_ids}"
 }
