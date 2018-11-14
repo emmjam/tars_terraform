@@ -23,3 +23,4 @@ resource "aws_security_group_rule" "lbt_ingress_ssh" {
     "${var.xenco_lb_subnets_cidrs}",
   ]
 }
+
