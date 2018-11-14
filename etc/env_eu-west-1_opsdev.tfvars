@@ -278,7 +278,7 @@ cpc_alb_internal = [
   "10.167.6.208/28",
 ]
 
-owasp_subnets_cidrs = [
+bobj_subnets_cidrs = [
   "10.167.6.224/28",
   "10.167.6.240/28",
   "10.167.7.0/28",

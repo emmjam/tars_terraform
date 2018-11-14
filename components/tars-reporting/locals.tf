@@ -31,4 +31,7 @@ locals {
       "Component", var.component
     )
   )}"
+
+  vpc_domain_name = "${var.environment}.${var.private_domain_name}"
+
 }

@@ -1,0 +1,41 @@
+<powershell>
+#Retrieve the AWS instance ID, keep trying until the metadata is available
+$instanceID = "null"
+while ($instanceID -NotLike "i-*") {
+  Start-Sleep -s 3
+  $instanceID = invoke-restmethod -uri http://169.254.169.254/latest/meta-data/instance-id
+}
+
+#Set DNS servers
+$dnslist = (Get-SSMParameterValue -Name AD-DNS-List).Parameters[0].Value
+Get-NetAdapter | Set-DnsClientServerAddress -ServerAddresses $dnslist
+
+#Set DNS Search suffix
+Set-DnsClientGlobalSetting -SuffixSearchList @("${SEARCH_SUFFIX}","dsa.gsi.gov.uk","eu-west-1.ec2-utilities.amazonaws.com","us-east-1.ec2-utilities.amazonaws.com","eu-west-1.compute.internal")
+
+# Get Domain and OU information that stored in the ssm parameter store
+$DomainName = (Get-SSMParameterValue -Name AD-domainName).Parameters[0].Value
+$BaseOU = (Get-SSMParameterValue -Name AD-Base-OU).Parameters[0].Value
+
+# Get AD credentials that are stored in the ssm parameter store
+$username = $DomainName + "\" + (Get-SSMParameterValue -Name AD-domainJoinUserName).Parameters[0].Value
+$password = (Get-SSMParameterValue -Name AD-domainpassword -WithDecryption $True).Parameters[0].Value |
+                ConvertTo-SecureString -asPlainText -Force
+
+# Create PS credential from previously pulling in the credentials from the ssm parameter store
+$cred = New-Object System.Management.Automation.PSCredential($username,$password)
+
+Try {
+    #Join-Machine to AD Domain
+    Add-Computer -Domain $DomainName -Credential $cred -OUPath $BaseOU  -ErrorAction 'Stop' -Options "JoinWithNewName, AccountCreate"
+
+    Write-Verbose -Message "Succesfully joined domain."
+    Restart-Computer
+}
+
+Catch{
+    Write-Host $_.Exception | Out-File c:\error-joindomain.txt -Append
+}
+
+
+</powershell>
