@@ -53,6 +53,22 @@ all_users = [
   "mike.peachey@bjss.com",
   "tim.hinchey@dvsa.gov.uk",
   "bryan.williams@bjss.com",
+  "kapil.sabale@capita.co.uk",
+  "cathy.campbell.capita.co.uk",
+  "steve.ryalls@capita.co.uk",
+  "winston.coleman@capita.co.uk",
+  "bharat.patel@capita.co.uk",
+  "billy.dhillon@capita.co.uk",
+  "mike.hill@capita.co.uk",
+  "andrew.malcolm@capita.co.uk",
+  "steve.millington@capita.co.uk",
+  "paul.beckett@capita.co.uk",
+  "nigel.instone@capita.co.uk",
+  "paul.henley@capita.co.uk",
+  "charlie.turuka@capita.co.uk",
+  "tony.priest@capita.co.uk",
+  "andrew.anderson@capita.co.uk",
+  "dolly.adeyiga@capita.co.uk",
 ]
 
 administrators = [
@@ -91,6 +107,25 @@ dms_users = [
 ]
 
 capita_users = [
+]
+
+capita_support_ro_users = [
+  "kapil.sabale@capita.co.uk",
+  "cathy.campbell.capita.co.uk",
+  "steve.ryalls@capita.co.uk",
+  "winston.coleman@capita.co.uk",
+  "bharat.patel@capita.co.uk",
+  "billy.dhillon@capita.co.uk",
+  "mike.hill@capita.co.uk",
+  "andrew.malcolm@capita.co.uk",
+  "steve.millington@capita.co.uk",
+  "paul.beckett@capita.co.uk",
+  "nigel.instone@capita.co.uk",
+  "paul.henley@capita.co.uk",
+  "charlie.turuka@capita.co.uk",
+  "tony.priest@capita.co.uk",
+  "andrew.anderson@capita.co.uk",
+  "dolly.adeyiga@capita.co.uk",
 ]
 
 dvsa_ro_users = [
