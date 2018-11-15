@@ -529,6 +529,11 @@ elc_main_port            = "11211"
 
 logs_list = []
 
+### Business Objects
+bobj_asg_max_size = 1
+bobj_asg_min_size = 0
+bobj_instance_type = "m5.large"
+
 ## Xenco
 xenco_key_name = ""
 xenco_asg_max_size = "1"
