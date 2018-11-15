@@ -197,7 +197,7 @@ ibs_subnets_cidrs = [
   "10.167.36.64/28",
 ]
 
-ibs_db_subnets_cidrs = [
+tars_dvsa_alb_cidrs = [
   "10.167.36.80/28",
   "10.167.36.96/28",
   "10.167.36.112/28",
