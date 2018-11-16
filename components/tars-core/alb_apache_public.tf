@@ -1,5 +1,5 @@
 resource "aws_alb" "apache_public" {
-  
+
   #"apache-public" hits 32 char limit
   name = "${format(
     "%s-%s",
@@ -8,6 +8,7 @@ resource "aws_alb" "apache_public" {
   )}"
 
   internal = "false"
+  idle_timeout = 300
 
   security_groups = [
     "${aws_security_group.apache_alb_public.id}",
