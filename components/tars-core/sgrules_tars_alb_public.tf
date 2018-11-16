@@ -8,8 +8,7 @@ resource "aws_security_group_rule" "tars_alb_public_ingress_whitelist_port_443" 
   security_group_id = "${aws_security_group.tars-dvsa-public.id}"
 
   cidr_blocks = [
-    "${var.whitelist}",
-    "${formatlist("%s/32", data.terraform_remote_state.base.nat_gw_ip)}",
+    "${var.whitelist}"
   ]
 }
 
