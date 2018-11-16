@@ -357,11 +357,11 @@ cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 ## apache
 apache_instance_type         = "m4.large"
 apache_puppet_kms_key        = "38af52b4-66c9-473c-b61a-c9589605ffd8"
-apache_asg_min_size          = 1 #Up this to 2 nodes after testing
-apache_asg_max_size          = 1
-apache_scaledown_desired     = 1
+apache_asg_min_size          = 0
+apache_asg_max_size          = 2
+apache_scaledown_desired     = 2
 apache_scaledown_recurrence  = "00 22 * * 1-5"
-apache_scaleup_desired       = 1
+apache_scaleup_desired       = 2
 apache_scaleup_recurrence    = "00 07 * * 1-5"
 
 aws_mq_config_description    = "TARS MQ Configuration"
