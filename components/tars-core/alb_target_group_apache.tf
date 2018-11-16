@@ -7,7 +7,7 @@ resource "aws_alb_target_group" "apache-80" {
   health_check {
     path                = "/healthcheck.html"
     timeout             = 5
-    interval            = 300
+    interval            = 10
     healthy_threshold   = 3
     unhealthy_threshold = 3
     matcher             = 200
