@@ -109,3 +109,25 @@ resource "aws_security_group_rule" "tars_messaging_egress_internet_443" {
     "0.0.0.0/0",
   ]
 }
+
+# windows messaging from jenkinsnode to support code/config deployments (SSH)
+resource "aws_security_group_rule" "win_msg_ssh_ingress_jenkinsnode" {
+  description              = "Allow TCP/22 from Jenkinsnode"
+  type                     = "ingress"
+  protocol                 = "tcp"
+  from_port                = "22"
+  to_port                  = "22"
+  security_group_id        = "${aws_security_group.tars-messaging.id}"
+  source_security_group_id = "${data.terraform_remote_state.base.jenkinsnode_sg_id}"
+}
+
+# windows messaging from jenkinsnode to support code/config deployments (Wildfly Admin)
+resource "aws_security_group_rule" "win_msg_wildfly_ingress_jenkinsnode" {
+  description              = "Allow TCP/9990 from Jenkinsnode"
+  type                     = "ingress"
+  protocol                 = "tcp"
+  from_port                = "9990"
+  to_port                  = "9990"
+  security_group_id        = "${aws_security_group.tars-messaging.id}"
+  source_security_group_id = "${data.terraform_remote_state.base.jenkinsnode_sg_id}"
+}
