@@ -54,7 +54,7 @@ all_users = [
   "tim.hinchey@dvsa.gov.uk",
   "bryan.williams@bjss.com",
   "kapil.sabale@capita.co.uk",
-  "cathy.campbell.capita.co.uk",
+  "cathy.campbell@capita.co.uk",
   "steve.ryalls@capita.co.uk",
   "winston.coleman@capita.co.uk",
   "bharat.patel@capita.co.uk",
@@ -111,7 +111,7 @@ capita_users = [
 
 capita_support_ro_users = [
   "kapil.sabale@capita.co.uk",
-  "cathy.campbell.capita.co.uk",
+  "cathy.campbell@capita.co.uk",
   "steve.ryalls@capita.co.uk",
   "winston.coleman@capita.co.uk",
   "bharat.patel@capita.co.uk",
