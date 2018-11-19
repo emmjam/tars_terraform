@@ -343,7 +343,7 @@ sftpplus-svr_scaleup_recurrence   = "00 04 * * 1-5"
 ### Business Objects
 bobj_asg_max_size = 1
 bobj_asg_min_size = 0
-bobj_instance_type = "m5.large"
+bobj_instance_type = "m5.xlarge"
 
 ## Xenco
 xenco_key_name = ""
@@ -471,6 +471,7 @@ whitelist = [
   "10.69.1.70/31",
   "10.84.192.159/32",
   "10.84.192.161/32",      # End DVSA MS-RDS
+  "85.115.54.201/32",
 ]
 
 dvsa_dc_whitelist = [

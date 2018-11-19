@@ -25,6 +25,7 @@ module "bobj" {
   lc_user_data     = "${data.template_file.bobj.rendered}"
 
   asg_target_group_arns = [
+    "aws_alb_target_group.bobj-8080.arn"
   ]
 
   lc_additional_sg_ids = [

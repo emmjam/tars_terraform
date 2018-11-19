@@ -8,7 +8,7 @@ data "aws_ami" "bobj" {
 #    "uat01_release_5.0.0.7"
 #  )}"
 
-  name_regex = "Windows_Server-2016-English-Full-Base-*"
+  name_regex = "tars-uat01-tars-reporting-bobj/release"
   most_recent = "true"
 
   owners = [

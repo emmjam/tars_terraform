@@ -361,3 +361,9 @@ variable "tmp_rsis_rds_snapshot" {
   type        = "string"
   description = "Temp UAT DB in prod"
 }
+
+variable "cert_name" {
+  type        = "string"
+  description = "ACM cert name"
+}
+
