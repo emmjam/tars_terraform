@@ -30,6 +30,47 @@ resource "aws_security_group_rule" "tars_messaging_ingress_bastion_RDP" {
   source_security_group_id = "${data.terraform_remote_state.ctrl.bastion_sg_id}"
 }
 
+resource "aws_security_group_rule" "bobj_egress_rsis_db" {
+  description              = "Allow TCP/1521 to the Oracle DB"
+  type                     = "egress"
+  from_port                = 1521
+  to_port                  = 1521
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.bobj.id}"
+  source_security_group_id = "${aws_security_group.tars-rsis-db.id}"
+}
+
+resource "aws_security_group_rule" "bobj_egress_mis_db" {
+  description              = "Allow TCP/1521 to the Oracle DB"
+  type                     = "egress"
+  from_port                = 1521
+  to_port                  = 1521
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.bobj.id}"
+  source_security_group_id = "${aws_security_group.tars-mis-db.id}"
+}
+
+resource "aws_security_group_rule" "bobj_ingress_mis_db" {
+  description              = "Allow TCP/1521 to the Oracle DB"
+  type                     = "ingress"
+  from_port                = 1521
+  to_port                  = 1521
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.bobj.id}"
+  source_security_group_id = "${aws_security_group.tars-mis-db.id}"
+}
+
+resource "aws_security_group_rule" "bobj_ingress_rsis_db" {
+  description              = "Allow TCP/1521 to the Oracle DB"
+  type                     = "ingress"
+  from_port                = 1521
+  to_port                  = 1521
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.bobj.id}"
+  source_security_group_id = "${aws_security_group.tars-rsis-db.id}"
+}
+
+
 # This allows the DVSA to RDP in
 # TODO: peacheym: This seems like a security issue
 resource "aws_security_group_rule" "wan_ingress_tars_messaging_port_3389" {
