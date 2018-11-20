@@ -432,7 +432,7 @@ cpc-batch_scaledown_recurrence = "00 22 * * 1-5"
 cpc-batch_scaleup_desired      = 0
 cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
-apache_ami_build_id = 401
+apache_ami_build_id = 406
 
 # Added by TS-4753
 # To be removed by TS-4722 and TS-4756
