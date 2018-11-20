@@ -24,6 +24,11 @@ asg_default_tags = [
     "key"                 = "Environment"
     "value"               = "prep"
     "propagate_at_launch" = "true"
+  },
+  {
+    "key"                 = "Group"
+    "value"               = "live"
+    "propagate_at_launch" = "true"
   }
 ]
 
@@ -330,35 +335,27 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 
 # TARSDB
 tars_rds_username = "tarsuatadmin"
-
-tars_rds_password = "sPPmE94NsvmfTmqj5K5YvFxZLmnm9T"
-
-# TARSDB
-tars_rds_allocated_storage = "300"
-tars_rds_snapshot = "tarsuat-050418"
+tars_rds_password = "YTN5f3RN8kV8u9mX"
+tars_rds_allocated_storage = "500"
+tars_rds_snapshot = "tars-prod1-tars-core-tarsdb-241018"
 
 # MISDB
 mis_rds_username = "misuatadmin"
 mis_rds_password = "BaLhNU73XCpFCNXP"
 mis_rds_allocated_storage = "500"
-mis_rds_snapshot = "arn:aws:rds:eu-west-1:652856684323:snapshot:misuat01-20180720"
-mis_rds_autoscale = "False"
+mis_rds_snapshot = "tars-prod1-tars-reporting-misdb-241018"
 
 # RSISDB
 rsis_rds_username = "tarsrsisadmin"
 rsis_rds_password = "pbj9VQTE4T5GDVbF"
 rsis_rds_allocated_storage = "300"
-rsis_rds_snapshot = "arn:aws:rds:eu-west-1:652856684323:snapshot:tarsrsis01-20180720"
-rsis_rds_autoscale = "False"
+rsis_rds_snapshot = "tars-prod1-tars-reporting-rsisdb-241018"
 
 # CPCSDB
 cpc_rds_username = "tarscpcadmin"
-
-cpc_rds_password = "YwBWc8HvweT3Lun8"
-
-# CPCTSDB
-cpc_rds_allocated_storage = "20" # 20 Gigabyte - was 1500GB
-cpc_rds_snapshot = "cpcdev01-180621"
+cpc_rds_password = "gKFTFnhM5d2NqCFn"
+cpc_rds_allocated_storage = "100"
+cpc_rds_snapshot = "tars-prod1-cpc-cpcdb-241018"
 
 # IBSDB
 ibs_rds_username = "ibsprepadmin"
@@ -381,40 +378,28 @@ ad_peering_enabled = false
 ad_peering_vpc = "vpc-02072cb35506d9b73"
 ad_account = "233824316563"
 
-#############################################################################
-# CWLES
-#############################################################################
-
-cwles_curator_max_age = "30"
-
-cwles_data_instance_type    = "m4.large.elasticsearch"
-cwles_data_instance_count   = "2"
-cwles_data_volume_size      = "512"
-cwles_master_instance_type  = "t2.small.elasticsearch"
-cwles_master_instance_count = "2"
-
-# These names will be added to our private zone so we can resolve them.
-dsa-drora-db-rac01 = "10.86.192.16"
-dsa-drora-db-rac02 = "10.86.192.17"
-dsa-drora-db-rac03 = "10.86.192.72"
-
 # DHCP Scope options for DNS
 
 domain_name_servers = [
   "AmazonProvidedDNS",
+  "10.166.0.14",
+  "10.166.0.28",
+  "10.166.0.43",
 ]
 
 private_cert_domain_name = "prep.tars.dvsa.aws"
 
-
-cpc_cert            = "cpc-prep"
-cpc_private_cert    = "cpc-dvsa"
-fyndi_cert          = "fyndi-prep-public"
-tars_cert           = "tars-prep-public"
-tars_private_cert   = "tars-core-private"
-tars_pdf_cert       = "tars-prep-pdf"
-obs_cert            = "obs-prep-public"
-ibs_cert            = "ibs-prep-public"
-apache_cert         = "routing-prod-public"
+cpc_internet_cert       = "tars-prep-cpc-internet"
+cpc_dvsa_internet_cert  = "tars-prep-cpc-dvsa-internet"
+cpc_cert                = "cpc-prep"
+cpc_private_cert        = "cpc-dvsa"
+fyndi_cert              = "fyndi-prep-public"
+tars_cert               = "tars-prep-public"
+tars_private_cert       = "tars-core-private"
+tars_pdf_cert           = "tars-prep-pdf"
+obs_cert                = "obs-prep-public"
+ibs_cert                = "ibs-prep-public"
+irdt_cert               = "irdt-prep-public"
+apache_cert             = "routing-prod-public"
 
 apache_ami_build_id = 406
