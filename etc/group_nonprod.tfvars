@@ -67,7 +67,7 @@ all_users = [
   "paul.henley@capita.co.uk",
   "charlie.turuka@capita.co.uk",
   "tony.priest@capita.co.uk",
-  "andrew.anderson@capita.co.uk",
+  "alban.anderson@capita.co.uk",
   "dolly.adeyiga@capita.co.uk",
   "gitanjali.nalawade@capita.co.uk",
 ]
@@ -139,7 +139,7 @@ capita_support_ro_users = [
   "paul.henley@capita.co.uk",
   "charlie.turuka@capita.co.uk",
   "tony.priest@capita.co.uk",
-  "andrew.anderson@capita.co.uk",
+  "alban.anderson@capita.co.uk",
   "dolly.adeyiga@capita.co.uk",
   "gitanjali.nalawade@capita.co.uk",
 ]
