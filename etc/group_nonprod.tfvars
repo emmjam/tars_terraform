@@ -69,6 +69,7 @@ all_users = [
   "tony.priest@capita.co.uk",
   "andrew.anderson@capita.co.uk",
   "dolly.adeyiga@capita.co.uk",
+  "gitanjali.nalawade@capita.co.uk",
 ]
 
 administrators = [
@@ -140,6 +141,7 @@ capita_support_ro_users = [
   "tony.priest@capita.co.uk",
   "andrew.anderson@capita.co.uk",
   "dolly.adeyiga@capita.co.uk",
+  "gitanjali.nalawade@capita.co.uk",
 ]
 
 dvsa_ro_users = [
