@@ -64,3 +64,15 @@ resource "aws_security_group_rule" "squidnat_egress_whitelist_ses" {
   ]
 }
 
+resource "aws_security_group_rule" "squidnat_egress_whitelist_smtps" {
+  type              = "egress"
+  protocol          = "tcp"
+  from_port         = "465"
+  to_port           = "465"
+  security_group_id = "${aws_security_group.squidnat.id}"
+
+  cidr_blocks = [
+    "${var.egress_whitelist}",
+  ]
+}
+
