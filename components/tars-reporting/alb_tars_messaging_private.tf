@@ -7,14 +7,14 @@ resource "aws_alb" "tars-alb-bobj-private" {
     "bobj"
   )}"
 
-  internal = true
+  internal = false
 
   security_groups = [
     "${aws_security_group.bobj-alb.id}",
   ]
 
   subnets = [
-    "${module.bobj.subnet_ids}",
+    "${data.terraform_remote_state.base.subnets_alb_public}",
   ]
 
   tags = "${merge(

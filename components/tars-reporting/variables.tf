@@ -316,6 +316,11 @@ variable "dvsa_dc_whitelist" {
   description = "DVSA IPs"
 }
 
+variable "whitelist" {
+  type        = "list"
+  description = "TARS project whitelist"
+}
+
 variable "asg_default_tags" {
   type        = "list"
   description = "See code comments"

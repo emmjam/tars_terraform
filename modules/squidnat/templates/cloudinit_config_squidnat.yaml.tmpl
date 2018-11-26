@@ -16,6 +16,7 @@ bootcmd:
   - "echo \"${SQUID_WHITELIST_RENDERED}\" | tr \" \" \"\\n\" > /etc/squid/whitelist.cidr"
   - "iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-port 3130"
   - "iptables -t nat -A PREROUTING -p tcp --dport 80  -j REDIRECT --to-port 3129"
+  - "iptables -t nat -A PREROUTING -p tcp --dport 465  -j REDIRECT --to-port 3130"
   - "service iptables save"
 
 write_files:
