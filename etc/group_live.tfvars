@@ -479,6 +479,7 @@ dvsa_dc_whitelist = [
 dvsa_printers = [
   "10.12.0.138/32",
   "10.69.3.33/32",
+  "10.14.0.138/32",
 ]
 
 # Used by any AWS based ec2's that need to use Azure DNS to resolve external stuff
