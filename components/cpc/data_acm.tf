@@ -16,7 +16,7 @@ data "aws_acm_certificate" "cpc_front_dvsa_internet" {
 }
 
 data "aws_acm_certificate" "cpc_tars_dvsacloud_uk" {
-  domain = "${var.cpc_cert}.${data.terraform_remote_state.acc.public_domain_name}"
+  domain = "${local.dva_dns_short_name}.${data.terraform_remote_state.acc.public_domain_name}"
 
   statuses = [
     "ISSUED",
