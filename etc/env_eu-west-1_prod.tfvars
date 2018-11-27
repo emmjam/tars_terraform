@@ -404,7 +404,7 @@ private_cert_domain_name = "prod.tars.dvsa.aws"
 
 cpc_internet_cert       = "tars-prod-cpc-internet"
 cpc_dvsa_internet_cert  = "tars-prod-cpc-dvsa-internet"
-cpc_cert                = "cpc-prod"
+cpc_cert                = "cpc"
 cpc_private_cert        = "cpc-dvsa"
 fyndi_cert              = "fyndi-prod-public"
 tars_cert               = "tars-prod-public"
