@@ -663,24 +663,3 @@ tars_dms_publicly_accessible = false
 tars_dms_replication_instance_class = "dms.r4.2xlarge"
 
 dvsa_external_mail_domain = "dvsa.gov.uk"
-
-# Added by TS-4753
-# To be removed by TS-4722 and TS-4756
-# TEMP UAT DB's in Prod
-uat_dbs_in_prod = false
-tmp_tars_rds_username = ""
-tmp_tars_rds_password = ""
-tmp_tars_rds_allocated_storage = ""
-tmp_tars_rds_snapshot = ""
-tmp_mis_rds_username = ""
-tmp_mis_rds_password = ""
-tmp_mis_rds_allocated_storage = ""
-tmp_mis_rds_snapshot = ""
-tmp_rsis_rds_username = ""
-tmp_rsis_rds_password = ""
-tmp_rsis_rds_allocated_storage = ""
-tmp_rsis_rds_snapshot = ""
-tmp_cpc_rds_username = ""
-tmp_cpc_rds_password = ""
-tmp_cpc_rds_allocated_storage = ""
-tmp_cpc_rds_snapshot = ""
