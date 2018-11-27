@@ -433,24 +433,3 @@ cpc-batch_scaleup_desired      = 0
 cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
 apache_ami_build_id = 414
-
-# Added by TS-4753
-# To be removed by TS-4722 and TS-4756
-# TEMP UAT DB's in Prod
-uat_dbs_in_prod = "true"
-tmp_tars_rds_username = "tarsuatadmin"
-tmp_tars_rds_password = "YTN5f3RN8kV8u9mX"
-tmp_tars_rds_allocated_storage = "500"
-tmp_tars_rds_snapshot = "tars-prod1-tars-core-tarsdb-241018"
-tmp_mis_rds_username = "misuatadmin"
-tmp_mis_rds_password = "BaLhNU73XCpFCNXP"
-tmp_mis_rds_allocated_storage = "500"
-tmp_mis_rds_snapshot = "tars-prod1-tars-reporting-misdb-241018"
-tmp_rsis_rds_username = "tarsrsisadmin"
-tmp_rsis_rds_password = "pbj9VQTE4T5GDVbF"
-tmp_rsis_rds_allocated_storage = "300"
-tmp_rsis_rds_snapshot = "tars-prod1-tars-reporting-rsisdb-241018"
-tmp_cpc_rds_username = "tarscpcadmin"
-tmp_cpc_rds_password = "gKFTFnhM5d2NqCFn"
-tmp_cpc_rds_allocated_storage = "100"
-tmp_cpc_rds_snapshot = "tars-prod1-cpc-cpcdb-241018"

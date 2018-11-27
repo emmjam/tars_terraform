@@ -257,14 +257,6 @@ variable "rsis_rds_sid_name" {
   description = "Oracle SID name"
 }
 
-# Added by TS-4753
-# To be removed by TS-4722 and TS-4756
-# TEMP UAT DB's in Prod
-variable "uat_dbs_in_prod" {
-  type        = "string"
-  description = "Temporarily have UAT DB's in prod to shakedown prod app"
-}
-
 variable "bobj_subnets_cidrs" {
   type = "list"
   description = ""
@@ -325,46 +317,6 @@ variable "asg_default_tags" {
   type        = "list"
   description = "See code comments"
   default     = []
-}
-
-variable "tmp_mis_rds_username" {
-  type        = "string"
-  description = "Temp UAT DB in prod"
-}
-
-variable "tmp_mis_rds_password" {
-  type        = "string"
-  description = "Temp UAT DB in prod"
-}
-
-variable "tmp_mis_rds_allocated_storage" {
-  type        = "string"
-  description = "Temp UAT DB in prod"
-}
-
-variable "tmp_mis_rds_snapshot" {
-  type        = "string"
-  description = "Temp UAT DB in prod"
-}
-
-variable "tmp_rsis_rds_username" {
-  type        = "string"
-  description = "Temp UAT DB in prod"
-}
-
-variable "tmp_rsis_rds_password" {
-  type        = "string"
-  description = "Temp UAT DB in prod"
-}
-
-variable "tmp_rsis_rds_allocated_storage" {
-  type        = "string"
-  description = "Temp UAT DB in prod"
-}
-
-variable "tmp_rsis_rds_snapshot" {
-  type        = "string"
-  description = "Temp UAT DB in prod"
 }
 
 variable "cert_name" {
