@@ -351,7 +351,7 @@ ibs_rds_username = "ibsdevadmin"
 
 ibs_rds_password = "password"
 
-ibs_rds_snapshot = "dev02-ibs-subnet-move"
+ibs_rds_snapshot = "dev01-ibs-subnet-move"
 
 # MISDB
 mis_rds_username = "misdmsadmin"
