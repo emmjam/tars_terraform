@@ -339,7 +339,7 @@ tars_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 
 # TARSDB
 tars_rds_allocated_storage = "300"
-tars_rds_snapshot = "tars-uat02-tars-core-tarsdb-20181108"
+tars_rds_snapshot = "tars-uat01-tars-core-tarsdb-20181108"
 tars_rds_autoscale = "False"
 
 
@@ -405,7 +405,7 @@ domain_name_servers = [
   "10.166.0.43",
 ]
 
-private_cert_domain_name = "uat01.tars.dvsa.aws"
+private_cert_domain_name = "uat02.tars.dvsa.aws"
 
 apache_ami_build_id = 406
 
