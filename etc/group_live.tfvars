@@ -61,7 +61,7 @@ all_users = [
   "billy.dhillon@capita.co.uk",
   "mike.hill@capita.co.uk",
   "andrew.malcolm@capita.co.uk",
-  "steve.millington@capita.co.uk",
+  "steven.millington@capita.co.uk",
   "paul.beckett@capita.co.uk",
   "nigel.instone@capita.co.uk",
   "paul.henley@capita.co.uk",
@@ -72,6 +72,7 @@ all_users = [
   "richard.freitas@capita.co.uk",
   "phil.scally@capita.co.uk",
   "gitanjali.nalawade@capita.co.uk",
+  "vinit.prajapati@capita.co.uk",
 ]
 
 administrators = [
@@ -121,7 +122,7 @@ capita_support_ro_users = [
   "billy.dhillon@capita.co.uk",
   "mike.hill@capita.co.uk",
   "andrew.malcolm@capita.co.uk",
-  "steve.millington@capita.co.uk",
+  "steven.millington@capita.co.uk",
   "paul.beckett@capita.co.uk",
   "nigel.instone@capita.co.uk",
   "paul.henley@capita.co.uk",
@@ -132,6 +133,7 @@ capita_support_ro_users = [
   "richard.freitas@capita.co.uk",
   "phil.scally@capita.co.uk",
   "gitanjali.nalawade@capita.co.uk",
+  "vinit.prajapati@capita.co.uk",
 ]
 
 dvsa_ro_users = [
