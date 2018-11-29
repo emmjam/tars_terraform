@@ -211,11 +211,11 @@ wildfly-back_instance_type  = "m4.large"
 wildfly-back_puppet_nodetype    = "tars-back"
 wildfly-back_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
 wildfly-back_asg_min_size         = 0
-wildfly-back_asg_max_size         = 2
+wildfly-back_asg_max_size         = 3
 wildfly-back_scaledown_desired    = 2
-wildfly-back_scaledown_recurrence = "00 18 * * 1-5"
-wildfly-back_scaleup_desired      = 2
-wildfly-back_scaleup_recurrence   = "00 08 * * 1-5"
+wildfly-back_scaledown_recurrence = "0,30 * * * *"
+wildfly-back_scaleup_desired      = 3
+wildfly-back_scaleup_recurrence   = "15,45 * * * *"
 
 ## wildfly-batch
 wildfly-batch_instance_type  = "m4.large"
