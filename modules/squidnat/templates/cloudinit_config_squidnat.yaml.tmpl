@@ -12,6 +12,7 @@ bootcmd:
   - "sed -i \"1i$(curl -fs http://169.254.169.254/latest/meta-data/local-ipv4)	${NODETYPE}-$INSTANCE_ID.${ENVIRONMENT}.${ROOT_DOMAIN_NAME}	${NODETYPE}-$INSTANCE_ID\" /etc/hosts"
   - "sed -i -e '/HOSTNAME=/d' /etc/sysconfig/network"
   - "echo \"HOSTNAME=${NODETYPE}-$INSTANCE_ID.${ENVIRONMENT}.${ROOT_DOMAIN_NAME}\" >> /etc/sysconfig/network"
+  - "echo 1 > /proc/sys/net/ipv4/ip_forward"
   - "echo \"${NODETYPE}-$INSTANCE_ID\" > /etc/hostname"
   - "echo \"${SQUID_WHITELIST_RENDERED}\" | tr \" \" \"\\n\" > /etc/squid/whitelist.cidr"
   - "iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-port 3130"
