@@ -384,6 +384,7 @@ obs_cert                = "obs-prep-public"
 ibs_cert                = "ibs-prep-public"
 irdt_cert               = "irdt-prep-public"
 apache_cert             = "routing-prod-public"
+bobj-server             = "*"
 
 ## wildfly-batch temporary 'off' schedule
 wildfly-batch_asg_min_size         = 0

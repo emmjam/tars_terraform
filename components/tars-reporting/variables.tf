@@ -319,7 +319,7 @@ variable "asg_default_tags" {
   default     = []
 }
 
-variable "cert_name" {
+variable "bobj_cert" {
   type        = "string"
   description = "ACM cert name"
 }
