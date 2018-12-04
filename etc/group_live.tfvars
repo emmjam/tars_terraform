@@ -286,7 +286,7 @@ fyndi-b_scaleup_desired      = 2
 fyndi-b_scaleup_recurrence   = "00 08 * * 1-5"
 
 ## wildfly-messaging
-wildfly-messaging_instance_type  = "m4.large"
+wildfly-messaging_instance_type  = "m5.large"
 wildfly-messaging_puppet_nodetype    = "tars-messaging"
 wildfly-messaging_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
 wildfly-messaging_asg_min_size         = 0
