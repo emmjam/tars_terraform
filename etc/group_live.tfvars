@@ -290,10 +290,10 @@ wildfly-messaging_instance_type  = "m5.large"
 wildfly-messaging_puppet_nodetype    = "tars-messaging"
 wildfly-messaging_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
 wildfly-messaging_asg_min_size         = 0
-wildfly-messaging_asg_max_size         = 1
-wildfly-messaging_scaledown_desired    = 1
+wildfly-messaging_asg_max_size         = 2
+wildfly-messaging_scaledown_desired    = 2
 wildfly-messaging_scaledown_recurrence = "00 19 * * 1-5"
-wildfly-messaging_scaleup_desired      = 1
+wildfly-messaging_scaleup_desired      = 2
 wildfly-messaging_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## AWS MQ
