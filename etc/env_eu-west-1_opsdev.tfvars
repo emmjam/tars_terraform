@@ -40,6 +40,11 @@ asg_default_tags = [
 # opsdev
 ###############################################################################
 
+#EFS Backups
+efs_backup_asg_min_size           = 1
+efs_backup_asg_max_size           = 1
+
+
 # The VPC CIDR Block for this environment
 vpc_cidr = "10.167.0.0/21"
 
