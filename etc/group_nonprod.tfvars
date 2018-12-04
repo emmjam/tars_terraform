@@ -197,6 +197,24 @@ ctrl_mgmt_vpc_id                 = "vpc-ff970799"           # TODO: use remote s
 ctrl_mgmt_vpc_cidr_block         = "10.167.64.0/22"         # TODO: use remote state
 ctrl_mgmt_tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote state
 
+###############################################################################
+# BASE
+###############################################################################
+
+#Monitoring
+prometheus_asg_min_size           = 1
+prometheus_asg_max_size           = 1
+prometheus_instance_type          = "t3.medium"
+prometheus_ami_build_id           = 419
+prometheus_efs_provisioned_mibps  = 1
+
+#EFS Backups
+efs_backup_asg_min_size           = 0
+efs_backup_asg_max_size           = 0
+efs_backup_instance_type          = "t3.nano"
+efs_backup_ami_build_id           = 309
+
+
 ## jenkinsnode
 jenkinsnode_instance_type        = "m5.large"
 jenkinsnode_ami_build_id         = "335"
@@ -288,7 +306,7 @@ wildfly-front_scaleup_desired      = 1
 wildfly-front_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## wildfly-messaging
-wildfly-messaging_instance_type  = "t2.medium"
+wildfly-messaging_instance_type  = "t3.medium"
 wildfly-messaging_puppet_nodetype    = "tars-messaging"
 wildfly-messaging_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
 wildfly-messaging_asg_min_size         = 0
@@ -367,7 +385,7 @@ cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
 
 ## apache
-apache_instance_type         = "t2.medium"
+apache_instance_type         = "t3.medium"
 apache_puppet_kms_key        = "38af52b4-66c9-473c-b61a-c9589605ffd8"
 apache_asg_min_size          = 0
 apache_asg_max_size          = 1
@@ -404,7 +422,7 @@ aws_mq_config_engine_type    = "ActiveMQ"
 aws_mq_config_engine_version = "5.15.0"
 
 ##  JMeter
-jmeter_instance_type              = "t2.micro"
+jmeter_instance_type              = "t3.micro"
 jmeter_asg_size_desired_on_create = 0
 jmeter_asg_size_max               = 3
 jmeter_asg_size_min               = 0
