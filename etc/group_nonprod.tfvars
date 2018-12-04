@@ -586,7 +586,7 @@ capita_db_to_port = "6721"
 #capita_prod_db = "10.84.192.0/23"
 
 # squidnat
-squidnat_instance_type = "t2.micro"
+squidnat_instance_type = "t3.micro"
 
 ops_team_email = "mark.thompson@bjss.com"
 
