@@ -21,6 +21,11 @@ resource "aws_mq_broker" "tars-awsmq" {
     "${module.tars_awsmq_subnets.subnet_ids}",
   ]
 
+  logs {
+    general = true
+    audit   = true
+  }
+
   user {
     username = "${var.aws_mq_users_admin_user}"
     password = "${var.aws_mq_users_admin_password}"
