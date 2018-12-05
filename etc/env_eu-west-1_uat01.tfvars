@@ -379,6 +379,17 @@ cpc-back_scaledown_desired = 1
 cpc-front_scaledown_desired = 1
 sftpplus-svr_scaledown_desired = 1
 
+## wildfly-messaging
+wildfly-messaging_instance_type  = "t3.medium"
+wildfly-messaging_puppet_nodetype    = "tars-messaging"
+wildfly-messaging_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+wildfly-messaging_asg_min_size         = 0
+wildfly-messaging_asg_max_size         = 2
+wildfly-messaging_scaledown_desired    = 2
+wildfly-messaging_scaledown_recurrence = "00 19 * * 1-5"
+wildfly-messaging_scaleup_desired      = 2
+wildfly-messaging_scaleup_recurrence   = "00 07 * * 1-5"
+
 # DHCP Scope options for DNS
 
 domain_name_servers = [
