@@ -9,6 +9,8 @@ resource "aws_alb" "tars-alb-bobj-private" {
 
   internal = false
 
+  idle_timeout = 900
+
   security_groups = [
     "${aws_security_group.bobj-alb.id}",
   ]
