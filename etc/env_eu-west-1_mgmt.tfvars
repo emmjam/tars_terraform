@@ -199,7 +199,7 @@ bastion_scaleup_recurrence   = "00 07 * * 1-5"
 # TODO: smarts: Move AMI IDs to versions file
 ## Grafana
 grafana_instance_type        = "t2.micro"
-grafana_ami_build_id         = "420"
+grafana_ami_build_id         = "428"
 grafana_asg_min_size         = 0
 grafana_asg_max_size         = 0
 grafana_scaledown_desired    = 0
