@@ -317,7 +317,7 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 ##
 
 # TARSDB
-tars_rds_username = "tarsuatadmin"
+tars_rds_username = "tarsadmin"
 tars_rds_password = "YTN5f3RN8kV8u9mX"
 tars_rds_allocated_storage = "500"
 tars_rds_snapshot = "tars-prod-tars-core-tarsdb-snapshot-2018-12-12"
@@ -335,7 +335,7 @@ rsis_rds_allocated_storage = "300"
 rsis_rds_snapshot = "tars-prod1-tars-reporting-rsisdb-241018"
 
 # CPCSDB
-cpc_rds_username = "tarscpcadmin"
+cpc_rds_username = "cpcadmin"
 cpc_rds_password = "gKFTFnhM5d2NqCFn"
 cpc_rds_allocated_storage = "100"
 cpc_rds_snapshot = "tars-prod-cpc-cpcdb-snapshot-2018-12-12"
