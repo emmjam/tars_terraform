@@ -381,7 +381,7 @@ tars_pdf_cert           = "tars-prep-pdf"
 obs_cert                = "obs-prep-public"
 ibs_cert                = "ibs-prep-public"
 irdt_cert               = "irdt-prep-public"
-apache_cert             = "routing-prod-public"
+apache_cert             = "routing-prep-public"
 bobj-server             = "*"
 
 ## wildfly-batch temporary 'off' schedule
