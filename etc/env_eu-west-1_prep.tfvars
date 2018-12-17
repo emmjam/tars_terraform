@@ -320,7 +320,7 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 tars_rds_username = "tarsadmin"
 tars_rds_password = "YTN5f3RN8kV8u9mX"
 tars_rds_allocated_storage = "500"
-tars_rds_snapshot = "tars-prod-tars-core-tarsdb-snapshot-2018-12-12"
+tars_rds_snapshot = "rds:tars-prod-tars-core-tarsdb-2018-12-17-02-43"
 
 # MISDB
 mis_rds_username = "misuatadmin"
@@ -338,7 +338,7 @@ rsis_rds_snapshot = "tars-prod1-tars-reporting-rsisdb-241018"
 cpc_rds_username = "cpcadmin"
 cpc_rds_password = "gKFTFnhM5d2NqCFn"
 cpc_rds_allocated_storage = "100"
-cpc_rds_snapshot = "tars-prod-cpc-cpcdb-snapshot-2018-12-12"
+cpc_rds_snapshot = "rds:tars-prod-cpc-cpcdb-2018-12-17-02-49"
 
 # IBSDB
 ibs_rds_username = "ibsprepadmin"
