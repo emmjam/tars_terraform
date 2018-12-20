@@ -632,4 +632,4 @@ wildfly-mock_scaledown_recurrence = "00 20 * * 1-5"
 wildfly-mock_scaleup_desired      = 1
 wildfly-mock_scaleup_recurrence   = "00 00 * * 1-5"
 
-apache_ami_build_id = 418
+apache_ami_build_id = 437
