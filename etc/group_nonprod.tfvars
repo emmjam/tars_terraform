@@ -205,7 +205,7 @@ ctrl_mgmt_tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote s
 prometheus_asg_min_size           = 1
 prometheus_asg_max_size           = 1
 prometheus_instance_type          = "t3.medium"
-prometheus_ami_build_id           = 429
+prometheus_ami_build_id           = 439
 prometheus_efs_provisioned_mibps  = 1
 
 #EFS Backups
@@ -217,7 +217,7 @@ efs_backup_ami_build_id           = 309
 
 ## jenkinsnode
 jenkinsnode_instance_type        = "m5.large"
-jenkinsnode_ami_build_id         = "335"
+jenkinsnode_ami_build_id         = "438"
 jenkinsnode_executors            = 5
 jenkinsnode_asg_min_size         = 1
 jenkinsnode_asg_max_size         = 3

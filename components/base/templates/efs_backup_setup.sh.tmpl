@@ -13,15 +13,15 @@ echo -n 'nodetype: ${NODETYPE}'           > "$${facts_path}/nodetype.yaml"
 echo -n 'aws_account: ${AWS_ACCOUNT_ID}'  > "$${facts_path}/aws_account.yaml"
 echo -n 'backup_bucket: ${BACKUP_BUCKET}' > "$${facts_path}/backup_bucket.yaml"
 
-cd /tmp/packer-puppet-masterless
+cd /opt/packer-puppet-masterless
 
 # TODO: peacheym: Convert this script to use standardised
 # error handling, remove the "set -e" and then
 # add --detailed-exitcodes and handle the return codes puppet provides
 /opt/puppetlabs/bin/puppet apply \
   --verbose \
-  --modulepath='/tmp/packer-puppet-masterless/module-0:/tmp/packer-puppet-masterless/module-1' \
-  --hiera_config='/tmp/packer-puppet-masterless/hiera.yaml' \
-  /tmp/packer-puppet-masterless/manifests/site.pp
+  --modulepath='/opt/packer-puppet-masterless/module-0:/opt/packer-puppet-masterless/module-1' \
+  --hiera_config='/opt/packer-puppet-masterless/hiera.yaml' \
+  /opt/packer-puppet-masterless/manifests/site.pp
 
 log '[INFO] ${NODETYPE} configuration finished'
