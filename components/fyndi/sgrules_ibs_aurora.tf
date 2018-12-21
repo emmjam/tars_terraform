@@ -6,7 +6,7 @@ resource "aws_security_group_rule" "aurora_db_ingress_fyndi-f" {
   to_port                  = 3306
   protocol                 = "tcp"
   security_group_id        = "${data.terraform_remote_state.ibs.ibs_aurora_sg_id}"
-  source_security_group_id = "${aws_security_group.fyndi-f.id}"
+  source_security_group_id = "${module.fyndi-f.security_group_id}"
 }
 
 # fyndi-b to rds DB
@@ -17,5 +17,5 @@ resource "aws_security_group_rule" "aurora_db_ingress_fyndi-b" {
   to_port                  = 3306
   protocol                 = "tcp"
   security_group_id        = "${data.terraform_remote_state.ibs.ibs_aurora_sg_id}"
-  source_security_group_id = "${aws_security_group.fyndi-b.id}"
+  source_security_group_id = "${module.fyndi-b.security_group_id}"
 }

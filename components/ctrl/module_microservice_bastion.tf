@@ -2,6 +2,7 @@ module "bastion" {
   source = "../../modules/microservice"
 
   name        = "bastion"
+  region      = "${var.aws_region}"
   project     = "${var.project}"
   environment = "${var.environment}"
   component   = "${var.component}"
@@ -23,12 +24,6 @@ module "bastion" {
   lc_ami_id        = "${data.aws_ami.bastion.image_id}"
   lc_instance_type = "${var.bastion_instance_type}"
   lc_user_data     = "${data.template_cloudinit_config.bastion.rendered}"
-
-  # TODO: peacheym: This group is a duplicate. It should be removed and
-  #                 references to it replaced with the microservice's own group
-  lc_additional_sg_ids = [
-    "${aws_security_group.bastion.id}",
-  ]
 
   asg_size_min               = "${var.bastion_asg_min_size}"
   asg_size_desired_on_create = "${var.bastion_asg_min_size}"

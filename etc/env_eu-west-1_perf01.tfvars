@@ -467,7 +467,6 @@ wildfly-mock_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## apache
 apache_instance_type         = "m4.large"
-apache_puppet_kms_key        = "38af52b4-66c9-473c-b61a-c9589605ffd8"
 apache_asg_min_size          = 0
 apache_asg_max_size          = 2
 apache_scaledown_desired     = 2
@@ -487,4 +486,4 @@ squidnat_instance_type = "m5.large"
 
 private_cert_domain_name = "perf01.tars.dvsa.aws"
 
-apache_ami_build_id = 437
+apache_ami_build_id = 460

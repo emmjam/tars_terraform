@@ -2,6 +2,7 @@ module "sftpplus_svr" {
   source = "../../modules/microservice"
 
   name        = "sftpplus"
+  region      = "${var.aws_region}"
   project     = "${var.project}"
   environment = "${var.environment}"
   component   = "${var.component}"
@@ -28,15 +29,15 @@ module "sftpplus_svr" {
     "${data.terraform_remote_state.base.core_sg_id}",
   ]
 
+  lifecycle_hook_launching_default_result = "ABANDON"
+  lifecycle_hook_launching_enabled        = "1"
+  lifecycle_hook_launching_timeout        = "500"
+  failed_lifecycle_action_sns_topic       = "${data.terraform_remote_state.base.sns_alerts_arn}"
+
   asg_size_min               = "${var.sftpplus-svr_asg_min_size}"
   asg_size_desired_on_create = "${var.sftpplus-svr_asg_min_size}"
   asg_size_max               = "${var.sftpplus-svr_asg_max_size}"
   asg_load_balancers         = []
-
-  asg_target_group_arns = [
-    "${aws_lb_target_group.sftpplus_svr-10022.arn}",
-    "${aws_lb_target_group.sftpplus_svr-10022-pub.arn}",
-  ]
 
   default_tags = "${local.default_tags}"
 }

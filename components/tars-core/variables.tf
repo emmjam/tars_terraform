@@ -256,11 +256,6 @@ variable "wildfly-back_instance_type" {
   description = ""
 }
 
-variable "wildfly-back_puppet_kms_key" {
-  type        = "string"
-  description = ""
-}
-
 variable "wildfly-back_puppet_nodetype" {
   type        = "string"
   description = ""
@@ -297,11 +292,6 @@ variable "wildfly-front_scaleup_recurrence" {
 }
 
 variable "wildfly-front_instance_type" {
-  type        = "string"
-  description = ""
-}
-
-variable "wildfly-front_puppet_kms_key" {
   type        = "string"
   description = ""
 }
@@ -362,11 +352,6 @@ variable "apache_scaleup_recurrence" {
 }
 
 variable "apache_instance_type" {
-  type        = "string"
-  description = ""
-}
-
-variable "apache_puppet_kms_key" {
   type        = "string"
   description = ""
 }

@@ -1,10 +1,10 @@
 # Output all the things needed by the other components
 output "tars-core-frontend-sg-id" {
-  value = "${aws_security_group.tars-core-frontend.id}"
+  value = "${module.tars_front.security_group_id}"
 }
 
 output "tars-core-backend-sg-id" {
-  value = "${aws_security_group.tars-core-backend.id}"
+  value = "${module.tars_back.security_group_id}"
 }
 
 output "tars-core-backend-alb-sg-id" {

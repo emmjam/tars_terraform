@@ -2,6 +2,7 @@ module "jenkinsnode" {
   source = "../../modules/microservice"
 
   name        = "jenkinsctrl"
+  region      = "${var.aws_region}"
   project     = "${var.project}"
   environment = "${var.environment}"
   component   = "${var.component}"

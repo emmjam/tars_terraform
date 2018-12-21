@@ -5,7 +5,7 @@ resource "aws_security_group_rule" "elc_ingress_frontend_port_11211" {
   to_port                  = "11211"
   protocol                 = "tcp"
   security_group_id        = "${data.terraform_remote_state.base.elc_sg_id}"
-  source_security_group_id = "${aws_security_group.tars-core-frontend.id}"
+  source_security_group_id = "${module.tars_front.security_group_id}"
 }
 
 resource "aws_security_group_rule" "frontend_egress_elc_port_11211" {
@@ -15,7 +15,7 @@ resource "aws_security_group_rule" "frontend_egress_elc_port_11211" {
   to_port                  = "11211"
   protocol                 = "tcp"
   source_security_group_id = "${data.terraform_remote_state.base.elc_sg_id}"
-  security_group_id        = "${aws_security_group.tars-core-frontend.id}"
+  security_group_id        = "${module.tars_front.security_group_id}"
 }
 
 resource "aws_security_group_rule" "elc_ingress_backend_port_11211" {
@@ -25,7 +25,7 @@ resource "aws_security_group_rule" "elc_ingress_backend_port_11211" {
   to_port                  = "11211"
   protocol                 = "tcp"
   security_group_id        = "${data.terraform_remote_state.base.elc_sg_id}"
-  source_security_group_id = "${aws_security_group.tars-core-backend.id}"
+  source_security_group_id = "${module.tars_back.security_group_id}"
 }
 
 resource "aws_security_group_rule" "backend_egress_elc_port_11211" {
@@ -35,5 +35,5 @@ resource "aws_security_group_rule" "backend_egress_elc_port_11211" {
   to_port                  = "11211"
   protocol                 = "tcp"
   source_security_group_id = "${data.terraform_remote_state.base.elc_sg_id}"
-  security_group_id        = "${aws_security_group.tars-core-backend.id}"
+  security_group_id        = "${module.tars_back.security_group_id}"
 }

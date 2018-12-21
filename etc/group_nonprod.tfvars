@@ -205,19 +205,19 @@ ctrl_mgmt_tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote s
 prometheus_asg_min_size           = 1
 prometheus_asg_max_size           = 1
 prometheus_instance_type          = "t3.medium"
-prometheus_ami_build_id           = 439
+prometheus_ami_build_id           = 454
 prometheus_efs_provisioned_mibps  = 1
 
 #EFS Backups
 efs_backup_asg_min_size           = 0
 efs_backup_asg_max_size           = 0
 efs_backup_instance_type          = "t3.nano"
-efs_backup_ami_build_id           = 309
+efs_backup_ami_build_id           = 457
 
 
 ## jenkinsnode
 jenkinsnode_instance_type        = "m5.large"
-jenkinsnode_ami_build_id         = "438"
+jenkinsnode_ami_build_id         = "468"
 jenkinsnode_executors            = 5
 jenkinsnode_asg_min_size         = 1
 jenkinsnode_asg_max_size         = 3
@@ -232,9 +232,8 @@ jenkinsctrl_subnets_cidrs = [
   "10.167.60.48/28",
 ]
 
-wildfly-back_instance_type  = "t2.medium"
-wildfly-back_puppet_nodetype    = "tars-back"
-wildfly-back_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+wildfly-back_instance_type        = "t2.medium"
+wildfly-back_puppet_nodetype      = "tars-back"
 wildfly-back_asg_min_size         = 0
 wildfly-back_asg_max_size         = 1
 wildfly-back_scaledown_desired    = 0
@@ -244,9 +243,8 @@ wildfly-back_scaleup_desired      = 1
 wildfly-back_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## wildfly-batch
-wildfly-batch_instance_type  = "t2.medium"
-wildfly-batch_puppet_nodetype    = "tars-batch"
-wildfly-batch_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+wildfly-batch_instance_type        = "t2.medium"
+wildfly-batch_puppet_nodetype      = "tars-batch"
 wildfly-batch_asg_min_size         = 0
 wildfly-batch_asg_max_size         = 1
 wildfly-batch_scaledown_desired    = 0
@@ -255,8 +253,8 @@ wildfly-batch_scaleup_desired      = 1
 wildfly-batch_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## obs
-obs_instance_type  = "t2.medium"
-obs_puppet_nodetype    = "obs"
+obs_instance_type        = "t2.medium"
+obs_puppet_nodetype      = "obs"
 obs_asg_min_size         = 0
 obs_asg_max_size         = 3
 obs_scaledown_desired    = 0
@@ -265,8 +263,8 @@ obs_scaleup_desired      = 1
 obs_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## ibs
-ibs_instance_type  = "t2.medium"
-ibs_puppet_nodetype    = "ibs"
+ibs_instance_type        = "t2.medium"
+ibs_puppet_nodetype      = "ibs"
 ibs_asg_min_size         = 0
 ibs_asg_max_size         = 3
 ibs_scaledown_desired    = 0
@@ -275,8 +273,8 @@ ibs_scaleup_desired      = 1
 ibs_scaleup_recurrence   = "10 07 * * 1-5"
 
 ## fyndi-f
-fyndi-f_instance_type  = "t2.medium"
-fyndi-f_puppet_nodetype    = "fyndi-front"
+fyndi-f_instance_type        = "t2.medium"
+fyndi-f_puppet_nodetype      = "fyndi-front"
 fyndi-f_asg_min_size         = 0
 fyndi-f_asg_max_size         = 3
 fyndi-f_scaledown_desired    = 0
@@ -285,8 +283,8 @@ fyndi-f_scaleup_desired      = 1
 fyndi-f_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## fyndi_back
-fyndi-b_instance_type  = "t2.medium"
-fyndi-b_puppet_nodetype    = "fyndi-back"
+fyndi-b_instance_type        = "t2.medium"
+fyndi-b_puppet_nodetype      = "fyndi-back"
 fyndi-b_asg_min_size         = 0
 fyndi-b_asg_max_size         = 3
 fyndi-b_scaledown_desired    = 0
@@ -295,9 +293,8 @@ fyndi-b_scaleup_desired      = 1
 fyndi-b_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## wildfly-front
-wildfly-front_instance_type  = "t2.medium"
-wildfly-front_puppet_nodetype    = "tars-front"
-wildfly-front_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+wildfly-front_instance_type        = "t2.medium"
+wildfly-front_puppet_nodetype      = "tars-front"
 wildfly-front_asg_min_size         = 0
 wildfly-front_asg_max_size         = 1
 wildfly-front_scaledown_desired    = 0
@@ -306,9 +303,8 @@ wildfly-front_scaleup_desired      = 1
 wildfly-front_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## wildfly-messaging
-wildfly-messaging_instance_type  = "t3.medium"
-wildfly-messaging_puppet_nodetype    = "tars-messaging"
-wildfly-messaging_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+wildfly-messaging_instance_type        = "t3.medium"
+wildfly-messaging_puppet_nodetype      = "tars-messaging"
 wildfly-messaging_asg_min_size         = 0
 wildfly-messaging_asg_max_size         = 1
 wildfly-messaging_scaledown_desired    = 1
@@ -317,9 +313,8 @@ wildfly-messaging_scaleup_desired      = 1
 wildfly-messaging_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## wildfly-mock
-wildfly-mock_instance_type  = "t2.medium"
-wildfly-mock_puppet_nodetype    = "mock"
-wildfly-mock_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+wildfly-mock_instance_type        = "t2.medium"
+wildfly-mock_puppet_nodetype      = "mock"
 wildfly-mock_asg_min_size         = 0
 wildfly-mock_asg_max_size         = 1
 wildfly-mock_scaledown_desired    = 0
@@ -328,9 +323,8 @@ wildfly-mock_scaleup_desired      = 1
 wildfly-mock_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## cpc-back
-cpc-back_instance_type  = "t2.medium"
-cpc-back_puppet_nodetype    = "cpc-back"
-cpc-back_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+cpc-back_instance_type        = "t2.medium"
+cpc-back_puppet_nodetype      = "cpc-back"
 cpc-back_asg_min_size         = 0
 cpc-back_asg_max_size         = 1
 cpc-back_scaledown_desired    = 0
@@ -339,9 +333,8 @@ cpc-back_scaleup_desired      = 1
 cpc-back_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## cpc-front
-cpc-front_instance_type  = "t2.medium"
-cpc-front_puppet_nodetype    = "cpc-front"
-cpc-front_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+cpc-front_instance_type        = "t2.medium"
+cpc-front_puppet_nodetype      = "cpc-front"
 cpc-front_asg_min_size         = 0
 cpc-front_asg_max_size         = 1
 cpc-front_scaledown_desired    = 0
@@ -350,9 +343,8 @@ cpc-front_scaleup_desired      = 1
 cpc-front_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## sftpplus-svr
-sftpplus-svr_instance_type  = "t2.medium"
-sftpplus-svr_puppet_nodetype    = "sftpplus-svr"
-sftpplus-svr_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+sftpplus-svr_instance_type        = "t2.medium"
+sftpplus-svr_puppet_nodetype      = "sftpplus-svr"
 sftpplus-svr_asg_min_size         = 0
 sftpplus-svr_asg_max_size         = 1
 sftpplus-svr_scaledown_desired    = 0
@@ -373,9 +365,8 @@ xenco_instance_type = "t2.small"
 
 
 ## cpc-batch
-cpc-batch_instance_type  = "t2.medium"
-cpc-batch_puppet_nodetype    = "cpc-batch"
-cpc-batch_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+cpc-batch_instance_type        = "t2.medium"
+cpc-batch_puppet_nodetype      = "cpc-batch"
 cpc-batch_asg_min_size         = 0
 cpc-batch_asg_max_size         = 1
 cpc-batch_scaledown_desired    = 0
@@ -386,7 +377,6 @@ cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## apache
 apache_instance_type         = "t3.medium"
-apache_puppet_kms_key        = "38af52b4-66c9-473c-b61a-c9589605ffd8"
 apache_asg_min_size          = 0
 apache_asg_max_size          = 1
 apache_scaledown_desired     = 0
@@ -426,7 +416,6 @@ jmeter_instance_type              = "t3.micro"
 jmeter_asg_size_desired_on_create = 0
 jmeter_asg_size_max               = 3
 jmeter_asg_size_min               = 0
-jmeter_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
 
 ## Prometheus
 #Due to there being no wildcard cert in prod this is used.

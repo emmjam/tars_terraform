@@ -2,6 +2,7 @@ module "grafana" {
   source = "../../modules/microservice"
 
   name        = "grafana"
+  region      = "${var.aws_region}"
   project     = "${var.project}"
   environment = "${var.environment}"
   component   = "${var.component}"
@@ -24,19 +25,9 @@ module "grafana" {
   lc_instance_type = "${var.grafana_instance_type}"
   lc_user_data     = "${data.template_cloudinit_config.grafana.rendered}"
 
-  # TODO: peacheym: This group is a duplicate. It should be removed and
-  #                 references to it replaced with the microservice's own group
-  lc_additional_sg_ids = [
-    "${aws_security_group.grafana.id}",
-  ]
-
   asg_size_min               = "${var.grafana_asg_min_size}"
   asg_size_desired_on_create = "${var.grafana_asg_min_size}"
   asg_size_max               = "${var.grafana_asg_max_size}"
-
-  asg_target_group_arns = [ 
-    "${aws_alb_target_group.grafana-80.id}",
-  ]
 
   default_tags = "${local.default_tags}"
 

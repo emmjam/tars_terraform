@@ -19,5 +19,5 @@ resource "aws_security_group_rule" "grafana_egress_grafana_alb_http" {
   to_port                  = 80
   protocol                 = "tcp"
   security_group_id        = "${aws_security_group.grafana_alb.id}"
-  source_security_group_id = "${aws_security_group.grafana.id}"
+  source_security_group_id = "${module.grafana.security_group_id}"
 }

@@ -5,7 +5,7 @@ resource "aws_security_group_rule" "fyndi-f-ingress-tars-core-8080" {
   from_port                = "8080"
   to_port                  = "8080"
   security_group_id        = "${data.terraform_remote_state.tars-batch.tars-batch-sg-id}"
-  source_security_group_id = "${aws_security_group.fyndi-f.id}"
+  source_security_group_id = "${module.fyndi-f.security_group_id}"
 }
 
 resource "aws_security_group_rule" "fyndi-b-ingress-tars-core-8080" {
@@ -15,7 +15,7 @@ resource "aws_security_group_rule" "fyndi-b-ingress-tars-core-8080" {
   from_port                = "8080"
   to_port                  = "8080"
   security_group_id        = "${data.terraform_remote_state.tars-batch.tars-batch-sg-id}"
-  source_security_group_id = "${aws_security_group.fyndi-b.id}"
+  source_security_group_id = "${module.fyndi-b.security_group_id}"
 }
 
 resource "aws_security_group_rule" "batch_egress_fyndi_back_alb" {
