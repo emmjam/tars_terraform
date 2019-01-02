@@ -330,7 +330,7 @@ cpc_rds_snapshot = "tars-opsdev-cpc-cpcdb-20181106"
 
 
 # IBSDB
-ibs_rds_username = "ibsdevadmin"
+ibs_rds_username = "ibsuatadmin"
 
 ibs_rds_password = "password"
 
@@ -378,5 +378,5 @@ xenco_ssh_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAgEAglcxWvitvW4CTzgOZdQJF7F
 
 private_cert_domain_name = "dvsa.tars.dev-dvsacloud.uk"
 
-apache_ami_build_id = 437
+apache_ami_build_id = 460
 

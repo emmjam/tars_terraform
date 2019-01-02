@@ -38,7 +38,7 @@ instance_identity_document="$(${curl} -s http://169.254.169.254/latest/dynamic/i
 if [ ${?} -ne 0 ]; then
   error "${curl} -s http://169.254.169.254/latest/dynamic/instance-identity/document";
 else
-  log 'Instance Identity Document Retrieved';
+  log 'INFO' 'Instance Identity Document Retrieved';
 
   region="$(echo "${instance_identity_document}" | jq -r .region)";
 

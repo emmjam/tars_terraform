@@ -4,7 +4,7 @@ resource "aws_autoscaling_schedule" "tars_batch_down" {
   max_size               = "${var.wildfly-batch_asg_max_size}"
   desired_capacity       = "${var.wildfly-batch_scaledown_desired}"
   recurrence             = "${var.wildfly-batch_scaledown_recurrence}"
-  autoscaling_group_name = "${aws_autoscaling_group.tars-batch.id}"
+  autoscaling_group_name = "${module.tars_batch.autoscaling_group_id}"
 }
 
 resource "aws_autoscaling_schedule" "tars_batch_up" {
@@ -13,5 +13,5 @@ resource "aws_autoscaling_schedule" "tars_batch_up" {
   max_size               = "${var.wildfly-batch_asg_max_size}"
   desired_capacity       = "${var.wildfly-batch_scaleup_desired}"
   recurrence             = "${var.wildfly-batch_scaleup_recurrence}"
-  autoscaling_group_name = "${aws_autoscaling_group.tars-batch.id}"
+  autoscaling_group_name = "${module.tars_batch.autoscaling_group_id}"
 }

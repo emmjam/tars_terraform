@@ -121,7 +121,7 @@ output "core_sg_id" {
 }
 
 output "jmeter_sg_id" {
-  value = "${aws_security_group.jmeter.id}"
+  value = "${module.microservice_jmeter.security_group_id}"
 }
 
 output "iam_policy_cloudwatch_arn" {
@@ -145,7 +145,7 @@ output "subnets_mis_db" {
 }
 
 output "prometheus_sg_id" {
-  value = "${aws_security_group.prometheus.id}"
+  value = "${module.prometheus.security_group_id}"
 }
 
 output "efs_backup_sg_id" {
@@ -154,4 +154,8 @@ output "efs_backup_sg_id" {
 
 output "nat_gw_ip" {
   value = "${aws_eip.nat.*.public_ip}"
+}
+
+output "sns_alerts_arn" {
+  value = "${aws_sns_topic.alerts.arn}"
 }

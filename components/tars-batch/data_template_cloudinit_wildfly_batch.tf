@@ -16,7 +16,7 @@ data "template_file" "wildfly-batch-config" {
   vars {
     ENVIRONMENT      = "${var.environment}"
     NODETYPE         = "${var.wildfly-batch_puppet_nodetype}"
-    KMS_KEY          = "${var.wildfly-batch_puppet_kms_key}"
+    KMS_KEY          = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
     EFS_ID           = "${aws_efs_file_system.batch.id}"
     MOUNT_POINT      = "/efs"
     AWS_ACCOUNT_ID   = "${var.aws_account_id}"

@@ -19,5 +19,5 @@ resource "aws_security_group_rule" "tars_alb_dvsa_egress_tars_front_port_8443" {
   to_port                  = 8443
   protocol                 = "tcp"
   security_group_id        = "${aws_security_group.tars-dvsa-public.id}"
-  source_security_group_id = "${aws_security_group.tars-core-frontend.id}"
+  source_security_group_id = "${module.tars_front.security_group_id}"
 }

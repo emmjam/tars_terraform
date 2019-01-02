@@ -198,7 +198,7 @@ ctrl_mgmt_tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote s
 prometheus_asg_min_size           = 1
 prometheus_asg_max_size           = 1
 prometheus_instance_type          = "t3.medium"
-prometheus_ami_build_id           = 439
+prometheus_ami_build_id           = 454
 prometheus_efs_provisioned_mibps  = 5
 
 #EFS Backups
@@ -206,12 +206,12 @@ prometheus_efs_provisioned_mibps  = 5
 efs_backup_asg_min_size           = 0
 efs_backup_asg_max_size           = 0
 efs_backup_instance_type          = "t3.nano"
-efs_backup_ami_build_id           = 309
+efs_backup_ami_build_id           = 457
 
 
 ## jenkinsnode
 jenkinsnode_instance_type        = "m5.large"
-jenkinsnode_ami_build_id         = "438"
+jenkinsnode_ami_build_id         = "468"
 jenkinsnode_executors            = 5
 jenkinsnode_asg_min_size         = 1
 jenkinsnode_asg_max_size         = 3
@@ -226,9 +226,8 @@ jenkinsctrl_subnets_cidrs = [
   "10.167.56.48/28",
 ]
 
-wildfly-back_instance_type  = "m4.large"
-wildfly-back_puppet_nodetype    = "tars-back"
-wildfly-back_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
+wildfly-back_instance_type        = "m4.large"
+wildfly-back_puppet_nodetype      = "tars-back"
 wildfly-back_asg_min_size         = 0
 wildfly-back_asg_max_size         = 3
 wildfly-back_scaledown_desired    = 2
@@ -237,9 +236,8 @@ wildfly-back_scaleup_desired      = 3
 wildfly-back_scaleup_recurrence   = "15,45 * * * *"
 
 ## wildfly-batch
-wildfly-batch_instance_type  = "m4.large"
-wildfly-batch_puppet_nodetype    = "tars-batch"
-wildfly-batch_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
+wildfly-batch_instance_type        = "m4.large"
+wildfly-batch_puppet_nodetype      = "tars-batch"
 wildfly-batch_asg_min_size         = 0
 wildfly-batch_asg_max_size         = 1
 wildfly-batch_scaledown_desired    = 1
@@ -248,10 +246,9 @@ wildfly-batch_scaleup_desired      = 1
 wildfly-batch_scaleup_recurrence   = "00 08 * * 1-5"
 
 ## wildfly-front
-wildfly-front_instance_type  = "m4.large"
-wildfly-front_puppet_env     = "opsdev"
-wildfly-front_puppet_nodetype    = "tars-front"
-wildfly-front_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
+wildfly-front_instance_type        = "m4.large"
+wildfly-front_puppet_env           = "opsdev"
+wildfly-front_puppet_nodetype      = "tars-front"
 wildfly-front_asg_min_size         = 0
 wildfly-front_asg_max_size         = 2
 wildfly-front_scaledown_desired    = 2
@@ -260,8 +257,8 @@ wildfly-front_scaleup_desired      = 2
 wildfly-front_scaleup_recurrence   = "00 08 * * 1-5"
 
 ## obs
-obs_instance_type  = "m4.large"
-obs_puppet_nodetype    = "obs"
+obs_instance_type        = "m4.large"
+obs_puppet_nodetype      = "obs"
 obs_asg_min_size         = 0
 obs_asg_max_size         = 2
 obs_scaledown_desired    = 2
@@ -305,9 +302,8 @@ fyndi-b_scaleup_desired      = 2
 fyndi-b_scaleup_recurrence   = "00 08 * * 1-5"
 
 ## wildfly-messaging
-wildfly-messaging_instance_type  = "m5.large"
-wildfly-messaging_puppet_nodetype    = "tars-messaging"
-wildfly-messaging_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
+wildfly-messaging_instance_type        = "m5.large"
+wildfly-messaging_puppet_nodetype      = "tars-messaging"
 wildfly-messaging_asg_min_size         = 0
 wildfly-messaging_asg_max_size         = 2
 wildfly-messaging_scaledown_desired    = 2
@@ -338,9 +334,8 @@ aws_mq_users_cpc_batch_password      = "password123456"
 aws_mq_users_cpc_batch_group         = "cpc_batch"
 
 ## cpc-back
-cpc-back_instance_type  = "m4.large"
-cpc-back_puppet_nodetype    = "cpc-back"
-cpc-back_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
+cpc-back_instance_type        = "m4.large"
+cpc-back_puppet_nodetype      = "cpc-back"
 cpc-back_asg_min_size         = 0
 cpc-back_asg_max_size         = 2
 cpc-back_scaledown_desired    = 2
@@ -349,9 +344,8 @@ cpc-back_scaleup_desired      = 2
 cpc-back_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## cpc-front
-cpc-front_instance_type  = "m4.large"
-cpc-front_puppet_nodetype    = "cpc-front"
-cpc-front_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
+cpc-front_instance_type        = "m4.large"
+cpc-front_puppet_nodetype      = "cpc-front"
 cpc-front_asg_min_size         = 0
 cpc-front_asg_max_size         = 2
 cpc-front_scaledown_desired    = 2
@@ -360,9 +354,8 @@ cpc-front_scaleup_desired      = 2
 cpc-front_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## sftpplus-svr
-sftpplus-svr_instance_type  = "t2.medium"
-sftpplus-svr_puppet_nodetype    = "sftpplus-svr"
-sftpplus-svr_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
+sftpplus-svr_instance_type        = "t2.medium"
+sftpplus-svr_puppet_nodetype      = "sftpplus-svr"
 sftpplus-svr_asg_min_size         = 0
 sftpplus-svr_asg_max_size         = 1
 sftpplus-svr_scaledown_desired    = 1
@@ -371,9 +364,8 @@ sftpplus-svr_scaleup_desired      = 1
 sftpplus-svr_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## cpc-batch
-cpc-batch_instance_type  = "m4.large"
-cpc-batch_puppet_nodetype    = "cpc-batch"
-cpc-batch_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
+cpc-batch_instance_type        = "m4.large"
+cpc-batch_puppet_nodetype      = "cpc-batch"
 cpc-batch_asg_min_size         = 0
 cpc-batch_asg_max_size         = 1
 cpc-batch_scaledown_desired    = 1
@@ -383,7 +375,6 @@ cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## apache
 apache_instance_type         = "m5.large"
-apache_puppet_kms_key        = "38af52b4-66c9-473c-b61a-c9589605ffd8"
 apache_asg_min_size          = 0
 apache_asg_max_size          = 2
 apache_scaledown_desired     = 2
@@ -401,7 +392,6 @@ jmeter_instance_type              = "t3.micro"
 jmeter_asg_size_desired_on_create = 0
 jmeter_asg_size_max               = 3
 jmeter_asg_size_min               = 0
-jmeter_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
 
 ## Prometheus
 #Due to there being no wildcard cert in prod this is used.

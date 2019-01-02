@@ -6,7 +6,7 @@ resource "aws_security_group_rule" "oracle_db_ingress_tars_backend" {
   to_port                  = 1521
   protocol                 = "tcp"
   security_group_id        = "${aws_security_group.tars-core-db.id}"
-  source_security_group_id = "${aws_security_group.tars-core-backend.id}"
+  source_security_group_id = "${module.tars_back.security_group_id}"
 }
 
 resource "aws_security_group_rule" "oracle_db_ingress_tars_frontend" {
@@ -16,7 +16,7 @@ resource "aws_security_group_rule" "oracle_db_ingress_tars_frontend" {
   to_port                  = 1521
   protocol                 = "tcp"
   security_group_id        = "${aws_security_group.tars-core-db.id}"
-  source_security_group_id = "${aws_security_group.tars-core-frontend.id}"
+  source_security_group_id = "${module.tars_front.security_group_id}"
 }
 
 # rds DB from jenkinsnode

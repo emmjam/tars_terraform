@@ -375,9 +375,8 @@ cpc-front_scaledown_desired = 0
 sftpplus-svr_scaledown_desired = 0
 
 ## wildfly-messaging
-wildfly-messaging_instance_type  = "t3.medium"
-wildfly-messaging_puppet_nodetype    = "tars-messaging"
-wildfly-messaging_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+wildfly-messaging_instance_type        = "t3.medium"
+wildfly-messaging_puppet_nodetype      = "tars-messaging"
 wildfly-messaging_asg_min_size         = 0
 wildfly-messaging_asg_max_size         = 2
 wildfly-messaging_scaledown_desired    = 2
@@ -396,7 +395,7 @@ domain_name_servers = [
 
 private_cert_domain_name = "uat01.tars.dvsa.aws"
 
-apache_ami_build_id = 437
+apache_ami_build_id = 460
 
 # Temporary allocation -
 # To be removed when overall range is increased

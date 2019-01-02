@@ -13,5 +13,5 @@ resource "aws_security_group_rule" "jmeter_egress_jenkinsnode_1099_1101" {
   from_port                = "8080"
   to_port                  = "8080"
   security_group_id        = "${aws_security_group.obs-alb.id}"
-  source_security_group_id = "${aws_security_group.obs.id}"
+  source_security_group_id = "${module.obs.security_group_id}"
 }

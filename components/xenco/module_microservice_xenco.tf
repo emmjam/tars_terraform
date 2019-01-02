@@ -3,6 +3,7 @@ module "xenco" {
   source = "../../modules/microservice"
 
   name        = "xenco"
+  region      = "${var.aws_region}"
   project     = "${var.project}"
   environment = "${var.environment}"
   component   = "${var.component}"
@@ -23,9 +24,10 @@ module "xenco" {
   lc_instance_type = "${var.xenco_instance_type}"
   lc_user_data     = "${data.template_cloudinit_config.xenco.rendered}"
 
-  asg_target_group_arns = [
-    "${aws_lb_target_group.xenco.id}",
-  ]
+  lifecycle_hook_launching_default_result = "ABANDON"
+  lifecycle_hook_launching_enabled        = "1"
+  lifecycle_hook_launching_timeout        = "500"
+  failed_lifecycle_action_sns_topic       = "${data.terraform_remote_state.base.sns_alerts_arn}"
 
   asg_size_min               = "${var.xenco_asg_min_size}"
   asg_size_desired_on_create = "${var.xenco_asg_max_size}"
