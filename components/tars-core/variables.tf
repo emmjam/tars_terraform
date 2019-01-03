@@ -394,3 +394,81 @@ variable "mes_cidr_block" {
   description = "MES CIDR block for DB SG connection"
   default     = []
 }
+
+variable "wildfly-batch_asg_max_size" {
+  type        = "string"
+  description = ""
+}
+
+variable "wildfly-batch_asg_min_size" {
+  type        = "string"
+  description = ""
+}
+
+variable "wildfly-batch_instance_type" {
+  type        = "string"
+  description = ""
+}
+
+variable "wildfly-batch_puppet_nodetype" {
+  type        = "string"
+  description = ""
+}
+
+variable "wildfly-batch_scaledown_desired" {
+  type        = "string"
+  description = ""
+}
+
+variable "wildfly-batch_scaledown_recurrence" {
+  type        = "string"
+  description = ""
+}
+
+variable "wildfly-batch_scaleup_desired" {
+  type        = "string"
+  description = ""
+}
+
+variable "wildfly-batch_scaleup_recurrence" {
+  type        = "string"
+  description = ""
+}
+
+variable "batch_efs_subnets_cidrs" {
+  type        = "list"
+  description = "Batch EFS subnets list"
+  default     = []
+}
+
+variable "avarto_sftp_server" {
+  type        = "string"
+  description = "Avarto"
+}
+
+variable "sweda_samba_server" {
+  type        = "string"
+  description = "Sweda"
+}
+
+variable "dvla_adli_server" {
+  type        = "string"
+  description = "ADLI"
+}
+
+variable "rsis_samba_server" {
+  type        = "string"
+  description = "RSIS"
+}
+
+variable "dvsa_ldap_server" {
+  type        = "string"
+  description = "DVSA LDAP server for priter lookup"
+}
+
+variable "dvsa_dns_servers" {
+  type        = "list"
+  description = "DVSA Azure DNS Servers"
+  default     = []
+}
+

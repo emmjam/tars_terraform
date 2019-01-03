@@ -29,3 +29,12 @@ output "tars-apache-dns-name" {
 output "tars-apache-dns-zone-id" {
   value = "${aws_alb.apache_public.zone_id}"
 }
+
+output "tars-batch-sg-id" {
+  value = "${module.tars_batch.security_group_id}"
+}
+
+output "batch_efs_id" {
+  value = "${aws_efs_file_system.batch.id}"
+}
+

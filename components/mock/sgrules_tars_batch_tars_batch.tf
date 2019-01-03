@@ -4,7 +4,7 @@ resource "aws_security_group_rule" "mock_tars_batch_egress_port_22" {
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
-  security_group_id = "${data.terraform_remote_state.tars-batch.tars-batch-sg-id}"
+  security_group_id = "${data.terraform_remote_state.tars-core.tars-batch-sg-id}"
 
   cidr_blocks = [
     "${data.terraform_remote_state.base.subnet_cidrs_tars_backend}",

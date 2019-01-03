@@ -49,5 +49,5 @@ resource "aws_security_group_rule" "tars_batch_ingress_cpc_db" {
   to_port                  = 1521
   protocol                 = "tcp"
   security_group_id        = "${aws_security_group.cpc-db.id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-batch.tars-batch-sg-id}"
+  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-batch-sg-id}"
 }

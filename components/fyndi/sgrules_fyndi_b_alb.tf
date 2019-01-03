@@ -25,5 +25,5 @@ resource "aws_security_group_rule" "fyndi-b-alb_ingress_tars_batch" {
   from_port                = "8080"
   to_port                  = "8080"
   security_group_id        = "${aws_security_group.fyndi-b-alb.id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-batch.tars-batch-sg-id}"
+  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-batch-sg-id}"
 }

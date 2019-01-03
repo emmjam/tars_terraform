@@ -53,5 +53,5 @@ resource "aws_security_group_rule" "tars_cpc_backend_ingress_tars_batch_port_808
   to_port                  = 8080
   protocol                 = "tcp"
   security_group_id        = "${aws_security_group.cpc-back-alb.id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-batch.tars-batch-sg-id}"
+  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-batch-sg-id}"
 }
