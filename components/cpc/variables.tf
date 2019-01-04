@@ -348,3 +348,34 @@ variable "cpc-back_scaleup_recurrence" {
   type        = "string"
   description = ""
 }
+
+variable "cpc-batch_puppet_nodetype" {
+  type        = "string"
+  description = ""
+}
+
+variable "cpc-batch_asg_max_size" {
+  type        = "string"
+  description = ""
+}
+
+variable "cpc-batch_asg_min_size" {
+  type        = "string"
+  description = ""
+}
+
+variable "cpc-batch_instance_type" {
+  type        = "string"
+  description = ""
+}
+
+variable "cpc_efs_subnets_cidrs" {
+  type        = "list"
+  description = "CPC EFS subnets list"
+}
+
+variable "cpc_sftp_subnets_cidrs" {
+  type        = "list"
+  description = ""
+}
+

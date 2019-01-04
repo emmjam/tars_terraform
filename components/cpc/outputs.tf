@@ -22,3 +22,12 @@ output "cpc-front-sg-id" {
 output "cpc-alb-target-group-internet-frontend" {
   value = "${aws_alb_target_group.cpc-front-internal-9443.arn}"
 }
+
+output "cpc-batch-sg-id" {
+  value = "${module.cpc_batch.security_group_id}"
+}
+
+output "cpc-batch_efs_id" {
+  value = "${aws_efs_file_system.cpc-batch-efs.id}"
+}
+

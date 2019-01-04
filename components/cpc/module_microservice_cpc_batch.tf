@@ -19,7 +19,7 @@ module "cpc_batch" {
   #  leave the subnets in base and alter the microservice
   #  module to accept pre-existing subnets.
   subnets_ids = [
-    "${data.terraform_remote_state.cpc.subnet_cidrs_cpc_backend}",
+    "${module.cpc-back.subnet_ids}",
   ]
 
   subnets_route_tables = [
