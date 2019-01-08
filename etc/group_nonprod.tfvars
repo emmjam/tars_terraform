@@ -65,6 +65,7 @@ all_users = [
   "alban.anderson@capita.co.uk",
   "dolly.adeyiga@capita.co.uk",
   "gitanjali.nalawade@capita.co.uk",
+  "michael.tribbick@bjss.com",
 ]
 
 administrators = [
@@ -87,6 +88,7 @@ administrators = [
   "daniel.billing@bjss.com",
   "stephen.davies@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
+  "michael.tribbick@bjss.com",
 ]
 
 power_users = [

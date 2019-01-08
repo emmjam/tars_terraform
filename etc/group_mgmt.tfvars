@@ -29,6 +29,7 @@ all_users = [
   "daniel.billing@bjss.com",
   "stephen.davies@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
+  "michael.tribbick@bjss.com",
 ]
 
 administrators = [
@@ -50,6 +51,7 @@ administrators = [
   "daniel.billing@bjss.com",
   "stephen.davies@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
+  "michael.tribbick@bjss.com",
 ]
 
 ctrl_vpc_cidr = "10.167.64.0/22"
