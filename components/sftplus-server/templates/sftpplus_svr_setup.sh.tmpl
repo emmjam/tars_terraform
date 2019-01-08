@@ -79,6 +79,8 @@ fi;
 
 # Prerequisite information gathered - begin bootstrapping
 
+BOOTSTRAP_SUCCESS=1
+
 sed -E -i "s/'[a-z0-9]{8}\-[a-z0-9]{4}\-[a-z0-9]{4}\-[a-f0-9]{4}\-[a-z0-9]{12}'/'${KMS_KEY}'/g" /etc/eyaml/config.yaml
 
 # Ensure the EFS directory exists

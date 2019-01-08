@@ -18,7 +18,7 @@ module "sftpplus_svr" {
   ]
 
   subnets_route_tables = [
-    "${data.terraform_remote_state.base.public_route_table_id}",
+    "${data.terraform_remote_state.base.private_nat_route_table_id}",
   ]
 
   lc_ami_id        = "${data.aws_ami.sftpplus_svr.image_id}"
