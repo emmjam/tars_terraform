@@ -13,7 +13,7 @@ module "xenco" {
   subnets_cidrs      = "${var.xenco_subnets_cidrs}"
 
   subnets_route_tables = [
-    "${data.terraform_remote_state.base.private_nonat_route_table_id}",
+    "${data.terraform_remote_state.base.private_nat_route_table_id}",
   ]
 
   lc_additional_sg_ids = [
