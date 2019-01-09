@@ -18,7 +18,7 @@ module "sftpplus_svr" {
   ]
 
   subnets_route_tables = [
-    "${data.terraform_remote_state.base.private_nat_route_table_id}",
+    "${data.terraform_remote_state.base.public_route_table_id}",
   ]
 
   lc_ami_id        = "${data.aws_ami.sftpplus_svr.image_id}"
@@ -28,11 +28,6 @@ module "sftpplus_svr" {
   lc_additional_sg_ids = [
     "${data.terraform_remote_state.base.core_sg_id}",
   ]
-
-  lifecycle_hook_launching_default_result = "ABANDON"
-  lifecycle_hook_launching_enabled        = "1"
-  lifecycle_hook_launching_timeout        = "500"
-  failed_lifecycle_action_sns_topic       = "${data.terraform_remote_state.base.sns_alerts_arn}"
 
   asg_size_min               = "${var.sftpplus-svr_asg_min_size}"
   asg_size_desired_on_create = "${var.sftpplus-svr_asg_min_size}"
