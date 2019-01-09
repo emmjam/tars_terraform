@@ -564,3 +564,8 @@ variable "efs_backup_ami_build_id" {
   type        = "string"
   description = ""
 }
+
+variable "holding_pages_cert" {
+  type        = "string"
+  description = ""
+}

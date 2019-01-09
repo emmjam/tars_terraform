@@ -396,7 +396,8 @@ obs_cert                = "obs-prod-public"
 ibs_cert                = "ibs-prod-public"
 irdt_cert               = "irdt-prod-public"
 apache_cert             = "routing-prod-public"
-bobj_cert		= "bobj-prod"
+bobj_cert               = "bobj-prod"
+holding_pages_cert      = "maintenance-prod"
 
 
 ## wildfly-batch temporary 'off' schedule
