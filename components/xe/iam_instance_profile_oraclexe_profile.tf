@@ -1,4 +1,4 @@
 resource "aws_iam_instance_profile" "oraclexe_profile" {
-  name = "${var.xe_role_name}"
+  name = "${local.csi}-role"
   role = "${aws_iam_role.oraclexe.name}"
 }

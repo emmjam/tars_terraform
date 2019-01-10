@@ -243,11 +243,12 @@ apache_subnet_cidrs = [
 
 #  "10.167.38.16/28",
 
-test_database_subnets_cidrs = [
-  "10.167.38.32/27",
-  "10.167.38.64/27",
-  "10.167.38.96/27",
-]
+# Now free to use
+# test_database_subnets_cidrs = [
+#   "10.167.38.32/27",
+#   "10.167.38.64/27",
+#   "10.167.38.96/27",
+# ]
 
 jmeter_subnets_cidrs = [
   "10.167.38.128/28",

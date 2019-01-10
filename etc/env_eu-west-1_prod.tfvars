@@ -249,11 +249,12 @@ apache_subnet_cidrs = [
   "10.167.134.16/28",
 ]
 
-test_database_subnets_cidrs = [
-  "10.167.134.32/27",
-  "10.167.134.64/27",
-  "10.167.134.96/27",
-]
+# Now free to use
+# test_database_subnets_cidrs = [
+#   "10.167.134.32/27",
+#   "10.167.134.64/27",
+#   "10.167.134.96/27",
+# ]
 
 jmeter_subnets_cidrs = [
   "10.167.134.128/28",
@@ -362,10 +363,6 @@ transit_peering_enabled = true
 ad_peering_enabled = true
 ad_peering_vpc = "vpc-02072cb35506d9b73"
 ad_account = "233824316563"
-
-
-# DMS Stuff
-xe_role_name = "OracleXE"
 
 # DHCP Scope options for DNS
 
