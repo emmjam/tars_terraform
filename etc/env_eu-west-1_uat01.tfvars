@@ -239,11 +239,12 @@ efs_backup_subnets_cidrs = [
   "10.167.14.16/28",
 ]
 
-test_database_subnets_cidrs = [
-  "10.167.14.32/27",
-  "10.167.14.64/27",
-  "10.167.14.96/27",
-]
+# Now free to use
+# test_database_subnets_cidrs = [
+#   "10.167.14.32/27",
+#   "10.167.14.64/27",
+#   "10.167.14.96/27",
+# ]
 
 jmeter_subnets_cidrs = [
   "10.167.14.128/28",

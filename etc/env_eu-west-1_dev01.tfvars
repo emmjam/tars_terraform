@@ -243,11 +243,12 @@ apache_subnet_cidrs = [
 
 #  "10.167.30.16/28",
 
-test_database_subnets_cidrs = [
-  "10.167.30.32/27",
-  "10.167.30.64/27",
-  "10.167.30.96/27",
-]
+# Now free to use
+# test_database_subnets_cidrs = [
+#   "10.167.30.32/27",
+#   "10.167.30.64/27",
+#   "10.167.30.96/27",
+# ]
 
 jmeter_subnets_cidrs = [
   "10.167.30.128/28",
@@ -531,9 +532,6 @@ source_dms_mis_rds_password = "W53dBTJhdsdAuf3V"
 source_dms_mis_rds_allocated_storage = "300"
 source_dms_mis_rds_name = "MISDB"
 source_dms_mis_rds_snapshot = "misuat01-060418"
-
-# DMS Stuff
-xe_role_name = "OracleXE"
 
 # These names will be added to our private zone so we can resolve them.
 dsa-drora-db-rac01 = "10.86.192.16"

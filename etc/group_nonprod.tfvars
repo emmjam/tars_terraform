@@ -409,6 +409,9 @@ jmeter_asg_size_desired_on_create = 0
 jmeter_asg_size_max               = 3
 jmeter_asg_size_min               = 0
 
+## XE
+xe_ami_name = "OracleXE"
+
 ## Prometheus
 #Due to there being no wildcard cert in prod this is used.
 prometheus_cert_name = "*"
