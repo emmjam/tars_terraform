@@ -31,7 +31,6 @@ all_users = [
   "sam.smart@bjss.com",
   "matthew.bell@dvsa.gov.uk",
   "alice.haws@dvsa.gov.uk",
-  "paul.duffy@dvsa.gov.uk",
   "callum.massey@bjss.com",
   "ian.harris@bjss.com",
   "chris.nappin@bjss.com",
@@ -129,7 +128,6 @@ capita_support_ro_users = [
 dvsa_ro_users = [
   "matthew.bell@dvsa.gov.uk",
   "alice.haws@dvsa.gov.uk",
-  "paul.duffy@dvsa.gov.uk",
   "tim.hinchey@dvsa.gov.uk"
 ]
 
