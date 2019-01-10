@@ -35,7 +35,6 @@ all_users = [
   "boby.jacob@capita.co.uk",
   "matthew.bell@dvsa.gov.uk",
   "alice.haws@dvsa.gov.uk",
-  "paul.duffy@dvsa.gov.uk",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
@@ -139,7 +138,6 @@ capita_support_ro_users = [
 dvsa_ro_users = [
   "matthew.bell@dvsa.gov.uk",
   "alice.haws@dvsa.gov.uk",
-  "paul.duffy@dvsa.gov.uk",
 ]
 
 ###############################################################################
