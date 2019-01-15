@@ -1,11 +1,11 @@
 module "microservice_jmeter" {
   source = "../../modules/microservice"
 
+  name        = "jmeter"
+  region      = "${var.aws_region}"
   project     = "${var.project}"
   environment = "${var.environment}"
   component   = "${var.component}"
-
-  name = "jmeter"
 
   asg_default_tags = [
     "${var.asg_default_tags}",
@@ -23,8 +23,12 @@ module "microservice_jmeter" {
 
   lc_additional_sg_ids = [
     "${aws_security_group.core.id}",
-    "${aws_security_group.jmeter.id}",
   ]
+
+  lifecycle_hook_launching_default_result = "ABANDON"
+  lifecycle_hook_launching_enabled        = "1"
+  lifecycle_hook_launching_timeout        = "500"
+  failed_lifecycle_action_sns_topic       = "${aws_sns_topic.alerts.arn}"
 
   lc_ami_id        = "${data.aws_ami.jmeter.image_id}"
   lc_instance_type = "${var.jmeter_instance_type}"

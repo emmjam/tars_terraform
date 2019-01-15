@@ -256,11 +256,6 @@ variable "wildfly-back_instance_type" {
   description = ""
 }
 
-variable "wildfly-back_puppet_kms_key" {
-  type        = "string"
-  description = ""
-}
-
 variable "wildfly-back_puppet_nodetype" {
   type        = "string"
   description = ""
@@ -301,11 +296,6 @@ variable "wildfly-front_instance_type" {
   description = ""
 }
 
-variable "wildfly-front_puppet_kms_key" {
-  type        = "string"
-  description = ""
-}
-
 variable "wildfly-front_puppet_nodetype" {
   type        = "string"
   description = ""
@@ -329,34 +319,6 @@ variable "tars_cert" {
 variable "tars_private_cert" {
   type        = "string"
   description = "TARS Private ACM cert name"
-}
-
-# Added by TS-4753
-# To be removed by TS-4722 and TS-4756
-# TEMP UAT DB's in Prod
-variable "uat_dbs_in_prod" {
-  type        = "string"
-  description = "Temporarily have UAT DB's in prod to shakedown prod app"
-}
-
-variable "tmp_tars_rds_username" {
-  type        = "string"
-  description = "Temp UAT DB in prod"
-}
-
-variable "tmp_tars_rds_password" {
-  type        = "string"
-  description = "Temp UAT DB in prod"
-}
-
-variable "tmp_tars_rds_allocated_storage" {
-  type        = "string"
-  description = "Temp UAT DB in prod"
-}
-
-variable "tmp_tars_rds_snapshot" {
-  type        = "string"
-  description = "Temp UAT DB in prod"
 }
 
 variable "apache_asg_max_size" {
@@ -390,11 +352,6 @@ variable "apache_scaleup_recurrence" {
 }
 
 variable "apache_instance_type" {
-  type        = "string"
-  description = ""
-}
-
-variable "apache_puppet_kms_key" {
   type        = "string"
   description = ""
 }

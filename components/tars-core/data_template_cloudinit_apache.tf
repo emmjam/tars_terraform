@@ -15,7 +15,7 @@ data "template_file" "apache_config" {
   vars {
     NODETYPE       = "apache-routing"
     ENVIRONMENT    = "${var.environment}"
-    KMS_KEY        = "${var.apache_puppet_kms_key}"
+    KMS_KEY        = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
     AWS_ACCOUNT_ID = "${var.aws_account_id}"
   }
 }

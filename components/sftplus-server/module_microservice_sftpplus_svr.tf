@@ -2,6 +2,7 @@ module "sftpplus_svr" {
   source = "../../modules/microservice"
 
   name        = "sftpplus"
+  region      = "${var.aws_region}"
   project     = "${var.project}"
   environment = "${var.environment}"
   component   = "${var.component}"
@@ -32,11 +33,6 @@ module "sftpplus_svr" {
   asg_size_desired_on_create = "${var.sftpplus-svr_asg_min_size}"
   asg_size_max               = "${var.sftpplus-svr_asg_max_size}"
   asg_load_balancers         = []
-
-  asg_target_group_arns = [
-    "${aws_lb_target_group.sftpplus_svr-10022.arn}",
-    "${aws_lb_target_group.sftpplus_svr-10022-pub.arn}",
-  ]
 
   default_tags = "${local.default_tags}"
 }

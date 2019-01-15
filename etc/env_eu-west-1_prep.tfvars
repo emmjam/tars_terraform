@@ -33,23 +33,6 @@ asg_default_tags = [
 ]
 
 ###############################################################################
-# BASE
-###############################################################################
-
-#Monitoring
-prometheus_asg_min_size           = 1
-prometheus_asg_max_size           = 1
-prometheus_instance_type          = "t2.medium"
-prometheus_ami_build_id           = 377
-prometheus_efs_provisioned_mibps  = 5
-
-#EFS Backups
-efs_backup_asg_min_size           = 0
-efs_backup_asg_max_size           = 0
-efs_backup_instance_type          = "t3.nano"
-efs_backup_ami_build_id           = 309
-
-###############################################################################
 # CTRL
 ###############################################################################
 
@@ -266,11 +249,12 @@ apache_subnet_cidrs = [
   "10.167.142.16/28",
 ]
 
-test_database_subnets_cidrs = [
-  "10.167.142.32/27",
-  "10.167.142.64/27",
-  "10.167.142.96/27",
-]
+# Now free to use
+# test_database_subnets_cidrs = [
+#   "10.167.142.32/27",
+#   "10.167.142.64/27",
+#   "10.167.142.96/27",
+# ]
 
 jmeter_subnets_cidrs = [
   "10.167.142.128/28",
@@ -334,34 +318,36 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 ##
 
 # TARSDB
-tars_rds_username = "tarsuatadmin"
+tars_rds_username = "tarsadmin"
 tars_rds_password = "YTN5f3RN8kV8u9mX"
 tars_rds_allocated_storage = "500"
-tars_rds_snapshot = "tars-prod1-tars-core-tarsdb-241018"
+tars_rds_snapshot = "rds:tars-prod-tars-core-tarsdb-2018-12-17-02-43"
+tars_rds_skip_final_snapshot = true
 
 # MISDB
 mis_rds_username = "misuatadmin"
 mis_rds_password = "BaLhNU73XCpFCNXP"
 mis_rds_allocated_storage = "500"
 mis_rds_snapshot = "tars-prod1-tars-reporting-misdb-241018"
+mis_rds_skip_final_snapshot = true
 
 # RSISDB
 rsis_rds_username = "tarsrsisadmin"
 rsis_rds_password = "pbj9VQTE4T5GDVbF"
 rsis_rds_allocated_storage = "300"
 rsis_rds_snapshot = "tars-prod1-tars-reporting-rsisdb-241018"
+rsis_rds_skip_final_snapshot = true
 
 # CPCSDB
-cpc_rds_username = "tarscpcadmin"
+cpc_rds_username = "cpcadmin"
 cpc_rds_password = "gKFTFnhM5d2NqCFn"
 cpc_rds_allocated_storage = "100"
-cpc_rds_snapshot = "tars-prod1-cpc-cpcdb-241018"
+cpc_rds_snapshot = "rds:tars-prod-cpc-cpcdb-2018-12-17-02-49"
+cpc_rds_skip_final_snapshot = true
 
 # IBSDB
 ibs_rds_username = "ibsprepadmin"
-
 ibs_rds_password = "wZMJ2KWX8ZEEwJqbRmS7FEbWryBFhmWU"
-
 ibs_rds_snapshot = "prep-ibsdb-with-users-and-geo-data2"
 
 #############################################################################
@@ -400,7 +386,9 @@ tars_pdf_cert           = "tars-prep-pdf"
 obs_cert                = "obs-prep-public"
 ibs_cert                = "ibs-prep-public"
 irdt_cert               = "irdt-prep-public"
-apache_cert             = "routing-prod-public"
+apache_cert             = "routing-prep-public"
+bobj-server             = "*"
+holding_pages_cert      = "maintenance-prod"
 
 ## wildfly-batch temporary 'off' schedule
 wildfly-batch_asg_min_size         = 0
@@ -418,4 +406,4 @@ cpc-batch_scaledown_recurrence = "00 22 * * 1-5"
 cpc-batch_scaleup_desired      = 0
 cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
-apache_ami_build_id = 406
+apache_ami_build_id = 460

@@ -86,6 +86,15 @@ resource "aws_security_group_rule" "core_egress_squidnat_explicit" {
   source_security_group_id = "${module.squidnat.security_group_id}"
 }
 
+resource "aws_security_group_rule" "core_egress_squidnat_smtp" {
+  type                     = "egress"
+  protocol                 = "tcp"
+  from_port                = "587"
+  to_port                  = "587"
+  security_group_id        = "${aws_security_group.core.id}"
+  source_security_group_id = "${module.squidnat.security_group_id}"
+}
+
 #Allow access for prometheus
 resource "aws_security_group_rule" "core_ingress_prometheus" {
   type                     = "ingress"

@@ -124,11 +124,6 @@ variable "wildfly-batch_instance_type" {
   description = ""
 }
 
-variable "wildfly-batch_puppet_kms_key" {
-  type        = "string"
-  description = ""
-}
-
 variable "wildfly-batch_puppet_nodetype" {
   type        = "string"
   description = ""

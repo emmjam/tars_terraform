@@ -33,24 +33,6 @@ asg_default_tags = [
 ]
 
 ###############################################################################
-# BASE
-###############################################################################
-
-#Monitoring
-prometheus_asg_min_size           = 1
-prometheus_asg_max_size           = 1
-prometheus_instance_type          = "t2.medium"
-prometheus_ami_build_id           = 377
-prometheus_efs_provisioned_mibps  = 5
-
-#EFS Backups
-#smarts: to be enabled after testing in another env
-efs_backup_asg_min_size           = 0
-efs_backup_asg_max_size           = 0
-efs_backup_instance_type          = "t3.nano"
-efs_backup_ami_build_id           = 309
-
-###############################################################################
 # CTRL
 ###############################################################################
 
@@ -267,11 +249,12 @@ apache_subnet_cidrs = [
   "10.167.134.16/28",
 ]
 
-test_database_subnets_cidrs = [
-  "10.167.134.32/27",
-  "10.167.134.64/27",
-  "10.167.134.96/27",
-]
+# Now free to use
+# test_database_subnets_cidrs = [
+#   "10.167.134.32/27",
+#   "10.167.134.64/27",
+#   "10.167.134.96/27",
+# ]
 
 jmeter_subnets_cidrs = [
   "10.167.134.128/28",
@@ -343,7 +326,7 @@ tars_rds_snapshot = ""
 # MISDB
 mis_rds_username = "misadmin"
 mis_rds_password = "rXTdAxhj3kN8S2Gc"
-mis_rds_allocated_storage = "300"
+mis_rds_allocated_storage = "330"
 mis_rds_autoscale = "False"
 mis_rds_snapshot = ""
 
@@ -381,10 +364,6 @@ ad_peering_enabled = true
 ad_peering_vpc = "vpc-02072cb35506d9b73"
 ad_account = "233824316563"
 
-
-# DMS Stuff
-xe_role_name = "OracleXE"
-
 # DHCP Scope options for DNS
 
 domain_name_servers = [
@@ -404,7 +383,7 @@ private_cert_domain_name = "prod.tars.dvsa.aws"
 
 cpc_internet_cert       = "tars-prod-cpc-internet"
 cpc_dvsa_internet_cert  = "tars-prod-cpc-dvsa-internet"
-cpc_cert                = "cpc-prod"
+cpc_cert                = "cpc"
 cpc_private_cert        = "cpc-dvsa"
 fyndi_cert              = "fyndi-prod-public"
 tars_cert               = "tars-prod-public"
@@ -414,43 +393,24 @@ obs_cert                = "obs-prod-public"
 ibs_cert                = "ibs-prod-public"
 irdt_cert               = "irdt-prod-public"
 apache_cert             = "routing-prod-public"
+bobj_cert               = "bobj-prod"
+holding_pages_cert      = "maintenance-prod"
 
 
 ## wildfly-batch temporary 'off' schedule
 wildfly-batch_asg_min_size         = 0
 wildfly-batch_asg_max_size         = 1
-wildfly-batch_scaledown_desired    = 0
+wildfly-batch_scaledown_desired    = 1
 wildfly-batch_scaledown_recurrence = "00 18 * * 1-5"
-wildfly-batch_scaleup_desired      = 0
+wildfly-batch_scaleup_desired      = 1
 wildfly-batch_scaleup_recurrence   = "00 08 * * 1-5"
 
 ## cpc-batch temporary 'off' schedule
 cpc-batch_asg_min_size         = 0
 cpc-batch_asg_max_size         = 1
-cpc-batch_scaledown_desired    = 0
+cpc-batch_scaledown_desired    = 1
 cpc-batch_scaledown_recurrence = "00 22 * * 1-5"
-cpc-batch_scaleup_desired      = 0
+cpc-batch_scaleup_desired      = 1
 cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
-apache_ami_build_id = 406
-
-# Added by TS-4753
-# To be removed by TS-4722 and TS-4756
-# TEMP UAT DB's in Prod
-uat_dbs_in_prod = "true"
-tmp_tars_rds_username = "tarsuatadmin"
-tmp_tars_rds_password = "YTN5f3RN8kV8u9mX"
-tmp_tars_rds_allocated_storage = "500"
-tmp_tars_rds_snapshot = "tars-prod1-tars-core-tarsdb-241018"
-tmp_mis_rds_username = "misuatadmin"
-tmp_mis_rds_password = "BaLhNU73XCpFCNXP"
-tmp_mis_rds_allocated_storage = "500"
-tmp_mis_rds_snapshot = "tars-prod1-tars-reporting-misdb-241018"
-tmp_rsis_rds_username = "tarsrsisadmin"
-tmp_rsis_rds_password = "pbj9VQTE4T5GDVbF"
-tmp_rsis_rds_allocated_storage = "300"
-tmp_rsis_rds_snapshot = "tars-prod1-tars-reporting-rsisdb-241018"
-tmp_cpc_rds_username = "tarscpcadmin"
-tmp_cpc_rds_password = "gKFTFnhM5d2NqCFn"
-tmp_cpc_rds_allocated_storage = "100"
-tmp_cpc_rds_snapshot = "tars-prod1-cpc-cpcdb-241018"
+apache_ami_build_id = 460

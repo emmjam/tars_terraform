@@ -46,6 +46,12 @@ resource "aws_db_parameter_group" "mis" {
   }
 
   parameter {
+    name         = "undo_tablespace"
+    value        = "undo_t1"
+    apply_method = "immediate"
+  }
+
+  parameter {
     name         = "undo_retention"
     value        = "7200"
     apply_method = "immediate"

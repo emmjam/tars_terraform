@@ -2,6 +2,7 @@ module "efs_backup" {
   source = "../../modules/microservice"
 
   name        = "efs-backup"
+  region      = "${var.aws_region}"
   project     = "${var.project}"
   environment = "${var.environment}"
   component   = "${var.component}"
@@ -17,6 +18,11 @@ module "efs_backup" {
   lc_additional_sg_ids = [
     "${aws_security_group.core.id}"
   ]
+
+  lifecycle_hook_launching_default_result = "ABANDON"
+  lifecycle_hook_launching_enabled        = "1"
+  lifecycle_hook_launching_timeout        = "500"
+  failed_lifecycle_action_sns_topic       = "${aws_sns_topic.alerts.arn}"
 
   lc_ami_id        = "${data.aws_ami.efs_backup.image_id}"
   lc_instance_type = "${var.efs_backup_instance_type}"

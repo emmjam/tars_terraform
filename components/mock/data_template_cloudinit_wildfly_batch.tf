@@ -16,7 +16,7 @@ data "template_file" "wildfly-mock-config" {
   vars {
     ENVIRONMENT    = "${var.environment}"
     NODETYPE       = "${var.wildfly-mock_puppet_nodetype}"
-    KMS_KEY        = "${var.wildfly-mock_puppet_kms_key}"
+    KMS_KEY        = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
     AWS_ACCOUNT_ID = "${var.aws_account_id}"
   }
 }

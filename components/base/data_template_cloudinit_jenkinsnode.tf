@@ -13,10 +13,13 @@ data "template_file" "jenkinsnode_config" {
   template = "${file("${path.module}/templates/jenkinsnode_setup.sh.tmpl")}"
 
   vars {
-    MASTER_URL    = "jenkins.mgmt.mgmt.tars.dvsa.aws"                        # TODO: use remote state
-    # ACCOUNT_ALIAS = "${data.terraform_remote_state.acc.account_alias}"
-    ACCOUNT_ALIAS = "${var.environment}"
-    EXECUTORS     = "${var.jenkinsnode_executors}"
+    NODETYPE       = "jenkinsnode"
+    ENVIRONMENT    = "${var.environment}"
+    AWS_ACCOUNT_ID = "${var.aws_account_id}"
+    KMS_KEY        = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
+    MASTER_URL     = "jenkins.mgmt.mgmt.tars.dvsa.aws" # TODO: Use remote state
+    ACCOUNT_ALIAS  = "${var.environment}"
+    EXECUTORS      = "${var.jenkinsnode_executors}"
   }
 }
 

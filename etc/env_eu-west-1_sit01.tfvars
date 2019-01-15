@@ -33,23 +33,6 @@ asg_default_tags = [
 ]
 
 ###############################################################################
-# BASE
-###############################################################################
-
-#Monitoring
-prometheus_asg_min_size           = 0
-prometheus_asg_max_size           = 0
-prometheus_instance_type          = "t2.medium"
-prometheus_ami_build_id           = 377
-prometheus_efs_provisioned_mibps  = 1
-
-#EFS Backups
-efs_backup_asg_min_size           = 0
-efs_backup_asg_max_size           = 0
-efs_backup_instance_type          = "t3.nano"
-efs_backup_ami_build_id           = 309
-
-###############################################################################
 # CTRL
 ###############################################################################
 
@@ -260,11 +243,12 @@ apache_subnet_cidrs = [
 
 #  "10.167.22.16/28",
 
-test_database_subnets_cidrs = [
-  "10.167.22.32/27",
-  "10.167.22.64/27",
-  "10.167.22.96/27",
-]
+# Now free to use
+# test_database_subnets_cidrs = [
+#   "10.167.22.32/27",
+#   "10.167.22.64/27",
+#   "10.167.22.96/27",
+# ]
 
 jmeter_subnets_cidrs = [
   "10.167.22.128/28",
@@ -392,5 +376,5 @@ domain_name_servers = [
 
 private_cert_domain_name = "sit01.tars.dvsa.aws"
 
-apache_ami_build_id = 406
+apache_ami_build_id = 460
 

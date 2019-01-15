@@ -18,9 +18,6 @@ all_users = [
   "chris.nappin@bjss.com",
   "michael.taylor@bjss.com",
   "sam.smart@bjss.com",
-  "jamie.kelly@bjss.com",
-  "andrew.lai@bjss.com",
-  "dan.webb@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
@@ -32,8 +29,7 @@ all_users = [
   "daniel.billing@bjss.com",
   "stephen.davies@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
-  "mike.peachey@bjss.com",
-  "bryan.williams@bjss.com",
+  "michael.tribbick@bjss.com",
 ]
 
 administrators = [
@@ -44,7 +40,6 @@ administrators = [
   "chris.nappin@bjss.com",
   "michael.taylor@bjss.com",
   "sam.smart@bjss.com",
-  "jamie.kelly@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
@@ -56,7 +51,7 @@ administrators = [
   "daniel.billing@bjss.com",
   "stephen.davies@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
-  "mike.peachey@bjss.com",
+  "michael.tribbick@bjss.com",
 ]
 
 ctrl_vpc_cidr = "10.167.64.0/22"

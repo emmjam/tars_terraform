@@ -35,10 +35,6 @@ all_users = [
   "boby.jacob@capita.co.uk",
   "matthew.bell@dvsa.gov.uk",
   "alice.haws@dvsa.gov.uk",
-  "paul.duffy@dvsa.gov.uk",
-  "jamie.kelly@bjss.com",
-  "andrew.lai@bjss.com",
-  "dan.webb@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
@@ -50,9 +46,7 @@ all_users = [
   "daniel.billing@bjss.com",
   "stephen.davies@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
-  "mike.peachey@bjss.com",
   "manoj.patil@capita.co.uk",
-  "bryan.williams@bjss.com",
   "steve.ryalls@capita.co.uk",
   "winston.coleman@capita.co.uk",
   "bharat.patel@capita.co.uk",
@@ -61,14 +55,16 @@ all_users = [
   "kapil.sabale@capita.co.uk",
   "cathy.campbell@capita.co.uk",
   "andrew.malcolm@capita.co.uk",
-  "steve.millington@capita.co.uk",
+  "steven.millington@capita.co.uk",
   "paul.beckett@capita.co.uk",
   "nigel.instone@capita.co.uk",
   "paul.henley@capita.co.uk",
   "charlie.turuka@capita.co.uk",
   "tony.priest@capita.co.uk",
-  "andrew.anderson@capita.co.uk",
+  "alban.anderson@capita.co.uk",
   "dolly.adeyiga@capita.co.uk",
+  "gitanjali.nalawade@capita.co.uk",
+  "michael.tribbick@bjss.com",
 ]
 
 administrators = [
@@ -79,10 +75,7 @@ administrators = [
   "chris.nappin@bjss.com",
   "michael.taylor@bjss.com",
   "sam.smart@bjss.com",
-  "jamie.kelly@bjss.com",
   "chris.nappin@bjss.com",
-  "andrew.lai@bjss.com",
-  "dan.webb@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
@@ -94,8 +87,7 @@ administrators = [
   "daniel.billing@bjss.com",
   "stephen.davies@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
-  "mike.peachey@bjss.com",
-  "bryan.williams@bjss.com",
+  "michael.tribbick@bjss.com",
 ]
 
 power_users = [
@@ -132,20 +124,20 @@ capita_support_ro_users = [
   "billy.dhillon@capita.co.uk",
   "mike.hill@capita.co.uk",
   "andrew.malcolm@capita.co.uk",
-  "steve.millington@capita.co.uk",
+  "steven.millington@capita.co.uk",
   "paul.beckett@capita.co.uk",
   "nigel.instone@capita.co.uk",
   "paul.henley@capita.co.uk",
   "charlie.turuka@capita.co.uk",
   "tony.priest@capita.co.uk",
-  "andrew.anderson@capita.co.uk",
+  "alban.anderson@capita.co.uk",
   "dolly.adeyiga@capita.co.uk",
+  "gitanjali.nalawade@capita.co.uk",
 ]
 
 dvsa_ro_users = [
   "matthew.bell@dvsa.gov.uk",
   "alice.haws@dvsa.gov.uk",
-  "paul.duffy@dvsa.gov.uk",
 ]
 
 ###############################################################################
@@ -195,9 +187,27 @@ ctrl_mgmt_vpc_id                 = "vpc-ff970799"           # TODO: use remote s
 ctrl_mgmt_vpc_cidr_block         = "10.167.64.0/22"         # TODO: use remote state
 ctrl_mgmt_tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote state
 
+###############################################################################
+# BASE
+###############################################################################
+
+#Monitoring
+prometheus_asg_min_size           = 1
+prometheus_asg_max_size           = 1
+prometheus_instance_type          = "t3.medium"
+prometheus_ami_build_id           = 454
+prometheus_efs_provisioned_mibps  = 1
+
+#EFS Backups
+efs_backup_asg_min_size           = 0
+efs_backup_asg_max_size           = 0
+efs_backup_instance_type          = "t3.nano"
+efs_backup_ami_build_id           = 457
+
+
 ## jenkinsnode
 jenkinsnode_instance_type        = "m5.large"
-jenkinsnode_ami_build_id         = "335"
+jenkinsnode_ami_build_id         = "468"
 jenkinsnode_executors            = 5
 jenkinsnode_asg_min_size         = 1
 jenkinsnode_asg_max_size         = 3
@@ -212,9 +222,8 @@ jenkinsctrl_subnets_cidrs = [
   "10.167.60.48/28",
 ]
 
-wildfly-back_instance_type  = "t2.medium"
-wildfly-back_puppet_nodetype    = "tars-back"
-wildfly-back_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+wildfly-back_instance_type        = "t2.medium"
+wildfly-back_puppet_nodetype      = "tars-back"
 wildfly-back_asg_min_size         = 0
 wildfly-back_asg_max_size         = 1
 wildfly-back_scaledown_desired    = 0
@@ -224,9 +233,8 @@ wildfly-back_scaleup_desired      = 1
 wildfly-back_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## wildfly-batch
-wildfly-batch_instance_type  = "t2.medium"
-wildfly-batch_puppet_nodetype    = "tars-batch"
-wildfly-batch_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+wildfly-batch_instance_type        = "t2.medium"
+wildfly-batch_puppet_nodetype      = "tars-batch"
 wildfly-batch_asg_min_size         = 0
 wildfly-batch_asg_max_size         = 1
 wildfly-batch_scaledown_desired    = 0
@@ -235,60 +243,58 @@ wildfly-batch_scaleup_desired      = 1
 wildfly-batch_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## obs
-obs_instance_type  = "t2.medium"
-obs_puppet_nodetype    = "obs"
+obs_instance_type        = "t2.medium"
+obs_puppet_nodetype      = "obs"
 obs_asg_min_size         = 0
 obs_asg_max_size         = 3
 obs_scaledown_desired    = 0
-obs_scaledown_recurrence = "00 22 * * 1-5"
+obs_scaledown_recurrence = "00 19 * * 1-5"
 obs_scaleup_desired      = 1
-obs_scaleup_recurrence   = "00 04 * * 1-5"
+obs_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## ibs
-ibs_instance_type  = "t2.medium"
-ibs_puppet_nodetype    = "ibs"
+ibs_instance_type        = "t2.medium"
+ibs_puppet_nodetype      = "ibs"
 ibs_asg_min_size         = 0
 ibs_asg_max_size         = 3
 ibs_scaledown_desired    = 0
-ibs_scaledown_recurrence = "00 22 * * 1-5"
+ibs_scaledown_recurrence = "00 19 * * 1-5"
 ibs_scaleup_desired      = 1
-ibs_scaleup_recurrence   = "10 04 * * 1-5"
+ibs_scaleup_recurrence   = "10 07 * * 1-5"
 
 ## fyndi-f
-fyndi-f_instance_type  = "t2.medium"
-fyndi-f_puppet_nodetype    = "fyndi-front"
+fyndi-f_instance_type        = "t2.medium"
+fyndi-f_puppet_nodetype      = "fyndi-front"
 fyndi-f_asg_min_size         = 0
 fyndi-f_asg_max_size         = 3
 fyndi-f_scaledown_desired    = 0
-fyndi-f_scaledown_recurrence = "00 22 * * 1-5"
+fyndi-f_scaledown_recurrence = "00 19 * * 1-5"
 fyndi-f_scaleup_desired      = 1
-fyndi-f_scaleup_recurrence   = "00 04 * * 1-5"
+fyndi-f_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## fyndi_back
-fyndi-b_instance_type  = "t2.medium"
-fyndi-b_puppet_nodetype    = "fyndi-back"
+fyndi-b_instance_type        = "t2.medium"
+fyndi-b_puppet_nodetype      = "fyndi-back"
 fyndi-b_asg_min_size         = 0
 fyndi-b_asg_max_size         = 3
 fyndi-b_scaledown_desired    = 0
-fyndi-b_scaledown_recurrence = "00 22 * * 1-5"
+fyndi-b_scaledown_recurrence = "00 19 * * 1-5"
 fyndi-b_scaleup_desired      = 1
-fyndi-b_scaleup_recurrence   = "00 04 * * 1-5"
+fyndi-b_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## wildfly-front
-wildfly-front_instance_type  = "t2.medium"
-wildfly-front_puppet_nodetype    = "tars-front"
-wildfly-front_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+wildfly-front_instance_type        = "t2.medium"
+wildfly-front_puppet_nodetype      = "tars-front"
 wildfly-front_asg_min_size         = 0
 wildfly-front_asg_max_size         = 1
 wildfly-front_scaledown_desired    = 0
-wildfly-front_scaledown_recurrence = "00 22 * * 1-5"
+wildfly-front_scaledown_recurrence = "00 19 * * 1-5"
 wildfly-front_scaleup_desired      = 1
-wildfly-front_scaleup_recurrence   = "00 04 * * 1-5"
+wildfly-front_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## wildfly-messaging
-wildfly-messaging_instance_type  = "t2.medium"
-wildfly-messaging_puppet_nodetype    = "tars-messaging"
-wildfly-messaging_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+wildfly-messaging_instance_type        = "t3.medium"
+wildfly-messaging_puppet_nodetype      = "tars-messaging"
 wildfly-messaging_asg_min_size         = 0
 wildfly-messaging_asg_max_size         = 1
 wildfly-messaging_scaledown_desired    = 1
@@ -297,48 +303,44 @@ wildfly-messaging_scaleup_desired      = 1
 wildfly-messaging_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## wildfly-mock
-wildfly-mock_instance_type  = "t2.medium"
-wildfly-mock_puppet_nodetype    = "mock"
-wildfly-mock_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+wildfly-mock_instance_type        = "t2.medium"
+wildfly-mock_puppet_nodetype      = "mock"
 wildfly-mock_asg_min_size         = 0
 wildfly-mock_asg_max_size         = 1
 wildfly-mock_scaledown_desired    = 0
-wildfly-mock_scaledown_recurrence = "00 22 * * 1-5"
+wildfly-mock_scaledown_recurrence = "00 19 * * 1-5"
 wildfly-mock_scaleup_desired      = 1
 wildfly-mock_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## cpc-back
-cpc-back_instance_type  = "t2.medium"
-cpc-back_puppet_nodetype    = "cpc-back"
-cpc-back_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+cpc-back_instance_type        = "t2.medium"
+cpc-back_puppet_nodetype      = "cpc-back"
 cpc-back_asg_min_size         = 0
 cpc-back_asg_max_size         = 1
 cpc-back_scaledown_desired    = 0
-cpc-back_scaledown_recurrence = "00 22 * * 1-5"
+cpc-back_scaledown_recurrence = "00 19 * * 1-5"
 cpc-back_scaleup_desired      = 1
-cpc-back_scaleup_recurrence   = "00 04 * * 1-5"
+cpc-back_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## cpc-front
-cpc-front_instance_type  = "t2.medium"
-cpc-front_puppet_nodetype    = "cpc-front"
-cpc-front_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+cpc-front_instance_type        = "t2.medium"
+cpc-front_puppet_nodetype      = "cpc-front"
 cpc-front_asg_min_size         = 0
 cpc-front_asg_max_size         = 1
 cpc-front_scaledown_desired    = 0
-cpc-front_scaledown_recurrence = "00 22 * * 1-5"
+cpc-front_scaledown_recurrence = "00 19 * * 1-5"
 cpc-front_scaleup_desired      = 1
-cpc-front_scaleup_recurrence   = "00 04 * * 1-5"
+cpc-front_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## sftpplus-svr
-sftpplus-svr_instance_type  = "t2.medium"
-sftpplus-svr_puppet_nodetype    = "sftpplus-svr"
-sftpplus-svr_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+sftpplus-svr_instance_type        = "t2.medium"
+sftpplus-svr_puppet_nodetype      = "sftpplus-svr"
 sftpplus-svr_asg_min_size         = 0
 sftpplus-svr_asg_max_size         = 1
 sftpplus-svr_scaledown_desired    = 0
-sftpplus-svr_scaledown_recurrence = "00 20 * * 1-5"
+sftpplus-svr_scaledown_recurrence = "00 19 * * 1-5"
 sftpplus-svr_scaleup_desired      = 1
-sftpplus-svr_scaleup_recurrence   = "00 04 * * 1-5"
+sftpplus-svr_scaleup_recurrence   = "00 07 * * 1-5"
 
 ### Business Objects
 bobj_asg_max_size = 1
@@ -353,24 +355,22 @@ xenco_instance_type = "t2.small"
 
 
 ## cpc-batch
-cpc-batch_instance_type  = "t2.medium"
-cpc-batch_puppet_nodetype    = "cpc-batch"
-cpc-batch_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+cpc-batch_instance_type        = "t2.medium"
+cpc-batch_puppet_nodetype      = "cpc-batch"
 cpc-batch_asg_min_size         = 0
 cpc-batch_asg_max_size         = 1
 cpc-batch_scaledown_desired    = 0
-cpc-batch_scaledown_recurrence = "00 22 * * 1-5"
+cpc-batch_scaledown_recurrence = "00 19 * * 1-5"
 cpc-batch_scaleup_desired      = 1
 cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
 
 ## apache
-apache_instance_type         = "t2.medium"
-apache_puppet_kms_key        = "38af52b4-66c9-473c-b61a-c9589605ffd8"
+apache_instance_type         = "t3.medium"
 apache_asg_min_size          = 0
 apache_asg_max_size          = 1
 apache_scaledown_desired     = 0
-apache_scaledown_recurrence  = "00 22 * * 1-5"
+apache_scaledown_recurrence  = "00 19 * * 1-5"
 apache_scaleup_desired       = 1
 apache_scaleup_recurrence    = "00 07 * * 1-5"
 
@@ -402,11 +402,13 @@ aws_mq_config_engine_type    = "ActiveMQ"
 aws_mq_config_engine_version = "5.15.0"
 
 ##  JMeter
-jmeter_instance_type              = "t2.micro"
+jmeter_instance_type              = "t3.micro"
 jmeter_asg_size_desired_on_create = 0
 jmeter_asg_size_max               = 3
 jmeter_asg_size_min               = 0
-jmeter_puppet_kms_key = "791140e3-1c70-4d21-943f-007c92c1e17d"
+
+## XE
+xe_ami_name = "OracleXE"
 
 ## Prometheus
 #Due to there being no wildcard cert in prod this is used.
@@ -487,7 +489,7 @@ dvsa_dc_whitelist = [
   "10.100.126.9/32",
   "10.150.36.82/32",
   "10.14.0.150/32",
-  "10.69.3.11/32",
+  "10.69.0.0/16",
   "172.21.34.139/32",
   "10.84.202.121/32",
   "10.84.202.120/32",
@@ -505,6 +507,7 @@ dvsa_dc_whitelist = [
 dvsa_printers = [
   "10.12.0.138/32",
   "10.69.3.33/32",
+  "10.14.0.138/32",
 ]
 
 # Used by any AWS based ec2's that need to use Azure DNS to resolve external stuff
@@ -565,7 +568,7 @@ capita_db_to_port = "6721"
 #capita_prod_db = "10.84.192.0/23"
 
 # squidnat
-squidnat_instance_type = "t2.micro"
+squidnat_instance_type = "t3.micro"
 
 ops_team_email = "mark.thompson@bjss.com"
 
@@ -596,8 +599,9 @@ elc_main_port            = "11211"
 # ACM Certname
 cert_name = "*"
 tars_private_cert = "*"
-tars_pdf_cert = "*"
-cpc_private_cert = "*"
+tars_pdf_cert     = "*"
+cpc_private_cert  = "*"
+bobj_cert         = "*"
 
 # Deployer pub key
 deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVSO8uKpdbwww94azylwjnFxsFGcmXG4ObL1oOFibHMN0x+SsSwjfC1DEziWPK3m/Crmar0+ad/68nQC+iWo/MYclh8h3bkKlv9dO4Xtv/0H6uDRW3l3bBO0rWYbt46fMAOCqX96N3LRTfUlPuzsVAd0NGZZlSSAZF0AMl4xE/tZl2m+Dqylrjp3qLT4UxEIrAuvPW06PqkGy63hZznjCjQDaadOAUpY19ZaA71JBueyGBnZ8pSVzr5hT1TpNw/cXxA6WLj4CCipIVm0M64OT/ArqcnQMX9Htf4Gp5apXZ3f6MerfjgHnkrm1t6JNuhSjVB deployer@mgmt.tars.dvsa.aws"
@@ -720,28 +724,6 @@ logs_list = [
   "/opt/tomcat/logs/DSA-IBS-TEST-CENTRE-SEARCH.log",
 ]
 
-
-# Added by TS-4753
-# To be removed by TS-4722 and TS-4756
-# TEMP UAT DB's in Prod
-uat_dbs_in_prod = false
-tmp_tars_rds_username = ""
-tmp_tars_rds_password = ""
-tmp_tars_rds_allocated_storage = ""
-tmp_tars_rds_snapshot = ""
-tmp_mis_rds_username = ""
-tmp_mis_rds_password = ""
-tmp_mis_rds_allocated_storage = ""
-tmp_mis_rds_snapshot = ""
-tmp_rsis_rds_username = ""
-tmp_rsis_rds_password = ""
-tmp_rsis_rds_allocated_storage = ""
-tmp_rsis_rds_snapshot = ""
-tmp_cpc_rds_username = ""
-tmp_cpc_rds_password = ""
-tmp_cpc_rds_allocated_storage = ""
-tmp_cpc_rds_snapshot = ""
-
 cpc_internet_cert       = "*"
 cpc_dvsa_internet_cert  = "*"
 cpc_cert                = "*"
@@ -754,3 +736,4 @@ obs_cert                = "*"
 ibs_cert                = "*"
 irdt_cert               = "*"
 apache_cert             = "*"
+holding_pages_cert      = "*"

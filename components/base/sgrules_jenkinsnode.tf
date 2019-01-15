@@ -101,8 +101,8 @@ resource "aws_security_group_rule" "jenkinsnode_egress_jmeter_1099_1101" {
   protocol                 = "tcp"
   from_port                = "1099"
   to_port                  = "1101"
-  security_group_id        = "${aws_security_group.jenkinsnode.id}"
-  source_security_group_id = "${aws_security_group.jmeter.id}"
+  security_group_id        = "${module.jenkinsnode.security_group_id}"
+  source_security_group_id = "${module.microservice_jmeter.security_group_id}"
 }
 
 resource "aws_security_group_rule" "jenkinsnode_ingress_jmeter_1099_1101" {
@@ -110,8 +110,8 @@ resource "aws_security_group_rule" "jenkinsnode_ingress_jmeter_1099_1101" {
   protocol                 = "tcp"
   from_port                = "1099"
   to_port                  = "1101"
-  security_group_id        = "${aws_security_group.jenkinsnode.id}"
-  source_security_group_id  = "${aws_security_group.jmeter.id}"
+  security_group_id        = "${module.jenkinsnode.security_group_id}"
+  source_security_group_id = "${module.microservice_jmeter.security_group_id}"
 }
 ######
 
@@ -120,6 +120,6 @@ resource "aws_security_group_rule" "jenkinsnode_egress_jmeter_ssh" {
   protocol                 = "tcp"
   from_port                = "22"
   to_port                  = "22"
-  security_group_id        = "${aws_security_group.jenkinsnode.id}"
-  source_security_group_id = "${aws_security_group.jmeter.id}"
+  security_group_id        = "${module.jenkinsnode.security_group_id}"
+  source_security_group_id = "${module.microservice_jmeter.security_group_id}"
 }

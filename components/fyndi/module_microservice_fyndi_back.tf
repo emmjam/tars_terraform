@@ -2,6 +2,7 @@ module "fyndi-b" {
   source = "../../modules/microservice"
 
   name        = "fyndi-back"
+  region      = "${var.aws_region}"
   project     = "${var.project}"
   environment = "${var.environment}"
   component   = "${var.component}"
@@ -17,21 +18,21 @@ module "fyndi-b" {
   ]
 
   subnets_route_tables = [
-    "${data.terraform_remote_state.base.private_nonat_route_table_id}",
+    "${data.terraform_remote_state.base.private_nat_route_table_id}",
   ]
 
   lc_ami_id        = "${data.aws_ami.fyndi-b.image_id}"
   lc_instance_type = "${var.fyndi-b_instance_type}"
   lc_user_data     = "${data.template_cloudinit_config.fyndi-b.rendered}"
 
-  asg_target_group_arns = [
-    "${aws_alb_target_group.fyndi-b-8080.id}",
-  ]
-
   lc_additional_sg_ids = [
-    "${aws_security_group.fyndi-b.id}",
     "${data.terraform_remote_state.base.core_sg_id}",
   ]
+
+  lifecycle_hook_launching_default_result = "ABANDON"
+  lifecycle_hook_launching_enabled        = "1"
+  lifecycle_hook_launching_timeout        = "500"
+  failed_lifecycle_action_sns_topic       = "${data.terraform_remote_state.base.sns_alerts_arn}"
 
   asg_size_min               = "${var.fyndi-b_asg_min_size}"
   asg_size_desired_on_create = "${var.fyndi-b_asg_min_size}"

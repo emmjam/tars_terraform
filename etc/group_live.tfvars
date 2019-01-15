@@ -29,16 +29,11 @@ all_users = [
   "brian.collinson@bjss.com",
   "michael.taylor@bjss.com",
   "sam.smart@bjss.com",
-  "graham.king@bjss.com",
-  "jamie.kelly@bjss.com",
   "matthew.bell@dvsa.gov.uk",
   "alice.haws@dvsa.gov.uk",
-  "paul.duffy@dvsa.gov.uk",
   "callum.massey@bjss.com",
   "ian.harris@bjss.com",
   "chris.nappin@bjss.com",
-  "andrew.lai@bjss.com",
-  "dan.webb@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
@@ -50,9 +45,7 @@ all_users = [
   "daniel.billing@bjss.com",
   "stephen.davies@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
-  "mike.peachey@bjss.com",
   "tim.hinchey@dvsa.gov.uk",
-  "bryan.williams@bjss.com",
   "kapil.sabale@capita.co.uk",
   "cathy.campbell@capita.co.uk",
   "steve.ryalls@capita.co.uk",
@@ -61,14 +54,19 @@ all_users = [
   "billy.dhillon@capita.co.uk",
   "mike.hill@capita.co.uk",
   "andrew.malcolm@capita.co.uk",
-  "steve.millington@capita.co.uk",
+  "steven.millington@capita.co.uk",
   "paul.beckett@capita.co.uk",
   "nigel.instone@capita.co.uk",
   "paul.henley@capita.co.uk",
   "charlie.turuka@capita.co.uk",
   "tony.priest@capita.co.uk",
-  "andrew.anderson@capita.co.uk",
+  "alban.anderson@capita.co.uk",
   "dolly.adeyiga@capita.co.uk",
+  "richard.freitas@capita.co.uk",
+  "phil.scally@capita.co.uk",
+  "gitanjali.nalawade@capita.co.uk",
+  "vinit.prajapati@capita.co.uk",
+  "michael.tribbick@bjss.com",
 ]
 
 administrators = [
@@ -79,11 +77,7 @@ administrators = [
   "brian.collinson@bjss.com",
   "michael.taylor@bjss.com",
   "sam.smart@bjss.com",
-  "graham.king@bjss.com",
-  "jamie.kelly@bjss.com",
   "chris.nappin@bjss.com",
-  "andrew.lai@bjss.com",
-  "dan.webb@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
@@ -95,8 +89,7 @@ administrators = [
   "daniel.billing@bjss.com",
   "stephen.davies@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
-  "mike.peachey@bjss.com",
-  "bryan.williams@bjss.com",
+  "michael.tribbick@bjss.com",
 ]
 
 power_users = [
@@ -118,20 +111,23 @@ capita_support_ro_users = [
   "billy.dhillon@capita.co.uk",
   "mike.hill@capita.co.uk",
   "andrew.malcolm@capita.co.uk",
-  "steve.millington@capita.co.uk",
+  "steven.millington@capita.co.uk",
   "paul.beckett@capita.co.uk",
   "nigel.instone@capita.co.uk",
   "paul.henley@capita.co.uk",
   "charlie.turuka@capita.co.uk",
   "tony.priest@capita.co.uk",
-  "andrew.anderson@capita.co.uk",
+  "alban.anderson@capita.co.uk",
   "dolly.adeyiga@capita.co.uk",
+  "richard.freitas@capita.co.uk",
+  "phil.scally@capita.co.uk",
+  "gitanjali.nalawade@capita.co.uk",
+  "vinit.prajapati@capita.co.uk",
 ]
 
 dvsa_ro_users = [
   "matthew.bell@dvsa.gov.uk",
   "alice.haws@dvsa.gov.uk",
-  "paul.duffy@dvsa.gov.uk",
   "tim.hinchey@dvsa.gov.uk"
 ]
 
@@ -182,9 +178,28 @@ ctrl_mgmt_vpc_id                 = "vpc-ff970799"           # TODO: use remote s
 ctrl_mgmt_vpc_cidr_block         = "10.167.64.0/22"         # TODO: use remote state
 ctrl_mgmt_tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote state
 
+###############################################################################
+# BASE
+###############################################################################
+
+#Monitoring
+prometheus_asg_min_size           = 1
+prometheus_asg_max_size           = 1
+prometheus_instance_type          = "t3.medium"
+prometheus_ami_build_id           = 454
+prometheus_efs_provisioned_mibps  = 5
+
+#EFS Backups
+#smarts: to be enabled after testing in another env
+efs_backup_asg_min_size           = 0
+efs_backup_asg_max_size           = 0
+efs_backup_instance_type          = "t3.nano"
+efs_backup_ami_build_id           = 457
+
+
 ## jenkinsnode
 jenkinsnode_instance_type        = "m5.large"
-jenkinsnode_ami_build_id         = "335"
+jenkinsnode_ami_build_id         = "468"
 jenkinsnode_executors            = 5
 jenkinsnode_asg_min_size         = 1
 jenkinsnode_asg_max_size         = 3
@@ -199,20 +214,18 @@ jenkinsctrl_subnets_cidrs = [
   "10.167.56.48/28",
 ]
 
-wildfly-back_instance_type  = "m4.large"
-wildfly-back_puppet_nodetype    = "tars-back"
-wildfly-back_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
+wildfly-back_instance_type        = "m4.large"
+wildfly-back_puppet_nodetype      = "tars-back"
 wildfly-back_asg_min_size         = 0
-wildfly-back_asg_max_size         = 2
+wildfly-back_asg_max_size         = 3
 wildfly-back_scaledown_desired    = 2
-wildfly-back_scaledown_recurrence = "00 18 * * 1-5"
-wildfly-back_scaleup_desired      = 2
-wildfly-back_scaleup_recurrence   = "00 08 * * 1-5"
+wildfly-back_scaledown_recurrence = "0,30 * * * *"
+wildfly-back_scaleup_desired      = 3
+wildfly-back_scaleup_recurrence   = "15,45 * * * *"
 
 ## wildfly-batch
-wildfly-batch_instance_type  = "m4.large"
-wildfly-batch_puppet_nodetype    = "tars-batch"
-wildfly-batch_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
+wildfly-batch_instance_type        = "m4.large"
+wildfly-batch_puppet_nodetype      = "tars-batch"
 wildfly-batch_asg_min_size         = 0
 wildfly-batch_asg_max_size         = 1
 wildfly-batch_scaledown_desired    = 1
@@ -221,10 +234,9 @@ wildfly-batch_scaleup_desired      = 1
 wildfly-batch_scaleup_recurrence   = "00 08 * * 1-5"
 
 ## wildfly-front
-wildfly-front_instance_type  = "m4.large"
-wildfly-front_puppet_env     = "opsdev"
-wildfly-front_puppet_nodetype    = "tars-front"
-wildfly-front_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
+wildfly-front_instance_type        = "m4.large"
+wildfly-front_puppet_env           = "opsdev"
+wildfly-front_puppet_nodetype      = "tars-front"
 wildfly-front_asg_min_size         = 0
 wildfly-front_asg_max_size         = 2
 wildfly-front_scaledown_desired    = 2
@@ -233,8 +245,8 @@ wildfly-front_scaleup_desired      = 2
 wildfly-front_scaleup_recurrence   = "00 08 * * 1-5"
 
 ## obs
-obs_instance_type  = "m4.large"
-obs_puppet_nodetype    = "obs"
+obs_instance_type        = "m4.large"
+obs_puppet_nodetype      = "obs"
 obs_asg_min_size         = 0
 obs_asg_max_size         = 2
 obs_scaledown_desired    = 2
@@ -278,14 +290,13 @@ fyndi-b_scaleup_desired      = 2
 fyndi-b_scaleup_recurrence   = "00 08 * * 1-5"
 
 ## wildfly-messaging
-wildfly-messaging_instance_type  = "m4.large"
-wildfly-messaging_puppet_nodetype    = "tars-messaging"
-wildfly-messaging_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
+wildfly-messaging_instance_type        = "m5.large"
+wildfly-messaging_puppet_nodetype      = "tars-messaging"
 wildfly-messaging_asg_min_size         = 0
-wildfly-messaging_asg_max_size         = 1
-wildfly-messaging_scaledown_desired    = 1
+wildfly-messaging_asg_max_size         = 2
+wildfly-messaging_scaledown_desired    = 2
 wildfly-messaging_scaledown_recurrence = "00 19 * * 1-5"
-wildfly-messaging_scaleup_desired      = 1
+wildfly-messaging_scaleup_desired      = 2
 wildfly-messaging_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## AWS MQ
@@ -311,9 +322,8 @@ aws_mq_users_cpc_batch_password      = "password123456"
 aws_mq_users_cpc_batch_group         = "cpc_batch"
 
 ## cpc-back
-cpc-back_instance_type  = "m4.large"
-cpc-back_puppet_nodetype    = "cpc-back"
-cpc-back_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
+cpc-back_instance_type        = "m4.large"
+cpc-back_puppet_nodetype      = "cpc-back"
 cpc-back_asg_min_size         = 0
 cpc-back_asg_max_size         = 2
 cpc-back_scaledown_desired    = 2
@@ -322,9 +332,8 @@ cpc-back_scaleup_desired      = 2
 cpc-back_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## cpc-front
-cpc-front_instance_type  = "m4.large"
-cpc-front_puppet_nodetype    = "cpc-front"
-cpc-front_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
+cpc-front_instance_type        = "m4.large"
+cpc-front_puppet_nodetype      = "cpc-front"
 cpc-front_asg_min_size         = 0
 cpc-front_asg_max_size         = 2
 cpc-front_scaledown_desired    = 2
@@ -333,9 +342,8 @@ cpc-front_scaleup_desired      = 2
 cpc-front_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## sftpplus-svr
-sftpplus-svr_instance_type  = "t2.medium"
-sftpplus-svr_puppet_nodetype    = "sftpplus-svr"
-sftpplus-svr_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
+sftpplus-svr_instance_type        = "t2.medium"
+sftpplus-svr_puppet_nodetype      = "sftpplus-svr"
 sftpplus-svr_asg_min_size         = 0
 sftpplus-svr_asg_max_size         = 1
 sftpplus-svr_scaledown_desired    = 1
@@ -344,9 +352,8 @@ sftpplus-svr_scaleup_desired      = 1
 sftpplus-svr_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## cpc-batch
-cpc-batch_instance_type  = "m4.large"
-cpc-batch_puppet_nodetype    = "cpc-batch"
-cpc-batch_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
+cpc-batch_instance_type        = "m4.large"
+cpc-batch_puppet_nodetype      = "cpc-batch"
 cpc-batch_asg_min_size         = 0
 cpc-batch_asg_max_size         = 1
 cpc-batch_scaledown_desired    = 1
@@ -355,8 +362,7 @@ cpc-batch_scaleup_desired      = 1
 cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## apache
-apache_instance_type         = "m4.large"
-apache_puppet_kms_key        = "38af52b4-66c9-473c-b61a-c9589605ffd8"
+apache_instance_type         = "m5.large"
 apache_asg_min_size          = 0
 apache_asg_max_size          = 2
 apache_scaledown_desired     = 2
@@ -370,11 +376,13 @@ aws_mq_config_engine_type    = "ActiveMQ"
 aws_mq_config_engine_version = "5.15.0"
 
 ##  JMeter
-jmeter_instance_type              = "t2.micro"
+jmeter_instance_type              = "t3.micro"
 jmeter_asg_size_desired_on_create = 0
 jmeter_asg_size_max               = 3
 jmeter_asg_size_min               = 0
-jmeter_puppet_kms_key = "38af52b4-66c9-473c-b61a-c9589605ffd8"
+
+## XE
+xe_ami_name = "OracleXE"
 
 ## Prometheus
 #Due to there being no wildcard cert in prod this is used.
@@ -455,7 +463,7 @@ dvsa_dc_whitelist = [
   "10.100.126.9/32",
   "10.150.36.82/32",
   "10.14.0.140/32",
-  "10.69.3.11/32",
+  "10.69.0.0/16",
   "172.21.34.139/32",
   "10.84.202.121/32",
   "10.84.202.120/32",
@@ -473,6 +481,7 @@ dvsa_dc_whitelist = [
 dvsa_printers = [
   "10.12.0.138/32",
   "10.69.3.33/32",
+  "10.14.0.138/32",
 ]
 
 # Used by any AWS based ec2's that need to use Azure DNS to resolve external stuff
@@ -520,7 +529,7 @@ dvsa_epo_services = "10.84.192.158/32"
 avarto_sftp_server = "51.231.12.13/32"
 sweda_samba_server = "10.69.3.11/32"
 dvla_adli_server = "51.231.10.92/32"
-dvla_elise_server = "51.231.10.81/32"
+dvla_elise_server = "51.231.10.84/32"
 rsis_samba_server = "10.14.0.140/32"
 
 # Capita TARS Prod DB subnets for DMS
@@ -560,7 +569,7 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 elc_main_engine          = "memcached"
 elc_main_engine_version  = "1.4.34"
 elc_main_node_type       = "cache.t2.medium"
-elc_main_cache_nodes     = "3"
+elc_main_cache_nodes     = "1"
 elc_main_parameter_group = "default.memcached1.4"
 elc_main_port            = "11211"
 
@@ -588,7 +597,7 @@ tars_rds_multi_az = "true" # it takes an age to build if true
 tars_rds_backup_retention = "7"
 tars_rds_backup_window = "02:38-03:08"
 tars_rds_maint_window = "sun:03:16-sun:03:46"
-tars_rds_skip_final_snapshot = true
+tars_rds_skip_final_snapshot = false
 tars_rds_apply_immediately = "true"
 tars_rds_license_model = "license-included"
 tars_rds_autoscale = "True"
@@ -605,7 +614,7 @@ mis_rds_multi_az = "true" # it takes an age to build if true
 mis_rds_backup_retention = "7"
 mis_rds_backup_window = "02:38-03:08"
 mis_rds_maint_window = "sun:03:16-sun:03:46"
-mis_rds_skip_final_snapshot = true
+mis_rds_skip_final_snapshot = false
 mis_rds_apply_immediately = "true"
 mis_rds_license_model = "license-included"
 mis_rds_autoscale = "True"
@@ -622,7 +631,7 @@ rsis_rds_multi_az = "true" # it takes an age to build if true
 rsis_rds_backup_retention = "7"
 rsis_rds_backup_window = "02:38-03:08"
 rsis_rds_maint_window = "sun:03:16-sun:03:46"
-rsis_rds_skip_final_snapshot = true
+rsis_rds_skip_final_snapshot = false
 rsis_rds_apply_immediately = "true"
 rsis_rds_license_model = "license-included"
 rsis_rds_autoscale = "True"
@@ -656,24 +665,3 @@ tars_dms_publicly_accessible = false
 tars_dms_replication_instance_class = "dms.r4.2xlarge"
 
 dvsa_external_mail_domain = "dvsa.gov.uk"
-
-# Added by TS-4753
-# To be removed by TS-4722 and TS-4756
-# TEMP UAT DB's in Prod
-uat_dbs_in_prod = false
-tmp_tars_rds_username = ""
-tmp_tars_rds_password = ""
-tmp_tars_rds_allocated_storage = ""
-tmp_tars_rds_snapshot = ""
-tmp_mis_rds_username = ""
-tmp_mis_rds_password = ""
-tmp_mis_rds_allocated_storage = ""
-tmp_mis_rds_snapshot = ""
-tmp_rsis_rds_username = ""
-tmp_rsis_rds_password = ""
-tmp_rsis_rds_allocated_storage = ""
-tmp_rsis_rds_snapshot = ""
-tmp_cpc_rds_username = ""
-tmp_cpc_rds_password = ""
-tmp_cpc_rds_allocated_storage = ""
-tmp_cpc_rds_snapshot = ""

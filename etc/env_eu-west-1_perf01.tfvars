@@ -33,23 +33,6 @@ asg_default_tags = [
 ]
 
 ###############################################################################
-# BASE
-###############################################################################
-
-#Monitoring
-prometheus_asg_min_size           = 1
-prometheus_asg_max_size           = 1
-prometheus_instance_type          = "t2.medium"
-prometheus_ami_build_id           = 377
-prometheus_efs_provisioned_mibps  = 1
-
-#EFS Backups
-efs_backup_asg_min_size           = 0
-efs_backup_asg_max_size           = 0
-efs_backup_instance_type          = "t3.nano"
-efs_backup_ami_build_id           = 309
-
-###############################################################################
 # CTRL
 ###############################################################################
 
@@ -260,11 +243,12 @@ apache_subnet_cidrs = [
 
 #  "10.167.38.16/28",
 
-test_database_subnets_cidrs = [
-  "10.167.38.32/27",
-  "10.167.38.64/27",
-  "10.167.38.96/27",
-]
+# Now free to use
+# test_database_subnets_cidrs = [
+#   "10.167.38.32/27",
+#   "10.167.38.64/27",
+#   "10.167.38.96/27",
+# ]
 
 jmeter_subnets_cidrs = [
   "10.167.38.128/28",
@@ -484,7 +468,6 @@ wildfly-mock_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## apache
 apache_instance_type         = "m4.large"
-apache_puppet_kms_key        = "38af52b4-66c9-473c-b61a-c9589605ffd8"
 apache_asg_min_size          = 0
 apache_asg_max_size          = 2
 apache_scaledown_desired     = 2
@@ -504,4 +487,4 @@ squidnat_instance_type = "m5.large"
 
 private_cert_domain_name = "perf01.tars.dvsa.aws"
 
-apache_ami_build_id = 406
+apache_ami_build_id = 460

@@ -50,7 +50,7 @@ guardduty_member_enabled = "1"
 # TODO: smarts: Move AMI IDs to versions file
 ## bastion
 bastion_instance_type        = "t2.micro"
-bastion_ami_build_id         = "405"
+bastion_ami_build_id         = "436"
 bastion_asg_min_size         = 0
 bastion_asg_max_size         = 3
 bastion_scaledown_desired    = 1
@@ -61,7 +61,7 @@ bastion_scaleup_recurrence   = "00 07 * * 1-5"
 # TODO: smarts: Move AMI IDs to versions file
 ## Grafana
 grafana_instance_type        = "t2.micro"
-grafana_ami_build_id         = "343"
+grafana_ami_build_id         = "440"
 grafana_asg_min_size         = 1
 grafana_asg_max_size         = 1
 grafana_scaledown_desired    = 1
@@ -75,7 +75,7 @@ grafana_cert_name = "*"
 # TODO: smarts: Move AMI IDs to versions file
 ## jenkinsctrl
 jenkinsctrl_instance_type        = "m5.large"
-jenkinsctrl_ami_build_id         = "335"
+jenkinsctrl_ami_build_id         = "468"
 jenkinsctrl_executors            = 5
 jenkinsctrl_asg_min_size         = 0
 jenkinsctrl_asg_max_size         = 3

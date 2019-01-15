@@ -33,23 +33,6 @@ asg_default_tags = [
 ]
 
 ###############################################################################
-# BASE
-###############################################################################
-
-#Monitoring
-prometheus_asg_min_size           = 1
-prometheus_asg_max_size           = 1
-prometheus_instance_type          = "t2.medium"
-prometheus_ami_build_id           = 377
-prometheus_efs_provisioned_mibps  = 1
-
-#EFS Backups
-efs_backup_asg_min_size           = 0
-efs_backup_asg_max_size           = 0
-efs_backup_instance_type          = "t3.nano"
-efs_backup_ami_build_id           = 309
-
-###############################################################################
 # CTRL
 ###############################################################################
 
@@ -260,11 +243,12 @@ apache_subnet_cidrs = [
 
 #  "10.167.30.16/28",
 
-test_database_subnets_cidrs = [
-  "10.167.30.32/27",
-  "10.167.30.64/27",
-  "10.167.30.96/27",
-]
+# Now free to use
+# test_database_subnets_cidrs = [
+#   "10.167.30.32/27",
+#   "10.167.30.64/27",
+#   "10.167.30.96/27",
+# ]
 
 jmeter_subnets_cidrs = [
   "10.167.30.128/28",
@@ -549,9 +533,6 @@ source_dms_mis_rds_allocated_storage = "300"
 source_dms_mis_rds_name = "MISDB"
 source_dms_mis_rds_snapshot = "misuat01-060418"
 
-# DMS Stuff
-xe_role_name = "OracleXE"
-
 # These names will be added to our private zone so we can resolve them.
 dsa-drora-db-rac01 = "10.86.192.16"
 dsa-drora-db-rac02 = "10.86.192.17"
@@ -649,4 +630,4 @@ wildfly-mock_scaledown_recurrence = "00 20 * * 1-5"
 wildfly-mock_scaleup_desired      = 1
 wildfly-mock_scaleup_recurrence   = "00 00 * * 1-5"
 
-apache_ami_build_id = 406
+apache_ami_build_id = 460

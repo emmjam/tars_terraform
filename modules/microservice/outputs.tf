@@ -18,6 +18,10 @@ output "autoscaling_group_name" {
   value = "${aws_autoscaling_group.main.name}"
 }
 
+output "autoscaling_group_arn" {
+  value = "${aws_autoscaling_group.main.arn}"
+}
+
 output "iam_instance_profile_id" {
   value = "${aws_iam_instance_profile.main.id}"
 }
@@ -48,4 +52,8 @@ output "iam_role_name" {
 
 output "subnet_ids" {
   value = "${module.subnets.subnet_ids}"
+}
+
+output "ec2_cwl_log_group_arns" {
+  value = "${aws_cloudwatch_log_group.ec2.*.arn}"
 }

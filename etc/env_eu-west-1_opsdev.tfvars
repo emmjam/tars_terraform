@@ -33,29 +33,17 @@ asg_default_tags = [
 ]
 
 ###############################################################################
-# BASE
-###############################################################################
-
-#Monitoring
-prometheus_asg_min_size           = 1
-prometheus_asg_max_size           = 1
-prometheus_instance_type          = "t2.medium"
-prometheus_ami_build_id           = 377
-prometheus_efs_provisioned_mibps  = 1
-
-#EFS Backups
-efs_backup_asg_min_size           = 1
-efs_backup_asg_max_size           = 1
-efs_backup_instance_type          = "t3.nano"
-efs_backup_ami_build_id           = 309
-
-###############################################################################
 # CTRL
 ###############################################################################
 
 ###############################################################################
 # opsdev
 ###############################################################################
+
+#EFS Backups
+efs_backup_asg_min_size           = 1
+efs_backup_asg_max_size           = 1
+
 
 # The VPC CIDR Block for this environment
 vpc_cidr = "10.167.0.0/21"
@@ -260,11 +248,12 @@ apache_subnet_cidrs = [
 
 #  "10.167.6.16/28",
 
-test_database_subnets_cidrs = [
-  "10.167.6.32/27",
-  "10.167.6.64/27",
-  "10.167.6.96/27",
-]
+# Now free to use
+# test_database_subnets_cidrs = [
+#   "10.167.6.32/27",
+#   "10.167.6.64/27",
+#   "10.167.6.96/27",
+# ]
 
 jmeter_subnets_cidrs = [
   "10.167.6.128/28",
@@ -342,7 +331,7 @@ cpc_rds_snapshot = "tars-opsdev-cpc-cpcdb-20181106"
 
 
 # IBSDB
-ibs_rds_username = "ibsdevadmin"
+ibs_rds_username = "ibsuatadmin"
 
 ibs_rds_password = "password"
 
@@ -390,5 +379,5 @@ xenco_ssh_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAgEAglcxWvitvW4CTzgOZdQJF7F
 
 private_cert_domain_name = "dvsa.tars.dev-dvsacloud.uk"
 
-apache_ami_build_id = 406
+apache_ami_build_id = 460
 

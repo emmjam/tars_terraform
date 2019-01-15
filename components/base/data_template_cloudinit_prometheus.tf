@@ -13,7 +13,7 @@ data "template_file" "prometheus_config" {
   vars {
     NODETYPE       = "prometheus"
     ENVIRONMENT    = "${var.environment}"
-    KMS_KEY        = "${var.jmeter_puppet_kms_key}"
+    KMS_KEY        = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
     AWS_ACCOUNT_ID = "${var.aws_account_id}"
     AWS_REGION     = "${var.aws_region}"
     EFS_ID         = "${aws_efs_file_system.prometheus.id}"
