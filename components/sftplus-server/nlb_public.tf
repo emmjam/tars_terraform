@@ -9,17 +9,17 @@ resource "aws_lb" "sftpplus-svr-public" {
   enable_deletion_protection = true
 
   subnet_mapping {
-    subnet_id     = "${module.sftpplus_svr.subnet_ids[0]}"
+    subnet_id     = "${data.terraform_remote_state.base.subnets_sftpplus_nlb[0]}"
     allocation_id = "${aws_eip.nlb_public.0.id}"
   }
 
   subnet_mapping {
-    subnet_id     = "${module.sftpplus_svr.subnet_ids[1]}"
+    subnet_id     = "${data.terraform_remote_state.base.subnets_sftpplus_nlb[1]}"
     allocation_id = "${aws_eip.nlb_public.1.id}"
   }
 
   subnet_mapping {
-    subnet_id     = "${module.sftpplus_svr.subnet_ids[2]}"
+    subnet_id     = "${data.terraform_remote_state.base.subnets_sftpplus_nlb[2]}"
     allocation_id = "${aws_eip.nlb_public.2.id}"
   }
 

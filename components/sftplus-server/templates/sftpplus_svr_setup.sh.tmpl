@@ -53,7 +53,33 @@ else
   export AWS_DEFAULT_REGION="$${region}";
 fi;
 
+# Get the Autoscaling Group Name - it's a bit dirty but it works.
+asg_name="$($${aws} autoscaling describe-auto-scaling-instances \
+  --instance "$${instance_id}" \
+  --output json \
+  | jq -r .AutoScalingInstances[0].AutoScalingGroupName)";
+
+if [ $${?} -ne 0 ]; then
+  error 'Failed to retrieve the autoscaling group name for this instance';
+else
+  log 'INFO' "ASG name retrieved: $${asg_name}";
+fi;
+
+# Get the Launching LifeCycle Hook Name for this ASG (Making the assumption there's only one hook!)
+lifecycle_hook_name="$($${aws} autoscaling describe-lifecycle-hooks \
+  --auto-scaling-group-name "$${asg_name}" \
+  --output json \
+  | jq -r '.LifecycleHooks[] | select(.LifecycleTransition=="autoscaling:EC2_INSTANCE_LAUNCHING") | .LifecycleHookName')";
+
+if [ $${?} -ne 0 ]; then
+  error "Failed to retrieve lifecycle hook name for the autoscaling:EC2_INSTANCE_LAUNCHING transition for the autoscaling group named: $${asg_name}";
+else
+  log 'INFO' "Lifecycle hook name retrieved: $${lifecycle_hook_name}"
+fi;
+
 # Prerequisite information gathered - begin bootstrapping
+
+BOOTSTRAP_SUCCESS=1
 
 sed -E -i "s/'[a-z0-9]{8}\-[a-z0-9]{4}\-[a-z0-9]{4}\-[a-f0-9]{4}\-[a-z0-9]{12}'/'${KMS_KEY}'/g" /etc/eyaml/config.yaml
 
@@ -90,9 +116,28 @@ log 'INFO' 'Running puppet to configure environment'
 
 case $${?} in
   6|4|1)
-    log "ERROR" "Puppet run failed with exit code $${?}" ;;
+    log "ERROR" "Puppet run failed with exit code $${?}"
+    BOOTSTRAP_SUCCESS=0 ;;
   *)
     log "INFO" "Puppet run completed" ;;
 esac
 
 log 'INFO' 'Completing lifecycle action'
+
+if [ $${BOOTSTRAP_SUCCESS} -eq 1 ]; then
+  $${aws} autoscaling complete-lifecycle-action \
+      --lifecycle-action-result CONTINUE \
+      --instance-id "$${instance_id}" \
+      --lifecycle-hook-name "$${lifecycle_hook_name}" \
+      --auto-scaling-group-name "$${asg_name}" \
+      && log 'SUCCESS' 'Bootstrap Complete for nodetype: ${NODETYPE}' \
+      || error 'Failed to complete lifecycle hook';
+else
+  $${aws} autoscaling complete-lifecycle-action \
+    --lifecycle-action-result ABANDON \
+    --instance-id "$${instance_id}" \
+    --lifecycle-hook-name "$${lifecycle_hook_name}" \
+    --auto-scaling-group-name "$${asg_name}" \
+    && log 'ERROR' 'Bootstrap abandon for nodetype: ${NODETYPE}' \
+    || error 'Failed to complete lifecycle hook';
+fi
