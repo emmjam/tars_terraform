@@ -120,14 +120,3 @@ resource "aws_security_group_rule" "win_msg_ssh_ingress_jenkinsnode" {
   security_group_id        = "${aws_security_group.tars-messaging.id}"
   source_security_group_id = "${data.terraform_remote_state.base.jenkinsnode_sg_id}"
 }
-
-# windows messaging from jenkinsnode to support code/config deployments (Wildfly Admin)
-resource "aws_security_group_rule" "win_msg_wildfly_ingress_jenkinsnode" {
-  description              = "Allow TCP/9990 from Jenkinsnode"
-  type                     = "ingress"
-  protocol                 = "tcp"
-  from_port                = "9990"
-  to_port                  = "9990"
-  security_group_id        = "${aws_security_group.tars-messaging.id}"
-  source_security_group_id = "${data.terraform_remote_state.base.jenkinsnode_sg_id}"
-}
