@@ -93,6 +93,12 @@ variable "capita_users" {
   default     = []
 }
 
+variable "capita_archive_users" {
+  type        = "list"
+  description = "List of IAM Users from Capita, that have rights to manage the S3 Legacy Tape Archive"
+  default     = []
+}
+
 variable "capita_perf_ro_users" {
   type        = "list"
   description = "List of read-only IAM Users from Capita, that have rights to view CloudWatch events"
