@@ -159,3 +159,7 @@ output "nat_gw_ip" {
 output "sns_alerts_arn" {
   value = "${aws_sns_topic.alerts.arn}"
 }
+
+output "subnets_sftpplus_nlb" {
+  value = "${module.sftpplus_nlb.subnet_ids}"
+}

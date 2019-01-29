@@ -569,3 +569,9 @@ variable "holding_pages_cert" {
   type        = "string"
   description = ""
 }
+
+variable "sftpplus_nlb_subnets_cidrs" {
+  type        = "list"
+  description = "SFTP Plus NLB subnet CIDRs"
+  default     = []
+}
