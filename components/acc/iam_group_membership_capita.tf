@@ -9,7 +9,7 @@ resource "aws_iam_group_membership" "capita_users" {
 }
 
 resource "aws_iam_group_membership" "capita_archive_users" {
-  count = "${length(var.capita_users) == 0 ? 0 : 1}"
+  count = "${length(var.capita_archive_users) == 0 ? 0 : 1}"
   name  = "${aws_iam_group.capita_archive_users.name}"
   group = "${aws_iam_group.capita_archive_users.name}"
 
