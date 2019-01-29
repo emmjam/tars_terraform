@@ -28,7 +28,19 @@ locals {
   default_tags = "${merge(
     var.default_tags,
     map(
-      "Component", var.component
+      "Component", var.component,
+      "Version",   var.version,
+    )
+  )}"
+
+  asg_default_tags = "${concat(
+    var.asg_default_tags,
+    list(
+      map(
+        "key",                  "Version",
+        "value",                var.version,
+        "propagate_at_launch",  "true",
+      )
     )
   )}"
 }

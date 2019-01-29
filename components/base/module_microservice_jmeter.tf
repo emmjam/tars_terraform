@@ -8,10 +8,10 @@ module "microservice_jmeter" {
   component   = "${var.component}"
 
   asg_default_tags = [
-    "${var.asg_default_tags}",
+    "${local.asg_default_tags}",
   ]
 
-  default_tags = "${var.default_tags}"
+  default_tags = "${local.default_tags}"
 
   asg_size_desired_on_create = "${var.jmeter_asg_size_desired_on_create}"
   asg_size_max               = "${var.jmeter_asg_size_max}"

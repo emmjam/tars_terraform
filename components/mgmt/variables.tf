@@ -19,6 +19,12 @@ variable "component" {
   default     = "mgmt"
 }
 
+variable "version" {
+  type        = "string"
+  default     = "Not provided"
+  description = "Version of infrastructure deployed"
+}
+
 variable "default_tags" {
   type        = "map"
   description = ""

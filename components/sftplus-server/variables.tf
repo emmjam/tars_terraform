@@ -20,6 +20,12 @@ variable "component" {
   default     = "sftpplus"
 }
 
+variable "version" {
+  type        = "string"
+  default     = "Not provided"
+  description = "Version of infrastructure deployed"
+}
+
 variable "dva_whitelist" {
   type        = "list"
   description = ""

@@ -37,6 +37,6 @@ module "cpc-front" {
   default_tags = "${local.default_tags}"
 
   asg_default_tags = [
-    "${var.asg_default_tags}",
+    "${local.asg_default_tags}",
   ]
 }

@@ -8,7 +8,7 @@ module "microservice_nexus" {
   name = "nexus"
 
   asg_default_tags = [
-    "${var.asg_default_tags}",
+    "${local.asg_default_tags}",
   ]
 
   asg_size_desired_on_create = "${lookup(var.nexus_config, "asg_desired")}"
