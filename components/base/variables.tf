@@ -19,6 +19,12 @@ variable "component" {
   default     = "base"
 }
 
+variable "version" {
+  type        = "string"
+  default     = "Not provided"
+  description = "Version of infrastructure deployed"
+}
+
 variable "asg_default_tags" {
   type        = "list"
   description = ""

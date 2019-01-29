@@ -32,9 +32,9 @@ module "efs_backup" {
   asg_size_desired_on_create = "${var.efs_backup_asg_min_size}"
   asg_size_max               = "${var.efs_backup_asg_max_size}"
 
-  default_tags = "${var.default_tags}"
+  default_tags = "${local.default_tags}"
 
   asg_default_tags  = [
-    "${var.asg_default_tags}",
+    "${local.asg_default_tags}",
   ]
 }

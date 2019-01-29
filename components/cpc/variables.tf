@@ -19,6 +19,12 @@ variable "component" {
   default     = "cpc"
 }
 
+variable "version" {
+  type        = "string"
+  default     = "Not provided"
+  description = "Version of infrastructure deployed"
+}
+
 # TODO: peacheym: Valid description
 variable "whitelist" {
   type        = "list"

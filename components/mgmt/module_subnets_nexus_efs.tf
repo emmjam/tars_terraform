@@ -21,5 +21,5 @@ module "subnets_nexus_efs" {
  
   vpc_id = "${aws_vpc.mgmt.id}"
 
-  default_tags = "${var.default_tags}"
+  default_tags = "${local.default_tags}"
 }

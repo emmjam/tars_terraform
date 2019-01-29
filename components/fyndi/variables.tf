@@ -19,6 +19,12 @@ variable "component" {
   default     = "fyndi"
 }
 
+variable "version" {
+  type        = "string"
+  default     = "Not provided"
+  description = "Version of infrastructure deployed"
+}
+
 variable "whitelist" {
   type        = "list"
   description = ""

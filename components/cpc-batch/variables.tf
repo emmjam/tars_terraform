@@ -13,6 +13,12 @@ variable "environment" {
   description = "TF Scaffold environment"
 }
 
+variable "version" {
+  type        = "string"
+  default     = "Not provided"
+  description = "Version of infrastructure deployed"
+}
+
 # TODO: peacheym: This value is incorrect.
 # It is not intentionally incorrect.
 # However due to current pressures, it is intentional

@@ -28,7 +28,8 @@ locals {
   default_tags = "${merge(
     var.default_tags,
     map(
-      "Component", var.component
+      "Component", var.component,
+      "Version",   var.version,
     )
   )}"
 
