@@ -1,5 +1,5 @@
 module "microservice_nexus" {
-  source = "../../modules/microservice-new"
+  source = "../../modules/microservice"
 
   project     = "${var.project}"
   environment = "${var.environment}"
