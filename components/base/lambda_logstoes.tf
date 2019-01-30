@@ -5,7 +5,7 @@ resource "aws_lambda_function" "logstoes" {
 
   role        = "${aws_iam_role.lambda_logstoes.arn}"
   handler     = "index.handler"
-  runtime     = "nodejs4.3"
+  runtime     = "nodejs8.10"
   timeout     = "30"
   memory_size = "128"
 
