@@ -1,5 +1,5 @@
 module "gitlab" {
-  source = "../../modules/microservice"
+  source = "../../modules/microservice-old"
 
   name        = "${var.module}"
   project     = "${var.project}"

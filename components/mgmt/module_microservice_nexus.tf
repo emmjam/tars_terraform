@@ -1,6 +1,7 @@
 module "microservice_nexus" {
   source = "../../modules/microservice"
 
+  region      = "${var.aws_region}"
   project     = "${var.project}"
   environment = "${var.environment}"
   component   = "${var.component}"
