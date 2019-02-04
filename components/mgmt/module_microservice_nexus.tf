@@ -20,7 +20,7 @@ module "microservice_nexus" {
     "${data.aws_availability_zones.available.names}",
   ]
 
-  lc_ami_id        = "${data.aws_ami.gitlab.image_id}" # "${data.aws_ami.nexus.image_id}"
+  lc_ami_id        = "${data.aws_ami.nexus.image_id}"
   lc_instance_type = "${lookup(var.nexus_config, "instance_type")}"
   lc_user_data     = "${data.template_cloudinit_config.nexus.rendered}"
 

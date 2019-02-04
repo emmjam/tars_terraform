@@ -11,3 +11,6 @@ echo "${EFS_ID}.efs.${AWS_REGION}.amazonaws.com:/ ${MOUNT_POINT} nfs4 nfsvers=4.
 
 # Mount the configured target for Grafana
 mount "${MOUNT_POINT}";
+
+# Make sure the nexus user owns /opt as that's it home dir
+chown nexus:nexus /opt;

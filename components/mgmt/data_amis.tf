@@ -46,14 +46,13 @@ data "aws_ami" "gitlab" {
   }
 }
 
-/*
 data "aws_ami" "nexus" {
   name_regex = "${format(
     "%s-%s-%s/%s",
     var.project,
     "amzn",
     "nexus",
-    var.nexus_ami_build_id
+    "${lookup(var.nexus_config, "nexus_ami_build_id")}"
   )}"
 
   most_recent = "true"
@@ -70,4 +69,3 @@ data "aws_ami" "nexus" {
     ]
   }
 }
-*/

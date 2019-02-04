@@ -20,3 +20,13 @@ resource "aws_security_group_rule" "alb_public_ingress_whitelist_https" {
     "${var.whitelist}",
   ]
 }
+
+resource "aws_security_group_rule" "alb_public_egress_nexus_8081" {
+  description              = "Allow TCP/8081 to Nexus"
+  type                     = "egress"
+  from_port                = 8081
+  to_port                  = 8081
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.alb_public.id}"
+  source_security_group_id = "${module.microservice_nexus.security_group_id}"
+}
