@@ -1,5 +1,5 @@
 module "jenkins_blue" {
-  source = "../../modules/microservice"
+  source = "../../modules/microservice-old"
 
   name        = "${var.module}-b"
   project     = "${var.project}"

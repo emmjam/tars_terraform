@@ -168,7 +168,6 @@ base_peers_xacct = [
   },
 ]
 
-vpc-08ba72bcbd38b6746
 ### CWLES
 
 cwles_curator_max_age = "30"
