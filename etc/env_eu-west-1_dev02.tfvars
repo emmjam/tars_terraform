@@ -33,23 +33,6 @@ asg_default_tags = [
 ]
 
 ###############################################################################
-# BASE
-###############################################################################
-
-#Monitoring
-prometheus_asg_min_size           = 1
-prometheus_asg_max_size           = 1
-prometheus_instance_type          = "t2.medium"
-prometheus_ami_build_id           = 377
-prometheus_efs_provisioned_mibps  = 1
-
-#EFS Backups
-efs_backup_asg_min_size           = 0
-efs_backup_asg_max_size           = 0
-efs_backup_instance_type          = "t3.nano"
-efs_backup_ami_build_id           = 309
-
-###############################################################################
 # CTRL
 ###############################################################################
 
@@ -260,16 +243,12 @@ apache_subnet_cidrs = [
 
 #  "10.167.46.16/28",
 
-sftpplus_nlb_subnets_cidrs = [
-  "10.167.46.32/28",
-  "10.167.46.48/28",
-  "10.167.46.64/28",
-]
-
-# Free subnets
-# 10.167.46.80/28
-# 10.167.46.96/28
-# 10.167.46.112/28
+# Now free to use
+# test_database_subnets_cidrs = [
+#   "10.167.46.32/27",
+#   "10.167.46.64/27",
+#   "10.167.46.96/27",
+# ]
 
 jmeter_subnets_cidrs = [
   "10.167.46.128/28",
@@ -332,14 +311,15 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 # RDS
 ##
 
-# TARSDB
-tars_rds_username = "tarsdevadmin"
+# TARSDB - Copy of tars uat db for testing with MES
+tars_rds_username = "tarsuatadmin"
 
-tars_rds_password = "password"
+tars_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 
 # TARSDB
-tars_rds_allocated_storage = "20" # 20 Gigabyte - was 1500GB
-tars_rds_snapshot = "tars-dev02-tars-core-tarsdb-20181106-1"
+tars_rds_allocated_storage = "300"
+tars_rds_snapshot = "tars-uat01-tars-core-tarsdb-20181108"
+tars_rds_autoscale = "False"
 
 # CPCSDB
 cpc_rds_username = "tarscpcadmin"
@@ -348,7 +328,7 @@ cpc_rds_password = "YwBWc8HvweT3Lun8"
 
 # CPCTSDB
 cpc_rds_allocated_storage = "20" # 20 Gigabyte - was 1500GB
-cpc_rds_snapshot = "tars-dev02-cpc-cpcdb-20181106"
+cpc_rds_snapshot = "tars-dev01-cpc-cpcdb-20181106"
 
 
 # IBSDB
@@ -374,13 +354,13 @@ rsis_rds_snapshot = "tars-dev01-tars-dms-rsisdmssc-20180719"
 # Transit VPC peering
 #############################################################################
 
-transit_peering_enabled = true
+transit_peering_enabled = false
 
 #############################################################################
 # DVSA AD VPC peering
 #############################################################################
 
-ad_peering_enabled = true
+ad_peering_enabled = false
 ad_peering_vpc = "vpc-02072cb35506d9b73"
 ad_account = "233824316563"
 
@@ -576,26 +556,26 @@ private_cert_domain_name = "dev02.tars.dvsa.aws"
 ## Schedules
 ## wildfly-front
 wildfly-front_asg_min_size         = 0
-wildfly-front_asg_max_size         = 1
+wildfly-front_asg_max_size         = 0
 wildfly-front_scaledown_desired    = 0
 wildfly-front_scaledown_recurrence = "00 20 * * 1-5"
-wildfly-front_scaleup_desired      = 1
+wildfly-front_scaleup_desired      = 0
 wildfly-front_scaleup_recurrence   = "00 00 * * 1-5"
 
 ## wildfly-back
 wildfly-back_asg_min_size         = 0
-wildfly-back_asg_max_size         = 1
+wildfly-back_asg_max_size         = 0
 wildfly-back_scaledown_desired    = 0
 wildfly-back_scaledown_recurrence = "00 20 * * 1-5"
-wildfly-back_scaleup_desired      = 1
+wildfly-back_scaleup_desired      = 0
 wildfly-back_scaleup_recurrence   = "00 00 * * 1-5"
 
 ## wildfly-batch
 wildfly-batch_asg_min_size         = 0
-wildfly-batch_asg_max_size         = 1
+wildfly-batch_asg_max_size         = 0
 wildfly-batch_scaledown_desired    = 0
 wildfly-batch_scaledown_recurrence = "00 20 * * 1-5"
-wildfly-batch_scaleup_desired      = 1
+wildfly-batch_scaleup_desired      = 0
 wildfly-batch_scaleup_recurrence   = "00 00 * * 1-5"
 
 ## obs
@@ -632,18 +612,18 @@ fyndi-b_scaleup_recurrence   = "00 00 * * 1-5"
 
 ## cpc-front
 cpc-front_asg_min_size         = 0
-cpc-front_asg_max_size         = 1
+cpc-front_asg_max_size         = 0
 cpc-front_scaledown_desired    = 0
 cpc-front_scaledown_recurrence = "00 20 * * 1-5"
-cpc-front_scaleup_desired      = 1
+cpc-front_scaleup_desired      = 0
 cpc-front_scaleup_recurrence   = "00 00 * * 1-5"
 
 ## cpc-back
 cpc-back_asg_min_size         = 0
-cpc-back_asg_max_size         = 1
+cpc-back_asg_max_size         = 0
 cpc-back_scaledown_desired    = 0
 cpc-back_scaledown_recurrence = "00 20 * * 1-5"
-cpc-back_scaleup_desired      = 1
+cpc-back_scaleup_desired      = 0
 cpc-back_scaleup_recurrence   = "00 00 * * 1-5"
 
 ## wildfly-mock
@@ -654,4 +634,4 @@ wildfly-mock_scaledown_recurrence = "00 20 * * 1-5"
 wildfly-mock_scaleup_desired      = 1
 wildfly-mock_scaleup_recurrence   = "00 00 * * 1-5"
 
-apache_ami_build_id = 406
+apache_ami_build_id = 460

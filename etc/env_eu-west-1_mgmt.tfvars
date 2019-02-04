@@ -157,17 +157,18 @@ base_peers_xacct = [
     account_id = "652856684323"
   },
   {
-    vpc_id     = "vpc-027205868574ad4d8"  # tarsnonprod/dev02
+    vpc_id     = "vpc-07114e08eddc0332a"  # tarsnonprod/dev02
     cidr_block = "10.167.40.0/21"
     account_id = "652856684323"
   },
   {
-    vpc_id     = "vpc-04a94878b58a60387"  # tarsnonprod/uat02
-    cidr_block = "10.167.48.0/21"
+    vpc_id     = "vpc-08ba72bcbd38b6746"  # tarsnonprod/perf02
+    cidr_block = "10.167.72.0/21"
     account_id = "652856684323"
   },
 ]
 
+vpc-08ba72bcbd38b6746
 ### CWLES
 
 cwles_curator_max_age = "30"
@@ -187,7 +188,7 @@ nat_subnets_cidr = "10.200.1.0/28"
 # TODO: smarts: Move AMI IDs to versions file
 ## bastion
 bastion_instance_type        = "t2.micro"
-bastion_ami_build_id         = "485"
+bastion_ami_build_id         = "436"
 bastion_asg_min_size         = 0
 bastion_asg_max_size         = 3
 bastion_scaledown_desired    = 1
