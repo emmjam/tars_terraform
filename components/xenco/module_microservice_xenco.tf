@@ -38,4 +38,8 @@ module "xenco" {
   lc_key_name = "${var.xenco_key_name}"
 
   default_tags = "${local.default_tags}"
+
+  asg_default_tags  = [
+    "${local.asg_default_tags}",
+  ]
 }

@@ -50,6 +50,12 @@ variable "default_tags" {
   }
 }
 
+variable "asg_default_tags" {
+  type        = "list"
+  description = "See code comments"
+  default     = []
+}
+
 variable "xenco_whitelist" {
   type        = "list"
   description = "Xenco dev box inbound whitelisted IP's"
