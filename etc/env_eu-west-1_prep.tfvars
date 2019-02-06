@@ -411,3 +411,11 @@ cpc-batch_scaleup_desired      = 0
 cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
 apache_ami_build_id = 460
+
+
+# Temporarily pointed at the app LBs as
+# incapsula won't issue a site without the 
+# DNS records already existing. Catch 22.
+dsa_incap_cname              = "routing-prep-public.prod.tars.dvsacloud.uk"
+findnearest_incap_cname      = "fyndi-prep-public.prod.tars.dvsacloud.uk"
+riverpractical_incap_cname   = "ibs-prep-public.prod.tars.dvsacloud.uk"
