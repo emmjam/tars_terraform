@@ -335,10 +335,8 @@ cpc_rds_snapshot = "tars-opsdev-cpc-cpcdb-20181106"
 
 
 # IBSDB
-ibs_rds_username = "ibsdevadmin"
-
+ibs_rds_username = "ibsuatadmin"
 ibs_rds_password = "password"
-
 ibs_rds_snapshot = "sit01-ibs-subnet-move"
 
 # MISDB
