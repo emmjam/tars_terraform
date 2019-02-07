@@ -31,8 +31,6 @@ all_users = [
   "sam.smart@bjss.com",
   "matthew.bell@dvsa.gov.uk",
   "alice.haws@dvsa.gov.uk",
-  "callum.massey@bjss.com",
-  "ian.harris@bjss.com",
   "chris.nappin@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
@@ -72,9 +70,7 @@ all_users = [
 ]
 
 administrators = [
-  "ian.harris@bjss.com",
   "mark.thompson@bjss.com",
-  "callum.massey@bjss.com",
   "steve.wilson@bjss.com",
   "brian.collinson@bjss.com",
   "michael.taylor@bjss.com",
