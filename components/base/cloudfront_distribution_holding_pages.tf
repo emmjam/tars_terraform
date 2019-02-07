@@ -12,7 +12,15 @@ resource "aws_cloudfront_distribution" "holding_pages" {
   }
 
   aliases = [
-    "maintenance-${var.environment}.${data.terraform_remote_state.acc.public_domain_name}"
+    "${concat(
+      list(
+        "maintenance-${var.environment}.${data.terraform_remote_state.acc.public_domain_name}",
+        "findnearest-${var.environment}.${data.terraform_remote_state.acc.public_domain_name}",
+        "dsa-${var.environment}.${data.terraform_remote_state.acc.public_domain_name}",
+        "driver-practical-${var.environment}.${data.terraform_remote_state.acc.public_domain_name}",
+      ),
+      var.holding_pages_domains
+    )}"
   ]
   
   default_cache_behavior {

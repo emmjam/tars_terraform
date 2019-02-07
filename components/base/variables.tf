@@ -576,8 +576,32 @@ variable "holding_pages_cert" {
   description = ""
 }
 
+variable "holding_pages_domains" {
+  type        = "list"
+  description = ""
+  default     = []
+}
+
 variable "sftpplus_nlb_subnets_cidrs" {
   type        = "list"
   description = "SFTP Plus NLB subnet CIDRs"
   default     = []
+}
+
+variable "dsa_incap_cname" {
+  type        = "string"
+  description = "Incapsula CNAME"
+  default     = ""
+}
+
+variable "findnearest_incap_cname" {
+  type        = "string"
+  description = "Incapsula CNAME"
+  default     = ""
+}
+
+variable "driverpractical_incap_cname" {
+  type        = "string"
+  description = "Incapsula CNAME"
+  default     = ""
 }

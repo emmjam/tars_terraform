@@ -418,3 +418,11 @@ cpc-batch_scaleup_desired      = 1
 cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
 apache_ami_build_id = 460
+
+# Extra domains that the CloudFront distribution for
+# maintenance pages should be aware of.
+holding_pages_domains = [
+  "dsa.dft.gov.uk",
+  "finddrivinginstructor.direct.gov.uk",
+  "driverpracticaltest.direct.gov.uk",
+]
