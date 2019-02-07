@@ -15,7 +15,6 @@ private_domain_name = "tars.dvsa.aws"
 
 all_users = [
   "mark.thompson@bjss.com",
-  "callum.massey@bjss.com",
   "steve.wilson@bjss.com",
   "brian.collinson@bjss.com",
   "chris.nappin@bjss.com",
