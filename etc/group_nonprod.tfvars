@@ -217,7 +217,7 @@ jenkinsnode_asg_max_size         = 3
 jenkinsnode_scaledown_desired    = 1
 jenkinsnode_scaledown_recurrence = "00 19 * * 1-5"
 jenkinsnode_scaleup_desired      = 1
-jenkinsnode_scaleup_recurrence   = "15 07 * * 1-5"
+jenkinsnode_scaleup_recurrence   = "15 04 * * 1-5"
 
 jenkinsctrl_subnets_cidrs = [
   "10.167.60.16/28",
@@ -253,7 +253,7 @@ obs_asg_max_size         = 3
 obs_scaledown_desired    = 0
 obs_scaledown_recurrence = "00 19 * * 1-5"
 obs_scaleup_desired      = 1
-obs_scaleup_recurrence   = "00 07 * * 1-5"
+obs_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## ibs
 ibs_instance_type        = "t2.medium"
@@ -263,7 +263,7 @@ ibs_asg_max_size         = 3
 ibs_scaledown_desired    = 0
 ibs_scaledown_recurrence = "00 19 * * 1-5"
 ibs_scaleup_desired      = 1
-ibs_scaleup_recurrence   = "10 07 * * 1-5"
+ibs_scaleup_recurrence   = "10 04 * * 1-5"
 
 ## fyndi-f
 fyndi-f_instance_type        = "t2.medium"
@@ -273,7 +273,7 @@ fyndi-f_asg_max_size         = 3
 fyndi-f_scaledown_desired    = 0
 fyndi-f_scaledown_recurrence = "00 19 * * 1-5"
 fyndi-f_scaleup_desired      = 1
-fyndi-f_scaleup_recurrence   = "00 07 * * 1-5"
+fyndi-f_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## fyndi_back
 fyndi-b_instance_type        = "t2.medium"
@@ -283,7 +283,7 @@ fyndi-b_asg_max_size         = 3
 fyndi-b_scaledown_desired    = 0
 fyndi-b_scaledown_recurrence = "00 19 * * 1-5"
 fyndi-b_scaleup_desired      = 1
-fyndi-b_scaleup_recurrence   = "00 07 * * 1-5"
+fyndi-b_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## wildfly-front
 wildfly-front_instance_type        = "t2.medium"
@@ -293,7 +293,7 @@ wildfly-front_asg_max_size         = 1
 wildfly-front_scaledown_desired    = 0
 wildfly-front_scaledown_recurrence = "00 19 * * 1-5"
 wildfly-front_scaleup_desired      = 1
-wildfly-front_scaleup_recurrence   = "00 07 * * 1-5"
+wildfly-front_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## wildfly-messaging
 wildfly-messaging_instance_type        = "t3.medium"
@@ -303,7 +303,7 @@ wildfly-messaging_asg_max_size         = 1
 wildfly-messaging_scaledown_desired    = 1
 wildfly-messaging_scaledown_recurrence = "00 19 * * 1-5"
 wildfly-messaging_scaleup_desired      = 1
-wildfly-messaging_scaleup_recurrence   = "00 07 * * 1-5"
+wildfly-messaging_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## wildfly-mock
 wildfly-mock_instance_type        = "t2.medium"
@@ -313,7 +313,7 @@ wildfly-mock_asg_max_size         = 1
 wildfly-mock_scaledown_desired    = 0
 wildfly-mock_scaledown_recurrence = "00 19 * * 1-5"
 wildfly-mock_scaleup_desired      = 1
-wildfly-mock_scaleup_recurrence   = "00 07 * * 1-5"
+wildfly-mock_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## cpc-back
 cpc-back_instance_type        = "t2.medium"
@@ -323,7 +323,7 @@ cpc-back_asg_max_size         = 1
 cpc-back_scaledown_desired    = 0
 cpc-back_scaledown_recurrence = "00 19 * * 1-5"
 cpc-back_scaleup_desired      = 1
-cpc-back_scaleup_recurrence   = "00 07 * * 1-5"
+cpc-back_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## cpc-front
 cpc-front_instance_type        = "t2.medium"
@@ -333,7 +333,7 @@ cpc-front_asg_max_size         = 1
 cpc-front_scaledown_desired    = 0
 cpc-front_scaledown_recurrence = "00 19 * * 1-5"
 cpc-front_scaleup_desired      = 1
-cpc-front_scaleup_recurrence   = "00 07 * * 1-5"
+cpc-front_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## sftpplus-svr
 sftpplus-svr_instance_type        = "t2.medium"
@@ -343,7 +343,7 @@ sftpplus-svr_asg_max_size         = 1
 sftpplus-svr_scaledown_desired    = 0
 sftpplus-svr_scaledown_recurrence = "00 19 * * 1-5"
 sftpplus-svr_scaleup_desired      = 1
-sftpplus-svr_scaleup_recurrence   = "00 07 * * 1-5"
+sftpplus-svr_scaleup_recurrence   = "00 04 * * 1-5"
 
 ### Business Objects
 bobj_asg_max_size = 1
@@ -365,7 +365,7 @@ cpc-batch_asg_max_size         = 1
 cpc-batch_scaledown_desired    = 0
 cpc-batch_scaledown_recurrence = "00 19 * * 1-5"
 cpc-batch_scaleup_desired      = 1
-cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
+cpc-batch_scaleup_recurrence   = "00 04 * * 1-5"
 
 
 ## apache
@@ -375,7 +375,7 @@ apache_asg_max_size          = 1
 apache_scaledown_desired     = 0
 apache_scaledown_recurrence  = "00 19 * * 1-5"
 apache_scaleup_desired       = 1
-apache_scaleup_recurrence    = "00 07 * * 1-5"
+apache_scaleup_recurrence    = "00 04 * * 1-5"
 
 ## AWS MQ
 aws_mq_engine_type             = "ActiveMQ"
