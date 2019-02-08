@@ -10,6 +10,7 @@ resource "aws_route53_record" "dsa_incapsula" {
 
   zone_id = "${data.terraform_remote_state.acc.public_domain_name_zone_id}"
   type    = "CNAME"
+  ttl     = "300"
 
   records = [
     "${var.dsa_incap_cname}"
@@ -28,6 +29,7 @@ resource "aws_route53_record" "findnearest_incapsula" {
 
   zone_id = "${data.terraform_remote_state.acc.public_domain_name_zone_id}"
   type    = "CNAME"
+  ttl     = "300"
 
   records = [
     "${var.findnearest_incap_cname}"
@@ -46,6 +48,7 @@ resource "aws_route53_record" "driverpractical_incapsula" {
 
   zone_id = "${data.terraform_remote_state.acc.public_domain_name_zone_id}"
   type    = "CNAME"
+  ttl     = "300"
 
   records = [
     "${var.driverpractical_incap_cname}"
