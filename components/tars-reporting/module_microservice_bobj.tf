@@ -1,5 +1,5 @@
 module "bobj" {
-  source = "../../modules/microservice"
+  source = "../../modules/microservice-old"
 
   name        = "bobj"
   project     = "${var.project}"
