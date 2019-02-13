@@ -20,6 +20,7 @@ data "template_file" "cpc-batch" {
     KMS_KEY        = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
     EFS_ID         = "${aws_efs_file_system.cpc-batch-efs.id}"
     MOUNT_POINT    = "/efs"
+    LOG_GROUP      = "${local.cpc_batch_log}"
   }
 }
 

@@ -20,6 +20,7 @@ data "template_file" "sftpplus_svr" {
     AWS_ACCOUNT_ID = "${var.aws_account_id}"
     EFS_ID         = "${aws_efs_file_system.sftpplus.id}"
     MOUNT_POINT    = "/efs"
+    LOG_GROUP      = "${local.sftpplus_log}"
   }
 }
 

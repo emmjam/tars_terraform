@@ -45,4 +45,14 @@ locals {
   )}"
 
   vpc_domain_name = "${var.environment}.${var.private_domain_name}"
+
+  sftpplus_log = "${
+    format(
+      "/aws/ec2/%s-%s-%s/%s",
+      var.project,
+      var.environment,
+      var.component,
+      "sftpplus/cloud-init-output"
+    )
+  }"
 }

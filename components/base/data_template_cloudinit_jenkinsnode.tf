@@ -20,6 +20,7 @@ data "template_file" "jenkinsnode_config" {
     MASTER_URL     = "jenkins.mgmt.mgmt.tars.dvsa.aws" # TODO: Use remote state
     ACCOUNT_ALIAS  = "${var.environment}"
     EXECUTORS      = "${var.jenkinsnode_executors}"
+    LOG_GROUP      = "${local.jenkinsnode_log}"
   }
 }
 

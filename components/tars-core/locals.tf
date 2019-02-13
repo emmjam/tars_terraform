@@ -45,4 +45,34 @@ locals {
   )}"
 
   vpc_domain_name = "${var.environment}.${var.private_domain_name}"
+
+  tars_back_log = "${
+    format(
+      "/aws/ec2/%s-%s-%s/%s",
+      var.project,
+      var.environment,
+      var.component,
+      "back/cloud-init-output"
+    )
+  }"
+
+  tars_front_log = "${
+    format(
+      "/aws/ec2/%s-%s-%s/%s",
+      var.project,
+      var.environment,
+      var.component,
+      "front/cloud-init-output"
+    )
+  }"
+
+  apache_log = "${
+    format(
+      "/aws/ec2/%s-%s-%s/%s",
+      var.project,
+      var.environment,
+      var.component,
+      "apache/cloud-init-output"
+    )
+  }"
 }

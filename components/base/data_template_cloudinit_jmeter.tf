@@ -15,6 +15,7 @@ data "template_file" "jmeter_config" {
     NODETYPE       = "${var.jmeter_puppet_nodetype}"
     KMS_KEY        = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
     AWS_ACCOUNT_ID = "${var.aws_account_id}"
+    LOG_GROUP      = "${local.jmeter_log}"
   }
 }
 

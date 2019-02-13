@@ -18,6 +18,7 @@ data "template_file" "prometheus_config" {
     AWS_REGION     = "${var.aws_region}"
     EFS_ID         = "${aws_efs_file_system.prometheus.id}"
     MOUNT_POINT    = "/var/lib/prometheus"
+    LOG_GROUP      = "${local.prometheus_log}"
   }
 }
 

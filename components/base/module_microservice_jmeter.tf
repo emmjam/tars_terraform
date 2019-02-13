@@ -25,6 +25,12 @@ module "microservice_jmeter" {
     "${aws_security_group.core.id}",
   ]
 
+  cwl_names = [
+    "/cloud-init-output",
+  ]
+
+  cwl_retention_days = "30"
+
   lifecycle_hook_launching_default_result = "ABANDON"
   lifecycle_hook_launching_enabled        = "1"
   lifecycle_hook_launching_timeout        = "500"
