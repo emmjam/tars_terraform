@@ -13,3 +13,16 @@ resource "aws_iam_group_policy_attachment" "power_users" {
   group      = "${aws_iam_group.power_users.name}"
   policy_arn = "${aws_iam_policy.power_users.arn}"
 }
+
+# Attach the AssumeRole Ops IAM Policy to the "ops" AWS IAM Group
+resource "aws_iam_group_policy_attachment" "ops_assumerole_ops" {
+  count      = "${length(var.ops_users) == 0 ? 0 : 1}"
+  group      = "${aws_iam_group.ops.name}"
+  policy_arn = "${aws_iam_policy.assumerole_ops.arn}"
+}
+
+resource "aws_iam_group_policy_attachment" "ops_assumerole_admin" {
+  count      = "${length(var.ops_users) == 0 ? 0 : 1}"
+  group      = "${aws_iam_group.ops.name}"
+  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
+}

@@ -94,6 +94,9 @@ administrators = [
   "rajkieren.manku@bjss.com",
 ]
 
+ops_users = [
+]
+
 power_users = [
   "rob.hart@dvsa.gov.uk",
 ]
@@ -112,7 +115,7 @@ capita_perf_ro_users = [
   "Subrata.Dey@capita.co.uk",
 ]
 
-capita_support_ro_users = [
+support_ro_users = [
   "phil.scally@capita.co.uk",
   "richard.freitas@capita.co.uk",
   "vinit.prajapati@capita.co.uk",

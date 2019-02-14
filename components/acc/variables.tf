@@ -71,6 +71,12 @@ variable "power_users" {
   default     = []
 }
 
+variable "ops_users" {
+  type        = "list"
+  description = "List of IAM Users who can assume Admin rights"
+  default     = []
+}
+
 variable "public_domain_name" {
   type        = "string"
   description = "The fully-qualified domain name for the Public Hosted Zone, if undefined, no zone will be created"
@@ -111,9 +117,9 @@ variable "capita_perf_ro_users" {
   default     = []
 }
 
-variable "capita_support_ro_users" {
+variable "support_ro_users" {
   type        = "list"
-  description = "List of read-only IAM Users from Capita, that have Read Only access"
+  description = "List of read-only IAM Users for Support functions, that have Read Only access"
   default     = []
 }
 

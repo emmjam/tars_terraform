@@ -10,14 +10,14 @@ resource "aws_iam_group_policy_attachment" "capita_perf_ro_users_enforce_mfa" {
   policy_arn = "${aws_iam_policy.enforce_mfa.arn}"
 }
 
-resource "aws_iam_group_policy_attachment" "capita_support_ro_users" {
-  count      = "${length(var.capita_support_ro_users) == 0 ? 0 : 1}"
-  group      = "${aws_iam_group.capita_support_ro_users.name}"
+resource "aws_iam_group_policy_attachment" "support_ro_users" {
+  count      = "${length(var.support_ro_users) == 0 ? 0 : 1}"
+  group      = "${aws_iam_group.support_ro_users.name}"
   policy_arn = "arn:aws:iam::aws:policy/ReadOnlyAccess"
 }
 
-resource "aws_iam_group_policy_attachment" "capita_support_ro_users_enforce_mfa" {
-  count      = "${length(var.capita_support_ro_users) == 0 ? 0 : 1}"
-  group      = "${aws_iam_group.capita_support_ro_users.name}"
+resource "aws_iam_group_policy_attachment" "support_ro_users_enforce_mfa" {
+  count      = "${length(var.support_ro_users) == 0 ? 0 : 1}"
+  group      = "${aws_iam_group.support_ro_users.name}"
   policy_arn = "${aws_iam_policy.enforce_mfa.arn}"
 }
