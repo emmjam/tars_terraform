@@ -30,6 +30,7 @@ all_users = [
   "ogbonna.quarcoopome-harper@bjss.com",
   "michael.tribbick@bjss.com",
   "adrian.jones@bjss.com",
+  "rajkieren.manku@bjss.com",
 ]
 
 administrators = [
@@ -52,6 +53,7 @@ administrators = [
   "ogbonna.quarcoopome-harper@bjss.com",
   "michael.tribbick@bjss.com",
   "adrian.jones@bjss.com",
+  "rajkieren.manku@bjss.com",
 ]
 
 ctrl_vpc_cidr = "10.167.64.0/22"
