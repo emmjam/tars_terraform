@@ -315,7 +315,7 @@ tars_rds_username = "tarsdevadmin"
 tars_rds_password = "password"
 
 # TARSDB
-tars_rds_allocated_storage = "100" # 100GB to allow import of on-prem data
+tars_rds_allocated_storage = "130" # 100GB to allow import of on-prem data
 
 tars_rds_snapshot = "tars-train-tars-core-tarsdb-20190207-pre5203"
 
