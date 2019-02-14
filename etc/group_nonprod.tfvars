@@ -66,6 +66,7 @@ all_users = [
   "michael.tribbick@bjss.com",
   "andrew.lai@bjss.com",
   "adrian.jones@bjss.com",
+  "rajkieren.manku@bjss.com",
 ]
 
 administrators = [
@@ -90,6 +91,7 @@ administrators = [
   "michael.tribbick@bjss.com",
   "andrew.lai@bjss.com",
   "adrian.jones@bjss.com",
+  "rajkieren.manku@bjss.com",
 ]
 
 power_users = [

@@ -67,6 +67,7 @@ all_users = [
   "michael.tribbick@bjss.com",
   "rob.whyte@capita.co.uk",
   "adrian.jones@bjss.com",
+  "rajkieren.manku@bjss.com",
 ]
 
 administrators = [
@@ -89,6 +90,7 @@ administrators = [
   "ogbonna.quarcoopome-harper@bjss.com",
   "michael.tribbick@bjss.com",
   "adrian.jones@bjss.com",
+  "rajkieren.manku@bjss.com",
 ]
 
 power_users = [
