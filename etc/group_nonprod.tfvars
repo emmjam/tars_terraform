@@ -694,40 +694,6 @@ ibs_rds_backup_retention_period = "7"
 ibs_rds_backup_window = "02:38-03:08"
 ibs_rds_maint_window = "sun:03:16-sun:03:46"
 
-## Do Not change list order only append
-logs_list = [
-  "/opt/wildfly/standalone/log/server.log",
-  "/opt/wildfly/tars-log/current_diagnosis.log",
-  "/var/log/cloud-init-output.log",
-  "/var/log/squid/access.log",
-  "/var/log/squid/cache.log",
-  "/opt/wildfly/logs/cpc-er.log",
-  "/opt/wildfly/logs/current_diagnosis.log",
-  "/opt/wildfly/logs/dsa-authentication.log",
-  "/opt/wildfly/logs/dsa-booking.log",
-  "/opt/wildfly/logs/dsa-business.log",
-  "/opt/wildfly/logs/dsa-commonservice.log",
-  "/opt/wildfly/logs/dsa-examiner.log",
-  "/opt/wildfly/logs/dsa.log",
-  "/opt/wildfly/logs/dsa-offline.log",
-  "/opt/wildfly/logs/dsa-testcentre.log",
-  "/opt/wildfly/logs/dsa-testSlot.log",
-  "/opt/wildfly/logs/dsa-workpattern-conflicts.log",
-  "/opt/wildfly/logs/dvlaconn.log",
-  "/opt/wildfly/logs/instructor.log",
-  "/opt/wildfly/logs/obs-fin-stmt.log",
-  "/opt/wildfly/logs/qas.log",
-  "/opt/wildfly/logs/sessionManagement.log",
-  "/opt/wildfly/logs/spring.log",
-  "/opt/wildfly/logs/sql.log",
-  "/opt/wildfly/logs/tars-new-code.log",
-  "/opt/wildfly/logs/xencointerface.log",
-  "/opt/tomcat/logs/obs-web.log",
-  "/opt/tomcat/logs/DSA-IBS-CACHE.log",
-  "/opt/tomcat/logs/DSA-IBS-TARS-HANDLED.log",
-  "/opt/tomcat/logs/DSA-IBS-TEST-CENTRE-SEARCH.log",
-]
-
 cpc_internet_cert       = "*"
 cpc_dvsa_internet_cert  = "*"
 cpc_cert                = "*"

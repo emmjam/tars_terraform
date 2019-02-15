@@ -107,8 +107,6 @@ jenkinsctrl_subnets_cidrs = [
   "10.167.64.48/28",
 ]
 
-logs_list = []
-
 whitelist = [
   "135.196.73.204/32",  # DVSA Notts
   "213.160.121.250/32", # DVSA Notts Corp & Wifi

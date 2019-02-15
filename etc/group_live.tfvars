@@ -582,8 +582,6 @@ elc_main_cache_nodes     = "1"
 elc_main_parameter_group = "default.memcached1.4"
 elc_main_port            = "11211"
 
-logs_list = []
-
 ### Business Objects
 bobj_asg_max_size = 1
 bobj_asg_min_size = 0
