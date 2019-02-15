@@ -66,6 +66,7 @@ all_users = [
   "vinit.prajapati@capita.co.uk",
   "michael.tribbick@bjss.com",
   "rob.whyte@capita.co.uk",
+  "steve.chissell@capita.co.uk",
   "adrian.jones@bjss.com",
   "rajkieren.manku@bjss.com",
 ]
@@ -125,10 +126,12 @@ capita_support_ro_users = [
   "gitanjali.nalawade@capita.co.uk",
   "vinit.prajapati@capita.co.uk",
   "rob.whyte@capita.co.uk",
+  "steve.chissell@capita.co.uk",
 ]
 
 capita_archive_users = [
   "rob.whyte@capita.co.uk",
+  "steve.chissell@capita.co.uk",
 ]
 
 dvsa_ro_users = [
