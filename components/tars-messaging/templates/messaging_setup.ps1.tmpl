@@ -91,13 +91,19 @@ if (-Not (Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain) {
 
   Catch{
       Write-Host $_.Exception | Out-File c:\error-joindomain.txt -Append
+      Write-Log "Stage 1 - Join Domain failed, using R53 DNS" "INFO"
+      # Update the DNS IP so that it reverts back to R53
+      $macAddress = invoke-restmethod -uri http://169.254.169.254/latest/meta-data/network/interfaces/macs
+      $cidrBlock = invoke-restmethod -uri http://169.254.169.254/latest/meta-data/network/interfaces/macs/$macAddress/vpc-ipv4-cidr-blocks
+      $dnsIP = $cidrBlock.Substring(0,$cidrBlock.Length-3) -replace(".\d{1,2}$",".2")
+      Get-NetAdapter | Set-DnsClientServerAddress -ServerAddresses $dnsIP
   }
 } else {
   Write-Log "Stage 1 - Join Domain skipped" "INFO"
 }
 
-# Stage 2 - Install ePO
-if (-Not (Get-ItemProperty -Path $regPath -Name "ePO" -ErrorAction SilentlyContinue)) {
+# Stage 2 - Install ePO, only if we joined the domain
+if (-Not (Get-ItemProperty -Path $regPath -Name "ePO" -ErrorAction SilentlyContinue) -and ((Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain)) {
   Write-Log "Stage 2 - Install EPO" "INFO"
   # Install ePO agent by copying locally and running
   try {
@@ -116,8 +122,8 @@ if (-Not (Get-ItemProperty -Path $regPath -Name "ePO" -ErrorAction SilentlyConti
   Write-Log "Stage 2 - Install ePO skipped" "INFO"
 }
 
-# Stage 3 - Install AV
-if (-Not (Get-ItemProperty -Path $regPath -Name "AV" -ErrorAction SilentlyContinue)) {
+# Stage 3 - Install AV, only if we joined the domain
+if (-Not (Get-ItemProperty -Path $regPath -Name "AV" -ErrorAction SilentlyContinue) -and ((Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain)) {
   Write-Log "Stage 3 - Install AV" "INFO"
   # Install McAFee AV by copying locally and running
   try {
@@ -136,8 +142,8 @@ if (-Not (Get-ItemProperty -Path $regPath -Name "AV" -ErrorAction SilentlyContin
   Write-Log "Stage 3 - Install AV skipped" "INFO"
 }
 
-# Stage 4 - Install OMS agent
-if (-Not (Get-ItemProperty -Path $regPath -Name "OMS" -ErrorAction SilentlyContinue)) {
+# Stage 4 - Install OMS agent, only if we joined the domain
+if (-Not (Get-ItemProperty -Path $regPath -Name "OMS" -ErrorAction SilentlyContinue) -and ((Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain)) {
   Write-Log "Stage 4 - Install OMS agent" "INFO"
   # Install OMS agent by copying locally and running
   try {
