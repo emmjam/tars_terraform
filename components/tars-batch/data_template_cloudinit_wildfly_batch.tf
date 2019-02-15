@@ -22,6 +22,7 @@ data "template_file" "wildfly-batch-config" {
     AWS_ACCOUNT_ID   = "${var.aws_account_id}"
     DVSA_DNS_SERVERS = "${join(",", var.dvsa_dns_servers)}"
     SEARCH_SUFFIX    = "${local.vpc_domain_name}"
+    LOG_GROUP        = "${local.tars_batch_log}"
   }
 }
 

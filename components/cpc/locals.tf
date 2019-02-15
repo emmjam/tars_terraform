@@ -49,4 +49,25 @@ locals {
   # If environment = prod, just use component, else use component-environment
   default_short_name = "${var.component}-${var.environment}"
   dva_dns_short_name = "${var.environment == "prod" ? var.component : local.default_short_name}"
+
+
+  cpc_back_log = "${
+    format(
+      "/aws/ec2/%s-%s-%s/%s",
+      var.project,
+      var.environment,
+      var.component,
+      "cpc-back/cloud-init-output"
+    )
+  }"
+
+  cpc_front_log = "${
+    format(
+      "/aws/ec2/%s-%s-%s/%s",
+      var.project,
+      var.environment,
+      var.component,
+      "cpc-front/cloud-init-output"
+    )
+  }"
 }

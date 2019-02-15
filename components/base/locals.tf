@@ -45,4 +45,34 @@ locals {
   )}"
 
   vpc_domain_name = "${var.environment}.${var.private_domain_name}"
+
+  jenkinsnode_log = "${
+    format(
+      "/aws/ec2/%s-%s-%s/%s",
+      var.project,
+      var.environment,
+      var.component,
+      "jenkinsnode/cloud-init-output"
+    )
+  }"
+
+  jmeter_log = "${
+    format(
+      "/aws/ec2/%s-%s-%s/%s",
+      var.project,
+      var.environment,
+      var.component,
+      "jmeter/cloud-init-output"
+    )
+  }"
+
+  prometheus_log = "${
+    format(
+      "/aws/ec2/%s-%s-%s/%s",
+      var.project,
+      var.environment,
+      var.component,
+      "prometheus/cloud-init-output"
+    )
+  }"
 }

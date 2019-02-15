@@ -27,6 +27,7 @@ data "template_file" "fyndi-f" {
     NODETYPE       = "${var.fyndi-f_puppet_nodetype}"
     KMS_KEY        = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
     AWS_ACCOUNT_ID = "${var.aws_account_id}"
+    LOG_GROUP      = "${local.fyndi_front_log}"
   }
 }
 
@@ -39,6 +40,7 @@ data "template_file" "fyndi-b" {
     NODETYPE       = "${var.fyndi-b_puppet_nodetype}"
     KMS_KEY        = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
     AWS_ACCOUNT_ID = "${var.aws_account_id}"
+    LOG_GROUP      = "${local.fyndi_back_log}"
   }
 }
 

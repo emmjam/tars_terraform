@@ -27,6 +27,7 @@ data "template_file" "cpc-front" {
     NODETYPE       = "${var.cpc-front_puppet_nodetype}"
     AWS_ACCOUNT_ID = "${var.aws_account_id}"
     KMS_KEY        = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
+    LOG_GROUP      = "${local.cpc_front_log}"
   }
 }
 
@@ -40,6 +41,7 @@ data "template_file" "cpc-back" {
     NODETYPE       = "${var.cpc-back_puppet_nodetype}"
     AWS_ACCOUNT_ID = "${var.aws_account_id}"
     KMS_KEY        = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
+    LOG_GROUP      = "${local.cpc_back_log}"
   }
 }
 
