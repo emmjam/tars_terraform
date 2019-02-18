@@ -20,9 +20,3 @@ resource "aws_iam_group_policy_attachment" "ops_assumerole_ops" {
   group      = "${aws_iam_group.ops.name}"
   policy_arn = "${aws_iam_policy.assumerole_ops.arn}"
 }
-
-resource "aws_iam_group_policy_attachment" "ops_assumerole_admin" {
-  count      = "${length(var.ops_users) == 0 ? 0 : 1}"
-  group      = "${aws_iam_group.ops.name}"
-  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
-}
