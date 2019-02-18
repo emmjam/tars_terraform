@@ -5,6 +5,6 @@ resource "aws_iam_role" "ops" {
 }
 
 resource "aws_iam_role_policy_attachment" "ops-attach-admin" {
-  role       = "${aws_iam_role.ops}"
+  role       = "${aws_iam_role.ops.name}"
   policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
 }
