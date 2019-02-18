@@ -315,9 +315,9 @@ tars_rds_username = "tarsdevadmin"
 tars_rds_password = "password"
 
 # TARSDB
-tars_rds_allocated_storage = "100" # 100GB to allow import of on-prem data
+tars_rds_allocated_storage = "130" # 100GB to allow import of on-prem data
 
-tars_rds_snapshot = "tars-opsdev-tars-core-tarsdb-20180720"
+tars_rds_snapshot = "tars-train-tars-core-tarsdb-20190207-pre5203"
 
 # CPCSDB
 cpc_rds_username = "tarscpcadmin"
@@ -326,7 +326,7 @@ cpc_rds_password = "YwBWc8HvweT3Lun8"
 
 # CPCTSDB
 cpc_rds_allocated_storage = "20" # 20 Gigabyte - was 1500GB
-cpc_rds_snapshot = "tars-opsdev-cpc-cpcdb-20180720"
+cpc_rds_snapshot = "tars-train-cpc-cpcdb-20190207-pre5203"
 
 
 # IBSDB
@@ -379,4 +379,3 @@ xenco_ssh_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAgEAglcxWvitvW4CTzgOZdQJF7F
 private_cert_domain_name = "dvsa.tars.dev-dvsacloud.uk"
 
 apache_ami_build_id = 460
-
