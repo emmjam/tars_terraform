@@ -72,15 +72,15 @@ all_users = [
 ]
 
 administrators = [
+  "sam.smart@bjss.com",
+  "michael.tribbick@bjss.com",
 ]
 
 ops_users = [
   "mark.thompson@bjss.com",
-  "callum.massey@bjss.com",
   "steve.wilson@bjss.com",
   "brian.collinson@bjss.com",
   "michael.taylor@bjss.com",
-  "sam.smart@bjss.com",
   "chris.nappin@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
