@@ -71,6 +71,7 @@ all_users = [
 
 administrators = [
   "mark.thompson@bjss.com",
+  "sam.smart@bjss.com",
   "steve.wilson@bjss.com",
   "brian.collinson@bjss.com",
   "chris.nappin@bjss.com",
@@ -94,7 +95,6 @@ administrators = [
 ]
 
 ops_users = [
-  "sam.smart@bjss.com",
 ]
 
 power_users = [

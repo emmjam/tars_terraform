@@ -35,6 +35,7 @@ all_users = [
 
 administrators = [
   "mark.thompson@bjss.com",
+  "sam.smart@bjss.com",
   "brian.collinson@bjss.com",
   "steve.wilson@bjss.com",
   "chris.nappin@bjss.com",
@@ -56,7 +57,6 @@ administrators = [
 ]
 
 ops_users = [
-  "sam.smart@bjss.com",
 ]
 
 ctrl_vpc_cidr = "10.167.64.0/22"

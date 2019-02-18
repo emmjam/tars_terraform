@@ -93,7 +93,6 @@ ops_users = [
   "daniel.billing@bjss.com",
   "stephen.davies@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
-  "michael.tribbick@bjss.com",
   "adrian.jones@bjss.com",
 ]
 
@@ -132,11 +131,9 @@ support_ro_users = [
   "steve.chissell@capita.co.uk",
   "ian.harris@bjss.com",
   "mark.thompson@bjss.com",
-  "callum.massey@bjss.com",
   "steve.wilson@bjss.com",
   "brian.collinson@bjss.com",
   "michael.taylor@bjss.com",
-  "sam.smart@bjss.com",
   "chris.nappin@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
@@ -149,7 +146,6 @@ support_ro_users = [
   "daniel.billing@bjss.com",
   "stephen.davies@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
-  "michael.tribbick@bjss.com",
   "adrian.jones@bjss.com",
 ]
 
