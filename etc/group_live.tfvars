@@ -72,11 +72,15 @@ all_users = [
 ]
 
 administrators = [
+  "sam.smart@bjss.com",
+  "michael.tribbick@bjss.com",
+]
+
+ops_users = [
   "mark.thompson@bjss.com",
   "steve.wilson@bjss.com",
   "brian.collinson@bjss.com",
   "michael.taylor@bjss.com",
-  "sam.smart@bjss.com",
   "chris.nappin@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
@@ -91,7 +95,6 @@ administrators = [
   "ogbonna.quarcoopome-harper@bjss.com",
   "michael.tribbick@bjss.com",
   "adrian.jones@bjss.com",
-  "rajkieren.manku@bjss.com",
 ]
 
 power_users = [
@@ -104,7 +107,7 @@ dms_users = [
 capita_users = [
 ]
 
-capita_support_ro_users = [
+support_ro_users = [
   "kapil.sabale@capita.co.uk",
   "cathy.campbell@capita.co.uk",
   "steve.ryalls@capita.co.uk",
@@ -127,6 +130,27 @@ capita_support_ro_users = [
   "vinit.prajapati@capita.co.uk",
   "rob.whyte@capita.co.uk",
   "steve.chissell@capita.co.uk",
+  "ian.harris@bjss.com",
+  "mark.thompson@bjss.com",
+  "callum.massey@bjss.com",
+  "steve.wilson@bjss.com",
+  "brian.collinson@bjss.com",
+  "michael.taylor@bjss.com",
+  "sam.smart@bjss.com",
+  "chris.nappin@bjss.com",
+  "saul.kashani@bjss.com",
+  "arthur.coombes@bjss.com",
+  "adam.hall@bjss.com",
+  "michael.riley@bjss.com",
+  "josh.manges@bjss.com",
+  "christopher.swanson@bjss.com",
+  "prashant.kumar@bjss.com",
+  "damian.skiba@bjss.com",
+  "daniel.billing@bjss.com",
+  "stephen.davies@bjss.com",
+  "ogbonna.quarcoopome-harper@bjss.com",
+  "michael.tribbick@bjss.com",
+  "adrian.jones@bjss.com",
 ]
 
 capita_archive_users = [

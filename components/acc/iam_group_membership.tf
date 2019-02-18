@@ -25,3 +25,13 @@ resource "aws_iam_group_membership" "power_users" {
     "${var.power_users}",
   ]
 }
+
+resource "aws_iam_group_membership" "ops_users" {
+  count = "${length(var.ops_users) == 0 ? 0 : 1}"
+  name  = "${aws_iam_group.ops.name}"
+  group = "${aws_iam_group.ops.name}"
+
+  users = [
+    "${var.ops_users}",
+  ]
+}

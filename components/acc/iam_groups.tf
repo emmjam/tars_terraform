@@ -13,3 +13,9 @@ resource "aws_iam_group" "power_users" {
   name  = "PowerUsers"
   path  = "/"
 }
+
+resource "aws_iam_group" "ops" {
+  count = "${length(var.ops_users) == 0 ? 0 : 1}"
+  name     = "${local.csi}ops"
+  path = "/"
+}

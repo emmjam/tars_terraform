@@ -39,7 +39,6 @@ administrators = [
   "steve.wilson@bjss.com",
   "chris.nappin@bjss.com",
   "michael.taylor@bjss.com",
-  "sam.smart@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
@@ -54,6 +53,10 @@ administrators = [
   "michael.tribbick@bjss.com",
   "adrian.jones@bjss.com",
   "rajkieren.manku@bjss.com",
+]
+
+ops_users = [
+  "sam.smart@bjss.com",
 ]
 
 ctrl_vpc_cidr = "10.167.64.0/22"

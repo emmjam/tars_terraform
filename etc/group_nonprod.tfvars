@@ -75,7 +75,6 @@ administrators = [
   "brian.collinson@bjss.com",
   "chris.nappin@bjss.com",
   "michael.taylor@bjss.com",
-  "sam.smart@bjss.com",
   "chris.nappin@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
@@ -92,6 +91,10 @@ administrators = [
   "andrew.lai@bjss.com",
   "adrian.jones@bjss.com",
   "rajkieren.manku@bjss.com",
+]
+
+ops_users = [
+  "sam.smart@bjss.com",
 ]
 
 power_users = [
@@ -112,7 +115,7 @@ capita_perf_ro_users = [
   "Subrata.Dey@capita.co.uk",
 ]
 
-capita_support_ro_users = [
+support_ro_users = [
   "phil.scally@capita.co.uk",
   "richard.freitas@capita.co.uk",
   "vinit.prajapati@capita.co.uk",
