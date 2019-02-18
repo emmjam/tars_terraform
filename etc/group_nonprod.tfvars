@@ -75,7 +75,6 @@ administrators = [
   "brian.collinson@bjss.com",
   "chris.nappin@bjss.com",
   "michael.taylor@bjss.com",
-  "sam.smart@bjss.com",
   "chris.nappin@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
@@ -95,6 +94,7 @@ administrators = [
 ]
 
 ops_users = [
+  "sam.smart@bjss.com",
 ]
 
 power_users = [
