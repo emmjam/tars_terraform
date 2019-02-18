@@ -140,6 +140,7 @@ support_ro_users = [
   "alban.anderson@capita.co.uk",
   "dolly.adeyiga@capita.co.uk",
   "gitanjali.nalawade@capita.co.uk",
+  "sam.smart@bjss.com",
 ]
 
 dvsa_ro_users = [
