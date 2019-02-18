@@ -335,7 +335,7 @@ wildfly-messaging_scaleup_recurrence   = "00 07 * * 1-5"
 ## AWS MQ
 aws_mq_engine_type             = "ActiveMQ"
 aws_mq_engine_version          = "5.15.0"
-aws_mq_host_instance_type      = "mq.t2.micro"
+aws_mq_host_instance_type      = "mq.m5.large"
 aws_mq_deployment_mode         = "ACTIVE_STANDBY_MULTI_AZ"
 
 aws_mq_users_admin_user              = "admin"
