@@ -417,7 +417,7 @@ cpc-batch_scaledown_recurrence = "00 22 * * 1-5"
 cpc-batch_scaleup_desired      = 1
 cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
-apache_ami_build_id = 460
+apache_ami_build_id = 492
 
 # Extra domains that the CloudFront distribution for
 # maintenance pages should be aware of.
