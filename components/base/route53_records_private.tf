@@ -6,7 +6,7 @@ resource "aws_route53_record" "awsmq" {
     "%s-%s-%s",
     var.project,
     "awsmq",
-    "${count.index}"
+    "${count.index + 1}"
   )}"
 
   zone_id = "${aws_route53_zone.vpc.zone_id}"
