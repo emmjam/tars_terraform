@@ -310,23 +310,24 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 ##
 
 # TARSDB
-tars_rds_username = "tarsdevadmin"
+tars_rds_username = "tarsuatadmin"
 
-tars_rds_password = "password"
+tars_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 
 # TARSDB
-tars_rds_allocated_storage = "130" # 100GB to allow import of on-prem data
+tars_rds_allocated_storage = "300"
+tars_rds_snapshot = "tars-uat01-tars-core-tarsdb-20181108"
+tars_rds_autoscale = "False"
 
-tars_rds_snapshot = "tars-train-tars-core-tarsdb-20190207-pre5203"
 
 # CPCSDB
-cpc_rds_username = "tarscpcadmin"
+cpc_rds_username = "cpcuatadmin"
 
-cpc_rds_password = "YwBWc8HvweT3Lun8"
+cpc_rds_password = "Mg28yDQjuEWndbtz"
 
 # CPCTSDB
-cpc_rds_allocated_storage = "20" # 20 Gigabyte - was 1500GB
-cpc_rds_snapshot = "tars-train-cpc-cpcdb-20190207-pre5203"
+cpc_rds_allocated_storage = "100" # 20 Gigabyte - was 1500GB
+cpc_rds_snapshot = "tars-uat01-cpc-cpcdb-20181108"
 
 
 # IBSDB
