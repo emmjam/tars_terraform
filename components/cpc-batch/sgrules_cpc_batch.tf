@@ -19,9 +19,9 @@ resource "aws_security_group_rule" "cpc_batch_egress_kms_endpoint" {
 }
 
 resource "aws_security_group_rule" "cpc_batch_egress_active_mq" {
-  description              = "Allow TCP/61616, 61617 to AWS MQ"
+  description              = "Allow TCP/61617 to AWS MQ"
   type                     = "egress"
-  from_port                = 61616
+  from_port                = 61617
   to_port                  = 61617
   protocol                 = "tcp"
   security_group_id        = "${module.cpc_batch.security_group_id}"
