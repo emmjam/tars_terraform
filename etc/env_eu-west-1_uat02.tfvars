@@ -239,11 +239,16 @@ efs_backup_subnets_cidrs = [
   "10.167.54.16/28",
 ]
 
-test_database_subnets_cidrs = [
-  "10.167.54.32/27",
-  "10.167.54.64/27",
-  "10.167.54.96/27",
+sftpplus_nlb_subnets_cidrs = [
+  "10.167.54.32/28",
+  "10.167.54.48/28",
+  "10.167.54.64/28",
 ]
+
+# Free subnets
+# 10.167.54.80/28
+# 10.167.54.96/28
+# 10.167.54.112/28
 
 jmeter_subnets_cidrs = [
   "10.167.54.128/28",
@@ -311,7 +316,7 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 # DVSA AD VPC peering
 #############################################################################
 
-ad_peering_enabled = false
+ad_peering_enabled = true
 ad_peering_vpc = "vpc-02072cb35506d9b73"
 ad_account = "233824316563"
 
@@ -362,22 +367,27 @@ rsis_rds_autoscale = "False"
 
 transit_peering_enabled = true
 
-#############################################################################
-# UAT should always be up - TS-3293
-#############################################################################
+wildfly-back_scaledown_desired = 0
+wildfly-batch_scaledown_desired = 0
+obs_scaledown_desired = 0
+ibs_scaledown_desired = 0
+fyndi-f_scaledown_desired = 0
+fyndi-b_scaledown_desired = 0
+wildfly-front_scaledown_desired = 0
+wildfly-mock_scaledown_desired = 0
+cpc-back_scaledown_desired = 0
+cpc-front_scaledown_desired = 0
+sftpplus-svr_scaledown_desired = 0
 
-wildfly-back_scaledown_desired = 1
-wildfly-batch_scaledown_desired = 1
-obs_scaledown_desired = 1
-ibs_scaledown_desired = 1
-fyndi-f_scaledown_desired = 1
-fyndi-b_scaledown_desired = 1
-wildfly-front_scaledown_desired = 1
-wildfly-messaging_scaledown_desired = 1
-wildfly-mock_scaledown_desired = 1
-cpc-back_scaledown_desired = 1
-cpc-front_scaledown_desired = 1
-sftpplus-svr_scaledown_desired = 1
+## wildfly-messaging
+wildfly-messaging_instance_type        = "t3.medium"
+wildfly-messaging_puppet_nodetype      = "tars-messaging"
+wildfly-messaging_asg_min_size         = 0
+wildfly-messaging_asg_max_size         = 2
+wildfly-messaging_scaledown_desired    = 2
+wildfly-messaging_scaledown_recurrence = "00 19 * * 1-5"
+wildfly-messaging_scaleup_desired      = 2
+wildfly-messaging_scaleup_recurrence   = "00 07 * * 1-5"
 
 # DHCP Scope options for DNS
 
@@ -390,7 +400,7 @@ domain_name_servers = [
 
 private_cert_domain_name = "uat02.tars.dvsa.aws"
 
-apache_ami_build_id = 406
+apache_ami_build_id = 492
 
 # Temporary allocation -
 # To be removed when overall range is increased
