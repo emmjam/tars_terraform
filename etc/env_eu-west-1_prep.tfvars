@@ -419,3 +419,5 @@ apache_ami_build_id = 492
 dsa_incap_cname              = "routing-prep-public.prod.tars.dvsacloud.uk"
 findnearest_incap_cname      = "fyndi-prep-public.prod.tars.dvsacloud.uk"
 riverpractical_incap_cname   = "ibs-prep-public.prod.tars.dvsacloud.uk"
+
+bobj_cert               = "bobj-prep"
