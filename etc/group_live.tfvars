@@ -152,6 +152,7 @@ support_ro_users = [
 capita_archive_users = [
   "rob.whyte@capita.co.uk",
   "steve.chissell@capita.co.uk",
+  "nigel.instone@capita.co.uk",
 ]
 
 dvsa_ro_users = [
