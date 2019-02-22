@@ -1,6 +1,6 @@
 # R53 record for the AWS MQ endpoint
 resource "aws_route53_record" "awsmq" {
-  count = "${length(aws_mq_broker.tars-awsmq.instances)}"
+  count = "${var.aws_mq_deployment_mode == "SINGLE_INSTANCE" ? 1 : 2 }"
 
   name = "${format(
     "%s-%s-%s",
