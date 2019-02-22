@@ -54,7 +54,7 @@ if (-Not (Test-Path $regPath)) {
 
 # Stage 1 - Join the domain
 if (-Not (Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain) {
-  Write-Log "Stage 1 - Join Domain" "INFO"
+  Write-Log-Entry "Stage 1 - Join Domain" "INFO"
   #Retrieve the AWS instance ID, keep trying until the metadata is available
   $instanceID = "null"
   while ($instanceID -NotLike "i-*") {
