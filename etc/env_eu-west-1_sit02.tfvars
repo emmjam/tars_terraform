@@ -367,7 +367,7 @@ rsis_rds_autoscale = "False"
 # Transit VPC peering
 #############################################################################
 
-transit_peering_enabled = true
+transit_peering_enabled = false
 
 # DHCP Scope options for DNS
 
