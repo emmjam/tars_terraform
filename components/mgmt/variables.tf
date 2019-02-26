@@ -83,7 +83,7 @@ variable "private_domain_name" {
 }
 
 variable "nat_subnets_cidr" {
-  type        = "string"
+  type        = "list"
   description = ""
 }
 

@@ -15,7 +15,7 @@ module "nat_subnets" {
   ]
 
   route_tables = [
-    "${aws_route_table.public.id}",
+    "${aws_route_table.private_nat.*.id}",
   ]
 
   default_tags = "${local.default_tags}"
