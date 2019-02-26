@@ -87,6 +87,11 @@ variable "nat_subnets_cidr" {
   description = ""
 }
 
+variable "natgw_subnets_cidr" {
+  type        = "list"
+  description = ""
+}
+
 variable "whitelist" {
   type        = "list"
   description = ""

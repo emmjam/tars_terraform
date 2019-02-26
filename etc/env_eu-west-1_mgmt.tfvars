@@ -198,6 +198,12 @@ nat_subnets_cidr = [
   "10.200.1.32/28",
 ]
 
+natgw_subnets_cidr = [
+  "10.200.1.48/28",
+  "10.200.1.64/28",
+  "10.200.1.80/28",
+]
+
 # TODO: smarts: Move AMI IDs to versions file
 ## bastion
 bastion_instance_type        = "t2.micro"
