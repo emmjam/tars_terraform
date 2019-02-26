@@ -171,6 +171,11 @@ base_peers_xacct = [
     cidr_block = "10.167.48.0/21"
     account_id = "652856684323"
   },
+  {
+    vpc_id     = "vpc-0e7a1dbf9dbe564f3"  # tarsnonprod/sit02
+    cidr_block = "10.167.80.0/21"
+    account_id = "652856684323"
+  },
 ]
 
 ### CWLES
