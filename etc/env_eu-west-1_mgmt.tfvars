@@ -192,7 +192,11 @@ cwles_master_instance_count = "2"
 ###############################################################################
 vpc_cidr = "10.200.0.0/16"
 
-nat_subnets_cidr = "10.200.1.0/28"
+nat_subnets_cidr = [
+  "10.200.1.0/28",
+  "10.200.1.16/28",
+  "10.200.1.32/28",
+]
 
 # TODO: smarts: Move AMI IDs to versions file
 ## bastion
