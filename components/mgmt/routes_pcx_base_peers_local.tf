@@ -11,10 +11,20 @@ resource "aws_route" "private_pcx_base_peers_local" {
 }
 
 resource "aws_route" "private_nat_pcx_base_peers_local" {
-  count                     = "${length(data.aws_vpc_peering_connection.base_peers_local.*.id)}"
-  route_table_id            = "${element(aws_route_table.private_nat.*.id, 1)}"
-  vpc_peering_connection_id = "${element(data.aws_vpc_peering_connection.base_peers_local.*.id, count.index)}"
-  destination_cidr_block    = "${element(data.aws_vpc_peering_connection.base_peers_local.*.cidr_block, count.index)}"
+  # Total entries needed equals peers * nat route tables
+  count                     = "${
+    length(data.aws_vpc_peering_connection.base_peers_local.*.id) * 
+    length(aws_route_table.private_nat.*.id)
+  }"
+
+  # Modulo of index and nat route table count ensures that every
+  # iteration wraps back between route table min and route table
+  # max
+  route_table_id            = "${element(aws_route_table.private_nat.*.id, (count.index % length(aws_route_table.private_nat.*.id)))}"
+   
+  # Divide the index by the route table count to get the current peering connection
+  vpc_peering_connection_id = "${element(data.aws_vpc_peering_connection.base_peers_local.*.id, ceil(count.index / length(aws_route_table.private_nat.*.id)))}"
+  destination_cidr_block    = "${element(data.aws_vpc_peering_connection.base_peers_local.*.cidr_block, ceil(count.index / length(aws_route_table.private_nat.*.id)))}"
 }
 
 # For the public route table "public"
