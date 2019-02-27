@@ -1,12 +1,3 @@
-resource "aws_security_group_rule" "nexus_ingress_alb_public" {
-  type                     = "ingress"
-  protocol                 = "tcp"
-  from_port                = "${lookup(var.nexus_config, "listen_port")}"
-  to_port                  = "${lookup(var.nexus_config, "listen_port")}"
-  security_group_id        = "${module.microservice_nexus.security_group_id}"
-  source_security_group_id = "${aws_security_group.alb_public.id}"
-}
-
 resource "aws_security_group_rule" "nexus_ingress_bastion_ssh" {
   type                     = "ingress"
   from_port                = "22"
@@ -39,6 +30,25 @@ resource "aws_security_group_rule" "nexus_egress_internet_http" {
     "0.0.0.0/0",
   ]
 }
+
+resource "aws_security_group_rule" "nexus_ingress_alb_public" {
+  type                     = "ingress"
+  protocol                 = "tcp"
+  from_port                = "${lookup(var.nexus_config, "listen_port")}"
+  to_port                  = "${lookup(var.nexus_config, "listen_port")}"
+  security_group_id        = "${module.microservice_nexus.security_group_id}"
+  source_security_group_id = "${aws_security_group.alb_public.id}"
+}
+
+resource "aws_security_group_rule" "nexus_ingress_alb_private" {
+  type                     = "ingress"
+  protocol                 = "tcp"
+  from_port                = "${lookup(var.nexus_config, "listen_port")}"
+  to_port                  = "${lookup(var.nexus_config, "listen_port")}"
+  security_group_id        = "${module.microservice_nexus.security_group_id}"
+  source_security_group_id = "${aws_security_group.alb_private.id}"
+}
+
 
 # Rule to permit access from nexus to EFS Mount Targets.
 resource "aws_security_group_rule" "nexus_egress_nexus_efs_nfs" {
