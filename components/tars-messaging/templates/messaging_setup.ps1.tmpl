@@ -62,13 +62,16 @@ if (-Not (Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain) {
     $instanceID = invoke-restmethod -uri http://169.254.169.254/latest/meta-data/instance-id
   }
 
+  $dnsIp = Get-DnsClientServerAddress | Select-Object –ExpandProperty ServerAddresses -Unique -First 1
+  Write-Log-Entry "Stage 1 - DNS IP before $${dnsIp}" "INFO"
+
   #Set DNS servers
   $dnslist = (Get-SSMParameterValue -Name AD-DNS-List).Parameters[0].Value
   Write-Log-Entry "Stage 1 - DNS list $${dnslist}" "INFO"
   Get-NetAdapter | Set-DnsClientServerAddress -ServerAddresses $dnslist
 
   $dnsIp = Get-DnsClientServerAddress | Select-Object –ExpandProperty ServerAddresses -Unique -First 1
-  Write-Log-Entry "Stage 1 - DNS IP set $${dnsIp}" "INFO"
+  Write-Log-Entry "Stage 1 - DNS IP after $${dnsIp}" "INFO"
 
   #Set DNS Search suffix
   Set-DnsClientGlobalSetting -SuffixSearchList @("${SEARCH_SUFFIX}","dsa.gsi.gov.uk","eu-west-1.ec2-utilities.amazonaws.com","us-east-1.ec2-utilities.amazonaws.com","eu-west-1.compute.internal")
