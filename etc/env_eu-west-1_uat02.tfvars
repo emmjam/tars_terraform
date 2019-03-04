@@ -400,7 +400,7 @@ domain_name_servers = [
 
 private_cert_domain_name = "uat02.tars.dvsa.aws"
 
-apache_ami_build_id = 492
+apache_ami_build_id = 504
 
 # Temporary allocation -
 # To be removed when overall range is increased
