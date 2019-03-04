@@ -339,7 +339,7 @@ cpc_rds_username = "cpcuatadmin"
 cpc_rds_password = "Mg28yDQjuEWndbtz"
 
 # CPCTSDB
-cpc_rds_allocated_storage = "100"
+cpc_rds_allocated_storage = "150"
 cpc_rds_snapshot = "tars-sit01-cpc-cpcdb-20181106"
 
 # IBSDB
