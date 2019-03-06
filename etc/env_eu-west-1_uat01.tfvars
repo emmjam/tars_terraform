@@ -327,7 +327,7 @@ tars_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 
 # TARSDB
 tars_rds_allocated_storage = "300"
-tars_rds_snapshot = "tars-uat01-tars-core-tarsdb-20181108"
+tars_rds_snapshot = "tars-uat01-tars-core-tarsdb-2019-05-03-5-5-0-2"
 tars_rds_autoscale = "False"
 
 
@@ -338,7 +338,7 @@ cpc_rds_password = "Mg28yDQjuEWndbtz"
 
 # CPCTSDB
 cpc_rds_allocated_storage = "100" # 20 Gigabyte - was 1500GB
-cpc_rds_snapshot = "tars-uat01-cpc-cpcdb-20181108"
+cpc_rds_snapshot = "tars-uat01-cpc-cpcdb-2019-05-03-5-5-0-2"
 
 # IBSDB
 ibs_rds_username = "tarsuatadmin"
