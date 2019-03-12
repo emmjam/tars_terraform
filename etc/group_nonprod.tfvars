@@ -73,6 +73,7 @@ all_users = [
   "andrew.lai@bjss.com",
   "adrian.jones@bjss.com",
   "rajkieren.manku@bjss.com",
+  "ian.christian@bjss.com",
 ]
 
 administrators = [
@@ -98,6 +99,7 @@ administrators = [
   "andrew.lai@bjss.com",
   "adrian.jones@bjss.com",
   "rajkieren.manku@bjss.com",
+  "ian.christian@bjss.com",
 ]
 
 ops_users = [
