@@ -31,6 +31,7 @@ all_users = [
   "michael.tribbick@bjss.com",
   "adrian.jones@bjss.com",
   "rajkieren.manku@bjss.com",
+  "ian.christian@bjss.com",
 ]
 
 administrators = [
@@ -54,6 +55,7 @@ administrators = [
   "michael.tribbick@bjss.com",
   "adrian.jones@bjss.com",
   "rajkieren.manku@bjss.com",
+  "ian.christian@bjss.com",
 ]
 
 ops_users = [

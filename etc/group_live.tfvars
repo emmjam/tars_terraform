@@ -69,6 +69,7 @@ all_users = [
   "steve.chissell@capita.co.uk",
   "adrian.jones@bjss.com",
   "rajkieren.manku@bjss.com",
+  "ian.christian@bjss.com",
 ]
 
 administrators = [
@@ -147,6 +148,7 @@ support_ro_users = [
   "stephen.davies@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
   "adrian.jones@bjss.com",
+  "ian.christian@bjss.com",
 ]
 
 capita_archive_users = [
