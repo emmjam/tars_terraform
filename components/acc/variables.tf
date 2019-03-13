@@ -123,6 +123,18 @@ variable "support_ro_users" {
   default     = []
 }
 
+variable "tss_billing_ro_users" {
+  type        = "list"
+  description = "List of billing read-only IAM Users for Support functions, that have Read Only access and Billing Read Only"
+  default     = []
+}
+
+#variable "billing_ro_users" {
+#  type        = "list"
+#  default     = []
+#  description = "List of billing read-only IAM Users for Support functions, that have Billing Read Only access"
+#}
+
 # CWLES - CloudWatch Logs to Elasticsearch
 
 variable "cwles_curator_max_age" {

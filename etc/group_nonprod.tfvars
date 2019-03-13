@@ -74,6 +74,8 @@ all_users = [
   "adrian.jones@bjss.com",
   "rajkieren.manku@bjss.com",
   "ian.christian@bjss.com",
+  "neil.eaton@bjss.com",
+  "david.johnson@bjss.com",
 ]
 
 administrators = [
@@ -160,6 +162,11 @@ support_ro_users = [
 dvsa_ro_users = [
   "matthew.bell@dvsa.gov.uk",
   "alice.haws@dvsa.gov.uk",
+]
+
+tss_billing_ro_users = [
+  "neil.eaton@bjss.com",
+  "david.johnson@bjss.com",
 ]
 
 ###############################################################################
