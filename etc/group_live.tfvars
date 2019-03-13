@@ -70,6 +70,8 @@ all_users = [
   "adrian.jones@bjss.com",
   "rajkieren.manku@bjss.com",
   "ian.christian@bjss.com",
+  "neil.eaton@bjss.com",
+  "david.johnson@bjss.com",
 ]
 
 administrators = [
@@ -149,8 +151,6 @@ support_ro_users = [
   "ogbonna.quarcoopome-harper@bjss.com",
   "adrian.jones@bjss.com",
   "ian.christian@bjss.com",
-  "neil.eaton@bjss.com",
-  "david.johnson@bjss.com",
 ]
 
 capita_archive_users = [

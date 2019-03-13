@@ -32,6 +32,8 @@ all_users = [
   "adrian.jones@bjss.com",
   "rajkieren.manku@bjss.com",
   "ian.christian@bjss.com",
+  "neil.eaton@bjss.com",
+  "david.johnson@bjss.com",
 ]
 
 administrators = [
@@ -56,8 +58,6 @@ administrators = [
   "adrian.jones@bjss.com",
   "rajkieren.manku@bjss.com",
   "ian.christian@bjss.com",
-  "neil.eaton@bjss.com",
-  "david.johnson@bjss.com",
 ]
 
 tss_billing_ro_users = [
