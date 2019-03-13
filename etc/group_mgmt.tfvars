@@ -58,6 +58,8 @@ administrators = [
   "ian.christian@bjss.com",
 ]
 
+tss_billing_ro_users = []
+
 ops_users = [
 ]
 
