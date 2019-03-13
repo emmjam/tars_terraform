@@ -149,6 +149,8 @@ support_ro_users = [
   "ogbonna.quarcoopome-harper@bjss.com",
   "adrian.jones@bjss.com",
   "ian.christian@bjss.com",
+  "neil.eaton@bjss.com",
+  "david.johnson@bjss.com",
 ]
 
 capita_archive_users = [
@@ -165,7 +167,10 @@ dvsa_ro_users = [
   "tim.hinchey@dvsa.gov.uk"
 ]
 
-tss_billing_ro_users = []
+tss_billing_ro_users = [
+  "neil.eaton@bjss.com",
+  "david.johnson@bjss.com",
+]
 
 ###############################################################################
 # MGMT
