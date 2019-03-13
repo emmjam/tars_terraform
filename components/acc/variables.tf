@@ -129,11 +129,11 @@ variable "tss_billing_ro_users" {
   default     = []
 }
 
-variable "billing_ro_users" {
-  type        = "list"
-  description = "List of billing read-only IAM Users for Support functions, that have Billing Read Only access"
-  default     = []
-}
+#variable "billing_ro_users" {
+#  type        = "list"
+#  default     = []
+#  description = "List of billing read-only IAM Users for Support functions, that have Billing Read Only access"
+#}
 
 # CWLES - CloudWatch Logs to Elasticsearch
 
