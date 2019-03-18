@@ -9,3 +9,15 @@ resource "aws_route53_record" "nexus_private" {
     evaluate_target_health = true
   }
 }
+
+resource "aws_route53_record" "ldap_private" {
+  name    = "ldap"
+  zone_id = "${aws_route53_zone.mgmt.id}"
+  type    = "A"
+
+  alias {
+    name                   = "${aws_elb.ldap.dns_name}"
+    zone_id                = "${aws_elb.ldap.zone_id}"
+    evaluate_target_health = true
+  }
+}
