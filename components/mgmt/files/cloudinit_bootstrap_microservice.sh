@@ -1,23 +1,34 @@
-#!/bin/bash
+#!/bin/bash +x
 # vim: set syntax=sh tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab :
 
-# -u          :: Fail on unbounded variable usage
-# -o pipefail :: Report failures that occur elsewhere than just the last command in a pipe
-set -uo pipefail
+function log () {
+  case $1 in
+    "INFO")
+      LOG_COLOR="\033[96m";;
+    "ERROR")
+      LOG_COLOR="\033[31m";;
+    "WARN")
+      LOG_COLOR="\033[93m" ;;
+    "SUCCESS")
+      LOG_COLOR="\033[32m" ;;
+    *)
+      LOG_COLOR="\033[1m" ;;
+  esac
 
-# Just for logging. Because rsyslog is not running before userdata.
-log_file='/tmp/bootstrap.log';
-
-function log() {
-  echo -e "$(date) ${1}" \
-    | tee -a "${log_file}";
+  echo -e "$${LOG_COLOR} [$(date)] $${1}: $2\033[0m" | tee -a "/var/log/bootstrap.log"
 }
 
-function error() {
-  echo -e "$(date) ERROR: ${1}" \
-    | tee -a "${log_file}";
-  exit 1;
-};
+function error () {
+  log "ERROR" "$1"
+  exit
+}
+
+# Python is the best bet to safely escape the log data
+# for json consumption. json is a std python lib so 
+# minimal dependency requirements
+function json_escape () {
+    printf '%s' "$1" | python -c 'import json,sys; print(json.dumps(sys.stdin.read()))'
+}
 
 export aws="$(which aws || echo '/usr/bin/aws')";
 export curl="$(which curl || echo '/usr/bin/curl')";
@@ -25,134 +36,124 @@ export curl="$(which curl || echo '/usr/bin/curl')";
 log '=== Starting Bootstrap Script ===';
 
 # Instance ID begets all things...
-log 'Retrieving Instance ID from Metadata';
-instance_id="$(${curl} -s http://169.254.169.254/latest/meta-data/instance-id)";
-if [ ${?} -ne 0 ]; then
+log 'INFO' 'Retrieving Instance ID from Metadata';
+instance_id="$($${curl} -s http://169.254.169.254/latest/meta-data/instance-id)";
+if [ $${?} -ne 0 ]; then
   error "Failed to retrieve Instance ID";
 fi
-log "Instance ID: ${instance_id}";
+log 'INFO' "Instance ID: $${instance_id}";
 
 # Get Current AWS Region in order to do anything useful...
-log 'Retrieving Instance Identity Document from Metadata';
-instance_identity_document="$(${curl} -s http://169.254.169.254/latest/dynamic/instance-identity/document)";
-if [ ${?} -ne 0 ]; then
-  error "${curl} -s http://169.254.169.254/latest/dynamic/instance-identity/document";
+log 'INFO' 'Retrieving Instance Identity Document from Metadata';
+instance_identity_document="$($${curl} -s http://169.254.169.254/latest/dynamic/instance-identity/document)";
+if [ $${?} -ne 0 ]; then
+  error "$${curl} -s http://169.254.169.254/latest/dynamic/instance-identity/document";
 else
   log 'INFO' 'Instance Identity Document Retrieved';
 
-  region="$(echo "${instance_identity_document}" | jq -r .region)";
+  region="$(echo "$${instance_identity_document}" | jq -r .region)";
 
-  if [ ${?} -ne 0 ]; then
+  if [ $${?} -ne 0 ]; then
     error 'jq: Instance Identity Document could not be parsed for current Region';
   else
-    log "Region retrieved: ${region}";
+    log 'INFO' "Region retrieved: $${region}";
   fi;
 
   # Make it available to the AWS cli; who needs to specify the region manually on every single call(?)
-  export AWS_DEFAULT_REGION="${region}";
+  export AWS_DEFAULT_REGION="$${region}";
 fi;
 
-# Now we have the Instance ID and the Region, we can get everything else...
-
 # Get the Autoscaling Group Name - it's a bit dirty but it works.
-asg_name="$(${aws} autoscaling describe-auto-scaling-instances \
-  --instance "${instance_id}" \
+asg_name="$($${aws} autoscaling describe-auto-scaling-instances \
+  --instance "$${instance_id}" \
   --output json \
   | jq -r .AutoScalingInstances[0].AutoScalingGroupName)";
 
-if [ ${?} -ne 0 ]; then
+if [ $${?} -ne 0 ]; then
   error 'Failed to retrieve the autoscaling group name for this instance';
+else
+  log 'INFO' "ASG name retrieved: $${asg_name}";
 fi;
 
-# Get the Launching LifeCycle Hook Name for this ASG (Making the assumption there's only one hook!)
-lifecycle_hook_name="$(${aws} autoscaling describe-lifecycle-hooks \
-  --auto-scaling-group-name "${asg_name}" \
+## Get the Launching LifeCycle Hook Name for this ASG (Making the assumption there's only one hook!)
+lifecycle_hook_name="$($${aws} autoscaling describe-lifecycle-hooks \
+  --auto-scaling-group-name "$${asg_name}" \
   --output json \
   | jq -r '.LifecycleHooks[] | select(.LifecycleTransition=="autoscaling:EC2_INSTANCE_LAUNCHING") | .LifecycleHookName')";
 
-if [ ${?} -ne 0 ]; then
-  error "Failed to retrieve lifecycle hook name for the autoscaling:EC2_INSTANCE_LAUNCHING transition for the autoscaling group named: ${asg_name}";
+if [ $${?} -ne 0 ]; then
+  error "Failed to retrieve lifecycle hook name for the autoscaling:EC2_INSTANCE_LAUNCHING transition for the autoscaling group named: $${asg_name}";
+else
+  log 'INFO' "Lifecycle hook name retrieved: $${lifecycle_hook_name}"
 fi;
 
-##
-# Preliminary data retrieval complete. On with the show...
-##
+# Prerequisite information gathered - begin bootstrapping
 
-# Install puppet5
-log 'Installing puppet-code';
+BOOTSTRAP_SUCCESS=1
 
-yum install -y puppet-code 2>&1 \
-  | tee -a "${log_file}" \
-  || error 'Failed to install puppet code RPM';
+cd /opt/packer-puppet-masterless
 
-# Load puppet env variables
-log 'Sourcing puppet-agent environment variables';
+log 'INFO' 'Running puppet to configure environment'
 
-# We can't trust puppet's profile script not to reference unbound variables
-set +u
+/opt/puppetlabs/bin/puppet apply \
+  --verbose \
+  --detailed-exitcodes \
+  --modulepath='/opt/packer-puppet-masterless/module-0:/opt/packer-puppet-masterless/module-1' \
+  --hiera_config='/opt/packer-puppet-masterless/hiera.yaml' \
+  /opt/packer-puppet-masterless/manifests/site.pp
 
-source /etc/profile.d/puppet-agent.sh \
-  || error 'Failed to source puppet-agent environment variables';
+case $${?} in
+  6|4|1)
+    log "ERROR" "Puppet run failed with exit code $${?}"
+    BOOTSTRAP_SUCCESS=0 ;;
+  *)
+    log "INFO" "Puppet run completed" ;;
+esac
 
-# But we can trust ourselves...
-set -u;
-
-# Run Puppet
-puppet_env='dvsatars';
-
-log 'Running puppet apply...';
-puppet apply \
-  --environment "${puppet_env}" \
-  /etc/puppetlabs/code/environments/${puppet_env}/manifests/site.pp 2>&1 \
-  | tee -a "${log_file}" \
-  || error 'Puppet Apply Failed';
-
-# set serverspec test variables
-nodetype="$(facter nodetype)";
-spec_passed=1
-syntax_ok=1
-
-# Run Serverspec tests in a subshell
-(
-  cd /etc/puppetlabs/code/environments/serverspec
-
-  file_list=($(find . -name \*_spec.rb | grep "common\|${nodetype}"))
-
-  echo "Nodetype: ${nodetype}"
-
-  # Check syntax of each file
-  for file_name in "${file_list[@]}"
-  do
-    echo -n "Checking $file_name: "
-    ruby -c ${file_name} || syntax_ok=0
-  done;
-
-  # If all files OK, then run tests
-  if [ "${syntax_ok}" -eq 1 ]; then
-    /opt/puppetlabs/puppet/bin/rake || spec_passed=0
-  fi
-)
-
-# If tests passed or skipped then we're good to go; otherwise we abandon...
-if [ ${spec_passed} -eq 1 ]; then
-  # If we haven't died by now - we're safe to become a healthy instance
-  log 'Completing the ASG Lifecycle Action to bring this instance into live service';
-  ${aws} autoscaling complete-lifecycle-action \
-    --lifecycle-action-result CONTINUE \
-    --instance-id "${instance_id}" \
-    --lifecycle-hook-name "${lifecycle_hook_name}" \
-    --auto-scaling-group-name "${asg_name}" \
-    && log '=== Bootstrap Complete ===' \
-    || error 'Failed to complete lifecycle hook';
-
+if [ $${BOOTSTRAP_SUCCESS} -eq 1 ]; then
+  log 'SUCCESS' 'Bootstrap complete for nodetype: ${NODETYPE}'
 else
-  log 'Completing the ASG Lifecycle Action to abandon this instance';
-  ${aws} autoscaling complete-lifecycle-action \
-    --lifecycle-action-result ABANDON \
-    --instance-id "${instance_id}" \
-    --lifecycle-hook-name "${lifecycle_hook_name}" \
-    --auto-scaling-group-name "${asg_name}" \
-    && log '=== Bootstrap ABANDON ===' \
-    || error 'Failed to complete lifecycle hook';
+  log 'ERROR' 'Bootstrap abandon for nodetype: ${NODETYPE}'
+fi
 
+# Sure would be lovely if date could give unix time 
+# in milliseconds
+timestamp=$(($(date +'%s * 1000 + %-N / 1000000')))
+log_data="$(json_escape "$(cat /var/log/cloud-init-output.log)")"
+
+echo """
+[
+  {
+    \"timestamp\": $${timestamp},
+    \"message\": $${log_data}
+  }
+]""" > /var/log/cwl-cloud-init.txt
+
+aws logs create-log-stream \
+  --region $${region} \
+  --log-group-name ${LOG_GROUP} \
+  --log-stream-name $${instance_id}
+
+aws logs put-log-events \
+  --region $${region} \
+  --log-group-name ${LOG_GROUP} \
+  --log-stream-name $${instance_id} \
+  --log-events file:///var/log/cwl-cloud-init.txt
+
+log 'INFO' 'Completing lifecycle action'
+
+if [ $${BOOTSTRAP_SUCCESS} -eq 1 ]; then
+  $${aws} autoscaling complete-lifecycle-action \
+      --lifecycle-action-result CONTINUE \
+      --instance-id "$${instance_id}" \
+      --lifecycle-hook-name "$${lifecycle_hook_name}" \
+      --auto-scaling-group-name "$${asg_name}" \
+      || error 'Failed to complete lifecycle hook';
+else
+  $${aws} autoscaling complete-lifecycle-action \
+    --lifecycle-action-result ABANDON \
+    --instance-id "$${instance_id}" \
+    --lifecycle-hook-name "$${lifecycle_hook_name}" \
+    --auto-scaling-group-name "$${asg_name}" \
+    || error 'Failed to complete lifecycle hook';
 fi

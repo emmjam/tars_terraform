@@ -541,3 +541,26 @@ variable "nexus_ami_build_id" {
   description = ""
 }
 */
+
+
+##
+# LDAP
+##
+
+variable "ldap_config" {
+  type        = "map"
+  description = "Map of parameters describing the configuration of the ldap microservice"
+  default     = {}
+}
+
+variable "ldap_subnets_cidrs" {
+  type        = "list"
+  description = "List of subnet CIDRs for ldap"
+}
+
+variable "ldap_elb_subnets_cidrs" {
+  type        = "list"
+  description = "List of subnet CIDRs for the ldap ELB"
+}
+
+
