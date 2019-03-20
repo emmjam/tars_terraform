@@ -30,7 +30,7 @@ data "aws_ami" "squidnat" {
     var.project,
     "amzn",
     "squidnat",
-    "*"
+    var.squidnat_ami_build_id
   )}"
 
   most_recent = "true"

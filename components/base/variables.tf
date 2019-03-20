@@ -199,6 +199,11 @@ variable "squidnat_instance_type" {
   description = ""
 }
 
+variable "squidnat_ami_build_id" {
+  type        = "string"
+  description = "AMI Build number to use for SquidNAT"
+}
+
 variable "tf_state_bucket_prefix" {
   type        = "string"
   description = "TF State bucket prefix"
