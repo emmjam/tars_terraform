@@ -314,10 +314,10 @@ ad_peering_vpc = "vpc-02072cb35506d9b73"
 ad_account = "233824316563"
 
 #############################################################################
-# Transit VPC peering
+# VPC to DVSA WAN via DX
 #############################################################################
 
-transit_peering_enabled = false
+dvsa_wan_connectivity_enabled = false
 
 # TARSDB
 tars_rds_username = "tarsuatadmin"

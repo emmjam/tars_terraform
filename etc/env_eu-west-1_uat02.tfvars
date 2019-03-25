@@ -362,10 +362,10 @@ rsis_rds_snapshot = "tars-uat01-tars-reporting-rsisdb-20181108"
 rsis_rds_autoscale = "False"
 
 #############################################################################
-# Transit VPC peering
+# VPC to DVSA WAN via DX
 #############################################################################
 
-transit_peering_enabled = true
+dvsa_wan_connectivity_enabled = true
 
 wildfly-back_scaledown_desired = 0
 wildfly-batch_scaledown_desired = 0

@@ -355,10 +355,10 @@ ibs_rds_password = "sPPmE94NsvmfTmqj5K5YvFxZLmnm9T"
 ibs_rds_snapshot = "prod-ibsdb-with-users-and-geo-data"
 
 #############################################################################
-# Transit VPC peering
+# VPC to DVSA WAN via DX
 #############################################################################
 
-transit_peering_enabled = true
+dvsa_wan_connectivity_enabled = true
 
 #############################################################################
 # DVSA AD VPC peering

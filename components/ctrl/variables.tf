@@ -271,3 +271,79 @@ variable "dvsa_external_mail_domain" {
   default = ""
 }
 
+
+variable "dc_gateway_name" {
+  type = "string"
+  description = "DC Gateway Name"
+}
+
+variable "dc_gateway_aws_asn" {
+  type = "string"
+  description = "DC Gateway ASN"
+}
+
+variable "dc_primary_connection_id" {
+  type = "string"
+  description = "DC Primary Connection ID"
+}
+
+variable "dc_vif_primary_name" {
+  type = "string"
+  description = "DC Gateway VIF Primary Name"
+}
+
+variable "dc_vif_primary_vlan" {
+  type = "string"
+  description = "DC Gateway VIF Primary VLAN"
+}
+
+variable "dc_vif_primary_router" {
+  type = "string"
+  description = "DC VIF Primary customer router"
+}
+
+variable "dc_vif_primary_aws_router" {
+  type = "string"
+  description = "DC VIF Primary AWS router"
+}
+
+variable "dc_vif_primary_bgp_auth_key" {
+  type = "string"
+  description = "BGP Auth Key"
+}
+
+variable "dc_secondary_connection_id" {
+  type = "string"
+  description = "DC Secondary Connection ID"
+}
+
+variable "dc_vif_secondary_vlan" {
+  type = "string"
+  description = "DC VIF Secondary VLAN"
+}
+
+variable "dc_vif_secondary_name" {
+  type = "string"
+  description = "DC VIF Secondary Name"
+}
+
+variable "dc_vif_secondary_router" {
+  type = "string"
+  description = "DC VIF Secondary custome router"
+}
+
+variable "dc_vif_secondary_aws_router" {
+  type = "string"
+  description = "DC VIF Secondary AWS router"
+}
+
+variable "dc_vif_secondary_bgp_auth_key" {
+  type = "string"
+  description = "BGP Auth Key"
+}
+
+variable "dc_vif_asn" {
+  type = "string"
+  description = "DC VIF ASN"
+}
+

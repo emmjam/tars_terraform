@@ -48,3 +48,8 @@ output "jenkinsctrl_sg_id" {
 output "grafana_sg_id" {
   value = "${module.grafana.security_group_id}"
 }
+
+# DX Gateway
+output "dx_gateway_id" {
+  value = "${aws_dx_gateway.dc-gateway.id}"
+}
