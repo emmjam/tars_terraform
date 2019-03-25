@@ -729,3 +729,26 @@ ibs_cert                = "*"
 irdt_cert               = "*"
 apache_cert             = "*"
 holding_pages_cert      = "*"
+
+# DC Gateway details
+dc_gateway_name = "Tars-NonProd-DirCon"
+dc_gateway_aws_asn = "64514"
+
+# DC Gateway Primary VIF
+dc_primary_connection_id = "dxcon-fh1mcwcg"
+dc_vif_primary_name = "Tars-NonProd-DirCon-Pri"
+dc_vif_primary_vlan = "377"
+dc_vif_primary_router = "10.111.0.9/30"
+dc_vif_primary_aws_router = "10.111.0.10/30"
+dc_vif_primary_bgp_auth_key = "43draytgKfQxy8fSRqPztnqYLRKD5U"
+
+# DC Gateway Secondary VIF
+dc_secondary_connection_id = "dxcon-ffsaclhy"
+dc_vif_secondary_vlan = "319"
+dc_vif_secondary_name = "Tars-NonProd-DirCon-Sec"
+dc_vif_secondary_router = "10.111.8.9/30"
+dc_vif_secondary_aws_router = "10.111.8.10/30"
+dc_vif_secondary_bgp_auth_key = "u4ZB6sQEJJHjsUUGg69BeM6KWvqxfq"
+
+# DC Gateway VIF parameters
+dc_vif_asn = "64515"

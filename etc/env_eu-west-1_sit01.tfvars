@@ -364,10 +364,10 @@ rsis_rds_allocated_storage = "300"
 rsis_rds_autoscale = "False"
 
 #############################################################################
-# Transit VPC peering
+# VPC to DVSA WAN via DX
 #############################################################################
 
-transit_peering_enabled = true
+dvsa_wan_connectivity_enabled = true
 
 # DHCP Scope options for DNS
 
