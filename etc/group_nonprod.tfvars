@@ -119,8 +119,6 @@ capita_users = [
 ]
 
 capita_perf_ro_users = [
-  "Himanshu.Dhir@capita.co.uk",
-  "Subrata.Dey@capita.co.uk",
 ]
 
 support_ro_users = [
