@@ -72,6 +72,7 @@ all_users = [
   "ian.christian@bjss.com",
   "neil.eaton@bjss.com",
   "david.johnson@bjss.com",
+  "daniel.thompson@bjss.com",
 ]
 
 administrators = [
@@ -97,6 +98,7 @@ ops_users = [
   "stephen.davies@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
   "adrian.jones@bjss.com",
+  "daniel.thompson@bjss.com",
 ]
 
 power_users = [
