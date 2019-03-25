@@ -24,8 +24,6 @@ all_users = [
   "david.giles@bjss.com",
   "paul.hepple@capita.co.uk",
   "rob.whyte@capita.co.uk",
-  "Himanshu.Dhir@capita.co.uk",
-  "Subrata.Dey@capita.co.uk",
   "phil.scally@capita.co.uk",
   "richard.freitas@capita.co.uk",
   "vinit.prajapati@capita.co.uk",
