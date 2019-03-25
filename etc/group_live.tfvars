@@ -73,6 +73,7 @@ all_users = [
   "neil.eaton@bjss.com",
   "david.johnson@bjss.com",
   "chetan.choudhary@capita.co.uk",
+  "daniel.thompson@bjss.com",
 ]
 
 administrators = [
@@ -98,6 +99,7 @@ ops_users = [
   "stephen.davies@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
   "adrian.jones@bjss.com",
+  "daniel.thompson@bjss.com",
 ]
 
 power_users = [
@@ -153,6 +155,7 @@ support_ro_users = [
   "adrian.jones@bjss.com",
   "ian.christian@bjss.com",
   "chetan.choudhary@capita.co.uk",
+  "daniel.thompson@bjss.com",
 ]
 
 capita_archive_users = [
