@@ -3,7 +3,7 @@ data "aws_ami" "fyndi-f" {
   name_regex = "${format(
     "%s-%s-%s/%s",
     var.project,
-    "rhel",
+    "amzn",
     "fyndi-front",
     var.ami_build_id
   )}"
@@ -28,7 +28,7 @@ data "aws_ami" "fyndi-b" {
   name_regex = "${format(
     "%s-%s-%s/%s",
     var.project,
-    "rhel",
+    "amzn",
     "fyndi-back",
     var.ami_build_id
   )}"
