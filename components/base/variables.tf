@@ -220,7 +220,7 @@ variable "account_environment" {
   description = "The environment name for the account level scope for the account in which this component is deployed"
 }
 
-variable "dvsa_wan_connectivity_enabled" {}
+variable "dvsa_wan_connectivity_enabled" {
   type        = "string"
   description = "Enable VPC to DVSA WAN via DX"
   default     = false
