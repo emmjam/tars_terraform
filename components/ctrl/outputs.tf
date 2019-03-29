@@ -51,5 +51,5 @@ output "grafana_sg_id" {
 
 # DX Gateway
 output "dx_gateway_id" {
-  value = "${aws_dx_gateway.dc-gateway.id}"
+  value = "${aws_dx_gateway.dc-gateway.*.id}"
 }

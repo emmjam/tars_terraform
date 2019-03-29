@@ -1,4 +1,5 @@
 resource "aws_dx_private_virtual_interface" "primary" {
+  count             = "${length(var.dc_gateway_name) == 0 ? 0 : 1}"
   connection_id     = "${var.dc_primary_connection_id}"
   dx_gateway_id     = "${aws_dx_gateway.dc-gateway.id}"
   name              = "${var.dc_vif_primary_name}"
@@ -19,6 +20,7 @@ resource "aws_dx_private_virtual_interface" "primary" {
 }
 
 resource "aws_dx_private_virtual_interface" "secondary" {
+  count             = "${length(var.dc_gateway_name) == 0 ? 0 : 1}"
   connection_id     = "${var.dc_secondary_connection_id}"
   dx_gateway_id     = "${aws_dx_gateway.dc-gateway.id}"
   name              = "${var.dc_vif_secondary_name}"
