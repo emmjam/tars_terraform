@@ -746,8 +746,8 @@ dc_vif_primary_bgp_auth_key = "43draytgKfQxy8fSRqPztnqYLRKD5U"
 
 # DC Gateway Secondary VIF
 dc_secondary_connection_id = "dxcon-ffsaclhy"
-dc_vif_secondary_vlan = "319"
 dc_vif_secondary_name = "Tars-NonProd-DirCon-Sec"
+dc_vif_secondary_vlan = "319"
 dc_vif_secondary_router = "10.111.8.9/30"
 dc_vif_secondary_aws_router = "10.111.8.10/30"
 dc_vif_secondary_bgp_auth_key = "u4ZB6sQEJJHjsUUGg69BeM6KWvqxfq"
