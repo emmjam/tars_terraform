@@ -382,3 +382,9 @@ variable "apache_subnet_cidrs" {
   type        = "list"
   description = ""
 }
+
+variable "mes_cidr_block" {
+  type        = "list"
+  description = "MES CIDR block for DB SG connection"
+  default     = []
+}
