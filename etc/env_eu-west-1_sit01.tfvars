@@ -329,7 +329,7 @@ tars_rds_username = "tarsuatadmin"
 tars_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 
 # TARSDB
-tars_rds_snapshot = "tars-sit01-tars-core-tarsdb-20181106"
+tars_rds_snapshot = "tars-core-tarsdb-20190315-5-4-0-1"
 tars_rds_allocated_storage = "300"
 tars_rds_autoscale = "False"
 
@@ -340,7 +340,7 @@ cpc_rds_password = "Mg28yDQjuEWndbtz"
 
 # CPCTSDB
 cpc_rds_allocated_storage = "150"
-cpc_rds_snapshot = "tars-sit01-cpc-cpcdb-20181106"
+cpc_rds_snapshot = "cpc-cpcdb-20190315-5-4-0-1"
 
 # IBSDB
 ibs_rds_username = "ibsuatadmin"
