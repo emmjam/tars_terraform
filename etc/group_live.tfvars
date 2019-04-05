@@ -137,7 +137,6 @@ support_ro_users = [
   "vinit.prajapati@capita.co.uk",
   "rob.whyte@capita.co.uk",
   "steve.chissell@capita.co.uk",
-  "ian.harris@bjss.com",
   "mark.thompson@bjss.com",
   "steve.wilson@bjss.com",
   "brian.collinson@bjss.com",
