@@ -74,6 +74,7 @@ all_users = [
   "chetan.choudhary@capita.co.uk",
   "daniel.thompson@bjss.com",
   "berin.smaldon@bjss.com",
+  "david.giles@bjss.com",
 ]
 
 administrators = [
