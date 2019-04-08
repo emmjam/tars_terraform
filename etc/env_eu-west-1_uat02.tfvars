@@ -17,7 +17,7 @@ default_tags = {
 asg_default_tags = [
   {
     "key"                 = "Project"
-    "value"               = "tars"
+    "value"               = "mes"
     "propagate_at_launch" = "true"
   },
   {
