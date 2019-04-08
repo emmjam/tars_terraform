@@ -610,3 +610,9 @@ variable "driverpractical_incap_cname" {
   description = "Incapsula CNAME"
   default     = ""
 }
+
+variable "transit_peering_enabled" {
+  type        = "string"
+  description = "Enable Transit VPC"
+  default     = ""
+}
