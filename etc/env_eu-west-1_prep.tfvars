@@ -358,7 +358,7 @@ ibs_rds_snapshot = "prep-ibsdb-with-users-and-geo-data2"
 # VPC to DVSA WAN via DX
 #############################################################################
 
-dvsa_wan_connectivity_enabled = true
+dvsa_wan_connectivity_enabled = false
 
 #############################################################################
 # DVSA AD VPC peering
