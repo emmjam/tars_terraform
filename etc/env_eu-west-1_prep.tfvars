@@ -414,10 +414,12 @@ apache_ami_build_id = 504
 
 
 # Temporarily pointed at the app LBs as
-# incapsula won't issue a site without the 
+# incapsula won't issue a site without the
 # DNS records already existing. Catch 22.
 dsa_incap_cname              = "routing-prep-public.prod.tars.dvsacloud.uk"
 findnearest_incap_cname      = "fyndi-prep-public.prod.tars.dvsacloud.uk"
 riverpractical_incap_cname   = "ibs-prep-public.prod.tars.dvsacloud.uk"
 
 bobj_cert               = "bobj-prep"
+
+squidnat_ami_build_id  = "537"
