@@ -71,7 +71,6 @@ all_users = [
   "andrew.lai@bjss.com",
   "adrian.jones@bjss.com",
   "rajkieren.manku@bjss.com",
-  "ian.christian@bjss.com",
   "neil.eaton@bjss.com",
   "david.johnson@bjss.com",
   "daniel.thompson@bjss.com",
@@ -102,7 +101,6 @@ administrators = [
   "adrian.jones@bjss.com",
   "rajkieren.manku@bjss.com",
   "daniel.thompson@bjss.com",
-  "ian.christian@bjss.com",
   "berin.smaldon@bjss.com",
 ]
 
