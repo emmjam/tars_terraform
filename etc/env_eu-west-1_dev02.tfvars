@@ -354,7 +354,11 @@ rsis_rds_snapshot = "tars-dev01-tars-dms-rsisdmssc-20180719"
 # VPC to DVSA WAN via DX
 #############################################################################
 
+# New World
 dvsa_wan_connectivity_enabled = true
+
+# Old World
+transit_peering_enabled = false
 
 #############################################################################
 # DVSA AD VPC peering

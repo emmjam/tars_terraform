@@ -317,7 +317,11 @@ ad_account = "233824316563"
 # VPC to DVSA WAN via DX
 #############################################################################
 
+# New World
 dvsa_wan_connectivity_enabled = false
+
+# Old World
+transit_peering_enabled = true
 
 # TARSDB
 tars_rds_username = "tarsuatadmin"
