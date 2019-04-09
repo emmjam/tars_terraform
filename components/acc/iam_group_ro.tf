@@ -15,3 +15,9 @@ resource "aws_iam_group" "tss_billing_ro_users" {
   name  = "TSSBillingROUsers"
   path  = "/"
 }
+
+resource "aws_iam_group" "db_cw_ro_users" {
+  count = "${length(var.db_cw_ro_users) == 0 ? 0 : 1}"
+  name  = "DBCWROUsers"
+  path  = "/"
+}
