@@ -129,6 +129,12 @@ variable "tss_billing_ro_users" {
   default     = []
 }
 
+variable "db_cw_ro_users" {
+  type        = "list"
+  description = "List of DB users that have read only access to RDS CW metrics"
+  default     = []
+}
+
 #variable "billing_ro_users" {
 #  type        = "list"
 #  default     = []
