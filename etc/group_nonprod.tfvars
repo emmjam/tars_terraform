@@ -602,7 +602,7 @@ capita_db_to_port = "6721"
 squidnat_instance_type = "t3.micro"
 squidnat_ami_build_id  = "537"
 
-ops_team_email = "mark.thompson@bjss.com"
+ops_team_email = "TARSStabilisation@bjss.com"
 
 public_domain_name = "dvsa.tars.dev-dvsacloud.uk"
 
