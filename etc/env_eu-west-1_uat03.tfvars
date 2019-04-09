@@ -365,7 +365,11 @@ rsis_rds_autoscale = "False"
 # VPC to DVSA WAN via DX
 #############################################################################
 
+# New World
 dvsa_wan_connectivity_enabled = true
+
+# Old World
+transit_peering_enabled = false
 
 wildfly-back_scaledown_desired = 0
 wildfly-batch_scaledown_desired = 0

@@ -309,7 +309,11 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 # VPC to DVSA WAN via DX
 #############################################################################
 
-dvsa_wan_connectivity_enabled = true
+# New World
+dvsa_wan_connectivity_enabled = false
+
+# Old World
+transit_peering_enabled = true
 
 #############################################################################
 # DVSA AD VPC peering

@@ -355,7 +355,11 @@ rsis_rds_snapshot = "tars-dev01-tars-dms-rsisdmssc-20180719"
 # VPC to DVSA WAN via DX
 #############################################################################
 
+# New World
 dvsa_wan_connectivity_enabled = false
+
+# Old World
+transit_peering_enabled = false
 
 #############################################################################
 # DVSA AD VPC peering
@@ -388,4 +392,3 @@ xenco_ssh_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAgEAglcxWvitvW4CTzgOZdQJF7F
 private_cert_domain_name = "dvsa.tars.dev-dvsacloud.uk"
 
 apache_ami_build_id = 504
-
