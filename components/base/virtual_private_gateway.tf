@@ -15,7 +15,7 @@ resource "aws_vpn_gateway" "dx_vpn_gw" {
 
 resource "aws_dx_gateway_association" "dx_vpn_gw_association" {
   count  = "${var.dvsa_wan_connectivity_enabled}"
-  dx_gateway_id  = "${data.terraform_remote_state.ctrl.dx_gateway_id}"
+  dx_gateway_id  = "${data.terraform_remote_state.ctrl.dx_gateway_id[0]}"
   vpn_gateway_id = "${aws_vpn_gateway.dx_vpn_gw.id}"
 }
 
