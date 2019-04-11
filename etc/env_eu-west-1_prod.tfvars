@@ -352,7 +352,7 @@ ibs_rds_username = "ibsprodadmin"
 
 ibs_rds_password = "sPPmE94NsvmfTmqj5K5YvFxZLmnm9T"
 
-ibs_rds_snapshot = "tars-prod-ibs-ibsdb-cluster-2019-04-11-02-41"
+ibs_rds_snapshot = "rds:tars-prod-ibs-ibsdb-cluster-2019-04-11-02-41"
 
 #############################################################################
 # VPC to DVSA WAN via DX
