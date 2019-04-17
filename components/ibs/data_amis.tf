@@ -3,7 +3,7 @@ data "aws_ami" "ibs" {
   name_regex = "${format(
     "%s-%s-%s/%s",
     var.project,
-    "rhel",
+    "amzn",
     "ibs",
     var.ami_build_id
   )}"
