@@ -61,6 +61,11 @@ resource "aws_autoscaling_group" "main" {
           "key", "Module",
           "value", var.module,
           "propagate_at_launch", "true"
+        ),
+        map(
+          "key", "SpotPrice",
+          "value", var.lc_spot_price,
+          "propagate_at_launch", "true"
         )
       )
     )}",

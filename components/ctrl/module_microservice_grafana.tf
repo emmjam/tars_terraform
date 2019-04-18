@@ -24,6 +24,7 @@ module "grafana" {
   lc_ami_id        = "${data.aws_ami.grafana.image_id}"
   lc_instance_type = "${var.grafana_instance_type}"
   lc_user_data     = "${data.template_cloudinit_config.grafana.rendered}"
+  lc_spot_price    = "${lookup(var.spot_pricing, var.grafana_instance_type)}"
 
   asg_size_min               = "${var.grafana_asg_min_size}"
   asg_size_desired_on_create = "${var.grafana_asg_min_size}"

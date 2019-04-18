@@ -227,14 +227,14 @@ ctrl_mgmt_tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote s
 #Monitoring
 prometheus_asg_min_size           = 1
 prometheus_asg_max_size           = 1
-prometheus_instance_type          = "t3.medium"
+prometheus_instance_type          = "m3.medium"
 prometheus_ami_build_id           = 494
 prometheus_efs_provisioned_mibps  = 1
 
 #EFS Backups
 efs_backup_asg_min_size           = 0
 efs_backup_asg_max_size           = 0
-efs_backup_instance_type          = "t3.nano"
+efs_backup_instance_type          = "m3.medium"
 efs_backup_ami_build_id           = 457
 
 
@@ -296,7 +296,7 @@ ibs_scaleup_desired      = 1
 ibs_scaleup_recurrence   = "10 04 * * 1-5"
 
 ## fyndi-f
-fyndi-f_instance_type        = "t2.medium"
+fyndi-f_instance_type        = "m3.medium"
 fyndi-f_puppet_nodetype      = "fyndi-front"
 fyndi-f_asg_min_size         = 0
 fyndi-f_asg_max_size         = 3
@@ -306,7 +306,7 @@ fyndi-f_scaleup_desired      = 1
 fyndi-f_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## fyndi_back
-fyndi-b_instance_type        = "t2.medium"
+fyndi-b_instance_type        = "m3.medium"
 fyndi-b_puppet_nodetype      = "fyndi-back"
 fyndi-b_asg_min_size         = 0
 fyndi-b_asg_max_size         = 3
@@ -399,7 +399,7 @@ cpc-batch_scaleup_recurrence   = "00 04 * * 1-5"
 
 
 ## apache
-apache_instance_type         = "t3.medium"
+apache_instance_type         = "m3.medium"
 apache_asg_min_size          = 0
 apache_asg_max_size          = 1
 apache_scaledown_desired     = 0

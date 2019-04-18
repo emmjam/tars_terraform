@@ -110,6 +110,12 @@ variable "lc_user_data" {
   default     = ""
 }
 
+variable "lc_spot_price" {
+  type        = "string"
+  description = "If set, enabled ASG spot pricing. Sets the Spot Price to bid for instances with"
+  default     = ""
+}
+
 variable "lifecycle_hook_launching_default_result" {
   type        = "string"
   description = "If creating a lifecycle hook for the ASG, what should the default result be"
