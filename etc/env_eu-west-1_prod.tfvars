@@ -318,6 +318,39 @@ mgmt_env = "mgmt"
 deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVSO8uKpdbwww94azylwjnFxsFGcmXG4ObL1oOFibHMN0x+SsSwjfC1DEziWPK3m/Crmar0+ad/68nQC+iWo/MYclh8h3bkKlv9dO4Xtv/0H6uDRW3l3bBO0rWYbt46fMAOCqX96N3LRTfUlPuzsVAd0NGZZlSSAZF0AMl4xE/tZl2m+Dqylrjp3qLT4UxEIrAuvPW06PqkGy63hZznjCjQDaadOAUpY19ZaA71JBueyGBnZ8pSVzr5hT1TpNw/cXxA6WLj4CCipIVm0M64OT/ArqcnQMX9Htf4Gp5apXZ3f6MerfjgHnkrm1t6JNuhSjVB deployer@mgmt.tars.dvsa.aws"
 
 ##
+# Variables needed for spot instances
+##
+
+# Spot pricing value map
+# Keep empty so that spot pricing is not used for PROD!
+spot_pricing = {
+  "c4.large"   = ""
+  "c4.xlarge"  = ""
+  "c4.2xlarge" = ""
+  "c5.large"   = ""
+  "c5.xlarge"  = ""
+  "c5.2xlarge" = ""
+  "m3.medium"  = ""
+  "m3.large"   = ""
+  "m4.large"   = ""
+  "m4.2xlarge" = ""
+  "m4.4xlarge" = ""
+  "m5.large"   = ""
+  "m5.xlarge"  = ""
+  "r4.xlarge"  = ""
+  "r4.2xlarge" = ""
+  "t2.micro"   = ""
+  "t2.small"   = ""
+  "t2.medium"  = ""
+  "t2.large"   = ""
+  "t3.nano"    = ""
+  "t3.micro"   = ""
+  "t3.small"   = ""
+  "t3.medium"  = ""
+}
+
+
+##
 # RDS
 ##
 

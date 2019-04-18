@@ -50,6 +50,12 @@ variable "private_domain_name" {
   description = "R53 Private Domain Name"
 }
 
+variable "spot_pricing" {
+  type        = "map"
+  description = "A map containing the the spot instance price (USD) for each instance type"
+  default     = {}
+}
+
 variable "tars_backend_subnets_cidrs" {
   type        = "list"
   description = "TARS backend tier subnet CIDR's"

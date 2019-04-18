@@ -27,6 +27,7 @@ module "efs_backup" {
   lc_ami_id        = "${data.aws_ami.efs_backup.image_id}"
   lc_instance_type = "${var.efs_backup_instance_type}"
   lc_user_data     = "${data.template_cloudinit_config.efs_backup.rendered}"
+  lc_spot_price    = "${lookup(var.spot_pricing, var.efs_backup_instance_type)}"
 
   asg_size_min               = "${var.efs_backup_asg_min_size}"
   asg_size_desired_on_create = "${var.efs_backup_asg_min_size}"

@@ -8,6 +8,7 @@ resource "aws_launch_configuration" "main" {
 
   image_id      = "${var.lc_ami_id}"
   instance_type = "${var.lc_instance_type}"
+  spot_price    = "${var.lc_spot_price}"
 
   security_groups = [
     "${aws_security_group.main.id}",

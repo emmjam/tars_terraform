@@ -39,6 +39,7 @@ module "microservice_jmeter" {
   lc_ami_id        = "${data.aws_ami.jmeter.image_id}"
   lc_instance_type = "${var.jmeter_instance_type}"
   lc_user_data     = "${data.template_cloudinit_config.jmeter.rendered}"
+  lc_spot_price    = "${lookup(var.spot_pricing, var.jmeter_instance_type)}"
 
   subnets_cidrs = [
     "${var.jmeter_subnets_cidrs}",

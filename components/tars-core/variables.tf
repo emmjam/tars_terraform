@@ -25,6 +25,12 @@ variable "version" {
   description = "Version of infrastructure deployed"
 }
 
+variable "spot_pricing" {
+  type        = "map"
+  description = "A map containing the the spot instance price (USD) for each instance type"
+  default     = {}
+}
+
 variable "account_component_name" {
   type        = "string"
   description = "The name of the account-level component as used in remote state"

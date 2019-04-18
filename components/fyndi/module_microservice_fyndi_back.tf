@@ -24,6 +24,7 @@ module "fyndi-b" {
   lc_ami_id        = "${data.aws_ami.fyndi-b.image_id}"
   lc_instance_type = "${var.fyndi-b_instance_type}"
   lc_user_data     = "${data.template_cloudinit_config.fyndi-b.rendered}"
+  lc_spot_price    = "${lookup(var.spot_pricing, var.fyndi-b_instance_type)}"
 
   lc_additional_sg_ids = [
     "${data.terraform_remote_state.base.core_sg_id}",

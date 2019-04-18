@@ -47,6 +47,12 @@ variable "tf_state_bucket_prefix" {
   description = ""
 }
 
+variable "spot_pricing" {
+  type        = "map"
+  description = "A map containing the the spot instance price (USD) for each instance type"
+  default     = {}
+}
+
 variable "private_domain_name" {
   type        = "string"
   description = ""

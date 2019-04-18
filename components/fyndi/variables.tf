@@ -90,10 +90,10 @@ variable "asg_default_tags" {
   default     = []
 }
 
-variable "lc_spot_price" {
-  type        = "string"
-  description = "The price to use for reserving spot instances"
-  default     = ""
+variable "spot_pricing" {
+  type        = "map"
+  description = "A map containing the the spot instance price (USD) for each instance type"
+  default     = {}
 }
 
 variable "ami_build_id" {
