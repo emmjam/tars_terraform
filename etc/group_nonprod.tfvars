@@ -79,6 +79,10 @@ all_users = [
 ]
 
 administrators = [
+  "michael.tribbick@bjss.com",
+]
+
+ops_users = [
   "mark.thompson@bjss.com",
   "sam.smart@bjss.com",
   "steve.wilson@bjss.com",
@@ -97,16 +101,12 @@ administrators = [
   "daniel.billing@bjss.com",
   "stephen.davies@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
-  "michael.tribbick@bjss.com",
   "andrew.lai@bjss.com",
   "adrian.jones@bjss.com",
   "rajkieren.manku@bjss.com",
   "daniel.thompson@bjss.com",
   "berin.smaldon@bjss.com",
   "callum.massey@bjss.com",
-]
-
-ops_users = [
 ]
 
 power_users = [
