@@ -76,6 +76,7 @@ all_users = [
   "daniel.thompson@bjss.com",
   "berin.smaldon@bjss.com",
   "callum.massey@bjss.com",
+  "gareth.whiteside@bjss.com",
 ]
 
 administrators = [
@@ -107,6 +108,7 @@ ops_users = [
   "daniel.thompson@bjss.com",
   "berin.smaldon@bjss.com",
   "callum.massey@bjss.com",
+  "gareth.whiteside@bjss.com",
 ]
 
 power_users = [
@@ -171,6 +173,7 @@ dvsa_ro_users = [
 tss_billing_ro_users = [
   "neil.eaton@bjss.com",
   "david.johnson@bjss.com",
+  "gareth.whiteside@bjss.com",
 ]
 
 ###############################################################################
