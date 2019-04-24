@@ -35,7 +35,7 @@ all_users = [
   "david.johnson@bjss.com",
   "daniel.thompson@bjss.com",
   "berin.smaldon@bjss.com",
-  "gareth.whiteside@bjss.com,"
+  "gareth.whiteside@bjss.com",
 ]
 
 administrators = [
