@@ -279,7 +279,7 @@ wildfly-batch_scaleup_desired      = 1
 wildfly-batch_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## obs
-obs_instance_type        = "t2.medium"
+obs_instance_type        = "m3.medium"
 obs_puppet_nodetype      = "obs"
 obs_asg_min_size         = 0
 obs_asg_max_size         = 3
@@ -289,7 +289,7 @@ obs_scaleup_desired      = 1
 obs_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## ibs
-ibs_instance_type        = "t2.medium"
+ibs_instance_type        = "m3.medium"
 ibs_puppet_nodetype      = "ibs"
 ibs_asg_min_size         = 0
 ibs_asg_max_size         = 3
