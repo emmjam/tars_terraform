@@ -80,7 +80,6 @@ all_users = [
 ]
 
 administrators = [
-  "michael.tribbick@bjss.com",
 ]
 
 ops_users = [
@@ -109,6 +108,7 @@ ops_users = [
   "berin.smaldon@bjss.com",
   "callum.massey@bjss.com",
   "gareth.whiteside@bjss.com",
+  "michael.tribbick@bjss.com",
 ]
 
 power_users = [
