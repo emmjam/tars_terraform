@@ -7,5 +7,4 @@ module "cwles_vpcflowlog" {
 
   vpc_id = "${aws_vpc.ctrl.id}"
 
-  cwles_logstoes_lambda_arn = "${data.terraform_remote_state.acc.cwles_logstoes_lambda_arn}"
 }

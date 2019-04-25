@@ -26,7 +26,3 @@ variable "vpc_id" {
   description = "The VPC ID of the VPC requiring a cwles flow log"
 }
 
-variable "cwles_logstoes_lambda_arn" {
-  type        = "string"
-  description = "The ARN of the logstoes AWS Lambda Function created by the cwles module"
-}
