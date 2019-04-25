@@ -141,39 +141,6 @@ variable "db_cw_ro_users" {
 #  description = "List of billing read-only IAM Users for Support functions, that have Billing Read Only access"
 #}
 
-# CWLES - CloudWatch Logs to Elasticsearch
-
-variable "cwles_curator_max_age" {
-  type        = "string"
-  description = "The maximum age of an index in days before it's pruned by curator"
-  default     = "30"                                                                # This is the module's default also
-}
-
-variable "cwles_data_instance_type" {
-  type        = "string"
-  description = "Instance type for Elasticsearch domain data nodes"
-}
-
-variable "cwles_data_instance_count" {
-  type        = "string"
-  description = "Number of Elasticsearch domain data nodes"
-}
-
-variable "cwles_data_volume_size" {
-  type        = "string"
-  description = "EBS GP2 volume size for each of the Elasticsearech domain data nodes"
-}
-
-variable "cwles_master_instance_type" {
-  type        = "string"
-  description = "Instance type for Elasticsearch domain master nodes"
-}
-
-variable "cwles_master_instance_count" {
-  type        = "string"
-  description = "Number of Elasticsearch domain master nodes"
-}
-
 variable "guardduty_member_enabled" {
   type        = "string"
   description = "Controls if this account is a guardduty member acount"

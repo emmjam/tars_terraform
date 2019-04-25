@@ -29,16 +29,6 @@ variable "aws_account_id" {
   type = "string"
 }
 
-variable "cwles_logstoes_es_domain_endpoint" {
-  type        = "string"
-  description = "The Endpoint name of the logstoes Elasticsearch cluster for use in constucting Alarm description links"
-}
-
-variable "cwles_logstoes_lambda_arn" {
-  type        = "string"
-  description = "The ARN of the logstoes AWS Lambda Function created by the cwles module"
-}
-
 variable "s3_bucketlogs_bucket_id" {
   type        = "string"
   description = "The name (id) of the S3 bucket used for S3 Bucket Access Logging within the scope of the parent component or module"
