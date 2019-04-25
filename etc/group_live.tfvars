@@ -75,6 +75,7 @@ all_users = [
   "daniel.thompson@bjss.com",
   "berin.smaldon@bjss.com",
   "david.giles@bjss.com",
+  "callum.massey@bjss.com",
 ]
 
 administrators = [
@@ -102,6 +103,7 @@ ops_users = [
   "adrian.jones@bjss.com",
   "daniel.thompson@bjss.com",
   "berin.smaldon@bjss.com",
+  "callum.massey@bjss.com",
 ]
 
 power_users = [
