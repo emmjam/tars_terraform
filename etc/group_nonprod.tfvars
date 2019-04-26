@@ -480,7 +480,6 @@ whitelist = [
   "10.201.80.0/21", # DVSA Notts Internal
   "10.69.3.64/26",      # DVSA ZPA VPN
   "10.69.131.64/26",    # DVSA ZPA VPN
-  "77.86.30.4/32",      # BJSS VPN (Decom ~06/18)
   "148.253.134.213/32", # BJSS VPN 04/18
   "195.205.13.211/32",  # Capita (WM Proxy)
   "195.27.53.211/32",   # Capita (LD Proxy)
@@ -488,8 +487,6 @@ whitelist = [
   "82.203.33.128/28",   # Capita (Cloud NAT Pool1)
   "82.203.33.112/28",   # Capita (Cloud NAT Pool2)
   "85.115.54.200/29",   # Capita (Bury St Edmunds)
-  "92.54.181.128/29",   # Informed Solutions
-  "87.81.132.117/32",   # Informed Solutions
   "54.72.37.158/32",    # Selenium Elasticgrid Proxy
   "199.83.128.0/21",    # Begin Incapsula IPs
   "198.143.32.0/19",
@@ -555,7 +552,6 @@ dvsa_dns_servers = [
 
 # This will need changing when we know what the DVA IP is
 dva_whitelist = [
-  "77.86.30.4/32",      # BJSS VPN (Decom ~06/18)
   "148.253.134.213/32", # BJSS VPN 04/18
   "194.32.31.1/32",     # DVA IP
 ]
