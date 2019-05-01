@@ -28,7 +28,6 @@ all_users = [
   "steve.wilson@bjss.com",
   "brian.collinson@bjss.com",
   "michael.taylor@bjss.com",
-  "sam.smart@bjss.com",
   "matthew.bell@dvsa.gov.uk",
   "alice.haws@dvsa.gov.uk",
   "chris.nappin@bjss.com",
@@ -102,7 +101,6 @@ ops_users = [
   "daniel.thompson@bjss.com",
   "berin.smaldon@bjss.com",
   "callum.massey@bjss.com",
-  "sam.smart@bjss.com",
   "michael.tribbick@bjss.com",
 ]
 

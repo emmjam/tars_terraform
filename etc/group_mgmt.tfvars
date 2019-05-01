@@ -16,7 +16,6 @@ all_users = [
   "steve.wilson@bjss.com",
   "chris.nappin@bjss.com",
   "michael.taylor@bjss.com",
-  "sam.smart@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
@@ -41,7 +40,6 @@ all_users = [
 
 administrators = [
   "mark.thompson@bjss.com",
-  "sam.smart@bjss.com",
   "brian.collinson@bjss.com",
   "steve.wilson@bjss.com",
   "chris.nappin@bjss.com",
