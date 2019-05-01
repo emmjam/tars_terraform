@@ -20,7 +20,6 @@ all_users = [
   "chris.nappin@bjss.com",
   "michael.taylor@bjss.com",
   "rob.hart@dvsa.gov.uk",
-  "sam.smart@bjss.com",
   "david.giles@bjss.com",
   "paul.hepple@capita.co.uk",
   "rob.whyte@capita.co.uk",
@@ -84,7 +83,6 @@ administrators = [
 
 ops_users = [
   "mark.thompson@bjss.com",
-  "sam.smart@bjss.com",
   "steve.wilson@bjss.com",
   "brian.collinson@bjss.com",
   "chris.nappin@bjss.com",
