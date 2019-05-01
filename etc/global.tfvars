@@ -1,3 +1,6 @@
+
+ami_build_id = "develop/develop"
+
 ##
 # Variables needed for spot instances
 ##
