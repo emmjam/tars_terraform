@@ -16,7 +16,6 @@ resource "aws_db_instance" "tarsdb" {
   backup_retention_period   = "${var.tars_rds_backup_retention}"
   backup_window             = "${var.tars_rds_backup_window}"
   maintenance_window        = "${var.tars_rds_maint_window}"
-  parameter_group_name      = "${aws_db_parameter_group.tarsdb.id}"
   apply_immediately         = "${var.tars_rds_apply_immediately}"
   license_model             = "${var.tars_rds_license_model}"
   snapshot_identifier       = "${var.tars_rds_snapshot}"
@@ -25,7 +24,7 @@ resource "aws_db_instance" "tarsdb" {
   name                      = "${var.tars_rds_sid_name}"
 
   vpc_security_group_ids = [
-    "${aws_security_group.tars-core-db.id}",
+    "${aws_security_group.tars-core-db.id}"
   ]
 
   db_subnet_group_name = "${aws_db_subnet_group.tarsdb.id}"

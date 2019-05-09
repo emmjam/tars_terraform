@@ -21,4 +21,14 @@ resource "aws_db_option_group" "tars_core" {
   option {
     option_name = "SQLT"
   }
+
+  option {
+    option_name = "SSL"
+    option_settings {
+      name = "SQLNET.SSL_VERSION"
+      value = "1.2"
+    }
+    port = "2484"
+    db_security_group_memberships = ["${aws_security_group.tars-core-db.id}"]
+  }
 }
