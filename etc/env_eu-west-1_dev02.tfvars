@@ -312,9 +312,9 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 ##
 
 # TARSDB - Copy of tars uat db for testing with MES
-tars_rds_username = "tarsuatadmin"
+tars_rds_username = "tarsdevadmin"
 
-tars_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
+tars_rds_password = "password"
 
 # TARSDB
 tars_rds_allocated_storage = "300"
