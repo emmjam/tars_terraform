@@ -75,6 +75,7 @@ all_users = [
   "berin.smaldon@bjss.com",
   "callum.massey@bjss.com",
   "gareth.whiteside@bjss.com",
+  "robert.speed@bjss.com",
 ]
 
 administrators = [
@@ -106,6 +107,7 @@ ops_users = [
   "callum.massey@bjss.com",
   "gareth.whiteside@bjss.com",
   "michael.tribbick@bjss.com",
+  "robert.speed@bjss.com",
 ]
 
 power_users = [
