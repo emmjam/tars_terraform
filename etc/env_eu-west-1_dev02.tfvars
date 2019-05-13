@@ -10,14 +10,14 @@ aws_region = "eu-west-1"
 tf_state_bucket_prefix = "tars-terraformscaffold"
 
 default_tags = {
-  Project     = "tars"
+  Project     = "mes"
   Environment = "dev02"
 }
 
 asg_default_tags = [
   {
     "key"                 = "Project"
-    "value"               = "tars"
+    "value"               = "mes"
     "propagate_at_launch" = "true"
   },
   {
@@ -562,81 +562,81 @@ private_cert_domain_name = "dev02.tars.dvsa.aws"
 wildfly-front_asg_min_size         = 0
 wildfly-front_asg_max_size         = 0
 wildfly-front_scaledown_desired    = 0
-wildfly-front_scaledown_recurrence = "00 20 * * 1-5"
-wildfly-front_scaleup_desired      = 0
-wildfly-front_scaleup_recurrence   = "00 00 * * 1-5"
+wildfly-front_scaledown_recurrence = "00 18 * * 1-5"
+wildfly-front_scaleup_desired      = 1
+wildfly-front_scaleup_recurrence   = "10 07 * * 1-5"
 
 ## wildfly-back
 wildfly-back_asg_min_size         = 0
 wildfly-back_asg_max_size         = 0
 wildfly-back_scaledown_desired    = 0
-wildfly-back_scaledown_recurrence = "00 20 * * 1-5"
+wildfly-back_scaledown_recurrence = "00 18 * * 1-5"
 wildfly-back_scaleup_desired      = 0
-wildfly-back_scaleup_recurrence   = "00 00 * * 1-5"
+wildfly-back_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## wildfly-batch
 wildfly-batch_asg_min_size         = 0
 wildfly-batch_asg_max_size         = 0
 wildfly-batch_scaledown_desired    = 0
-wildfly-batch_scaledown_recurrence = "00 20 * * 1-5"
+wildfly-batch_scaledown_recurrence = "00 18 * * 1-5"
 wildfly-batch_scaleup_desired      = 0
-wildfly-batch_scaleup_recurrence   = "00 00 * * 1-5"
+wildfly-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## obs
 obs_asg_min_size         = 0
 obs_asg_max_size         = 1
 obs_scaledown_desired    = 0
-obs_scaledown_recurrence = "00 20 * * 1-5"
+obs_scaledown_recurrence = "00 18 * * 1-5"
 obs_scaleup_desired      = 1
-obs_scaleup_recurrence   = "00 00 * * 1-5"
+obs_scaleup_recurrence   = "10 07 * * 1-5"
 
 ## ibs
 ibs_asg_min_size         = 0
 ibs_asg_max_size         = 1
 ibs_scaledown_desired    = 0
-ibs_scaledown_recurrence = "00 20 * * 1-5"
+ibs_scaledown_recurrence = "00 18 * * 1-5"
 ibs_scaleup_desired      = 1
-ibs_scaleup_recurrence   = "10 00 * * 1-5"
+ibs_scaleup_recurrence   = "10 07 * * 1-5"
 
 ## fyndi-f
 fyndi-f_asg_min_size         = 0
 fyndi-f_asg_max_size         = 1
 fyndi-f_scaledown_desired    = 0
-fyndi-f_scaledown_recurrence = "00 20 * * 1-5"
+fyndi-f_scaledown_recurrence = "00 18 * * 1-5"
 fyndi-f_scaleup_desired      = 1
-fyndi-f_scaleup_recurrence   = "00 00 * * 1-5"
+fyndi-f_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## fyndi_back
 fyndi-b_asg_min_size         = 0
 fyndi-b_asg_max_size         = 1
 fyndi-b_scaledown_desired    = 0
-fyndi-b_scaledown_recurrence = "00 20 * * 1-5"
+fyndi-b_scaledown_recurrence = "00 18 * * 1-5"
 fyndi-b_scaleup_desired      = 1
-fyndi-b_scaleup_recurrence   = "00 00 * * 1-5"
+fyndi-b_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## cpc-front
 cpc-front_asg_min_size         = 0
 cpc-front_asg_max_size         = 0
 cpc-front_scaledown_desired    = 0
-cpc-front_scaledown_recurrence = "00 20 * * 1-5"
-cpc-front_scaleup_desired      = 0
-cpc-front_scaleup_recurrence   = "00 00 * * 1-5"
+cpc-front_scaledown_recurrence = "00 18 * * 1-5"
+cpc-front_scaleup_desired      = 1
+cpc-front_scaleup_recurrence   = "10 07 * * 1-5"
 
 ## cpc-back
 cpc-back_asg_min_size         = 0
 cpc-back_asg_max_size         = 0
 cpc-back_scaledown_desired    = 0
-cpc-back_scaledown_recurrence = "00 20 * * 1-5"
-cpc-back_scaleup_desired      = 0
-cpc-back_scaleup_recurrence   = "00 00 * * 1-5"
+cpc-back_scaledown_recurrence = "00 18 * * 1-5"
+cpc-back_scaleup_desired      = 1
+cpc-back_scaleup_recurrence   = "10 07 * * 1-5"
 
 ## wildfly-mock
 wildfly-mock_asg_min_size         = 0
 wildfly-mock_asg_max_size         = 1
 wildfly-mock_scaledown_desired    = 0
-wildfly-mock_scaledown_recurrence = "00 20 * * 1-5"
+wildfly-mock_scaledown_recurrence = "00 18 * * 1-5"
 wildfly-mock_scaleup_desired      = 1
-wildfly-mock_scaleup_recurrence   = "00 00 * * 1-5"
+wildfly-mock_scaleup_recurrence   = "00 07 * * 1-5"
 
 apache_ami_build_id = 548
 
