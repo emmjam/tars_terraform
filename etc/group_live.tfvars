@@ -75,6 +75,7 @@ all_users = [
   "berin.smaldon@bjss.com",
   "david.giles@bjss.com",
   "callum.massey@bjss.com",
+  "robert.speed@bjss.com",
 ]
 
 administrators = [
@@ -102,6 +103,7 @@ ops_users = [
   "berin.smaldon@bjss.com",
   "callum.massey@bjss.com",
   "michael.tribbick@bjss.com",
+  "robert.speed@bjss.com",
 ]
 
 power_users = [
@@ -161,6 +163,7 @@ support_ro_users = [
   "chetan.choudhary@capita.co.uk",
   "daniel.thompson@bjss.com",
   "berin.smaldon@bjss.com",
+  "robert.speed@bjss.com",
 ]
 
 capita_archive_users = [
