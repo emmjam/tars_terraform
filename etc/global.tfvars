@@ -23,6 +23,7 @@ spot_pricing = {
   "m4.2xlarge" = "0.1531"
   "m4.4xlarge" = "0.3023"
   "m5.large"   = "0.0427"
+  "m5d.large"   = "0.0427"
   "m5.xlarge"  = "0.0865"
   "r4.xlarge"  = "0.0901"
   "r4.2xlarge" = "0.1711"
