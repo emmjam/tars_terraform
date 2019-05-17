@@ -491,7 +491,7 @@ apache_scaleup_recurrence    = "00 07 * * 1-5"
 
 
 ##  JMeter
-jmeter_instance_type              = "m5.large"
+jmeter_instance_type              = "m5d.large"
 jmeter_asg_size_desired_on_create = 0
 jmeter_asg_size_max               = 6
 jmeter_asg_size_min               = 0
