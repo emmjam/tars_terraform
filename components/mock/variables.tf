@@ -25,6 +25,12 @@ variable "version" {
   description = "Version of infrastructure deployed"
 }
 
+variable "aws_autoscaling_enabled" {
+  type        = "string"
+  default     = "1"
+  description = "Enable or not the built in AWS autocaling scaling group scheduled actions"  
+}
+
 variable "account_component_name" {
   type        = "string"
   description = "The name of the account-level component as used in remote state"
