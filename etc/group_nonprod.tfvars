@@ -224,6 +224,9 @@ ctrl_mgmt_tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote s
 # BASE
 ###############################################################################
 
+# Disable AWS scaling for non prod, now in Env Control Jenkins jobs
+aws_autoscaling_enabled = "0"
+
 #Monitoring
 prometheus_asg_min_size           = 0
 prometheus_asg_max_size           = 1

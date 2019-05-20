@@ -1,4 +1,5 @@
 resource "aws_autoscaling_schedule" "fyndi-b_down" {
+  count                  = "${var.aws_autoscaling_enabled}"
   scheduled_action_name  = "${local.csi}/fyndi-b-down"
   min_size               = "${var.fyndi-b_asg_min_size}"
   max_size               = "${var.fyndi-b_asg_max_size}"
@@ -8,6 +9,7 @@ resource "aws_autoscaling_schedule" "fyndi-b_down" {
 }
 
 resource "aws_autoscaling_schedule" "fyndi-b_up" {
+  count                  = "${var.aws_autoscaling_enabled}"
   scheduled_action_name  = "${local.csi}/fyndi-b-up"
   min_size               = "${var.fyndi-b_asg_min_size}"
   max_size               = "${var.fyndi-b_asg_max_size}"

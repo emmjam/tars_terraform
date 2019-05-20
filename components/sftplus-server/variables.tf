@@ -26,6 +26,12 @@ variable "version" {
   description = "Version of infrastructure deployed"
 }
 
+variable "aws_autoscaling_enabled" {
+  type        = "string"
+  default     = "1"
+  description = "Enable or not the built in AWS autocaling scaling group scheduled actions"  
+}
+
 variable "dva_whitelist" {
   type        = "list"
   description = ""
