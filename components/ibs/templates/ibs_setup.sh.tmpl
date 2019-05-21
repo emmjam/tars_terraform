@@ -87,7 +87,7 @@ fi;
 # Prerequisite information gathered - begin bootstrapping
 
 BOOTSTRAP_SUCCESS=1
-curl_cmd="curl --connect-timeout 3 -s -f http://tars-core-backend:8080/DSAAuthenAuthenticationJWSService?wsdl 2>&1 > /dev/null"
+curl_cmd="curl --connect-timeout 3 -s -f http://tars-core-backend:8080/DSAAuthenticationService/DSAAuthenticationJWSService?wsdl 2>&1 > /dev/null"
 retries=30
 retry_delay=10
 backend=1
