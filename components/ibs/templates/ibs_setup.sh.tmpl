@@ -107,32 +107,40 @@ do
   fi
 done
 
-sed -E -i "s/'[a-z0-9]{8}\-[a-z0-9]{4}\-[a-z0-9]{4}\-[a-f0-9]{4}\-[a-z0-9]{12}'/'${KMS_KEY}'/g" /etc/eyaml/config.yaml
+if [ $${backend} -eq 0  ]
+then
+  log 'INFO' 'Running puppet to configure environment'
 
-# Shift this to cloud-init config yaml
-facts_path="/opt/puppetlabs/facter/facts.d"
-echo -n 'environment: ${ENVIRONMENT}'    > "$${facts_path}/environment.yaml"
-echo -n 'nodetype: ${NODETYPE}'          > "$${facts_path}/nodetype.yaml"
-echo -n 'aws_account: ${AWS_ACCOUNT_ID}' > "$${facts_path}/aws_account.yaml"
+  sed -E -i "s/'[a-z0-9]{8}\-[a-z0-9]{4}\-[a-z0-9]{4}\-[a-f0-9]{4}\-[a-z0-9]{12}'/'${KMS_KEY}'/g" /etc/eyaml/config.yaml
 
-cd /opt/packer-puppet-masterless
+  # Shift this to cloud-init config yaml
+  facts_path="/opt/puppetlabs/facter/facts.d"
+  echo -n 'environment: ${ENVIRONMENT}'    > "$${facts_path}/environment.yaml"
+  echo -n 'nodetype: ${NODETYPE}'          > "$${facts_path}/nodetype.yaml"
+  echo -n 'aws_account: ${AWS_ACCOUNT_ID}' > "$${facts_path}/aws_account.yaml"
 
-log 'INFO' 'Running puppet to configure environment'
+  cd /opt/packer-puppet-masterless
 
-/opt/puppetlabs/bin/puppet apply \
-  --verbose \
-  --detailed-exitcodes \
-  --modulepath='/opt/packer-puppet-masterless/module-0:/opt/packer-puppet-masterless/module-1' \
-  --hiera_config='/opt/packer-puppet-masterless/hiera.yaml' \
-  /opt/packer-puppet-masterless/manifests/site.pp
+  /opt/puppetlabs/bin/puppet apply \
+    --verbose \
+    --detailed-exitcodes \
+    --modulepath='/opt/packer-puppet-masterless/module-0:/opt/packer-puppet-masterless/module-1' \
+    --hiera_config='/opt/packer-puppet-masterless/hiera.yaml' \
+    /opt/packer-puppet-masterless/manifests/site.pp
 
-case $${?} in
-  6|4|1)
-    log "ERROR" "Puppet run failed with exit code $${?}"
-    BOOTSTRAP_SUCCESS=0 ;;
-  *)
-    log "INFO" "Puppet run completed" ;;
-esac
+  case $${?} in
+    6|4|1)
+      log "ERROR" "Puppet run failed with exit code $${?}"
+      BOOTSTRAP_SUCCESS=0 ;;
+    *)
+      log "INFO" "Puppet run completed" ;;
+  esac
+
+  log 'INFO' 'Puppet configuration finished'
+else
+  log 'ERROR' 'Could not contact backend'
+  BOOTSTRAP_SUCCESS=0
+fi
 
 if [ $${BOOTSTRAP_SUCCESS} -eq 1 ]; then
   log 'SUCCESS' 'Bootstrap complete for nodetype: ${NODETYPE}'
