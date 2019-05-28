@@ -1,7 +1,7 @@
 # Get the wildfly batch AMI ID
 data "aws_ami" "obs" {
   name_regex = "${format(
-    "%s-%s-%s/%s",
+    "%s-%s-%s/%s*",
     var.project,
     "amzn",
     "obs",

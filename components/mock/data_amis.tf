@@ -1,7 +1,7 @@
 # Get the wildfly mock AMI ID
 data "aws_ami" "wildfly-mock" {
   name_regex = "${format(
-    "%s-%s-%s/%s",
+    "%s-%s-%s/%s*",
     var.project,
     "rhel",
     "mock",

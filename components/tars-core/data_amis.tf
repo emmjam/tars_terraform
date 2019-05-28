@@ -1,6 +1,6 @@
 data "aws_ami" "wildfly-back" {
   name_regex = "${format(
-    "%s-%s-%s/%s",
+    "%s-%s-%s/%s*",
     var.project,
     "rhel",
     "tars-back",
@@ -25,7 +25,7 @@ data "aws_ami" "wildfly-back" {
 
 data "aws_ami" "wildfly-front" {
   name_regex = "${format(
-    "%s-%s-%s/%s",
+    "%s-%s-%s/%s*",
     var.project,
     "rhel",
     "tars-front",
@@ -50,7 +50,7 @@ data "aws_ami" "wildfly-front" {
 
 data "aws_ami" "apache" {
   name_regex = "${format(
-    "%s-%s-%s/%s",
+    "%s-%s-%s/%s*",
     var.project,
     "amzn",
     "apache-routing",

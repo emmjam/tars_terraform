@@ -1,6 +1,6 @@
 data "aws_ami" "sftpplus_svr" {
   name_regex = "${format(
-    "%s-%s-%s/%s",
+    "%s-%s-%s/%s*",
     var.project,
     "rhel",
     "sftpplus-svr",
