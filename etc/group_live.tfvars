@@ -76,6 +76,7 @@ all_users = [
   "david.giles@bjss.com",
   "callum.massey@bjss.com",
   "robert.speed@bjss.com",
+  "ibrar.akram@bjss.com",
 ]
 
 administrators = [
@@ -104,6 +105,7 @@ ops_users = [
   "callum.massey@bjss.com",
   "michael.tribbick@bjss.com",
   "robert.speed@bjss.com",
+  "ibrar.akram@bjss.com",
 ]
 
 power_users = [
@@ -164,6 +166,7 @@ support_ro_users = [
   "daniel.thompson@bjss.com",
   "berin.smaldon@bjss.com",
   "robert.speed@bjss.com",
+  "ibrar.akram@bjss.com",
 ]
 
 capita_archive_users = [
