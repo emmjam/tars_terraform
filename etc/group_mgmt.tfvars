@@ -37,6 +37,7 @@ all_users = [
   "gareth.whiteside@bjss.com",
   "callum.massey@bjss.com",
   "robert.speed@bjss.com",
+  "ibrar.akram@bjss.com",
 ]
 
 administrators = [
@@ -63,6 +64,7 @@ administrators = [
   "berin.smaldon@bjss.com",
   "callum.massey@bjss.com",
   "robert.speed@bjss.com",
+  "ibrar.akram@bjss.com",
 ]
 
 tss_billing_ro_users = [
