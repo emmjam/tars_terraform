@@ -1,7 +1,7 @@
 # Get the wildfly batch AMI ID
 data "aws_ami" "cpc-front" {
   name_regex = "${format(
-    "%s-%s-%s/%s",
+    "%s-%s-%s/%s*",
     var.project,
     "rhel",
     "cpc-front",
@@ -26,7 +26,7 @@ data "aws_ami" "cpc-front" {
 
 data "aws_ami" "cpc-back" {
   name_regex = "${format(
-    "%s-%s-%s/%s",
+    "%s-%s-%s/%s*",
     var.project,
     "rhel",
     "cpc-back",

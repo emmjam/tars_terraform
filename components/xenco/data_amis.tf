@@ -1,6 +1,6 @@
 data "aws_ami" "xenco" {
   name_regex = "${format(
-    "%s-%s-%s/%s",
+    "%s-%s-%s/%s*",
     var.project,
     "rhel",
     "xenco",
