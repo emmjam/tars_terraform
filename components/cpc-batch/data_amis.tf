@@ -2,7 +2,7 @@ data "aws_ami" "cpc-batch" {
   name_regex = "${format(
     "%s-%s-%s/%s*",
     var.project,
-    "rhel",
+    "amzn",
     "cpc-batch",
     var.ami_build_id
   )}"

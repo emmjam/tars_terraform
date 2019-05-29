@@ -3,7 +3,7 @@ data "aws_ami" "cpc-front" {
   name_regex = "${format(
     "%s-%s-%s/%s*",
     var.project,
-    "rhel",
+    "amzn",
     "cpc-front",
     var.ami_build_id
   )}"
@@ -28,7 +28,7 @@ data "aws_ami" "cpc-back" {
   name_regex = "${format(
     "%s-%s-%s/%s*",
     var.project,
-    "rhel",
+    "amzn",
     "cpc-back",
     var.ami_build_id
   )}"
