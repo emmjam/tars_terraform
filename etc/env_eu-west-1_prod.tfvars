@@ -463,3 +463,10 @@ holding_pages_domains = [
   "finddrivinginstructor.direct.gov.uk",
   "driverpracticaltest.direct.gov.uk",
 ]
+
+#RDS Deletion Protection
+tars_rds_delete_protect = "True"
+cpc_rds_delete_protect = "True"
+ibsdb_cluster_delete_protect = "True"
+misdb_rds_delete_protect = "True"
+risdb_rds_delete_protect = "True"

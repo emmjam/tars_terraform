@@ -156,6 +156,11 @@ variable "mis_rds_sid_name" {
   description = "Oracle SID name"
 }
 
+variable "misdb_rds_delete_protect" {
+  type        = "string"
+  description = "RDS Deletion Protection"
+}
+
 variable "mis_rds_subnets_cidrs" {
   type        = "list"
   description = "MIS RDS Subnet CIDR's"
@@ -261,6 +266,11 @@ variable "rsis_rds_autoscale" {
 variable "rsis_rds_sid_name" {
   type        = "string"
   description = "Oracle SID name"
+}
+
+variable "risdb_rds_delete_protect" {
+  type        = "string"
+  description = "RDS deletion protection"
 }
 
 variable "bobj_subnets_cidrs" {

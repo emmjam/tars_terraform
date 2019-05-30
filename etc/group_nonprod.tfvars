@@ -761,3 +761,10 @@ dc_vif_secondary_bgp_auth_key = "u4ZB6sQEJJHjsUUGg69BeM6KWvqxfq"
 
 # DC Gateway VIF parameters
 dc_vif_asn = "64515"
+
+#RDS Deletion Protection
+tars_rds_delete_protect = "False"
+cpc_rds_delete_protect = "False"
+ibsdb_cluster_delete_protect = "False"
+misdb_rds_delete_protect = "False"
+risdb_rds_delete_protect = "False"

@@ -22,6 +22,7 @@ resource "aws_db_instance" "tarsdb" {
   parameter_group_name      = "${aws_db_parameter_group.tars-core.id}"
   option_group_name         = "${aws_db_option_group.tars_core.id}"
   name                      = "${var.tars_rds_sid_name}"
+  deletion_protection       = "${var.tars_rds_delete_protect}"
 
   vpc_security_group_ids = [
     "${aws_security_group.tars-core-db.id}"

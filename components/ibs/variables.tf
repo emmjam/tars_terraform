@@ -184,6 +184,11 @@ variable "ibs_rds_snapshot" {
   description = "The DB snapshot to use for the IBS DB used for IBS / FYNDI"
 }
 
+variable "ibsdb_cluster_delete_protect" {
+  type        = "string"
+  description = "IBS cluster deletion protection"
+}
+
 variable "ibs_rds_backup_retention_period" {
   type        = "string"
   description = ""
