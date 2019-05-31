@@ -243,12 +243,11 @@ apache_subnet_cidrs = [
 
 #  "10.167.78.16/28",
 
-# Now free to use
-# test_database_subnets_cidrs = [
-#   "10.167.78.32/27",
-#   "10.167.78.64/27",
-#   "10.167.78.96/27",
-# ]
+tars_backend_api_alb_subnets_cidrs = [
+   "10.167.78.32/27",
+   "10.167.78.64/27",
+   "10.167.78.96/27",
+]
 
 jmeter_subnets_cidrs = [
   "10.167.78.128/28",
@@ -498,3 +497,5 @@ squidnat_instance_type = "m5.large"
 private_cert_domain_name = "perf02.tars.dvsa.aws"
 
 apache_ami_build_id = 504
+
+mes_cidr_block = ["10.21.0.0/16"]

@@ -249,10 +249,11 @@ sftpplus_nlb_subnets_cidrs = [
   "10.167.38.64/28",
 ]
 
-# Free subnets
-# 10.167.38.80/28
-# 10.167.38.96/28
-# 10.167.38.112/28
+tars_backend_api_alb_subnets_cidrs = [
+  "10.167.38.80/28",
+  "10.167.38.96/28",
+  "10.167.38.112/28",
+]
 
 jmeter_subnets_cidrs = [
   "10.167.38.128/28",
