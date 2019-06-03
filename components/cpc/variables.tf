@@ -226,6 +226,11 @@ variable "cpc_rds_sid_name" {
   description = "Oracle SID name"
 }
 
+variable "cpc_rds_delete_protect" {
+  type        = "string"
+  description = "RDS Deletion Protection"
+}
+
 variable "cpc_rds_apply_immediately" {
   type        = "string"
   description = "cpc RDS Apply changes immediately"

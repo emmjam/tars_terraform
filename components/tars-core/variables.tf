@@ -174,6 +174,10 @@ variable "tars_rds_sid_name" {
   description = "Oracle SID name"
 }
 
+variable "tars_rds_delete_protect" {
+  type        = "string"
+  description = "RDS Deletion Protection"
+}
 variable "rds_subnets_cidrs" {
   type        = "list"
   description = "TARS RDS Subnet CIDR's"

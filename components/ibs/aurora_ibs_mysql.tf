@@ -10,6 +10,7 @@ resource "aws_rds_cluster" "ibsdb_cluster" {
   db_subnet_group_name          = "${aws_db_subnet_group.ibsdb.name}"
   snapshot_identifier           = "${var.ibs_rds_snapshot}"
   final_snapshot_identifier     = "${local.csi}-ibsdb-final"
+  deletion_protection           = "${var.ibsdb_cluster_delete_protect}"
 
   vpc_security_group_ids        = [
     "${aws_security_group.ibs_aurora.id}"
