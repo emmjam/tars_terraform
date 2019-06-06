@@ -11,7 +11,7 @@ data "terraform_remote_state" "obs" {
       data.aws_caller_identity.current.account_id,
       var.aws_region,
       var.environment,
-      "obs"
+      "apps"
     )}"
 
     region = "${var.aws_region}"

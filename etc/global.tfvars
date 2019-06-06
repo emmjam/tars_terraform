@@ -1,5 +1,8 @@
 
 ami_build_id = "develop/develop"
+ibs_ami_id   = "develop/develop"
+obs_ami_id   = "develop/develop"
+fyndi_ami_id = "develop/develop"
 
 ##
 # Variables needed for spot instances
