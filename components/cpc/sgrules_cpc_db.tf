@@ -28,7 +28,7 @@ resource "aws_security_group_rule" "oracle_db_ingress_bastion" {
   to_port                  = 1521
   protocol                 = "tcp"
   security_group_id        = "${aws_security_group.cpc-db.id}"
-  source_security_group_id = "${data.terraform_remote_state.ctrl.bastion_sg_id}"
+  source_security_group_id = "${data.terraform_remote_state.ctrl.bastion_outbound-oracle_sg_id}"
 }
 
 # prometheus to rds DB

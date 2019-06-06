@@ -53,3 +53,7 @@ output "grafana_sg_id" {
 output "dx_gateway_id" {
   value = "${aws_dx_gateway.dc-gateway.*.id}"
 }
+
+output "bastion_outbound-oracle_sg_id" {
+  value = "${aws_security_group.outbound-oracle.id}"
+}

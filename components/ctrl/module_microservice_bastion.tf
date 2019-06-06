@@ -24,6 +24,9 @@ module "bastion" {
   lc_ami_id        = "${data.aws_ami.bastion.image_id}"
   lc_instance_type = "${var.bastion_instance_type}"
   lc_user_data     = "${data.template_cloudinit_config.bastion.rendered}"
+  lc_additional_sg_ids = [
+    "${aws_security_group.outbound-oracle.id}",
+  ]
 
   asg_size_min               = "${var.bastion_asg_min_size}"
   asg_size_desired_on_create = "${var.bastion_asg_min_size}"
