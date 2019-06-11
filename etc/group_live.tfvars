@@ -725,14 +725,14 @@ dc_gateway_aws_asn = "64514"
 # DC Gateway Primary VIF
 dc_primary_connection_id = "dxcon-fgjp09jy"
 dc_vif_primary_name = "Tars-Prod-DirCon-Pri"
-dc_vif_primary_vlan = "377"
+dc_vif_primary_vlan = "381"
 dc_vif_primary_router = "10.111.0.13/30"
 dc_vif_primary_aws_router = "10.111.0.14/30"
 dc_vif_primary_bgp_auth_key = "6fbuqVX7bKFvM43KpdGFLwThACH4nB"
 
 # DC Gateway Secondary VIF
 dc_secondary_connection_id = "dxcon-ffgc0859"
-dc_vif_secondary_vlan = "319"
+dc_vif_secondary_vlan = "307"
 dc_vif_secondary_name = "Tars-Prod-DirCon-Sec"
 dc_vif_secondary_router = "10.111.8.13/30"
 dc_vif_secondary_aws_router = "10.111.8.14/30"
