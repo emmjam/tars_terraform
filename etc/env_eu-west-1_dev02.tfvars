@@ -560,7 +560,7 @@ private_cert_domain_name = "dev02.tars.dvsa.aws"
 ## Schedules
 ## wildfly-front
 wildfly-front_asg_min_size         = 0
-wildfly-front_asg_max_size         = 0
+wildfly-front_asg_max_size         = 1
 wildfly-front_scaledown_desired    = 0
 wildfly-front_scaledown_recurrence = "00 18 * * 1-5"
 wildfly-front_scaleup_desired      = 1
@@ -568,18 +568,18 @@ wildfly-front_scaleup_recurrence   = "10 07 * * 1-5"
 
 ## wildfly-back
 wildfly-back_asg_min_size         = 0
-wildfly-back_asg_max_size         = 0
+wildfly-back_asg_max_size         = 1
 wildfly-back_scaledown_desired    = 0
 wildfly-back_scaledown_recurrence = "00 18 * * 1-5"
-wildfly-back_scaleup_desired      = 0
+wildfly-back_scaleup_desired      = 1
 wildfly-back_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## wildfly-batch
 wildfly-batch_asg_min_size         = 0
-wildfly-batch_asg_max_size         = 0
+wildfly-batch_asg_max_size         = 1
 wildfly-batch_scaledown_desired    = 0
 wildfly-batch_scaledown_recurrence = "00 18 * * 1-5"
-wildfly-batch_scaleup_desired      = 0
+wildfly-batch_scaleup_desired      = 1
 wildfly-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## obs
@@ -616,7 +616,7 @@ fyndi-b_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## cpc-front
 cpc-front_asg_min_size         = 0
-cpc-front_asg_max_size         = 0
+cpc-front_asg_max_size         = 1
 cpc-front_scaledown_desired    = 0
 cpc-front_scaledown_recurrence = "00 18 * * 1-5"
 cpc-front_scaleup_desired      = 1
@@ -624,7 +624,7 @@ cpc-front_scaleup_recurrence   = "10 07 * * 1-5"
 
 ## cpc-back
 cpc-back_asg_min_size         = 0
-cpc-back_asg_max_size         = 0
+cpc-back_asg_max_size         = 1
 cpc-back_scaledown_desired    = 0
 cpc-back_scaledown_recurrence = "00 18 * * 1-5"
 cpc-back_scaleup_desired      = 1
