@@ -91,3 +91,31 @@ jenkinsctrl_scaleup_recurrence   = "15 07 * * 1-5"
 
 #Due to there being no wildcard cert in prod this is used.
 grafana_cert_name = "grafana"
+
+spot_pricing = {
+  "c4.large"   = ""
+  "c4.xlarge"  = ""
+  "c4.2xlarge" = ""
+  "c5.large"   = ""
+  "c5.xlarge"  = ""
+  "c5.2xlarge" = ""
+  "m3.medium"  = ""
+  "m3.large"   = ""
+  "m4.large"   = ""
+  "m4.2xlarge" = ""
+  "m4.4xlarge" = ""
+  "m5.large"   = ""
+  "m5.xlarge"  = ""
+  "m5d.large"  = ""
+  "r4.xlarge"  = ""
+  "r4.2xlarge" = ""
+  "t2.micro"   = ""
+  "t2.small"   = ""
+  "t2.medium"  = ""
+  "t2.large"   = ""
+  "t3.nano"    = ""
+  "t3.micro"   = ""
+  "t3.small"   = ""
+  "t3.medium"  = ""
+}
+
