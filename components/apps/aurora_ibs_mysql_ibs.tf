@@ -1,6 +1,6 @@
 # Create the IBS Aurora DB
 resource "aws_rds_cluster" "ibsdb_cluster" {
-  cluster_identifier           = "${local.csi}-ibsdb-cluster"
+  cluster_identifier           = "${var.project}-${var.environment}-ibs-ibsdb-cluster"
   database_name                = "ibsdb"
   master_username              = "${var.ibs_rds_username}"
   master_password              = "${var.ibs_rds_password}"
