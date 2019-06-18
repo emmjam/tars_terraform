@@ -1,6 +1,6 @@
 # ibsdb subnet group
 resource "aws_db_subnet_group" "ibsdb" {
-  name        = "${local.csi}-ibsdb"
+  name        = "${var.project}-${var.environment}-ibs-ibsdb"
   description = "${local.csi}-ibs"
 
   subnet_ids = [
