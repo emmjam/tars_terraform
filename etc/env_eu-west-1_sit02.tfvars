@@ -10,14 +10,14 @@ aws_region = "eu-west-1"
 tf_state_bucket_prefix = "tars-terraformscaffold"
 
 default_tags = {
-  Project     = "tars"
+  Project     = "mes"
   Environment = "sit02"
 }
 
 asg_default_tags = [
   {
     "key"                 = "Project"
-    "value"               = "tars"
+    "value"               = "mes"
     "propagate_at_launch" = "true"
   },
   {
