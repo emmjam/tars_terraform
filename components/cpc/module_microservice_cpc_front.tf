@@ -19,6 +19,7 @@ module "cpc-front" {
   lc_ami_id        = "${data.aws_ami.cpc-front.image_id}"
   lc_instance_type = "${var.cpc-front_instance_type}"
   lc_user_data     = "${data.template_cloudinit_config.cpc-front.rendered}"
+  lc_spot_price    = "${lookup(var.spot_pricing, var.cpc-front_instance_type)}"
 
   lc_additional_sg_ids = [
     "${data.terraform_remote_state.base.core_sg_id}",
