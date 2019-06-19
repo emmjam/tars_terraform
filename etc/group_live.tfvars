@@ -257,7 +257,7 @@ efs_backup_ami_build_id           = 457
 ## jenkinsnode
 jenkinsnode_instance_type        = "m5d.large"
 jenkinsnode_ami_build_id         = "559"
-jenkinsnode_executors            = 5
+jenkinsnode_executors            = 20
 jenkinsnode_asg_min_size         = 1
 jenkinsnode_asg_max_size         = 3
 jenkinsnode_scaledown_desired    = 1
