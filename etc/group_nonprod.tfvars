@@ -351,7 +351,7 @@ wildfly-mock_scaleup_desired      = 1
 wildfly-mock_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## cpc-back
-cpc-back_instance_type        = "t2.medium"
+cpc-back_instance_type        = "m3.medium"
 cpc-back_puppet_nodetype      = "cpc-back"
 cpc-back_asg_min_size         = 0
 cpc-back_asg_max_size         = 1
@@ -361,7 +361,7 @@ cpc-back_scaleup_desired      = 1
 cpc-back_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## cpc-front
-cpc-front_instance_type        = "t2.medium"
+cpc-front_instance_type        = "m3.medium"
 cpc-front_puppet_nodetype      = "cpc-front"
 cpc-front_asg_min_size         = 0
 cpc-front_asg_max_size         = 1
@@ -393,7 +393,7 @@ xenco_instance_type = "t2.small"
 
 
 ## cpc-batch
-cpc-batch_instance_type        = "t2.medium"
+cpc-batch_instance_type        = "m3.medium"
 cpc-batch_puppet_nodetype      = "cpc-batch"
 cpc-batch_asg_min_size         = 0
 cpc-batch_asg_max_size         = 1
