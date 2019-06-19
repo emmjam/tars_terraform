@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<broker xmlns="http://activemq.apache.org/schema/core" schedulerSupport="true">
+<broker schedulerSupport="true" xmlns="http://activemq.apache.org/schema/core" >
   <plugins>
     <forcePersistencyModeBrokerPlugin persistenceFlag="true" />
     <statisticsBrokerPlugin />
     <timeStampingBrokerPlugin ttlCeiling="86400000" zeroExpirationOverride="86400000" />
   </plugins>
   <destinations>
-    <queue physicalName="queue/JobQueue" />
-    <queue physicalName="queue/JobErrorQueue" />
+    <queue physicalName="queue/JobQueue"/>
+    <queue physicalName="queue/JobErrorQueue"/>
     <queue physicalName="queue/EmailQueue" />
-    <queue physicalName="queue/DocBatchUpdateRetryQueue" />
-    <queue physicalName="queue/VelocityEmailQueue" />
-    <queue physicalName="queue/PrintQueue" />
-    <queue physicalName="queue/gbdqcqueue" />
-    <queue physicalName="queue/assessdriverqueue" />
-    <queue physicalName="queue/queuedcall" />
+    <queue physicalName="queue/DocBatchUpdateRetryQueue"/>
+    <queue physicalName="queue/VelocityEmailQueue"/>
+    <queue physicalName="queue/PrintQueue"/>
+    <queue physicalName="queue/gbdqcqueue"/>
+    <queue physicalName="queue/assessdriverqueue"/>
+    <queue physicalName="queue/queuedcall"/>
    </destinations>
 </broker>
