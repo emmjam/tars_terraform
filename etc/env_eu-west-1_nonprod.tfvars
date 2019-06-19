@@ -79,7 +79,7 @@ grafana_cert_name = "*"
 ## jenkinsctrl
 jenkinsctrl_instance_type        = "m5d.large"
 jenkinsctrl_ami_build_id         = "549"
-jenkinsctrl_executors            = 5
+jenkinsctrl_executors            = 20
 jenkinsctrl_asg_min_size         = 0
 jenkinsctrl_asg_max_size         = 3
 jenkinsctrl_scaledown_desired    = 1

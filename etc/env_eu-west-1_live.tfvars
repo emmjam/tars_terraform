@@ -81,7 +81,7 @@ grafana_scaleup_recurrence   = "00 07 * * 1-5"
 ## jenkinsctrl
 jenkinsctrl_instance_type        = "m5.large"
 jenkinsctrl_ami_build_id         = "468"
-jenkinsctrl_executors            = 5
+jenkinsctrl_executors            = 20
 jenkinsctrl_asg_min_size         = 0
 jenkinsctrl_asg_max_size         = 3
 jenkinsctrl_scaledown_desired    = 1
