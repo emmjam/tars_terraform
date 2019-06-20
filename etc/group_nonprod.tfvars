@@ -414,7 +414,7 @@ apache_scaleup_recurrence    = "00 04 * * 1-5"
 
 ## AWS MQ
 aws_mq_engine_type             = "ActiveMQ"
-aws_mq_engine_version          = "5.15.0"
+aws_mq_engine_version          = "5.15.9"
 aws_mq_host_instance_type      = "mq.t2.micro"
 aws_mq_deployment_mode         = "SINGLE_INSTANCE"
 
@@ -437,7 +437,7 @@ aws_mq_users_cpc_batch_group         = "cpc_batch"
 aws_mq_config_description    = "TARS MQ Configuration"
 aws_mq_config_name           = "tars-awsmq"
 aws_mq_config_engine_type    = "ActiveMQ"
-aws_mq_config_engine_version = "5.15.0"
+aws_mq_config_engine_version = "5.15.9"
 
 ##  JMeter
 jmeter_instance_type              = "t3.micro"
