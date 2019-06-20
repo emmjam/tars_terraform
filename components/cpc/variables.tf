@@ -111,6 +111,12 @@ variable "lc_spot_price" {
   default     = ""
 }
 
+variable "spot_pricing" {
+  type        = "map"
+  description = "A map containing the the spot instance price (USD) for each instance type"
+  default     = {}
+}
+
 variable "ami_build_id" {
   type        = "string"
   description = "CPC AMI build ID"
