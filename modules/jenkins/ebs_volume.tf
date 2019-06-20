@@ -4,6 +4,8 @@ resource "aws_ebs_volume" "jenkins" {
   type = "${var.ebs_volume_type}"
   size = "${var.ebs_volume_size}"
 
+  encrypted = "false"
+
   tags = "${merge(
     var.default_tags,
     map(

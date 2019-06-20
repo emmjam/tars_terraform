@@ -8,4 +8,6 @@
 data "aws_availability_zones" "azs" {}
 
 # Current AWS Region
-data "aws_region" "current" {}
+data "aws_region" "current" {
+}
+
