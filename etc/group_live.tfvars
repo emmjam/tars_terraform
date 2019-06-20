@@ -358,7 +358,7 @@ wildfly-messaging_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## AWS MQ
 aws_mq_engine_type             = "ActiveMQ"
-aws_mq_engine_version          = "5.15.0"
+aws_mq_engine_version          = "5.15.9"
 aws_mq_host_instance_type      = "mq.m5.large"
 aws_mq_deployment_mode         = "ACTIVE_STANDBY_MULTI_AZ"
 
@@ -430,7 +430,7 @@ apache_scaleup_recurrence    = "00 07 * * 1-5"
 aws_mq_config_description    = "TARS MQ Configuration"
 aws_mq_config_name           = "tars-awsmq"
 aws_mq_config_engine_type    = "ActiveMQ"
-aws_mq_config_engine_version = "5.15.0"
+aws_mq_config_engine_version = "5.15.9"
 
 ##  JMeter
 jmeter_instance_type              = "t3.micro"
