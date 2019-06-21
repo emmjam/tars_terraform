@@ -29,6 +29,6 @@ resource "aws_db_option_group" "tars_core" {
       value = "1.2"
     }
     port = "2484"
-    db_security_group_memberships = ["${aws_security_group.tars-core-db.id}"]
+    vpc_security_group_memberships = ["${aws_security_group.tars-core-db.id}"]
   }
 }
