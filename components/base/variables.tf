@@ -68,6 +68,12 @@ variable "tars_backend_elb_subnets_cidrs" {
   default     = []
 }
 
+variable "tars_backend_api_alb_subnets_cidrs" {
+  type        = "list"
+  description = "TARS backend api alb tier subnet CIDR's"
+  default     = []
+}
+
 variable "cpc_backend_alb_subnets_cidrs" {
   type        = "list"
   description = "CPC backend elb tier subnet CIDR's"

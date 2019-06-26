@@ -37,6 +37,25 @@ resource "aws_route53_record" "tars-backend" {
   }
 }
 
+# Create the R53 record for the TARS API ALB
+resource "aws_route53_record" "tars-api" {
+  name = "${format(
+    "%s-%s-%s",
+    var.project,
+    "core",
+    "api"
+  )}"
+
+  zone_id = "${data.terraform_remote_state.base.private_zone_id}"
+  type    = "A"
+
+  alias {
+    name                   = "${aws_alb.tars-alb-backend-api.dns_name}"
+    zone_id                = "${aws_alb.tars-alb-backend-api.zone_id}"
+    evaluate_target_health = true
+  }
+}
+
 resource "aws_route53_record" "tars-private" {
   name = "${format(
     "%s-%s-%s",

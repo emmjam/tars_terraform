@@ -35,6 +35,10 @@ output "subnets_tars_backend_elb" {
   value = "${module.tars_backend_elb_subnets.subnet_ids}"
 }
 
+output "subnets_tars_backend_api_alb" {
+  value = "${module.tars_backend_api_alb_subnets.subnet_ids}"
+}
+
 output "subnet_cidrs_tars_backend" {
   value = [
     "${var.tars_backend_subnets_cidrs}",
