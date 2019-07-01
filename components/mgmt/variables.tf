@@ -34,6 +34,12 @@ variable "default_tags" {
   }
 }
 
+variable "s3_yum_ro_principals" {
+  type        = "list"
+  description = "The list of AWS Account IDs that we grant delegated read access to for the yum bucket"
+  default     = []
+}
+
 variable "asg_default_tags" {
   type        = "list"
   description = ""
