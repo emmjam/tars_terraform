@@ -22,6 +22,17 @@ resource "aws_security_group_rule" "rsis_rds_ingress_jenkinsnode" {
   source_security_group_id = "${data.terraform_remote_state.base.jenkinsnode_sg_id}"
 }
 
+# rds DB from jenkinsnode
+resource "aws_security_group_rule" "rsis_rds_egress_jenkinsnode" {
+  description              = "Allow TCP/1521 from jenkinsnode"
+  type                     = "egress"
+  from_port                = "1521"
+  to_port                  = "1521"
+  protocol                 = "tcp"
+  source_security_group_id = "${aws_security_group.tars-rsis-db.id}"
+  security_group_id        = "${data.terraform_remote_state.base.jenkinsnode_sg_id}"
+}
+
 # bastion to rds DB
 resource "aws_security_group_rule" "rsis_rds_ingress_bastion" {
   description              = "Allow TCP/1521 from Bastion"
