@@ -1,6 +1,6 @@
 # ALB for the tars core backend API access from MES
 resource "aws_alb" "tars-alb-backend-api" {
-  name     = "${local.csi}-backend-api"
+  name     = "${local.csi}-api"
   internal = "true"
   idle_timeout = 300
 
