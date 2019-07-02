@@ -394,3 +394,4 @@ private_cert_domain_name = "dvsa.tars.dev-dvsacloud.uk"
 
 apache_ami_build_id = 504
 
+mes_cidr_block = ["10.21.0.0/16"]
