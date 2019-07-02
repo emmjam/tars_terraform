@@ -641,3 +641,5 @@ wildfly-mock_scaleup_desired      = 1
 wildfly-mock_scaleup_recurrence   = "00 00 * * 1-5"
 
 apache_ami_build_id = 504
+
+mes_cidr_block = ["10.21.0.0/16"]
