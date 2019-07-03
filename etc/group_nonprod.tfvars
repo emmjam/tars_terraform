@@ -556,6 +556,7 @@ dvsa_dns_servers = [
 dva_whitelist = [
   "148.253.134.213/32", # BJSS VPN 04/18
   "194.32.31.1/32",     # DVA IP
+  "194.32.29.1/32",     # DVA IP
 ]
 
 dvsa_mgmt_inbound = [
