@@ -35,7 +35,6 @@ all_users = [
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
   "michael.riley@bjss.com",
-  "josh.manges@bjss.com",
   "christopher.swanson@bjss.com",
   "prashant.kumar@bjss.com",
   "damian.skiba@bjss.com",
@@ -75,7 +74,6 @@ all_users = [
   "berin.smaldon@bjss.com",
   "callum.massey@bjss.com",
   "gareth.whiteside@bjss.com",
-  "robert.speed@bjss.com",
   "ibrar.akram@bjss.com",
 ]
 
@@ -93,7 +91,6 @@ ops_users = [
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
   "michael.riley@bjss.com",
-  "josh.manges@bjss.com",
   "christopher.swanson@bjss.com",
   "prashant.kumar@bjss.com",
   "damian.skiba@bjss.com",
@@ -108,7 +105,6 @@ ops_users = [
   "callum.massey@bjss.com",
   "gareth.whiteside@bjss.com",
   "michael.tribbick@bjss.com",
-  "robert.speed@bjss.com",
   "ibrar.akram@bjss.com",
 ]
 
