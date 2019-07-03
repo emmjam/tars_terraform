@@ -35,7 +35,6 @@ all_users = [
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
   "michael.riley@bjss.com",
-  "josh.manges@bjss.com",
   "christopher.swanson@bjss.com",
   "prashant.kumar@bjss.com",
   "damian.skiba@bjss.com",
@@ -75,7 +74,6 @@ all_users = [
   "berin.smaldon@bjss.com",
   "david.giles@bjss.com",
   "callum.massey@bjss.com",
-  "robert.speed@bjss.com",
   "ibrar.akram@bjss.com",
 ]
 
@@ -92,7 +90,6 @@ ops_users = [
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
   "michael.riley@bjss.com",
-  "josh.manges@bjss.com",
   "christopher.swanson@bjss.com",
   "prashant.kumar@bjss.com",
   "damian.skiba@bjss.com",
@@ -104,7 +101,6 @@ ops_users = [
   "berin.smaldon@bjss.com",
   "callum.massey@bjss.com",
   "michael.tribbick@bjss.com",
-  "robert.speed@bjss.com",
   "ibrar.akram@bjss.com",
 ]
 
@@ -154,7 +150,6 @@ support_ro_users = [
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
   "michael.riley@bjss.com",
-  "josh.manges@bjss.com",
   "christopher.swanson@bjss.com",
   "prashant.kumar@bjss.com",
   "damian.skiba@bjss.com",
@@ -165,7 +160,6 @@ support_ro_users = [
   "chetan.choudhary@capita.co.uk",
   "daniel.thompson@bjss.com",
   "berin.smaldon@bjss.com",
-  "robert.speed@bjss.com",
   "ibrar.akram@bjss.com",
 ]
 

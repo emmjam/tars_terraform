@@ -20,7 +20,6 @@ all_users = [
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
   "michael.riley@bjss.com",
-  "josh.manges@bjss.com",
   "christopher.swanson@bjss.com",
   "prashant.kumar@bjss.com",
   "damian.skiba@bjss.com",
@@ -36,7 +35,6 @@ all_users = [
   "berin.smaldon@bjss.com",
   "gareth.whiteside@bjss.com",
   "callum.massey@bjss.com",
-  "robert.speed@bjss.com",
   "ibrar.akram@bjss.com",
 ]
 
@@ -50,7 +48,6 @@ administrators = [
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
   "michael.riley@bjss.com",
-  "josh.manges@bjss.com",
   "christopher.swanson@bjss.com",
   "prashant.kumar@bjss.com",
   "damian.skiba@bjss.com",
@@ -63,7 +60,6 @@ administrators = [
   "daniel.thompson@bjss.com",
   "berin.smaldon@bjss.com",
   "callum.massey@bjss.com",
-  "robert.speed@bjss.com",
   "ibrar.akram@bjss.com",
 ]
 
