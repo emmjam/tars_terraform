@@ -435,3 +435,5 @@ cpc_rds_delete_protect = "False"
 ibsdb_cluster_delete_protect = "False"
 misdb_rds_delete_protect = "False"
 risdb_rds_delete_protect = "False"
+
+mes_cidr_block = ["10.101.20.0/26"]
