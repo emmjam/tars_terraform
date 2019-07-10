@@ -19,5 +19,6 @@ resource "aws_db_option_group" "cpcdb" {
 
   option {
     option_name = "SQLT"
+    version = "2016-04-29.v1"
   }
 }
