@@ -23,3 +23,13 @@ resource "aws_security_group_rule" "tars_alb_api_ingress_whitelist_port_8443" {
     "${var.mes_cidr_block}"
   ]
 }
+
+resource "aws_security_group_rule" "tars_alb_api_ingress_jmeter_port_8443" {
+  description              = "Allow TCP/8443 from JMeter"
+  type                     = "ingress"
+  from_port                = 8443
+  to_port                  = 8443
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.tars-alb-backend-api.id}"
+  source_security_group_id = "${data.terraform_remote_state.base.jmeter_sg_id}"
+}
