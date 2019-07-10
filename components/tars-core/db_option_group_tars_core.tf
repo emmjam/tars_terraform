@@ -20,6 +20,7 @@ resource "aws_db_option_group" "tars_core" {
 
   option {
     option_name = "SQLT"
+    version = "2016-04-29.v1"
   }
 
   option {
