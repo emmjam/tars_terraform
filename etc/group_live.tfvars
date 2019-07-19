@@ -102,6 +102,7 @@ ops_users = [
   "callum.massey@bjss.com",
   "michael.tribbick@bjss.com",
   "ibrar.akram@bjss.com",
+  "rajkieren.manku@bjss.com",
 ]
 
 power_users = [
