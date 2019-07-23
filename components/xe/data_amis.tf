@@ -4,9 +4,9 @@ data "aws_ami" "oraclexe" {
 
   most_recent = "true"
 
-  # owners = [
-  #   "652856684323",
-  # ]
+  owners = [
+     "${data.aws_caller_identity.current.account_id}",
+  ]
 
   filter {
     name = "state"
