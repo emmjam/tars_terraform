@@ -57,3 +57,11 @@ output "dx_gateway_id" {
 output "bastion_outbound-oracle_sg_id" {
   value = "${aws_security_group.outbound-oracle.id}"
 }
+
+output "tars_aws_backup_iam_role_arn" {
+  value = "${aws_iam_role.tars_aws_backup.arn}"
+}
+
+output "tars_aws_backup_iam_tars_efs_id" {
+  value = "${aws_backup_plan.tars_efs.id}"
+}

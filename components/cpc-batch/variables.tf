@@ -157,3 +157,8 @@ variable "dvla_elise_server" {
   type        = "string"
   description = "DVLA Elise"
 }
+
+variable "cpc-batch-efs-arn" {
+  type    = "string"
+  default = ""
+}
