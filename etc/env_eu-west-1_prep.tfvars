@@ -360,10 +360,10 @@ ibs_rds_snapshot = "prep-ibsdb-19-06-18-comp-collapse"
 #############################################################################
 
 # New World
-dvsa_wan_connectivity_enabled = false
+dvsa_wan_connectivity_enabled = true
 
 # Old World
-transit_peering_enabled = true
+transit_peering_enabled = false
 
 #############################################################################
 # DVSA AD VPC peering

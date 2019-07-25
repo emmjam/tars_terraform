@@ -394,10 +394,10 @@ ibs_rds_snapshot = "tars-prod-ibsdb-pre-release-5-10-0-3"
 #############################################################################
 
 # New World
-dvsa_wan_connectivity_enabled = false
+dvsa_wan_connectivity_enabled = true
 
 # Old World
-transit_peering_enabled = true
+transit_peering_enabled = false
 
 #############################################################################
 # DVSA AD VPC peering
