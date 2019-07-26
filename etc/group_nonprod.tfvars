@@ -76,6 +76,7 @@ all_users = [
   "gareth.whiteside@bjss.com",
   "ibrar.akram@bjss.com",
   "john.bower@bjss.com",
+  "jamie.kelly@bjss.com",
 ]
 
 administrators = [
@@ -108,6 +109,7 @@ ops_users = [
   "michael.tribbick@bjss.com",
   "ibrar.akram@bjss.com",
   "john.bower@bjss.com",
+  "jamie.kelly@bjss.com",
 ]
 
 power_users = [
