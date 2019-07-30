@@ -63,6 +63,12 @@ variable "whitelist" {
   default     = []
 }
 
+variable "payments_whitelist" {
+  type        = "list"
+  description = "Payments Backend service whitelist"
+  default     = []
+}
+
 variable "tf_state_bucket_prefix" {
   type        = "string"
   description = "TF State bucket prefix"
@@ -324,6 +330,11 @@ variable "wildfly-front_puppet_nodetype" {
 }
 
 variable "cert_name" {
+  type        = "string"
+  description = "ACM cert name"
+}
+
+variable "payments_cert_name" {
   type        = "string"
   description = "ACM cert name"
 }

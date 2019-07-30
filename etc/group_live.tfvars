@@ -466,6 +466,25 @@ ctrl_grafana_subnets = [
   "10.167.56.240/28",
 ]
 
+payments_whitelist = [
+  "135.196.73.204/32",  # DVSA Notts
+  "213.160.121.250/32", # DVSA Notts Corp & Wifi
+  "148.253.134.213/32", # BJSS VPN 04/18
+  "195.205.13.211/32",  # Capita (WM Proxy)
+  "195.27.53.211/32",   # Capita (LD Proxy)
+  "85.115.52.201/32",   # Capita (Cloud Proxy)
+  "82.203.33.128/28",   # Capita (Cloud NAT Pool1)
+  "82.203.33.112/28",   # Capita (Cloud NAT Pool2)
+  "85.115.54.200/29",   # Capita (Bury St Edmunds)
+  "54.72.37.158/32",    # Selenium Elasticgrid Proxy
+  "54.76.206.25/32",    # Perf01 NATGW IP
+  "185.8.52.254/32",    # Start Barclays IP
+  "185.8.53.254/32",
+  "185.8.54.254/32",
+  "212.23.45.97/32",
+  "212.35.124.164/32",  # End Barclays IP
+]
+
 whitelist = [
   "135.196.73.204/32",  # DVSA Notts
   "213.160.121.250/32", # DVSA Notts Corp & Wifi
@@ -612,6 +631,7 @@ aws_account_alias = "tarslive"
 
 # ACM Certname
 cert_name = "tars-prod-public"
+payments_cert_name = "payments-prod-public"
 
 # Deployer pub key
 deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVSO8uKpdbwww94azylwjnFxsFGcmXG4ObL1oOFibHMN0x+SsSwjfC1DEziWPK3m/Crmar0+ad/68nQC+iWo/MYclh8h3bkKlv9dO4Xtv/0H6uDRW3l3bBO0rWYbt46fMAOCqX96N3LRTfUlPuzsVAd0NGZZlSSAZF0AMl4xE/tZl2m+Dqylrjp3qLT4UxEIrAuvPW06PqkGy63hZznjCjQDaadOAUpY19ZaA71JBueyGBnZ8pSVzr5hT1TpNw/cXxA6WLj4CCipIVm0M64OT/ArqcnQMX9Htf4Gp5apXZ3f6MerfjgHnkrm1t6JNuhSjVB deployer@mgmt.tars.dvsa.aws"

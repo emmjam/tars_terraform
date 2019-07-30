@@ -71,3 +71,24 @@ resource "aws_route53_record" "irdt-public" {
     evaluate_target_health = true
   }
 }
+
+#Create R53 record for payments ALB
+
+resource "aws_route53_record" "payments-public" {
+  name = "${format(
+    "%s-%s-%s",
+    "payments",
+    var.environment,
+    "public"
+  )}"
+
+  zone_id = "${data.terraform_remote_state.acc.public_domain_name_zone_id}"
+  type    = "A"
+
+  alias {
+    name                   = "${aws_alb.tars-alb-backend-payments.dns_name}"
+    zone_id                = "${aws_alb.tars-alb-backend-payments.zone_id}"
+    evaluate_target_health = true
+  }
+}
+

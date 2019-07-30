@@ -30,3 +30,12 @@ data "aws_acm_certificate" "tars-core-private_tars_dvsa_aws" {
     "ISSUED",
   ]
 }
+
+data "aws_acm_certificate" "payments_nonprod_tars_dvsacloud_uk" {
+  domain = "${var.payments_cert_name}.${data.terraform_remote_state.acc.public_domain_name}"
+
+  statuses = [
+    "ISSUED",
+  ]
+}
+
