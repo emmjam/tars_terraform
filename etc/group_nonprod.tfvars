@@ -476,6 +476,25 @@ ctrl_grafana_subnets = [
   "10.167.60.240/28",
 ]
 
+payments_whitelist = [
+  "135.196.73.204/32",  # DVSA Notts
+  "213.160.121.250/32", # DVSA Notts Corp & Wifi
+  "148.253.134.213/32", # BJSS VPN 04/18
+  "195.205.13.211/32",  # Capita (WM Proxy)
+  "195.27.53.211/32",   # Capita (LD Proxy)
+  "85.115.52.201/32",   # Capita (Cloud Proxy)
+  "82.203.33.128/28",   # Capita (Cloud NAT Pool1)
+  "82.203.33.112/28",   # Capita (Cloud NAT Pool2)
+  "85.115.54.200/29",   # Capita (Bury St Edmunds)
+  "54.72.37.158/32",    # Selenium Elasticgrid Proxy
+  "54.76.206.25/32",    # Perf01 NATGW IP
+  "185.8.52.254/32",    # Start Barclays IP
+  "185.8.53.254/32",
+  "185.8.54.254/32",
+  "212.23.45.97/32",
+  "212.35.124.164/32",  # End Barclays IP
+]
+
 whitelist = [
   "135.196.73.204/32",  # DVSA Notts
   "213.160.121.250/32", # DVSA Notts Corp & Wifi
@@ -634,6 +653,7 @@ elc_main_port            = "11211"
 
 # ACM Certname
 cert_name = "*"
+payments_cert_name = "*"
 tars_private_cert = "*"
 tars_pdf_cert     = "*"
 cpc_private_cert  = "*"
