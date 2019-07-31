@@ -40,3 +40,30 @@ spot_pricing = {
   "t3.medium"  = "0.0151"
 }
 
+rhel_spot_pricing = {
+  "c4.large"   = "0.0960"
+  "c4.xlarge"  = "0.1320"
+  "c4.2xlarge" = "0.2067"
+  "c5.large"   = "0.1111"
+  "c5.xlarge"  = "0.1481"
+  "c5.2xlarge" = "0.2534"
+  "m3.medium"  = "0.0681"
+  "m3.large"   = "0.0960"
+  "m4.large"   = "0.0981"
+  "m4.2xlarge" = "0.2131"
+  "m4.4xlarge" = "0.3623"
+  "m5.large"   = "0.1027"
+  "m5d.large"   = "0.1027"
+  "m5.xlarge"  = "0.1465"
+  "r4.xlarge"  = "0.1501"
+  "r4.2xlarge" = "0.2311"
+  "t2.micro"   = "0.0642"
+  "t2.small"   = "0.0683"
+  "t2.medium"  = "0.0785"
+  "t2.large"   = "0.0933"
+  "t3.nano"    = "0.0619"
+  "t3.micro"   = "0.0648"
+  "t3.small"   = "0.0675"
+  "t3.medium"  = "0.0751"
+}
+

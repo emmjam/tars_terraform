@@ -35,6 +35,7 @@ module "tars_front" {
   lc_ami_id        = "${data.aws_ami.wildfly-front.image_id}"
   lc_instance_type = "${var.wildfly-front_instance_type}"
   lc_user_data     = "${data.template_cloudinit_config.wildfly-front.rendered}"
+  lc_spot_price    = "${lookup(var.rhel_spot_pricing, var.wildfly-front_instance_type)}"
 
   lc_additional_sg_ids = [
     "${data.terraform_remote_state.base.core_sg_id}",
