@@ -23,6 +23,7 @@ module "xenco" {
   lc_ami_id        = "${data.aws_ami.xenco.id}"
   lc_instance_type = "${var.xenco_instance_type}"
   lc_user_data     = "${data.template_cloudinit_config.xenco.rendered}"
+  lc_spot_price    = "${lookup(var.rhel_spot_pricing, var.xenco_instance_type)}"
 
   cwl_names = [
     "/cloud-init-output",

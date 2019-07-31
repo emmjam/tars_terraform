@@ -25,6 +25,12 @@ variable "version" {
   description = "Version of infrastructure deployed"
 }
 
+variable "rhel_spot_pricing" {
+  type        = "map"
+  description = "A map containing the the spot instance price (USD) for each instance type"
+  default     = {}
+}
+
 variable "aws_autoscaling_enabled" {
   type        = "string"
   default     = "1"

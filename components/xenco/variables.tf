@@ -36,6 +36,12 @@ variable "account_environment" {
   description = "The environment name for the account level scope for the account in which this component is deployed"
 }
 
+variable "rhel_spot_pricing" {
+  type        = "map"
+  description = "A map containing the the spot instance price (USD) for each instance type"
+  default     = {}
+}
+
 variable "private_domain_name" {
   type        = "string"
   description = "TARS VPC private R53 domain name"

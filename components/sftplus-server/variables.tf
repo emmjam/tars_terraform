@@ -97,6 +97,12 @@ variable "asg_default_tags" {
   default     = []
 }
 
+variable "rhel_spot_pricing" {
+  type        = "map"
+  description = "A map containing the the spot instance price (USD) for each instance type"
+  default     = {}
+}
+
 variable "lc_spot_price" {
   type        = "string"
   description = "The price to use for reserving spot instances"

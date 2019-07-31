@@ -31,6 +31,12 @@ variable "aws_autoscaling_enabled" {
   description = "Enable or not the built in AWS autocaling scaling group scheduled actions"  
 }
 
+variable "rhel_spot_pricing" {
+  type        = "map"
+  description = "A map containing the the spot instance price (USD) for each instance type"
+  default     = {}
+}
+
 variable "account_component_name" {
   type        = "string"
   description = "The name of the account-level component as used in remote state"
