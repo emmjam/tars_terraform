@@ -7,6 +7,7 @@ resource "aws_alb" "public" {
 
   security_groups = [
     "${aws_security_group.alb_public.id}",
+    "${aws_security_group.nexus_alb.id}",
   ]
 
   subnets = [
