@@ -14,6 +14,10 @@ output "vpc_cidr_block" {
   value = "${aws_vpc.ctrl.cidr_block}"
 }
 
+output "eip_nat_public_ips" {
+  value = "${aws_eip.nat.*.public_ip}"
+}
+
 output "rt_private_nat_id" {
   value = "${aws_route_table.private_nat.id}"
 }
