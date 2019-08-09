@@ -66,6 +66,11 @@ variable "tf_state_bucket_prefix" {
   description = ""
 }
 
+variable "sonarqube" {
+  type        = "map"
+  description = "Sonarqube Configuration"
+}
+
 variable "users" {
   type        = "list"
   description = "List of IAM Users"
