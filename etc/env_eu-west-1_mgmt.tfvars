@@ -264,6 +264,34 @@ alb_public_subnets_cidrs = [
   "10.200.1.176/28",
 ]
 
+## sonarqube
+sonarqube = {
+  sq_asg_size_min             = 1
+  sq_asg_size_desired         = 1
+  sq_asg_size_max             = 1
+  sq_instance_type            = "t2.medium"
+  sq_subnets_newbits          = "8"
+  sq_subnets_netnum_root      = "10"
+  rds_pg_max_allowed_packet   = "104857600"
+  rds_storage_type            = "gp2"
+  rds_allocated_storage       = "20"
+  rds_engine                  = "postgres"
+  rds_engine_version          = "10.9"
+  rds_pg_family               = "postgres10"
+  rds_instance_class          = "db.t2.medium"
+  rds_multi_az                = false
+  rds_username                = "sonarQubeAdmin"
+  rds_password                = "sonarQubeAdmin"
+  rds_skip_final_snapshot     = false
+  rds_backup_retention_period = 7
+  rds_backup_window           = "01:00-02:00"
+  rds_maintenance_window      = "Sun:03:00-Sun:06:00"
+  rds_subnets_newbits         = "8"
+  rds_subnets_netnum_root     = "13"
+
+}
+
+
 ## gitlab
 gitlab_instance_type        = "m4.large"
 gitlab_ami_build_id         = "2"

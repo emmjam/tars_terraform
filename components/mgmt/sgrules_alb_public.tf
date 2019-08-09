@@ -30,3 +30,13 @@ resource "aws_security_group_rule" "alb_public_egress_nexus_8081" {
   security_group_id        = "${aws_security_group.alb_public.id}"
   source_security_group_id = "${module.microservice_nexus.security_group_id}"
 }
+
+resource "aws_security_group_rule" "alb_public_egress_sonarqube_9000" {
+  description              = "Allow TCP/9000 to sonarqube"
+  type                     = "egress"
+  from_port                = 9000
+  to_port                  = 9000
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.alb_public.id}"
+  source_security_group_id = "${module.sonarqube.sq_security_group_id}"
+}

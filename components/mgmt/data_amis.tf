@@ -22,6 +22,30 @@ data "aws_ami" "jenkins" {
   }
 }
 
+data "aws_ami" "sonarqube" {
+  name_regex = "${format(
+    "%s-%s-%s/%s",
+    var.project,
+    "amzn",
+    "sonarqube",
+    "*"
+  )}"
+
+  most_recent = "true"
+
+  owners = [
+    "${data.aws_caller_identity.current.account_id}",
+  ]
+
+  filter {
+    name = "state"
+
+    values = [
+      "available",
+    ]
+  }
+}
+
 data "aws_ami" "gitlab" {
   name_regex = "${format(
     "%s-%s-%s/%s",
