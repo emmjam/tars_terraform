@@ -428,8 +428,6 @@ riverpractical_incap_cname   = "ibs-prep-public.prod.tars.dvsacloud.uk"
 
 bobj_cert               = "bobj-prep"
 
-squidnat_ami_build_id  = "537"
-
 #RDS Deletion Protection
 tars_rds_delete_protect = "False"
 cpc_rds_delete_protect = "False"
