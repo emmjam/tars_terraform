@@ -233,7 +233,7 @@ aws_autoscaling_enabled = "0"
 prometheus_asg_min_size           = 0
 prometheus_asg_max_size           = 1
 prometheus_instance_type          = "m3.medium"
-prometheus_ami_build_id           = 563
+prometheus_ami_build_id           = 583
 prometheus_efs_provisioned_mibps  = 1
 
 #EFS Backups
