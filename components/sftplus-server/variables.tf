@@ -135,6 +135,12 @@ variable "cpc_sftp_subnets_cidrs" {
   default     = []
 }
 
+variable "sftpplus_nlb_subnets_cidrs" {
+  type        = "list"
+  description = ""
+  default     = []
+}
+
 variable "sftpplus-svr_puppet_nodetype" {
   type        = "string"
   description = ""
