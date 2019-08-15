@@ -22,7 +22,7 @@ resource "aws_security_group_rule" "sftpplus_ingress_nlb" {
   security_group_id = "${module.sftpplus_svr.security_group_id}"
 
   cidr_blocks = [
-    "${var.cpc_sftp_subnets_cidrs}",
+    "${var.cpc_sftp_subnets_cidrs}", "${var.sftpplus_nlb_subnets_cidrs}",
   ]
 }
 
