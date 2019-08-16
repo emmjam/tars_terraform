@@ -37,6 +37,7 @@ all_users = [
   "callum.massey@bjss.com",
   "ibrar.akram@bjss.com",
   "john.bower@bjss.com",
+  "luke.browning@bjss.com",
 ]
 
 administrators = [
@@ -63,6 +64,7 @@ administrators = [
   "callum.massey@bjss.com",
   "ibrar.akram@bjss.com",
   "john.bower@bjss.com",
+  "luke.browning@bjss.com",
 ]
 
 tss_billing_ro_users = [
