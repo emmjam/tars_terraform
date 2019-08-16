@@ -78,6 +78,9 @@ all_users = [
   "john.bower@bjss.com",
   "jamie.kelly@bjss.com",
   "luke.browning@bjss.com",
+  "martin.cavanagh@bjss.com",
+  "balkar.bains@bjss.com",
+  "rishi.davda@bjss.com",
 ]
 
 administrators = [
@@ -164,6 +167,9 @@ support_ro_users = [
   "alban.anderson@capita.co.uk",
   "dolly.adeyiga@capita.co.uk",
   "gitanjali.nalawade@capita.co.uk",
+  "martin.cavanagh@bjss.com",
+  "balkar.bains@bjss.com",
+  "rishi.davda@bjss.com",
 ]
 
 dvsa_ro_users = [
