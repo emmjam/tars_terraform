@@ -76,6 +76,7 @@ all_users = [
   "callum.massey@bjss.com",
   "ibrar.akram@bjss.com",
   "john.bower@bjss.com",
+  "luke.browning@bjss.com",
 ]
 
 administrators = [
@@ -105,6 +106,7 @@ ops_users = [
   "ibrar.akram@bjss.com",
   "rajkieren.manku@bjss.com",
   "john.bower@bjss.com",
+  "luke.browning@bjss.com",
 ]
 
 power_users = [
@@ -164,6 +166,7 @@ support_ro_users = [
   "daniel.thompson@bjss.com",
   "berin.smaldon@bjss.com",
   "ibrar.akram@bjss.com",
+  "luke.browning@bjss.com",
 ]
 
 capita_archive_users = [

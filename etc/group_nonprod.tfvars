@@ -77,6 +77,7 @@ all_users = [
   "ibrar.akram@bjss.com",
   "john.bower@bjss.com",
   "jamie.kelly@bjss.com",
+  "luke.browning@bjss.com",
 ]
 
 administrators = [
@@ -110,6 +111,7 @@ ops_users = [
   "ibrar.akram@bjss.com",
   "john.bower@bjss.com",
   "jamie.kelly@bjss.com",
+  "luke.browning@bjss.com",
 ]
 
 power_users = [
