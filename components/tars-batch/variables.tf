@@ -208,3 +208,9 @@ variable "dvsa_dns_servers" {
   description = "DVSA Azure DNS Servers"
   default     = []
 }
+
+variable "efs_backup_env" {
+  type        = "list"
+  description = ""
+  default     = []
+}
