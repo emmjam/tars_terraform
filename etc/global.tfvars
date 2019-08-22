@@ -67,3 +67,10 @@ rhel_spot_pricing = {
   "t3.medium"  = "0.0751"
 }
 
+efs_backup_env  = [
+  "sit01",
+  "sit02",
+  "uat01",
+  "uat02",
+  "prod"
+]

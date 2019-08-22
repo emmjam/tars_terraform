@@ -192,3 +192,9 @@ variable "sftpplus_efs_subnets_cidrs" {
   description = "SFTPPlus EFS subnets list"
   default     = []
 }
+
+variable "efs_backup_env" {
+  type        = "list"
+  description = ""
+  default     = []
+}

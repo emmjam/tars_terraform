@@ -162,3 +162,9 @@ variable "cpc-batch-efs-arn" {
   type    = "string"
   default = ""
 }
+
+variable "efs_backup_env" {
+  type        = "list"
+  description = ""
+  default     = []
+}
