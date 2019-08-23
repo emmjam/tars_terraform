@@ -38,6 +38,9 @@ all_users = [
   "ibrar.akram@bjss.com",
   "john.bower@bjss.com",
   "luke.browning@bjss.com",
+  "martin.cavanagh@bjss.com",
+  "balkar.bains@bjss.com",
+  "rishi.davda@bjss.com",
 ]
 
 administrators = [
