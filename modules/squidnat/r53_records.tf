@@ -16,6 +16,6 @@ resource "aws_route53_record" "squid" {
   ttl     = "60"
 
   records = [
-    "${aws_instance.squidnat.*.private_ip}",
+    "${aws_network_interface.squid.*.private_ip}",
   ]
 }

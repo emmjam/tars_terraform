@@ -8,7 +8,7 @@ resource "aws_route" "private_nats_default" {
   count                  = "${length(var.squidnat_subnets_cidrs)}"
   route_table_id         = "${element(aws_route_table.private_nat.*.id,count.index)}"
   destination_cidr_block = "0.0.0.0/0"
-  instance_id            = "${element(module.squidnat.instance_ids,count.index)}"
+  network_interface_id   = "${element(module.squidnat.squidnat_interface_ids,count.index)}"
 }
 
 resource "aws_route" "internet_natgw" {

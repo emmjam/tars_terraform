@@ -1,12 +1,110 @@
-#!/bin/bash -xe
+#!/bin/bash
+# vim: set syntax=sh tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab :
 
 function log() {
   echo "[$(date)]$1" | tee -a /var/log/puppet_cloudinit.log
 }
 
+log_file='/tmp/bootstrap.log';
+
 log '[INFO] Running puppet to configure environment'
 
 sed -E -i "s/'[a-z0-9]{8}\-[a-z0-9]{4}\-[a-z0-9]{4}\-[a-f0-9]{4}\-[a-z0-9]{12}'/'${KMS_KEY}'/g" /etc/eyaml/config.yaml
+
+export aws="$(which aws || echo '/usr/bin/aws')";
+export curl="$(which curl || echo '/usr/bin/curl')";
+
+export region="$(curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | jq -r .region)";
+export az="$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone)";
+export INTERFACE=$(curl --silent http://169.254.169.254/latest/meta-data/network/interfaces/macs/ | head -n 1)
+export SUBNET_ID=$(curl --silent http://169.254.169.254/latest/meta-data/network/interfaces/macs/$${INTERFACE}/subnet-id)
+export INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
+export NETWORK_INTERFACE_ID=$(aws ec2 describe-network-interfaces --filter "Name=subnet-id,Values=$${SUBNET_ID}" "Name=status,Values=available" --query 'NetworkInterfaces[0].NetworkInterfaceId' --region ${REGION} --output text)
+
+log '[INFO] Attaching Network Interface'
+ATTACH_RETRIES=10
+until [ $${ATTACH_RETRIES} -eq 0 ]; do
+  aws ec2 attach-network-interface \
+    --network-interface-id $${NETWORK_INTERFACE_ID} \
+    --instance-id $${INSTANCE_ID} \
+    --region ${REGION} \
+    --device-index 1 \
+    && break
+  let ATTACH_RETRIES=$${ATTACH_RETRIES}-1
+  sleep 10
+done
+
+log '[INFO] Waiting for Network Interface to be attached'
+ATTACH_STATUS='unknown'
+ATTACH_RETRIES=10
+until [ $${ATTACH_STATUS} == 'attached' ]; do
+  ATTACH_STATUS=$(aws ec2 describe-network-interfaces \
+    --network-interface-ids $${NETWORK_INTERFACE_ID}\
+    --query NetworkInterfaces[].Attachment.Status \
+    --region ${REGION} \
+    --output text)
+  let ATTACH_RETRIES=$${ATTACH_RETRIES}-1
+  if [ $${ATTACH_RETRIES} -eq 0 ]; then
+    log "[ERROR] Could not attach Network Interface after $${ATTACH_RETRIES} retries"
+    exit 1
+  fi
+  sleep 5
+done
+
+# Instance ID begets all things...
+log 'INFO' 'Retrieving Instance ID from Metadata';
+instance_id="$($${curl} -s http://169.254.169.254/latest/meta-data/instance-id)";
+if [ $${?} -ne 0 ]; then
+  error "Failed to retrieve Instance ID";
+fi
+log 'INFO' "Instance ID: $${instance_id}";
+
+# Get Current AWS Region in order to do anything useful...
+log 'INFO' 'Retrieving Instance Identity Document from Metadata';
+instance_identity_document="$($${curl} -s http://169.254.169.254/latest/dynamic/instance-identity/document)";
+if [ $${?} -ne 0 ]; then
+  error "$${curl} -s http://169.254.169.254/latest/dynamic/instance-identity/document";
+else
+  log 'INFO' 'Instance Identity Document Retrieved';
+
+  region="$(echo "$${instance_identity_document}" | jq -r .region)";
+
+  if [ $${?} -ne 0 ]; then
+    error 'jq: Instance Identity Document could not be parsed for current Region';
+  else
+    log 'INFO' "Region retrieved: $${region}";
+  fi;
+
+  # Make it available to the AWS cli; who needs to specify the region manually on every single call(?)
+  export AWS_DEFAULT_REGION="$${region}";
+fi;
+
+# Get the Autoscaling Group Name - it's a bit dirty but it works.
+asg_name="$($${aws} autoscaling describe-auto-scaling-instances \
+  --instance "$${instance_id}" \
+  --output json \
+  | jq -r .AutoScalingInstances[0].AutoScalingGroupName)";
+
+if [ $${?} -ne 0 ]; then
+  error 'Failed to retrieve the autoscaling group name for this instance';
+else
+  log 'INFO' "ASG name retrieved: $${asg_name}";
+fi;
+
+# Get the Launching LifeCycle Hook Name for this ASG (Making the assumption there's only one hook!)
+lifecycle_hook_name="$($${aws} autoscaling describe-lifecycle-hooks \
+  --auto-scaling-group-name "$${asg_name}" \
+  --output json \
+  | jq -r '.LifecycleHooks[] | select(.LifecycleTransition=="autoscaling:EC2_INSTANCE_LAUNCHING") | .LifecycleHookName')";
+
+if [ $${?} -ne 0 ]; then
+  error "Failed to retrieve lifecycle hook name for the autoscaling:EC2_INSTANCE_LAUNCHING transition for the autoscaling group named: $${asg_name}";
+else
+  log 'INFO' "Lifecycle hook name retrieved: $${lifecycle_hook_name}"
+fi;
+
+# Prerequisite information gathered - begin bootstrapping
+
 
 # Shift this to cloud-init config yaml
 facts_path="/opt/puppetlabs/facter/facts.d"
@@ -14,16 +112,103 @@ echo -n 'environment: ${ENVIRONMENT}'    > "$${facts_path}/environment.yaml"
 echo -n 'nodetype: ${NODETYPE}'          > "$${facts_path}/nodetype.yaml"
 echo -n 'aws_account: ${AWS_ACCOUNT_ID}' > "$${facts_path}/aws_account.yaml"
 
+# But we can trust ourselves...
+set -u;
+
+# Assume success
+its_alive=1
+
 cd /opt/packer-puppet-masterless
 
 
-# TODO: peacheym: Convert this script to use standardised
-# error handling, remove the "set -e" and then
-# add --detailed-exitcodes and handle the return codes puppet provides
+log 'Running puppet apply...';
+DATECMD='date +%H:%M:%S'
 /opt/puppetlabs/bin/puppet apply \
-  --verbose \
+  --detailed-exitcodes \
   --modulepath='/opt/packer-puppet-masterless/module-0:/opt/packer-puppet-masterless/module-1' \
   --hiera_config='/opt/packer-puppet-masterless/hiera.yaml' \
-  /opt/packer-puppet-masterless/manifests/site.pp
+  /opt/packer-puppet-masterless/manifests/site.pp 2>&1 | { \
+  # generate timestamped output
+    while read line; do
+      echo -e "$($DATECMD) $line"
+    done
+  } | tee -a "$${log_file}"
 
-log '[INFO] Puppet configuration finished'
+puppet_result=$?
+
+log "Puppet apply result: $${puppet_result}";
+# 0: The run succeeded with no changes or failures; the system was already in the desired state.
+# 2: The run succeeded, and some resources were changed.
+# all other codes include some sort of failure
+if [ $${puppet_result} -ne 0 ] && [ $${puppet_result} -ne 2 ]; then
+  log 'Puppet Apply Failed';
+  its_alive=0
+
+else
+  log 'Puppet Apply Success';
+  nodetype="$(facter nodetype)";
+  syntax_ok=1;
+
+fi
+function json_escape () {
+    printf '%s' "$1" | python -c 'import json,sys; print(json.dumps(sys.stdin.read()))'
+}
+
+# Sure would be lovely if date could give unix time 
+# in milliseconds
+timestamp=$(($(date +'%s * 1000 + %-N / 1000000')))
+log_data="$(json_escape "$(cat /var/log/cloud-init-output.log)")"
+
+echo """
+[
+  {
+    \"timestamp\": $${timestamp},
+    \"message\": $${log_data}
+  }
+]""" > /var/log/cwl-cloud-init.txt
+
+aws logs create-log-stream \
+  --region $${region} \
+  --log-group-name ${LOG_GROUP} \
+  --log-stream-name $${instance_id}
+
+aws logs put-log-events \
+  --region $${region} \
+  --log-group-name ${LOG_GROUP} \
+  --log-stream-name $${instance_id} \
+  --log-events file:///var/log/cwl-cloud-init.txt
+
+log 'INFO' 'Completing lifecycle action'
+
+echo "Existing lifecycle hooks for $${asg_name}:"
+aws autoscaling describe-lifecycle-hooks --auto-scaling-group-name $${asg_name}
+
+echo "Instance ID: $${instance_id}"
+
+if [ $${its_alive} -eq 1 ]; then
+  # If we're still alive then we're safe to become a healthy instance
+  log 'Completing the ASG Lifecycle Action to bring this instance into live service'; 
+  echo "Instance id: $${instance_id} lifecycle hook name: $${lifecycle_hook_name} asg name: $${asg_name}"
+  aws autoscaling complete-lifecycle-action \
+    --lifecycle-action-result CONTINUE \
+    --instance-id "$${instance_id}" \
+    --lifecycle-hook-name "$${lifecycle_hook_name}" \
+    --auto-scaling-group-name "$${asg_name}" \
+    && log '=== Bootstrap Complete ===' \
+    || error 'Failed to complete lifecycle hook';
+
+else
+  log 'Completing the ASG Lifecycle Action to abandon this instance';
+  log 'Sleeping 30 seconds to avoid eventually-consistent issue...'
+  sleep 30
+
+  aws autoscaling complete-lifecycle-action \
+    --lifecycle-action-result ABANDON \
+    --instance-id "$${instance_id}" \
+    --lifecycle-hook-name "$${lifecycle_hook_name}" \
+    --auto-scaling-group-name "$${asg_name}" \
+    && log '=== Bootstrap ABANDON ===' \
+    || error 'Failed to complete lifecycle hook';
+
+fi
+
