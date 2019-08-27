@@ -10,38 +10,26 @@ output "security_group_id" {
 }
 
 # Node IDs
-output "instance_ids" {
+output "autoscaling_group_ids" {
   value = [
-    "${aws_instance.squidnat.*.id}",
+    "${module.microservice_squidnat_0.autoscaling_group_id}",
+    "${module.microservice_squidnat_1.autoscaling_group_id}",
+    "${module.microservice_squidnat_2.autoscaling_group_id}",
+
   ]
 }
 
-output "private_ips" {
+output "squidnat_interface_ids" {
   value = [
-    "${aws_instance.squidnat.*.private_ip}",
+    "${aws_network_interface.squid.*.id}",
   ]
-}
-
-output "public_ips" {
-  value = [
-    "${aws_instance.squidnat.*.public_ip}",
-  ]
-}
-
-output "iam_role_name" {
-  value = "${aws_iam_role.main.name}"
 }
 
 # Using the instance output rather than the subnet-tuple module output
 # to help ensure the output lists maintain a relationship with each other
 output "subnet_ids" {
   value = [
-    "${aws_instance.squidnat.*.subnet_id}",
+    "${module.microservice_squidnat_0.subnet_ids}",
   ]
 }
 
-output "availability_zones" {
-  value = [
-    "${aws_instance.squidnat.*.availability_zone}",
-  ]
-}

@@ -63,4 +63,3 @@ resource "aws_security_group_rule" "squidnat_egress_whitelist_ses" {
     "${var.egress_whitelist}",
   ]
 }
-

@@ -601,6 +601,8 @@ dvsa_win_monitoring = [
   "10.69.3.18/32",
 ]
 
+cwl_retention_days = "30"
+
 # Used for DTC printer queue lookups
 dvsa_ldap_server = "10.166.0.14/32"
 

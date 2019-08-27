@@ -31,6 +31,11 @@ variable "asg_default_tags" {
   default     = []
 }
 
+variable "aws_account_alias" {
+  type        = "string"
+  description = "The IAM AWS Account alias"
+}
+
 variable "default_tags" {
   type        = "map"
   description = "Default tag map"
@@ -288,6 +293,12 @@ variable "mgmt_project" {
 variable "mgmt_environment" {
   type        = "string"
   description = ""
+}
+
+variable "cwl_retention_days"{
+  type        = "string"
+  description = "cloudwatch retention period"
+  default     = "30"
 }
 
 ## Jenkins

@@ -109,6 +109,8 @@ ctrl_grafana_subnets = [
   "10.167.64.240/28",
 ]
 
+cwl_retention_days = "30"
+
 mgmt_aws_account_id         = "645711882182"
 mgmt_aws_region             = "eu-west-1"
 mgmt_project                = "tars"
