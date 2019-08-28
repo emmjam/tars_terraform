@@ -170,6 +170,9 @@ support_ro_users = [
   "berin.smaldon@bjss.com",
   "ibrar.akram@bjss.com",
   "luke.browning@bjss.com",
+  "martin.cavanagh@bjss.com",
+  "balkar.bains@bjss.com",
+  "rishi.davda@bjss.com",
 ]
 
 capita_archive_users = [
