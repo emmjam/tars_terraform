@@ -385,6 +385,4 @@ domain_name_servers = [
 
 private_cert_domain_name = "sit02.tars.dvsa.aws"
 
-apache_ami_build_id = 504
-
 mes_cidr_block = ["10.21.0.0/16"]
