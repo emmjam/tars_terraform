@@ -80,6 +80,7 @@ all_users = [
   "martin.cavanagh@bjss.com",
   "balkar.bains@bjss.com",
   "rishi.davda@bjss.com",
+  "tom.bibb@bjss.com",
 ]
 
 administrators = [
@@ -114,6 +115,7 @@ ops_users = [
   "john.bower@bjss.com",
   "jamie.kelly@bjss.com",
   "luke.browning@bjss.com",
+  "tom.bibb@bjss.com",
 ]
 
 power_users = [

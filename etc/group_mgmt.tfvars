@@ -41,6 +41,7 @@ all_users = [
   "martin.cavanagh@bjss.com",
   "balkar.bains@bjss.com",
   "rishi.davda@bjss.com",
+  "tom.bibb@bjss.com",
 ]
 
 administrators = [
@@ -68,6 +69,7 @@ administrators = [
   "ibrar.akram@bjss.com",
   "john.bower@bjss.com",
   "luke.browning@bjss.com",
+  "tom.bibb@bjss.com",
 ]
 
 tss_billing_ro_users = [
