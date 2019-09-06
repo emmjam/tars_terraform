@@ -639,3 +639,15 @@ variable "transit_peering_enabled" {
   description = "Enable Transit VPC"
   default     = ""
 }
+
+variable "elise_log_group_name" {
+  type        = "string"
+  default     = ""
+  description = "Log Group Name"
+}
+
+variable "metric_env" {
+  type        = "list"
+  description = ""
+  default     = []
+}
