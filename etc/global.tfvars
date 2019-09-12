@@ -74,3 +74,11 @@ efs_backup_env  = [
   "uat02",
   "prod"
 ]
+
+metric_env  = [
+  "opsdev",
+  "uat01",
+  "prod"
+]
+
+elise_log_group_name = "/opt/wildfly/logs/applications/elise-timing.json"
