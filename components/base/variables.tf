@@ -651,3 +651,9 @@ variable "metric_env" {
   description = ""
   default     = []
 }
+
+variable "efs_backup_env" {
+  type        = "list"
+  description = ""
+  default     = []
+}
