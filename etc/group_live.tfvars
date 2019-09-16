@@ -175,6 +175,7 @@ support_ro_users = [
   "balkar.bains@bjss.com",
   "rishi.davda@bjss.com",
   "ian.harris@bjss.com",
+  "tom.bibb@bjss.com",
 ]
 
 capita_archive_users = [
