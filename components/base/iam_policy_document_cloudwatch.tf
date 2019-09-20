@@ -9,9 +9,3 @@ resource "aws_iam_role_policy_attachment" "cloudwatch_jmeter" {
   policy_arn = "${aws_iam_policy.cloudwatch.arn}"
 }
 
-resource "aws_iam_role_policy_attachment" "cloudwatch_squidnat" {
-  role       = "${module.squidnat.iam_role_name}"
-  policy_arn = "${aws_iam_policy.cloudwatch.arn}"
-}
-
-

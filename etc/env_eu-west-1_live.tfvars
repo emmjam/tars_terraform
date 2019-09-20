@@ -58,7 +58,7 @@ cwles_master_instance_count = "2"
 # Changed due to JIRA OPS-2184 keep bastion AMI current on weekly basis BST
 ## bastion
 bastion_instance_type        = "t2.micro"
-bastion_ami_build_id         = "587"
+bastion_ami_build_id         = "592"
 bastion_asg_min_size         = 1
 bastion_asg_max_size         = 3
 bastion_scaledown_desired    = 1
@@ -69,7 +69,7 @@ bastion_scaleup_recurrence   = "30 05 * * 1"
 # TODO: smarts: Move AMI IDs to versions file
 ## Grafana
 grafana_instance_type        = "t2.micro"
-grafana_ami_build_id         = "590"
+grafana_ami_build_id         = "607"
 grafana_asg_min_size         = 1
 grafana_asg_max_size         = 1
 grafana_scaledown_desired    = 1

@@ -32,7 +32,6 @@ all_users = [
   "neil.eaton@bjss.com",
   "david.johnson@bjss.com",
   "daniel.thompson@bjss.com",
-  "berin.smaldon@bjss.com",
   "gareth.whiteside@bjss.com",
   "callum.massey@bjss.com",
   "ibrar.akram@bjss.com",
@@ -41,6 +40,8 @@ all_users = [
   "martin.cavanagh@bjss.com",
   "balkar.bains@bjss.com",
   "rishi.davda@bjss.com",
+  "tom.bibb@bjss.com",
+  "ian.harris@bjss.com",
 ]
 
 administrators = [
@@ -63,11 +64,12 @@ administrators = [
   "adrian.jones@bjss.com",
   "rajkieren.manku@bjss.com",
   "daniel.thompson@bjss.com",
-  "berin.smaldon@bjss.com",
   "callum.massey@bjss.com",
   "ibrar.akram@bjss.com",
   "john.bower@bjss.com",
   "luke.browning@bjss.com",
+  "tom.bibb@bjss.com",
+  "ian.harris@bjss.com",
 ]
 
 tss_billing_ro_users = [
@@ -108,6 +110,8 @@ ctrl_grafana_subnets = [
   "10.167.64.224/28",
   "10.167.64.240/28",
 ]
+
+cwl_retention_days = "30"
 
 mgmt_aws_account_id         = "645711882182"
 mgmt_aws_region             = "eu-west-1"

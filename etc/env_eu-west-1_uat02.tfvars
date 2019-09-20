@@ -333,7 +333,7 @@ tars_rds_autoscale = "False"
 
 
 # CPCSDB
-cpc_rds_username = "cpcuatadmin"
+cpc_rds_username = "cpcadmin"
 
 cpc_rds_password = "Mg28yDQjuEWndbtz"
 

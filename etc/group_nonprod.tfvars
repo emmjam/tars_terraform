@@ -70,7 +70,6 @@ all_users = [
   "neil.eaton@bjss.com",
   "david.johnson@bjss.com",
   "daniel.thompson@bjss.com",
-  "berin.smaldon@bjss.com",
   "callum.massey@bjss.com",
   "gareth.whiteside@bjss.com",
   "ibrar.akram@bjss.com",
@@ -80,6 +79,8 @@ all_users = [
   "martin.cavanagh@bjss.com",
   "balkar.bains@bjss.com",
   "rishi.davda@bjss.com",
+  "tom.bibb@bjss.com",
+  "ian.harris@bjss.com",
 ]
 
 administrators = [
@@ -106,7 +107,6 @@ ops_users = [
   "adrian.jones@bjss.com",
   "rajkieren.manku@bjss.com",
   "daniel.thompson@bjss.com",
-  "berin.smaldon@bjss.com",
   "callum.massey@bjss.com",
   "gareth.whiteside@bjss.com",
   "michael.tribbick@bjss.com",
@@ -114,6 +114,8 @@ ops_users = [
   "john.bower@bjss.com",
   "jamie.kelly@bjss.com",
   "luke.browning@bjss.com",
+  "tom.bibb@bjss.com",
+  "ian.harris@bjss.com",
 ]
 
 power_users = [
@@ -417,6 +419,7 @@ apache_scaledown_desired     = 0
 apache_scaledown_recurrence  = "00 19 * * 1-5"
 apache_scaleup_desired       = 1
 apache_scaleup_recurrence    = "00 04 * * 1-5"
+apache_ami_build_id          = "593"
 
 ## AWS MQ
 aws_mq_engine_type             = "ActiveMQ"
@@ -600,6 +603,8 @@ dvsa_win_monitoring = [
   "10.69.3.17/32",
   "10.69.3.18/32",
 ]
+
+cwl_retention_days = "30"
 
 # Used for DTC printer queue lookups
 dvsa_ldap_server = "10.166.0.14/32"

@@ -71,7 +71,6 @@ all_users = [
   "david.johnson@bjss.com",
   "chetan.choudhary@capita.co.uk",
   "daniel.thompson@bjss.com",
-  "berin.smaldon@bjss.com",
   "david.giles@bjss.com",
   "callum.massey@bjss.com",
   "ibrar.akram@bjss.com",
@@ -80,6 +79,8 @@ all_users = [
   "martin.cavanagh@bjss.com",
   "balkar.bains@bjss.com",
   "rishi.davda@bjss.com",
+  "tom.bibb@bjss.com",
+  "ian.harris@bjss.com",
 ]
 
 administrators = [
@@ -103,13 +104,14 @@ ops_users = [
   "ogbonna.quarcoopome-harper@bjss.com",
   "adrian.jones@bjss.com",
   "daniel.thompson@bjss.com",
-  "berin.smaldon@bjss.com",
   "callum.massey@bjss.com",
   "michael.tribbick@bjss.com",
   "ibrar.akram@bjss.com",
   "rajkieren.manku@bjss.com",
   "john.bower@bjss.com",
   "luke.browning@bjss.com",
+  "tom.bibb@bjss.com",
+  "ian.harris@bjss.com",
 ]
 
 power_users = [
@@ -167,9 +169,13 @@ support_ro_users = [
   "adrian.jones@bjss.com",
   "chetan.choudhary@capita.co.uk",
   "daniel.thompson@bjss.com",
-  "berin.smaldon@bjss.com",
   "ibrar.akram@bjss.com",
   "luke.browning@bjss.com",
+  "martin.cavanagh@bjss.com",
+  "balkar.bains@bjss.com",
+  "rishi.davda@bjss.com",
+  "ian.harris@bjss.com",
+  "tom.bibb@bjss.com",
 ]
 
 capita_archive_users = [
@@ -190,6 +196,8 @@ tss_billing_ro_users = [
   "neil.eaton@bjss.com",
   "david.johnson@bjss.com",
 ]
+
+cwl_retention_days = "90"
 
 ###############################################################################
 # MGMT
