@@ -1,0 +1,29 @@
+version: "2"
+
+services:
+  run-terraform-validate:
+    image: ${ECR_REGISTRY_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${IMAGE_NAME}:${VERSION}
+    working_dir: /etc/puppetlabs/code/environments
+    entrypoint: /etc/init.d/run-terraform-validate.sh
+    volumes:
+      - ./puppetcode:/etc/puppetlabs/code/environments
+    environment:
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_MFA_EXPIRY=${AWS_MFA_EXPIRY}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN}
+      - DEBUG=${debug}
+      - CODE_BASE=${CODE_BASE}
+    cap_add:
+      - SYS_NICE
+      - SYS_RESOURCE
+      - SYS_TIME
+    networks:
+      - host
+    shm_size: '2gb' #Added for openam agent - it was closing because of lack of shm
+networks:
+  shared:
+    external: true
+  host:
+    external: true
+ 
