@@ -42,6 +42,8 @@ all_users = [
   "rishi.davda@bjss.com",
   "tom.bibb@bjss.com",
   "ian.harris@bjss.com",
+  "josh.paveley@bjss.com",
+  "aiman.chaudhary@bjss.com",
 ]
 
 administrators = [
