@@ -81,6 +81,8 @@ all_users = [
   "rishi.davda@bjss.com",
   "tom.bibb@bjss.com",
   "ian.harris@bjss.com",
+  "josh.paveley@bjss.com",
+  "aiman.chaudhary@bjss.com",
 ]
 
 administrators = [
@@ -170,6 +172,8 @@ support_ro_users = [
   "martin.cavanagh@bjss.com",
   "balkar.bains@bjss.com",
   "rishi.davda@bjss.com",
+  "josh.paveley@bjss.com",
+  "aiman.chaudhary@bjss.com",
 ]
 
 dvsa_ro_users = [
