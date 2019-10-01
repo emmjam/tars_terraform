@@ -248,13 +248,6 @@ prometheus_instance_type          = "m3.medium"
 prometheus_ami_build_id           = 589
 prometheus_efs_provisioned_mibps  = 1
 
-#EFS Backups
-efs_backup_asg_min_size           = 0
-efs_backup_asg_max_size           = 0
-efs_backup_instance_type          = "m3.medium"
-efs_backup_ami_build_id           = 457
-
-
 ## jenkinsnode
 jenkinsnode_instance_type        = "m5d.large"
 jenkinsnode_ami_build_id         = "559"

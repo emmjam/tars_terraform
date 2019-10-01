@@ -40,11 +40,6 @@ asg_default_tags = [
 # opsdev
 ###############################################################################
 
-#EFS Backups
-efs_backup_asg_min_size           = 1
-efs_backup_asg_max_size           = 1
-
-
 # The VPC CIDR Block for this environment
 vpc_cidr = "10.167.0.0/21"
 
@@ -300,12 +295,6 @@ sftpplus_efs_subnets_cidrs = [
   "10.167.7.160/28",
   "10.167.7.176/28",
   "10.167.7.192/28",
-]
-
-efs_backup_subnets_cidrs = [
-  "10.167.7.208/28",
-  "10.167.7.224/28",
-  "10.167.7.240/28",
 ]
 
 # Deployer pub key
