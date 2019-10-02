@@ -152,10 +152,6 @@ output "prometheus_sg_id" {
   value = "${module.prometheus.security_group_id}"
 }
 
-output "efs_backup_sg_id" {
-  value = "${module.efs_backup.security_group_id}"
-}
-
 output "nat_gw_ip" {
   value = "${aws_eip.nat.*.public_ip}"
 }

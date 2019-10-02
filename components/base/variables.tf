@@ -573,30 +573,10 @@ variable "cert_name" {
   description = "ACM cert name"
 }
 
-variable "efs_backup_instance_type" {
-  type        = "string"
-  description = ""
-}
-
-variable "efs_backup_asg_max_size" {
-  type        = "string"
-  description = ""
-}
-
-variable "efs_backup_asg_min_size" {
-  type        = "string"
-  description = ""
-}
-
 variable "efs_backup_subnets_cidrs" {
   type        = "list"
   description = ""
   default     = []
-}
-
-variable "efs_backup_ami_build_id" {
-  type        = "string"
-  description = ""
 }
 
 variable "holding_pages_cert" {

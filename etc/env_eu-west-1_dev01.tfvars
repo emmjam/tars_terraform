@@ -298,12 +298,6 @@ sftpplus_efs_subnets_cidrs = [
   "10.167.31.192/28",
 ]
 
-efs_backup_subnets_cidrs = [
-  "10.167.31.208/28",
-  "10.167.31.224/28",
-  "10.167.31.240/28",
-]
-
 # Environment & Component for Accessing mgmt_prd remote state
 mgmt_component = "mgmt"
 
