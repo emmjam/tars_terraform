@@ -121,7 +121,7 @@ support_ro_users = [
   "philip.scally@bjss.com",
   "richard.freitas@bjss.com",
   "catherine.campbell@bjss.com",
-  "steve.ryalls@bjss.com",
+  "steven.ryalls@bjss.com",
   "winston.coleman@bjss.com",
   "billy.dhillon@bjss.com",
   "michael.hill@bjss.com",
