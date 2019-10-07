@@ -69,6 +69,7 @@ all_users = [
   "ian.harris@bjss.com",
   "josh.paveley@bjss.com",
   "aiman.chaudhary@bjss.com",
+  "michelle.pike@bjss.com",
 ]
 
 administrators = [
@@ -100,6 +101,7 @@ ops_users = [
   "luke.browning@bjss.com",
   "tom.bibb@bjss.com",
   "ian.harris@bjss.com",
+  "michelle.pike@bjss.com",
 ]
 
 power_users = [
@@ -152,6 +154,7 @@ support_ro_users = [
   "tom.bibb@bjss.com",
   "josh.paveley@bjss.com",
   "aiman.chaudhary@bjss.com",
+  "michelle.pike@bjss.com",
 ]
 
 capita_archive_users = [

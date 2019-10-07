@@ -44,6 +44,7 @@ all_users = [
   "ian.harris@bjss.com",
   "josh.paveley@bjss.com",
   "aiman.chaudhary@bjss.com",
+  "michelle.pike@bjss.com",
 ]
 
 administrators = [
@@ -72,6 +73,7 @@ administrators = [
   "luke.browning@bjss.com",
   "tom.bibb@bjss.com",
   "ian.harris@bjss.com",
+  "michelle.pike@bjss.com",
 ]
 
 tss_billing_ro_users = [
