@@ -97,6 +97,8 @@ ops_users = [
   "luke.browning@bjss.com",
   "tom.bibb@bjss.com",
   "ian.harris@bjss.com",
+  "rishi.davda@bjss.com",
+  "balkar.bains@bjss.com",
 ]
 
 power_users = [
