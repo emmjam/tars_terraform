@@ -19,7 +19,6 @@ all_users = [
   "brian.collinson@bjss.com",
   "chris.nappin@bjss.com",
   "michael.taylor@bjss.com",
-  "rob.hart@dvsa.gov.uk",
   "david.giles@bjss.com",
   "philip.scally@bjss.com",
   "richard.freitas@bjss.com",
@@ -104,7 +103,6 @@ ops_users = [
 ]
 
 power_users = [
-  "rob.hart@dvsa.gov.uk",
 ]
 
 dms_users = [

@@ -10,7 +10,6 @@ default_tags = {
 }
 
 all_users = [
-  "rob.hart@dvsa.gov.uk",
   "mark.thompson@bjss.com",
   "brian.collinson@bjss.com",
   "steve.wilson@bjss.com",
