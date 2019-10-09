@@ -23,7 +23,6 @@ asg_default_tags = [
 ###############################################################################
 
 all_users = [
-  "rob.hart@dvsa.gov.uk",
   "mark.thompson@bjss.com",
   "steve.wilson@bjss.com",
   "brian.collinson@bjss.com",
