@@ -129,6 +129,7 @@ support_ro_users = [
   "josh.paveley@bjss.com",
   "aiman.chaudhary@bjss.com",
   "michelle.pike@bjss.com",
+  "john.reynolds@bjss.com",
 ]
 
 dvsa_ro_users = [
