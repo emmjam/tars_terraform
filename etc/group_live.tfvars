@@ -97,6 +97,7 @@ ops_users = [
   "ian.harris@bjss.com",
   "michelle.pike@bjss.com",
   "irfan.sidat@bjss.com",
+  "john.reynolds@bjss.com",
 ]
 
 power_users = [
@@ -149,6 +150,7 @@ support_ro_users = [
   "aiman.chaudhary@bjss.com",
   "michelle.pike@bjss.com",
   "irfan.sidat@bjss.com",
+  "john.reynolds@bjss.com",
 ]
 
 capita_archive_users = [

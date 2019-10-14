@@ -58,6 +58,7 @@ all_users = [
   "aiman.chaudhary@bjss.com",
   "michelle.pike@bjss.com",
   "irfan.sidat@bjss.com",
+  "john.reynolds@bjss.com",
 ]
 
 administrators = [
@@ -92,6 +93,7 @@ ops_users = [
   "balkar.bains@bjss.com",
   "michelle.pike@bjss.com",
   "irfan.sidat@bjss.com",
+  "john.reynolds@bjss.com",
 ]
 
 power_users = [

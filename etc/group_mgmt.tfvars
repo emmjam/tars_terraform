@@ -42,6 +42,7 @@ all_users = [
   "aiman.chaudhary@bjss.com",
   "michelle.pike@bjss.com",
   "irfan.sidat@bjss.com",
+  "john.reynolds@bjss.com",
 ]
 
 administrators = [
