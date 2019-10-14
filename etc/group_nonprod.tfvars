@@ -14,9 +14,7 @@ private_domain_name = "tars.dvsa.aws"
 # public_domain_name = "dvsa.tars.dev-dvsacloud.uk"
 
 all_users = [
-  "mark.thompson@bjss.com",
   "steve.wilson@bjss.com",
-  "brian.collinson@bjss.com",
   "chris.nappin@bjss.com",
   "michael.taylor@bjss.com",
   "david.giles@bjss.com",
@@ -42,17 +40,14 @@ all_users = [
   "andrew.malcolm@bjss.com",
   "steven.millington@bjss.com",
   "michael.tribbick@bjss.com",
-  "andrew.lai@bjss.com",
   "adrian.jones@bjss.com",
   "rajkieren.manku@bjss.com",
   "neil.eaton@bjss.com",
   "david.johnson@bjss.com",
   "daniel.thompson@bjss.com",
-  "callum.massey@bjss.com",
   "gareth.whiteside@bjss.com",
   "ibrar.akram@bjss.com",
   "john.bower@bjss.com",
-  "jamie.kelly@bjss.com",
   "luke.browning@bjss.com",
   "martin.cavanagh@bjss.com",
   "balkar.bains@bjss.com",
@@ -63,15 +58,14 @@ all_users = [
   "aiman.chaudhary@bjss.com",
   "michelle.pike@bjss.com",
   "irfan.sidat@bjss.com",
+  "john.reynolds@bjss.com",
 ]
 
 administrators = [
 ]
 
 ops_users = [
-  "mark.thompson@bjss.com",
   "steve.wilson@bjss.com",
-  "brian.collinson@bjss.com",
   "chris.nappin@bjss.com",
   "michael.taylor@bjss.com",
   "chris.nappin@bjss.com",
@@ -85,16 +79,13 @@ ops_users = [
   "daniel.billing@bjss.com",
   "stephen.davies@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
-  "andrew.lai@bjss.com",
   "adrian.jones@bjss.com",
   "rajkieren.manku@bjss.com",
   "daniel.thompson@bjss.com",
-  "callum.massey@bjss.com",
   "gareth.whiteside@bjss.com",
   "michael.tribbick@bjss.com",
   "ibrar.akram@bjss.com",
   "john.bower@bjss.com",
-  "jamie.kelly@bjss.com",
   "luke.browning@bjss.com",
   "tom.bibb@bjss.com",
   "ian.harris@bjss.com",
@@ -102,6 +93,7 @@ ops_users = [
   "balkar.bains@bjss.com",
   "michelle.pike@bjss.com",
   "irfan.sidat@bjss.com",
+  "john.reynolds@bjss.com",
 ]
 
 power_users = [

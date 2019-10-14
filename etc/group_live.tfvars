@@ -23,9 +23,7 @@ asg_default_tags = [
 ###############################################################################
 
 all_users = [
-  "mark.thompson@bjss.com",
   "steve.wilson@bjss.com",
-  "brian.collinson@bjss.com",
   "michael.taylor@bjss.com",
   "matthew.bell@dvsa.gov.uk",
   "alice.haws@dvsa.gov.uk",
@@ -57,7 +55,6 @@ all_users = [
   "david.johnson@bjss.com",
   "daniel.thompson@bjss.com",
   "david.giles@bjss.com",
-  "callum.massey@bjss.com",
   "ibrar.akram@bjss.com",
   "john.bower@bjss.com",
   "luke.browning@bjss.com",
@@ -76,9 +73,7 @@ administrators = [
 ]
 
 ops_users = [
-  "mark.thompson@bjss.com",
   "steve.wilson@bjss.com",
-  "brian.collinson@bjss.com",
   "michael.taylor@bjss.com",
   "chris.nappin@bjss.com",
   "saul.kashani@bjss.com",
@@ -93,7 +88,6 @@ ops_users = [
   "ogbonna.quarcoopome-harper@bjss.com",
   "adrian.jones@bjss.com",
   "daniel.thompson@bjss.com",
-  "callum.massey@bjss.com",
   "michael.tribbick@bjss.com",
   "ibrar.akram@bjss.com",
   "rajkieren.manku@bjss.com",
@@ -103,6 +97,7 @@ ops_users = [
   "ian.harris@bjss.com",
   "michelle.pike@bjss.com",
   "irfan.sidat@bjss.com",
+  "john.reynolds@bjss.com",
 ]
 
 power_users = [
@@ -129,9 +124,7 @@ support_ro_users = [
   "steven.millington@bjss.com",
   "richard.freitas@bjss.com",
   "philip.scally@bjss.com",
-  "mark.thompson@bjss.com",
   "steve.wilson@bjss.com",
-  "brian.collinson@bjss.com",
   "michael.taylor@bjss.com",
   "chris.nappin@bjss.com",
   "saul.kashani@bjss.com",
@@ -157,6 +150,7 @@ support_ro_users = [
   "aiman.chaudhary@bjss.com",
   "michelle.pike@bjss.com",
   "irfan.sidat@bjss.com",
+  "john.reynolds@bjss.com",
 ]
 
 capita_archive_users = [

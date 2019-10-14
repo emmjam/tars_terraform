@@ -10,8 +10,6 @@ default_tags = {
 }
 
 all_users = [
-  "mark.thompson@bjss.com",
-  "brian.collinson@bjss.com",
   "steve.wilson@bjss.com",
   "chris.nappin@bjss.com",
   "michael.taylor@bjss.com",
@@ -32,7 +30,6 @@ all_users = [
   "david.johnson@bjss.com",
   "daniel.thompson@bjss.com",
   "gareth.whiteside@bjss.com",
-  "callum.massey@bjss.com",
   "ibrar.akram@bjss.com",
   "john.bower@bjss.com",
   "luke.browning@bjss.com",
@@ -45,11 +42,10 @@ all_users = [
   "aiman.chaudhary@bjss.com",
   "michelle.pike@bjss.com",
   "irfan.sidat@bjss.com",
+  "john.reynolds@bjss.com",
 ]
 
 administrators = [
-  "mark.thompson@bjss.com",
-  "brian.collinson@bjss.com",
   "steve.wilson@bjss.com",
   "chris.nappin@bjss.com",
   "michael.taylor@bjss.com",
@@ -67,7 +63,6 @@ administrators = [
   "adrian.jones@bjss.com",
   "rajkieren.manku@bjss.com",
   "daniel.thompson@bjss.com",
-  "callum.massey@bjss.com",
   "ibrar.akram@bjss.com",
   "john.bower@bjss.com",
   "luke.browning@bjss.com",
