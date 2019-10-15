@@ -629,7 +629,7 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 # TARSDB
 tars_rds_storage_type = "gp2"
 tars_rds_engine = "oracle-se2"
-tars_rds_engine_version = "12.1.0.2.v16"
+tars_rds_engine_version = "12.1.0.2.v17"
 tars_rds_instance_class = "db.t3.medium" # was "db.m4.4xlarge"
 tars_rds_port = "1521"
 tars_rds_public = "false"
