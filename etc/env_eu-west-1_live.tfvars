@@ -119,3 +119,6 @@ spot_pricing = {
   "t3.medium"  = ""
 }
 
+# Alert Logic
+# Enable the shipping of cloud watch logs to Alert Logic.  Empty value equals false
+alert_logic = ""

@@ -86,3 +86,7 @@ jenkinsctrl_scaledown_desired    = 1
 jenkinsctrl_scaledown_recurrence = "00 19 * * 1-5"
 jenkinsctrl_scaleup_desired      = 1
 jenkinsctrl_scaleup_recurrence   = "15 07 * * 1-5"
+
+# Alert Logic
+# Enable the shipping of cloud watch logs to Alert Logic.  Empty value equals false
+alert_logic = ""

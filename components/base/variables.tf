@@ -637,3 +637,22 @@ variable "efs_backup_env" {
   description = ""
   default     = []
 }
+# AlertLogic
+variable "customer_id" {
+  type        = "string"
+  description = "AlertLogic CustomerID"
+  default     = "68715518"
+}
+
+variable "alertlogic_account_id" {
+  type        = "string"
+  description = "AlertLogic AWS AccountID"
+  default     = "857795874556"
+}
+
+variable "alert_logic" {
+  type        = "string"
+  description = "Boolean to enable alert logic. An empty value equals false"
+  default     = ""
+}
+
