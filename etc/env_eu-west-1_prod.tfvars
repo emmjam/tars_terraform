@@ -494,3 +494,7 @@ misdb_rds_delete_protect = "True"
 risdb_rds_delete_protect = "True"
 
 mes_cidr_block = ["10.101.10.128/25"]
+
+# Alert Logic
+# Enable the shipping of cloud watch logs to Alert Logic.  Empty value equals false
+alert_logic = "true"

@@ -410,3 +410,7 @@ apache_subnet_cidrs = [
 ]
 
 mes_cidr_block = ["10.141.0.0/16"]
+
+# Alert Logic
+# Enable the shipping of cloud watch logs to Alert Logic.  Empty value equals false
+alert_logic = ""

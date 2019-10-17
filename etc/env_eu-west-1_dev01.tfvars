@@ -635,3 +635,7 @@ wildfly-mock_scaleup_desired      = 1
 wildfly-mock_scaleup_recurrence   = "00 00 * * 1-5"
 
 mes_cidr_block = ["10.21.0.0/16"]
+
+# Alert Logic
+# Enable the shipping of cloud watch logs to Alert Logic.  Empty value equals false
+alert_logic = ""

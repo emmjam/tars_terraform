@@ -476,3 +476,7 @@ ldap_elb_subnets_cidrs = [
   "10.200.4.160/28",
   "10.200.4.176/28",
 ]
+
+# Alert Logic
+# Enable the shipping of cloud watch logs to Alert Logic.  Empty value equals false
+alert_logic = ""
