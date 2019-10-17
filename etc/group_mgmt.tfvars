@@ -33,14 +33,10 @@ all_users = [
   "ibrar.akram@bjss.com",
   "john.bower@bjss.com",
   "luke.browning@bjss.com",
-  "martin.cavanagh@bjss.com",
-  "balkar.bains@bjss.com",
-  "rishi.davda@bjss.com",
   "tom.bibb@bjss.com",
   "ian.harris@bjss.com",
   "michelle.pike@bjss.com",
   "irfan.sidat@bjss.com",
-  "john.reynolds@bjss.com",
 ]
 
 administrators = [
