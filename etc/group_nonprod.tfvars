@@ -94,6 +94,7 @@ ops_users = [
   "michelle.pike@bjss.com",
   "irfan.sidat@bjss.com",
   "john.reynolds@bjss.com",
+  "david.woodleyd@bjss.com",
 ]
 
 power_users = [
@@ -130,6 +131,7 @@ support_ro_users = [
   "aiman.chaudhary@bjss.com",
   "michelle.pike@bjss.com",
   "john.reynolds@bjss.com",
+  "david.woodleyd@bjss.com",
 ]
 
 dvsa_ro_users = [
