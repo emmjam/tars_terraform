@@ -68,7 +68,7 @@ all_users = [
   "michelle.pike@bjss.com",
   "irfan.sidat@bjss.com",
   "john.reynolds@bjss.com",
-  "david.woodleyd@bjss.com",
+  "david.woodley@bjss.com",
 ]
 
 administrators = [
@@ -152,7 +152,7 @@ support_ro_users = [
   "michelle.pike@bjss.com",
   "irfan.sidat@bjss.com",
   "john.reynolds@bjss.com",
-  "david.woodleyd@bjss.com",
+  "david.woodley@bjss.com",
 ]
 
 capita_archive_users = [
