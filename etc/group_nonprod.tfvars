@@ -59,6 +59,7 @@ all_users = [
   "michelle.pike@bjss.com",
   "irfan.sidat@bjss.com",
   "john.reynolds@bjss.com",
+  "david.woodley@bjss.com",
 ]
 
 administrators = [
@@ -94,7 +95,6 @@ ops_users = [
   "michelle.pike@bjss.com",
   "irfan.sidat@bjss.com",
   "john.reynolds@bjss.com",
-  "david.woodley@bjss.com",
 ]
 
 power_users = [
