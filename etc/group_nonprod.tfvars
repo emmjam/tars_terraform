@@ -410,10 +410,6 @@ jmeter_asg_size_min               = 0
 ## XE
 xe_ami_name = "OracleXE"
 
-## Prometheus
-#Due to there being no wildcard cert in prod this is used.
-prometheus_cert_name = "*"
-
 bastion_elb_subnets_cidrs = [
   "10.167.60.64/28",
   "10.167.60.80/28",
