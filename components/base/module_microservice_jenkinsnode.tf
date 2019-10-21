@@ -34,7 +34,7 @@ module "jenkinsnode" {
   lc_ami_id        = "${data.aws_ami.jenkinsnode.image_id}"
   lc_instance_type = "${var.jenkinsnode_instance_type}"
   lc_user_data     = "${data.template_cloudinit_config.jenkinsnode.rendered}"
-  lc_spot_price    = "${lookup(var.spot_pricing, var.jenkinsnode_instance_type)}"
+  #lc_spot_price    = "${lookup(var.spot_pricing, var.jenkinsnode_instance_type)}"
 
   asg_size_min               = "${var.jenkinsnode_asg_min_size}"
   asg_size_desired_on_create = "${var.jenkinsnode_asg_min_size}"

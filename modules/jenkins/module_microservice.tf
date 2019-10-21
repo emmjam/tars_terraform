@@ -13,7 +13,7 @@ module "jenkins_blue" {
 
   lc_ami_id        = "${var.lc_ami_id}"
   lc_instance_type = "${var.lc_instance_type}"
-  lc_spot_price    = "${var.lc_blue_spot_price}"
+  #lc_spot_price    = "${var.lc_blue_spot_price}"
   lc_user_data     = "${data.template_cloudinit_config.jenkins_blue.rendered}"
   lc_key_name      = "${var.lc_key_name}"
 
