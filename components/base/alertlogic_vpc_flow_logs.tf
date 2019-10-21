@@ -11,7 +11,6 @@ resource "aws_s3_bucket" "alertlogic_vpc_logs" {
 
 ## IAM Role for this account's Firehose to access/write to S3
 data "aws_iam_policy_document" "firehose_to_al_vpc_s3_trustpolicy" {
-  count = "${length(var.alert_logic) == 0 ? 0 : 1}"
   statement {
     sid    = "1"
     effect = "Allow"
@@ -35,7 +34,6 @@ data "aws_iam_policy_document" "firehose_to_al_vpc_s3_trustpolicy" {
 }
 
 data "aws_iam_policy_document" "firehose_to_al_vpc_s3_permissions" {
-  count = "${length(var.alert_logic) == 0 ? 0 : 1}"
   statement {
     sid    = "1"
     effect = "Allow"
@@ -99,7 +97,6 @@ resource "aws_iam_role" "al_vpc_cwl_to_ks" {
 }
 
 data "aws_iam_policy_document" "al_vpc_cwl_trustpolicy" {
-  count = "${length(var.alert_logic) == 0 ? 0 : 1}"
   statement {
     sid    = "1"
     effect = "Allow"
@@ -121,7 +118,6 @@ resource "aws_iam_policy" "al_vpc_cwl_to_ks" {
 }
 
 data "aws_iam_policy_document" "al_vpc_cwl_to_ks_permissions" {
-  count = "${length(var.alert_logic) == 0 ? 0 : 1}"
   statement {
     sid     = "1"
     effect  = "Allow"
@@ -166,7 +162,6 @@ resource "aws_cloudwatch_log_subscription_filter" "firehose_to_al_vpc_s3" {
 ### Create a Cross-Account Role for AlertLogic to access the VPC Log Bucket
 
 data "aws_iam_policy_document" "cross_account_role_s3_policy_document" {
-  count = "${length(var.alert_logic) == 0 ? 0 : 1}"
   statement {
     sid = "AllowGetObjects"
 
@@ -200,7 +195,6 @@ data "aws_iam_policy_document" "cross_account_role_s3_policy_document" {
 }
 
 data "aws_iam_policy_document" "role_assume_trusted_resources_s3" {
-  count = "${length(var.alert_logic) == 0 ? 0 : 1}"
   statement {
     actions = [
       "sts:AssumeRole",
@@ -279,7 +273,6 @@ resource "aws_iam_role" "cross_account_role_discovery" {
 }
 
 data "aws_iam_policy_document" "role_assume_trusted_resources" {
-  count  = "${length(var.alert_logic) == 0 ? 0 : 1}"
   statement {
     actions = ["sts:AssumeRole"]
 
@@ -300,7 +293,6 @@ data "aws_iam_policy_document" "role_assume_trusted_resources" {
 }
 
 data "aws_iam_policy_document" "cross_account_discovery_role_policy_document" {
-  count  = "${length(var.alert_logic) == 0 ? 0 : 1}"
   statement {
     sid       = "EnabledDiscoveryOfVariousAWSServices"
     effect    = "Allow"
