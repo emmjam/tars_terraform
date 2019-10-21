@@ -4,7 +4,6 @@
 
 ## S3 Bucket to receive/store VPC Logs from CloudWatch Logs
 resource "aws_s3_bucket" "alertlogic_vpc_logs" {
-  count  = "${length(var.alert_logic) == 0 ? 0 : 1}"
   bucket = "alertlogic-${local.csi}-vpc-logs"
   region = "eu-west-1"
 }
@@ -55,13 +54,11 @@ data "aws_iam_policy_document" "firehose_to_al_vpc_s3_permissions" {
 }
 
 resource "aws_iam_role" "firehose_to_al_vpc_s3" {
-  count              = "${length(var.alert_logic) == 0 ? 0 : 1}"
   name               = "${local.csi}-firehose_to_al_vpc_s3"
   assume_role_policy = "${data.aws_iam_policy_document.firehose_to_al_vpc_s3_trustpolicy.json}"
 }
 
 resource "aws_iam_policy" "firehose_to_al_vpc_s3" {
-  count       = "${length(var.alert_logic) == 0 ? 0 : 1}"
   name        = "${local.csi}-firehose_to_al_vpc_s3"
 
   description = ""
@@ -69,14 +66,12 @@ resource "aws_iam_policy" "firehose_to_al_vpc_s3" {
 }
 
 resource "aws_iam_role_policy_attachment" "firehose_to_al_vpc_s3_role_policy_attachment" {
-  count      = "${length(var.alert_logic) == 0 ? 0 : 1}"
   role       = "${aws_iam_role.firehose_to_al_vpc_s3.name}"
   policy_arn = "${aws_iam_policy.firehose_to_al_vpc_s3.arn}"
 }
 
 ## Kinesis Firehose Delivery Stream
 resource "aws_kinesis_firehose_delivery_stream" "firehose_to_al_vpc_s3" {
-  count       = "${length(var.alert_logic) == 0 ? 0 : 1}"
   name        = "${local.csi}-delivery_stream"
   destination = "s3"
 
@@ -91,7 +86,6 @@ resource "aws_kinesis_firehose_delivery_stream" "firehose_to_al_vpc_s3" {
 
 ## Create IAM Role to grant CloudWatch Logs the permission to put data into the Kinesis stream
 resource "aws_iam_role" "al_vpc_cwl_to_ks" {
-  count              = "${length(var.alert_logic) == 0 ? 0 : 1}"
   name               = "${local.csi}-al_vpc_cwl_to_ks"
   assume_role_policy = "${data.aws_iam_policy_document.al_vpc_cwl_trustpolicy.json}"
 }
@@ -111,7 +105,6 @@ data "aws_iam_policy_document" "al_vpc_cwl_trustpolicy" {
 }
 
 resource "aws_iam_policy" "al_vpc_cwl_to_ks" {
-  count       = "${length(var.alert_logic) == 0 ? 0 : 1}"
   name        = "${local.csi}-al_vpc_cwl_to_ks"
   description = ""
   policy      = "${data.aws_iam_policy_document.al_vpc_cwl_to_ks_permissions.json}"
@@ -140,7 +133,6 @@ data "aws_iam_policy_document" "al_vpc_cwl_to_ks_permissions" {
 }
 
 resource "aws_iam_role_policy_attachment" "al_vpc_cwl_to_ks" {
-  count      = "${length(var.alert_logic) == 0 ? 0 : 1}"
   role       = "${aws_iam_role.al_vpc_cwl_to_ks.name}"
   policy_arn = "${aws_iam_policy.al_vpc_cwl_to_ks.arn}"
 }
@@ -148,7 +140,6 @@ resource "aws_iam_role_policy_attachment" "al_vpc_cwl_to_ks" {
 ## CWL Subscription Filter
 ## Send data matching our filter (everything) to kinesis
 resource "aws_cloudwatch_log_subscription_filter" "firehose_to_al_vpc_s3" {
-  count           = "${length(var.alert_logic) == 0 ? 0 : 1}"
   name            = "${local.csi}-firehose_to_al_vpc_s3"
   role_arn        = "${aws_iam_role.al_vpc_cwl_to_ks.arn}"
   log_group_name  = "${local.csi}-vpc-flow-logs"                      ### CHECKME
@@ -217,7 +208,6 @@ data "aws_iam_policy_document" "role_assume_trusted_resources_s3" {
 }
 
 resource "aws_iam_role" "cross_account_role_s3" {
-  count = "${length(var.alert_logic) == 0 ? 0 : 1}"
   name = "${local.csi}-${var.alertlogic_account_id}-role-s3"
   description        = "A role to be assumed by role ALERTLOGIC within ${var.alertlogic_account_id} for collecting logs via S3"
   assume_role_policy = "${data.aws_iam_policy_document.role_assume_trusted_resources_s3.json}"
@@ -230,13 +220,11 @@ resource "aws_iam_role" "cross_account_role_s3" {
 }
 
 resource "aws_iam_policy" "cross_account_role_s3_policy" {
-  count  = "${length(var.alert_logic) == 0 ? 0 : 1}"
   name   = "${aws_iam_role.cross_account_role_s3.name}-POLICY"
   policy = "${data.aws_iam_policy_document.cross_account_role_s3_policy_document.json}"
 }
 
 resource "aws_iam_policy_attachment" "cross_account_role_s3_policy_attachment" {
-  count  = "${length(var.alert_logic) == 0 ? 0 : 1}"
   name       = "${aws_iam_policy.cross_account_role_s3_policy.name}-ATT"
   policy_arn = "${aws_iam_policy.cross_account_role_s3_policy.arn}"
   roles      = ["${aws_iam_role.cross_account_role_s3.name}"]
@@ -247,20 +235,17 @@ resource "aws_iam_policy_attachment" "cross_account_role_s3_policy_attachment" {
 ### Create a Cross-Account Role for AlertLogic CloudDefender
 
 resource "aws_iam_policy" "cross_account_role_discovery_policy" {
-  count  = "${length(var.alert_logic) == 0 ? 0 : 1}"
   name   = "${aws_iam_role.cross_account_role_discovery.name}-POLICY"
   policy = "${data.aws_iam_policy_document.cross_account_discovery_role_policy_document.json}"
 }
 
 resource "aws_iam_policy_attachment" "cross_account_role_discovery_policy_attachment" {
-  count  = "${length(var.alert_logic) == 0 ? 0 : 1}"
   name       = "${aws_iam_policy.cross_account_role_discovery_policy.name}-ATT"
   policy_arn = "${aws_iam_policy.cross_account_role_discovery_policy.arn}"
   roles      = ["${aws_iam_role.cross_account_role_discovery.name}"]
 }
 
 resource "aws_iam_role" "cross_account_role_discovery" {
-  count  = "${length(var.alert_logic) == 0 ? 0 : 1}"
   name = "${local.csi}-${var.alertlogic_account_id}-discovery-role"
   description        = "A role to be assumed by role ALERTLOGIC within ${var.alertlogic_account_id} for service and iam discovery only"
   assume_role_policy = "${data.aws_iam_policy_document.role_assume_trusted_resources.json}"
