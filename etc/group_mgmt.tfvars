@@ -40,7 +40,6 @@ all_users = [
 ]
 
 administrators = [
-  "stephen.davies@bjss.com",
 ]
 
 tss_billing_ro_users = [
