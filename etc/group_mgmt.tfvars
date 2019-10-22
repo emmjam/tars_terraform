@@ -40,6 +40,16 @@ all_users = [
 ]
 
 administrators = [
+  "stephen.davies@bjss.com",
+]
+
+tss_billing_ro_users = [
+  "neil.eaton@bjss.com",
+  "david.johnson@bjss.com",
+  "gareth.whiteside@bjss.com",
+]
+
+ops_users = [
   "steve.wilson@bjss.com",
   "chris.nappin@bjss.com",
   "michael.taylor@bjss.com",
@@ -66,13 +76,31 @@ administrators = [
   "irfan.sidat@bjss.com",
 ]
 
-tss_billing_ro_users = [
-  "neil.eaton@bjss.com",
-  "david.johnson@bjss.com",
-  "gareth.whiteside@bjss.com",
-]
-
-ops_users = [
+support_ro_users = [
+  "steve.wilson@bjss.com",
+  "chris.nappin@bjss.com",
+  "michael.taylor@bjss.com",
+  "saul.kashani@bjss.com",
+  "arthur.coombes@bjss.com",
+  "adam.hall@bjss.com",
+  "michael.riley@bjss.com",
+  "christopher.swanson@bjss.com",
+  "prashant.kumar@bjss.com",
+  "damian.skiba@bjss.com",
+  "daniel.billing@bjss.com",
+  "stephen.davies@bjss.com",
+  "ogbonna.quarcoopome-harper@bjss.com",
+  "michael.tribbick@bjss.com",
+  "adrian.jones@bjss.com",
+  "rajkieren.manku@bjss.com",
+  "daniel.thompson@bjss.com",
+  "ibrar.akram@bjss.com",
+  "john.bower@bjss.com",
+  "luke.browning@bjss.com",
+  "tom.bibb@bjss.com",
+  "ian.harris@bjss.com",
+  "michelle.pike@bjss.com",
+  "irfan.sidat@bjss.com",
 ]
 
 ctrl_vpc_cidr = "10.167.64.0/22"
