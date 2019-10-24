@@ -381,7 +381,16 @@ xenco_ssh_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAgEAglcxWvitvW4CTzgOZdQJF7F
 
 private_cert_domain_name = "dvsa.tars.dev-dvsacloud.uk"
 
-mes_cidr_block = ["10.21.0.0/16"]
+mes_db_cidr_block = [
+  "10.111.0.0/16",
+  "10.222.0.0/27",
+  "10.123.0.0/32",
+]
+mes_api_cidr_block = [
+  "10.222.0.0/16",
+  "10.76.123.0/32",
+  "10.76.124.0/32",
+]
 
 # Alert Logic
 # Enable the shipping of cloud watch logs to Alert Logic.  Empty value equals false

@@ -119,6 +119,21 @@ spot_pricing = {
   "t3.medium"  = ""
 }
 
+
+mes_db_cidr_block = [
+  "10.101.20.0/28",
+  "10.101.20.16/28",
+  "10.101.20.32/28",
+]
+mes_api_cidr_block = [
+  "10.101.10.144/28",
+  "10.101.10.160/28",
+  "10.101.10.176/28",
+  "10.101.10.192/28",
+  "10.101.10.208/28",
+  "10.101.10.224/28",
+]
+
 # Alert Logic
 # Enable the shipping of cloud watch logs to Alert Logic.  Empty value equals false
 alert_logic = ""

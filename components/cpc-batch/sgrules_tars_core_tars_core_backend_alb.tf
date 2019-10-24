@@ -1,3 +1,4 @@
+
 resource "aws_security_group_rule" "tars_back_alb_ingress_cpc_batch" {
   description              = "Allow TCP/8080 from CPC batch"
   type                     = "ingress"

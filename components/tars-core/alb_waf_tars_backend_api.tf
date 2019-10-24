@@ -4,7 +4,7 @@ resource "aws_wafregional_ipset" "mes-ipset" {
 
   ip_set_descriptor {
     type  = "IPV4"
-    value = "${var.mes_cidr_block[0]}"
+    value = "${var.mes_api_cidr_block[0]}"
   }
 }
 
