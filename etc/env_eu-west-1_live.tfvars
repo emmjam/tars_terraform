@@ -80,7 +80,7 @@ grafana_scaleup_recurrence   = "00 07 * * 1-5"
 # TODO: smarts: Move AMI IDs to versions file
 ## jenkinsctrl
 jenkinsctrl_instance_type        = "m5.large"
-jenkinsctrl_ami_build_id         = "468"
+jenkinsctrl_ami_build_id         = "549"
 jenkinsctrl_executors            = 20
 jenkinsctrl_asg_min_size         = 0
 jenkinsctrl_asg_max_size         = 3
