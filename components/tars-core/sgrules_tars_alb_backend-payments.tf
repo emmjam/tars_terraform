@@ -10,7 +10,6 @@ resource "aws_security_group_rule" "tars_alb_payments_egress_tars_backend_port_8
 
 resource "aws_security_group_rule" "tars_alb_payments_ingress_whitelist_port_443" {
   description       = "Allow TCP/443 from payments whitelist"
-  count         = "${length(var.mes_cidr_block)}"
   type              = "ingress"
   from_port         = 443
   to_port           = 443
