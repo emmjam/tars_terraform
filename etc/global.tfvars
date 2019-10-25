@@ -72,6 +72,7 @@ efs_backup_env  = [
   "sit02",
   "uat01",
   "uat02",
+  "mgmt",
   "prod"
 ]
 

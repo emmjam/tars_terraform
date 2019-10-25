@@ -574,4 +574,8 @@ variable "ldap_elb_subnets_cidrs" {
   description = "List of subnet CIDRs for the ldap ELB"
 }
 
-
+variable "efs_backup_env" {
+  type        = "list"
+  description = ""
+  default     = []
+}
