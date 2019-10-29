@@ -429,7 +429,19 @@ ibsdb_cluster_delete_protect = "False"
 misdb_rds_delete_protect = "False"
 risdb_rds_delete_protect = "False"
 
-mes_cidr_block = ["10.201.20.0/26"]
+mes_db_cidr_block = [
+  "10.201.20.0/28",
+  "10.201.20.16/28",
+  "10.201.20.32/28",
+]
+mes_api_cidr_block = [
+  "10.201.10.144/28",
+  "10.201.10.160/28",
+  "10.201.10.176/28",
+  "10.201.10.192/28",
+  "10.201.10.208/28",
+  "10.201.10.224/28",
+]
 
 # Alert Logic
 # Enable the shipping of cloud watch logs to Alert Logic.  Empty value equals false

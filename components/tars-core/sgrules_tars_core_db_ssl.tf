@@ -1,6 +1,6 @@
 # Oracle DB rules for MES
 resource "aws_security_group_rule" "oracle_db_ingress_MES" {
-  count         = "${length(var.mes_cidr_block)}"
+  count         = "${length(var.mes_db_cidr_block) == 0 ? 0 : 1}"
   description              = "Allow MES Inbound"
   type                     = "ingress"
   from_port                = 2484
@@ -8,6 +8,7 @@ resource "aws_security_group_rule" "oracle_db_ingress_MES" {
   protocol                 = "tcp"
   security_group_id        = "${aws_security_group.tars-core-db.id}"
   cidr_blocks = [
-    "${var.mes_cidr_block}",
+    "${var.mes_db_cidr_block}",
   ]
 }
+

@@ -632,7 +632,16 @@ wildfly-mock_scaledown_recurrence = "00 18 * * 1-5"
 wildfly-mock_scaleup_desired      = 1
 wildfly-mock_scaleup_recurrence   = "00 07 * * 1-5"
 
-mes_cidr_block = ["10.21.0.0/16"]
+mes_db_cidr_block = [
+  "10.21.100.32/28",
+  "10.21.100.48/28",
+]
+mes_api_cidr_block = [
+  "10.21.200.128/28",
+  "10.21.200.144/28",
+  "10.21.200.160/28",
+  "10.21.200.176/28",
+]
 
 # Alert Logic
 # Enable the shipping of cloud watch logs to Alert Logic.  Empty value equals false
