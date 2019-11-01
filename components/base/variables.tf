@@ -370,11 +370,6 @@ variable "jmeter_subnets_cidrs" {
 
 ## Prometheus
 
-variable "prometheus_cert_name" {
-  type        = "string"
-  description = ""
-}
-
 variable "prometheus_ami_build_id" {
   type        = "string"
   description = ""
