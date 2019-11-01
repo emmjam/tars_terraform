@@ -579,3 +579,9 @@ variable "efs_backup_env" {
   description = ""
   default     = []
 }
+
+variable "nexus_domain_name" {
+  type        = "string"
+  description = "Domain name for the Nexus Instance, if undefined, no zone will be created"
+  default     = ""
+}

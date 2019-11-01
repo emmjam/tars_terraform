@@ -480,3 +480,5 @@ ldap_elb_subnets_cidrs = [
 # Alert Logic
 # Enable the shipping of cloud watch logs to Alert Logic.  Empty value equals false
 alert_logic = ""
+
+nexus_domain_name = "www.nexus.mgmt.mgmt.tars.dvsa.aws"

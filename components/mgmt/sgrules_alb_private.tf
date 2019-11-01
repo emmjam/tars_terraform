@@ -27,3 +27,25 @@ resource "aws_security_group_rule" "alb_private_egress_nexus_8081" {
   security_group_id        = "${aws_security_group.alb_private.id}"
   source_security_group_id = "${module.microservice_nexus.security_group_id}"
 }
+
+resource "aws_security_group_rule" "alb_private_ingress_nexus" {
+  description              = "Allow TCP/80 from nexux"
+  type                     = "ingress"
+  from_port                = 80
+  to_port                  = 80
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.alb_private.id}"
+  source_security_group_id = "${aws_security_group.build.id}"
+}
+
+
+resource "aws_security_group_rule" "alb_private_ingress_nexus_443" {
+  description              = "Allow TCP/443 from nexux"
+  type                     = "ingress"
+  from_port                = 443
+  to_port                  = 443
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.alb_private.id}"
+  source_security_group_id = "${aws_security_group.build.id}"
+
+}
