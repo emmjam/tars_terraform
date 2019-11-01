@@ -75,5 +75,7 @@ resource "aws_cloudfront_distribution" "holding_pages" {
     ssl_support_method  = "sni-only"
   }
 
-  tags = "${local.default_tags}"
+lifecycle {
+    ignore_changes = ["tags"]
+  }
 }
