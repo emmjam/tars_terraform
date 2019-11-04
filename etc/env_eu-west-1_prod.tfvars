@@ -392,7 +392,7 @@ mis_rds_snapshot = ""
 # RSISDB
 rsis_rds_username = "rsisadmin"
 rsis_rds_password = "Wbx8Mdu9YjdjwTRM"
-rsis_rds_allocated_storage = "80"
+rsis_rds_allocated_storage = "120"
 rsis_rds_autoscale = "False"
 rsis_rds_snapshot = ""
 
