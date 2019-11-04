@@ -379,7 +379,7 @@ domain_name_servers = [
 
 private_cert_domain_name = "sit02.tars.dvsa.aws"
 
-mes_cidr_block = ["10.21.0.0/16"]
+mes_api_cidr_block = ["10.21.0.0/16"]
 
 # Alert Logic
 # Enable the shipping of cloud watch logs to Alert Logic.  Empty value equals false
