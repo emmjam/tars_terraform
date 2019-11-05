@@ -585,7 +585,7 @@ capita_db_to_port = "6722"
 
 # squidnat
 squidnat_instance_type = "m5.large"
-squidnat_ami_build_id  = "584"
+squidnat_ami_build_id  = "627"
 
 ops_team_email = "TARSStabilisation@bjss.com"
 
