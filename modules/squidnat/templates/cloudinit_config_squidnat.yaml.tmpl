@@ -18,8 +18,9 @@ bootcmd:
   - "iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-port 3130"
   - "iptables -t nat -A PREROUTING -p tcp --dport 80  -j REDIRECT --to-port 3129"
   - "iptables -t nat -A PREROUTING -p tcp --dport 465  -j REDIRECT --to-port 3130"
-  - "iptables -t nat -A PREROUTING -p tcp --dport 587  -j REDIRECT --to-port 3130"
   - "service iptables save"
+  - "route add -net default gw 10.167.132.129 netmask 0.0.0.0 dev eth0 metric 10002"
+  - "route del -net default gw 10.167.132.129 netmask 0.0.0.0 dev eth0 metric 0"
 
 write_files:
   - content: |
