@@ -19,9 +19,9 @@ bootcmd:
   - "iptables -t nat -A PREROUTING -p tcp --dport 80  -j REDIRECT --to-port 3129"
   - "iptables -t nat -A PREROUTING -p tcp --dport 465  -j REDIRECT --to-port 3130"
   - "service iptables save"
-  - "route del default"
-  - $(ip route | grep 'default' | awk '{print "route add -net default gw " $3 " netmask 0.0.0.0 dev eth0 metric 10002"}')
-  - $(ip route | grep 'default' | awk '{print "route del -net default gw " $3 " netmask 0.0.0.0 dev eth0 metric 0"}')
+  - $(ip route | grep 'default' | grep "eth0" | awk '{print "route add -net default gw " $3 " netmask 0.0.0.0 dev eth0 metric 10002"}')
+  - $(ip route | grep 'default' | grep "eth0" | awk '{print "route del -net default gw " $3 " netmask 0.0.0.0 dev eth0 metric 0"}')
+  - route del default
 
 write_files:
   - content: |
