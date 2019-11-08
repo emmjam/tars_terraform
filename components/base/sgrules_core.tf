@@ -92,7 +92,7 @@ resource "aws_security_group_rule" "core_egress_squidnat_smtp" {
   from_port                = "587"
   to_port                  = "587"
   security_group_id        = "${aws_security_group.core.id}"
-  cidr_blocks		   = "0.0.0.0/0"
+  cidr_blocks		   = ["0.0.0.0/0"]
 }
 
 #Allow access for prometheus
