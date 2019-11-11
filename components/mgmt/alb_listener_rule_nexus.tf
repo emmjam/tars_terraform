@@ -33,3 +33,21 @@ resource "aws_alb_listener_rule" "private_http_nexus" {
     ]
   }
 }
+
+resource "aws_alb_listener_rule" "private_https_nexus" {
+  listener_arn = "${aws_alb_listener.private_https.arn}"
+  priority     = "1"
+
+  action {
+    type             = "forward"
+    target_group_arn = "${aws_alb_target_group.nexus_private.arn}"
+  }
+
+  condition {
+    field = "host-header"
+
+    values = [
+      "${aws_route53_record.nexus_private.fqdn}",
+    ]
+  }
+}
