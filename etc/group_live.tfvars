@@ -112,9 +112,6 @@ db_cw_ro_users = [
     "david.giles@bjss.com",
 ]
 
-capita_users = [
-]
-
 support_ro_users = [
   "catherine.campbell@bjss.com",
   "steven.ryalls@bjss.com",
@@ -153,9 +150,6 @@ support_ro_users = [
   "irfan.sidat@bjss.com",
   "john.reynolds@bjss.com",
   "david.woodley@bjss.com",
-]
-
-capita_archive_users = [
 ]
 
 dvsa_ro_users = [

@@ -108,12 +108,6 @@ db_cw_ro_users = [
   "david.giles@bjss.com",
 ]
 
-capita_users = [
-]
-
-capita_perf_ro_users = [
-]
-
 support_ro_users = [
   "philip.scally@bjss.com",
   "richard.freitas@bjss.com",

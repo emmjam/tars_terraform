@@ -99,24 +99,6 @@ variable "ops_team_email" {
   description = "Email for the ops team alerts"
 }
 
-variable "capita_users" {
-  type        = "list"
-  description = "List of IAM Users from Capita, that have rights to manage events/monitoring from Messaging server"
-  default     = []
-}
-
-variable "capita_archive_users" {
-  type        = "list"
-  description = "List of IAM Users from Capita, that have rights to manage the S3 Legacy Tape Archive"
-  default     = []
-}
-
-variable "capita_perf_ro_users" {
-  type        = "list"
-  description = "List of read-only IAM Users from Capita, that have rights to view CloudWatch events"
-  default     = []
-}
-
 variable "support_ro_users" {
   type        = "list"
   description = "List of read-only IAM Users for Support functions, that have Read Only access"
