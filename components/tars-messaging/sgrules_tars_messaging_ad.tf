@@ -1,6 +1,6 @@
 # TARS Messaging A/D rules
 
-# The IP range includes the DVSA/Capita DNS servers no extra rules required.
+# The IP range includes the DVSA DNS servers no extra rules required.
 resource "aws_security_group_rule" "tars_messaging_egress_dvsa_dc" {
   description       = "Allow all TCP/IP to DVSA DC"
   type              = "egress"
