@@ -16,7 +16,6 @@ private_domain_name = "tars.dvsa.aws"
 all_users = [
   "steve.wilson@bjss.com",
   "chris.nappin@bjss.com",
-  "michael.taylor@bjss.com",
   "david.giles@bjss.com",
   "philip.scally@bjss.com",
   "richard.freitas@bjss.com",
@@ -68,7 +67,6 @@ administrators = [
 ops_users = [
   "steve.wilson@bjss.com",
   "chris.nappin@bjss.com",
-  "michael.taylor@bjss.com",
   "chris.nappin@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
