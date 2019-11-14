@@ -12,7 +12,6 @@ default_tags = {
 all_users = [
   "steve.wilson@bjss.com",
   "chris.nappin@bjss.com",
-  "michael.taylor@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
@@ -51,7 +50,6 @@ tss_billing_ro_users = [
 ops_users = [
   "steve.wilson@bjss.com",
   "chris.nappin@bjss.com",
-  "michael.taylor@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
@@ -78,7 +76,6 @@ ops_users = [
 support_ro_users = [
   "steve.wilson@bjss.com",
   "chris.nappin@bjss.com",
-  "michael.taylor@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",

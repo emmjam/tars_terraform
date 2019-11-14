@@ -24,7 +24,6 @@ asg_default_tags = [
 
 all_users = [
   "steve.wilson@bjss.com",
-  "michael.taylor@bjss.com",
   "matthew.bell@dvsa.gov.uk",
   "alice.haws@dvsa.gov.uk",
   "chris.nappin@bjss.com",
@@ -76,7 +75,6 @@ administrators = [
 
 ops_users = [
   "steve.wilson@bjss.com",
-  "michael.taylor@bjss.com",
   "chris.nappin@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
@@ -123,7 +121,6 @@ support_ro_users = [
   "richard.freitas@bjss.com",
   "philip.scally@bjss.com",
   "steve.wilson@bjss.com",
-  "michael.taylor@bjss.com",
   "chris.nappin@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
