@@ -436,12 +436,6 @@ payments_whitelist = [
   "135.196.73.204/32",  # DVSA Notts
   "213.160.121.250/32", # DVSA Notts Corp & Wifi
   "148.253.134.213/32", # BJSS VPN 04/18
-  "195.205.13.211/32",  # Capita (WM Proxy)
-  "195.27.53.211/32",   # Capita (LD Proxy)
-  "85.115.52.201/32",   # Capita (Cloud Proxy)
-  "82.203.33.128/28",   # Capita (Cloud NAT Pool1)
-  "82.203.33.112/28",   # Capita (Cloud NAT Pool2)
-  "85.115.54.200/29",   # Capita (Bury St Edmunds)
   "54.72.37.158/32",    # Selenium Elasticgrid Proxy
   "54.76.206.25/32",    # Perf01 NATGW IP
   "185.8.52.254/32",    # Start Barclays IP
@@ -459,12 +453,6 @@ whitelist = [
   "10.69.131.64/26",    # DVSA ZPA VPN
   "148.253.134.213/32", # BJSS VPN 04/18
   "148.253.134.212/32", # BJSS Guest Wifi 10/18
-  "195.205.13.211/32",  # Capita (WM Proxy)
-  "195.27.53.211/32",   # Capita (LD Proxy)
-  "85.115.52.201/32",   # Capita (Cloud Proxy)
-  "82.203.33.128/28",   # Capita (Cloud NAT Pool1)
-  "82.203.33.112/28",   # Capita (Cloud NAT Pool2)
-  "85.115.54.200/29",   # Capita (Bury St Edmunds)
   "54.72.37.158/32",    # Selenium Elasticgrid Proxy
   "199.83.128.0/21",    # Begin Incapsula IPs
   "198.143.32.0/19",
@@ -567,12 +555,6 @@ sweda_samba_server = "10.69.3.11/32"
 dvla_adli_server = "51.231.10.92/32"
 dvla_elise_server = "51.231.10.84/32"
 rsis_samba_server = "10.14.0.140/32"
-
-# Capita TARS Prod DB subnets for DMS
-capita_db_subnets = "10.84.192.0/23"
-
-capita_db_from_port = "6720"
-capita_db_to_port = "6722"
 
 # squidnat
 squidnat_instance_type = "m5.large"
