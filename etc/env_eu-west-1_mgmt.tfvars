@@ -450,33 +450,6 @@ nexus_efs_subnets_cidrs = [
   "10.200.4.80/28",
 ]
 
-
-##
-# LDAP
-##
-
-ldap_config = {
-  asg_min       = "0"
-  asg_max       = "1"
-  asg_desired   = "1"
-  instance_type = "t3.medium"
-
-  # Wild card while developing to pull latest AMI
-  ami_build_id = "*"
-}
-
-ldap_subnets_cidrs = [
-  "10.200.4.96/28",
-  "10.200.4.112/28",
-  "10.200.4.128/28",
-]
-
-ldap_elb_subnets_cidrs = [
-  "10.200.4.144/28",
-  "10.200.4.160/28",
-  "10.200.4.176/28",
-]
-
 # Alert Logic
 # Enable the shipping of cloud watch logs to Alert Logic.  Empty value equals false
 alert_logic = ""

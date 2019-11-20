@@ -1,3 +1,4 @@
+/*
 data "template_file" "cloudinit_config_facter_custom_ldap" {
   template = "${file("${path.module}/templates/cloudinit_config_facter_custom.yaml.tmpl")}"
 
@@ -19,13 +20,14 @@ data "template_file" "cloudinit_config_hostname_ldap" {
     VPC_DOMAIN_NAME = "${local.vpc_domain_name}"
   }
 }
+*/
 
 # The ldap cloud-init config as rendered to be user-data input
 data "template_cloudinit_config" "ldap" {
   gzip          = true
   base64_encode = true
 
-  # LDAP-specific template
+/*  # LDAP-specific template
   part {
     content_type = "text/cloud-config"
     content      = "${data.template_file.cloudinit_config_hostname_ldap.rendered}"
@@ -37,6 +39,7 @@ data "template_cloudinit_config" "ldap" {
     content      = "${data.template_file.cloudinit_config_facter_custom_ldap.rendered}"
     merge_type   = "list(append)+dict(recurse_array)+str()"
   }
+*/
 
   # Account-specific template
   part {
