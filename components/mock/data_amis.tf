@@ -3,7 +3,7 @@ data "aws_ami" "wildfly-mock" {
   name_regex = "${format(
     "%s-%s-%s/%s*",
     var.project,
-    "rhel",
+    "amzn",
     "mock",
     var.ami_build_id
   )}"
