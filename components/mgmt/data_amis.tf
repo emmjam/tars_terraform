@@ -94,26 +94,3 @@ data "aws_ami" "nexus" {
   }
 }
 
-data "aws_ami" "ldap" {
-  name_regex = "${format(
-    "%s-%s-%s/%s",
-    var.project,
-    "amzn",
-    "ldap",
-    "${lookup(var.ldap_config, "ami_build_id")}"
-  )}"
-
-  most_recent = "true"
-
-  owners = [
-    "${data.aws_caller_identity.current.account_id}",
-  ]
-
-  filter {
-    name = "state"
-
-    values = [
-      "available",
-    ]
-  }
-}
