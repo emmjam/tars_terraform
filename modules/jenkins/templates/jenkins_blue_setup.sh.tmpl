@@ -13,7 +13,7 @@ ebs_device_name=${EBS_DEVICE_NAME}
 aws_region=${AWS_REGION}
 
 log '[INFO] Setting Java8 as default'
-/usr/sbin/alternatives --set java /usr/lib/jvm/jre-1.8.0-openjdk.x86_64/bin/java
+yum install -y https://d3pxv6yz143wms.cloudfront.net/8.232.09.1/java-1.8.0-amazon-corretto-devel-1.8.0_232.b09-1.x86_64.rpm
 
 log '[INFO] Setting up Jenkins package name'
 if [ $${jenkins_version} == 'latest' ]; then
