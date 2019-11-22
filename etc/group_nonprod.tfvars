@@ -94,6 +94,7 @@ ops_users = [
   "michelle.pike@bjss.com",
   "irfan.sidat@bjss.com",
   "john.reynolds@bjss.com",
+  "callum.massey@bjss.com",
 ]
 
 power_users = [
