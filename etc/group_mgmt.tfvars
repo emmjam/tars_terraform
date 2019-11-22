@@ -72,6 +72,7 @@ ops_users = [
   "ian.harris@bjss.com",
   "michelle.pike@bjss.com",
   "irfan.sidat@bjss.com",
+  "callum.massey@bjss.com",
 ]
 
 support_ro_users = [
