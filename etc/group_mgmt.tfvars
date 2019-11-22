@@ -36,6 +36,7 @@ all_users = [
   "ian.harris@bjss.com",
   "michelle.pike@bjss.com",
   "irfan.sidat@bjss.com",
+  "callum.massey@bjss.com",
 ]
 
 administrators = [
@@ -97,6 +98,7 @@ support_ro_users = [
   "ian.harris@bjss.com",
   "michelle.pike@bjss.com",
   "irfan.sidat@bjss.com",
+  "callum.massey@bjss.com",
 ]
 
 ctrl_vpc_cidr = "10.167.64.0/22"

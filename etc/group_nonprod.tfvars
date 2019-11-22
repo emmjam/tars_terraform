@@ -59,6 +59,7 @@ all_users = [
   "irfan.sidat@bjss.com",
   "john.reynolds@bjss.com",
   "david.woodley@bjss.com",
+  "callum.massey@bjss.com",
 ]
 
 administrators = [
@@ -124,6 +125,7 @@ support_ro_users = [
   "michelle.pike@bjss.com",
   "john.reynolds@bjss.com",
   "david.woodley@bjss.com",
+  "callum.massey@bjss.com",
 ]
 
 dvsa_ro_users = [
