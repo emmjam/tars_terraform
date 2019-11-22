@@ -60,6 +60,7 @@ all_users = [
   "john.reynolds@bjss.com",
   "david.woodley@bjss.com",
   "callum.massey@bjss.com",
+  "andy.white1@bjss.com",
 ]
 
 administrators = [
@@ -67,7 +68,6 @@ administrators = [
 
 ops_users = [
   "steve.wilson@bjss.com",
-  "chris.nappin@bjss.com",
   "chris.nappin@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
@@ -127,6 +127,30 @@ support_ro_users = [
   "john.reynolds@bjss.com",
   "david.woodley@bjss.com",
   "callum.massey@bjss.com",
+  "andy.white1@bjss.com",
+  "steve.wilson@bjss.com",
+  "chris.nappin@bjss.com",
+  "saul.kashani@bjss.com",
+  "arthur.coombes@bjss.com",
+  "adam.hall@bjss.com",
+  "michael.riley@bjss.com",
+  "christopher.swanson@bjss.com",
+  "prashant.kumar@bjss.com",
+  "damian.skiba@bjss.com",
+  "daniel.billing@bjss.com",
+  "stephen.davies@bjss.com",
+  "ogbonna.quarcoopome-harper@bjss.com",
+  "adrian.jones@bjss.com",
+  "rajkieren.manku@bjss.com",
+  "daniel.thompson@bjss.com",
+  "gareth.whiteside@bjss.com",
+  "michael.tribbick@bjss.com",
+  "ibrar.akram@bjss.com",
+  "john.bower@bjss.com",
+  "luke.browning@bjss.com",
+  "tom.bibb@bjss.com",
+  "ian.harris@bjss.com",
+  "irfan.sidat@bjss.com",
 ]
 
 dvsa_ro_users = [
