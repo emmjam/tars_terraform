@@ -69,6 +69,7 @@ all_users = [
   "john.reynolds@bjss.com",
   "david.woodley@bjss.com",
   "callum.massey@bjss.com",
+  "andy.white1@bjss.com",
 ]
 
 administrators = [
@@ -150,6 +151,7 @@ support_ro_users = [
   "john.reynolds@bjss.com",
   "david.woodley@bjss.com",
   "callum.massey@bjss.com",
+  "andy.white1@bjss.com",
 ]
 
 dvsa_ro_users = [
