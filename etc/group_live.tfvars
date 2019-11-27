@@ -71,6 +71,7 @@ all_users = [
   "callum.massey@bjss.com",
   "andy.white1@bjss.com",
   "dimple.chauhan@bjss.com",
+  "rebecca.howell@bjss.com",
 ]
 
 administrators = [
@@ -165,6 +166,7 @@ dvsa_ro_users = [
 tss_billing_ro_users = [
   "neil.eaton@bjss.com",
   "david.johnson@bjss.com",
+  "rebecca.howell@bjss.com",
 ]
 
 cwl_retention_days = "90"
