@@ -1,5 +1,5 @@
 resource "aws_iam_role" "administrators" {
-  name = "${local.csi}-Administrators"
+  name = "Administrators"
 
   max_session_duration = "28800"
 
@@ -10,7 +10,7 @@ resource "aws_iam_role" "administrators" {
   tags = "${merge(
     local.default_tags,
     map(
-      "Name", "${local.csi}-Administrators",
+      "Name", "${local.csi}/Administrators",
     ),
   )}"
 }
