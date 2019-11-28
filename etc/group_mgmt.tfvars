@@ -43,6 +43,11 @@ all_users = [
 administrators = [
 ]
 
+administrators_tssops_users = [
+  "stephen.davies@bjss.com",
+  "tom.bibb@bjss.com",
+]
+
 tss_billing_ro_users = [
   "neil.eaton@bjss.com",
   "david.johnson@bjss.com",

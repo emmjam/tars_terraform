@@ -564,3 +564,16 @@ variable "nexus_domain_name" {
   description = "Domain name for the Nexus Instance, if undefined, no zone will be created"
   default     = ""
 }
+
+variable "administrators_tssops_users" {
+  type        = "list"
+  description = "List of administrator IAM Users for the TSSOps, that have Admin access"
+  default     = []
+}
+
+variable "all_users" {
+  type        = "list"
+  description = "List of All IAM Users"
+  default     = []
+}
+
