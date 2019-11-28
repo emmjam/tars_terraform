@@ -8,6 +8,11 @@ default_tags = {
   "Project" = "tars"
   "Group"   = "mgmt"
 }
+new_all_users = [
+  "stephen.davies@bjss.com",
+  "tom.bibb@bjss.com",
+]
+
 
 all_users = [
   "steve.wilson@bjss.com",
