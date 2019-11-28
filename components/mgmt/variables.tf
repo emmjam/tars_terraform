@@ -571,7 +571,7 @@ variable "administrators_tssops_users" {
   default     = []
 }
 
-variable "all_users" {
+variable "new_all_users" {
   type        = "list"
   description = "List of All IAM Users"
   default     = []
