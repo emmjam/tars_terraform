@@ -13,7 +13,6 @@ new_all_users = [
   "tom.bibb@bjss.com",
 ]
 
-
 all_users = [
   "steve.wilson@bjss.com",
   "chris.nappin@bjss.com",
@@ -62,6 +61,11 @@ tss_billing_ro_users = [
   "neil.eaton@bjss.com",
   "david.johnson@bjss.com",
   "gareth.whiteside@bjss.com",
+]
+
+billing_users = [
+  "stephen.davies@bjss.com",
+  "tom.bibb@bjss.com",
 ]
 
 ops_users = [
