@@ -71,18 +71,6 @@ variable "sonarqube" {
   description = "Sonarqube Configuration"
 }
 
-variable "users" {
-  type        = "list"
-  description = "List of IAM Users"
-  default     = []
-}
-
-variable "administrators" {
-  type        = "list"
-  description = "List of IAM Users from the 'users' list with Admin rights"
-  default     = []
-}
-
 variable "vpc_cidr" {
   type        = "string"
   description = ""
@@ -565,9 +553,19 @@ variable "nexus_domain_name" {
   default     = ""
 }
 
-variable "administrators_tssops_users" {
+##
+# IAM
+##
+
+variable "users" {
   type        = "list"
-  description = "List of administrator IAM Users for the TSSOps, that have Admin access"
+  description = "List of IAM Users"
+  default     = []
+}
+
+variable "administrators" {
+  type        = "list"
+  description = "List of IAM Users from the 'users' list with Admin rights"
   default     = []
 }
 
@@ -577,9 +575,63 @@ variable "new_all_users" {
   default     = []
 }
 
+variable "administrators_tssops_users" {
+  type        = "list"
+  description = "List of administrator IAM Users for the TSSOps, that have Admin access"
+  default     = []
+}
+
 variable "administrators_platform_users" {
   type        = "list"
-  description = "List of administrator IAM Users for the platform team, that have Admin access"
+  description = "List of administrator IAM Users for the Platform team, that have Admin access"
+  default     = []
+}
+
+variable "readonly_tssops_users" {
+  type        = "list"
+  description = "List of RO IAM Users for TSSOps, that have RO access"
+  default     = []
+}
+
+variable "readonly_platform_users" {
+  type        = "list"
+  description = "List of RO IAM Users for Platform Team, that have full RO access"
+  default     = []
+}
+
+variable "readonly_developer_users" {
+  type        = "list"
+  description = "List of RO IAM Users for developers, that have RO access"
+  default     = []
+}
+
+variable "readonly_appsupport_users" {
+  type        = "list"
+  description = "List of RO IAM Users for App Support, that have RO access"
+  default     = []
+}
+
+variable "readonly_qaengineer_users" {
+  type        = "list"
+  description = "List of qaengineer IAM Users for testing, that have RO access"
+  default     = []
+}
+
+variable "qaengineer_users" {
+  type        = "list"
+  description = "List of qaengineer IAM Users for testing, that have specific access"
+  default     = []
+}
+
+variable "db_cw_users" {
+  type        = "list"
+  description = "List of DB CW Access IAM Users for Support functions, that have DB CW access"
+  default     = []
+}
+
+variable "dms_users" {
+  type        = "list"
+  description = "List of DMS Access IAM Users for Support functions, that have DMS access"
   default     = []
 }
 
