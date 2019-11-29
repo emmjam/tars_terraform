@@ -577,3 +577,9 @@ variable "new_all_users" {
   default     = []
 }
 
+variable "administrators_platform_users" {
+  type        = "list"
+  description = "List of administrator IAM Users for the platform team, that have Admin access"
+  default     = []
+}
+

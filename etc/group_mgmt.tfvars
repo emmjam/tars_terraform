@@ -53,6 +53,11 @@ administrators_tssops_users = [
   "tom.bibb@bjss.com",
 ]
 
+administrators_platform_users = [
+  "stephen.davies@bjss.com",
+  "tom.bibb@bjss.com",
+]
+
 tss_billing_ro_users = [
   "neil.eaton@bjss.com",
   "david.johnson@bjss.com",
