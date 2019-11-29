@@ -117,11 +117,11 @@ variable "db_cw_ro_users" {
   default     = []
 }
 
-#variable "billing_ro_users" {
-#  type        = "list"
-#  default     = []
-#  description = "List of billing read-only IAM Users for Support functions, that have Billing Read Only access"
-#}
+variable "billing_users" {
+  type        = "list"
+  description = "List of billing IAM Users for Support functions, that have Billing access"
+  default     = []
+}
 
 variable "guardduty_member_enabled" {
   type        = "string"

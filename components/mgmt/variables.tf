@@ -583,3 +583,8 @@ variable "administrators_platform_users" {
   default     = []
 }
 
+variable "billing_users" {
+  type        = "list"
+  description = "List of billing IAM Users for Support functions, that have Billing access"
+  default     = []
+}
