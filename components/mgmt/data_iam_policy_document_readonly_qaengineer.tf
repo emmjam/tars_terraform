@@ -8,8 +8,8 @@ data "aws_iam_policy_document" "assume_readonly_role_qaengineer" {
     ]
 
     resources = [
-      "arn:aws:iam::652856684323:role/ReadOnlyQAEngineer",
-      "arn:aws:iam::246976497890:role/ReadOnlyQAEngineer"
+      "arn:aws:iam::652856684323:role/ReadOnlyNoSecrets",
+      "arn:aws:iam::246976497890:role/ReadOnlyNoSecrets"
     ]
   }
 }
