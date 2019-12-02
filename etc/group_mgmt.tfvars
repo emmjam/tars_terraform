@@ -123,6 +123,41 @@ support_ro_users = [
   "dimple.chauhan@bjss.com",
 ]
 
+readonly_tssops_users = [
+  "stephen.davies@bjss.com",
+  "tom.bibb@bjss.com",
+]
+
+readonly_platform_users = [
+  "stephen.davies@bjss.com",
+  "tom.bibb@bjss.com",
+]
+
+readonly_developer_users = [
+  "stephen.davies@bjss.com",
+  "tom.bibb@bjss.com",
+]
+
+readonly_appsupport_users = [
+  "stephen.davies@bjss.com",
+  "tom.bibb@bjss.com",
+]
+
+qaengineer_users = [
+  "stephen.davies@bjss.com",
+  "tom.bibb@bjss.com",
+]
+
+db_cw_users = [
+  "stephen.davies@bjss.com",
+  "tom.bibb@bjss.com",
+]
+
+dms_users = [
+  "stephen.davies@bjss.com",
+  "tom.bibb@bjss.com",
+]
+
 ctrl_vpc_cidr = "10.167.64.0/22"
 
 ctrl_nat_subnets_cidrs = [
