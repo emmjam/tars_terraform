@@ -11,6 +11,10 @@ default_tags = {
 new_all_users = [
   "stephen.davies@bjss.com",
   "tom.bibb@bjss.com",
+  "steve.wilson@bjss.com",
+  "steven.ryalls@bjss.com",
+  "balkar.bains@bjss.com",
+  "david.giles@bjss.com",
 ]
 
 all_users = [
@@ -55,6 +59,7 @@ administrators_tssops_users = [
 administrators_platform_users = [
   "stephen.davies@bjss.com",
   "tom.bibb@bjss.com",
+  "steve.wilson@bjss.com",
 ]
 
 tss_billing_ro_users = [
@@ -80,7 +85,6 @@ ops_users = [
   "prashant.kumar@bjss.com",
   "damian.skiba@bjss.com",
   "daniel.billing@bjss.com",
-  "stephen.davies@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
   "michael.tribbick@bjss.com",
   "adrian.jones@bjss.com",
@@ -123,36 +127,35 @@ support_ro_users = [
 ]
 
 readonly_tssops_users = [
-  "tom.bibb@bjss.com",
+  "christopher.swanson@bjss.com",
 ]
 
 readonly_platform_users = [
-  "stephen.davies@bjss.com",
-  "tom.bibb@bjss.com",
+  "steve.wilson@bjss.com",
 ]
 
 readonly_developer_users = [
-  "tom.bibb@bjss.com",
+  "david.woodley@bjss.com",
 ]
 
 readonly_appsupport_users = [
-  "tom.bibb@bjss.com",
+  "steven.ryalls@bjss.com",
 ]
 
 qaengineer_users = [
-  "stephen.davies@bjss.com",
+  "balkar.bains@bjss.com",
 ]
 
 readonly_qaengineer_users = [
-  "stephen.davies@bjss.com",
+  "balkar.bains@bjss.com",
 ]
 
 db_cw_users = [
-  "tom.bibb@bjss.com",
+  "david.giles@bjss.com",
 ]
 
 dms_users = [
-  "tom.bibb@bjss.com",
+  "david.giles@bjss.com",
 ]
 
 ctrl_vpc_cidr = "10.167.64.0/22"
