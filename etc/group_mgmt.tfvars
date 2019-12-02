@@ -64,8 +64,9 @@ tss_billing_ro_users = [
 ]
 
 billing_users = [
-  "stephen.davies@bjss.com",
-  "tom.bibb@bjss.com",
+  "neil.eaton@bjss.com",
+  "david.johnson@bjss.com",
+  "gareth.whiteside@bjss.com",
 ]
 
 ops_users = [
@@ -106,7 +107,6 @@ support_ro_users = [
   "prashant.kumar@bjss.com",
   "damian.skiba@bjss.com",
   "daniel.billing@bjss.com",
-  "stephen.davies@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
   "michael.tribbick@bjss.com",
   "adrian.jones@bjss.com",
@@ -115,7 +115,6 @@ support_ro_users = [
   "ibrar.akram@bjss.com",
   "john.bower@bjss.com",
   "luke.browning@bjss.com",
-  "tom.bibb@bjss.com",
   "ian.harris@bjss.com",
   "michelle.pike@bjss.com",
   "irfan.sidat@bjss.com",
@@ -124,7 +123,6 @@ support_ro_users = [
 ]
 
 readonly_tssops_users = [
-  "stephen.davies@bjss.com",
   "tom.bibb@bjss.com",
 ]
 
@@ -134,27 +132,26 @@ readonly_platform_users = [
 ]
 
 readonly_developer_users = [
-  "stephen.davies@bjss.com",
   "tom.bibb@bjss.com",
 ]
 
 readonly_appsupport_users = [
-  "stephen.davies@bjss.com",
   "tom.bibb@bjss.com",
 ]
 
 qaengineer_users = [
   "stephen.davies@bjss.com",
-  "tom.bibb@bjss.com",
+]
+
+readonly_qaengineer_users = [
+  "stephen.davies@bjss.com",
 ]
 
 db_cw_users = [
-  "stephen.davies@bjss.com",
   "tom.bibb@bjss.com",
 ]
 
 dms_users = [
-  "stephen.davies@bjss.com",
   "tom.bibb@bjss.com",
 ]
 
