@@ -72,6 +72,9 @@ all_users = [
   "andy.white1@bjss.com",
   "dimple.chauhan@bjss.com",
   "rebecca.howell@bjss.com",
+  "hamzaan.bridle@bjss.com",
+  "adrian.riley@bjss.com",
+  "joseph.burgess@bjss.com",
 ]
 
 administrators = [
@@ -155,6 +158,9 @@ support_ro_users = [
   "callum.massey@bjss.com",
   "andy.white1@bjss.com",
   "dimple.chauhan@bjss.com",
+  "hamzaan.bridle@bjss.com",
+  "adrian.riley@bjss.com",
+  "joseph.burgess@bjss.com",
 ]
 
 dvsa_ro_users = [
