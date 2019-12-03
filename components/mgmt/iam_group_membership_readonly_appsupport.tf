@@ -4,6 +4,6 @@ resource "aws_iam_group_membership" "readonly_appsupport" {
   group = "${aws_iam_group.readonly_appsupport.name}"
 
   users = [
-    "${var.administrators_tssops_users}",
+    "${var.readonly_appsupport_users}",
   ]
 }
