@@ -136,9 +136,6 @@ readonly_platform_users = [
 
 readonly_developer_users = [
   "david.woodley@bjss.com",
-  "hamzaan.bridle@bjss.com",
-  "adrian.riley@bjss.com",
-  "joseph.burgess@bjss.com",
 ]
 
 readonly_appsupport_users = [
