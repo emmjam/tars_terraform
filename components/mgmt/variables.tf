@@ -617,6 +617,12 @@ variable "readonly_qaengineer_users" {
   default     = []
 }
 
+variable "readonly_dvsa_users" {
+  type        = "list"
+  description = "List of dvsa IAM Users for POs, that have RO access"
+  default     = []
+}
+
 variable "qaengineer_users" {
   type        = "list"
   description = "List of qaengineer IAM Users for testing, that have specific access"

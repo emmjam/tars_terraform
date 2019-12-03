@@ -15,6 +15,8 @@ new_all_users = [
   "steven.ryalls@bjss.com",
   "balkar.bains@bjss.com",
   "david.giles@bjss.com",
+  "matthew.bell@dvsa.gov.uk",
+  "alice.haws@dvsa.gov.uk",
 ]
 
 all_users = [
@@ -148,6 +150,11 @@ qaengineer_users = [
 
 readonly_qaengineer_users = [
   "balkar.bains@bjss.com",
+]
+
+readonly_dvsa_users = [
+  "matthew.bell@dvsa.gov.uk",
+  "alice.haws@dvsa.gov.uk",
 ]
 
 db_cw_users = [
