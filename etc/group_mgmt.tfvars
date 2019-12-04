@@ -8,16 +8,177 @@ default_tags = {
   "Project" = "tars"
   "Group"   = "mgmt"
 }
+
+# All Users
+
 new_all_users = [
+"adam.hall@bjss.com",
+"adrian.jones@bjss.com",
+"adrian.riley@bjss.com",
+"aiman.chaudhary@bjss.com",
+"alice.haws@dvsa.gov.uk",
+"andrew.malcolm@bjss.com",
+"andy.white2@bjss.com",
+"arthur.coombes@bjss.com",
+"balkar.bains@bjss.com",
+"billy.dhillon@bjss.com",
+"callum.massey@bjss.com",
+"chris.nappin@bjss.com",
+"christopher.swanson@bjss.com",
+"damian.skiba@bjss.com",
+"daniel.billing@bjss.com",
+"daniel.thompson@bjss.com",
+"david.giles@bjss.com",
+"david.johnson@bjss.com",
+"david.woodley@bjss.com",
+"dimple.chauhan@bjss.com",
+"hamzaan.bridle@bjss.com",
+"ian.harris@bjss.com",
+"ibrar.akram@bjss.com",
+"irfan.sidat@bjss.com",
+"john.bower@bjss.com",
+"john.reynolds@bjss.com",
+"joseph.burgess@bjss.com",
+"josh.paveley@bjss.com",
+"luke.browning@bjss.com",
+"matthew.bell@dvsa.gov.uk",
+"michael.riley@bjss.com",
+"michael.tribbick@bjss.com",
+"michelle.pike@bjss.com",
+"neil.eaton@bjss.com",
+"ogbonna.quarcoopome-harper@bjss.com",
+"prashant.kumar@bjss.com",
+"rajkieren.manku@bjss.com",
+"richard.freitas@bjss.com",
+"saul.kashani@bjss.com",
+"stephen.davies@bjss.com",
+"stephen.davies@bjss.com",
+"steve.wilson@bjss.com",
+"steven.millington@bjss.com",
+"tom.bibb@bjss.com",
+"winston.coleman@bjss.com",
+]
+
+# TSSOps Access
+
+administrators_tssops_users = [
+  "saul.kashani@bjss.com",
+  "arthur.coombes@bjss.com",
+  "adam.hall@bjss.com",
+  "michael.riley@bjss.com",
+  "christopher.swanson@bjss.com",
+  "prashant.kumar@bjss.com",
+  "damian.skiba@bjss.com",
+  "daniel.billing@bjss.com",
+  "ogbonna.quarcoopome-harper@bjss.com",
+  "adrian.jones@bjss.com",
+  "rajkieren.manku@bjss.com",
+  "daniel.thompson@bjss.com",
+  "ibrar.akram@bjss.com",
+  "john.bower@bjss.com",
+  "luke.browning@bjss.com",
+  "ian.harris@bjss.com",
+  "irfan.sidat@bjss.com",
+]
+
+readonly_tssops_users = [
+  "saul.kashani@bjss.com",
+  "arthur.coombes@bjss.com",
+  "adam.hall@bjss.com",
+  "michael.riley@bjss.com",
+  "christopher.swanson@bjss.com",
+  "prashant.kumar@bjss.com",
+  "damian.skiba@bjss.com",
+  "daniel.billing@bjss.com",
+  "ogbonna.quarcoopome-harper@bjss.com",
+  "adrian.jones@bjss.com",
+  "rajkieren.manku@bjss.com",
+  "daniel.thompson@bjss.com",
+  "ibrar.akram@bjss.com",
+  "john.bower@bjss.com",
+  "luke.browning@bjss.com",
+  "ian.harris@bjss.com",
+  "irfan.sidat@bjss.com",
+]
+
+# TARS Platform Access
+
+administrators_platform_users = [
   "stephen.davies@bjss.com",
   "tom.bibb@bjss.com",
   "steve.wilson@bjss.com",
-  "steven.ryalls@bjss.com",
-  "balkar.bains@bjss.com",
-  "david.giles@bjss.com",
-  "matthew.bell@dvsa.gov.uk",
-  "alice.haws@dvsa.gov.uk",
+  "michelle.pike@bjss.com",
+  "callum.massey@bjss.com",
+  "michael.tribbick@bjss.com",
 ]
+
+readonly_platform_users = [
+  "stephen.davies@bjss.com",
+  "tom.bibb@bjss.com",
+  "steve.wilson@bjss.com",
+  "michelle.pike@bjss.com",
+  "callum.massey@bjss.com",
+  "michael.tribbick@bjss.com",
+]
+
+# Billing Dashboard Access
+
+billing_users = [
+  "neil.eaton@bjss.com",
+  "david.johnson@bjss.com",
+]
+
+readonly_developer_users = [
+  "andy.white2@bjss.com",
+  "david.woodley@bjss.com",
+  "hamzaan.bridle@bjss.com",
+  "adrian.riley@bjss.com",
+  "joseph.burgess@bjss.com",
+  "chris.nappin@bjss.com",
+  "josh.paveley@bjss.com",
+  "aiman.chaudhary@bjss.com",
+  "richard.freitas@bjss.com",
+]
+
+# Billing Dashboard Access
+
+billing_users = [
+  "neil.eaton@bjss.com",
+  "david.johnson@bjss.com",
+]
+
+# Application Support Access
+
+readonly_appsupport_users = [
+  "billy.dhillon@bjss.com",
+  "winston.coleman@bjss.com",
+  "steven.millington@bjss.com",
+  "andrew.malcolm@bjss.com",
+]
+
+# QA Engineer Access
+
+qaengineer_users = [
+  "balkar.bains@bjss.com",
+  "john.reynolds@bjss.com",
+]
+
+readonly_qaengineer_users = [
+  "balkar.bains@bjss.com",
+  "john.reynolds@bjss.com",
+]
+
+# DBA Access
+
+db_cw_users = [
+  "david.giles@bjss.com",
+]
+
+dms_users = [
+  "david.giles@bjss.com",
+]
+
+# To Tidy Up
 
 all_users = [
   "steve.wilson@bjss.com",
@@ -38,7 +199,6 @@ all_users = [
   "neil.eaton@bjss.com",
   "david.johnson@bjss.com",
   "daniel.thompson@bjss.com",
-  "gareth.whiteside@bjss.com",
   "ibrar.akram@bjss.com",
   "john.bower@bjss.com",
   "luke.browning@bjss.com",
@@ -48,32 +208,6 @@ all_users = [
   "irfan.sidat@bjss.com",
   "callum.massey@bjss.com",
   "dimple.chauhan@bjss.com",
-]
-
-administrators = [
-]
-
-administrators_tssops_users = [
-  "stephen.davies@bjss.com",
-  "tom.bibb@bjss.com",
-]
-
-administrators_platform_users = [
-  "stephen.davies@bjss.com",
-  "tom.bibb@bjss.com",
-  "steve.wilson@bjss.com",
-]
-
-tss_billing_ro_users = [
-  "neil.eaton@bjss.com",
-  "david.johnson@bjss.com",
-  "gareth.whiteside@bjss.com",
-]
-
-billing_users = [
-  "neil.eaton@bjss.com",
-  "david.johnson@bjss.com",
-  "gareth.whiteside@bjss.com",
 ]
 
 ops_users = [
@@ -128,41 +262,12 @@ support_ro_users = [
   "dimple.chauhan@bjss.com",
 ]
 
-readonly_tssops_users = [
-  "christopher.swanson@bjss.com",
+tss_billing_ro_users = [
+  "neil.eaton@bjss.com",
+  "david.johnson@bjss.com",
 ]
 
-readonly_platform_users = [
-  "steve.wilson@bjss.com",
-]
-
-readonly_developer_users = [
-  "david.woodley@bjss.com",
-]
-
-readonly_appsupport_users = [
-  "steven.ryalls@bjss.com",
-]
-
-qaengineer_users = [
-  "balkar.bains@bjss.com",
-]
-
-readonly_qaengineer_users = [
-  "balkar.bains@bjss.com",
-]
-
-readonly_dvsa_users = [
-  "matthew.bell@dvsa.gov.uk",
-  "alice.haws@dvsa.gov.uk",
-]
-
-db_cw_users = [
-  "david.giles@bjss.com",
-]
-
-dms_users = [
-  "david.giles@bjss.com",
+administrators = [
 ]
 
 ctrl_vpc_cidr = "10.167.64.0/22"
