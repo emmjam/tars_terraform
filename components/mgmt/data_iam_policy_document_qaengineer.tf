@@ -8,7 +8,7 @@ data "aws_iam_policy_document" "assume_qaengineer_role" {
     ]
 
     resources = [
-      "arn:aws:iam::652856684323:role/QAEngineer"
+      "arn:aws:iam::652856684323:role/QAEngineerAccess"
     ]
   }
 }
