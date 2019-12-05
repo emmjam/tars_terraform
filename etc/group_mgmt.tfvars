@@ -121,12 +121,7 @@ readonly_platform_users = [
   "michael.tribbick@bjss.com",
 ]
 
-# Billing Dashboard Access
-
-billing_users = [
-  "neil.eaton@bjss.com",
-  "david.johnson@bjss.com",
-]
+# Developer Access
 
 readonly_developer_users = [
   "andy.white2@bjss.com",
@@ -138,6 +133,13 @@ readonly_developer_users = [
   "josh.paveley@bjss.com",
   "aiman.chaudhary@bjss.com",
   "richard.freitas@bjss.com",
+]
+
+# DVSA Access
+
+readonly_dvsa_users = [
+  "alice.haws@dvsa.gov.uk",
+  "matthew.bell@dvsa.gov.uk",
 ]
 
 # Billing Dashboard Access
