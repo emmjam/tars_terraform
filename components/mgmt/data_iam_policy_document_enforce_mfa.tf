@@ -22,7 +22,10 @@ data "aws_iam_policy_document" "enforce_mfa" {
       "iam:ChangePassword",
       "iam:GetAccountPasswordPolicy",
       "iam:GetAccountSummary",
+      "iam:CreateAccessKey",
+      "iam:DeleteAccessKey",
       "iam:ListAccessKeys",
+      "iam:UpdateAccessKey",
     ]
 
     resources = [
