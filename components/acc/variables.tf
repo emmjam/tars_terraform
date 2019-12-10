@@ -23,7 +23,7 @@ variable "component" {
   default     = "acc"
 }
 
-variable "version" {
+variable "release_version" {
   type        = "string"
   default     = "Not provided"
   description = "Version of infrastructure deployed"

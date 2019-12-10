@@ -825,7 +825,7 @@ variable "tf_state_bucket_prefix" {
   description = "TF State bucket prefix"
 }
 
-variable "version" {
+variable "release_version" {
   type        = "string"
   default     = "Not provided"
   description = "Version of infrastructure deployed"
