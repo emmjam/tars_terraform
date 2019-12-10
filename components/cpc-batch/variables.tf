@@ -13,7 +13,7 @@ variable "environment" {
   description = "TF Scaffold environment"
 }
 
-variable "version" {
+variable "release_version" {
   type        = "string"
   default     = "Not provided"
   description = "Version of infrastructure deployed"

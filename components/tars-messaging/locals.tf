@@ -29,7 +29,7 @@ locals {
     var.default_tags,
     map(
       "Component", var.component,
-      "Version",   var.version,
+      "Version",   var.release_version,
     )
   )}"
 

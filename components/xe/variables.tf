@@ -19,7 +19,7 @@ variable "component" {
   default     = "xe"
 }
 
-variable "version" {
+variable "release_version" {
   type        = "string"
   default     = "Not provided"
   description = "Version of infrastructure deployed"
