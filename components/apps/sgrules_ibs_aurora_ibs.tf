@@ -5,8 +5,8 @@ resource "aws_security_group_rule" "aurora_db_ingress_ibs" {
   from_port                = 3306
   to_port                  = 3306
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.ibs_aurora.id}"
-  source_security_group_id = "${module.ibs.security_group_id}"
+  security_group_id        = aws_security_group.ibs_aurora.id
+  source_security_group_id = module.ibs.security_group_id
 }
 
 resource "aws_security_group_rule" "aurora_db_ingress_bastion" {
@@ -15,6 +15,7 @@ resource "aws_security_group_rule" "aurora_db_ingress_bastion" {
   from_port                = 3306
   to_port                  = 3306
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.ibs_aurora.id}"
-  source_security_group_id = "${data.terraform_remote_state.ctrl.bastion_sg_id}"
+  security_group_id        = aws_security_group.ibs_aurora.id
+  source_security_group_id = data.terraform_remote_state.ctrl.outputs.bastion_sg_id
 }
+

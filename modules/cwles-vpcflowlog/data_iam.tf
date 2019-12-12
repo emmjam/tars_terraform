@@ -22,17 +22,16 @@ data "aws_iam_policy_document" "vpc_flow_logs_assumerole" {
 # The attachment of the vpc_flow_logs_cloudwatch
 # policy to the vpc_flow_logs role
 resource "aws_iam_role_policy" "vpc_flow_logs" {
-  name = "${format(
+  name = format(
     "%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
-    "vpc-flow-logs"
-  )}"
+    "vpc-flow-logs",
+  )
 
-  role   = "${aws_iam_role.vpc_flow_logs.id}"
-  policy = "${data.aws_iam_policy_document.vpc_flow_logs_cloudwatch.json}"
-
+  role   = aws_iam_role.vpc_flow_logs.id
+  policy = data.aws_iam_policy_document.vpc_flow_logs_cloudwatch.json
   # Does not support tags
 }
 
@@ -49,7 +48,7 @@ data "aws_iam_policy_document" "vpc_flow_logs_cloudwatch" {
     ]
 
     resources = [
-      "${aws_cloudwatch_log_group.vpc_flow_logs.arn}",
+      aws_cloudwatch_log_group.vpc_flow_logs.arn,
     ]
   }
 
@@ -67,3 +66,4 @@ data "aws_iam_policy_document" "vpc_flow_logs_cloudwatch" {
     ]
   }
 }
+

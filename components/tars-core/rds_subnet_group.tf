@@ -3,23 +3,16 @@
 #                 to guarantee no conflicts with other components.
 #                 Also - align description to name
 resource "aws_db_subnet_group" "tarsdb" {
-  name = "${format(
+  name = format(
     "%s-%s-%s-%s",
     var.project,
     var.environment,
     "tars",
-    "tarsdb"
-  )}"
+    "tarsdb",
+  )
 
-  description = "${format(
-    "%s-%s-%s-%s",
-    var.project,
-    var.environment,
-    "tars",
-    "tars"
-  )}"
+  description = format("%s-%s-%s-%s", var.project, var.environment, "tars", "tars")
 
-  subnet_ids = [
-    "${data.terraform_remote_state.base.subnets_tars_db}"
-  ]
+  subnet_ids = data.terraform_remote_state.base.outputs.subnets_tars_db
 }
+

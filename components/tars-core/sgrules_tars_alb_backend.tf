@@ -5,8 +5,8 @@ resource "aws_security_group_rule" "tars_alb_backend_ingress_tars_frontend_port_
   from_port                = 8080
   to_port                  = 8080
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-alb-backend.id}"
-  source_security_group_id = "${module.tars_front.security_group_id}"
+  security_group_id        = aws_security_group.tars-alb-backend.id
+  source_security_group_id = module.tars_front.security_group_id
 }
 
 resource "aws_security_group_rule" "tars_alb_backend_egress_tars_backend_port_8080" {
@@ -15,6 +15,7 @@ resource "aws_security_group_rule" "tars_alb_backend_egress_tars_backend_port_80
   from_port                = 8080
   to_port                  = 8080
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-alb-backend.id}"
-  source_security_group_id = "${module.tars_back.security_group_id}"
+  security_group_id        = aws_security_group.tars-alb-backend.id
+  source_security_group_id = module.tars_back.security_group_id
 }
+

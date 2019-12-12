@@ -1,10 +1,11 @@
 resource "aws_internet_gateway" "mgmt" {
-  vpc_id = "${aws_vpc.mgmt.id}"
+  vpc_id = aws_vpc.mgmt.id
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", local.csi
-    )
-  )}"
+    {
+      "Name" = local.csi
+    },
+  )
 }
+

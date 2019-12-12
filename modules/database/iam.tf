@@ -13,15 +13,15 @@ data "aws_iam_policy_document" "lambda_assume_role" {
 }
 
 resource "aws_iam_role" "iam_role_for_lambda" {
-  name = "${format(
+  name = format(
     "%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
     var.name,
-  )}"
+  )
 
-  assume_role_policy = "${data.aws_iam_policy_document.lambda_assume_role.json}"
+  assume_role_policy = data.aws_iam_policy_document.lambda_assume_role.json
 }
 
 data "aws_iam_policy_document" "lambda_kms_decrypt_db" {
@@ -31,22 +31,22 @@ data "aws_iam_policy_document" "lambda_kms_decrypt_db" {
     ]
 
     effect    = "Allow"
-    resources = ["${aws_kms_key.db_key.arn}"]
+    resources = [aws_kms_key.db_key.arn]
   }
 }
 
 resource "aws_iam_policy" "lambda_kms_decrypt_db" {
-  name = "${format(
+  name = format(
     "%s-%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
     var.name,
     "kms-decrypt",
-  )}"
+  )
 
   description = "IAM Policy to allow decryptr using DB Key"
-  policy      = "${data.aws_iam_policy_document.lambda_kms_decrypt_db.json}"
+  policy      = data.aws_iam_policy_document.lambda_kms_decrypt_db.json
 }
 
 data "aws_iam_policy_document" "lambda_s3_dbpasswd_read" {
@@ -59,25 +59,25 @@ data "aws_iam_policy_document" "lambda_s3_dbpasswd_read" {
     effect = "Allow"
 
     resources = [
-      "${module.password_bucket.arn}",
+      module.password_bucket.arn,
       "${module.password_bucket.arn}/*",
     ]
   }
 }
 
 resource "aws_iam_policy" "lambda_s3_dbpasswd_read" {
-  name = "${format(
+  name = format(
     "%s-%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
     var.name,
     "s3-passwd-read",
-  )}"
+  )
 
   description = "IAM Policy to allow read access to S3 bucket with encrypted DB password"
 
-  policy = "${data.aws_iam_policy_document.lambda_s3_dbpasswd_read.json}"
+  policy = data.aws_iam_policy_document.lambda_s3_dbpasswd_read.json
 }
 
 data "aws_iam_policy_document" "lambda_rds_passwd_reset" {
@@ -87,36 +87,37 @@ data "aws_iam_policy_document" "lambda_rds_passwd_reset" {
     ]
 
     effect    = "Allow"
-    resources = ["${aws_db_instance.database.arn}"]
+    resources = [aws_db_instance.database.arn]
   }
 }
 
 resource "aws_iam_policy" "lambda_rds_passwd_reset" {
-  name = "${format(
+  name = format(
     "%s-%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
     var.name,
     "rds-passwd-reset",
-  )}"
+  )
 
   description = "IAM Policy to allow changing RDS password"
 
-  policy = "${data.aws_iam_policy_document.lambda_rds_passwd_reset.json}"
+  policy = data.aws_iam_policy_document.lambda_rds_passwd_reset.json
 }
 
 resource "aws_iam_role_policy_attachment" "attach-s3" {
-  role       = "${aws_iam_role.iam_role_for_lambda.name}"
-  policy_arn = "${aws_iam_policy.lambda_s3_dbpasswd_read.arn}"
+  role       = aws_iam_role.iam_role_for_lambda.name
+  policy_arn = aws_iam_policy.lambda_s3_dbpasswd_read.arn
 }
 
 resource "aws_iam_role_policy_attachment" "attach-rds" {
-  role       = "${aws_iam_role.iam_role_for_lambda.name}"
-  policy_arn = "${aws_iam_policy.lambda_rds_passwd_reset.arn}"
+  role       = aws_iam_role.iam_role_for_lambda.name
+  policy_arn = aws_iam_policy.lambda_rds_passwd_reset.arn
 }
 
 resource "aws_iam_role_policy_attachment" "attach-kms" {
-  role       = "${aws_iam_role.iam_role_for_lambda.name}"
-  policy_arn = "${aws_iam_policy.lambda_kms_decrypt_db.arn}"
+  role       = aws_iam_role.iam_role_for_lambda.name
+  policy_arn = aws_iam_policy.lambda_kms_decrypt_db.arn
 }
+

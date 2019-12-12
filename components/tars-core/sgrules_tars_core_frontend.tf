@@ -5,8 +5,8 @@ resource "aws_security_group_rule" "tars_core_frontend_ingress_public_alb_port_8
   from_port                = 8443
   to_port                  = 8443
   protocol                 = "tcp"
-  security_group_id        = "${module.tars_front.security_group_id}"
-  source_security_group_id = "${aws_security_group.tars-dvsa-public.id}"
+  security_group_id        = module.tars_front.security_group_id
+  source_security_group_id = aws_security_group.tars-dvsa-public.id
 }
 
 resource "aws_security_group_rule" "tars_core_frontend_ingress_private_alb_port_7443" {
@@ -15,8 +15,8 @@ resource "aws_security_group_rule" "tars_core_frontend_ingress_private_alb_port_
   from_port                = 7443
   to_port                  = 7443
   protocol                 = "tcp"
-  security_group_id        = "${module.tars_front.security_group_id}"
-  source_security_group_id = "${aws_security_group.tars-alb-private.id}"
+  security_group_id        = module.tars_front.security_group_id
+  source_security_group_id = aws_security_group.tars-alb-private.id
 }
 
 resource "aws_security_group_rule" "tars_core_frontend_ingress_private_alb_port_8443" {
@@ -25,8 +25,8 @@ resource "aws_security_group_rule" "tars_core_frontend_ingress_private_alb_port_
   from_port                = 8443
   to_port                  = 8443
   protocol                 = "tcp"
-  security_group_id        = "${module.tars_front.security_group_id}"
-  source_security_group_id = "${aws_security_group.tars-alb-private.id}"
+  security_group_id        = module.tars_front.security_group_id
+  source_security_group_id = aws_security_group.tars-alb-private.id
 }
 
 resource "aws_security_group_rule" "tars_core_frontend_ingress_internal_alb_port_7443" {
@@ -35,8 +35,8 @@ resource "aws_security_group_rule" "tars_core_frontend_ingress_internal_alb_port
   from_port                = 7443
   to_port                  = 7443
   protocol                 = "tcp"
-  security_group_id        = "${module.tars_front.security_group_id}"
-  source_security_group_id = "${aws_security_group.tars-alb-internal.id}"
+  security_group_id        = module.tars_front.security_group_id
+  source_security_group_id = aws_security_group.tars-alb-internal.id
 }
 
 resource "aws_security_group_rule" "tars_core_frontend_ingress_internal_alb_port_8443" {
@@ -45,8 +45,8 @@ resource "aws_security_group_rule" "tars_core_frontend_ingress_internal_alb_port
   from_port                = 8443
   to_port                  = 8443
   protocol                 = "tcp"
-  security_group_id        = "${module.tars_front.security_group_id}"
-  source_security_group_id = "${aws_security_group.tars-alb-internal.id}"
+  security_group_id        = module.tars_front.security_group_id
+  source_security_group_id = aws_security_group.tars-alb-internal.id
 }
 
 resource "aws_security_group_rule" "tars_core_frontend_egress_tars_core_backend_port_8080" {
@@ -55,8 +55,8 @@ resource "aws_security_group_rule" "tars_core_frontend_egress_tars_core_backend_
   from_port                = 8080
   to_port                  = 8080
   protocol                 = "tcp"
-  security_group_id        = "${module.tars_front.security_group_id}"
-  source_security_group_id = "${aws_security_group.tars-alb-backend.id}"
+  security_group_id        = module.tars_front.security_group_id
+  source_security_group_id = aws_security_group.tars-alb-backend.id
 }
 
 resource "aws_security_group_rule" "tars_core_frontend_egress_oracle_db" {
@@ -65,8 +65,8 @@ resource "aws_security_group_rule" "tars_core_frontend_egress_oracle_db" {
   from_port                = 1521
   to_port                  = 1521
   protocol                 = "tcp"
-  security_group_id        = "${module.tars_front.security_group_id}"
-  source_security_group_id = "${aws_security_group.tars-core-db.id}"
+  security_group_id        = module.tars_front.security_group_id
+  source_security_group_id = aws_security_group.tars-core-db.id
 }
 
 resource "aws_security_group_rule" "tars_core_frontend_ingress_bastion" {
@@ -75,8 +75,8 @@ resource "aws_security_group_rule" "tars_core_frontend_ingress_bastion" {
   from_port                = 22
   to_port                  = 22
   protocol                 = "tcp"
-  security_group_id        = "${module.tars_front.security_group_id}"
-  source_security_group_id = "${data.terraform_remote_state.ctrl.bastion_sg_id}"
+  security_group_id        = module.tars_front.security_group_id
+  source_security_group_id = data.terraform_remote_state.ctrl.outputs.bastion_sg_id
 }
 
 # TODO: peacheym: This is too wide. This only needs to be tcp/443
@@ -86,6 +86,7 @@ resource "aws_security_group_rule" "tars_core_frontend_egress_kms_endpoint" {
   from_port                = -1
   to_port                  = -1
   protocol                 = "-1"
-  security_group_id        = "${module.tars_front.security_group_id}"
-  source_security_group_id = "${data.terraform_remote_state.base.kms_sg_id}"
+  security_group_id        = module.tars_front.security_group_id
+  source_security_group_id = data.terraform_remote_state.base.outputs.kms_sg_id
 }
+

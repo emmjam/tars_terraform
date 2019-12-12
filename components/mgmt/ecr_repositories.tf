@@ -44,3 +44,4 @@ resource "aws_ecr_repository" "mot2_build_prometheus" {
 resource "aws_ecr_repository" "tars_run_terraform" {
   name = "tars/run/terraform"
 }
+

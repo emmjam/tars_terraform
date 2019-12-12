@@ -3,17 +3,17 @@
 ##
 
 variable "project" {
-  type        = "string"
+  type        = string
   description = "The name of the terraformscaffold project"
 }
 
 variable "environment" {
-  type        = "string"
+  type        = string
   description = "The name of the terraformscaffold environment"
 }
 
 variable "component" {
-  type        = "string"
+  type        = string
   description = "The name of the terraformscaffold component"
 }
 
@@ -22,7 +22,7 @@ variable "component" {
 ##
 
 variable "vpc_id" {
-  type        = "string"
+  type        = string
   description = "The VPC ID of the VPC requiring a cwles flow log"
 }
 

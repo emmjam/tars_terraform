@@ -57,3 +57,4 @@ resource "aws_db_parameter_group" "mis" {
     apply_method = "immediate"
   }
 }
+

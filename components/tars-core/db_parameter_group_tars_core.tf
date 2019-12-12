@@ -5,7 +5,6 @@
 ################################################################################
 
 resource "aws_db_parameter_group" "tars-core" {
-
   name        = "${local.csi}-tarsdb"
   description = "${local.csi}-tarsdb"
 
@@ -95,3 +94,4 @@ resource "aws_db_parameter_group" "tars-core" {
     apply_method = "immediate"
   }
 }
+

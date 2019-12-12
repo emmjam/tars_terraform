@@ -7,7 +7,7 @@ resource "aws_kms_key" "tars_efs" {
 //Creates Vault for Backup
 resource "aws_backup_vault" "tars_efs" {
   name        = "tars_efs"
-  kms_key_arn = "${aws_kms_key.tars_efs.arn}"
+  kms_key_arn = aws_kms_key.tars_efs.arn
 }
 
 //Creats Backup Plan and schedule
@@ -16,11 +16,11 @@ resource "aws_backup_plan" "tars_efs" {
 
   rule {
     rule_name         = "tars_efs_backup_rule"
-    target_vault_name = "${aws_backup_vault.tars_efs.name}"
+    target_vault_name = aws_backup_vault.tars_efs.name
     schedule          = "cron(0 03 * * ? *)"
     lifecycle {
-            delete_after = 30
-        }
+      delete_after = 30
+    }
   }
 }
 
@@ -42,10 +42,11 @@ resource "aws_iam_role" "tars_aws_backup" {
   ]
 }
 POLICY
+
 }
 
 resource "aws_iam_role_policy_attachment" "tars_aws_backup" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup"
-  role       = "${aws_iam_role.tars_aws_backup.name}"
+  role       = aws_iam_role.tars_aws_backup.name
 }
 

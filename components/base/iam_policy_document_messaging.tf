@@ -24,7 +24,7 @@ data "aws_iam_policy_document" "messagingnode" {
     effect = "Allow"
 
     actions = [
-      "ssm:GetParameter"
+      "ssm:GetParameter",
     ]
 
     resources = [
@@ -38,7 +38,7 @@ data "aws_iam_policy_document" "messagingnode" {
 
     actions = [
       "ssm:GetParameter",
-      "ssm:GetParameters"
+      "ssm:GetParameters",
     ]
 
     resources = [
@@ -50,5 +50,6 @@ data "aws_iam_policy_document" "messagingnode" {
 resource "aws_iam_policy" "messagingnode" {
   name        = "${local.csi}-messagingnode"
   description = "IAM policy for ${local.csi}-messagingnode"
-  policy      = "${data.aws_iam_policy_document.messagingnode.json}"
+  policy      = data.aws_iam_policy_document.messagingnode.json
 }
+

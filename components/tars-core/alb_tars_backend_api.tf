@@ -1,27 +1,26 @@
 # ALB for the tars core backend API access from MES
 resource "aws_alb" "tars-alb-backend-api" {
-  name     = "${local.csi}-api"
-  internal = "true"
+  name         = "${local.csi}-api"
+  internal     = "true"
   idle_timeout = 300
 
   access_logs {
-    bucket  = "${module.access_logs_bucket.id}"
+    bucket  = module.access_logs_bucket.id
     prefix  = "private-api"
     enabled = true
   }
 
   security_groups = [
-    "${aws_security_group.tars-alb-backend-api.id}",
+    aws_security_group.tars-alb-backend-api.id,
   ]
 
-  subnets = [
-    "${data.terraform_remote_state.base.subnets_tars_backend_api_alb}",
-  ]
+  subnets = data.terraform_remote_state.base.outputs.subnets_tars_backend_api_alb
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}/backend-api"
-    )
-  )}"
+    {
+      "Name" = "${local.csi}/backend-api"
+    },
+  )
 }
+

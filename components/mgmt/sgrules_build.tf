@@ -4,11 +4,9 @@ resource "aws_security_group_rule" "build_ingress_ssh" {
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.build.id}"
+  security_group_id = aws_security_group.build.id
 
-  cidr_blocks = [
-    "${var.whitelist}",
-  ]
+  cidr_blocks = var.whitelist
 }
 
 resource "aws_security_group_rule" "build_ingress_jenkinsctrl_ssh" {
@@ -17,6 +15,7 @@ resource "aws_security_group_rule" "build_ingress_jenkinsctrl_ssh" {
   from_port                = 22
   to_port                  = 22
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.build.id}"
-  source_security_group_id = "${data.terraform_remote_state.ctrl.jenkinsctrl_sg_id}"
+  security_group_id        = aws_security_group.build.id
+  source_security_group_id = data.terraform_remote_state.ctrl.outputs.jenkinsctrl_sg_id
 }
+

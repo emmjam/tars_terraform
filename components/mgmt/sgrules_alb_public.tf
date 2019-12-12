@@ -4,8 +4,8 @@ resource "aws_security_group_rule" "alb_public_egress_jenkins_8080" {
   from_port                = 8080
   to_port                  = 8080
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.alb_public.id}"
-  source_security_group_id = "${module.jenkins.jenkins_sg_id}"
+  security_group_id        = aws_security_group.alb_public.id
+  source_security_group_id = module.jenkins.jenkins_sg_id
 }
 
 resource "aws_security_group_rule" "alb_public_ingress_whitelist_https" {
@@ -14,11 +14,9 @@ resource "aws_security_group_rule" "alb_public_ingress_whitelist_https" {
   from_port         = 443
   to_port           = 443
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.alb_public.id}"
+  security_group_id = aws_security_group.alb_public.id
 
-  cidr_blocks = [
-    "${var.whitelist}",
-  ]
+  cidr_blocks = var.whitelist
 }
 
 resource "aws_security_group_rule" "alb_public_egress_nexus_8081" {
@@ -27,8 +25,8 @@ resource "aws_security_group_rule" "alb_public_egress_nexus_8081" {
   from_port                = 8081
   to_port                  = 8081
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.alb_public.id}"
-  source_security_group_id = "${module.microservice_nexus.security_group_id}"
+  security_group_id        = aws_security_group.alb_public.id
+  source_security_group_id = module.microservice_nexus.security_group_id
 }
 
 resource "aws_security_group_rule" "alb_public_egress_sonarqube_9000" {
@@ -37,6 +35,7 @@ resource "aws_security_group_rule" "alb_public_egress_sonarqube_9000" {
   from_port                = 9000
   to_port                  = 9000
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.alb_public.id}"
-  source_security_group_id = "${module.sonarqube.sq_security_group_id}"
+  security_group_id        = aws_security_group.alb_public.id
+  source_security_group_id = module.sonarqube.sq_security_group_id
 }
+

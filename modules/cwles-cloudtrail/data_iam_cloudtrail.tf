@@ -28,7 +28,8 @@ data "aws_iam_policy_document" "cloudtrail_put_cloudwatchlogs" {
     ]
 
     resources = [
-      "${aws_cloudwatch_log_group.cloudtrail.arn}",
+      aws_cloudwatch_log_group.cloudtrail.arn,
     ]
   }
 }
+

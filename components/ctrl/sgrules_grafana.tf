@@ -5,8 +5,8 @@ resource "aws_security_group_rule" "grafana_ingress_bastion_ssh" {
   from_port                = 22
   to_port                  = 22
   protocol                 = "tcp"
-  security_group_id        = "${module.grafana.security_group_id}"
-  source_security_group_id = "${module.bastion.security_group_id}"
+  security_group_id        = module.grafana.security_group_id
+  source_security_group_id = module.bastion.security_group_id
 }
 
 resource "aws_security_group_rule" "grafana_ingress_grafana_alb_http" {
@@ -15,6 +15,7 @@ resource "aws_security_group_rule" "grafana_ingress_grafana_alb_http" {
   from_port                = 80
   to_port                  = 80
   protocol                 = "tcp"
-  security_group_id        = "${module.grafana.security_group_id}"
-  source_security_group_id = "${aws_security_group.grafana_alb.id}"
+  security_group_id        = module.grafana.security_group_id
+  source_security_group_id = aws_security_group.grafana_alb.id
 }
+

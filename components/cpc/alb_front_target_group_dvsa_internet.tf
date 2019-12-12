@@ -3,7 +3,7 @@ resource "aws_alb_target_group" "cpc-front-dvsa-internet-8443" {
   name     = "${local.csi}-dvsa-inet-8443"
   port     = "8443"
   protocol = "HTTPS"
-  vpc_id   = "${data.terraform_remote_state.base.vpc_id}"
+  vpc_id   = data.terraform_remote_state.base.outputs.vpc_id
 
   health_check {
     path                = "/cpctrain/ping"
@@ -20,3 +20,4 @@ resource "aws_alb_target_group" "cpc-front-dvsa-internet-8443" {
     enabled = true
   }
 }
+

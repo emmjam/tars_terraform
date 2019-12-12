@@ -1,12 +1,13 @@
 resource "aws_security_group" "batch_efs" {
   name        = "${local.csi}-batch-efs"
   description = "${local.csi}-batch-efs"
-  vpc_id      = "${data.terraform_remote_state.base.vpc_id}"
+  vpc_id      = data.terraform_remote_state.base.outputs.vpc_id
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}-batch-efs"
-    )
-  )}"
+    {
+      "Name" = "${local.csi}-batch-efs"
+    },
+  )
 }
+

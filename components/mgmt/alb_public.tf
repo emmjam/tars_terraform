@@ -6,18 +6,17 @@ resource "aws_alb" "public" {
   enable_http2                     = true
 
   security_groups = [
-    "${aws_security_group.alb_public.id}",
-    "${aws_security_group.nexus_alb.id}",
+    aws_security_group.alb_public.id,
+    aws_security_group.nexus_alb.id,
   ]
 
-  subnets = [
-    "${module.alb_public_subnets.subnet_ids}",
-  ]
+  subnets = module.alb_public_subnets.subnet_ids
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}-public"
-    )
-  )}"
+    {
+      "Name" = "${local.csi}-public"
+    },
+  )
 }
+

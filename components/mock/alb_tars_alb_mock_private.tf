@@ -5,17 +5,16 @@ resource "aws_alb" "tars-alb-mock-private" {
   internal = true
 
   security_groups = [
-    "${aws_security_group.tars-alb-mock.id}",
+    aws_security_group.tars-alb-mock.id,
   ]
 
-  subnets = [
-    "${data.terraform_remote_state.base.subnets_tars_backend}",
-  ]
+  subnets = data.terraform_remote_state.base.outputs.subnets_tars_backend
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}-mock-private"
-    )
-  )}"
+    {
+      "Name" = "${local.csi}-mock-private"
+    },
+  )
 }
+

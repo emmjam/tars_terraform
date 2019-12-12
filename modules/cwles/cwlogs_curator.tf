@@ -4,19 +4,19 @@ resource "aws_cloudwatch_log_group" "lambda_curator" {
   retention_in_days = "90"
 
   tags = {
-    "Name" = "${format(
+    "Name" = format(
       "%s-%s-%s/%s/%s/%s",
       var.project,
       var.environment,
       var.component,
       "lambda",
       "cwles",
-      "curator"
-    )}"
-
-    "Project"     = "${var.project}"
-    "Environment" = "${var.environment}"
-    "Component"   = "${var.component}"
+      "curator",
+    )
+    "Project"     = var.project
+    "Environment" = var.environment
+    "Component"   = var.component
     "Module"      = "cwles"
   }
 }
+

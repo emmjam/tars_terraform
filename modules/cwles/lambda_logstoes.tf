@@ -2,16 +2,16 @@
 resource "aws_lambda_function" "logstoes" {
   filename = "${path.module}/files/cwles-logstoes.zip"
 
-  function_name = "${format(
+  function_name = format(
     "%s-%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
     "cwles",
-    "logstoes"
-  )}"
+    "logstoes",
+  )
 
-  role        = "${aws_iam_role.lambda_logstoes.arn}"
+  role        = aws_iam_role.lambda_logstoes.arn
   handler     = "index.handler"
   runtime     = "nodejs4.3"
   timeout     = "30"
@@ -19,10 +19,9 @@ resource "aws_lambda_function" "logstoes" {
 
   environment {
     variables = {
-      ENDPOINT = "${aws_elasticsearch_domain.es.endpoint}"
+      ENDPOINT = aws_elasticsearch_domain.es.endpoint
     }
   }
-
   /* Available after terraform upgrade
   tags {
     "Name" = "${format(
@@ -41,3 +40,4 @@ resource "aws_lambda_function" "logstoes" {
   }
   */
 }
+

@@ -1,12 +1,13 @@
 resource "aws_security_group" "cpc-oem" {
   name        = "${local.csi}/oem"
   description = "${local.csi}/oem"
-  vpc_id      = "${data.terraform_remote_state.base.vpc_id}"
+  vpc_id      = data.terraform_remote_state.base.outputs.vpc_id
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}/oem"
-    )
-  )}"
+    {
+      "Name" = "${local.csi}/oem"
+    },
+  )
 }
+

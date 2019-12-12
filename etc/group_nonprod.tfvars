@@ -609,10 +609,20 @@ elc_main_port            = "11211"
 # ACM Certname
 cert_name = "*"
 payments_cert_name = "*"
-tars_private_cert = "*"
-tars_pdf_cert     = "*"
-cpc_private_cert  = "*"
 bobj_cert         = "*"
+cpc_internet_cert       = "*"
+cpc_dvsa_internet_cert  = "*"
+cpc_cert                = "*"
+cpc_private_cert        = "*"
+fyndi_cert              = "*"
+tars_cert               = "*"
+tars_private_cert       = "*"
+tars_pdf_cert           = "*"
+obs_cert                = "*"
+ibs_cert                = "*"
+irdt_cert               = "*"
+apache_cert             = "*"
+holding_pages_cert      = "*"
 
 # Deployer pub key
 deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVSO8uKpdbwww94azylwjnFxsFGcmXG4ObL1oOFibHMN0x+SsSwjfC1DEziWPK3m/Crmar0+ad/68nQC+iWo/MYclh8h3bkKlv9dO4Xtv/0H6uDRW3l3bBO0rWYbt46fMAOCqX96N3LRTfUlPuzsVAd0NGZZlSSAZF0AMl4xE/tZl2m+Dqylrjp3qLT4UxEIrAuvPW06PqkGy63hZznjCjQDaadOAUpY19ZaA71JBueyGBnZ8pSVzr5hT1TpNw/cXxA6WLj4CCipIVm0M64OT/ArqcnQMX9Htf4Gp5apXZ3f6MerfjgHnkrm1t6JNuhSjVB deployer@mgmt.tars.dvsa.aws"
@@ -701,20 +711,6 @@ ibs_rds_backup_retention_period = "7"
 ibs_rds_backup_window = "02:38-03:08"
 ibs_rds_maint_window = "sun:03:16-sun:03:46"
 
-cpc_internet_cert       = "*"
-cpc_dvsa_internet_cert  = "*"
-cpc_cert                = "*"
-cpc_private_cert        = "*"
-fyndi_cert              = "*"
-tars_cert               = "*"
-tars_private_cert       = "*"
-tars_pdf_cert           = "*"
-obs_cert                = "*"
-ibs_cert                = "*"
-irdt_cert               = "*"
-apache_cert             = "*"
-holding_pages_cert      = "*"
-
 # DC Gateway details
 dc_gateway_name = "Tars-NonProd-DirCon"
 dc_gateway_aws_asn = "64514"
@@ -739,8 +735,8 @@ dc_vif_secondary_bgp_auth_key = "u4ZB6sQEJJHjsUUGg69BeM6KWvqxfq"
 dc_vif_asn = "64515"
 
 #RDS Deletion Protection
-tars_rds_delete_protect = "False"
-cpc_rds_delete_protect = "False"
-ibsdb_cluster_delete_protect = "False"
-misdb_rds_delete_protect = "False"
-risdb_rds_delete_protect = "False"
+tars_rds_delete_protect = false
+cpc_rds_delete_protect = false
+ibsdb_cluster_delete_protect = false
+misdb_rds_delete_protect = false
+risdb_rds_delete_protect = false

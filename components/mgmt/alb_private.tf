@@ -6,17 +6,16 @@ resource "aws_alb" "private" {
   enable_http2                     = true
 
   security_groups = [
-    "${aws_security_group.alb_private.id}",
+    aws_security_group.alb_private.id,
   ]
 
-  subnets = [
-    "${module.nat_subnets.subnet_ids}",
-  ]
+  subnets = module.nat_subnets.subnet_ids
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}-private"
-    )
-  )}"
+    {
+      "Name" = "${local.csi}-private"
+    },
+  )
 }
+

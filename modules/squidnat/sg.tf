@@ -5,35 +5,36 @@
 ################################################################################
 
 resource "aws_security_group" "squidnat" {
-  name = "${format(
+  name = format(
     "%s-%s-%s/%s",
     var.project,
     var.environment,
     var.component,
-    var.module 
-  )}"
+    var.module,
+  )
 
-  description = "${format(
+  description = format(
     "%s-%s-%s/%s",
     var.project,
     var.environment,
     var.component,
-    var.module
-  )}"
+    var.module,
+  )
 
-  vpc_id = "${var.vpc_id}"
+  vpc_id = var.vpc_id
 
-  tags = "${merge(
+  tags = merge(
     var.default_tags,
-    map(
-      "Name", format(
+    {
+      "Name" = format(
         "%s-%s-%s/%s",
         var.project,
         var.environment,
         var.component,
-        var.module
-      ),
-      "Module", var.module
-    )
-  )}"
+        var.module,
+      )
+      "Module" = var.module
+    },
+  )
 }
+

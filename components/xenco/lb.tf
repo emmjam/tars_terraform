@@ -1,11 +1,9 @@
 resource "aws_lb" "xenco" {
-  name = "${local.csi}"
-  
+  name = local.csi
+
   internal = "true"
 
-  subnets = [
-    "${module.lb_subnets.subnet_ids}",
-  ]
+  subnets = module.lb_subnets.subnet_ids
 
   load_balancer_type = "network"
 
@@ -13,10 +11,11 @@ resource "aws_lb" "xenco" {
 
   enable_deletion_protection = true
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", local.csi
-    )
-  )}"
+    {
+      "Name" = local.csi
+    },
+  )
 }
+

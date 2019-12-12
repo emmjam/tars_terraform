@@ -4,8 +4,8 @@ resource "aws_security_group_rule" "tars_messaging_ingress_bastion" {
   from_port                = 22
   to_port                  = 22
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.bobj.id}"
-  source_security_group_id = "${data.terraform_remote_state.ctrl.bastion_sg_id}"
+  security_group_id        = aws_security_group.bobj.id
+  source_security_group_id = data.terraform_remote_state.ctrl.outputs.bastion_sg_id
 }
 
 # TODO: peacheym: Too wide. TCP/443
@@ -15,8 +15,8 @@ resource "aws_security_group_rule" "tars_messaging_egress_kms_endpoint" {
   from_port                = 443
   to_port                  = 443
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.bobj.id}"
-  source_security_group_id = "${data.terraform_remote_state.base.kms_sg_id}"
+  security_group_id        = aws_security_group.bobj.id
+  source_security_group_id = data.terraform_remote_state.base.outputs.kms_sg_id
 }
 
 # Allow RDP in from Bastion
@@ -26,8 +26,8 @@ resource "aws_security_group_rule" "tars_messaging_ingress_bastion_RDP" {
   from_port                = 3389
   to_port                  = 3389
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.bobj.id}"
-  source_security_group_id = "${data.terraform_remote_state.ctrl.bastion_sg_id}"
+  security_group_id        = aws_security_group.bobj.id
+  source_security_group_id = data.terraform_remote_state.ctrl.outputs.bastion_sg_id
 }
 
 resource "aws_security_group_rule" "bobj_egress_rsis_db" {
@@ -36,8 +36,8 @@ resource "aws_security_group_rule" "bobj_egress_rsis_db" {
   from_port                = 1521
   to_port                  = 1521
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.bobj.id}"
-  source_security_group_id = "${aws_security_group.tars-rsis-db.id}"
+  security_group_id        = aws_security_group.bobj.id
+  source_security_group_id = aws_security_group.tars-rsis-db.id
 }
 
 resource "aws_security_group_rule" "bobj_egress_mis_db" {
@@ -46,8 +46,8 @@ resource "aws_security_group_rule" "bobj_egress_mis_db" {
   from_port                = 1521
   to_port                  = 1521
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.bobj.id}"
-  source_security_group_id = "${aws_security_group.tars-mis-db.id}"
+  security_group_id        = aws_security_group.bobj.id
+  source_security_group_id = aws_security_group.tars-mis-db.id
 }
 
 resource "aws_security_group_rule" "bobj_ingress_mis_db" {
@@ -56,8 +56,8 @@ resource "aws_security_group_rule" "bobj_ingress_mis_db" {
   from_port                = 1521
   to_port                  = 1521
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.bobj.id}"
-  source_security_group_id = "${aws_security_group.tars-mis-db.id}"
+  security_group_id        = aws_security_group.bobj.id
+  source_security_group_id = aws_security_group.tars-mis-db.id
 }
 
 resource "aws_security_group_rule" "bobj_ingress_rsis_db" {
@@ -66,10 +66,9 @@ resource "aws_security_group_rule" "bobj_ingress_rsis_db" {
   from_port                = 1521
   to_port                  = 1521
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.bobj.id}"
-  source_security_group_id = "${aws_security_group.tars-rsis-db.id}"
+  security_group_id        = aws_security_group.bobj.id
+  source_security_group_id = aws_security_group.tars-rsis-db.id
 }
-
 
 # This allows the DVSA to RDP in
 # TODO: peacheym: This seems like a security issue
@@ -79,7 +78,7 @@ resource "aws_security_group_rule" "wan_ingress_tars_messaging_port_3389" {
   from_port         = 3389
   to_port           = 3389
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.bobj.id}"
+  security_group_id = aws_security_group.bobj.id
 
   cidr_blocks = [
     "0.0.0.0/0",
@@ -93,9 +92,10 @@ resource "aws_security_group_rule" "tars_messaging_egress_internet_443" {
   from_port         = 443
   to_port           = 443
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.bobj.id}"
+  security_group_id = aws_security_group.bobj.id
 
   cidr_blocks = [
     "0.0.0.0/0",
   ]
 }
+

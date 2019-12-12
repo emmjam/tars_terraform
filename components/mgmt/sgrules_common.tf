@@ -5,6 +5,7 @@ resource "aws_security_group_rule" "common_ingress_bastion_ssh" {
   from_port                = 22
   to_port                  = 22
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.common.id}"
-  source_security_group_id = "${data.terraform_remote_state.ctrl.bastion_sg_id}"
+  security_group_id        = aws_security_group.common.id
+  source_security_group_id = data.terraform_remote_state.ctrl.outputs.bastion_sg_id
 }
+

@@ -3,18 +3,18 @@ data "aws_iam_policy_document" "holding_pages" {
     sid    = "AllowCloudFrontToS3Objects"
     effect = "Allow"
 
-    actions   = [
+    actions = [
       "s3:GetObject",
     ]
-    
+
     resources = [
       "${aws_s3_bucket.holding_pages.arn}/*",
     ]
 
     principals {
-      type        = "AWS"
+      type = "AWS"
       identifiers = [
-        "${aws_cloudfront_origin_access_identity.holding_pages.iam_arn}"
+        aws_cloudfront_origin_access_identity.holding_pages.iam_arn,
       ]
     }
   }
@@ -23,19 +23,20 @@ data "aws_iam_policy_document" "holding_pages" {
     sid    = "AllowCloudFrontToS3Bucket"
     effect = "Allow"
 
-    actions   = [
-      "s3:ListBucket"
+    actions = [
+      "s3:ListBucket",
     ]
 
     resources = [
-      "${aws_s3_bucket.holding_pages.arn}"
+      aws_s3_bucket.holding_pages.arn,
     ]
 
     principals {
-      type        = "AWS"
+      type = "AWS"
       identifiers = [
-        "${aws_cloudfront_origin_access_identity.holding_pages.iam_arn}"
+        aws_cloudfront_origin_access_identity.holding_pages.iam_arn,
       ]
     }
   }
 }
+

@@ -3,13 +3,14 @@
 module "awsconfig" {
   source = "../../modules/awsconfig"
 
-  project     = "${var.project}"
-  environment = "${var.environment}"
-  component   = "${var.component}"
+  project     = var.project
+  environment = var.environment
+  component   = var.component
 
-  default_tags = "${local.default_tags}"
+  default_tags = local.default_tags
 
-  aws_account_id = "${var.aws_account_id}"
+  aws_account_id = var.aws_account_id
 
-  s3_bucketlogs_bucket_id = "${aws_s3_bucket.bucketlogs.id}"
+  s3_bucketlogs_bucket_id = aws_s3_bucket.bucketlogs.id
 }
+

@@ -1,20 +1,16 @@
 locals {
   # Compound Scope Identifier
-  csi = "${replace(
-    format(
-      "%s-%s-%s",
-      var.project,
-      var.environment,
-      var.component
-    ),
+  csi = replace(
+    format("%s-%s-%s", var.project, var.environment, var.component),
     "_",
-    ""
-  )}"
+    "",
+  )
 
-  default_tags = "${merge(
+  default_tags = merge(
     var.default_tags,
-    map(
-      "Module", var.module
-    )
-  )}"
+    {
+      "Module" = var.module
+    },
+  )
 }
+

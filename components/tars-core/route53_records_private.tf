@@ -1,82 +1,61 @@
 # Create the R53 record for the TARS DB
 resource "aws_route53_record" "tarsdb" {
-  name = "${format(
-    "%s-%s-%s",
-    var.project,
-    "core",
-    "db"
-  )}"
+  name = format("%s-%s-%s", var.project, "core", "db")
 
-  zone_id = "${data.terraform_remote_state.base.private_zone_id}"
+  zone_id = data.terraform_remote_state.base.outputs.private_zone_id
   type    = "A"
 
   alias {
-    name                   = "${aws_db_instance.tarsdb.address}"
-    zone_id                = "${aws_db_instance.tarsdb.hosted_zone_id}"
+    name                   = aws_db_instance.tarsdb.address
+    zone_id                = aws_db_instance.tarsdb.hosted_zone_id
     evaluate_target_health = true
   }
 }
 
-
 # Create the R53 record for the TARS Backend ALB
 resource "aws_route53_record" "tars-backend" {
-  name = "${format(
-    "%s-%s-%s",
-    var.project,
-    "core",
-    "backend"
-  )}"
+  name = format("%s-%s-%s", var.project, "core", "backend")
 
-  zone_id = "${data.terraform_remote_state.base.private_zone_id}"
+  zone_id = data.terraform_remote_state.base.outputs.private_zone_id
   type    = "A"
 
   alias {
-    name                   = "${aws_alb.tars-alb-backend-private.dns_name}"
-    zone_id                = "${aws_alb.tars-alb-backend-private.zone_id}"
+    name                   = aws_alb.tars-alb-backend-private.dns_name
+    zone_id                = aws_alb.tars-alb-backend-private.zone_id
     evaluate_target_health = true
   }
 }
 
 # Create the R53 record for the TARS API ALB
 resource "aws_route53_record" "tars-api" {
-  name = "${format(
-    "%s-%s-%s",
-    var.project,
-    "core",
-    "api"
-  )}"
+  name = format("%s-%s-%s", var.project, "core", "api")
 
-  zone_id = "${data.terraform_remote_state.base.private_zone_id}"
+  zone_id = data.terraform_remote_state.base.outputs.private_zone_id
   type    = "A"
 
   alias {
-    name                   = "${aws_alb.tars-alb-backend-api.dns_name}"
-    zone_id                = "${aws_alb.tars-alb-backend-api.zone_id}"
+    name                   = aws_alb.tars-alb-backend-api.dns_name
+    zone_id                = aws_alb.tars-alb-backend-api.zone_id
     evaluate_target_health = true
   }
 }
 
 resource "aws_route53_record" "tars-private" {
-  name = "${format(
-    "%s-%s-%s",
-    var.project,
-    "core",
-    "private"
-  )}"
+  name = format("%s-%s-%s", var.project, "core", "private")
 
-  zone_id = "${data.terraform_remote_state.base.private_zone_id}"
+  zone_id = data.terraform_remote_state.base.outputs.private_zone_id
   type    = "A"
 
   alias {
-    name                   = "${aws_alb.tars-private-facing.dns_name}"
-    zone_id                = "${aws_alb.tars-private-facing.zone_id}"
+    name                   = aws_alb.tars-private-facing.dns_name
+    zone_id                = aws_alb.tars-private-facing.zone_id
     evaluate_target_health = true
   }
 }
 
 resource "aws_route53_record" "pearsonssftp" {
   name    = "pearsonssftp"
-  zone_id = "${data.terraform_remote_state.base.private_zone_id}"
+  zone_id = data.terraform_remote_state.base.outputs.private_zone_id
   type    = "CNAME"
   ttl     = "600"
 
@@ -88,12 +67,12 @@ resource "aws_route53_record" "pearsonssftp" {
 resource "aws_route53_record" "irdt-internal" {
   name = "irdt-internal"
 
-  zone_id = "${data.terraform_remote_state.base.private_zone_id}"
+  zone_id = data.terraform_remote_state.base.outputs.private_zone_id
   type    = "A"
 
   alias {
-    name                   = "${aws_alb.tars-internal.dns_name}"
-    zone_id                = "${aws_alb.tars-internal.zone_id}"
+    name                   = aws_alb.tars-internal.dns_name
+    zone_id                = aws_alb.tars-internal.zone_id
     evaluate_target_health = true
   }
 }
@@ -101,12 +80,13 @@ resource "aws_route53_record" "irdt-internal" {
 resource "aws_route53_record" "tars-core-internal" {
   name = "tars-core-internal"
 
-  zone_id = "${data.terraform_remote_state.base.private_zone_id}"
+  zone_id = data.terraform_remote_state.base.outputs.private_zone_id
   type    = "A"
 
   alias {
-    name                   = "${aws_alb.tars-internal.dns_name}"
-    zone_id                = "${aws_alb.tars-internal.zone_id}"
+    name                   = aws_alb.tars-internal.dns_name
+    zone_id                = aws_alb.tars-internal.zone_id
     evaluate_target_health = true
   }
 }
+

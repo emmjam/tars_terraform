@@ -3,7 +3,7 @@ resource "aws_alb_target_group" "ibs-8080" {
   name     = "${local.csi}-ibs"
   port     = "8080"
   protocol = "HTTP"
-  vpc_id   = "${data.terraform_remote_state.base.vpc_id}"
+  vpc_id   = data.terraform_remote_state.base.outputs.vpc_id
 
   health_check {
     path                = "/ping"
@@ -19,3 +19,4 @@ resource "aws_alb_target_group" "ibs-8080" {
     enabled = true
   }
 }
+

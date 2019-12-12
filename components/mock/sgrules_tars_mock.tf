@@ -5,8 +5,8 @@ resource "aws_security_group_rule" "tars_mock_ingress_private_alb_port_8080" {
   from_port                = 8080
   to_port                  = 8080
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-mock.id}"
-  source_security_group_id = "${aws_security_group.tars-alb-mock.id}"
+  security_group_id        = aws_security_group.tars-mock.id
+  source_security_group_id = aws_security_group.tars-alb-mock.id
 }
 
 # TARS Core mock rules
@@ -16,8 +16,8 @@ resource "aws_security_group_rule" "tars_mock_ingress_public_alb_port_8443" {
   from_port                = 8443
   to_port                  = 8443
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-mock.id}"
-  source_security_group_id = "${aws_security_group.tars-alb-mock-public.id}"
+  security_group_id        = aws_security_group.tars-mock.id
+  source_security_group_id = aws_security_group.tars-alb-mock-public.id
 }
 
 resource "aws_security_group_rule" "tars_mock_ingress_bastion" {
@@ -26,8 +26,8 @@ resource "aws_security_group_rule" "tars_mock_ingress_bastion" {
   from_port                = 22
   to_port                  = 22
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-mock.id}"
-  source_security_group_id = "${data.terraform_remote_state.ctrl.bastion_sg_id}"
+  security_group_id        = aws_security_group.tars-mock.id
+  source_security_group_id = data.terraform_remote_state.ctrl.outputs.bastion_sg_id
 }
 
 resource "aws_security_group_rule" "tars_mock_egress_kms_endpoint" {
@@ -36,8 +36,8 @@ resource "aws_security_group_rule" "tars_mock_egress_kms_endpoint" {
   from_port                = -1
   to_port                  = -1
   protocol                 = "-1"
-  security_group_id        = "${aws_security_group.tars-mock.id}"
-  source_security_group_id = "${data.terraform_remote_state.base.kms_sg_id}"
+  security_group_id        = aws_security_group.tars-mock.id
+  source_security_group_id = data.terraform_remote_state.base.outputs.kms_sg_id
 }
 
 resource "aws_security_group_rule" "mock_cpc_db_egress_port_1521" {
@@ -46,8 +46,8 @@ resource "aws_security_group_rule" "mock_cpc_db_egress_port_1521" {
   from_port                = 1521
   to_port                  = 1521
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-mock.id}"
-  source_security_group_id = "${data.terraform_remote_state.cpc.cpc-db-sg-id}"
+  security_group_id        = aws_security_group.tars-mock.id
+  source_security_group_id = data.terraform_remote_state.cpc.outputs.cpc-db-sg-id
 }
 
 # Both TARS Batch and the NLB are in the TARS backend subnet so we require only one ingress rule
@@ -56,14 +56,12 @@ resource "aws_security_group_rule" "mock_cpc_db_egress_port_1521" {
 resource "aws_security_group_rule" "mocksftp_ingress_tars_batch" {
   description       = "Allow TCP/22 in from NLB for tars batch"
   type              = "ingress"
-  from_port         = "22" 
-  to_port           = "22" 
+  from_port         = "22"
+  to_port           = "22"
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-mock.id}"
+  security_group_id = aws_security_group.tars-mock.id
 
-  cidr_blocks = [
-    "${data.terraform_remote_state.base.subnet_cidrs_tars_backend}",
-  ]
+  cidr_blocks = data.terraform_remote_state.base.outputs.subnet_cidrs_tars_backend
 }
 
 resource "aws_security_group_rule" "mock_tars_db_egress_port_1521" {
@@ -72,6 +70,7 @@ resource "aws_security_group_rule" "mock_tars_db_egress_port_1521" {
   from_port                = 1521
   to_port                  = 1521
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-mock.id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-db-sg-id}"
+  security_group_id        = aws_security_group.tars-mock.id
+  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-db-sg-id
 }
+

@@ -4,8 +4,8 @@ resource "aws_security_group_rule" "gitlab_egress_jenkins_elb_80" {
   from_port                = 80
   to_port                  = 80
   protocol                 = "tcp"
-  security_group_id        = "${module.gitlab.gitlab_sg_id}"
-  source_security_group_id = "${module.jenkins.elb_sg_id}"
+  security_group_id        = module.gitlab.gitlab_sg_id
+  source_security_group_id = module.jenkins.elb_sg_id
 }
 
 # gitlab-internet_ntp
@@ -15,9 +15,10 @@ resource "aws_security_group_rule" "gitlab_egress_internet_ntp" {
   from_port         = 123
   to_port           = 123
   protocol          = "udp"
-  security_group_id = "${module.gitlab.gitlab_sg_id}"
+  security_group_id = module.gitlab.gitlab_sg_id
 
   cidr_blocks = [
     "0.0.0.0/0",
   ]
 }
+

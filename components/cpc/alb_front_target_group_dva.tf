@@ -3,7 +3,7 @@ resource "aws_alb_target_group" "cpc-front-dva-7443" {
   name     = "${local.csi}-dva-7443"
   port     = "7443"
   protocol = "HTTPS"
-  vpc_id   = "${data.terraform_remote_state.base.vpc_id}"
+  vpc_id   = data.terraform_remote_state.base.outputs.vpc_id
 
   health_check {
     path                = "/cpctrain/ping"
@@ -16,7 +16,8 @@ resource "aws_alb_target_group" "cpc-front-dva-7443" {
   }
 
   stickiness {
-    type = "lb_cookie"
+    type    = "lb_cookie"
     enabled = true
   }
 }
+

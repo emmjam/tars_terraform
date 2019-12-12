@@ -487,11 +487,11 @@ holding_pages_domains = [
 ]
 
 #RDS Deletion Protection
-tars_rds_delete_protect = "True"
-cpc_rds_delete_protect = "True"
-ibsdb_cluster_delete_protect = "True"
-misdb_rds_delete_protect = "True"
-risdb_rds_delete_protect = "True"
+tars_rds_delete_protect = true
+cpc_rds_delete_protect = true
+ibsdb_cluster_delete_protect = true
+misdb_rds_delete_protect = true
+risdb_rds_delete_protect = true
 
 mes_db_cidr_block = [
   "10.101.20.0/28",

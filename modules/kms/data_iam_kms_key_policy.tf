@@ -1,28 +1,28 @@
 data "aws_iam_policy_document" "key" {
-  policy_id = "${format(
+  policy_id = format(
     "%s-%s-%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
     var.module,
     var.name,
-    "key"
-  )}"
+    "key",
+  )
 
   statement {
     sid    = "EnableIAMUserPermissions"
     effect = "Allow"
 
     principals {
-      type        = "AWS"
+      type = "AWS"
 
       identifiers = [
-        "${format(
+        format(
           "%s:%s:%s",
           "arn:aws:iam:",
           data.aws_caller_identity.current.account_id,
-          "root"
-        )}"
+          "root",
+        ),
       ]
     }
 
@@ -35,3 +35,4 @@ data "aws_iam_policy_document" "key" {
     ]
   }
 }
+

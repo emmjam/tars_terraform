@@ -1,3 +1,4 @@
 # A data source to look up the current AWS region
-data "aws_region" "current" {}
+data "aws_region" "current" {
+}
 

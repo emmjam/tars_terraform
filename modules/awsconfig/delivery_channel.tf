@@ -4,10 +4,9 @@
 # is in place and therefore the Recorder Status resource
 # explicitly depends upon this one.
 resource "aws_config_delivery_channel" "main" {
-
   name = "default"
 
-/*
+  /*
   # Ideally we would construct the name in the manner below, however
   # as we want to import GUI-created delivery channels which use the name "default"
   # using default here is acceptable
@@ -20,5 +19,6 @@ resource "aws_config_delivery_channel" "main" {
   )}"
 */
 
-  s3_bucket_name = "${module.standard_bucket.id}"
+  s3_bucket_name = module.standard_bucket.id
 }
+

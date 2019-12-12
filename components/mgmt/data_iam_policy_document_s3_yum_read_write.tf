@@ -23,7 +23,8 @@ data "aws_iam_policy_document" "s3_yum_read_write" {
     ]
 
     resources = [
-      "${aws_s3_bucket.yum.arn}",
+      aws_s3_bucket.yum.arn,
     ]
   }
 }
+

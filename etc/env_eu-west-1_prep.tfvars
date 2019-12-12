@@ -423,11 +423,11 @@ riverpractical_incap_cname   = "ibs-prep-public.prod.tars.dvsacloud.uk"
 bobj_cert               = "bobj-prep"
 
 #RDS Deletion Protection
-tars_rds_delete_protect = "False"
-cpc_rds_delete_protect = "False"
-ibsdb_cluster_delete_protect = "False"
-misdb_rds_delete_protect = "False"
-risdb_rds_delete_protect = "False"
+tars_rds_delete_protect = false
+cpc_rds_delete_protect = false
+ibsdb_cluster_delete_protect = false
+misdb_rds_delete_protect = false
+risdb_rds_delete_protect = false
 
 mes_db_cidr_block = [
   "10.201.20.0/28",

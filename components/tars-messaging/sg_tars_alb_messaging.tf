@@ -2,12 +2,13 @@
 resource "aws_security_group" "tars-alb-messaging" {
   name        = "${local.csi}-tars-alb-messaging"
   description = "TARS ALB Messaging"
-  vpc_id      = "${data.terraform_remote_state.base.vpc_id}"
+  vpc_id      = data.terraform_remote_state.base.outputs.vpc_id
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}/tars-alb-messaging"
-    )
-  )}"
+    {
+      "Name" = "${local.csi}/tars-alb-messaging"
+    },
+  )
 }
+

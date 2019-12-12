@@ -3,8 +3,8 @@ resource "aws_security_group_rule" "cpc-back-ingress-cpc-back-alb-8080" {
   protocol                 = "tcp"
   from_port                = "8080"
   to_port                  = "8080"
-  security_group_id        = "${module.cpc-back.security_group_id}"
-  source_security_group_id = "${aws_security_group.cpc-back-alb.id}"
+  security_group_id        = module.cpc-back.security_group_id
+  source_security_group_id = aws_security_group.cpc-back-alb.id
 }
 
 resource "aws_security_group_rule" "cpc_egress_oracle_db" {
@@ -13,8 +13,8 @@ resource "aws_security_group_rule" "cpc_egress_oracle_db" {
   from_port                = 1521
   to_port                  = 1521
   protocol                 = "tcp"
-  security_group_id        = "${module.cpc-back.security_group_id}"
-  source_security_group_id = "${aws_security_group.cpc-db.id}"
+  security_group_id        = module.cpc-back.security_group_id
+  source_security_group_id = aws_security_group.cpc-db.id
 }
 
 resource "aws_security_group_rule" "cpc_back_egress_kms_endpoint" {
@@ -23,8 +23,8 @@ resource "aws_security_group_rule" "cpc_back_egress_kms_endpoint" {
   from_port                = -1
   to_port                  = -1
   protocol                 = "-1"
-  security_group_id        = "${module.cpc-back.security_group_id}"
-  source_security_group_id = "${data.terraform_remote_state.base.kms_sg_id}"
+  security_group_id        = module.cpc-back.security_group_id
+  source_security_group_id = data.terraform_remote_state.base.outputs.kms_sg_id
 }
 
 resource "aws_security_group_rule" "cpc_back_egress_active_mq" {
@@ -33,8 +33,8 @@ resource "aws_security_group_rule" "cpc_back_egress_active_mq" {
   from_port                = 61617
   to_port                  = 61617
   protocol                 = "tcp"
-  security_group_id        = "${module.cpc-back.security_group_id}"
-  source_security_group_id = "${data.terraform_remote_state.base.awsmq_sg_id}"
+  security_group_id        = module.cpc-back.security_group_id
+  source_security_group_id = data.terraform_remote_state.base.outputs.awsmq_sg_id
 }
 
 resource "aws_security_group_rule" "cpc_back_egress_tars_back_alb" {
@@ -43,8 +43,8 @@ resource "aws_security_group_rule" "cpc_back_egress_tars_back_alb" {
   from_port                = 8080
   to_port                  = 8080
   protocol                 = "tcp"
-  security_group_id        = "${module.cpc-back.security_group_id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-backend-alb-sg-id}"
+  security_group_id        = module.cpc-back.security_group_id
+  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-backend-alb-sg-id
 }
 
 resource "aws_security_group_rule" "cpc_back_egress_dvla_elise" {
@@ -53,10 +53,10 @@ resource "aws_security_group_rule" "cpc_back_egress_dvla_elise" {
   from_port         = 443
   to_port           = 443
   protocol          = "tcp"
-  security_group_id = "${module.cpc-back.security_group_id}"
+  security_group_id = module.cpc-back.security_group_id
 
   cidr_blocks = [
-    "${var.dvla_elise_server}",
+    var.dvla_elise_server,
   ]
 }
 
@@ -66,6 +66,7 @@ resource "aws_security_group_rule" "cpc_back_egress_cpc_back_alb" {
   from_port                = 8080
   to_port                  = 8080
   protocol                 = "tcp"
-  security_group_id        = "${module.cpc-back.security_group_id}"
-  source_security_group_id = "${aws_security_group.cpc-back-alb.id}"
+  security_group_id        = module.cpc-back.security_group_id
+  source_security_group_id = aws_security_group.cpc-back-alb.id
 }
+

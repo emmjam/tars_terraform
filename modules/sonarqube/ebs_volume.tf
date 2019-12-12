@@ -1,22 +1,23 @@
 resource "aws_ebs_volume" "sonarqube" {
-  availability_zone = "${element(var.aws_availability_zones, 0)}"
+  availability_zone = element(var.aws_availability_zones, 0)
 
-  type = "${var.ebs_volume_type}"
-  size = "${var.ebs_volume_size}"
+  type = var.ebs_volume_type
+  size = var.ebs_volume_size
 
   encrypted = "false"
 
-  tags = "${merge(
+  tags = merge(
     var.default_tags,
-    map(
-      "Name", format(
+    {
+      "Name" = format(
         "%s-%s-%s/%s",
         var.project,
         var.environment,
         var.component,
-        "sonarqube"
-      ),
-      "Module", var.module
-    )
-  )}"
+        "sonarqube",
+      )
+      "Module" = var.module
+    },
+  )
 }
+

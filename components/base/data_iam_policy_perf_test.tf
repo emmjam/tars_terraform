@@ -21,7 +21,7 @@ data "aws_iam_policy_document" "perf-testing" {
     }
 
     resources = [
-      "${aws_s3_bucket.perf-testing.arn}",
+      aws_s3_bucket.perf-testing.arn,
       "${aws_s3_bucket.perf-testing.arn}/*",
     ]
 
@@ -29,9 +29,7 @@ data "aws_iam_policy_document" "perf-testing" {
       test     = "IpAddress"
       variable = "aws:SourceIp"
 
-      values = [
-        "${var.whitelist}",
-      ]
+      values = var.whitelist
     }
   }
 }
@@ -51,8 +49,9 @@ data "aws_iam_policy_document" "perf-testing-upload" {
     ]
 
     resources = [
-      "${aws_s3_bucket.perf-testing.arn}",
+      aws_s3_bucket.perf-testing.arn,
       "${aws_s3_bucket.perf-testing.arn}/*",
     ]
   }
 }
+

@@ -5,7 +5,7 @@ resource "aws_security_group_rule" "mis_rds_ingress_dvsa-1521" {
   protocol          = "tcp"
   from_port         = "1521"
   to_port           = "1521"
-  security_group_id = "${aws_security_group.tars-mis-db.id}"
+  security_group_id = aws_security_group.tars-mis-db.id
 
   cidr_blocks = [
     "10.0.0.0/8",
@@ -19,8 +19,8 @@ resource "aws_security_group_rule" "mis_rds_ingress_bastion" {
   from_port                = "1521"
   to_port                  = "1521"
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-mis-db.id}"
-  source_security_group_id = "${data.terraform_remote_state.ctrl.bastion_outbound-oracle_sg_id}"
+  security_group_id        = aws_security_group.tars-mis-db.id
+  source_security_group_id = data.terraform_remote_state.ctrl.outputs.bastion_outbound-oracle_sg_id
 }
 
 # MIS DB to TARS DB (MV pull)
@@ -30,8 +30,8 @@ resource "aws_security_group_rule" "mis_rds_egress_tarsdb_sg" {
   from_port                = "1521"
   to_port                  = "1521"
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-mis-db.id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-db-sg-id}"
+  security_group_id        = aws_security_group.tars-mis-db.id
+  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-db-sg-id
 }
 
 # TARS to MIS DB
@@ -41,8 +41,8 @@ resource "aws_security_group_rule" "mis_rds_ingress_tarsdb_sg" {
   from_port                = "1521"
   to_port                  = "1521"
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-mis-db.id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-db-sg-id}"
+  security_group_id        = aws_security_group.tars-mis-db.id
+  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-db-sg-id
 }
 
 # TARS to MIS DB
@@ -52,8 +52,8 @@ resource "aws_security_group_rule" "mis_rds_egress_jenkins_sg" {
   from_port                = "1521"
   to_port                  = "1521"
   protocol                 = "tcp"
-  source_security_group_id = "${aws_security_group.tars-mis-db.id}"
-  security_group_id        = "${data.terraform_remote_state.base.jenkinsnode_sg_id}"
+  source_security_group_id = aws_security_group.tars-mis-db.id
+  security_group_id        = data.terraform_remote_state.base.outputs.jenkinsnode_sg_id
 }
 
 # MIS to tars backend for PAN encryption
@@ -63,19 +63,19 @@ resource "aws_security_group_rule" "oracle_mis_egress_tars_backend" {
   from_port                = "8080"
   to_port                  = "8080"
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-mis-db.id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-backend-alb-sg-id}"
+  security_group_id        = aws_security_group.tars-mis-db.id
+  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-backend-alb-sg-id
 }
 
 # prometheus to MIS
 resource "aws_security_group_rule" "oracle_mis_ingress_prometheus" {
-  description               = "Allow TCP/1521 from Prometheus to MISDB"
-  type                      = "ingress"
-  from_port                 = 1521
-  to_port                   = 1521
-  protocol                  = "tcp"
-  security_group_id         = "${aws_security_group.tars-mis-db.id}"
-  source_security_group_id  = "${data.terraform_remote_state.base.prometheus_sg_id}"
+  description              = "Allow TCP/1521 from Prometheus to MISDB"
+  type                     = "ingress"
+  from_port                = 1521
+  to_port                  = 1521
+  protocol                 = "tcp"
+  security_group_id        = aws_security_group.tars-mis-db.id
+  source_security_group_id = data.terraform_remote_state.base.outputs.prometheus_sg_id
 }
 
 # rds DB from jenkinsnode
@@ -85,8 +85,8 @@ resource "aws_security_group_rule" "mis_rds_ingress_jenkinsnode" {
   from_port                = "1521"
   to_port                  = "1521"
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-mis-db.id}"
-  source_security_group_id = "${data.terraform_remote_state.base.jenkinsnode_sg_id}"
+  security_group_id        = aws_security_group.tars-mis-db.id
+  source_security_group_id = data.terraform_remote_state.base.outputs.jenkinsnode_sg_id
 }
 
 # TARS BATCH to MIS DB
@@ -96,8 +96,8 @@ resource "aws_security_group_rule" "mis_rds_ingress_tars_batch_sg" {
   from_port                = "1521"
   to_port                  = "1521"
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-mis-db.id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-batch.tars-batch-sg-id}"
+  security_group_id        = aws_security_group.tars-mis-db.id
+  source_security_group_id = data.terraform_remote_state.tars-batch.outputs.tars-batch-sg-id
 }
 
 # MIS to CPC
@@ -107,6 +107,7 @@ resource "aws_security_group_rule" "mis_rds_egress_cpc_rds_sg" {
   from_port                = "1521"
   to_port                  = "1521"
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-mis-db.id}"
-  source_security_group_id = "${data.terraform_remote_state.cpc.cpc-db-sg-id}"
+  security_group_id        = aws_security_group.tars-mis-db.id
+  source_security_group_id = data.terraform_remote_state.cpc.outputs.cpc-db-sg-id
 }
+

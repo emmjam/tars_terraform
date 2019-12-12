@@ -3,12 +3,13 @@
 resource "aws_security_group" "kms_endpoint" {
   name        = "${local.csi}-kms-endpoint"
   description = "KMS Endpoint"
-  vpc_id      = "${aws_vpc.vpc.id}"
+  vpc_id      = aws_vpc.vpc.id
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}/kms-endpoint"
-    )
-  )}"
+    {
+      "Name" = "${local.csi}/kms-endpoint"
+    },
+  )
 }
+

@@ -15,8 +15,11 @@ The lifecycle policy evaluator is responsible for parsing the plaintext JSON and
 */
 
 data "template_file" "ecr_lifecycle_policy_main" {
-  template = "${file("${path.module}/templates/ecr_lifecycle_policy_main.json.tmpl")}"
+  template = file(
+    "${path.module}/templates/ecr_lifecycle_policy_main.json.tmpl",
+  )
 
   # Presuming that we will at some point begin to template this file.
   vars = {}
 }
+

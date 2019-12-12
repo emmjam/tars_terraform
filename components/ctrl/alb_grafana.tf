@@ -3,17 +3,16 @@ resource "aws_alb" "grafana" {
   internal = "false"
 
   security_groups = [
-    "${aws_security_group.grafana_alb.id}",
+    aws_security_group.grafana_alb.id,
   ]
 
-  subnets = [
-    "${module.grafana_alb_subnets.subnet_ids}",
-  ]
+  subnets = module.grafana_alb_subnets.subnet_ids
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}-grafana"
-    )
-  )}"
+    {
+      "Name" = "${local.csi}-grafana"
+    },
+  )
 }
+

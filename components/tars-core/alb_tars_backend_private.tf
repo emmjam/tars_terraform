@@ -1,27 +1,26 @@
 # ALB for the tars core backend
 resource "aws_alb" "tars-alb-backend-private" {
-  name     = "${local.csi}-backend"
-  internal = true
+  name         = "${local.csi}-backend"
+  internal     = true
   idle_timeout = 300
 
   access_logs {
-    bucket  = "${module.access_logs_bucket.id}"
+    bucket  = module.access_logs_bucket.id
     prefix  = "private-backend"
     enabled = true
   }
 
   security_groups = [
-    "${aws_security_group.tars-alb-backend.id}",
+    aws_security_group.tars-alb-backend.id,
   ]
 
-  subnets = [
-    "${data.terraform_remote_state.base.subnets_tars_backend_elb}",
-  ]
+  subnets = data.terraform_remote_state.base.outputs.subnets_tars_backend_elb
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}/backend-private"
-    )
-  )}"
+    {
+      "Name" = "${local.csi}/backend-private"
+    },
+  )
 }
+

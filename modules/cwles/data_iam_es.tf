@@ -9,8 +9,8 @@ data "aws_iam_policy_document" "es_acl" {
       type = "AWS"
 
       identifiers = [
-        "${aws_iam_role.lambda_logstoes.arn}",
-        "${aws_iam_role.lambda_curator.arn}",
+        aws_iam_role.lambda_logstoes.arn,
+        aws_iam_role.lambda_curator.arn,
       ]
     }
 
@@ -43,9 +43,8 @@ data "aws_iam_policy_document" "es_acl" {
       test     = "IpAddress"
       variable = "aws:SourceIp"
 
-      values = [
-        "${var.es_cidr_whitelist}",
-      ]
+      values = var.es_cidr_whitelist
     }
   }
 }
+

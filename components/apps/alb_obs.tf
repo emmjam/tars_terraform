@@ -5,25 +5,22 @@ resource "aws_alb" "obs" {
   idle_timeout = 300
 
   access_logs {
-    bucket  = "${module.access_logs_bucket.id}"
+    bucket  = module.access_logs_bucket.id
     prefix  = "public"
     enabled = true
   }
 
   security_groups = [
-    "${aws_security_group.obs-alb.id}",
+    aws_security_group.obs-alb.id,
   ]
 
-  subnets = [
-    "${data.terraform_remote_state.base.subnets_obs_alb_internal}",
-  ]
+  subnets = data.terraform_remote_state.base.outputs.subnets_obs_alb_internal
 
-  idle_timeout = 300
-
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}-obs"
-    )
-  )}"
+    {
+      "Name" = "${local.csi}-obs"
+    },
+  )
 }
+

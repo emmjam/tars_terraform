@@ -26,24 +26,7 @@ data "aws_iam_policy_document" "cwl_ec2" {
       "logs:PutLogEvents",
     ]
 
-    resources = [
-      # This ARN allows an instance to create a log stream with a name other
-      # than its own validated Instance ID (by the use of the trailing asterisk
-      # that is already part of the ARN).
-      # In order to more explicitly restrict this policy we would need access
-      # to an IAM policy variable that contains only the Instance ID.
-      # The closest option is ${aws:username} which would give us a combination
-      # of the Instance Profile's Access Key and the Instance ID - however we
-      # would then be limited to using this key from logging clients on the
-      # the instances, making us look up this information rather than simply
-      # using the easily available Instance ID, potentially adding additional
-      # complication to LogStream consumers in aggregating source information.
-      # It's a difficult call as to which is the correct approach, however at
-      # this time, it is not deemed a criticalily necessity to restrict the
-      # name of the LogStream used by the instance and therefore this ARN
-      # construction is sufficient and requires no additional string manipulation.
-      "${aws_cloudwatch_log_group.ec2.*.arn}"
-    ]
+    resources = aws_cloudwatch_log_group.ec2.*.arn
   }
 
   # This statement is *solely* to work around a bug in the awslogs package.
@@ -63,3 +46,4 @@ data "aws_iam_policy_document" "cwl_ec2" {
     ]
   }
 }
+

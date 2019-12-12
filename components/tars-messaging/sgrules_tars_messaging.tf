@@ -5,8 +5,8 @@ resource "aws_security_group_rule" "tars_messaging_ingress_private_alb_port_8080
   from_port                = 8080
   to_port                  = 8080
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-messaging.id}"
-  source_security_group_id = "${aws_security_group.tars-alb-messaging.id}"
+  security_group_id        = aws_security_group.tars-messaging.id
+  source_security_group_id = aws_security_group.tars-alb-messaging.id
 }
 
 resource "aws_security_group_rule" "tars_messaging_ingress_alb_port_80" {
@@ -15,8 +15,8 @@ resource "aws_security_group_rule" "tars_messaging_ingress_alb_port_80" {
   from_port                = 80
   to_port                  = 80
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-messaging.id}"
-  source_security_group_id = "${aws_security_group.tars-alb-messaging.id}"
+  security_group_id        = aws_security_group.tars-messaging.id
+  source_security_group_id = aws_security_group.tars-alb-messaging.id
 }
 
 resource "aws_security_group_rule" "tars_messaging_egress_oracle_db" {
@@ -25,8 +25,8 @@ resource "aws_security_group_rule" "tars_messaging_egress_oracle_db" {
   from_port                = 1521
   to_port                  = 1521
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-messaging.id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-db-sg-id}"
+  security_group_id        = aws_security_group.tars-messaging.id
+  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-db-sg-id
 }
 
 resource "aws_security_group_rule" "tars_messaging_ingress_bastion" {
@@ -35,8 +35,8 @@ resource "aws_security_group_rule" "tars_messaging_ingress_bastion" {
   from_port                = 22
   to_port                  = 22
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-messaging.id}"
-  source_security_group_id = "${data.terraform_remote_state.ctrl.bastion_sg_id}"
+  security_group_id        = aws_security_group.tars-messaging.id
+  source_security_group_id = data.terraform_remote_state.ctrl.outputs.bastion_sg_id
 }
 
 # TODO: peacheym: Too wide. TCP/443
@@ -46,8 +46,8 @@ resource "aws_security_group_rule" "tars_messaging_egress_kms_endpoint" {
   from_port                = -1
   to_port                  = -1
   protocol                 = "-1"
-  security_group_id        = "${aws_security_group.tars-messaging.id}"
-  source_security_group_id = "${data.terraform_remote_state.base.kms_sg_id}"
+  security_group_id        = aws_security_group.tars-messaging.id
+  source_security_group_id = data.terraform_remote_state.base.outputs.kms_sg_id
 }
 
 resource "aws_security_group_rule" "tars_messaging_egress_active_mq" {
@@ -56,8 +56,8 @@ resource "aws_security_group_rule" "tars_messaging_egress_active_mq" {
   from_port                = 61617
   to_port                  = 61617
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-messaging.id}"
-  source_security_group_id = "${data.terraform_remote_state.base.awsmq_sg_id}"
+  security_group_id        = aws_security_group.tars-messaging.id
+  source_security_group_id = data.terraform_remote_state.base.outputs.awsmq_sg_id
 }
 
 # Allow RDP in from Bastion
@@ -67,8 +67,8 @@ resource "aws_security_group_rule" "tars_messaging_ingress_bastion_RDP" {
   from_port                = 3389
   to_port                  = 3389
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-messaging.id}"
-  source_security_group_id = "${data.terraform_remote_state.ctrl.bastion_sg_id}"
+  security_group_id        = aws_security_group.tars-messaging.id
+  source_security_group_id = data.terraform_remote_state.ctrl.outputs.bastion_sg_id
 }
 
 resource "aws_security_group_rule" "tars_messaging_egress_tars_core_backend_alb_8080" {
@@ -77,8 +77,8 @@ resource "aws_security_group_rule" "tars_messaging_egress_tars_core_backend_alb_
   from_port                = 8080
   to_port                  = 8080
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-messaging.id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-backend-alb-sg-id}"
+  security_group_id        = aws_security_group.tars-messaging.id
+  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-backend-alb-sg-id
 }
 
 # This allows the DVSA to RDP in
@@ -89,7 +89,7 @@ resource "aws_security_group_rule" "wan_ingress_tars_messaging_port_3389" {
   from_port         = 3389
   to_port           = 3389
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-messaging.id}"
+  security_group_id = aws_security_group.tars-messaging.id
 
   cidr_blocks = [
     "0.0.0.0/0",
@@ -103,7 +103,7 @@ resource "aws_security_group_rule" "tars_messaging_egress_internet_443" {
   from_port         = 443
   to_port           = 443
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-messaging.id}"
+  security_group_id = aws_security_group.tars-messaging.id
 
   cidr_blocks = [
     "0.0.0.0/0",
@@ -117,6 +117,7 @@ resource "aws_security_group_rule" "win_msg_ssh_ingress_jenkinsnode" {
   protocol                 = "tcp"
   from_port                = "22"
   to_port                  = "22"
-  security_group_id        = "${aws_security_group.tars-messaging.id}"
-  source_security_group_id = "${data.terraform_remote_state.base.jenkinsnode_sg_id}"
+  security_group_id        = aws_security_group.tars-messaging.id
+  source_security_group_id = data.terraform_remote_state.base.outputs.jenkinsnode_sg_id
 }
+

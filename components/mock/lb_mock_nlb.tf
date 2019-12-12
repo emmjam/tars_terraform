@@ -3,9 +3,7 @@ resource "aws_lb" "mock-nlb" {
   name     = "${local.csi}-mock-nlb"
   internal = true
 
-  subnets = [
-    "${data.terraform_remote_state.base.subnets_tars_backend}",
-  ]
+  subnets = data.terraform_remote_state.base.outputs.subnets_tars_backend
 
   load_balancer_type = "network"
 
@@ -13,10 +11,11 @@ resource "aws_lb" "mock-nlb" {
 
   enable_deletion_protection = true
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}-mock-nlb"
-    )
-  )}"
+    {
+      "Name" = "${local.csi}-mock-nlb"
+    },
+  )
 }
+

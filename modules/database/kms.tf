@@ -5,5 +5,6 @@ resource "aws_kms_key" "db_key" {
 
 resource "aws_kms_alias" "secrets" {
   name          = "alias/dbsecrets"
-  target_key_id = "${aws_kms_key.db_key.key_id}"
+  target_key_id = aws_kms_key.db_key.key_id
 }
+

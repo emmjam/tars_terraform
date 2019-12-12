@@ -1,15 +1,16 @@
 # ALB target group for messaging port 8080
 resource "aws_alb_target_group" "tars-messaging-8080" {
-  name = "${format(
+  name = format(
     "%s-%s-%s-%s",
     var.project,
     var.environment,
     "tars-msg",
-    "8080"
-  )}"
+    "8080",
+  )
+
   port     = "8080"
   protocol = "HTTP"
-  vpc_id   = "${data.terraform_remote_state.base.vpc_id}"
+  vpc_id   = data.terraform_remote_state.base.outputs.vpc_id
 
   health_check {
     path                = "/"
@@ -19,21 +20,21 @@ resource "aws_alb_target_group" "tars-messaging-8080" {
     unhealthy_threshold = 3
     matcher             = 200
   }
-
 }
 
 # ALB target group for messaging port 80
 resource "aws_alb_target_group" "tars-messaging-80" {
-  name = "${format(
+  name = format(
     "%s-%s-%s-%s",
     var.project,
     var.environment,
     "tars-msg",
-    "80"
-  )}"
+    "80",
+  )
+
   port     = "80"
   protocol = "HTTP"
-  vpc_id   = "${data.terraform_remote_state.base.vpc_id}"
+  vpc_id   = data.terraform_remote_state.base.outputs.vpc_id
 
   health_check {
     path                = "/"
@@ -44,3 +45,4 @@ resource "aws_alb_target_group" "tars-messaging-80" {
     matcher             = 200
   }
 }
+

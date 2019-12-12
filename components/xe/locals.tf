@@ -1,35 +1,31 @@
 locals {
   # Compound Scope Identifier
-  csi = "${replace(
-    format(
-      "%s-%s-%s",
-      var.project,
-      var.environment,
-      var.component
-    ),
+  csi = replace(
+    format("%s-%s-%s", var.project, var.environment, var.component),
     "_",
-    ""
-  )}"
+    "",
+  )
 
   # CSI for use in resources with a global namespace, i.e. S3 Buckets
-  csi_global = "${replace(
+  csi_global = replace(
     format(
       "%s-%s-%s-%s-%s",
       var.project,
       var.aws_account_id,
       var.aws_region,
       var.environment,
-      var.component
+      var.component,
     ),
     "_",
-    ""
-  )}"
+    "",
+  )
 
-  default_tags = "${merge(
+  default_tags = merge(
     var.default_tags,
-    map(
-      "Component", var.component,
-      "Version",   var.release_version,
-    )
-  )}"
+    {
+      "Component" = var.component
+      "Version"   = var.release_version
+    },
+  )
 }
+

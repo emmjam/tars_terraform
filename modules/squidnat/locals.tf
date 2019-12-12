@@ -1,8 +1,7 @@
 locals {
-
   nodetype = "squidnat"
 
-  module_instance = "${replace(
+  module_instance = replace(
     format(
       "%s-%s-%s-%s",
       var.project,
@@ -11,26 +10,23 @@ locals {
       local.nodetype,
     ),
     "_",
-    ""
-  )}"
+    "",
+  )
 
-  default_tags = "${merge(
+  default_tags = merge(
     var.default_tags,
-    map(
-      "Module",   var.module,
-      "Nodetype", local.nodetype,
-    )
-  )}"
+    {
+      "Module"   = var.module
+      "Nodetype" = local.nodetype
+    },
+  )
 
-  squidnat_log = "${
-    format(
-      "/aws/ec2/%s-%s-%s/%s",
-      var.project,
-      var.environment,
-      var.component,
-      "squidnat_0/cloud-init-output"
-    )
-  }"
-
-
+  squidnat_log = format(
+    "/aws/ec2/%s-%s-%s/%s",
+    var.project,
+    var.environment,
+    var.component,
+    "squidnat_0/cloud-init-output",
+  )
 }
+

@@ -4,7 +4,7 @@ resource "aws_security_group_rule" "rsis_rds_ingress_dvsa-1521" {
   protocol          = "tcp"
   from_port         = "1521"
   to_port           = "1521"
-  security_group_id = "${aws_security_group.tars-rsis-db.id}"
+  security_group_id = aws_security_group.tars-rsis-db.id
 
   cidr_blocks = [
     "10.0.0.0/8",
@@ -18,8 +18,8 @@ resource "aws_security_group_rule" "rsis_rds_ingress_jenkinsnode" {
   from_port                = "1521"
   to_port                  = "1521"
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-rsis-db.id}"
-  source_security_group_id = "${data.terraform_remote_state.base.jenkinsnode_sg_id}"
+  security_group_id        = aws_security_group.tars-rsis-db.id
+  source_security_group_id = data.terraform_remote_state.base.outputs.jenkinsnode_sg_id
 }
 
 # rds DB from jenkinsnode
@@ -29,8 +29,8 @@ resource "aws_security_group_rule" "rsis_rds_egress_jenkinsnode" {
   from_port                = "1521"
   to_port                  = "1521"
   protocol                 = "tcp"
-  source_security_group_id = "${aws_security_group.tars-rsis-db.id}"
-  security_group_id        = "${data.terraform_remote_state.base.jenkinsnode_sg_id}"
+  source_security_group_id = aws_security_group.tars-rsis-db.id
+  security_group_id        = data.terraform_remote_state.base.outputs.jenkinsnode_sg_id
 }
 
 # bastion to rds DB
@@ -40,30 +40,30 @@ resource "aws_security_group_rule" "rsis_rds_ingress_bastion" {
   from_port                = "1521"
   to_port                  = "1521"
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-rsis-db.id}"
-  source_security_group_id = "${data.terraform_remote_state.ctrl.bastion_outbound-oracle_sg_id}"
+  security_group_id        = aws_security_group.tars-rsis-db.id
+  source_security_group_id = data.terraform_remote_state.ctrl.outputs.bastion_outbound-oracle_sg_id
 }
 
 # prometheus to RSIS
 resource "aws_security_group_rule" "rsis_rds_ingress_prometheus" {
-  description               = "Allow TCP/1521 from Prometheus to RSIS"
-  type                      = "ingress"
-  from_port                 = 1521
-  to_port                   = 1521
-  protocol                  = "tcp"
-  security_group_id         = "${aws_security_group.tars-rsis-db.id}"
-  source_security_group_id  = "${data.terraform_remote_state.base.prometheus_sg_id}"
+  description              = "Allow TCP/1521 from Prometheus to RSIS"
+  type                     = "ingress"
+  from_port                = 1521
+  to_port                  = 1521
+  protocol                 = "tcp"
+  security_group_id        = aws_security_group.tars-rsis-db.id
+  source_security_group_id = data.terraform_remote_state.base.outputs.prometheus_sg_id
 }
 
 # RSIS DB to TARS DB
 resource "aws_security_group_rule" "rsis_rds_egress_tars_db" {
-  description               = "Allow TCP/1521 to TARS DB"
-  type                      = "egress"
-  from_port                 = 1521
-  to_port                   = 1521
-  protocol                  = "tcp"
-  security_group_id         = "${aws_security_group.tars-rsis-db.id}"
-  source_security_group_id  = "${data.terraform_remote_state.tars-core.tars-core-db-sg-id}"
+  description              = "Allow TCP/1521 to TARS DB"
+  type                     = "egress"
+  from_port                = 1521
+  to_port                  = 1521
+  protocol                 = "tcp"
+  security_group_id        = aws_security_group.tars-rsis-db.id
+  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-db-sg-id
 }
 
 # TARS BATCH to RSIS DB
@@ -73,6 +73,7 @@ resource "aws_security_group_rule" "rsis_rds_ingress_tars_batch_sg" {
   from_port                = "1521"
   to_port                  = "1521"
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-rsis-db.id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-batch.tars-batch-sg-id}"
+  security_group_id        = aws_security_group.tars-rsis-db.id
+  source_security_group_id = data.terraform_remote_state.tars-batch.outputs.tars-batch-sg-id
 }
+

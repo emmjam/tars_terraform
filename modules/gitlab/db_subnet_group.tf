@@ -1,26 +1,27 @@
 resource "aws_db_subnet_group" "gitlab" {
-  name = "${format(
+  name = format(
     "%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
     var.name,
-  )}"
+  )
 
   description = "GitLab DB"
-  subnet_ids  = ["${module.db_subnets.subnet_ids}"]
+  subnet_ids = module.db_subnets.subnet_ids
 
-  tags = "${merge(
+  tags = merge(
     var.default_tags,
-    map(
-      "Name", format(
+    {
+      "Name" = format(
         "%s-%s-%s/%s",
         var.project,
         var.environment,
         var.component,
         var.name,
-      ),
-      "Module", var.module
-    )
-  )}"
+      )
+      "Module" = var.module
+    },
+  )
 }
+

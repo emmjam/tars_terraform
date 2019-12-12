@@ -11,7 +11,7 @@ data "aws_iam_policy_document" "lambda_logstoes" {
     ]
 
     resources = [
-      "${aws_cloudwatch_log_group.lambda_logstoes.arn}",
+      aws_cloudwatch_log_group.lambda_logstoes.arn,
     ]
   }
 
@@ -28,3 +28,4 @@ data "aws_iam_policy_document" "lambda_logstoes" {
     ]
   }
 }
+

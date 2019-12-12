@@ -3,17 +3,17 @@
 ##
 
 variable "project" {
-  type        = "string"
+  type        = string
   description = "The name of the terraformscaffold project calling the module"
 }
 
 variable "environment" {
-  type        = "string"
+  type        = string
   description = "The name of the terraformscaffold environment the module is called for"
 }
 
 variable "component" {
-  type        = "string"
+  type        = string
   description = "The name of the terraformscaffold component calling this module"
 }
 
@@ -22,7 +22,7 @@ variable "component" {
 ##
 
 variable "module" {
-  type        = "string"
+  type        = string
   description = "The name of this module. This is a special variable, it should be set only here and never overridden."
   default     = "awsconfig"
 }
@@ -35,17 +35,18 @@ variable "module" {
 # If we ever want to define this but allow it to not be specified, then we must provide a default tag keypair will be applied
 # as the true default. In any other case default_tags should be removed from the module.
 variable "default_tags" {
-  type        = "map"
+  type        = map(string)
   description = "Default tag map for application to all taggable resources in the module"
   default     = {}
 }
 
 variable "aws_account_id" {
-  type        = "string"
+  type        = string
   description = "The ID of the AWS Account. Used in S3 bucket naming"
 }
 
 variable "s3_bucketlogs_bucket_id" {
-  type        = "string"
+  type        = string
   description = "The name (id) of the S3 bucket used for S3 Bucket Access Logging within the scope of the parent component or module"
 }
+

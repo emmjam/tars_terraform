@@ -1,7 +1,7 @@
 # A generic standard private S3 bucket with versioning,
 # logging and lifecycle management
 resource "aws_s3_bucket" "standard" {
-  bucket        = "${replace(var.name, "_", "")}"
+  bucket        = replace(var.name, "_", "")
   acl           = "private"
   force_destroy = "true"
 
@@ -34,14 +34,15 @@ resource "aws_s3_bucket" "standard" {
 
   # Enable Logging to Self
   logging {
-    target_bucket = "${var.log_bucket}"
+    target_bucket = var.log_bucket
     target_prefix = "${replace(var.name, "_", "")}/"
   }
 
-  tags = "${merge(
-    "${var.tags}",
-    map(
-      "Name", replace(var.name, "_", "")
-    )
-  )}"
+  tags = merge(
+    var.tags,
+    {
+      "Name" = replace(var.name, "_", "")
+    },
+  )
 }
+

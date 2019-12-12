@@ -9,16 +9,19 @@
 # terraform provides no existing support for. Therefore we have to
 # construct this as JSON from a template file.
 data "template_file" "ecr_repository_policy_main" {
-  template = "${file("${path.module}/templates/ecr_repository_policy_main.json.tmpl")}"
+  template = file(
+    "${path.module}/templates/ecr_repository_policy_main.json.tmpl",
+  )
 
   vars = {
-    RO_PRINCIPALS = "${jsonencode(
+    RO_PRINCIPALS = jsonencode(
       formatlist(
         "%s:%s:%s",
         "arn:aws:iam:",
         var.ecr_repository_ro_principals,
-        "root"
-      )
-    )}"
+        "root",
+      ),
+    )
   }
 }
+

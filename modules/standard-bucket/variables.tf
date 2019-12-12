@@ -38,16 +38,17 @@ Name, Environment, Component and Module (optional) tags
 */
 
 variable "name" {
-  type        = "string"
+  type        = string
   description = "The name of the bucket"
 }
 
 variable "tags" {
-  type        = "map"
+  type        = map(string)
   description = "Tags to apply to the bucket"
 }
 
 variable "log_bucket" {
-  type        = "string"
+  type        = string
   description = "The name (id) of the S3 bucket used for S3 Bucket Access Logging within the scope of the parent component or module"
 }
+

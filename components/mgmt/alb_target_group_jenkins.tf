@@ -2,7 +2,7 @@ resource "aws_alb_target_group" "jenkins" {
   name     = "jenkins"
   port     = "8080"
   protocol = "HTTP"
-  vpc_id   = "${aws_vpc.mgmt.id}"
+  vpc_id   = aws_vpc.mgmt.id
 
   health_check {
     path                = "/"
@@ -13,3 +13,4 @@ resource "aws_alb_target_group" "jenkins" {
     matcher             = 200
   }
 }
+

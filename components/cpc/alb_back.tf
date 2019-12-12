@@ -4,17 +4,16 @@ resource "aws_alb" "cpc-back" {
   internal = true
 
   security_groups = [
-    "${aws_security_group.cpc-back-alb.id}",
+    aws_security_group.cpc-back-alb.id,
   ]
 
-  subnets = [
-    "${module.cpc-back.subnet_ids}",
-  ]
+  subnets = module.cpc-back.subnet_ids
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}/cpc-back"
-    )
-  )}"
+    {
+      "Name" = "${local.csi}/cpc-back"
+    },
+  )
 }
+

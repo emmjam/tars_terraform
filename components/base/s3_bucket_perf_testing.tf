@@ -35,19 +35,20 @@ resource "aws_s3_bucket" "perf-testing" {
   }
 
   logging {
-    target_bucket = "${aws_s3_bucket.bucketlogs.id}"
+    target_bucket = aws_s3_bucket.bucketlogs.id
     target_prefix = "${local.csi_global}-perf-testing/"
   }
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi_global}-perf-testing"
-    )
-  )}"
+    {
+      "Name" = "${local.csi_global}-perf-testing"
+    },
+  )
 }
 
 resource "aws_s3_bucket_policy" "perf-testing" {
-  bucket = "${aws_s3_bucket.perf-testing.id}"
-  policy = "${data.aws_iam_policy_document.perf-testing.json}"
+  bucket = aws_s3_bucket.perf-testing.id
+  policy = data.aws_iam_policy_document.perf-testing.json
 }
+

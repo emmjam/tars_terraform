@@ -1,26 +1,27 @@
 resource "aws_security_group" "sonarqube_db" {
-  name = "${format(
+  name = format(
     "%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
-    "sonarqube-db"
-  )}"
+    "sonarqube-db",
+  )
 
   description = "SonarQube DB"
-  vpc_id      = "${var.vpc_id}"
+  vpc_id      = var.vpc_id
 
-  tags = "${merge(
+  tags = merge(
     var.default_tags,
-    map(
-      "Name", format(
+    {
+      "Name" = format(
         "%s-%s-%s/%s",
         var.project,
         var.environment,
         var.component,
-        "sonarqube-db"
-      ),
-      "Module", var.module
-    )
-  )}"
+        "sonarqube-db",
+      )
+      "Module" = var.module
+    },
+  )
 }
+

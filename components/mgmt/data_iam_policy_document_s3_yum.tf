@@ -8,20 +8,13 @@ data "aws_iam_policy_document" "s3_yum" {
     ]
 
     resources = [
-      "${aws_s3_bucket.yum.arn}",
+      aws_s3_bucket.yum.arn,
     ]
 
-    principals = {
+    principals {
       type = "AWS"
 
-      identifiers = [
-        "${formatlist(
-          "%s:%s:%s",
-          "arn:aws:iam:",
-          var.s3_yum_ro_principals,
-          "root"
-        )}",
-      ]
+      identifiers = formatlist("%s:%s:%s", "arn:aws:iam:", var.s3_yum_ro_principals, "root")
     }
   }
 
@@ -34,11 +27,11 @@ data "aws_iam_policy_document" "s3_yum" {
     ]
 
     resources = [
-      "${aws_s3_bucket.yum.arn}",
+      aws_s3_bucket.yum.arn,
     ]
 
     principals {
-      type        = "AWS"
+      type = "AWS"
 
       identifiers = [
         "*",
@@ -49,9 +42,7 @@ data "aws_iam_policy_document" "s3_yum" {
       test     = "StringEquals"
       variable = "aws:sourceVpc"
 
-      values = [
-        "${local.trusted_vpc_ids}",
-      ]
+      values = local.trusted_vpc_ids
     }
   }
 
@@ -67,17 +58,10 @@ data "aws_iam_policy_document" "s3_yum" {
       "${aws_s3_bucket.yum.arn}/*",
     ]
 
-    principals = {
+    principals {
       type = "AWS"
 
-      identifiers = [
-        "${formatlist(
-          "%s:%s:%s",
-          "arn:aws:iam:",
-          var.s3_yum_ro_principals,
-          "root"
-        )}",
-      ]
+      identifiers = formatlist("%s:%s:%s", "arn:aws:iam:", var.s3_yum_ro_principals, "root")
     }
   }
 
@@ -94,7 +78,7 @@ data "aws_iam_policy_document" "s3_yum" {
     ]
 
     principals {
-      type        = "AWS"
+      type = "AWS"
 
       identifiers = [
         "*",
@@ -105,9 +89,8 @@ data "aws_iam_policy_document" "s3_yum" {
       test     = "StringEquals"
       variable = "aws:sourceVpc"
 
-      values = [
-        "${local.trusted_vpc_ids}",
-      ]
+      values = local.trusted_vpc_ids
     }
   }
 }
+
