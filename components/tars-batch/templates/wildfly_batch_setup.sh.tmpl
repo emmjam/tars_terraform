@@ -183,11 +183,11 @@ fi
 # Override DNS to use DVSA Azure DNS. TF knows what the IP's are so lets do it here, rather than puppet
 servers=$(echo ${DVSA_DNS_SERVERS} | sed 's/,/ /g' | sed 's,/32,,g')
 # If we can't ping the DVSA DNS server, don't apply and leave the R53 DNS settings in place
-if ping -q -W 1 -c 1 $$(echo "$$servers" | cut -d" " -f1) > /dev/null 2>&1
+if ping -q -W 1 -c 1 $(echo "$servers" | cut -d" " -f1) > /dev/null 2>&1
 then
   log 'INFO' 'Setting DVSA DNS'
   echo "search ${SEARCH_SUFFIX}" > /etc/resolv.conf
-  for server in $$servers
+  for server in $servers
   do
     echo "nameserver $${server}" >> /etc/resolv.conf
   done
