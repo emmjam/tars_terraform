@@ -4,7 +4,7 @@
 resource "aws_config_configuration_recorder" "main" {
   name = "default"
 
-/*
+  /*
   # Ideally we would construct the name in the manner below, however
   # as we want to import GUI-created recorders which use the name "default"
   # and since you can only have one recorder per region, for which there are
@@ -23,5 +23,6 @@ resource "aws_config_configuration_recorder" "main" {
     include_global_resource_types = "true"
   }
 
-  role_arn = "${aws_iam_role.main.arn}"
+  role_arn = aws_iam_role.main.arn
 }
+

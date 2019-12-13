@@ -1,13 +1,11 @@
 resource "aws_elb" "bastion" {
-  name            = "${local.csi}-bastion"
-  internal        = "false"
+  name     = "${local.csi}-bastion"
+  internal = "false"
 
-  subnets = [
-    "${module.bastion_elb_subnets.subnet_ids}",
-  ]
+  subnets = module.bastion_elb_subnets.subnet_ids
 
   security_groups = [
-    "${aws_security_group.bastion_elb.id}",
+    aws_security_group.bastion_elb.id,
   ]
 
   cross_zone_load_balancing   = "true"
@@ -30,10 +28,11 @@ resource "aws_elb" "bastion" {
     interval            = "15"
   }
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}-bastion"
-    )
-  )}"
+    {
+      "Name" = "${local.csi}-bastion"
+    },
+  )
 }
+

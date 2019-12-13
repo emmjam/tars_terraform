@@ -16,7 +16,8 @@ data "aws_iam_policy_document" "cloudtrail_sns" {
     }
 
     resources = [
-      "${aws_sns_topic.cloudtrail.arn}",
+      aws_sns_topic.cloudtrail.arn,
     ]
   }
 }
+

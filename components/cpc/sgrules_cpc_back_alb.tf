@@ -3,8 +3,8 @@ resource "aws_security_group_rule" "cpc-back-alb_ingress_cpc_front" {
   protocol                 = "tcp"
   from_port                = "8080"
   to_port                  = "8080"
-  security_group_id        = "${aws_security_group.cpc-back-alb.id}"
-  source_security_group_id = "${module.cpc-front.security_group_id}"
+  security_group_id        = aws_security_group.cpc-back-alb.id
+  source_security_group_id = module.cpc-front.security_group_id
 }
 
 resource "aws_security_group_rule" "cpc-back-alb_egress_cpc-back" {
@@ -12,8 +12,8 @@ resource "aws_security_group_rule" "cpc-back-alb_egress_cpc-back" {
   protocol                 = "tcp"
   from_port                = "8080"
   to_port                  = "8080"
-  security_group_id        = "${aws_security_group.cpc-back-alb.id}"
-  source_security_group_id = "${module.cpc-back.security_group_id}"
+  security_group_id        = aws_security_group.cpc-back-alb.id
+  source_security_group_id = module.cpc-back.security_group_id
 }
 
 resource "aws_security_group_rule" "cpc_back_alb_ingress_tars_back" {
@@ -22,8 +22,8 @@ resource "aws_security_group_rule" "cpc_back_alb_ingress_tars_back" {
   from_port                = 8080
   to_port                  = 8080
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.cpc-back-alb.id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-backend-sg-id}"
+  security_group_id        = aws_security_group.cpc-back-alb.id
+  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-backend-sg-id
 }
 
 resource "aws_security_group_rule" "cpc_back_alb_ingress_cpc_back" {
@@ -32,8 +32,8 @@ resource "aws_security_group_rule" "cpc_back_alb_ingress_cpc_back" {
   from_port                = 8080
   to_port                  = 8080
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.cpc-back-alb.id}"
-  source_security_group_id = "${module.cpc-back.security_group_id}"
+  security_group_id        = aws_security_group.cpc-back-alb.id
+  source_security_group_id = module.cpc-back.security_group_id
 }
 
 resource "aws_security_group_rule" "tars_cpc_backend_ingress_tars_frontend_port_8080" {
@@ -42,8 +42,8 @@ resource "aws_security_group_rule" "tars_cpc_backend_ingress_tars_frontend_port_
   from_port                = 8080
   to_port                  = 8080
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.cpc-back-alb.id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-frontend-sg-id}"
+  security_group_id        = aws_security_group.cpc-back-alb.id
+  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-frontend-sg-id
 }
 
 resource "aws_security_group_rule" "tars_cpc_backend_ingress_tars_batch_port_8080" {
@@ -52,6 +52,7 @@ resource "aws_security_group_rule" "tars_cpc_backend_ingress_tars_batch_port_808
   from_port                = 8080
   to_port                  = 8080
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.cpc-back-alb.id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-batch.tars-batch-sg-id}"
+  security_group_id        = aws_security_group.cpc-back-alb.id
+  source_security_group_id = data.terraform_remote_state.tars-batch.outputs.tars-batch-sg-id
 }
+

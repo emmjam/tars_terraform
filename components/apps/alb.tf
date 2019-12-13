@@ -5,26 +5,24 @@ resource "aws_alb" "apps" {
   idle_timeout = 300
 
   access_logs {
-    bucket  = "${module.access_logs_bucket.id}"
+    bucket  = module.access_logs_bucket.id
     prefix  = "front"
     enabled = true
   }
 
   security_groups = [
-    "${aws_security_group.fyndi-f-alb.id}",
-    "${aws_security_group.ibs-alb.id}",
+    aws_security_group.fyndi-f-alb.id,
+    aws_security_group.ibs-alb.id,
   ]
 
-  subnets = [
-    "${data.terraform_remote_state.base.subnets_alb_public}",
-  ]
+  subnets = data.terraform_remote_state.base.outputs.subnets_alb_public
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}-apps"
-    )
-  )}"
+    {
+      "Name" = "${local.csi}-apps"
+    },
+  )
 }
 
 resource "aws_alb" "fyndi-b" {
@@ -33,23 +31,22 @@ resource "aws_alb" "fyndi-b" {
   idle_timeout = 300
 
   access_logs {
-    bucket  = "${module.access_logs_bucket.id}"
+    bucket  = module.access_logs_bucket.id
     prefix  = "back"
     enabled = true
   }
 
   security_groups = [
-    "${aws_security_group.fyndi-b-alb.id}",
+    aws_security_group.fyndi-b-alb.id,
   ]
 
-  subnets = [
-    "${data.terraform_remote_state.base.subnets_fyndi_back_alb}",
-  ]
+  subnets = data.terraform_remote_state.base.outputs.subnets_fyndi_back_alb
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}-fyndi-b"
-    )
-  )}"
+    {
+      "Name" = "${local.csi}-fyndi-b"
+    },
+  )
 }
+

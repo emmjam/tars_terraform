@@ -1,32 +1,32 @@
 variable "aws_region" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "project" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "environment" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "component" {
-  type        = "string"
+  type        = string
   description = ""
   default     = "mgmt"
 }
 
 variable "release_version" {
-  type        = "string"
+  type        = string
   default     = "Not provided"
   description = "Version of infrastructure deployed"
 }
 
 variable "default_tags" {
-  type        = "map"
+  type        = map(string)
   description = ""
 
   default = {
@@ -35,463 +35,473 @@ variable "default_tags" {
 }
 
 variable "s3_yum_ro_principals" {
-  type        = "list"
+  type        = list(string)
   description = "The list of AWS Account IDs that we grant delegated read access to for the yum bucket"
   default     = []
 }
 
 variable "asg_default_tags" {
-  type        = "list"
+  type        = list(object({
+    key = string
+    value = string
+    propagate_at_launch = string
+  }))
   description = ""
-  default     = []
 }
 
 variable "aws_account_alias" {
-  type        = "string"
+  type        = string
   description = "The IAM AWS Account alias"
 }
 
 variable "account_environment" {
-  type        = "string"
+  type        = string
   description = "Test shortname of current AWS account"
 }
 
 variable "aws_account_id" {
-  type        = "string"
+  type        = string
   description = "AWS Account ID of current account"
 }
 
 variable "tf_state_bucket_prefix" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "sonarqube" {
-  type        = "map"
+  type        = map(string)
   description = "Sonarqube Configuration"
 }
 
 variable "vpc_cidr" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "private_domain_name" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "nat_subnets_cidr" {
-  type        = "list"
+  type        = list(string)
   description = ""
 }
 
 variable "natgw_subnets_cidr" {
-  type        = "list"
+  type        = list(string)
   description = ""
 }
 
 variable "whitelist" {
-  type        = "list"
+  type        = list(string)
   description = ""
   default     = []
 }
 
 variable "jenkins_blue_subnets_cidrs" {
-  type        = "list"
+  type        = list(string)
   description = ""
   default     = []
 }
 
 variable "jenkins_blue_version" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "jenkins_green_subnets_cidrs" {
-  type        = "list"
+  type        = list(string)
   description = ""
   default     = []
 }
 
 variable "jenkins_green_version" {
-  type        = "string"
+  type        = string
   description = ""
   default     = "latest"
 }
 
 variable "jenkins_elb_subnets_cidrs" {
-  type        = "list"
+  type        = list(string)
   description = ""
   default     = []
 }
 
 variable "jenkinsnode_subnets_cidrs" {
-  type        = "list"
+  type        = list(string)
   description = ""
   default     = []
 }
 
 variable "gitlab_subnets_cidrs" {
-  type        = "list"
+  type        = list(string)
   description = ""
   default     = []
 }
 
 variable "gitlab_elb_private_subnets_cidrs" {
-  type        = "list"
+  type        = list(string)
   description = ""
   default     = []
 }
 
 variable "gitlab_elb_subnets_cidrs" {
-  type        = "list"
+  type        = list(string)
   description = ""
   default     = []
 }
 
 variable "gitlab_db_subnets_cidrs" {
-  type        = "list"
+  type        = list(string)
   description = ""
   default     = []
 }
 
 variable "gitlab_redis_subnets_cidrs" {
-  type        = "list"
+  type        = list(string)
   description = ""
   default     = []
 }
 
 variable "alb_public_subnets_cidrs" {
-  type        = "list"
-  description = ""
-  default     = []
-}
-
-variable "ctrl_peers" {
-  type        = "list"
+  type        = list(string)
   description = ""
   default     = []
 }
 
 variable "deployer_pub_key" {
-  type        = "string"
+  type        = string
   description = "Pub SSH ky for deployer"
 }
 
 variable "ctrl_peers_xacct" {
-  type        = "list"
+  type        = list(object({
+    vpc_id = string
+    cidr_block = string
+    account_id = string
+  }))
   description = ""
-  default     = []
 }
 
 variable "ctrl_peers_local" {
-  type        = "list"
+  type        = list(object({
+    vpc_id = string
+    cidr_block = string
+    account_id = string
+  }))
   description = ""
   default     = []
 }
 
 variable "base_peers_xacct" {
-  type        = "list"
+  type        = list(object({
+    vpc_id = string
+    cidr_block = string
+    account_id = string
+  }))
   description = ""
-  default     = []
 }
 
 variable "base_peers_local" {
-  type        = "list"
+  type        = list(object({
+    vpc_id = string
+    cidr_block = string
+    account_id = string
+  }))
   description = ""
-  default     = []
 }
 
 # EBS Snapshots
 
 variable "ebs_snapshot_cleanup_cloudwatch_log_retention_in_days" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "ebs_snapshot_cleanup_cw_metric_log_error_pattern" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "ebs_snapshot_cleanup_cw_rule_schedule_expression" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "ebs_snapshot_cleanup_memory_size" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "ebs_snapshot_cleanup_min_num_of_snapshots_to_retain" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "ebs_snapshot_cleanup_min_retention_days" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "ebs_snapshot_cleanup_publish" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "ebs_snapshot_cleanup_s3_key" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "ebs_snapshot_cleanup_timeout" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "ebs_snapshot_cloudwatch_log_retention_in_days" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "ebs_snapshot_cw_metric_log_error_pattern" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "ebs_snapshot_cw_rule_schedule_expression" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "ebs_snapshot_is_enabled" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "ebs_snapshot_memory_size" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "ebs_snapshot_publish" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "ebs_snapshot_s3_key" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "ebs_snapshot_timeout" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 #### Gitlab
 
 variable "gitlab_ami_build_id" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_db_allocated_storage" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_db_backup_retention_period" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_db_backup_window" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_db_db_name" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_db_engine_version" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_db_instance_class" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_db_maintenance_window" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_db_multi_az" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_db_password" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_db_pg_family" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_db_skip_final_snapshot" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_db_storage_type" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_db_username" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_ebs_volume_size" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_ebs_volume_type" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_elb_public_public_port" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_elb_public_public_protocol" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_instance_type" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_redis_endpoint_address" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_redis_engine_version" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_redis_maintenance_window" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_redis_node_type" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_redis_parameter_group_name" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_redis_snapshot_retention_limit" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "gitlab_redis_snapshot_window" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 ## Jenkins
 
 variable "jenkins_asg_max_size" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "jenkins_asg_min_size" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "jenkins_ami_build_id" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "jenkins_blue_nodes_number" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "jenkins_ebs_volume_size" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "jenkins_ebs_volume_type" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "jenkins_instance_type" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "jenkins_scaledown_desired" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "jenkins_scaledown_recurrence" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "jenkins_scaleup_desired" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "jenkins_scaleup_recurrence" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "mgmt_vpc_id" {
-  type        = "string"
+  type        = string
   description = ""
 }
 
 variable "prod_public_domain_name" {
-  type        = "string"
+  type        = string
   description = "The fully-qualified domain name for the Prod Public Hosted Zone, if undefined, no zone will be created"
   default     = ""
 }
 
 variable "prod_subdomains_name_servers" {
-  type        = "map"
+  type        = map(string)
   description = "Map of accounts with NS records in a form: '<record_name> = <comma seperated list of NS addresses>'"
   default     = {}
 }
@@ -508,7 +518,7 @@ variable "prod_subdomains_name_servers" {
 ##
 
 variable "ecr_repository_ro_principals" {
-  type        = "list"
+  type        = list(string)
   description = "The list of AWS Account IDs that we grant delegated read access to for Amazon ECR Repositories"
   default     = []
 }
@@ -518,18 +528,18 @@ variable "ecr_repository_ro_principals" {
 ##
 
 variable "nexus_config" {
-  type        = "map"
+  type        = map(string)
   description = "Map of parameters describing the configuration of the nexus microservice"
   default     = {}
 }
 
 variable "nexus_subnets_cidrs" {
-  type        = "list"
+  type        = list(string)
   description = "List of subnet CIDRs for nexus"
 }
 
 variable "nexus_efs_subnets_cidrs" {
-  type        = "list"
+  type        = list(string)
   description = "List of CIDR blocks for provisioning Nexus Master EFS Mount Target subnets"
   default     = []
 }
@@ -542,13 +552,13 @@ variable "nexus_ami_build_id" {
 */
 
 variable "efs_backup_env" {
-  type        = "list"
+  type        = list(string)
   description = ""
   default     = []
 }
 
 variable "nexus_domain_name" {
-  type        = "string"
+  type        = string
   description = "Domain name for the Nexus Instance, if undefined, no zone will be created"
   default     = ""
 }
@@ -646,3 +656,4 @@ variable "billing_users" {
   description = "List of billing IAM Users for Support functions, that have Billing access"
   default     = []
 }
+

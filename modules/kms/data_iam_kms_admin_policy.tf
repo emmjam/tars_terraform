@@ -1,13 +1,13 @@
 data "aws_iam_policy_document" "admin" {
-  policy_id = "${format(
+  policy_id = format(
     "%s-%s-%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
     var.module,
     var.name,
-    "admin"
-  )}"
+    "admin",
+  )
 
   statement {
     sid    = "AllowKeyAdmin"
@@ -31,8 +31,9 @@ data "aws_iam_policy_document" "admin" {
     ]
 
     resources = [
-      "${aws_kms_key.main.arn}",
-      "${aws_kms_alias.main.arn}",
+      aws_kms_key.main.arn,
+      aws_kms_alias.main.arn,
     ]
   }
 }
+

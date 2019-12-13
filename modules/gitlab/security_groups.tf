@@ -6,8 +6,8 @@ resource "aws_security_group_rule" "gitlab_ingress_elb_8888" {
   from_port                = 8888
   to_port                  = 8888
   protocol                 = "tcp"
-  security_group_id        = "${module.gitlab.security_group_id}"
-  source_security_group_id = "${aws_security_group.elb.id}"
+  security_group_id        = module.gitlab.security_group_id
+  source_security_group_id = aws_security_group.elb.id
 }
 
 resource "aws_security_group_rule" "gitlab_ingress_elb_ssh" {
@@ -16,8 +16,8 @@ resource "aws_security_group_rule" "gitlab_ingress_elb_ssh" {
   from_port                = 22
   to_port                  = 22
   protocol                 = "tcp"
-  security_group_id        = "${module.gitlab.security_group_id}"
-  source_security_group_id = "${aws_security_group.elb.id}"
+  security_group_id        = module.gitlab.security_group_id
+  source_security_group_id = aws_security_group.elb.id
 }
 
 resource "aws_security_group_rule" "gitlab_ingress_elb_private_ssh" {
@@ -26,8 +26,8 @@ resource "aws_security_group_rule" "gitlab_ingress_elb_private_ssh" {
   from_port                = 22
   to_port                  = 22
   protocol                 = "tcp"
-  security_group_id        = "${module.gitlab.security_group_id}"
-  source_security_group_id = "${aws_security_group.elb_private.id}"
+  security_group_id        = module.gitlab.security_group_id
+  source_security_group_id = aws_security_group.elb_private.id
 }
 
 resource "aws_security_group_rule" "gitlab_ingress_elb_private_8888" {
@@ -36,8 +36,8 @@ resource "aws_security_group_rule" "gitlab_ingress_elb_private_8888" {
   from_port                = 8888
   to_port                  = 8888
   protocol                 = "tcp"
-  security_group_id        = "${module.gitlab.security_group_id}"
-  source_security_group_id = "${aws_security_group.elb_private.id}"
+  security_group_id        = module.gitlab.security_group_id
+  source_security_group_id = aws_security_group.elb_private.id
 }
 
 resource "aws_security_group_rule" "gitlab_egress_db_5432" {
@@ -46,8 +46,8 @@ resource "aws_security_group_rule" "gitlab_egress_db_5432" {
   from_port                = 5432
   to_port                  = 5432
   protocol                 = "tcp"
-  security_group_id        = "${module.gitlab.security_group_id}"
-  source_security_group_id = "${aws_security_group.db.id}"
+  security_group_id        = module.gitlab.security_group_id
+  source_security_group_id = aws_security_group.db.id
 }
 
 resource "aws_security_group_rule" "gitlab_egress_internet_https" {
@@ -56,7 +56,7 @@ resource "aws_security_group_rule" "gitlab_egress_internet_https" {
   from_port         = 443
   to_port           = 443
   protocol          = "tcp"
-  security_group_id = "${module.gitlab.security_group_id}"
+  security_group_id = module.gitlab.security_group_id
   cidr_blocks       = ["0.0.0.0/0"]
 }
 
@@ -66,49 +66,49 @@ resource "aws_security_group_rule" "gitlab_egress_redis_6379" {
   from_port                = 6379
   to_port                  = 6379
   protocol                 = "tcp"
-  security_group_id        = "${module.gitlab.security_group_id}"
-  source_security_group_id = "${aws_security_group.redis.id}"
+  security_group_id        = module.gitlab.security_group_id
+  source_security_group_id = aws_security_group.redis.id
 }
 
 # ELB PUBLIC #############################################################
 
 resource "aws_security_group" "elb" {
-  name = "${format(
+  name = format(
     "%s-%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
     var.name,
-    "elb"
-  )}"
+    "elb",
+  )
 
   description = "SG for ${var.project}-${var.environment}-${var.component}-${var.name}-elb"
-  vpc_id      = "${var.vpc_id}"
+  vpc_id      = var.vpc_id
 
-  tags = "${merge(
+  tags = merge(
     var.default_tags,
-    map(
-      "Name", format(
+    {
+      "Name" = format(
         "%s-%s-%s/%s-%s",
         var.project,
         var.environment,
         var.component,
         var.name,
-        "elb"
-      ),
-      "Module", var.module
-    )
-  )}"
+        "elb",
+      )
+      "Module" = var.module
+    },
+  )
 }
 
 resource "aws_security_group_rule" "elb_ingress_whitelisted_ips_web" {
   description       = "Allow TCP/${var.elb_public_port} from whitelisted IPs"
   type              = "ingress"
-  from_port         = "${var.elb_public_port}"
-  to_port           = "${var.elb_public_port}"
+  from_port         = var.elb_public_port
+  to_port           = var.elb_public_port
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.elb.id}"
-  cidr_blocks       = ["${var.gitlab_whitelist}"]
+  security_group_id = aws_security_group.elb.id
+  cidr_blocks       = var.gitlab_whitelist
 }
 
 resource "aws_security_group_rule" "elb_ingress_whitelisted_ips_ssh" {
@@ -117,8 +117,8 @@ resource "aws_security_group_rule" "elb_ingress_whitelisted_ips_ssh" {
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.elb.id}"
-  cidr_blocks       = ["${var.gitlab_whitelist}"]
+  security_group_id = aws_security_group.elb.id
+  cidr_blocks       = var.gitlab_whitelist
 }
 
 resource "aws_security_group_rule" "elb_egress_gitlab_8888" {
@@ -127,8 +127,8 @@ resource "aws_security_group_rule" "elb_egress_gitlab_8888" {
   from_port                = 8888
   to_port                  = 8888
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.elb.id}"
-  source_security_group_id = "${module.gitlab.security_group_id}"
+  security_group_id        = aws_security_group.elb.id
+  source_security_group_id = module.gitlab.security_group_id
 }
 
 resource "aws_security_group_rule" "elb_egress_gitlab_22" {
@@ -137,39 +137,39 @@ resource "aws_security_group_rule" "elb_egress_gitlab_22" {
   from_port                = 22
   to_port                  = 22
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.elb.id}"
-  source_security_group_id = "${module.gitlab.security_group_id}"
+  security_group_id        = aws_security_group.elb.id
+  source_security_group_id = module.gitlab.security_group_id
 }
 
 # ELB PRIVATE #############################################################
 
 resource "aws_security_group" "elb_private" {
-  name = "${format(
+  name = format(
     "%s-%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
     var.name,
-    "elb-private"
-  )}"
+    "elb-private",
+  )
 
   description = "SG for ${var.project}-${var.environment}-${var.component}-${var.name}-elb-private"
-  vpc_id      = "${var.vpc_id}"
+  vpc_id      = var.vpc_id
 
-  tags = "${merge(
+  tags = merge(
     var.default_tags,
-    map(
-      "Name", format(
+    {
+      "Name" = format(
         "%s-%s-%s/%s-%s",
         var.project,
         var.environment,
         var.component,
         var.name,
-        "elb-private"
-      ),
-      "Module", var.module
-    )
-  )}"
+        "elb-private",
+      )
+      "Module" = var.module
+    },
+  )
 }
 
 resource "aws_security_group_rule" "elb_private_egress_gitlab_ssh" {
@@ -178,8 +178,8 @@ resource "aws_security_group_rule" "elb_private_egress_gitlab_ssh" {
   from_port                = 22
   to_port                  = 22
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.elb_private.id}"
-  source_security_group_id = "${module.gitlab.security_group_id}"
+  security_group_id        = aws_security_group.elb_private.id
+  source_security_group_id = module.gitlab.security_group_id
 }
 
 resource "aws_security_group_rule" "elb_private_egress_gitlab_8888" {
@@ -188,39 +188,39 @@ resource "aws_security_group_rule" "elb_private_egress_gitlab_8888" {
   from_port                = 8888
   to_port                  = 8888
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.elb_private.id}"
-  source_security_group_id = "${module.gitlab.security_group_id}"
+  security_group_id        = aws_security_group.elb_private.id
+  source_security_group_id = module.gitlab.security_group_id
 }
 
 # DB #############################################################
 
 resource "aws_security_group" "db" {
-  name = "${format(
+  name = format(
     "%s-%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
     var.name,
-    "db"
-  )}"
+    "db",
+  )
 
   description = "SG for ${var.project}-${var.environment}-${var.component}-${var.name}-db"
-  vpc_id      = "${var.vpc_id}"
+  vpc_id      = var.vpc_id
 
-  tags = "${merge(
+  tags = merge(
     var.default_tags,
-    map(
-      "Name", format(
+    {
+      "Name" = format(
         "%s-%s-%s/%s-%s",
         var.project,
         var.environment,
         var.component,
         var.name,
-        "db"
-      ),
-      "Module", var.module
-    )
-  )}"
+        "db",
+      )
+      "Module" = var.module
+    },
+  )
 }
 
 resource "aws_security_group_rule" "db_ingress_gitlab_5432" {
@@ -229,39 +229,39 @@ resource "aws_security_group_rule" "db_ingress_gitlab_5432" {
   from_port                = 5432
   to_port                  = 5432
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.db.id}"
-  source_security_group_id = "${module.gitlab.security_group_id}"
+  security_group_id        = aws_security_group.db.id
+  source_security_group_id = module.gitlab.security_group_id
 }
 
 # REDIS #############################################################
 
 resource "aws_security_group" "redis" {
-  name = "${format(
+  name = format(
     "%s-%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
     var.name,
-    "redis"
-  )}"
+    "redis",
+  )
 
   description = "SG for ${var.project}-${var.environment}-${var.component}-${var.name}-redis"
-  vpc_id      = "${var.vpc_id}"
+  vpc_id      = var.vpc_id
 
-  tags = "${merge(
+  tags = merge(
     var.default_tags,
-    map(
-      "Name", format(
+    {
+      "Name" = format(
         "%s-%s-%s/%s-%s",
         var.project,
         var.environment,
         var.component,
         var.name,
-        "redis"
-      ),
-      "Module", var.module
-    )
-  )}"
+        "redis",
+      )
+      "Module" = var.module
+    },
+  )
 }
 
 resource "aws_security_group_rule" "redis_ingress_gitlab_6379" {
@@ -270,6 +270,7 @@ resource "aws_security_group_rule" "redis_ingress_gitlab_6379" {
   from_port                = 6379
   to_port                  = 6379
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.redis.id}"
-  source_security_group_id = "${module.gitlab.security_group_id}"
+  security_group_id        = aws_security_group.redis.id
+  source_security_group_id = module.gitlab.security_group_id
 }
+

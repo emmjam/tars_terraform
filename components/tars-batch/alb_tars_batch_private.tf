@@ -4,17 +4,16 @@ resource "aws_alb" "tars-alb-batch-private" {
   internal = true
 
   security_groups = [
-    "${aws_security_group.tars-alb-batch.id}",
+    aws_security_group.tars-alb-batch.id,
   ]
 
-  subnets = [
-    "${data.terraform_remote_state.base.subnets_tars_backend_elb}",
-  ]
+  subnets = data.terraform_remote_state.base.outputs.subnets_tars_backend_elb
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}/batch-private"
-    )
-  )}"
+    {
+      "Name" = "${local.csi}/batch-private"
+    },
+  )
 }
+

@@ -2,11 +2,12 @@
 resource "aws_security_group" "main" {
   name        = "${var.environment}-${var.project}-${var.name}"
   description = "RDS internal security group"
-  vpc_id      = "${var.vpc_id}"
+  vpc_id      = var.vpc_id
 
-  tags {
+  tags = {
     "Name"        = "${var.environment}-${var.project}-${var.name}"
-    "Project"     = "${var.project}"
-    "Environment" = "${var.environment}"
+    "Project"     = var.project
+    "Environment" = var.environment
   }
 }
+

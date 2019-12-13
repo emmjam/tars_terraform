@@ -29,3 +29,4 @@ data "aws_iam_policy_document" "delete_ebs_snapshot" {
     resources = ["*"]
   }
 }
+

@@ -58,10 +58,11 @@ resource "aws_s3_bucket" "bucketlogs" {
     }
   }
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi_global}-bucketlogs"
-    )
-  )}"
+    {
+      "Name" = "${local.csi_global}-bucketlogs"
+    },
+  )
 }
+

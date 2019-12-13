@@ -1,11 +1,11 @@
 resource "aws_db_option_group" "rsis" {
-  name = "${format(
+  name = format(
     "%s-%s-%s-%s",
     var.project,
     "rsis-reporting",
     var.environment,
-    "option-group"
-  )}"
+    "option-group",
+  )
 
   option_group_description = "Terraform Option Group"
   engine_name              = "oracle-se2"
@@ -28,3 +28,4 @@ resource "aws_db_option_group" "rsis" {
     option_name = "SQLT"
   }
 }
+

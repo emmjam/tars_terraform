@@ -5,15 +5,16 @@ resource "aws_vpc_dhcp_options" "mgmt" {
     "AmazonProvidedDNS",
   ]
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", local.csi
-    )
-  )}"
+    {
+      "Name" = local.csi
+    },
+  )
 }
 
 resource "aws_vpc_dhcp_options_association" "mgmt" {
-  vpc_id          = "${aws_vpc.mgmt.id}"
-  dhcp_options_id = "${aws_vpc_dhcp_options.mgmt.id}"
+  vpc_id          = aws_vpc.mgmt.id
+  dhcp_options_id = aws_vpc_dhcp_options.mgmt.id
 }
+

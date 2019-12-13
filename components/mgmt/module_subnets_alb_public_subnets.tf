@@ -1,22 +1,17 @@
 module "alb_public_subnets" {
   source      = "../../modules/subnets"
   name        = "alb-public"
-  project     = "${var.project}"
-  environment = "${var.environment}"
-  component   = "${var.component}"
-  vpc_id      = "${aws_vpc.mgmt.id}"
+  project     = var.project
+  environment = var.environment
+  component   = var.component
+  vpc_id      = aws_vpc.mgmt.id
 
-  availability_zones = [
-    "${data.aws_availability_zones.available.names}",
-  ]
+  availability_zones = data.aws_availability_zones.available.names
 
-  cidrs = [
-    "${var.alb_public_subnets_cidrs}",
-  ]
+  cidrs = var.alb_public_subnets_cidrs
 
-  route_tables = [
-    "${aws_route_table.public.*.id}",
-  ]
+  route_tables = aws_route_table.public.*.id
 
-  default_tags = "${local.default_tags}"
+  default_tags = local.default_tags
 }
+

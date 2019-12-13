@@ -5,8 +5,8 @@ resource "aws_security_group_rule" "bastion_ingress_elb" {
   from_port                = 22
   to_port                  = 22
   protocol                 = "tcp"
-  security_group_id        = "${module.bastion.security_group_id}"
-  source_security_group_id = "${aws_security_group.bastion_elb.id}"
+  security_group_id        = module.bastion.security_group_id
+  source_security_group_id = aws_security_group.bastion_elb.id
 }
 
 resource "aws_security_group_rule" "bastion_egress_all_ssh" {
@@ -15,9 +15,10 @@ resource "aws_security_group_rule" "bastion_egress_all_ssh" {
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
-  security_group_id = "${module.bastion.security_group_id}"
+  security_group_id = module.bastion.security_group_id
 
   cidr_blocks = [
     "10.0.0.0/8",
   ]
 }
+

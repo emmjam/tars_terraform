@@ -2,7 +2,7 @@ resource "aws_alb_target_group" "nexus_private" {
   name     = "nexus-private"
   port     = "8081"
   protocol = "HTTP"
-  vpc_id   = "${aws_vpc.mgmt.id}"
+  vpc_id   = aws_vpc.mgmt.id
 
   health_check {
     path                = "/"
@@ -13,3 +13,4 @@ resource "aws_alb_target_group" "nexus_private" {
     matcher             = 200
   }
 }
+

@@ -5,8 +5,8 @@ resource "aws_security_group_rule" "jenkinsnode_ingress_bastion_ssh" {
   from_port                = 22
   to_port                  = 22
   protocol                 = "tcp"
-  security_group_id        = "${module.jenkinsnode.security_group_id}"
-  source_security_group_id = "${data.terraform_remote_state.ctrl.bastion_sg_id}"
+  security_group_id        = module.jenkinsnode.security_group_id
+  source_security_group_id = data.terraform_remote_state.ctrl.outputs.bastion_sg_id
 }
 
 # jenkinsnode-jenkins_elb
@@ -16,10 +16,10 @@ resource "aws_security_group_rule" "jenkinsnode_egress_jenkins_elb_http" {
   from_port         = 80
   to_port           = 80
   protocol          = "tcp"
-  security_group_id = "${module.jenkinsnode.security_group_id}"
+  security_group_id = module.jenkinsnode.security_group_id
 
   cidr_blocks = [
-    "${var.mgmt_jenkins_elb_subnet}",
+    var.mgmt_jenkins_elb_subnet,
   ]
 }
 
@@ -30,10 +30,10 @@ resource "aws_security_group_rule" "jenkinsnode_egress_jenkins_elb_49187" {
   from_port         = 49187
   to_port           = 49187
   protocol          = "tcp"
-  security_group_id = "${module.jenkinsnode.security_group_id}"
+  security_group_id = module.jenkinsnode.security_group_id
 
   cidr_blocks = [
-    "${var.mgmt_jenkins_elb_subnet}",
+    var.mgmt_jenkins_elb_subnet,
   ]
 }
 
@@ -44,13 +44,12 @@ resource "aws_security_group_rule" "jenkinsnode_egress_gitlab_ssh" {
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
-  security_group_id = "${module.jenkinsnode.security_group_id}"
+  security_group_id = module.jenkinsnode.security_group_id
 
   cidr_blocks = [
-    "${var.mgmt_gitlab_subnet}",
+    var.mgmt_gitlab_subnet,
   ]
 }
-
 
 # jenkinsnode-internet-https
 resource "aws_security_group_rule" "jenkinsnode_egress_internet_https" {
@@ -59,7 +58,7 @@ resource "aws_security_group_rule" "jenkinsnode_egress_internet_https" {
   from_port         = 443
   to_port           = 443
   protocol          = "tcp"
-  security_group_id = "${module.jenkinsnode.security_group_id}"
+  security_group_id = module.jenkinsnode.security_group_id
 
   cidr_blocks = [
     "0.0.0.0/0",
@@ -73,7 +72,7 @@ resource "aws_security_group_rule" "jenkinsnode_egress_internet_http" {
   from_port         = 80
   to_port           = 80
   protocol          = "tcp"
-  security_group_id = "${module.jenkinsnode.security_group_id}"
+  security_group_id = module.jenkinsnode.security_group_id
 
   cidr_blocks = [
     "0.0.0.0/0",
@@ -87,7 +86,7 @@ resource "aws_security_group_rule" "jenkinsnode_egress_internet_ssh" {
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
-  security_group_id = "${module.jenkinsnode.security_group_id}"
+  security_group_id = module.jenkinsnode.security_group_id
 
   cidr_blocks = [
     "0.0.0.0/0",
@@ -101,8 +100,8 @@ resource "aws_security_group_rule" "jenkinsnode_egress_jmeter_1099_1101" {
   protocol                 = "tcp"
   from_port                = "1099"
   to_port                  = "1101"
-  security_group_id        = "${module.jenkinsnode.security_group_id}"
-  source_security_group_id = "${module.microservice_jmeter.security_group_id}"
+  security_group_id        = module.jenkinsnode.security_group_id
+  source_security_group_id = module.microservice_jmeter.security_group_id
 }
 
 resource "aws_security_group_rule" "jenkinsnode_ingress_jmeter_1099_1101" {
@@ -110,9 +109,10 @@ resource "aws_security_group_rule" "jenkinsnode_ingress_jmeter_1099_1101" {
   protocol                 = "tcp"
   from_port                = "1099"
   to_port                  = "1101"
-  security_group_id        = "${module.jenkinsnode.security_group_id}"
-  source_security_group_id = "${module.microservice_jmeter.security_group_id}"
+  security_group_id        = module.jenkinsnode.security_group_id
+  source_security_group_id = module.microservice_jmeter.security_group_id
 }
+
 ######
 
 resource "aws_security_group_rule" "jenkinsnode_egress_jmeter_ssh" {
@@ -120,6 +120,7 @@ resource "aws_security_group_rule" "jenkinsnode_egress_jmeter_ssh" {
   protocol                 = "tcp"
   from_port                = "22"
   to_port                  = "22"
-  security_group_id        = "${module.jenkinsnode.security_group_id}"
-  source_security_group_id = "${module.microservice_jmeter.security_group_id}"
+  security_group_id        = module.jenkinsnode.security_group_id
+  source_security_group_id = module.microservice_jmeter.security_group_id
 }
+

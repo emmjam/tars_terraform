@@ -7,11 +7,9 @@ resource "aws_security_group_rule" "tars_messaging_egress_dvsa_dc" {
   from_port         = -1
   to_port           = -1
   protocol          = -1
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
-  cidr_blocks = [
-    "${var.dvsa_dc_whitelist}",
-  ]
+  cidr_blocks = var.dvsa_dc_whitelist
 }
 
 resource "aws_security_group_rule" "tars_messaging_egress_dvsa_sccm_443" {
@@ -20,10 +18,10 @@ resource "aws_security_group_rule" "tars_messaging_egress_dvsa_sccm_443" {
   from_port         = 443
   to_port           = 443
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
   cidr_blocks = [
-    "${var.dvsa_sccm_services}",
+    var.dvsa_sccm_services,
   ]
 }
 
@@ -33,10 +31,10 @@ resource "aws_security_group_rule" "tars_messaging_egress_dvsa_sccm_1433" {
   from_port         = 1433
   to_port           = 1433
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
   cidr_blocks = [
-    "${var.dvsa_sccm_services}",
+    var.dvsa_sccm_services,
   ]
 }
 
@@ -46,10 +44,10 @@ resource "aws_security_group_rule" "tars_messaging_egress_dvsa_sccm_80" {
   from_port         = 80
   to_port           = 80
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
   cidr_blocks = [
-    "${var.dvsa_sccm_services}",
+    var.dvsa_sccm_services,
   ]
 }
 
@@ -59,10 +57,10 @@ resource "aws_security_group_rule" "tars_messaging_egress_dvsa_sccm_445" {
   from_port         = 445
   to_port           = 445
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
   cidr_blocks = [
-    "${var.dvsa_sccm_services}",
+    var.dvsa_sccm_services,
   ]
 }
 
@@ -72,10 +70,10 @@ resource "aws_security_group_rule" "tars_messaging_egress_dvsa_sccm_3268" {
   from_port         = 3268
   to_port           = 3268
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
   cidr_blocks = [
-    "${var.dvsa_sccm_services}",
+    var.dvsa_sccm_services,
   ]
 }
 
@@ -85,10 +83,10 @@ resource "aws_security_group_rule" "tars_messaging_egress_dvsa_sccm_10123" {
   from_port         = 10123
   to_port           = 10123
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
   cidr_blocks = [
-    "${var.dvsa_sccm_services}",
+    var.dvsa_sccm_services,
   ]
 }
 
@@ -98,10 +96,10 @@ resource "aws_security_group_rule" "tars_messaging_egress_dvsa_sccm_135" {
   from_port         = 135
   to_port           = 135
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
   cidr_blocks = [
-    "${var.dvsa_sccm_services}",
+    var.dvsa_sccm_services,
   ]
 }
 
@@ -111,10 +109,10 @@ resource "aws_security_group_rule" "tars_messaging_egress_dvsa_sccm_5986" {
   from_port         = 5986
   to_port           = 5986
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
   cidr_blocks = [
-    "${var.dvsa_sccm_services}",
+    var.dvsa_sccm_services,
   ]
 }
 
@@ -124,10 +122,10 @@ resource "aws_security_group_rule" "tars_messaging_egress_dvsa_epo_80" {
   from_port         = 80
   to_port           = 80
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
   cidr_blocks = [
-    "${var.dvsa_epo_services}",
+    var.dvsa_epo_services,
   ]
 }
 
@@ -137,10 +135,10 @@ resource "aws_security_group_rule" "tars_messaging_egress_dvsa_epo_443" {
   from_port         = 443
   to_port           = 443
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
   cidr_blocks = [
-    "${var.dvsa_epo_services}",
+    var.dvsa_epo_services,
   ]
 }
 
@@ -150,10 +148,10 @@ resource "aws_security_group_rule" "tars_messaging_egress_dvsa_epo_8081-8082" {
   from_port         = 8081
   to_port           = 8082
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
   cidr_blocks = [
-    "${var.dvsa_epo_services}",
+    var.dvsa_epo_services,
   ]
 }
 
@@ -163,10 +161,10 @@ resource "aws_security_group_rule" "tars_messaging_egress_dvsa_epo_8443-8444" {
   from_port         = 8443
   to_port           = 8444
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
   cidr_blocks = [
-    "${var.dvsa_epo_services}",
+    var.dvsa_epo_services,
   ]
 }
 
@@ -176,10 +174,10 @@ resource "aws_security_group_rule" "tars_messaging_egress_dvsa_epo_1433-1434" {
   from_port         = 1433
   to_port           = 1434
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
   cidr_blocks = [
-    "${var.dvsa_epo_services}",
+    var.dvsa_epo_services,
   ]
 }
 
@@ -189,10 +187,10 @@ resource "aws_security_group_rule" "tars_messaging_egress_dvsa_epo_389" {
   from_port         = 389
   to_port           = 389
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
   cidr_blocks = [
-    "${var.dvsa_epo_services}",
+    var.dvsa_epo_services,
   ]
 }
 
@@ -202,10 +200,10 @@ resource "aws_security_group_rule" "tars_messaging_egress_dvsa_epo_636" {
   from_port         = 636
   to_port           = 636
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
   cidr_blocks = [
-    "${var.dvsa_epo_services}",
+    var.dvsa_epo_services,
   ]
 }
 
@@ -215,10 +213,10 @@ resource "aws_security_group_rule" "tars_messaging_egress_dvsa_epo_445" {
   from_port         = 445
   to_port           = 445
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
   cidr_blocks = [
-    "${var.dvsa_epo_services}",
+    var.dvsa_epo_services,
   ]
 }
 
@@ -228,10 +226,10 @@ resource "aws_security_group_rule" "tars_messaging_egress_dvsa_epo_6514" {
   from_port         = 6514
   to_port           = 6514
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
   cidr_blocks = [
-    "${var.dvsa_epo_services}",
+    var.dvsa_epo_services,
   ]
 }
 
@@ -241,11 +239,9 @@ resource "aws_security_group_rule" "dvsa_mgmt_ingress_tars_messaging_all_ports" 
   from_port         = -1
   to_port           = -1
   protocol          = -1
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
-  cidr_blocks = [
-    "${var.dvsa_mgmt_inbound}",
-  ]
+  cidr_blocks = var.dvsa_mgmt_inbound
 }
 
 resource "aws_security_group_rule" "tars_messaging_egress_IRDT_printers" {
@@ -254,10 +250,10 @@ resource "aws_security_group_rule" "tars_messaging_egress_IRDT_printers" {
   from_port         = -1
   to_port           = -1
   protocol          = -1
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
   cidr_blocks = [
-    "${var.dvsa_irdt_printers}",
+    var.dvsa_irdt_printers,
   ]
 }
 
@@ -267,62 +263,52 @@ resource "aws_security_group_rule" "tars_messaging_egress_DVSA_printers" {
   from_port         = -1
   to_port           = -1
   protocol          = -1
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
-  cidr_blocks = [
-    "${var.dvsa_printers}",
-  ]
+  cidr_blocks = var.dvsa_printers
 }
 
 resource "aws_security_group_rule" "dvsa_win_monitor_ingress_tars_messaging_ICMP" {
-  description = "Allow all ICMP from DVSA monitoring"
-  type = "ingress"
-  from_port = -1
-  to_port = -1
-  protocol = "ICMP"
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  description       = "Allow all ICMP from DVSA monitoring"
+  type              = "ingress"
+  from_port         = -1
+  to_port           = -1
+  protocol          = "ICMP"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
-  cidr_blocks = [
-    "${var.dvsa_icmp_monitoring}",
-  ]
+  cidr_blocks = var.dvsa_icmp_monitoring
 }
 
 resource "aws_security_group_rule" "dvsa_ingress_tars_messaging_win_rpc_port" {
-  description = "Allow RPC from DVSA monitoring"
-  type = "ingress"
-  from_port = 135
-  to_port = 135
-  protocol = "TCP"
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  description       = "Allow RPC from DVSA monitoring"
+  type              = "ingress"
+  from_port         = 135
+  to_port           = 135
+  protocol          = "TCP"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
-  cidr_blocks = [
-    "${var.dvsa_win_monitoring}",
-  ]
+  cidr_blocks = var.dvsa_win_monitoring
 }
 
 resource "aws_security_group_rule" "dvsa_ingress_tars_messaging_win_smb_port" {
-  description = "Allow SMB from DVSA monitoring"
-  type = "ingress"
-  from_port = 445
-  to_port = 445
-  protocol = "TCP"
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  description       = "Allow SMB from DVSA monitoring"
+  type              = "ingress"
+  from_port         = 445
+  to_port           = 445
+  protocol          = "TCP"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
-  cidr_blocks = [
-    "${var.dvsa_win_monitoring}",
-  ]
+  cidr_blocks = var.dvsa_win_monitoring
 }
 
 resource "aws_security_group_rule" "dvsa_ingress_tars_messaging_win_dynamic_ports" {
-  description = "Allow all Dynamic Ports from DVSA monitoring"
-  type = "ingress"
-  from_port = 49152
-  to_port = 65535
-  protocol = "TCP"
-  security_group_id = "${aws_security_group.tars-messaging-ad.id}"
+  description       = "Allow all Dynamic Ports from DVSA monitoring"
+  type              = "ingress"
+  from_port         = 49152
+  to_port           = 65535
+  protocol          = "TCP"
+  security_group_id = aws_security_group.tars-messaging-ad.id
 
-  cidr_blocks = [
-    "${var.dvsa_win_monitoring}",
-  ]
+  cidr_blocks = var.dvsa_win_monitoring
 }
 

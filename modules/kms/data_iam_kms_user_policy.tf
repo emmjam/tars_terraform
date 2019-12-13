@@ -1,13 +1,13 @@
 data "aws_iam_policy_document" "user" {
-  policy_id = "${format(
+  policy_id = format(
     "%s-%s-%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
     var.module,
     var.name,
-    "user"
-  )}"
+    "user",
+  )
 
   statement {
     sid    = "AllowUseOfTheKmskey"
@@ -22,7 +22,8 @@ data "aws_iam_policy_document" "user" {
     ]
 
     resources = [
-      "${aws_kms_key.main.arn}",
+      aws_kms_key.main.arn,
     ]
   }
 }
+

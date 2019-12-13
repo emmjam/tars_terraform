@@ -2,10 +2,10 @@
 # to allow them to assume the ops role
 
 resource "aws_iam_policy" "assumerole_ops" {
-  name     = "${local.csi}-assumerole-ops"
+  name = "${local.csi}-assumerole-ops"
 
   path   = "/"
-  policy = "${data.aws_iam_policy_document.assumerole_ops.json}"
+  policy = data.aws_iam_policy_document.assumerole_ops.json
 }
 
 data "aws_iam_policy_document" "assumerole_ops" {
@@ -18,7 +18,8 @@ data "aws_iam_policy_document" "assumerole_ops" {
     ]
 
     resources = [
-      "${aws_iam_role.ops.arn}",
+      aws_iam_role.ops.arn,
     ]
   }
 }
+

@@ -1,8 +1,8 @@
 data "template_file" "os_config" {
-  template = "${file("${path.module}/templates/cloud_init_setup.yaml.tmpl")}"
+  template = file("${path.module}/templates/cloud_init_setup.yaml.tmpl")
 
-  vars {
-    DOMAIN_NAME = "${var.domain_name}"
+  vars = {
+    DOMAIN_NAME = var.domain_name
   }
 }
 
@@ -17,16 +17,16 @@ data "template_file" "os_config" {
 # }
 
 data "template_file" "gitlab_config" {
-  template = "${file("${path.module}/templates/gitlab_setup.sh.tmpl")}"
+  template = file("${path.module}/templates/gitlab_setup.sh.tmpl")
 
-  vars {
-    EBS_VOLUME_ID   = "${aws_ebs_volume.gitlab.id}"
-    EBS_DEVICE_NAME = "${var.ebs_device_name}"
-    AWS_REGION      = "${data.aws_region.current.name}"
-    DB_ENDPOINT     = "${aws_route53_record.db.fqdn}"
-    REDIS_ENDPOINT  = "${var.redis_endpoint}"
-#    REDIS_ENDPOINT  = "${data.aws_elasticache_cluster.gitlab.cluster_address}"
-    EXTERNAL_URL    = "${var.elb_public_external_address}"
+  vars = {
+    EBS_VOLUME_ID   = aws_ebs_volume.gitlab.id
+    EBS_DEVICE_NAME = var.ebs_device_name
+    AWS_REGION      = data.aws_region.current.name
+    DB_ENDPOINT     = aws_route53_record.db.fqdn
+    REDIS_ENDPOINT  = var.redis_endpoint
+    #    REDIS_ENDPOINT  = "${data.aws_elasticache_cluster.gitlab.cluster_address}"
+    EXTERNAL_URL = var.elb_public_external_address
   }
 }
 
@@ -36,11 +36,12 @@ data "template_cloudinit_config" "gitlab" {
 
   part {
     content_type = "text/cloud-config"
-    content      = "${data.template_file.os_config.rendered}"
+    content      = data.template_file.os_config.rendered
   }
 
   part {
     content_type = "text/x-shellscript"
-    content      = "${data.template_file.gitlab_config.rendered}"
+    content      = data.template_file.gitlab_config.rendered
   }
 }
+

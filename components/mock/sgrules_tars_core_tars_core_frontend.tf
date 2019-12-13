@@ -5,6 +5,7 @@ resource "aws_security_group_rule" "tars_frontend_egress_tars_alb_mock_port_8080
   from_port                = 8080
   to_port                  = 8080
   protocol                 = "tcp"
-  security_group_id        = "${data.terraform_remote_state.tars-core.tars-core-frontend-sg-id}"
-  source_security_group_id = "${aws_security_group.tars-alb-mock.id}"
+  security_group_id        = data.terraform_remote_state.tars-core.outputs.tars-core-frontend-sg-id
+  source_security_group_id = aws_security_group.tars-alb-mock.id
 }
+

@@ -5,8 +5,8 @@ resource "aws_security_group_rule" "tars_batch_ingress_private_alb_port_8080" {
   from_port                = 8080
   to_port                  = 8080
   protocol                 = "tcp"
-  security_group_id        = "${module.tars_batch.security_group_id}"
-  source_security_group_id = "${aws_security_group.tars-alb-batch.id}"
+  security_group_id        = module.tars_batch.security_group_id
+  source_security_group_id = aws_security_group.tars-alb-batch.id
 }
 
 resource "aws_security_group_rule" "tars_batch_egress_oracle_db" {
@@ -15,8 +15,8 @@ resource "aws_security_group_rule" "tars_batch_egress_oracle_db" {
   from_port                = 1521
   to_port                  = 1521
   protocol                 = "tcp"
-  security_group_id        = "${module.tars_batch.security_group_id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-db-sg-id}"
+  security_group_id        = module.tars_batch.security_group_id
+  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-db-sg-id
 }
 
 resource "aws_security_group_rule" "tars_batch_ingress_bastion" {
@@ -25,8 +25,8 @@ resource "aws_security_group_rule" "tars_batch_ingress_bastion" {
   from_port                = 22
   to_port                  = 22
   protocol                 = "tcp"
-  security_group_id        = "${module.tars_batch.security_group_id}"
-  source_security_group_id = "${data.terraform_remote_state.ctrl.bastion_sg_id}"
+  security_group_id        = module.tars_batch.security_group_id
+  source_security_group_id = data.terraform_remote_state.ctrl.outputs.bastion_sg_id
 }
 
 resource "aws_security_group_rule" "tars_batch_egress_kms_endpoint" {
@@ -35,8 +35,8 @@ resource "aws_security_group_rule" "tars_batch_egress_kms_endpoint" {
   from_port                = -1
   to_port                  = -1
   protocol                 = "-1"
-  security_group_id        = "${module.tars_batch.security_group_id}"
-  source_security_group_id = "${data.terraform_remote_state.base.kms_sg_id}"
+  security_group_id        = module.tars_batch.security_group_id
+  source_security_group_id = data.terraform_remote_state.base.outputs.kms_sg_id
 }
 
 resource "aws_security_group_rule" "tars_batch_egress_active_mq" {
@@ -45,8 +45,8 @@ resource "aws_security_group_rule" "tars_batch_egress_active_mq" {
   from_port                = 61617
   to_port                  = 61617
   protocol                 = "tcp"
-  security_group_id        = "${module.tars_batch.security_group_id}"
-  source_security_group_id = "${data.terraform_remote_state.base.awsmq_sg_id}"
+  security_group_id        = module.tars_batch.security_group_id
+  source_security_group_id = data.terraform_remote_state.base.outputs.awsmq_sg_id
 }
 
 resource "aws_security_group_rule" "batch_egress_batch_efs_nfs" {
@@ -54,8 +54,8 @@ resource "aws_security_group_rule" "batch_egress_batch_efs_nfs" {
   from_port                = "2049"
   to_port                  = "2049"
   protocol                 = "tcp"
-  security_group_id        = "${module.tars_batch.security_group_id}"
-  source_security_group_id = "${aws_security_group.batch_efs.id}"
+  security_group_id        = module.tars_batch.security_group_id
+  source_security_group_id = aws_security_group.batch_efs.id
 }
 
 resource "aws_security_group_rule" "tars_batch_egress_avarto_sftp" {
@@ -64,10 +64,10 @@ resource "aws_security_group_rule" "tars_batch_egress_avarto_sftp" {
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
-  security_group_id = "${module.tars_batch.security_group_id}"
+  security_group_id = module.tars_batch.security_group_id
 
   cidr_blocks = [
-    "${var.avarto_sftp_server}",
+    var.avarto_sftp_server,
   ]
 }
 
@@ -78,10 +78,10 @@ resource "aws_security_group_rule" "tars_batch_egress_sweda_sftp" {
   from_port         = -1
   to_port           = -1
   protocol          = "-1"
-  security_group_id = "${module.tars_batch.security_group_id}"
+  security_group_id = module.tars_batch.security_group_id
 
   cidr_blocks = [
-    "${var.sweda_samba_server}",
+    var.sweda_samba_server,
   ]
 }
 
@@ -91,10 +91,10 @@ resource "aws_security_group_rule" "tars_batch_egress_dvla_adli" {
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
-  security_group_id = "${module.tars_batch.security_group_id}"
+  security_group_id = module.tars_batch.security_group_id
 
   cidr_blocks = [
-    "${var.dvla_adli_server}",
+    var.dvla_adli_server,
   ]
 }
 
@@ -104,10 +104,10 @@ resource "aws_security_group_rule" "tars_batch_egress_rsis_sftp" {
   from_port         = -1
   to_port           = -1
   protocol          = "-1"
-  security_group_id = "${module.tars_batch.security_group_id}"
+  security_group_id = module.tars_batch.security_group_id
 
   cidr_blocks = [
-    "${var.rsis_samba_server}",
+    var.rsis_samba_server,
   ]
 }
 
@@ -117,10 +117,10 @@ resource "aws_security_group_rule" "tars_batch_egress_dvla_ldap" {
   from_port         = 389
   to_port           = 389
   protocol          = "tcp"
-  security_group_id = "${module.tars_batch.security_group_id}"
+  security_group_id = module.tars_batch.security_group_id
 
   cidr_blocks = [
-    "${var.dvsa_ldap_server}",
+    var.dvsa_ldap_server,
   ]
 }
 
@@ -130,9 +130,8 @@ resource "aws_security_group_rule" "tars_batch_egress_dvsa_dns" {
   from_port         = -1
   to_port           = -1
   protocol          = "-1"
-  security_group_id = "${module.tars_batch.security_group_id}"
+  security_group_id = module.tars_batch.security_group_id
 
-  cidr_blocks = [
-    "${var.dvsa_dns_servers}",
-  ]
+  cidr_blocks = var.dvsa_dns_servers
 }
+

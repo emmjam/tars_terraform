@@ -3,8 +3,8 @@ resource "aws_security_group_rule" "obs-ingress-obs-alb-8080" {
   protocol                 = "tcp"
   from_port                = "8080"
   to_port                  = "8080"
-  security_group_id        = "${module.obs.security_group_id}"
-  source_security_group_id = "${aws_security_group.obs-alb.id}"
+  security_group_id        = module.obs.security_group_id
+  source_security_group_id = aws_security_group.obs-alb.id
 }
 
 resource "aws_security_group_rule" "obs-egress-tars-back-8080" {
@@ -12,8 +12,8 @@ resource "aws_security_group_rule" "obs-egress-tars-back-8080" {
   protocol                 = "tcp"
   from_port                = "8080"
   to_port                  = "8080"
-  security_group_id        = "${module.obs.security_group_id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-backend-alb-sg-id}"
+  security_group_id        = module.obs.security_group_id
+  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-backend-alb-sg-id
 }
 
 resource "aws_security_group_rule" "obs_egress_oracle_db" {
@@ -21,6 +21,7 @@ resource "aws_security_group_rule" "obs_egress_oracle_db" {
   protocol                 = "tcp"
   from_port                = "1521"
   to_port                  = "1521"
-  security_group_id        = "${module.obs.security_group_id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-db-sg-id}"
+  security_group_id        = module.obs.security_group_id
+  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-db-sg-id
 }
+

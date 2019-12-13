@@ -1,24 +1,24 @@
 data "template_file" "prometheus" {
-  template = "${file("${path.module}/templates/cloudinit_common.yaml.tmpl")}"
+  template = file("${path.module}/templates/cloudinit_common.yaml.tmpl")
 
-  vars {
+  vars = {
     NODETYPE    = "prometheus"
-    DOMAIN_NAME = "${local.vpc_domain_name}"
+    DOMAIN_NAME = local.vpc_domain_name
   }
 }
 
 data "template_file" "prometheus_config" {
-  template = "${file("${path.module}/templates/prometheus_setup.sh.tmpl")}"
+  template = file("${path.module}/templates/prometheus_setup.sh.tmpl")
 
-  vars {
+  vars = {
     NODETYPE       = "prometheus"
-    ENVIRONMENT    = "${var.environment}"
-    KMS_KEY        = "${data.terraform_remote_state.acc.hieradata_kms_key_id}"
-    AWS_ACCOUNT_ID = "${var.aws_account_id}"
-    AWS_REGION     = "${var.aws_region}"
-    EFS_ID         = "${aws_efs_file_system.prometheus.id}"
+    ENVIRONMENT    = var.environment
+    KMS_KEY        = data.terraform_remote_state.acc.outputs.hieradata_kms_key_id
+    AWS_ACCOUNT_ID = var.aws_account_id
+    AWS_REGION     = var.aws_region
+    EFS_ID         = aws_efs_file_system.prometheus.id
     MOUNT_POINT    = "/var/lib/prometheus"
-    LOG_GROUP      = "${local.prometheus_log}"
+    LOG_GROUP      = local.prometheus_log
   }
 }
 
@@ -28,11 +28,12 @@ data "template_cloudinit_config" "prometheus" {
 
   part {
     content_type = "text/cloud-config"
-    content      = "${data.template_file.prometheus.rendered}"
+    content      = data.template_file.prometheus.rendered
   }
 
   part {
     content_type = "text/x-shellscript"
-    content      = "${data.template_file.prometheus_config.rendered}"
+    content      = data.template_file.prometheus_config.rendered
   }
 }
+

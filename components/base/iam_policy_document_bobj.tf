@@ -24,7 +24,7 @@ data "aws_iam_policy_document" "bobjnode" {
     effect = "Allow"
 
     actions = [
-      "ssm:GetParameter"
+      "ssm:GetParameter",
     ]
 
     resources = [
@@ -38,7 +38,7 @@ data "aws_iam_policy_document" "bobjnode" {
 
     actions = [
       "ssm:GetParameter",
-      "ssm:GetParameters"
+      "ssm:GetParameters",
     ]
 
     resources = [
@@ -50,5 +50,6 @@ data "aws_iam_policy_document" "bobjnode" {
 resource "aws_iam_policy" "bobjnode" {
   name        = "${local.csi}-bobjnode"
   description = "IAM policy for ${local.csi}-bobjnode"
-  policy      = "${data.aws_iam_policy_document.bobjnode.json}"
+  policy      = data.aws_iam_policy_document.bobjnode.json
 }
+

@@ -9,11 +9,9 @@ resource "aws_security_group_rule" "squidnat_egress_whitelist_https" {
   protocol          = "tcp"
   from_port         = "443"
   to_port           = "443"
-  security_group_id = "${aws_security_group.squidnat.id}"
+  security_group_id = aws_security_group.squidnat.id
 
-  cidr_blocks = [
-    "${var.egress_whitelist}",
-  ]
+  cidr_blocks = var.egress_whitelist
 }
 
 resource "aws_security_group_rule" "squidnat_egress_whitelist_http" {
@@ -21,11 +19,9 @@ resource "aws_security_group_rule" "squidnat_egress_whitelist_http" {
   protocol          = "tcp"
   from_port         = "80"
   to_port           = "80"
-  security_group_id = "${aws_security_group.squidnat.id}"
+  security_group_id = aws_security_group.squidnat.id
 
-  cidr_blocks = [
-    "${var.egress_whitelist}",
-  ]
+  cidr_blocks = var.egress_whitelist
 }
 
 resource "aws_security_group_rule" "squidnat_egress_whitelist_ssh" {
@@ -33,11 +29,9 @@ resource "aws_security_group_rule" "squidnat_egress_whitelist_ssh" {
   protocol          = "tcp"
   from_port         = "22"
   to_port           = "22"
-  security_group_id = "${aws_security_group.squidnat.id}"
+  security_group_id = aws_security_group.squidnat.id
 
-  cidr_blocks = [
-    "${var.egress_whitelist}",
-  ]
+  cidr_blocks = var.egress_whitelist
 }
 
 resource "aws_security_group_rule" "squidnat_egress_whitelist_tns" {
@@ -45,11 +39,9 @@ resource "aws_security_group_rule" "squidnat_egress_whitelist_tns" {
   protocol          = "tcp"
   from_port         = "46465"
   to_port           = "46465"
-  security_group_id = "${aws_security_group.squidnat.id}"
+  security_group_id = aws_security_group.squidnat.id
 
-  cidr_blocks = [
-    "${var.egress_whitelist}",
-  ]
+  cidr_blocks = var.egress_whitelist
 }
 
 resource "aws_security_group_rule" "squidnat_egress_whitelist_ses" {
@@ -57,9 +49,8 @@ resource "aws_security_group_rule" "squidnat_egress_whitelist_ses" {
   protocol          = "tcp"
   from_port         = "587"
   to_port           = "587"
-  security_group_id = "${aws_security_group.squidnat.id}"
+  security_group_id = aws_security_group.squidnat.id
 
-  cidr_blocks = [
-    "${var.egress_whitelist}",
-  ]
+  cidr_blocks = var.egress_whitelist
 }
+

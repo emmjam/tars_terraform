@@ -2,23 +2,18 @@
 module "subnets_rds" {
   source = "../../modules/subnets"
 
-  project     = "${var.project}"
-  environment = "${var.environment}"
-  component   = "${var.component}"
+  project     = var.project
+  environment = var.environment
+  component   = var.component
   name        = "rds"
 
-  availability_zones = [
-    "${data.aws_availability_zones.available.names}",
-  ]
+  availability_zones = data.aws_availability_zones.available.names
 
-  cidrs = [
-    "${var.rds_subnets_cidrs}",
-  ]
+  cidrs = var.rds_subnets_cidrs
 
-  route_tables = [
-    "${aws_route_table.private_nonat.id}",
-  ]
+  route_tables = list(aws_route_table.private_nonat.id)
 
-  vpc_id       = "${aws_vpc.vpc.id}"
-  default_tags = "${local.default_tags}"
+  vpc_id       = aws_vpc.vpc.id
+  default_tags = local.default_tags
 }
+

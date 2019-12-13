@@ -5,6 +5,7 @@ resource "aws_security_group_rule" "grafana-egress-prometheus-private-alb" {
   from_port                = 9090
   to_port                  = 9090
   protocol                 = "tcp"
-  security_group_id        = "${data.terraform_remote_state.ctrl.grafana_sg_id}"
-  source_security_group_id = "${aws_security_group.prometheus-alb-private.id}"
+  security_group_id        = data.terraform_remote_state.ctrl.outputs.grafana_sg_id
+  source_security_group_id = aws_security_group.prometheus-alb-private.id
 }
+

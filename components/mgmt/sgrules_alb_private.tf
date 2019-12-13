@@ -4,8 +4,8 @@ resource "aws_security_group_rule" "alb_private_egress_sonarqube_9000" {
   from_port                = 9000
   to_port                  = 9000
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.alb_private.id}"
-  source_security_group_id = "${module.sonarqube.sq_security_group_id}"
+  security_group_id        = aws_security_group.alb_private.id
+  source_security_group_id = module.sonarqube.sq_security_group_id
 }
 
 resource "aws_security_group_rule" "alb_private_ingress_packer" {
@@ -14,8 +14,8 @@ resource "aws_security_group_rule" "alb_private_ingress_packer" {
   from_port                = 80
   to_port                  = 80
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.alb_private.id}"
-  source_security_group_id = "${data.terraform_remote_state.ctrl.jenkinsctrl_sg_id}"
+  security_group_id        = aws_security_group.alb_private.id
+  source_security_group_id = data.terraform_remote_state.ctrl.outputs.jenkinsctrl_sg_id
 }
 
 resource "aws_security_group_rule" "alb_private_egress_nexus_8081" {
@@ -24,8 +24,8 @@ resource "aws_security_group_rule" "alb_private_egress_nexus_8081" {
   from_port                = 8081
   to_port                  = 8081
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.alb_private.id}"
-  source_security_group_id = "${module.microservice_nexus.security_group_id}"
+  security_group_id        = aws_security_group.alb_private.id
+  source_security_group_id = module.microservice_nexus.security_group_id
 }
 
 resource "aws_security_group_rule" "alb_private_ingress_nexus" {
@@ -34,10 +34,9 @@ resource "aws_security_group_rule" "alb_private_ingress_nexus" {
   from_port                = 80
   to_port                  = 80
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.alb_private.id}"
-  source_security_group_id = "${aws_security_group.build.id}"
+  security_group_id        = aws_security_group.alb_private.id
+  source_security_group_id = aws_security_group.build.id
 }
-
 
 resource "aws_security_group_rule" "alb_private_ingress_nexus_443" {
   description              = "Allow TCP/443 from nexux"
@@ -45,7 +44,7 @@ resource "aws_security_group_rule" "alb_private_ingress_nexus_443" {
   from_port                = 443
   to_port                  = 443
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.alb_private.id}"
-  source_security_group_id = "${aws_security_group.build.id}"
-
+  security_group_id        = aws_security_group.alb_private.id
+  source_security_group_id = aws_security_group.build.id
 }
+

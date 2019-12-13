@@ -4,31 +4,32 @@
 module "standard_bucket" {
   source = "../../modules/standard-bucket"
 
-  log_bucket = "${var.s3_bucketlogs_bucket_id}"
+  log_bucket = var.s3_bucketlogs_bucket_id
 
-  name = "${format(
+  name = format(
     "%s-%s-%s-%s-%s-%s",
     var.project,
     var.aws_account_id,
     data.aws_region.current.name,
     var.environment,
     var.component,
-    var.module
-  )}"
+    var.module,
+  )
 
-  tags = "${merge(
-    "${var.default_tags}",
-    map(
-      "Name", format(
+  tags = merge(
+    var.default_tags,
+    {
+      "Name" = format(
         "%s-%s-%s-%s-%s-%s",
         var.project,
         var.aws_account_id,
         data.aws_region.current.name,
         var.environment,
         var.component,
-        var.module 
-      ),
-      "Module", var.module
-    )
-  )}"
+        var.module,
+      )
+      "Module" = var.module
+    },
+  )
 }
+

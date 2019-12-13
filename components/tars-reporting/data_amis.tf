@@ -1,20 +1,21 @@
 # Get the Messaging server AMI ID
 data "aws_ami" "bobj" {
-#  name_regex = "${format(
-#    "%s-%s-%s/%s",
-#    var.project,
-#    "windows",
-#    "wildfly-messaging",
-#    "uat01_release_5.0.0.7"
-#  )}"
+  #  name_regex = "${format(
+  #    "%s-%s-%s/%s",
+  #    var.project,
+  #    "windows",
+  #    "wildfly-messaging",
+  #    "uat01_release_5.0.0.7"
+  #  )}"
 
   name_regex = "tars-${var.environment}-tars-reporting-bobj/release"
-#  name_regex = "Windows_Server-2016-English-Full-Base-*"
+
+  #  name_regex = "Windows_Server-2016-English-Full-Base-*"
   most_recent = "true"
 
   owners = [
-    "${data.aws_caller_identity.current.account_id}",
-    "${var.mgmt_aws_account_id}",
+    data.aws_caller_identity.current.account_id,
+    var.mgmt_aws_account_id,
     "amazon",
   ]
 
@@ -26,3 +27,4 @@ data "aws_ami" "bobj" {
     ]
   }
 }
+

@@ -1,12 +1,9 @@
 # sftplus Server internal
 resource "aws_lb" "sftpplus-svr-private" {
-
   name     = "${local.csi}-cpc"
   internal = true
 
-  subnets = [
-    "${module.sftpplus_svr.subnet_ids}",
-  ]
+  subnets = module.sftpplus_svr.subnet_ids
 
   load_balancer_type = "network"
   idle_timeout       = "300"
@@ -19,10 +16,11 @@ resource "aws_lb" "sftpplus-svr-private" {
   # such as production databases.
   enable_deletion_protection = true
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}-cpc"
-    )
-  )}"
+    {
+      "Name" = "${local.csi}-cpc"
+    },
+  )
 }
+

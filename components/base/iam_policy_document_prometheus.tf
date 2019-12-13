@@ -6,7 +6,7 @@ data "aws_iam_policy_document" "prometheus" {
     actions = [
       "cloudwatch:GetMetricStatistics",
       "cloudwatch:ListMetrics",
-      "ec2:DescribeInstances"
+      "ec2:DescribeInstances",
     ]
 
     resources = [
@@ -18,5 +18,6 @@ data "aws_iam_policy_document" "prometheus" {
 resource "aws_iam_policy" "prometheus" {
   name        = "${local.csi}-prometheus"
   description = "IAM policy for ${local.csi}-prometheus"
-  policy      = "${data.aws_iam_policy_document.prometheus.json}"
+  policy      = data.aws_iam_policy_document.prometheus.json
 }
+

@@ -18,7 +18,7 @@ resource "aws_s3_bucket" "yum" {
 
   # Enable S3 Bucket Logging to the bucketlogs bucket
   logging {
-    target_bucket = "${aws_s3_bucket.bucketlogs.id}"
+    target_bucket = aws_s3_bucket.bucketlogs.id
     target_prefix = "${local.csi_global}-yum/"
   }
 
@@ -28,7 +28,7 @@ resource "aws_s3_bucket" "yum" {
     id      = "wholebucket"
     prefix  = ""
     enabled = "true"
-    
+
     noncurrent_version_transition {
       days          = "30"
       storage_class = "STANDARD_IA"
@@ -44,10 +44,11 @@ resource "aws_s3_bucket" "yum" {
     }
   }
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi_global}-yum"
-    )
-  )}"
+    {
+      "Name" = "${local.csi_global}-yum"
+    },
+  )
 }
+

@@ -1,20 +1,20 @@
 resource "aws_elb" "gitlab_private" {
-  name = "${format(
+  name = format(
     "%s-%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
     var.name,
     "private",
-  )}"
+  )
 
   internal                    = true
-  connection_draining         = "${var.elb_connection_draining}"
-  connection_draining_timeout = "${var.elb_connection_draining_timeout}"
-  cross_zone_load_balancing   = "${var.elb_cross_zone_load_balancing}"
-  security_groups             = ["${aws_security_group.elb_private.id}"]
+  connection_draining         = var.elb_connection_draining
+  connection_draining_timeout = var.elb_connection_draining_timeout
+  cross_zone_load_balancing   = var.elb_cross_zone_load_balancing
+  security_groups             = [aws_security_group.elb_private.id]
 
-  subnets = ["${module.elb_private_subnets.subnet_ids}"]
+  subnets = module.elb_private_subnets.subnet_ids
 
   listener {
     instance_port     = 22
@@ -26,11 +26,11 @@ resource "aws_elb" "gitlab_private" {
   listener {
     instance_port      = 8888
     instance_protocol  = "HTTP"
-    lb_port            = "${var.elb_public_port}"
-    lb_protocol        = "${var.elb_public_protocol}"
-    ssl_certificate_id = "${var.elb_public_ssl_certificate_id}"
+    lb_port            = var.elb_public_port
+    lb_protocol        = var.elb_public_protocol
+    ssl_certificate_id = var.elb_public_ssl_certificate_id
   }
-  
+
   health_check {
     healthy_threshold   = 3
     unhealthy_threshold = 2
@@ -39,18 +39,19 @@ resource "aws_elb" "gitlab_private" {
     interval            = 15
   }
 
-  tags = "${merge(
+  tags = merge(
     var.default_tags,
-    map(
-      "Name", format(
+    {
+      "Name" = format(
         "%s-%s-%s/%s-%s",
         var.project,
         var.environment,
         var.component,
         var.name,
         "private",
-      ),
-      "Module", var.module
-    )
-  )}"
+      )
+      "Module" = var.module
+    },
+  )
 }
+

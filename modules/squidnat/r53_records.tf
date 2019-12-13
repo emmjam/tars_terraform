@@ -10,12 +10,11 @@
 #### python that's 2.7 or later.
 
 resource "aws_route53_record" "squid" {
-  zone_id = "${var.zone_id}"
+  zone_id = var.zone_id
   name    = "squid"
   type    = "A"
   ttl     = "60"
 
-  records = [
-    "${aws_network_interface.squid.*.private_ip}",
-  ]
+  records = aws_network_interface.squid.*.private_ip
 }
+

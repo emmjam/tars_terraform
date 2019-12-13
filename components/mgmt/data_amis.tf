@@ -1,16 +1,16 @@
 data "aws_ami" "jenkins" {
-  name_regex = "${format(
+  name_regex = format(
     "%s-%s-%s/%s",
     var.project,
     "amzn",
     "jenkins",
-    var.jenkins_ami_build_id
-  )}"
+    var.jenkins_ami_build_id,
+  )
 
   most_recent = "true"
 
   owners = [
-    "${data.aws_caller_identity.current.account_id}",
+    data.aws_caller_identity.current.account_id,
   ]
 
   filter {
@@ -23,18 +23,12 @@ data "aws_ami" "jenkins" {
 }
 
 data "aws_ami" "sonarqube" {
-  name_regex = "${format(
-    "%s-%s-%s/%s",
-    var.project,
-    "amzn",
-    "sonarqube",
-    "*"
-  )}"
+  name_regex = format("%s-%s-%s/%s", var.project, "amzn", "sonarqube", "*")
 
   most_recent = "true"
 
   owners = [
-    "${data.aws_caller_identity.current.account_id}",
+    data.aws_caller_identity.current.account_id,
   ]
 
   filter {
@@ -47,18 +41,18 @@ data "aws_ami" "sonarqube" {
 }
 
 data "aws_ami" "gitlab" {
-  name_regex = "${format(
+  name_regex = format(
     "%s-%s-%s/%s",
     var.project,
     "amzn",
     "gitlab",
-    var.gitlab_ami_build_id
-  )}"
+    var.gitlab_ami_build_id,
+  )
 
   most_recent = "true"
 
   owners = [
-    "${data.aws_caller_identity.current.account_id}",
+    data.aws_caller_identity.current.account_id,
   ]
 
   filter {
@@ -71,18 +65,18 @@ data "aws_ami" "gitlab" {
 }
 
 data "aws_ami" "nexus" {
-  name_regex = "${format(
+  name_regex = format(
     "%s-%s-%s/%s",
     var.project,
     "amzn",
     "nexus",
-    "${lookup(var.nexus_config, "nexus_ami_build_id")}"
-  )}"
+    var.nexus_config["nexus_ami_build_id"],
+  )
 
   most_recent = "true"
 
   owners = [
-    "${data.aws_caller_identity.current.account_id}",
+    data.aws_caller_identity.current.account_id,
   ]
 
   filter {

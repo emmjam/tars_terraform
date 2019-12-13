@@ -26,14 +26,15 @@ resource "aws_s3_bucket" "legacy-tape-archive" {
   }
 
   logging {
-    target_bucket = "${aws_s3_bucket.bucketlogs.id}"
+    target_bucket = aws_s3_bucket.bucketlogs.id
     target_prefix = "${local.csi_global}-legacy-tape-archive/"
   }
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi_global}-legacy-tape-archive"
-    )
-  )}"
+    {
+      "Name" = "${local.csi_global}-legacy-tape-archive"
+    },
+  )
 }
+

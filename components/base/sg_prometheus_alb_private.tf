@@ -1,12 +1,13 @@
 resource "aws_security_group" "prometheus-alb-private" {
   name        = "${local.csi}/prometheus-alb-private"
   description = "Prometheus ALB Private"
-  vpc_id      = "${aws_vpc.vpc.id}"
+  vpc_id      = aws_vpc.vpc.id
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}/prometheus-alb-private"
-    )
-  )}"
+    {
+      "Name" = "${local.csi}/prometheus-alb-private"
+    },
+  )
 }
+

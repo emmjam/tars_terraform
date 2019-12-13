@@ -1,26 +1,27 @@
 resource "aws_iam_role" "lambda_curator" {
-  name = "${format(
+  name = format(
     "%s-%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
     "lambda",
-    "curator"
-  )}"
+    "curator",
+  )
 
-  assume_role_policy = "${data.aws_iam_policy_document.lambda_assumerole.json}"
+  assume_role_policy = data.aws_iam_policy_document.lambda_assumerole.json
 }
 
 resource "aws_iam_role_policy" "lambda_curator" {
-  name = "${format(
+  name = format(
     "%s-%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
     "lambda",
-    "curator"
-  )}"
+    "curator",
+  )
 
-  role   = "${aws_iam_role.lambda_curator.id}"
-  policy = "${data.aws_iam_policy_document.lambda_curator.json}"
+  role   = aws_iam_role.lambda_curator.id
+  policy = data.aws_iam_policy_document.lambda_curator.json
 }
+

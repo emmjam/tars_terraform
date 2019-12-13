@@ -1,27 +1,27 @@
 resource "aws_db_parameter_group" "sonarqube" {
-  name = "${format(
+  name = format(
     "%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
-    "sonarqube"
-  )}"
+    "sonarqube",
+  )
 
   description = "SonarQube DB"
-  family      = "${var.rds_pg_family}"
+  family      = var.rds_pg_family
 
-
-  tags = "${merge(
+  tags = merge(
     var.default_tags,
-    map(
-      "Name", format(
+    {
+      "Name" = format(
         "%s-%s-%s/%s",
         var.project,
         var.environment,
         var.component,
-        "sonarqube"
-      ),
-      "Module", var.module
-    )
-  )}"
+        "sonarqube",
+      )
+      "Module" = var.module
+    },
+  )
 }
+

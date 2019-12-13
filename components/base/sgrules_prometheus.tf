@@ -3,8 +3,8 @@ resource "aws_security_group_rule" "prometheus-private-alb-prometheus" {
   protocol                 = "tcp"
   from_port                = 9090
   to_port                  = 9090
-  security_group_id        = "${module.prometheus.security_group_id}"
-  source_security_group_id = "${aws_security_group.prometheus-alb-private.id}"
+  security_group_id        = module.prometheus.security_group_id
+  source_security_group_id = aws_security_group.prometheus-alb-private.id
 }
 
 resource "aws_security_group_rule" "prometheus-egress-core" {
@@ -12,8 +12,8 @@ resource "aws_security_group_rule" "prometheus-egress-core" {
   protocol                 = "tcp"
   from_port                = 9100
   to_port                  = 9200
-  security_group_id        = "${module.prometheus.security_group_id}"
-  source_security_group_id = "${aws_security_group.core.id}"
+  security_group_id        = module.prometheus.security_group_id
+  source_security_group_id = aws_security_group.core.id
 }
 
 resource "aws_security_group_rule" "prometheus_egress_prometheus_efs" {
@@ -21,6 +21,7 @@ resource "aws_security_group_rule" "prometheus_egress_prometheus_efs" {
   from_port                = 2049
   to_port                  = 2049
   protocol                 = "tcp"
-  security_group_id        = "${module.prometheus.security_group_id}"
-  source_security_group_id = "${aws_security_group.prometheus-efs.id}"
+  security_group_id        = module.prometheus.security_group_id
+  source_security_group_id = aws_security_group.prometheus-efs.id
 }
+

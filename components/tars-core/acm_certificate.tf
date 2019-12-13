@@ -1,6 +1,6 @@
 # Get the tars ACM cert
 data "aws_acm_certificate" "nonprod_tars_dvsacloud_uk" {
-  domain = "${var.cert_name}.${data.terraform_remote_state.acc.public_domain_name}"
+  domain = "${var.cert_name}.${data.terraform_remote_state.acc.outputs.public_domain_name}"
 
   statuses = [
     "ISSUED",
@@ -8,7 +8,7 @@ data "aws_acm_certificate" "nonprod_tars_dvsacloud_uk" {
 }
 
 data "aws_acm_certificate" "apache" {
-  domain = "${var.apache_cert}.${data.terraform_remote_state.acc.public_domain_name}"
+  domain = "${var.apache_cert}.${data.terraform_remote_state.acc.outputs.public_domain_name}"
 
   statuses = [
     "ISSUED",
@@ -16,7 +16,7 @@ data "aws_acm_certificate" "apache" {
 }
 
 data "aws_acm_certificate" "tars_dvsacloud_uk" {
-  domain = "${var.tars_cert}.${data.terraform_remote_state.acc.public_domain_name}"
+  domain = "${var.tars_cert}.${data.terraform_remote_state.acc.outputs.public_domain_name}"
 
   statuses = [
     "ISSUED",
@@ -32,7 +32,7 @@ data "aws_acm_certificate" "tars-core-private_tars_dvsa_aws" {
 }
 
 data "aws_acm_certificate" "payments_nonprod_tars_dvsacloud_uk" {
-  domain = "${var.payments_cert_name}.${data.terraform_remote_state.acc.public_domain_name}"
+  domain = "${var.payments_cert_name}.${data.terraform_remote_state.acc.outputs.public_domain_name}"
 
   statuses = [
     "ISSUED",

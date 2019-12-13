@@ -2,7 +2,7 @@ resource "aws_lb_target_group" "mock-nlb" {
   name     = "${local.csi}-22"
   port     = "22"
   protocol = "TCP"
-  vpc_id   = "${data.terraform_remote_state.base.vpc_id}"
+  vpc_id   = data.terraform_remote_state.base.outputs.vpc_id
 
   health_check {
     port                = "traffic-port"
@@ -14,10 +14,11 @@ resource "aws_lb_target_group" "mock-nlb" {
 
   target_type = "instance"
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}-22"
-    )
-  )}"
+    {
+      "Name" = "${local.csi}-22"
+    },
+  )
 }
+

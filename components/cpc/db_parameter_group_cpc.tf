@@ -5,7 +5,6 @@
 ################################################################################
 
 resource "aws_db_parameter_group" "cpc" {
-
   name        = "${local.csi}-cpcdb"
   description = "${local.csi}-cpcdb"
 
@@ -46,5 +45,5 @@ resource "aws_db_parameter_group" "cpc" {
     value        = "FALSE"
     apply_method = "immediate"
   }
-
 }
+

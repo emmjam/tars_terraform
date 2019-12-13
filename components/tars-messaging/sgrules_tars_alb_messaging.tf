@@ -5,8 +5,8 @@ resource "aws_security_group_rule" "tars_alb_messaging_ingress_tars_batch_port_8
   from_port                = 8080
   to_port                  = 8080
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-alb-messaging.id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-batch.tars-batch-sg-id}"
+  security_group_id        = aws_security_group.tars-alb-messaging.id
+  source_security_group_id = data.terraform_remote_state.tars-batch.outputs.tars-batch-sg-id
 }
 
 resource "aws_security_group_rule" "tars_alb_messaging_egress_tars_messaging_port_8080" {
@@ -15,8 +15,8 @@ resource "aws_security_group_rule" "tars_alb_messaging_egress_tars_messaging_por
   from_port                = 8080
   to_port                  = 8080
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-alb-messaging.id}"
-  source_security_group_id = "${aws_security_group.tars-messaging.id}"
+  security_group_id        = aws_security_group.tars-alb-messaging.id
+  source_security_group_id = aws_security_group.tars-messaging.id
 }
 
 resource "aws_security_group_rule" "tars_alb_messaging_ingress_wan_port_443" {
@@ -25,7 +25,7 @@ resource "aws_security_group_rule" "tars_alb_messaging_ingress_wan_port_443" {
   from_port         = 443
   to_port           = 443
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-alb-messaging.id}"
+  security_group_id = aws_security_group.tars-alb-messaging.id
 
   cidr_blocks = [
     "10.0.0.0/8",
@@ -38,8 +38,8 @@ resource "aws_security_group_rule" "tars_alb_messaging_egress_tars_msg_port_80" 
   from_port                = 80
   to_port                  = 80
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-alb-messaging.id}"
-  source_security_group_id = "${aws_security_group.tars-messaging.id}"
+  security_group_id        = aws_security_group.tars-alb-messaging.id
+  source_security_group_id = aws_security_group.tars-messaging.id
 }
 
 resource "aws_security_group_rule" "tars_alb_messaging_ingress_bastion_port_443" {
@@ -48,6 +48,7 @@ resource "aws_security_group_rule" "tars_alb_messaging_ingress_bastion_port_443"
   from_port                = 443
   to_port                  = 443
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-alb-messaging.id}"
-  source_security_group_id = "${data.terraform_remote_state.ctrl.bastion_sg_id}"
+  security_group_id        = aws_security_group.tars-alb-messaging.id
+  source_security_group_id = data.terraform_remote_state.ctrl.outputs.bastion_sg_id
 }
+

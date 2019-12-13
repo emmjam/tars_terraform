@@ -5,11 +5,9 @@ resource "aws_security_group_rule" "tars_alb_public_ingress_whitelist_port_443" 
   from_port         = 443
   to_port           = 443
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-alb-mock-public.id}"
+  security_group_id = aws_security_group.tars-alb-mock-public.id
 
-  cidr_blocks = [
-    "${var.whitelist}",
-  ]
+  cidr_blocks = var.whitelist
 }
 
 resource "aws_security_group_rule" "tars_alb_public_egress_tars_front_port_8443" {
@@ -18,6 +16,7 @@ resource "aws_security_group_rule" "tars_alb_public_egress_tars_front_port_8443"
   from_port                = 8443
   to_port                  = 8443
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-alb-mock-public.id}"
-  source_security_group_id = "${aws_security_group.tars-mock.id}"
+  security_group_id        = aws_security_group.tars-alb-mock-public.id
+  source_security_group_id = aws_security_group.tars-mock.id
 }
+

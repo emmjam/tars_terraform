@@ -4,17 +4,16 @@ resource "aws_alb" "cpc-front-dvsa" {
   internal = true
 
   security_groups = [
-    "${aws_security_group.cpc-front-dvsa-alb.id}",
+    aws_security_group.cpc-front-dvsa-alb.id,
   ]
 
-  subnets = [
-    "${module.cpc-front.subnet_ids}",
-  ]
+  subnets = module.cpc-front.subnet_ids
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}/dvsa"
-    )
-  )}"
+    {
+      "Name" = "${local.csi}/dvsa"
+    },
+  )
 }
+

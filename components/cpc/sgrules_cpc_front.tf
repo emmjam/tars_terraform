@@ -3,8 +3,8 @@ resource "aws_security_group_rule" "cpc-front-ingress-cpc-front-internal-alb-944
   protocol                 = "tcp"
   from_port                = "9443"
   to_port                  = "9443"
-  security_group_id        = "${module.cpc-front.security_group_id}"
-  source_security_group_id = "${aws_security_group.cpc-front-internal-alb.id}"
+  security_group_id        = module.cpc-front.security_group_id
+  source_security_group_id = aws_security_group.cpc-front-internal-alb.id
 }
 
 resource "aws_security_group_rule" "cpc-front-ingress-cpc-front-dvs-alb-7443" {
@@ -12,8 +12,8 @@ resource "aws_security_group_rule" "cpc-front-ingress-cpc-front-dvs-alb-7443" {
   protocol                 = "tcp"
   from_port                = "7443"
   to_port                  = "7443"
-  security_group_id        = "${module.cpc-front.security_group_id}"
-  source_security_group_id = "${aws_security_group.cpc-front-dva-alb.id}"
+  security_group_id        = module.cpc-front.security_group_id
+  source_security_group_id = aws_security_group.cpc-front-dva-alb.id
 }
 
 resource "aws_security_group_rule" "cpc-front-ingress-cpc-front-dvsa-alb-8443" {
@@ -21,8 +21,8 @@ resource "aws_security_group_rule" "cpc-front-ingress-cpc-front-dvsa-alb-8443" {
   protocol                 = "tcp"
   from_port                = "8443"
   to_port                  = "8443"
-  security_group_id        = "${module.cpc-front.security_group_id}"
-  source_security_group_id = "${aws_security_group.cpc-front-dvsa-alb.id}"
+  security_group_id        = module.cpc-front.security_group_id
+  source_security_group_id = aws_security_group.cpc-front-dvsa-alb.id
 }
 
 resource "aws_security_group_rule" "cpc-front-ingress-cpc-front-dvsa-internet-alb-8443" {
@@ -30,8 +30,8 @@ resource "aws_security_group_rule" "cpc-front-ingress-cpc-front-dvsa-internet-al
   protocol                 = "tcp"
   from_port                = "8443"
   to_port                  = "8443"
-  security_group_id        = "${module.cpc-front.security_group_id}"
-  source_security_group_id = "${aws_security_group.cpc-front-dvsa-internet-alb.id}"
+  security_group_id        = module.cpc-front.security_group_id
+  source_security_group_id = aws_security_group.cpc-front-dvsa-internet-alb.id
 }
 
 resource "aws_security_group_rule" "cpc-front-egress-cpc-back-alb-8080" {
@@ -39,8 +39,8 @@ resource "aws_security_group_rule" "cpc-front-egress-cpc-back-alb-8080" {
   protocol                 = "tcp"
   from_port                = "8080"
   to_port                  = "8080"
-  security_group_id        = "${module.cpc-front.security_group_id}"
-  source_security_group_id = "${aws_security_group.cpc-back-alb.id}"
+  security_group_id        = module.cpc-front.security_group_id
+  source_security_group_id = aws_security_group.cpc-back-alb.id
 }
 
 resource "aws_security_group_rule" "cpc-front_egress_kms_endpoint" {
@@ -49,8 +49,8 @@ resource "aws_security_group_rule" "cpc-front_egress_kms_endpoint" {
   from_port                = -1
   to_port                  = -1
   protocol                 = "-1"
-  security_group_id        = "${module.cpc-front.security_group_id}"
-  source_security_group_id = "${data.terraform_remote_state.base.kms_sg_id}"
+  security_group_id        = module.cpc-front.security_group_id
+  source_security_group_id = data.terraform_remote_state.base.outputs.kms_sg_id
 }
 
 resource "aws_security_group_rule" "cpc-front-egress-tars-back-alb-8080" {
@@ -58,6 +58,7 @@ resource "aws_security_group_rule" "cpc-front-egress-tars-back-alb-8080" {
   protocol                 = "tcp"
   from_port                = "8080"
   to_port                  = "8080"
-  security_group_id        = "${module.cpc-front.security_group_id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-backend-alb-sg-id}"
+  security_group_id        = module.cpc-front.security_group_id
+  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-backend-alb-sg-id
 }
+

@@ -3,11 +3,9 @@ resource "aws_security_group_rule" "cpc-front-alb_ingress_dva-443" {
   protocol          = "tcp"
   from_port         = "443"
   to_port           = "443"
-  security_group_id = "${aws_security_group.cpc-front-dva-alb.id}"
+  security_group_id = aws_security_group.cpc-front-dva-alb.id
 
-  cidr_blocks = [
-    "${var.dva_whitelist}",
-  ]
+  cidr_blocks = var.dva_whitelist
 }
 
 resource "aws_security_group_rule" "cpc-front-alb_egress_cpc-front-7443" {
@@ -15,6 +13,7 @@ resource "aws_security_group_rule" "cpc-front-alb_egress_cpc-front-7443" {
   protocol                 = "tcp"
   from_port                = "7443"
   to_port                  = "7443"
-  security_group_id        = "${aws_security_group.cpc-front-dva-alb.id}"
-  source_security_group_id = "${module.cpc-front.security_group_id}"
+  security_group_id        = aws_security_group.cpc-front-dva-alb.id
+  source_security_group_id = module.cpc-front.security_group_id
 }
+

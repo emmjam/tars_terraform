@@ -3,8 +3,8 @@ resource "aws_security_group_rule" "fyndi-b-ingress-fyndi-b-alb-8080" {
   protocol                 = "tcp"
   from_port                = "8080"
   to_port                  = "8080"
-  security_group_id        = "${module.fyndi-b.security_group_id}"
-  source_security_group_id = "${aws_security_group.fyndi-b-alb.id}"
+  security_group_id        = module.fyndi-b.security_group_id
+  source_security_group_id = aws_security_group.fyndi-b-alb.id
 }
 
 resource "aws_security_group_rule" "fyndi-b-egress-fyndi-b-rds-3306" {
@@ -12,8 +12,8 @@ resource "aws_security_group_rule" "fyndi-b-egress-fyndi-b-rds-3306" {
   protocol                 = "tcp"
   from_port                = "3306"
   to_port                  = "3306"
-  security_group_id        = "${module.fyndi-b.security_group_id}"
-  source_security_group_id = "${aws_security_group.ibs_aurora.id}"
+  security_group_id        = module.fyndi-b.security_group_id
+  source_security_group_id = aws_security_group.ibs_aurora.id
 }
 
 resource "aws_security_group_rule" "fyndi-b-egress-tars-backend-8080" {
@@ -22,8 +22,8 @@ resource "aws_security_group_rule" "fyndi-b-egress-tars-backend-8080" {
   protocol                 = "tcp"
   from_port                = "8080"
   to_port                  = "8080"
-  security_group_id        = "${module.fyndi-b.security_group_id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-core-backend-alb-sg-id}"
+  security_group_id        = module.fyndi-b.security_group_id
+  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-backend-alb-sg-id
 }
 
 resource "aws_security_group_rule" "fyndi-b-egress-tars-core-8080" {
@@ -32,6 +32,7 @@ resource "aws_security_group_rule" "fyndi-b-egress-tars-core-8080" {
   protocol                 = "tcp"
   from_port                = "8080"
   to_port                  = "8080"
-  security_group_id        = "${module.fyndi-b.security_group_id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-batch.tars-batch-sg-id}"
+  security_group_id        = module.fyndi-b.security_group_id
+  source_security_group_id = data.terraform_remote_state.tars-batch.outputs.tars-batch-sg-id
 }
+

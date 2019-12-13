@@ -8,7 +8,7 @@ data "aws_iam_policy_document" "bootstrap" {
     ]
 
     resources = [
-      "${aws_autoscaling_group.main.arn}",
+      aws_autoscaling_group.main.arn,
     ]
   }
 
@@ -29,3 +29,4 @@ data "aws_iam_policy_document" "bootstrap" {
     ]
   }
 }
+

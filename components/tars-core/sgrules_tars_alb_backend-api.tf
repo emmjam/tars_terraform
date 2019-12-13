@@ -5,23 +5,21 @@ resource "aws_security_group_rule" "tars_alb_api_egress_tars_backend_port_8080" 
   from_port                = 8080
   to_port                  = 8080
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-alb-backend-api.id}"
-  source_security_group_id = "${module.tars_back.security_group_id}"
+  security_group_id        = aws_security_group.tars-alb-backend-api.id
+  source_security_group_id = module.tars_back.security_group_id
 }
 
 #
 resource "aws_security_group_rule" "tars_alb_api_ingress_whitelist_port_8443" {
   description       = "Allow TCP/8443 from MES API"
-  count         = "${length(var.mes_api_cidr_block) == 0 ? 0 : 1}"
+  count             = length(var.mes_api_cidr_block) == 0 ? 0 : 1
   type              = "ingress"
   from_port         = 8443
   to_port           = 8443
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-alb-backend-api.id}"
+  security_group_id = aws_security_group.tars-alb-backend-api.id
 
-  cidr_blocks = [
-    "${var.mes_api_cidr_block}"
-  ]
+  cidr_blocks = var.mes_api_cidr_block
 }
 
 resource "aws_security_group_rule" "tars_alb_api_ingress_jmeter_port_8443" {
@@ -30,6 +28,7 @@ resource "aws_security_group_rule" "tars_alb_api_ingress_jmeter_port_8443" {
   from_port                = 8443
   to_port                  = 8443
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-alb-backend-api.id}"
-  source_security_group_id = "${data.terraform_remote_state.base.jmeter_sg_id}"
+  security_group_id        = aws_security_group.tars-alb-backend-api.id
+  source_security_group_id = data.terraform_remote_state.base.outputs.jmeter_sg_id
 }
+

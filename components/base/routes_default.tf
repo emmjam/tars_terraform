@@ -1,18 +1,19 @@
 resource "aws_route" "internet_public" {
-  route_table_id         = "${aws_route_table.public.id}"
+  route_table_id         = aws_route_table.public.id
   destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = "${aws_internet_gateway.tars.id}"
+  gateway_id             = aws_internet_gateway.tars.id
 }
 
 resource "aws_route" "private_nats_default" {
-  count                  = "${length(var.squidnat_subnets_cidrs)}"
-  route_table_id         = "${element(aws_route_table.private_nat.*.id,count.index)}"
+  count                  = length(var.squidnat_subnets_cidrs)
+  route_table_id         = element(aws_route_table.private_nat.*.id, count.index)
   destination_cidr_block = "0.0.0.0/0"
-  network_interface_id   = "${element(module.squidnat.squidnat_interface_ids,count.index)}"
+  network_interface_id   = element(module.squidnat.squidnat_interface_ids, count.index)
 }
 
 resource "aws_route" "internet_natgw" {
-  route_table_id         = "${aws_route_table.private_natgw.id}"
+  route_table_id         = aws_route_table.private_natgw.id
   destination_cidr_block = "0.0.0.0/0"
-  nat_gateway_id         = "${aws_nat_gateway.tars.id}"
+  nat_gateway_id         = aws_nat_gateway.tars[0].id
 }
+

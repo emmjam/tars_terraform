@@ -4,11 +4,10 @@
 # For this reason, the explicit depends_on statement is required in
 # order to avoid a race condition on creation.
 resource "aws_config_configuration_recorder_status" "main" {
-  name = "${aws_config_configuration_recorder.main.name}"
+  name = aws_config_configuration_recorder.main.name
 
-  depends_on = [
-    "aws_config_delivery_channel.main",
-  ]
+  depends_on = [aws_config_delivery_channel.main]
 
   is_enabled = "true"
 }
+

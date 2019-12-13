@@ -2,7 +2,7 @@ resource "aws_alb_target_group" "grafana-80" {
   name     = "${local.csi}-grafana-80"
   port     = "80"
   protocol = "HTTP"
-  vpc_id   = "${aws_vpc.ctrl.id}"
+  vpc_id   = aws_vpc.ctrl.id
 
   health_check {
     path                = "/"
@@ -13,3 +13,4 @@ resource "aws_alb_target_group" "grafana-80" {
     matcher             = 200
   }
 }
+

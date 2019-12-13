@@ -18,7 +18,7 @@ data "aws_iam_policy_document" "jenkinsnode" {
 resource "aws_iam_policy" "jenkinsnode" {
   name        = "${local.csi}-jenkinsnode"
   description = "IAM policy for ${local.csi}-jenkinsnode"
-  policy      = "${data.aws_iam_policy_document.jenkinsnode.json}"
+  policy      = data.aws_iam_policy_document.jenkinsnode.json
 }
 
 # TODO: peacheym: Use role_policy_attachment
@@ -26,8 +26,9 @@ resource "aws_iam_policy_attachment" "jenkinsnode" {
   name = "${local.csi}-jenkinsnode"
 
   roles = [
-    "${module.jenkinsnode.iam_role_name}",
+    module.jenkinsnode.iam_role_name,
   ]
 
-  policy_arn = "${aws_iam_policy.jenkinsnode.arn}"
+  policy_arn = aws_iam_policy.jenkinsnode.arn
 }
+

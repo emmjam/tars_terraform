@@ -17,11 +17,11 @@ data "aws_iam_policy_document" "cw_ro_users" {
     effect = "Allow"
 
     actions = [
-        "cloudwatch:GetDashboard",
-        "cloudwatch:GetMetricData",
-        "cloudwatch:GetMetricStatistics",
-        "cloudwatch:ListDashboards",
-        "cloudwatch:ListMetrics",
+      "cloudwatch:GetDashboard",
+      "cloudwatch:GetMetricData",
+      "cloudwatch:GetMetricStatistics",
+      "cloudwatch:ListDashboards",
+      "cloudwatch:ListMetrics",
     ]
 
     resources = [
@@ -29,3 +29,4 @@ data "aws_iam_policy_document" "cw_ro_users" {
     ]
   }
 }
+

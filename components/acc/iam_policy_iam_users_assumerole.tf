@@ -14,13 +14,14 @@ data "aws_iam_policy_document" "iam_users_assumerole" {
       type = "AWS"
 
       identifiers = [
-        "${format(
+        format(
           "%s:%s:%s",
           "arn:aws:iam:",
           data.aws_caller_identity.current.account_id,
-          "root"
-        )}",
+          "root",
+        ),
       ]
     }
   }
 }
+

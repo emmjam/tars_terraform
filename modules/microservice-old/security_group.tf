@@ -1,33 +1,34 @@
 resource "aws_security_group" "main" {
-  name_prefix = "${format(
+  name_prefix = format(
     "%s-%s-%s-%s-",
     var.project,
     var.environment,
     var.component,
-    var.name
-  )}"
+    var.name,
+  )
 
-  description = "${format(
+  description = format(
     "%s-%s-%s/%s",
     var.project,
     var.environment,
     var.component,
-    var.name
-  )}"
+    var.name,
+  )
 
-  vpc_id = "${var.vpc_id}"
+  vpc_id = var.vpc_id
 
-  tags = "${merge(
+  tags = merge(
     var.default_tags,
-    map(
-      "Name", format(
+    {
+      "Name" = format(
         "%s-%s-%s/%s",
         var.project,
         var.environment,
         var.component,
-        var.name 
-      ),
-      "Module", var.module
-    )
-  )}"
+        var.name,
+      )
+      "Module" = var.module
+    },
+  )
 }
+

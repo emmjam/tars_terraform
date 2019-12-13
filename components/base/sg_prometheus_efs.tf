@@ -1,12 +1,13 @@
 resource "aws_security_group" "prometheus-efs" {
   name        = "${local.csi}/prometheus-efs"
   description = "Prometheus EFS"
-  vpc_id      = "${aws_vpc.vpc.id}"
+  vpc_id      = aws_vpc.vpc.id
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}/prometheus-efs"
-    )
-  )}"
+    {
+      "Name" = "${local.csi}/prometheus-efs"
+    },
+  )
 }
+

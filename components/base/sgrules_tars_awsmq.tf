@@ -5,11 +5,9 @@ resource "aws_security_group_rule" "awsmq_console_ingress_whitelist_https" {
   from_port         = 8162
   to_port           = 8162
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.tars-awsmq.id}"
+  security_group_id = aws_security_group.tars-awsmq.id
 
-  cidr_blocks = [
-    "${var.whitelist}",
-  ]
+  cidr_blocks = var.whitelist
 }
 
 resource "aws_security_group_rule" "cpc_back_alb_ingress_tars_back" {
@@ -18,6 +16,7 @@ resource "aws_security_group_rule" "cpc_back_alb_ingress_tars_back" {
   from_port                = 8162
   to_port                  = 8162
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-awsmq.id}"
-  source_security_group_id = "${data.terraform_remote_state.ctrl.bastion_sg_id}"
+  security_group_id        = aws_security_group.tars-awsmq.id
+  source_security_group_id = data.terraform_remote_state.ctrl.outputs.bastion_sg_id
 }
+

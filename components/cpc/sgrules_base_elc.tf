@@ -4,8 +4,8 @@ resource "aws_security_group_rule" "elc_ingress_backend_port_11211" {
   from_port                = "11211"
   to_port                  = "11211"
   protocol                 = "tcp"
-  security_group_id        = "${data.terraform_remote_state.base.elc_sg_id}"
-  source_security_group_id = "${module.cpc-back.security_group_id}"
+  security_group_id        = data.terraform_remote_state.base.outputs.elc_sg_id
+  source_security_group_id = module.cpc-back.security_group_id
 }
 
 resource "aws_security_group_rule" "backend_egress_elc_port_11211" {
@@ -14,7 +14,7 @@ resource "aws_security_group_rule" "backend_egress_elc_port_11211" {
   from_port                = "11211"
   to_port                  = "11211"
   protocol                 = "tcp"
-  source_security_group_id = "${data.terraform_remote_state.base.elc_sg_id}"
-  security_group_id        = "${module.cpc-back.security_group_id}"
+  source_security_group_id = data.terraform_remote_state.base.outputs.elc_sg_id
+  security_group_id        = module.cpc-back.security_group_id
 }
 

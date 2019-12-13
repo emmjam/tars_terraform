@@ -1,26 +1,27 @@
 resource "aws_iam_role" "cloudtrail" {
-  name = "${format(
+  name = format(
     "%s-%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
     "cwles",
-    "cloudtrail"
-  )}"
+    "cloudtrail",
+  )
 
-  assume_role_policy = "${data.aws_iam_policy_document.cloudtrail_assumerole.json}"
+  assume_role_policy = data.aws_iam_policy_document.cloudtrail_assumerole.json
 }
 
 resource "aws_iam_role_policy" "cloudtrail_put_cloudwatchlogs" {
-  name = "${format(
+  name = format(
     "%s-%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
     "cwles",
-    "cloudtrail"
-  )}"
+    "cloudtrail",
+  )
 
-  role   = "${aws_iam_role.cloudtrail.id}"
-  policy = "${data.aws_iam_policy_document.cloudtrail_put_cloudwatchlogs.json}"
+  role   = aws_iam_role.cloudtrail.id
+  policy = data.aws_iam_policy_document.cloudtrail_put_cloudwatchlogs.json
 }
+

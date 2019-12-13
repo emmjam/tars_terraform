@@ -4,8 +4,8 @@ resource "aws_security_group_rule" "prometheus_egress_rsis_rds" {
   from_port                = 1521
   to_port                  = 1521
   protocol                 = "tcp"
-  security_group_id        = "${data.terraform_remote_state.base.prometheus_sg_id}"
-  source_security_group_id = "${aws_security_group.tars-rsis-db.id}"
+  security_group_id        = data.terraform_remote_state.base.outputs.prometheus_sg_id
+  source_security_group_id = aws_security_group.tars-rsis-db.id
 }
 
 resource "aws_security_group_rule" "prometheus_egress_oracle_mis" {
@@ -14,6 +14,7 @@ resource "aws_security_group_rule" "prometheus_egress_oracle_mis" {
   from_port                = 1521
   to_port                  = 1521
   protocol                 = "tcp"
-  security_group_id        = "${data.terraform_remote_state.base.prometheus_sg_id}"
-  source_security_group_id = "${aws_security_group.tars-mis-db.id}"
+  security_group_id        = data.terraform_remote_state.base.outputs.prometheus_sg_id
+  source_security_group_id = aws_security_group.tars-mis-db.id
 }
+

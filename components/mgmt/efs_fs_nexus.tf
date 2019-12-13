@@ -1,8 +1,9 @@
 resource "aws_efs_file_system" "nexus" {
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}-nexus"
-    )
-  )}"
+    {
+      "Name" = "${local.csi}-nexus"
+    },
+  )
 }
+
