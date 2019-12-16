@@ -59,6 +59,9 @@ all_users = [
   "hamzaan.bridle@bjss.com",
   "adrian.riley@bjss.com",
   "joseph.burgess@bjss.com",
+  "david.walsh@bjss.com",
+  "stephan.lewin@bjss.com",
+  "gavin.reid@bjss.com",
 ]
 
 administrators = [
@@ -92,6 +95,9 @@ ops_users = [
   "irfan.sidat@bjss.com",
   "john.reynolds@bjss.com",
   "callum.massey@bjss.com",
+  "david.walsh@bjss.com",
+  "stephan.lewin@bjss.com",
+  "gavin.reid@bjss.com",
 ]
 
 power_users = [
@@ -146,6 +152,9 @@ support_ro_users = [
   "hamzaan.bridle@bjss.com",
   "adrian.riley@bjss.com",
   "joseph.burgess@bjss.com",
+  "david.walsh@bjss.com",
+  "stephan.lewin@bjss.com",
+  "gavin.reid@bjss.com",
 ]
 
 dvsa_ro_users = [
