@@ -56,6 +56,7 @@ new_all_users = [
 "steven.millington@bjss.com",
 "tom.bibb@bjss.com",
 "winston.coleman@bjss.com",
+"stephan.lewin@bjss.com",
 ]
 
 # TSSOps Access
@@ -160,11 +161,13 @@ readonly_appsupport_users = [
 qaengineer_users = [
   "balkar.bains@bjss.com",
   "john.reynolds@bjss.com",
+  "stephan.lewin@bjss.com",
 ]
 
 readonly_qaengineer_users = [
   "balkar.bains@bjss.com",
   "john.reynolds@bjss.com",
+  "stephan.lewin@bjss.com",
 ]
 
 # DBA Access
@@ -206,6 +209,8 @@ all_users = [
   "irfan.sidat@bjss.com",
   "callum.massey@bjss.com",
   "dimple.chauhan@bjss.com",
+  "david.walsh@bjss.com",
+  "gavin.reid@bjss.com",
 ]
 
 ops_users = [
@@ -231,6 +236,8 @@ ops_users = [
   "michelle.pike@bjss.com",
   "irfan.sidat@bjss.com",
   "callum.massey@bjss.com",
+  "david.walsh@bjss.com",
+  "gavin.reid@bjss.com",
 ]
 
 support_ro_users = [
@@ -256,6 +263,8 @@ support_ro_users = [
   "irfan.sidat@bjss.com",
   "callum.massey@bjss.com",
   "dimple.chauhan@bjss.com",
+  "david.walsh@bjss.com",
+  "gavin.reid@bjss.com",
 ]
 
 tss_billing_ro_users = [
