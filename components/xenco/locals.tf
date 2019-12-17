@@ -24,7 +24,6 @@ locals {
     var.default_tags,
     {
       "Component" = var.component
-      "Version"   = var.release_version
     },
   )
 
@@ -32,8 +31,8 @@ locals {
     var.asg_default_tags,
     [
       {
-        "key"                 = "Version"
-        "value"               = var.release_version
+        "key"                 = "Component"
+        "value"               = var.component
         "propagate_at_launch" = "true"
       },
     ],

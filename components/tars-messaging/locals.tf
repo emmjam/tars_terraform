@@ -24,7 +24,6 @@ locals {
     var.default_tags,
     {
       "Component" = var.component
-      "Version"   = var.release_version
     },
   )
 
