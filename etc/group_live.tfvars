@@ -23,25 +23,6 @@ asg_default_tags = [
 ###############################################################################
 
 all_users = [
-  "saul.kashani@bjss.com",
-  "arthur.coombes@bjss.com",
-  "adam.hall@bjss.com",
-  "michael.riley@bjss.com",
-  "christopher.swanson@bjss.com",
-  "prashant.kumar@bjss.com",
-  "damian.skiba@bjss.com",
-  "daniel.billing@bjss.com",
-  "ogbonna.quarcoopome-harper@bjss.com",
-  "rajkieren.manku@bjss.com",
-  "daniel.thompson@bjss.com",
-  "ibrar.akram@bjss.com",
-  "john.bower@bjss.com",
-  "luke.browning@bjss.com",
-  "ian.harris@bjss.com",
-  "josh.paveley@bjss.com",
-  "irfan.sidat@bjss.com",
-  "david.walsh@bjss.com",
-  "gavin.reid@bjss.com",
   "david.giles@bjss.com",
 ]
 
@@ -49,24 +30,6 @@ administrators = [
 ]
 
 ops_users = [
-  "saul.kashani@bjss.com",
-  "arthur.coombes@bjss.com",
-  "adam.hall@bjss.com",
-  "michael.riley@bjss.com",
-  "christopher.swanson@bjss.com",
-  "prashant.kumar@bjss.com",
-  "damian.skiba@bjss.com",
-  "daniel.billing@bjss.com",
-  "ogbonna.quarcoopome-harper@bjss.com",
-  "rajkieren.manku@bjss.com",
-  "daniel.thompson@bjss.com",
-  "ibrar.akram@bjss.com",
-  "john.bower@bjss.com",
-  "luke.browning@bjss.com",
-  "ian.harris@bjss.com",
-  "irfan.sidat@bjss.com",
-  "david.walsh@bjss.com",
-  "gavin.reid@bjss.com",
 ]
 
 power_users = [
@@ -77,28 +40,10 @@ dms_users = [
 ]
 
 db_cw_ro_users = [
-    "david.giles@bjss.com",
+  "david.giles@bjss.com",
 ]
 
 support_ro_users = [
-  "saul.kashani@bjss.com",
-  "arthur.coombes@bjss.com",
-  "adam.hall@bjss.com",
-  "michael.riley@bjss.com",
-  "christopher.swanson@bjss.com",
-  "prashant.kumar@bjss.com",
-  "damian.skiba@bjss.com",
-  "daniel.billing@bjss.com",
-  "ogbonna.quarcoopome-harper@bjss.com",
-  "rajkieren.manku@bjss.com",
-  "daniel.thompson@bjss.com",
-  "ibrar.akram@bjss.com",
-  "john.bower@bjss.com",
-  "luke.browning@bjss.com",
-  "ian.harris@bjss.com",
-  "irfan.sidat@bjss.com",
-  "david.walsh@bjss.com",
-  "gavin.reid@bjss.com",
 ]
 
 dvsa_ro_users = [

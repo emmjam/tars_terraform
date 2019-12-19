@@ -14,24 +14,6 @@ private_domain_name = "tars.dvsa.aws"
 # public_domain_name = "dvsa.tars.dev-dvsacloud.uk"
 
 all_users = [
-  "saul.kashani@bjss.com",
-  "arthur.coombes@bjss.com",
-  "adam.hall@bjss.com",
-  "michael.riley@bjss.com",
-  "christopher.swanson@bjss.com",
-  "prashant.kumar@bjss.com",
-  "damian.skiba@bjss.com",
-  "daniel.billing@bjss.com",
-  "ogbonna.quarcoopome-harper@bjss.com",
-  "rajkieren.manku@bjss.com",
-  "daniel.thompson@bjss.com",
-  "ibrar.akram@bjss.com",
-  "john.bower@bjss.com",
-  "luke.browning@bjss.com",
-  "ian.harris@bjss.com",
-  "irfan.sidat@bjss.com",
-  "david.walsh@bjss.com",
-  "gavin.reid@bjss.com",
   "david.giles@bjss.com",
 ]
 
@@ -39,24 +21,6 @@ administrators = [
 ]
 
 ops_users = [
-  "saul.kashani@bjss.com",
-  "arthur.coombes@bjss.com",
-  "adam.hall@bjss.com",
-  "michael.riley@bjss.com",
-  "christopher.swanson@bjss.com",
-  "prashant.kumar@bjss.com",
-  "damian.skiba@bjss.com",
-  "daniel.billing@bjss.com",
-  "ogbonna.quarcoopome-harper@bjss.com",
-  "rajkieren.manku@bjss.com",
-  "daniel.thompson@bjss.com",
-  "ibrar.akram@bjss.com",
-  "john.bower@bjss.com",
-  "luke.browning@bjss.com",
-  "ian.harris@bjss.com",
-  "irfan.sidat@bjss.com",
-  "david.walsh@bjss.com",
-  "gavin.reid@bjss.com",
 ]
 
 power_users = [
@@ -71,24 +35,6 @@ db_cw_ro_users = [
 ]
 
 support_ro_users = [
-  "saul.kashani@bjss.com",
-  "arthur.coombes@bjss.com",
-  "adam.hall@bjss.com",
-  "michael.riley@bjss.com",
-  "christopher.swanson@bjss.com",
-  "prashant.kumar@bjss.com",
-  "damian.skiba@bjss.com",
-  "daniel.billing@bjss.com",
-  "ogbonna.quarcoopome-harper@bjss.com",
-  "rajkieren.manku@bjss.com",
-  "daniel.thompson@bjss.com",
-  "ibrar.akram@bjss.com",
-  "john.bower@bjss.com",
-  "luke.browning@bjss.com",
-  "ian.harris@bjss.com",
-  "irfan.sidat@bjss.com",
-  "david.walsh@bjss.com",
-  "gavin.reid@bjss.com",
 ]
 
 dvsa_ro_users = [
