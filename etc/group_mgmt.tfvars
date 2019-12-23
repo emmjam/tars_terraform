@@ -103,6 +103,7 @@ readonly_tssops_users = [
   "irfan.sidat@bjss.com",
   "david.walsh@bjss.com",
   "gavin.reid@bjss.com",
+  "rebecca.howell@bjss.com",
 ]
 
 # TARS Platform Access
