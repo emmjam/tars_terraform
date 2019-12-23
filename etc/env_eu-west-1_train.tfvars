@@ -387,3 +387,5 @@ private_cert_domain_name = "dvsa.tars.dev-dvsacloud.uk"
 # Alert Logic
 # Enable the shipping of cloud watch logs to Alert Logic.  Empty value equals false
 alert_logic = ""
+
+mes_api_cidr_block = ["10.21.0.0/16"]
