@@ -59,6 +59,7 @@ new_all_users = [
   "stephan.lewin@bjss.com",
   "david.walsh@bjss.com",
   "gavin.reid@bjss.com",
+  "rebecca.howell@bjss.com",
 ]
 
 # TSSOps Access
@@ -103,6 +104,7 @@ readonly_tssops_users = [
   "irfan.sidat@bjss.com",
   "david.walsh@bjss.com",
   "gavin.reid@bjss.com",
+  "rebecca.howell@bjss.com",
 ]
 
 # TARS Platform Access
