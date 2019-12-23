@@ -59,6 +59,7 @@ new_all_users = [
   "stephan.lewin@bjss.com",
   "david.walsh@bjss.com",
   "gavin.reid@bjss.com",
+  "rebecca.howell@bjss.com",
 ]
 
 # TSSOps Access
