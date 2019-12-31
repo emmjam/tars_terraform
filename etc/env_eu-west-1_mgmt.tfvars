@@ -37,6 +37,11 @@ private_domain_name = "tars.dvsa.aws"
 ##########
 # ACCOUNT
 ###############################################################################
+aws_account_ids = [
+  "645711882182", #mgmt
+  "246976497890", #live
+  "652856684323", #nonprod
+]
 aws_account_alias = "tarsmgmt"
 
 public_domain_name = "tars.dvsacloud.uk"
