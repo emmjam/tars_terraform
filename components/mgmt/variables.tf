@@ -54,6 +54,11 @@ variable "aws_account_alias" {
   description = "The IAM AWS Account alias"
 }
 
+variable "aws_account_ids" {
+  type        = list(string)
+  description = "List of aws account ids in use"
+}
+
 variable "account_environment" {
   type        = string
   description = "Test shortname of current AWS account"

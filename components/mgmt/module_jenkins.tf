@@ -12,6 +12,7 @@ module "jenkins" {
 
   # TODO: peacheym: gitlab and jenkins have different domain name values?
   domain_name = local.vpc_domain_name
+  aws_account_ids = var.aws_account_ids
 
   private_route_table_ids = aws_route_table.private_nat.*.id
 

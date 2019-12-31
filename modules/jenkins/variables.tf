@@ -3,6 +3,11 @@ variable "project" {
   description = "The project name"
 }
 
+variable "aws_account_ids" {
+  type        = list(string)
+  description = "List of aws account ids in use"
+}
+
 variable "environment" {
   type        = string
   description = "The environment name"
