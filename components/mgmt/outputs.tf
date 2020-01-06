@@ -22,6 +22,10 @@ output "jenkins_elb_sg_id" {
   value = module.jenkins.elb_sg_id
 }
 
+output "jenkins_iam_role_name" {
+  value = module.jenkins.jenkins_blue_iam_role_name
+}
+
 output "gitlab_elb_sg_id" {
   value = module.gitlab.elb_private_sg_id
 }
