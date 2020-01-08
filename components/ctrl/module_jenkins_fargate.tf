@@ -10,7 +10,7 @@ module "jenkins_fargate" {
   default_tags = local.default_tags
 
   worker_iam_policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
-  jenksin_worker_image  = var.jenkins_worker_image
+  jenkins_worker_image  = var.jenkins_worker_image
 
 }
 
