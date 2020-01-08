@@ -36,6 +36,12 @@ variable "default_tags" {
   default     = {}
 }
 
+variable "jenkins_java_options" {
+  type        = string
+  description = ""
+  default     = ""
+}
+
 variable "asg_default_tags" {
   type        = list(object({
     key = string
@@ -55,6 +61,17 @@ variable "spot_pricing" {
   type        = map(string)
   description = "A map containing the the spot instance price (USD) for each instance type"
   default     = {}
+}
+
+variable "jenkins_worker_image" {
+  type        = string
+  description = "Jenkins node worker image to run"
+}
+
+variable "cwl_retention_days" {
+  type        = string
+  description = "Default Cloadwatch Logs retention in days"
+  default     = "60"
 }
 
 variable "private_domain_name" {

@@ -252,6 +252,7 @@ grafana_cert_name = "*"
 
 # TODO: smarts: Move AMI IDs to versions file
 ## jenkinsctrl
+jenkins_worker_image             = "jenkinsci/jnlp-slave:latest"
 jenkinsctrl_instance_type        = "m5d.large"
 jenkinsctrl_ami_build_id         = "639"
 jenkinsctrl_executors            = 20

@@ -5,6 +5,10 @@
 # in the multiverse, so it unique by its own name,
 # not as an aspect of its deployment.
 
+resource "aws_ecr_repository" "jenkins" {
+  name = "tars/run/jenkinsci"
+}
+
 resource "aws_ecr_repository" "tars_build_puppet" {
   name = "tars/build/puppet"
 }

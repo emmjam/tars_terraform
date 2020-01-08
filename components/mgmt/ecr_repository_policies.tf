@@ -7,6 +7,11 @@
 # Should be:
 # policy = "${data.aws_iam_policy_document.ecr_repository_main.json}"
 
+resource "aws_ecr_repository_policy" "tars_run_jenkins" {
+  repository = aws_ecr_repository.jenkins.name
+  policy     = data.template_file.ecr_repository_policy_main.rendered
+}
+
 resource "aws_ecr_repository_policy" "tars_build_puppet" {
   repository = aws_ecr_repository.tars_build_puppet.name
   policy     = data.template_file.ecr_repository_policy_main.rendered
