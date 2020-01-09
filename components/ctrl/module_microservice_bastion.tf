@@ -20,6 +20,7 @@ module "bastion" {
   lc_user_data     = data.template_cloudinit_config.bastion.rendered
   lc_additional_sg_ids = [
     aws_security_group.outbound-oracle.id,
+    aws_security_group.core.id,
   ]
 
   asg_size_min               = var.bastion_asg_min_size

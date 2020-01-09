@@ -36,6 +36,11 @@ variable "default_tags" {
   default     = {}
 }
 
+variable "vpc_endpoint_subnets_cidrs" {
+  type        = list(string)
+  description = "Subnets to hold vpc endpoints"
+}
+
 variable "jenkins_java_options" {
   type        = string
   description = ""
