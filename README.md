@@ -1,4 +1,4 @@
-# TARS terraform
+# TARS Terraform
 
 **INFO**
 ------
