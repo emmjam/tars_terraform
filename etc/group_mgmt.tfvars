@@ -237,6 +237,12 @@ ctrl_grafana_subnets = [
   "10.167.64.240/28",
 ]
 
+vpc_endpoint_subnets_cidrs = [
+  "10.167.65.0/28",
+  "10.167.65.16/28",
+  "10.167.65.32/28",
+]
+
 cwl_retention_days = "30"
 
 mgmt_aws_account_id         = "645711882182"

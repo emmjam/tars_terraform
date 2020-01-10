@@ -334,6 +334,12 @@ ctrl_grafana_subnets = [
   "10.167.60.240/28",
 ]
 
+vpc_endpoint_subnets_cidrs = [
+  "10.167.61.0/28",
+  "10.167.61.16/28",
+  "10.167.61.32/28",
+]
+
 payments_whitelist = [
   "135.196.73.204/32",  # DVSA Notts
   "213.160.121.250/32", # DVSA Notts Corp & Wifi

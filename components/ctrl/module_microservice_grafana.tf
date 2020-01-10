@@ -19,6 +19,9 @@ module "grafana" {
   lc_instance_type = var.grafana_instance_type
   lc_user_data     = data.template_cloudinit_config.grafana.rendered
   lc_spot_price    = var.spot_pricing[var.grafana_instance_type]
+  lc_additional_sg_ids = [
+    aws_security_group.core.id,
+  ]
 
   asg_size_min               = var.grafana_asg_min_size
   asg_size_desired_on_create = var.grafana_asg_min_size
