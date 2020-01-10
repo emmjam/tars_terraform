@@ -13,35 +13,6 @@ private_domain_name = "tars.dvsa.aws"
 
 # public_domain_name = "dvsa.tars.dev-dvsacloud.uk"
 
-all_users = [
-  "david.giles@bjss.com",
-]
-
-administrators = [
-]
-
-ops_users = [
-]
-
-power_users = [
-]
-
-dms_users = [
-  "david.giles@bjss.com",
-]
-
-db_cw_ro_users = [
-  "david.giles@bjss.com",
-]
-
-support_ro_users = [
-]
-
-dvsa_ro_users = [
-]
-
-tss_billing_ro_users = [
-]
 
 ###############################################################################
 # MGMT
