@@ -37,3 +37,6 @@ Temporary Items
 
 *.swp
 *.iml
+
+# InteliJ
+.idea
