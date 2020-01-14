@@ -49,6 +49,7 @@ new_all_users = [
   "prashant.kumar@bjss.com",
   "rajkieren.manku@bjss.com",
   "richard.freitas@bjss.com",
+  "rita.otoole@bjss.com",
   "saul.kashani@bjss.com",
   "stephen.davies@bjss.com",
   "stephen.davies@bjss.com",
@@ -169,6 +170,7 @@ readonly_appsupport_users = [
 qaengineer_users = [
   "balkar.bains@bjss.com",
   "john.reynolds@bjss.com",
+  "rita.otoole@bjss.com",
   "stephan.lewin@bjss.com",
   "richard.freitas@bjss.com",
 ]
@@ -176,6 +178,7 @@ qaengineer_users = [
 readonly_qaengineer_users = [
   "balkar.bains@bjss.com",
   "john.reynolds@bjss.com",
+  "rita.otoole@bjss.com",
   "stephan.lewin@bjss.com",
 ]
 
