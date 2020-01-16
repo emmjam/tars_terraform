@@ -764,6 +764,21 @@ variable "tars_rds_engine_version" {
   description = "TARS RDS DB Engine Version"
 }
 
+variable "tars_rds_allow_major_engine_version_upgrade" {
+  type        = string
+  description = "TARS RDS DB Major Engine Version Upgrade"
+}
+
+variable "tars_rds_parameter_group_name" {
+  type        = string
+  description = "TARS RDS DB Parameter Group Name"
+}
+
+variable "tars_rds_option_group_name" {
+  type        = string
+  description = "TARS RDS DB Option Group Name"
+}
+
 variable "tars_rds_instance_class" {
   type        = string
   description = "TARS RDS DB Instance Class"
