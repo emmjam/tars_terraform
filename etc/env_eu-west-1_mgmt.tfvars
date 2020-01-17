@@ -263,6 +263,19 @@ jenkinsctrl_scaledown_recurrence = "00 19 * * 1-5"
 jenkinsctrl_scaleup_desired      = 1
 jenkinsctrl_scaleup_recurrence   = "15 07 * * 1-5"
 
+builder_subnets_cidrs = [
+  "10.200.40.96/28",
+  "10.200.4.112/28",
+  "10.200.4.128/28",
+]
+
+builder = {
+  asg_min_size    = "1"
+  asg_max_size    = "1"
+  instance_type   = "m4.large"
+  ebs_volume_size = "50"
+}
+
 ## alb public
 alb_public_subnets_cidrs = [
   "10.200.1.144/28",

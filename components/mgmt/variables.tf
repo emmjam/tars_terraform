@@ -34,6 +34,39 @@ variable "default_tags" {
   }
 }
 
+variable "jenkinsctrl_ami_build_id" {
+  type        = string
+  description = ""
+}
+
+variable "builder_subnets_cidrs" {
+  type        = list(string)
+  description = "Jenkins Builder node subnet cidr ranges"
+  default     = []
+}
+
+variable "builder" {
+  type        = map(string)
+  description = ""
+}
+
+variable "spot_pricing" {
+  type        = map(string)
+  description = "A map containing the the spot instance price (USD) for each instance type"
+  default     = {}
+}
+
+variable "builder_executors" {
+  type        = string
+  description = ""
+  default     = "10"
+}
+
+variable "mgmt_aws_account_id" {
+  type        = string
+  description = ""
+}
+
 variable "s3_yum_ro_principals" {
   type        = list(string)
   description = "The list of AWS Account IDs that we grant delegated read access to for the yum bucket"
