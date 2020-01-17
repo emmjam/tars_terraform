@@ -5,7 +5,7 @@ data "aws_ami" "wildfly-batch" {
     var.project,
     "rhel",
     "tars-batch",
-    var.ami_build_id,
+    var.tars_ami_id,
   )
 
   most_recent = "true"

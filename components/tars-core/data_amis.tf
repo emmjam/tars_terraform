@@ -4,7 +4,7 @@ data "aws_ami" "wildfly-back" {
     var.project,
     "rhel",
     "tars-back",
-    var.ami_build_id,
+    var.tars_ami_id,
   )
 
   most_recent = "true"
@@ -29,7 +29,7 @@ data "aws_ami" "wildfly-front" {
     var.project,
     "rhel",
     "tars-front",
-    var.ami_build_id,
+    var.tars_ami_id,
   )
 
   most_recent = "true"

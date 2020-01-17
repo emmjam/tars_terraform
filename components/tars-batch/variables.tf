@@ -115,7 +115,7 @@ variable "lc_key_name" {
   default     = ""
 }
 
-variable "ami_build_id" {
+variable "tars_ami_id" {
   type        = string
   description = "TARS Batch AMI build ID"
 }

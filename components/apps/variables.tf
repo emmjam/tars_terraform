@@ -9,7 +9,7 @@ variable "account_environment" {
   description = "The environment name for the account level scope for the account in which this component is deployed"
 }
 
-variable "ami_build_id" {
+variable "cpc_ami_id" {
   type        = string
   description = "CPC AMI build ID"
 }
