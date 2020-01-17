@@ -4,7 +4,7 @@ data "aws_ami" "cpc-batch" {
     var.project,
     "amzn",
     "cpc-batch",
-    var.ami_build_id,
+    var.cpc_ami_id,
   )
 
   most_recent = "true"

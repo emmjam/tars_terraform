@@ -1,5 +1,6 @@
 
-ami_build_id = "develop/develop"
+tars_ami_id  = "develop/develop"
+cpc_ami_id   = "develop/develop"
 ibs_ami_id   = "develop/develop"
 obs_ami_id   = "develop/develop"
 fyndi_ami_id = "develop/develop"

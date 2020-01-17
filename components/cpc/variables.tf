@@ -119,7 +119,7 @@ variable "spot_pricing" {
   default     = {}
 }
 
-variable "ami_build_id" {
+variable "cpc_ami_id" {
   type        = string
   description = "CPC AMI build ID"
 }

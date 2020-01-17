@@ -5,7 +5,7 @@ data "aws_ami" "cpc-front" {
     var.project,
     "amzn",
     "cpc-front",
-    var.ami_build_id,
+    var.cpc_ami_id,
   )
 
   most_recent = "true"
@@ -30,7 +30,7 @@ data "aws_ami" "cpc-back" {
     var.project,
     "amzn",
     "cpc-back",
-    var.ami_build_id,
+    var.cpc_ami_id,
   )
 
   most_recent = "true"
