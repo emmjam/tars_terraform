@@ -116,6 +116,12 @@ variable "lc_spot_price" {
   default     = ""
 }
 
+variable "lc_ebs_size" {
+  type        = "string"
+  description = "Size of the EBS volume for microservice instance on creation"
+  default     = "16"
+}
+
 variable "lifecycle_hook_launching_default_result" {
   type        = string
   description = "If creating a lifecycle hook for the ASG, what should the default result be"
