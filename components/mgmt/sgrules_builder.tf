@@ -1,5 +1,4 @@
 resource "aws_security_group_rule" "jenkins_elb_ingress_builder_http" {
-  count             = length(var.base_peers_xacct)
   description       = "Allow TCP/80 from jenkins builder"
   type              = "ingress"
   from_port         = 80
@@ -10,7 +9,6 @@ resource "aws_security_group_rule" "jenkins_elb_ingress_builder_http" {
 }
 
 resource "aws_security_group_rule" "jenkins_elb_ingress_builder_jenkinsnode_49187" {
-  count             = length(var.base_peers_xacct)
   description       = "Allow TCP/49187 from jenkins builder"
   type              = "ingress"
   from_port         = 49187
