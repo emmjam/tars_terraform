@@ -12,7 +12,7 @@ data "template_file" "builder_config" {
 
   vars = {
     MASTER_URL    = "jenkins.mgmt.mgmt.tars.dvsa.aws" # TODO: use remote state
-    ACCOUNT_ALIAS = data.terraform_remote_state.acc.outputs.account_alias
+    ACCOUNT_ALIAS = "builder"
     EXECUTORS     = var.builder_executors
   }
 }
