@@ -142,3 +142,13 @@ resource "aws_security_group_rule" "builder_ingress_self_ssh" {
   self              = "true"
 }
 
+resource "aws_security_group_rule" "build_egress_builder_ssh" {
+  description              = "Allow SSH in from builder to build instances"
+  type                     = "egress"
+  from_port                = 22
+  to_port                  = 22
+  protocol                 = "tcp"
+  source_security_group_id = aws_security_group.build.id
+  security_group_id        = module.builder.security_group_id
+}
+
