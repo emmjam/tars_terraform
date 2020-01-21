@@ -101,6 +101,26 @@ resource "aws_security_group_rule" "builder_egress_internet_ssh" {
   ]
 }
 
+resource "aws_security_group_rule" "alb_private_egress_builder_nexus" {
+  description              = "Allow TCP/80 to nexux"
+  type                     = "egress"
+  from_port                = 80
+  to_port                  = 80
+  protocol                 = "tcp"
+  source_security_group_id = aws_security_group.alb_private.id
+  security_group_id        = module.builder.security_group_id
+}
+
+resource "aws_security_group_rule" "alb_private_egress_builder_nexus_443" {
+  description              = "Allow TCP/443 to nexux"
+  type                     = "egress"
+  from_port                = 443
+  to_port                  = 443
+  protocol                 = "tcp"
+  source_security_group_id = aws_security_group.alb_private.id
+  security_group_id        = module.builder.security_group_id
+}
+
 #builder-builder -> required to allow SSH comms w/ Packer builder instance inside builder sg
 resource "aws_security_group_rule" "builder_egress_self_ssh" {
   description       = "Allow TCP/22 to JenkinsNode"
