@@ -148,3 +148,9 @@ variable "dvsa_ro_users" {
   default     = []
 }
 
+variable "cloudfront_enabled" {
+  type        = "string"
+  description = "flag to trigger deployment of cloudfront for holding/maintenance pages"
+
+  default = "0"
+}
