@@ -123,3 +123,7 @@ spot_pricing = {
 # Alert Logic
 # Enable the shipping of cloud watch logs to Alert Logic.  Empty value equals false
 alert_logic = ""
+
+# This is to trigger deployemnt of apology page deployment (s3 buckets, cloudfront) only in prod
+cloudfront_enabled = "1"
+
