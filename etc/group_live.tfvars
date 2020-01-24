@@ -22,36 +22,6 @@ asg_default_tags = [
 # ACCOUNT
 ###############################################################################
 
-all_users = [
-  "david.giles@bjss.com",
-]
-
-administrators = [
-]
-
-ops_users = [
-]
-
-power_users = [
-]
-
-dms_users = [
-  "david.giles@bjss.com",
-]
-
-db_cw_ro_users = [
-  "david.giles@bjss.com",
-]
-
-support_ro_users = [
-]
-
-dvsa_ro_users = [
-]
-
-tss_billing_ro_users = [
-]
-
 cwl_retention_days = "90"
 
 ###############################################################################
