@@ -8,7 +8,8 @@ data "aws_iam_policy_document" "s3_yum" {
     ]
 
     resources = [
-      aws_s3_bucket.yum.arn,
+      module.yum_bucket.arn,
+      module.yum-staging_bucket.arn,
     ]
 
     principals {
@@ -27,7 +28,8 @@ data "aws_iam_policy_document" "s3_yum" {
     ]
 
     resources = [
-      aws_s3_bucket.yum.arn,
+      module.yum_bucket.arn,
+      module.yum-staging_bucket.arn,
     ]
 
     principals {
@@ -55,7 +57,8 @@ data "aws_iam_policy_document" "s3_yum" {
     ]
 
     resources = [
-      "${aws_s3_bucket.yum.arn}/*",
+      "${module.yum_bucket.arn}/*",
+      "${module.yum-staging_bucket.arn}/*",
     ]
 
     principals {
@@ -74,7 +77,8 @@ data "aws_iam_policy_document" "s3_yum" {
     ]
 
     resources = [
-      "${aws_s3_bucket.yum.arn}/*",
+      "${module.yum_bucket.arn}/*",
+      "${module.yum-staging_bucket.arn}/*",
     ]
 
     principals {
