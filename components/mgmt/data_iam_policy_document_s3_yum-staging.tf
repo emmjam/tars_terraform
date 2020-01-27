@@ -1,4 +1,4 @@
-data "aws_iam_policy_document" "s3_yum" {
+data "aws_iam_policy_document" "s3_yum-staging" {
   statement {
     sid    = "AllowManagedAccountsToList"
     effect = "Allow"
@@ -8,7 +8,7 @@ data "aws_iam_policy_document" "s3_yum" {
     ]
 
     resources = [
-      module.yum_bucket.arn,
+      module.yum-staging_bucket.arn,
     ]
 
     principals {
@@ -27,7 +27,7 @@ data "aws_iam_policy_document" "s3_yum" {
     ]
 
     resources = [
-      module.yum_bucket.arn,
+      module.yum-staging_bucket.arn,
     ]
 
     principals {
@@ -55,7 +55,7 @@ data "aws_iam_policy_document" "s3_yum" {
     ]
 
     resources = [
-      "${module.yum_bucket.arn}/*",
+      "${module.yum-staging_bucket.arn}/*",
     ]
 
     principals {
@@ -74,7 +74,7 @@ data "aws_iam_policy_document" "s3_yum" {
     ]
 
     resources = [
-      "${module.yum_bucket.arn}/*",
+      "${module.yum-staging_bucket.arn}/*",
     ]
 
     principals {

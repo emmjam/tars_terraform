@@ -47,6 +47,12 @@ variable "tags" {
   description = "Tags to apply to the bucket"
 }
 
+variable "force_destroy" {
+  type        = string
+  description = "enable force destroy on bucket"
+  default     = "true"
+}
+
 variable "log_bucket" {
   type        = string
   description = "The name (id) of the S3 bucket used for S3 Bucket Access Logging within the scope of the parent component or module"

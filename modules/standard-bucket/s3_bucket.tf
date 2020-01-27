@@ -3,7 +3,7 @@
 resource "aws_s3_bucket" "standard" {
   bucket        = replace(var.name, "_", "")
   acl           = "private"
-  force_destroy = "true"
+  force_destroy = var.force_destroy
 
   # Enable versioning
   versioning {
