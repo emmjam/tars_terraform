@@ -59,7 +59,6 @@ new_all_users = [
   "winston.coleman@bjss.com",
   "stephan.lewin@bjss.com",
   "david.walsh@bjss.com",
-  "gavin.reid@bjss.com",
   "rebecca.howell@bjss.com",
 ]
 
@@ -83,7 +82,6 @@ administrators_tssops_users = [
   "ian.harris@bjss.com",
   "irfan.sidat@bjss.com",
   "david.walsh@bjss.com",
-  "gavin.reid@bjss.com",
 ]
 
 readonly_tssops_users = [
@@ -104,7 +102,6 @@ readonly_tssops_users = [
   "ian.harris@bjss.com",
   "irfan.sidat@bjss.com",
   "david.walsh@bjss.com",
-  "gavin.reid@bjss.com",
   "rebecca.howell@bjss.com",
 ]
 
