@@ -329,7 +329,7 @@ tars_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 
 # TARSDB
 tars_rds_allocated_storage = "500"
-tars_rds_snapshot = "tars-perf01-tars-core-tarsdb-20-01-20-5-17-0-3-new"
+tars_rds_snapshot = "tars-perf01-tars-core-tarsdb-2019-01-28-12-2"
 
 # CPCSDB
 cpc_rds_username = "tarscpcadmin"
