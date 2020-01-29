@@ -476,11 +476,10 @@ xenco_instance_type = "t2.medium"
 # TARSDB
 tars_rds_storage_type = "gp2"
 tars_rds_engine = "oracle-se2"
-tars_rds_engine_version = "12.1.0.2.v17"
-tars_rds_allow_major_engine_version_upgrade = false
-tars_rds_instance_class = "db.m4.2xlarge"
-tars_rds_parameter_group_name = "tarsdb"
-tars_rds_option_group_name = "option-group"
+tars_rds_engine_version = "12.2.0.1.ru-2019-10.rur-2019-10.r1"
+tars_rds_allow_major_engine_version_upgrade = true
+tars_rds_parameter_group_name = "tarsdb-12-2"
+tars_rds_option_group_name = "option-group-12-2"
 tars_rds_port = "1521"
 tars_rds_public = "false"
 tars_rds_multi_az = "true" # it takes an age to build if true
