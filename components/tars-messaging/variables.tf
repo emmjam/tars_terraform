@@ -206,3 +206,28 @@ variable "dvsa_printers" {
   description = "DVSA print servers"
 }
 
+variable "ebs_backup_env" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
+
+variable "dlm_time" {
+  type        = string
+  description = "dlm start time"
+}
+
+variable "dlm_interval" {
+  type        = string
+  description = "how often dlm runs"
+}
+
+variable "dlm_state" {
+  type        = string
+  description = "enable or disable policy"
+}
+
+variable "dlm_retain_rule" {
+  type        = string
+  description = "How many backups to retain"
+}

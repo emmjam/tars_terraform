@@ -604,3 +604,6 @@ cpc_rds_delete_protect = false
 ibsdb_cluster_delete_protect = false
 misdb_rds_delete_protect = false
 risdb_rds_delete_protect = false
+
+#DLM time altered for environment early shutdown
+dlm_time        = "08:00"

@@ -51,3 +51,6 @@ output "DVSA-EC2-Read-Role-role-arn" {
   value = aws_iam_role.DVSA-EC2-Read-Role.arn
 }
 
+output "tars_dlm_lifecycle_role_arn" {
+  value = aws_iam_role.dlm_lifecycle_role.arn
+}
