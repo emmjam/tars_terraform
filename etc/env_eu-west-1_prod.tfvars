@@ -510,3 +510,8 @@ mes_api_cidr_block = [
 # Alert Logic
 # Enable the shipping of cloud watch logs to Alert Logic.  Empty value equals false
 alert_logic = "true"
+
+tars_rds_backup_retention = "14"
+mis_rds_backup_retention = "14"
+cpc_rds_backup_retention = "14"
+rsis_rds_backup_retention = "14"
