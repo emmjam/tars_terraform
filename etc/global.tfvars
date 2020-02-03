@@ -77,6 +77,18 @@ efs_backup_env  = [
   "prod"
 ]
 
+ebs_backup_env = [
+  "opsdev",
+  "uat01",
+  "uat02",
+  "prod"
+]
+
+dlm_time        = "03:00"
+dlm_interval    = "24"
+dlm_state       = "ENABLED"
+dlm_retain_rule = "7"
+
 metric_env  = [
   "opsdev",
   "uat01",
