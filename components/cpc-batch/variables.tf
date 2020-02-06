@@ -103,9 +103,29 @@ variable "spot_pricing" {
   default     = {}
 }
 
+variable "ami_build_id" {
+  type        = string
+  description = "AMI build ID"
+}
+
+variable "tars_ami_id" {
+  type        = string
+  description = "TARS AMI build ID"
+}
+
 variable "cpc_ami_id" {
   type        = string
   description = "CPC AMI build ID"
+}
+
+variable "fyndi_ami_id" {
+  type        = string
+  description = ""
+}
+
+variable "ibs_ami_id" {
+  type        = string
+  description = ""
 }
 
 variable "aws_account_id" {
