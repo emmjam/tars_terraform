@@ -128,6 +128,11 @@ variable "ibs_ami_id" {
   description = ""
 }
 
+variable "obs_ami_id" {
+  type        = string
+  description = ""
+}
+
 variable "aws_account_id" {
   type        = string
   description = "Account ID"
