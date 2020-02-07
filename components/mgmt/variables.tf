@@ -366,6 +366,11 @@ variable "dlm_state" {
   description = "enable or disable policy"
 }
 
+variable "dlm_retain_rule" {
+  type        = string
+  description = "How many backups to retain"
+}
+
 variable "gitlab_db_allocated_storage" {
   type        = string
   description = ""
