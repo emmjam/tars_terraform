@@ -345,6 +345,27 @@ variable "gitlab_ami_build_id" {
   description = ""
 }
 
+variable "ebs_backup_env" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
+
+variable "dlm_time" {
+  type        = string
+  description = "dlm start time"
+}
+
+variable "dlm_interval" {
+  type        = string
+  description = "how often dlm runs"
+}
+
+variable "dlm_state" {
+  type        = string
+  description = "enable or disable policy"
+}
+
 variable "gitlab_db_allocated_storage" {
   type        = string
   description = ""
