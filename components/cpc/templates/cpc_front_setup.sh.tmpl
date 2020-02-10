@@ -88,7 +88,7 @@ fi;
 
 BOOTSTRAP_SUCCESS=1
 curl_cmd="curl --connect-timeout 3 -s -f http://CPC-BACKEND:8080/training-centre/TrainingCentreWebService/TrainingCentre?wsdl 2>&1 > /dev/null"
-retries=30
+retries=40
 retry_delay=10
 backend=1
 log 'INFO' 'Waiting for backend to respond'

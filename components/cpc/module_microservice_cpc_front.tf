@@ -31,7 +31,7 @@ module "cpc-front" {
 
   lifecycle_hook_launching_default_result = "ABANDON"
   lifecycle_hook_launching_enabled        = "1"
-  lifecycle_hook_launching_timeout        = "500"
+  lifecycle_hook_launching_timeout        = "600"
   failed_lifecycle_action_sns_topic       = data.terraform_remote_state.base.outputs.sns_alerts_arn
 
   asg_size_min               = var.cpc-front_asg_min_size
