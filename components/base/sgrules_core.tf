@@ -103,3 +103,12 @@ resource "aws_security_group_rule" "core_ingress_prometheus" {
   source_security_group_id = module.prometheus.security_group_id
 }
 
+resource "aws_security_group_rule" "core_egress_vpc_endpoints" {
+  type                     = "egress"
+  protocol                 = "all"
+  from_port                = "-1"
+  to_port                  = "-1"
+  security_group_id        = aws_security_group.core.id
+  source_security_group_id = aws_security_group.vpc_endpoints.id
+}
+
