@@ -3,6 +3,11 @@ resource "aws_ecr_lifecycle_policy" "tars_build_puppet" {
   policy     = data.template_file.ecr_lifecycle_policy_main.rendered
 }
 
+resource "aws_ecr_lifecycle_policy" "tars_run_mock" {
+  repository = aws_ecr_repository.tars_run_mock.name
+  policy     = data.template_file.ecr_lifecycle_policy_main.rendered
+}
+
 resource "aws_ecr_lifecycle_policy" "tars_build_tars-core" {
   repository = aws_ecr_repository.tars_build_tars-core.name
   policy     = data.template_file.ecr_lifecycle_policy_main.rendered

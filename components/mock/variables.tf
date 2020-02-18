@@ -19,6 +19,11 @@ variable "component" {
   default     = "mock"
 }
 
+variable "mock_image" {
+  type        = string
+  description = "Mock docker image"
+}
+
 variable "release_version" {
   type        = string
   default     = "Not provided"

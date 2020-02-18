@@ -9,6 +9,10 @@ resource "aws_ecr_repository" "jenkins" {
   name = "tars/run/jenkinsci"
 }
 
+resource "aws_ecr_repository" "tars_run_mock" {
+  name = "tars/run/mock"
+}
+
 resource "aws_ecr_repository" "tars_build_puppet" {
   name = "tars/build/puppet"
 }

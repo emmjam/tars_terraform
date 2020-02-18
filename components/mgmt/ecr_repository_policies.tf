@@ -12,6 +12,11 @@ resource "aws_ecr_repository_policy" "tars_run_jenkins" {
   policy     = data.template_file.ecr_repository_policy_main.rendered
 }
 
+resource "aws_ecr_repository_policy" "tars_run_mock" {
+  repository = aws_ecr_repository.tars_run_mock.name
+  policy     = data.template_file.ecr_repository_policy_main.rendered
+}
+
 resource "aws_ecr_repository_policy" "tars_build_puppet" {
   repository = aws_ecr_repository.tars_build_puppet.name
   policy     = data.template_file.ecr_repository_policy_main.rendered
