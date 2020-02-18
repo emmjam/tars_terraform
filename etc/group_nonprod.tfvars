@@ -181,6 +181,7 @@ wildfly-mock_scaledown_desired    = 0
 wildfly-mock_scaledown_recurrence = "00 19 * * 1-5"
 wildfly-mock_scaleup_desired      = 1
 wildfly-mock_scaleup_recurrence   = "00 04 * * 1-5"
+mock_image = "645711882182.dkr.ecr.eu-west-1.amazonaws.com/tars/run/mock:latest"
 
 ## cpc-back
 cpc-back_instance_type        = "m3.medium"
