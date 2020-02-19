@@ -163,3 +163,6 @@ output "subnets_sftpplus_nlb" {
   value = module.sftpplus_nlb.subnet_ids
 }
 
+output "iam_role_db_reports_arn" {
+  value = "${aws_iam_role.dbreports_output.arn}"
+}
