@@ -1,12 +1,6 @@
 # Get the wildfly batch AMI ID
 data "aws_ami" "cpc-front" {
-  name_regex = format(
-    "%s-%s-%s/%s*",
-    var.project,
-    "amzn",
-    "cpc-front",
-    var.cpc_ami_id,
-  )
+  name_regex = format("%s-%s-%s/%s$", var.project, "amzn", "cpc-front", var.cpc_ami_id)
 
   most_recent = "true"
 
@@ -25,13 +19,7 @@ data "aws_ami" "cpc-front" {
 }
 
 data "aws_ami" "cpc-back" {
-  name_regex = format(
-    "%s-%s-%s/%s*",
-    var.project,
-    "amzn",
-    "cpc-back",
-    var.cpc_ami_id,
-  )
+  name_regex = format("%s-%s-%s/%s$", var.project, "amzn", "cpc-back", var.cpc_ami_id)
 
   most_recent = "true"
 
