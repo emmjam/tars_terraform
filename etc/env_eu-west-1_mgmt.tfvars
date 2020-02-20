@@ -273,7 +273,7 @@ builder = {
   asg_min_size    = "1"
   asg_max_size    = "1"
   instance_type   = "m4.large"
-  ebs_volume_size = "50"
+  ebs_volume_size = "80"
 }
 
 ## alb public
