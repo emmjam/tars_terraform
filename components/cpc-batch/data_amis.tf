@@ -1,6 +1,6 @@
 data "aws_ami" "cpc-batch" {
   name_regex = format(
-    "%s-%s-%s/%s*",
+    "%s-%s-%s/%s$",
     var.project,
     "amzn",
     "cpc-batch",

@@ -1,6 +1,6 @@
 # Get the wildfly batch AMI ID
 data "aws_ami" "obs" {
-  name_regex = format("%s-%s-%s/%s*", var.project, "amzn", "obs", var.obs_ami_id)
+  name_regex = format("%s-%s-%s/%s$", var.project, "amzn", "obs", var.obs_ami_id)
 
   most_recent = "true"
 

@@ -1,7 +1,7 @@
 # Get the wildfly batch AMI ID
 data "aws_ami" "fyndi-f" {
   name_regex = format(
-    "%s-%s-%s/%s*",
+    "%s-%s-%s/%s$",
     var.project,
     "amzn",
     "fyndi-front",
@@ -26,7 +26,7 @@ data "aws_ami" "fyndi-f" {
 
 data "aws_ami" "fyndi-b" {
   name_regex = format(
-    "%s-%s-%s/%s*",
+    "%s-%s-%s/%s$",
     var.project,
     "amzn",
     "fyndi-back",
