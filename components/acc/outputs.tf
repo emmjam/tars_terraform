@@ -30,6 +30,18 @@ output "hieradata_kms_key_user_policy_arn" {
   value = module.kms_hieradata.user_policy_arn
 }
 
+output "platform_ops_kms_key_id" {
+  value = module.kms_platform_ops.key_id
+}
+
+output "platform_ops_kms_key_arn" {
+  value = module.kms_platform_ops.key_arn
+}
+
+output "platform_ops_kms_key_user_policy_arn" {
+  value = module.kms_platform_ops.user_policy_arn
+}
+
 output "key_name" {
   value = aws_key_pair.deployer.key_name
 }
