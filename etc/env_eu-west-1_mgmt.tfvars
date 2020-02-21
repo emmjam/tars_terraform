@@ -90,6 +90,12 @@ guardduty_member_list = [
   },
 ]
 
+guardduty_notify = {
+  cw_log_retention                = 30
+  encrypted_webhook_url           = "AQICAHj2KoRvZzuovvAe1jW1oEmVUYbtNt/E9TtjP+vAIB1POQGyIeg8T4D0tYQrrc56trqlAAAArzCBrAYJKoZIhvcNAQcGoIGeMIGbAgEAMIGVBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDE6b1z86Qqz9TMunvgIBEIBoTcZinmbBHK4luSqcGup3IjYxaeMBgrvnqF71MSojheMcWSq8VKjiO7E0NTzRhayFOw+gKIJL8PWETWA+Xx9saldGeBbSC02CAZBRyPe1ruwjpO4ZqnZbN06w4PAD3bClHpcTjPLDaaA="
+  lambda_guardduty_slack_s3_key   = "lambda-guardduty-to-slack/lambda-guardduty-to-slack.zip"
+  opsgenie_sns_topic_sub_endpoint = "https://api.opsgenie.com/v1/json/cloudwatchevents?apiKey=10177ce2-0d05-450c-9fbf-042c9c46313b"
+}
 
 ###########################################
 # Peering

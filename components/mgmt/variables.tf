@@ -496,6 +496,13 @@ variable "gitlab_redis_snapshot_window" {
   description = ""
 }
 
+## GuardDuty Notify
+
+variable "guardduty_notify" {
+  type        = map(string)
+  description = "Guardduty Notifications configuration"
+}
+
 ## Jenkins
 
 variable "jenkins_asg_max_size" {
