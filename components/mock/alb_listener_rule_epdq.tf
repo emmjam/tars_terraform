@@ -9,7 +9,7 @@ resource "aws_lb_listener_rule" "epdq" {
 
   condition {
     field  = "host-header"
-    values = ["mock-epdq.${local.vpc_domain_name}", "mock-epdq"]
+    values = ["mock-epdq.${local.vpc_domain_name}"]
   }
 }
 
