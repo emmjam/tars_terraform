@@ -12,6 +12,7 @@ variable "account_environment" {
 variable "ami_build_id" {
   type        = string
   description = "AMI build ID"
+  default = ""
 }
 
 variable "tars_ami_id" {

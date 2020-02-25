@@ -116,6 +116,7 @@ variable "lc_spot_price" {
 variable "ami_build_id" {
   type        = string
   description = "sftpplus_svr AMI build ID"
+  default = ""
 }
 
 variable "aws_account_id" {

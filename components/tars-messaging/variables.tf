@@ -112,6 +112,7 @@ variable "lc_key_name" {
 variable "ami_build_id" {
   type        = string
   description = "TARS Messaging AMI build ID"
+  default = ""
 }
 
 variable "aws_account_id" {
