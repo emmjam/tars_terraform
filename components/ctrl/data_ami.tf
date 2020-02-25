@@ -27,7 +27,7 @@ data "aws_ami" "bastion" {
   name_regex = format(
     "%s-%s-%s/%s",
     var.project,
-    "amzn",
+    "amzn2",
     "bastion",
     var.bastion_ami_build_id,
   )
