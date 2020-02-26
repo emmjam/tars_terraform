@@ -16,4 +16,10 @@ resource "aws_ecs_service" "main" {
     container_port   = 8080
   }
 
+  load_balancer {
+    target_group_arn = aws_lb_target_group.mock-epdq-8080-2.arn
+    container_name   = var.name
+    container_port   = 8080
+  }
+
 }

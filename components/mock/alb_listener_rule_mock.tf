@@ -1,0 +1,15 @@
+resource "aws_lb_listener_rule" "epdq-public" {
+  listener_arn = aws_alb_listener.tars-mock-443.arn
+  priority     = "101"
+
+  action {
+    type             = "forward"
+    target_group_arn = module.mock_fargate.lb_target_group_epdq-2
+  }
+
+  condition {
+    field  = "host-header"
+    values = ["mock-epdq-${var.environment}-public.${data.terraform_remote_state.acc.outputs.public_domain_name}"]
+  }
+}
+
