@@ -48,3 +48,15 @@ resource "aws_security_group_rule" "tars_backend_ingress_tars_alb_mock2_port_808
   security_group_id        = module.mock_fargate.sg_mock
 }
 
+resource "aws_security_group_rule" "tars_alb_public_ingress_mock_epdq" {
+  description              = "Allow TCP/443 to tars mock"
+  type                     = "ingress"
+  from_port                = 8080
+  to_port                  = 8080
+  protocol                 = "tcp"
+  source_security_group_id = aws_security_group.tars-alb-mock-public.id
+  security_group_id        = module.mock_fargate.sg_mock
+}
+
+
+
