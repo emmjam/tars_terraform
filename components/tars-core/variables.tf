@@ -257,6 +257,7 @@ variable "lc_key_name" {
 variable "ami_build_id" {
   type        = string
   description = "AMI build ID"
+  default = ""
 }
 
 variable "tars_ami_id" {
