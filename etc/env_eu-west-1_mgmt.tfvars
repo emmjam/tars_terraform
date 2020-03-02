@@ -289,7 +289,7 @@ sonarqube = {
   sq_asg_size_min             = 1
   sq_asg_size_desired         = 1
   sq_asg_size_max             = 1
-  sq_instance_type            = "t2.medium"
+  sq_instance_type            = "t3.small"
   sq_subnets_newbits          = "8"
   sq_subnets_netnum_root      = "10"
   rds_pg_max_allowed_packet   = "104857600"
@@ -369,7 +369,7 @@ gitlab_redis_subnets_cidrs = [
 ]
 
 ## jenkins
-jenkins_instance_type        = "m5.large"
+jenkins_instance_type        = "t3.medium"
 jenkins_ami_build_id         = "634"
 jenkins_asg_min_size         = 0
 jenkins_asg_max_size         = 1
@@ -453,7 +453,7 @@ nexus_config = {
   asg_min       = "0"
   asg_max       = "1"
   asg_desired   = "1"
-  instance_type = "t3.medium"
+  instance_type = "t3.small"
   listen_port   = "8081"
   nexus_ami_build_id = "662"
 }
