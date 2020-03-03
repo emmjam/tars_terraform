@@ -76,7 +76,7 @@ prometheus_ami_build_id           = 589
 prometheus_efs_provisioned_mibps  = 1
 
 ## jenkinsnode
-jenkinsnode_instance_type        = "m5d.large"
+jenkinsnode_instance_type        = "t3.medium"
 jenkinsnode_ami_build_id         = "727"
 jenkinsnode_executors            = 20
 jenkinsnode_asg_min_size         = 0
@@ -173,7 +173,7 @@ wildfly-messaging_scaleup_desired      = 1
 wildfly-messaging_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## wildfly-mock
-wildfly-mock_instance_type        = "t2.medium"
+wildfly-mock_instance_type        = "m3.medium"
 wildfly-mock_puppet_nodetype      = "mock"
 wildfly-mock_asg_min_size         = 0
 wildfly-mock_asg_max_size         = 1
@@ -204,7 +204,7 @@ cpc-front_scaleup_desired      = 1
 cpc-front_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## sftpplus-svr
-sftpplus-svr_instance_type        = "t2.medium"
+sftpplus-svr_instance_type        = "m3.medium"
 sftpplus-svr_puppet_nodetype      = "sftpplus-svr"
 sftpplus-svr_asg_min_size         = 0
 sftpplus-svr_asg_max_size         = 1
