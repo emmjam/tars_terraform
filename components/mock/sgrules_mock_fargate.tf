@@ -58,5 +58,23 @@ resource "aws_security_group_rule" "tars_alb_public_ingress_mock_epdq" {
   security_group_id        = module.mock_fargate.sg_mock
 }
 
+resource "aws_security_group_rule" "tars_back_egress_mock_epdq" {
+  description              = "Allow TCP/443 to tars mock"
+  type                     = "egress"
+  from_port                = 8080
+  to_port                  = 8080
+  protocol                 = "tcp"
+  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-backend-alb-sg-id
+  security_group_id        = module.mock_fargate.sg_mock
+}
 
+resource "aws_security_group_rule" "tars_back_alb_ingress_mock_epdq" {
+  description              = "Allow TCP/443 to tars mock"
+  type                     = "ingress"
+  from_port                = 8080
+  to_port                  = 8080
+  protocol                 = "tcp"
+  security_group_id        = data.terraform_remote_state.tars-core.outputs.tars-core-backend-alb-sg-id
+  source_security_group_id = module.mock_fargate.sg_mock
+}
 
