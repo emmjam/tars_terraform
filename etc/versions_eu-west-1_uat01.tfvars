@@ -1,8 +1,8 @@
 ###
 
 # tars_application_version/server_build_code_version
-tars_ami_id  = "5.15.0.1.TDSU.8/5.15.0.1.TDSU.8"
-cpc_ami_id   = "5.15.0.1.TDSU.8/5.15.0.1.TDSU.8"
-ibs_ami_id   = "5.15.0.1.TDSU.8/5.15.0.1.TDSU.8"
-obs_ami_id   = "5.15.0.1.TDSU.8/5.15.0.1.TDSU.8"
-fyndi_ami_id = "5.15.0.1.TDSU.8/5.15.0.1.TDSU.8"
+tars_ami_id  = "5.17.0.2.TDSU.14/5.17.0.2.TDSU.14"
+cpc_ami_id   = "5.17.0.2.TDSU.14/5.17.0.2.TDSU.14"
+ibs_ami_id   = "5.17.0.2.TDSU.14/5.17.0.2.TDSU.14"
+obs_ami_id   = "5.17.0.2.TDSU.14/5.17.0.2.TDSU.14"
+fyndi_ami_id = "5.17.0.2.TDSU.14/5.17.0.2.TDSU.14"
