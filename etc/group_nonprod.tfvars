@@ -92,7 +92,7 @@ jenkinsctrl_subnets_cidrs = [
   "10.167.60.48/28",
 ]
 
-wildfly-back_instance_type        = "t2.medium"
+wildfly-back_instance_type        = "m3.medium"
 wildfly-back_puppet_nodetype      = "tars-back"
 wildfly-back_asg_min_size         = 0
 wildfly-back_asg_max_size         = 1
@@ -103,7 +103,7 @@ wildfly-back_scaleup_desired      = 1
 wildfly-back_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## wildfly-batch
-wildfly-batch_instance_type        = "t2.medium"
+wildfly-batch_instance_type        = "m3.medium"
 wildfly-batch_puppet_nodetype      = "tars-batch"
 wildfly-batch_asg_min_size         = 0
 wildfly-batch_asg_max_size         = 1
@@ -153,7 +153,7 @@ fyndi-b_scaleup_desired      = 1
 fyndi-b_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## wildfly-front
-wildfly-front_instance_type        = "t2.medium"
+wildfly-front_instance_type        = "m3.medium"
 wildfly-front_puppet_nodetype      = "tars-front"
 wildfly-front_asg_min_size         = 0
 wildfly-front_asg_max_size         = 1
