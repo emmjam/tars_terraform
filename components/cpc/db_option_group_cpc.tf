@@ -21,5 +21,10 @@ resource "aws_db_option_group" "cpcdb" {
     option_name = "SQLT"
     version     = "2016-04-29.v1"
   }
+
+   option {
+    option_name = "S3_INTEGRATION"
+    version     = "1.0"
+  }
 }
 
