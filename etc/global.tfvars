@@ -81,6 +81,7 @@ ebs_backup_env = [
   "opsdev",
   "uat01",
   "uat02",
+  "prep",
   "prod"
 ]
 
