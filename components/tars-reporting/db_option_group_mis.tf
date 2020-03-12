@@ -25,6 +25,11 @@ resource "aws_db_option_group" "mis" {
   }
 
   option {
+  option_name = "S3_INTEGRATION"
+  version     = "1.0"
+  }
+
+  option {
     option_name = "SQLT"
   }
 }
