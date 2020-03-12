@@ -80,9 +80,7 @@ efs_backup_env  = [
 ebs_backup_env = [
   "opsdev",
   "uat01",
-  "uat02",
-  "prep",
-  "prod"
+  "uat02"
 ]
 
 dlm_time        = "03:00"
