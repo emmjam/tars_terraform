@@ -78,7 +78,7 @@ resource "aws_db_parameter_group" "tars-core" {
 
   parameter {
     name         = "resource_limit"
-    value        = "FALSE"
+    value        = "TRUE"
     apply_method = "immediate"
   }
 
