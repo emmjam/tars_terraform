@@ -348,7 +348,7 @@ ibs_rds_snapshot = "sit02-ibs-subnet-move"
 mis_rds_username = "misdmsadmin"
 mis_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 mis_rds_snapshot = "tars-dev01-tars-dms-misopdmstg-20180720"
-mis_rds_allocated_storage = "300"
+mis_rds_allocated_storage = "330"
 mis_rds_autoscale = "False"
 
 # RSISDB
