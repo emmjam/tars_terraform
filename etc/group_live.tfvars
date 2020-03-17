@@ -578,3 +578,8 @@ dc_vif_secondary_bgp_auth_key = "jXjTQvJpEnuFvzpy2XvEBDpJe5khPc"
 
 # DC Gateway VIF parameters
 dc_vif_asn = "64515"
+
+# TSS Opsgenie
+opsgenie_endpoint = "https://api.opsgenie.com/v1/json/amazonsns?apiKey=4cb725d3-32c1-47ae-b3b7-e38187fb9202"
+
+sftpplus_alarm_actions_enabled = true

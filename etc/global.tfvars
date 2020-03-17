@@ -94,4 +94,5 @@ metric_env  = [
   "prod"
 ]
 
-elise_log_group_name = "/opt/wildfly/logs/applications/elise-timing.json"
+elise_log_group_name           = "/opt/wildfly/logs/applications/elise-timing.json"
+sftpplus_client_log_group_name = "/opt/SFTPPlus-client/message.log"
