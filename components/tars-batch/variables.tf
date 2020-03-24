@@ -269,3 +269,18 @@ variable "dlm_retain_rule" {
   type        = string
   description = "How many backups to retain"
 }
+
+variable "opsgenie_endpoint" {
+  type        = string
+  description = "The opsgenie endpoint to send alerts to TSS"
+}
+
+variable "sftpplus_client_log_group_name" {
+  type        = string
+  description = "Log group name for SFTPPlus-client"
+}
+
+variable "sftpplus_alarm_actions_enabled" {
+  type        = bool
+  description = "Flag to ensure that sns notifications are sent only from the live account"
+}

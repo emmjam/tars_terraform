@@ -608,3 +608,8 @@ risdb_rds_delete_protect = false
 
 #DLM time altered for environment early shutdown
 dlm_time        = "08:00"
+
+# TSS Opsgenie
+opsgenie_endpoint = "https://api.opsgenie.com/v1/json/amazonsns?apiKey=b7ee3dc7-99be-4094-846c-e44f223291b3"
+
+sftpplus_alarm_actions_enabled = false
