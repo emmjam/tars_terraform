@@ -446,3 +446,5 @@ mes_api_cidr_block = [
 # Alert Logic
 # Enable the shipping of cloud watch logs to Alert Logic.  Empty value equals false
 alert_logic = "true"
+
+sftpplus_alarm_actions_enabled = false
