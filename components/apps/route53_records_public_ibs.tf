@@ -12,3 +12,17 @@ resource "aws_route53_record" "ibs-front" {
   }
 }
 
+resource "aws_route53_record" "incapsula-ibs-frontend" {
+  count   = var.environment == "uat01" ? 1 : 0
+  name    = format("%s-%s-%s", "incapsula-ibs", var.environment, "public")
+
+  zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
+  type    = "A"
+
+  alias {
+    name                   = aws_alb.apps.dns_name
+    zone_id                = aws_alb.apps.zone_id
+    evaluate_target_health = true
+  }
+}
+
