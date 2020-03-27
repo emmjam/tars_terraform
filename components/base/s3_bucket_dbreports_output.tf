@@ -32,7 +32,7 @@ resource "aws_s3_bucket" "dbreports_output" {
     }
 
     expiration {
-      days = "732"
+      days = "1825"
     }
 
     noncurrent_version_transition {
@@ -46,8 +46,37 @@ resource "aws_s3_bucket" "dbreports_output" {
     }
 
     noncurrent_version_expiration {
-      days = "732"
+      days = "1825"
     }
   }
 
+}
+
+resource "aws_sns_topic" "dbretention" {
+  name = "s3-event-notification-dbretention"
+
+  policy = <<POLICY
+{
+    "Version":"2012-10-17",
+    "Statement":[{
+        "Effect": "Allow",
+        "Principal": {"AWS":"*"},
+        "Action": "SNS:Publish",
+        "Resource": "arn:aws:sns:*:*:s3-event-notification-dbretention",
+        "Condition":{
+            "ArnLike":{"aws:SourceArn":"${aws_s3_bucket.dbreports_output.arn}"}
+        }
+    }]
+}
+POLICY
+}
+
+resource "aws_s3_bucket_notification" "dbreports_output" {
+  bucket = "${aws_s3_bucket.dbreports_output.id}"
+
+  topic {
+    topic_arn     = "${aws_sns_topic.dbretention.arn}"
+    events        = ["s3:ObjectCreated:*"]
+    filter_suffix = ".log"
+  }
 }
