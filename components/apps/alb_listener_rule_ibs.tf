@@ -70,7 +70,7 @@ resource "aws_lb_listener_rule" "ibs-103" {
     field = "host-header"
     values = [format(
       "%s-%s-%s.%s",
-      "ibs-incapsula",
+      "incapsula-ibs",
       var.environment,
       "public",
       data.terraform_remote_state.acc.outputs.public_domain_name,
