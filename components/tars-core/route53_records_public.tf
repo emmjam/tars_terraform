@@ -73,13 +73,9 @@ resource "aws_route53_record" "incapsula-frontend" {
   name    = format("%s-%s-%s", "incapsula", var.environment, "public")
 
   zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
-  type    = "A"
+  type    = "CNAME"
 
-  alias {
-    name                   = aws_alb.apache_public.dns_name
-    zone_id                = aws_alb.apache_public.zone_id
-    evaluate_target_health = true
-  }
+  records = ["v7899w6.x.incapdns.net"]
 
 }
 
