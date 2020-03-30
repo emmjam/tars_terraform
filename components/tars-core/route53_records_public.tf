@@ -75,6 +75,8 @@ resource "aws_route53_record" "incapsula-frontend" {
   zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
   type    = "CNAME"
 
+  ttl     = 300
+
   records = ["v7899w6.x.incapdns.net"]
 
 }
