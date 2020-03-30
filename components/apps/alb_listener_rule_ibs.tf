@@ -57,3 +57,24 @@ resource "aws_lb_listener_rule" "ibs-102" {
   }
 }
 
+resource "aws_lb_listener_rule" "ibs-103" {
+  listener_arn = aws_alb_listener.apps-8080.arn
+  priority     = "103"
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_alb_target_group.ibs-8080.arn
+  }
+
+  condition {
+    field = "host-header"
+    values = [format(
+      "%s-%s-%s.%s",
+      "ibs-incapsula",
+      var.environment,
+      "public",
+      data.terraform_remote_state.acc.outputs.public_domain_name,
+    )]
+  }
+}
+
