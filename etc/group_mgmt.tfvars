@@ -31,11 +31,13 @@ new_all_users = [
   "david.johnson@bjss.com",
   "david.woodley@bjss.com",
   "dimple.chauhan@bjss.com",
+  "elliot.brown@bjss.com",
   "hamzaan.bridle@bjss.com",
   "ian.harris@bjss.com",
   "ibrar.akram@bjss.com",
   "irfan.sidat@bjss.com",
   "john.bower@bjss.com",
+  "john.morley@bjss.com",
   "john.reynolds@bjss.com",
   "joseph.burgess@bjss.com",
   "josh.paveley@bjss.com",
@@ -49,16 +51,12 @@ new_all_users = [
   "prashant.kumar@bjss.com",
   "rajkieren.manku@bjss.com",
   "richard.freitas@bjss.com",
-  "rita.otoole@bjss.com",
   "saul.kashani@bjss.com",
-  "stephen.davies@bjss.com",
-  "stephen.davies@bjss.com",
   "steve.wilson@bjss.com",
   "steven.millington@bjss.com",
   "jamie.kelly@bjss.com",
   "tom.bibb@bjss.com",
   "winston.coleman@bjss.com",
-  "stephan.lewin@bjss.com",
   "david.walsh@bjss.com",
   "rebecca.howell@bjss.com",
   "usman.rasool@bjss.com",
@@ -111,7 +109,6 @@ readonly_tssops_users = [
 # TARS Platform Access
 
 administrators_platform_users = [
-  "stephen.davies@bjss.com",
   "jamie.kelly@bjss.com",
   "tom.bibb@bjss.com",
   "steve.wilson@bjss.com",
@@ -121,7 +118,6 @@ administrators_platform_users = [
 ]
 
 readonly_platform_users = [
-  "stephen.davies@bjss.com",
   "jamie.kelly@bjss.com",
   "tom.bibb@bjss.com",
   "steve.wilson@bjss.com",
@@ -142,6 +138,8 @@ readonly_developer_users = [
   "josh.paveley@bjss.com",
   "aiman.chaudhary@bjss.com",
   "richard.freitas@bjss.com",
+  "john.morley@bjss.com",
+  "elliot.brown@bjss.com",
 ]
 
 # DVSA Access
@@ -172,16 +170,13 @@ readonly_appsupport_users = [
 qaengineer_users = [
   "balkar.bains@bjss.com",
   "john.reynolds@bjss.com",
-  "rita.otoole@bjss.com",
-  "stephan.lewin@bjss.com",
   "richard.freitas@bjss.com",
+  "john.morley@bjss.com",
 ]
 
 readonly_qaengineer_users = [
   "balkar.bains@bjss.com",
   "john.reynolds@bjss.com",
-  "rita.otoole@bjss.com",
-  "stephan.lewin@bjss.com",
 ]
 
 # DBA Access
