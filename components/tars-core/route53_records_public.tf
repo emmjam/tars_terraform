@@ -69,15 +69,17 @@ resource "aws_route53_record" "payments-public" {
 
 #UAT01
 resource "aws_route53_record" "incapsula-frontend" {
-  count   = var.environment == "uat01" ? 1 : 0
+  count   = var.environment == "uat02" ? 1 : 0
   name    = format("%s-%s-%s", "incapsula", var.environment, "public")
 
   zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
-  type    = "CNAME"
+  type    = "A"
 
-  ttl     = 300
-
-  records = ["v7899w6.x.incapdns.net"]
+  alias {
+    name                   = aws_alb.apache_public.dns_name
+    zone_id                = aws_alb.apache_public.zone_id
+    evaluate_target_health = true
+  }
 
 }
 
