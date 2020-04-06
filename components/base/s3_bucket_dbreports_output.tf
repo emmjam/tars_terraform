@@ -53,7 +53,8 @@ resource "aws_s3_bucket" "dbreports_output" {
 }
 
 resource "aws_sns_topic" "dbretention" {
-  name = "s3-event-notification-dbretention"
+  count = contains(var.efs_dbretention_env, var.environment) ? 1 : 0
+  name = "s3-notification-${var.environment}-dbretention"
 
   policy = <<POLICY
 {
@@ -62,7 +63,7 @@ resource "aws_sns_topic" "dbretention" {
         "Effect": "Allow",
         "Principal": {"AWS":"*"},
         "Action": "SNS:Publish",
-        "Resource": "arn:aws:sns:*:*:s3-event-notification-dbretention",
+        "Resource": "arn:aws:sns:*:*:s3-notification-${var.environment}-dbretention",
         "Condition":{
             "ArnLike":{"aws:SourceArn":"${aws_s3_bucket.dbreports_output.arn}"}
         }
@@ -72,10 +73,11 @@ POLICY
 }
 
 resource "aws_s3_bucket_notification" "dbreports_output" {
+  count  = contains(var.efs_dbretention_env, var.environment) ? 1 : 0
   bucket = "${aws_s3_bucket.dbreports_output.id}"
 
   topic {
-    topic_arn     = "${aws_sns_topic.dbretention.arn}"
+    topic_arn     = "${aws_sns_topic.dbretention[count.index].id}"
     events        = ["s3:ObjectCreated:*"]
     filter_suffix = ".log"
   }
