@@ -83,6 +83,11 @@ ebs_backup_env = [
   "uat02"
 ]
 
+efs_dbretention_env = [
+  "opsdev",
+  "prod"
+]
+
 dlm_time        = "03:00"
 dlm_interval    = "24"
 dlm_state       = "ENABLED"

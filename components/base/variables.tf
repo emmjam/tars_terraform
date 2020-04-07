@@ -657,3 +657,8 @@ variable "alert_logic" {
   default     = ""
 }
 
+variable "efs_dbretention_env" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
