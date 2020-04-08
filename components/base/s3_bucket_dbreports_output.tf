@@ -1,11 +1,11 @@
 resource "aws_s3_bucket" "dbreports_output" {
   bucket = "${local.csi_global}-dbreports-output"
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
     map(
       "Name", "${local.csi_global}-dbreports-output"
     )
-  )}"
+  )
 
   force_destroy = "false"
 
@@ -74,10 +74,10 @@ POLICY
 
 resource "aws_s3_bucket_notification" "dbreports_output" {
   count  = contains(var.efs_dbretention_env, var.environment) ? 1 : 0
-  bucket = "${aws_s3_bucket.dbreports_output.id}"
+  bucket = aws_s3_bucket.dbreports_output.id
 
   topic {
-    topic_arn     = "${aws_sns_topic.dbretention[count.index].id}"
+    topic_arn     = aws_sns_topic.dbretention[count.index].id
     events        = ["s3:ObjectCreated:*"]
     filter_suffix = ".log"
   }

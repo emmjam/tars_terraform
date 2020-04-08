@@ -7,7 +7,7 @@ resource "aws_launch_configuration" "main" {
   spot_price    = var.lc_spot_price
 
   root_block_device {
-    volume_size = "${var.lc_ebs_size}"
+    volume_size = var.lc_ebs_size
   }
 
   security_groups = concat(list(aws_security_group.main.id), var.lc_additional_sg_ids)

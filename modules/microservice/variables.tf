@@ -117,7 +117,7 @@ variable "lc_spot_price" {
 }
 
 variable "lc_ebs_size" {
-  type        = "string"
+  type        = string
   description = "Size of the EBS volume for microservice instance on creation"
   default     = "16"
 }
