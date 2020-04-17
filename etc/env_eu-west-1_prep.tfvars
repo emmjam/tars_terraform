@@ -448,3 +448,5 @@ mes_api_cidr_block = [
 alert_logic = "true"
 
 sftpplus_alarm_actions_enabled = false
+sftpplus_alarm_actions = []
+sftpplus_threshold = "100"

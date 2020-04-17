@@ -284,3 +284,13 @@ variable "sftpplus_alarm_actions_enabled" {
   type        = bool
   description = "Flag to ensure that sns notifications are sent only from the live account"
 }
+
+variable "sftpplus_alarm_actions" {
+  type        = list(string)
+  description = "The list of actions the alarm should do when it triggers"
+}
+
+variable "sftpplus_threshold" {
+  type        = string
+  description = "Datapoint threshold for the alarm"
+}

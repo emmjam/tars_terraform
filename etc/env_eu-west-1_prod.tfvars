@@ -515,3 +515,7 @@ tars_rds_backup_retention = "14"
 mis_rds_backup_retention = "14"
 cpc_rds_backup_retention = "14"
 rsis_rds_backup_retention = "14"
+
+sftpplus_alarm_actions_enabled = true
+sftpplus_alarm_actions = ["arn:aws:sns:eu-west-1:246976497890:tars-prod-base-alerts"]
+sftpplus_threshold = "1"
