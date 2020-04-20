@@ -6,8 +6,9 @@ resource "aws_cloudwatch_metric_alarm" "SFTPPlus-client_failure" {
   namespace           = "${local.csi}-SFTPPlus-client"
   period              = "60"
   statistic           = "Sum"
-  threshold           = var.sftpplus_threshold
-  actions_enabled     = var.sftpplus_alarm_actions_enabled
+  threshold           = "1"
+  actions_enabled     = true
   alarm_description   = "ALARM when a failure message appears in the SFTPPlus-client logs"
-  alarm_actions       = var.sftpplus_alarm_actions
+  alarm_actions       = [data.terraform_remote_state.base.outputs.sns_alerts_arn]
+  count               = var.sftpplus_alarm_count
 }

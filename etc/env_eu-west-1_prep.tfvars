@@ -447,6 +447,5 @@ mes_api_cidr_block = [
 # Enable the shipping of cloud watch logs to Alert Logic.  Empty value equals false
 alert_logic = "true"
 
-sftpplus_alarm_actions_enabled = false
-sftpplus_alarm_actions = []
-sftpplus_threshold = "100"
+sftpplus_alarm_count = "0"
+sftpplus_topic_count = "0"

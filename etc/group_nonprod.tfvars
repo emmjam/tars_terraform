@@ -612,6 +612,5 @@ dlm_time        = "08:00"
 # TSS Opsgenie
 opsgenie_endpoint = "https://api.opsgenie.com/v1/json/amazonsns?apiKey=b7ee3dc7-99be-4094-846c-e44f223291b3"
 
-sftpplus_alarm_actions_enabled = false
-sftpplus_alarm_actions = []
-sftpplus_threshold = "100"
+sftpplus_alarm_count = "0"
+sftpplus_topic_count = "0"
