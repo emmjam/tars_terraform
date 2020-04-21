@@ -4,8 +4,14 @@ resource "aws_rds_cluster_parameter_group" "ibs-cluster-parameter-group-2020-04-
   description = "Cluster Parameter Group for IBS databases"
 
   parameter {
-    name = "server_audit_logging"
-    value = "1"
+    name         = "server_audit_logging"
+    value        = "1"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "server_audit_logs_upload"
+    value        = "1"
     apply_method = "pending-reboot"
   }
 
