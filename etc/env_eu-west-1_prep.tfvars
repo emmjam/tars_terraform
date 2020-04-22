@@ -446,3 +446,9 @@ alert_logic = "true"
 
 sftpplus_alarm_count = "0"
 sftpplus_topic_count = "0"
+
+# RDS CloudWatch Monitoring
+rds_cw_metric_alarm_enabled = false
+
+# Enable action for RDS CloudWatch Alarm
+rds_cw_metric_alarm_action_enabled = false

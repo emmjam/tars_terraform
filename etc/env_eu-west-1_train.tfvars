@@ -389,3 +389,9 @@ private_cert_domain_name = "dvsa.tars.dev-dvsacloud.uk"
 alert_logic = ""
 
 mes_api_cidr_block = ["10.21.0.0/16"]
+
+# RDS CloudWatch Monitoring
+rds_cw_metric_alarm_enabled = false
+
+# Enable action for RDS CloudWatch Alarm
+rds_cw_metric_alarm_action_enabled = false

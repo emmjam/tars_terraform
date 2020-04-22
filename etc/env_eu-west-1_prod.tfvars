@@ -516,3 +516,9 @@ rsis_rds_backup_retention = "14"
 
 sftpplus_alarm_count = "1"
 sftpplus_topic_count = "1"
+
+# RDS CloudWatch Monitoring
+rds_cw_metric_alarm_enabled = false
+
+# Enable action for RDS CloudWatch Alarm
+rds_cw_metric_alarm_action_enabled = false

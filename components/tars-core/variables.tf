@@ -493,3 +493,15 @@ variable "dlm_retain_rule" {
   type        = string
   description = "How many backups to retain"
 }
+
+variable "rds_cw_metric_alarm_enabled" {
+  type        = string
+  default     = "false"
+  description = "Enable or disable RDS CloudWatch Metrics"
+}
+
+variable "rds_cw_metric_alarm_action_enabled" {
+  type        = string
+  default     = "false"
+  description = "Enable action to OpsGenie for rds CloudWatch metric alarm"
+}
