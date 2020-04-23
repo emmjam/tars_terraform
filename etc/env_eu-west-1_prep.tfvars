@@ -410,9 +410,6 @@ cpc-batch_scaledown_recurrence = "00 22 * * 1-5"
 cpc-batch_scaleup_desired      = 0
 cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
-apache_ami_build_id = 504
-
-
 # Temporarily pointed at the app LBs as
 # incapsula won't issue a site without the
 # DNS records already existing. Catch 22.
