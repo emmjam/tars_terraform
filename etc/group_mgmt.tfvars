@@ -55,7 +55,6 @@ new_all_users = [
   "steve.wilson@bjss.com",
   "steven.millington@bjss.com",
   "jamie.kelly@bjss.com",
-  "tom.bibb@bjss.com",
   "winston.coleman@bjss.com",
   "david.walsh@bjss.com",
   "rebecca.howell@bjss.com",
@@ -111,7 +110,6 @@ readonly_tssops_users = [
 
 administrators_platform_users = [
   "jamie.kelly@bjss.com",
-  "tom.bibb@bjss.com",
   "steve.wilson@bjss.com",
   "michelle.pike@bjss.com",
   "callum.massey@bjss.com",
@@ -120,7 +118,6 @@ administrators_platform_users = [
 
 readonly_platform_users = [
   "jamie.kelly@bjss.com",
-  "tom.bibb@bjss.com",
   "steve.wilson@bjss.com",
   "michelle.pike@bjss.com",
   "callum.massey@bjss.com",
