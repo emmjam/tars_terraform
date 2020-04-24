@@ -9,4 +9,5 @@ resource "aws_cloudwatch_log_metric_filter" "sftpplus_client_failure" {
     value         = "1"
     default_value = "0"
   }
+  count = var.sftpplus_alarm_count
 }
