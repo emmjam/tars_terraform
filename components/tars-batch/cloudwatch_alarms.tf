@@ -11,4 +11,5 @@ resource "aws_cloudwatch_metric_alarm" "SFTPPlus-client_failure" {
   alarm_description   = "ALARM when a failure message appears in the SFTPPlus-client logs"
   alarm_actions       = [data.terraform_remote_state.base.outputs.sns_alerts_arn, aws_sns_topic.sftpplus_client[0].arn]
   count               = var.sftpplus_alarm_count
+  treat_missing_data  = "notBreaching"
 }
