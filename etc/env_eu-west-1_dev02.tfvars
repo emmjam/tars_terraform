@@ -648,7 +648,7 @@ mes_api_cidr_block = [
 alert_logic = ""
 
 # RDS CloudWatch Monitoring
-rds_cw_metric_alarm_enabled = true
+rds_cw_metric_alarm_enabled = false
 
 # Enable action for RDS CloudWatch Alarm
-rds_cw_metric_alarm_action_enabled = true
+rds_cw_metric_alarm_action_enabled = false
