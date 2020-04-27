@@ -1,6 +1,6 @@
-resource "aws_cloudwatch_metric_alarm" "rds_cpuutilization_maximum" {
+resource "aws_cloudwatch_metric_alarm" "rds_cpuutilization_average" {
   count                =  var.rds_cw_metric_alarm_enabled ? 1 : 0
-  alarm_name           = "${local.csi}-rds-cpuutilization-maximum"
+  alarm_name           = "${local.csi}-rds-cpuutilization-average"
   comparison_operator  = "GreaterThanOrEqualToThreshold"
   evaluation_periods   = "3"
   metric_name          = "CPUUtilization"
