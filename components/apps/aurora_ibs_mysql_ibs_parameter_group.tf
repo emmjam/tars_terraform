@@ -17,7 +17,7 @@ resource "aws_rds_cluster_parameter_group" "ibs-cluster-parameter-group-2020-04-
 
   parameter {
     name  = "aws_default_logs_role"
-    value = "${aws_iam_role.ibs_rds_role.arn}"
+    value = aws_iam_role.ibs_rds_role.arn
   }
 
   parameter {
