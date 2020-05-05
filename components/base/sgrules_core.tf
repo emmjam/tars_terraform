@@ -55,6 +55,18 @@ resource "aws_security_group_rule" "core_egress_s3_https" {
   ]
 }
 
+resource "aws_security_group_rule" "core_egress_s3_http" {
+  type              = "egress"
+  protocol          = "tcp"
+  from_port         = "80"
+  to_port           = "80"
+  security_group_id = aws_security_group.core.id
+
+  prefix_list_ids = [
+    aws_vpc_endpoint.s3.prefix_list_id,
+  ]
+}
+
 resource "aws_security_group_rule" "core_egress_kms" {
   type                     = "egress"
   protocol                 = "tcp"
