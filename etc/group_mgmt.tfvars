@@ -60,6 +60,7 @@ new_all_users = [
   "rebecca.howell@bjss.com",
   "usman.rasool@bjss.com",
   "chris.peska@bjss.com",
+  "seun.adiomowo@bjss.com",
 ]
 
 # TSSOps Access
@@ -114,6 +115,7 @@ administrators_platform_users = [
   "michelle.pike@bjss.com",
   "callum.massey@bjss.com",
   "michael.tribbick@bjss.com",
+  "seun.adiomowo@bjss.com",
 ]
 
 readonly_platform_users = [
