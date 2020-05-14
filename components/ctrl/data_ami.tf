@@ -49,14 +49,6 @@ data "aws_ami" "bastion" {
 }
 
 data "aws_ami" "grafana" {
-  name_regex = format(
-    "%s-%s-%s/%s",
-    var.project,
-    "amzn",
-    "grafana",
-    var.grafana_ami_build_id,
-  )
-
   most_recent = "true"
 
   owners = [
@@ -69,6 +61,20 @@ data "aws_ami" "grafana" {
 
     values = [
       "available",
+    ]
+  }
+
+  filter {
+    name = "name"
+
+    values = [
+      format(
+        "%s-%s-%s/%s",
+        var.project,
+        "amzn",
+        "grafana",
+        var.grafana_ami_build_id,
+      )
     ]
   }
 }
