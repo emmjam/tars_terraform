@@ -1,12 +1,4 @@
 data "aws_ami" "jenkinsctrl" {
-  name_regex = format(
-    "%s-%s-%s/%s",
-    var.project,
-    "amzn",
-    "jenkinsnode",
-    var.jenkinsctrl_ami_build_id,
-  )
-
   most_recent = "true"
 
   owners = [
@@ -21,17 +13,23 @@ data "aws_ami" "jenkinsctrl" {
       "available",
     ]
   }
+
+  filter {
+    name = "name"
+
+    values = [
+      format(
+        "%s-%s-%s/%s",
+        var.project,
+        "amzn",
+        "jenkinsnode",
+        var.jenkinsctrl_ami_build_id,
+      )
+    ]
+  }
 }
 
 data "aws_ami" "bastion" {
-  name_regex = format(
-    "%s-%s-%s/%s",
-    var.project,
-    "amzn2",
-    "bastion",
-    var.bastion_ami_build_id,
-  )
-
   most_recent = "true"
 
   owners = [
@@ -44,6 +42,20 @@ data "aws_ami" "bastion" {
 
     values = [
       "available",
+    ]
+  }
+
+  filter {
+    name = "name"
+
+    values = [
+      format(
+        "%s-%s-%s/%s",
+        var.project,
+        "amzn2",
+        "bastion",
+        var.bastion_ami_build_id,
+      )
     ]
   }
 }
