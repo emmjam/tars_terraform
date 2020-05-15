@@ -1,12 +1,5 @@
 # Get the jenkinsnode AMI id
 data "aws_ami" "jenkinsnode" {
-  name_regex = format(
-    "%s-%s-%s/%s",
-    var.project,
-    "amzn",
-    "jenkinsnode",
-    var.jenkinsnode_ami_build_id,
-  )
 
   most_recent = "true"
 
@@ -14,6 +7,20 @@ data "aws_ami" "jenkinsnode" {
     data.aws_caller_identity.current.account_id,
     var.mgmt_aws_account_id,
   ]
+
+  filter {
+    name = "name"
+
+    values = [
+      format(
+        "%s-%s-%s/%s",
+        var.project,
+        "amzn",
+        "jenkinsnode",
+        var.jenkinsnode_ami_build_id,
+      )
+    ]
+  }
 
   filter {
     name = "state"
@@ -25,20 +32,26 @@ data "aws_ami" "jenkinsnode" {
 }
 
 data "aws_ami" "squidnat" {
-  name_regex = format(
-    "%s-%s-%s/%s",
-    var.project,
-    "amzn",
-    "squidnat",
-    var.squidnat_ami_build_id,
-  )
-
   most_recent = "true"
 
   owners = [
     data.aws_caller_identity.current.account_id,
     var.mgmt_aws_account_id,
   ]
+
+  filter {
+    name = "name"
+
+    values = [
+      format(
+        "%s-%s-%s/%s",
+        var.project,
+        "amzn",
+        "squidnat",
+        var.squidnat_ami_build_id,
+      )
+    ]
+  }
 
   filter {
     name = "state"
@@ -50,14 +63,27 @@ data "aws_ami" "squidnat" {
 }
 
 data "aws_ami" "jmeter" {
-  name_regex = format("%s-%s-%s/%s", var.project, "amzn", "jmeter", "*")
-
+  
   most_recent = "true"
 
   owners = [
     data.aws_caller_identity.current.account_id,
     var.mgmt_aws_account_id,
   ]
+
+  filter {
+    name = "name"
+
+    values = [
+      format(
+        "%s-%s-%s/%s",
+        var.project,
+        "amzn",
+        "jmeter",
+        "*"
+      )
+    ]
+  }
 
   filter {
     name = "state"
@@ -69,20 +95,26 @@ data "aws_ami" "jmeter" {
 }
 
 data "aws_ami" "prometheus" {
-  name_regex = format(
-    "%s-%s-%s/%s",
-    var.project,
-    "amzn",
-    "prometheus",
-    var.prometheus_ami_build_id,
-  )
-
   most_recent = "true"
 
   owners = [
     data.aws_caller_identity.current.account_id,
     var.mgmt_aws_account_id,
   ]
+
+  filter {
+    name = "name"
+
+    values = [
+      format(
+        "%s-%s-%s/%s",
+        var.project,
+        "amzn",
+        "prometheus",
+        var.prometheus_ami_build_id,
+      )
+    ]
+  }
 
   filter {
     name = "state"
