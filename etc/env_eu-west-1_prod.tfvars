@@ -522,3 +522,6 @@ rds_cw_metric_alarm_enabled = true
 
 # Enable action for RDS CloudWatch Alarm
 rds_cw_metric_alarm_action_enabled = true
+
+# Whether to alert opsgenie on wms unhealthy host
+wms_host_alarm_count = "1"

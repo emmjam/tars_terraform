@@ -232,3 +232,14 @@ variable "dlm_retain_rule" {
   type        = string
   description = "How many backups to retain"
 }
+
+variable "opsgenie_endpoint" {
+  type        = string
+  description = "The opsgenie endpoint to send alerts to TSS"
+}
+
+variable "wms_host_alarm_count" {
+  type        = string
+  description = "Number of alarms to have in this account"
+  default = "0"
+}
