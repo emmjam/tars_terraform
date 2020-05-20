@@ -61,6 +61,8 @@ new_all_users = [
   "usman.rasool@bjss.com",
   "chris.peska@bjss.com",
   "seun.adiomowo@bjss.com",
+  "daniel.singer@irmsecurity.com",
+  "graham.evans@irmsecurity.com",
 ]
 
 # TSSOps Access
@@ -188,6 +190,14 @@ db_cw_users = [
 
 dms_users = [
   "david.giles@bjss.com",
+]
+
+# Non Prod
+
+readonly_no_secrets_nonprod_users = [
+  "daniel.singer@irmsecurity.com",
+  "graham.evans@irmsecurity.com",
+  "david.walsh@bjss.com",
 ]
 
 ctrl_vpc_cidr = "10.167.64.0/22"

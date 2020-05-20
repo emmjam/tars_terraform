@@ -728,3 +728,8 @@ variable "billing_users" {
   default     = []
 }
 
+variable "readonly_no_secrets_nonprod_users" {
+  type        = "list"
+  description = "List of IAM Users, that have Non Prod RO no secrets access"
+  default     = []
+}
