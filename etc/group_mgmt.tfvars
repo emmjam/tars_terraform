@@ -197,7 +197,6 @@ dms_users = [
 readonly_no_secrets_nonprod_users = [
   "daniel.singer@irmsecurity.com",
   "graham.evans@irmsecurity.com",
-  "david.walsh@bjss.com",
 ]
 
 ctrl_vpc_cidr = "10.167.64.0/22"
