@@ -5,6 +5,6 @@ module "cwles_vpcflowlog" {
   environment = var.environment
   component   = var.component
 
-  vpc_id = aws_vpc.ctrl.id
+  vpc_id = aws_vpc.mgmt.id
 }
 
