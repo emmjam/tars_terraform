@@ -441,7 +441,7 @@ rsis_samba_server = "10.14.0.150/32"
 
 # squidnat
 squidnat_instance_type = "m3.medium"
-squidnat_ami_build_id  = "728"
+squidnat_ami_build_id  = "785"
 
 ops_team_email = "TARSStabilisation@bjss.com"
 
