@@ -325,7 +325,7 @@ tars_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 
 # TARSDB
 tars_rds_snapshot = "tars-core-tarsdb-20190410-5-4-0-1"
-tars_rds_allocated_storage = "300"
+tars_rds_allocated_storage = "350"
 tars_rds_autoscale = "False"
 
 # CPCSDB
