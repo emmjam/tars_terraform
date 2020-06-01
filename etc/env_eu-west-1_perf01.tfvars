@@ -370,7 +370,6 @@ rsis_rds_autoscale = "True"
 
 # CPCTSDB
 cpc_rds_allocated_storage = "100" # 20 Gigabyte - was 1500GB
-cpc_rds_snapshot = "tars-perf01-cpc-cpcdb-11-04-2019-5-7-0-3"
 
 # IBSDB
 ibs_rds_username = "ibsuatadmin"
