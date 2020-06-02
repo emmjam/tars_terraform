@@ -37,3 +37,7 @@ output "nexus_alb_sg" {
 output "public_alb_sg" {
   value = aws_security_group.alb_public.id
 }
+
+output "private_alb_sg" {
+  value = aws_security_group.alb_private.id
+}
