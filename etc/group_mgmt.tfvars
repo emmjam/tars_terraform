@@ -62,7 +62,7 @@ new_all_users = [
   "chris.peska@bjss.com",
   "seun.adiomowo@bjss.com",
   "daniel.singer@irmsecurity.com",
-  "graham.evans@irmsecurity.com",
+  "graeme.evans@irmsecurity.com",
 ]
 
 # TSSOps Access
@@ -196,7 +196,7 @@ dms_users = [
 
 readonly_no_secrets_nonprod_users = [
   "daniel.singer@irmsecurity.com",
-  "graham.evans@irmsecurity.com",
+  "graeme.evans@irmsecurity.com",
 ]
 
 ctrl_vpc_cidr = "10.167.64.0/22"
