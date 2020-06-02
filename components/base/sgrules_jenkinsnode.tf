@@ -134,14 +134,3 @@ resource "aws_security_group_rule" "jenkinsnode_mgnt_private_alb" {
   security_group_id        = module.jenkinsnode.security_group_id
   source_security_group_id = data.terraform_remote_state.mgmt.outputs.private_alb_sg
 }
-
-# inbound to mgmt private alb from jenkins
-resource "aws_security_group_rule" "mgnt_private_alb_inbound" {
-  description              = "Allow TCP/80 inbound from jenkins ${var.environment}"
-  type                     = "ingress"
-  from_port                = 80
-  to_port                  = 80
-  protocol                 = "tcp"
-  security_group_id        = "645711882182/${data.terraform_remote_state.mgmt.outputs.private_alb_sg}"
-  source_security_group_id = module.jenkinsnode.security_group_id
-}
