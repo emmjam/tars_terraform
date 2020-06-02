@@ -142,6 +142,6 @@ resource "aws_security_group_rule" "mgnt_private_alb_inbound" {
   from_port                = 80
   to_port                  = 80
   protocol                 = "tcp"
-  security_group_id        = data.terraform_remote_state.mgmt.outputs.private_alb_sg
+  security_group_id        = "645711882182/${data.terraform_remote_state.mgmt.outputs.private_alb_sg}"
   source_security_group_id = module.jenkinsnode.security_group_id
 }
