@@ -30,3 +30,10 @@ output "gitlab_elb_sg_id" {
   value = module.gitlab.elb_private_sg_id
 }
 
+output "nexus_alb_sg" {
+  value = aws_security_group.nexus_alb.id
+}
+
+output "public_alb_sg" {
+  value = aws_security_group.alb_public.id
+}
