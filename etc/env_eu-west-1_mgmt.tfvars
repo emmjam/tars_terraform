@@ -475,3 +475,15 @@ nexus_efs_subnets_cidrs = [
 alert_logic = ""
 
 nexus_domain_name = "www.nexus.mgmt.mgmt.tars.dvsa.aws"
+
+non_prod_jenkins_cidrs = [
+    "10.167.24.0/21",
+    "10.167.40.0/21",
+    "10.167.16.0/21",
+    "10.167.80.0/21",
+    "10.167.8.0/21",
+    "10.167.48.0/21",
+    "10.167.88.0/21",
+    "10.167.32.0/21",
+    "10.167.144.0/21",
+]
