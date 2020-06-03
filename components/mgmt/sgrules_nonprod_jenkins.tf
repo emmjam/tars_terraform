@@ -1,5 +1,5 @@
 # nonprod-private-alb-ingress
-resource "aws_security_group_rule" "alb_ingress_nonprodl_jenkinsnode" {
+resource "aws_security_group_rule" "alb_ingress_nonprod_jenkinsnode" {
   description       = "Allow TCP/80 from NonProd JenkinsNodes"
   type              = "ingress"
   from_port         = 80
