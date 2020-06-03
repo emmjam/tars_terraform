@@ -733,3 +733,9 @@ variable "readonly_no_secrets_nonprod_users" {
   description = "List of IAM Users, that have Non Prod RO no secrets access"
   default     = []
 }
+
+variable "non_prod_jenkins_cidrs" {
+  type        = list (string)
+  description = "NonProd base cidr for jenkins access to Nexus"
+  default     = []
+}
