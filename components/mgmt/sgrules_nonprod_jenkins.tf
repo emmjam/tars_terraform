@@ -9,7 +9,3 @@ resource "aws_security_group_rule" "alb_ingress_nonprod_jenkinsnode" {
 
   cidr_blocks =  var.non_prod_jenkins_cidrs
 }
-
-
-
-
