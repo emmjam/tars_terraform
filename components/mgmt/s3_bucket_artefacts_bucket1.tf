@@ -1,9 +1,11 @@
 resource "aws_s3_bucket" "artefacts" {
     bucket     = "${local.csi_global}-artefacts"
     acl        = "private"
+
     versioning {
         enabled = true
     }
+
     tags = merge(
         local.default_tags,
         {
@@ -15,6 +17,7 @@ resource "aws_s3_bucket" "artefacts" {
         id      = "wars_file_90_days_rentention"
         prefix  = "release-candidates/applications/"
         enabled = true
+        
         expiration {
         days = 90
     } 
