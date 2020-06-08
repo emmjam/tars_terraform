@@ -1,7 +1,7 @@
 ###
 
 # tars_application_version/server_build_code_version
-tars_ami_id  = "6.0.0.2/tdsu.release.3"
+tars_ami_id  = "6.0.0.3/tdsu.release.5"
 cpc_ami_id   = "6.0.0.0/tdsu.release.2"
 ibs_ami_id   = "6.0.0.1/tdsu.release.4"
 obs_ami_id   = "6.0.0.1/tdsu.release.3"
