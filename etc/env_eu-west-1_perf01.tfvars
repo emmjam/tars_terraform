@@ -378,7 +378,7 @@ ibs_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 
 ibs_rds_snapshot = "perf01-ibsdb-with-users-and-geo-data"
 
-wildfly-back_instance_type  = "m4.large"
+wildfly-back_instance_type  = "m4.2xlarge"
 wildfly-back_asg_min_size         = 0
 wildfly-back_asg_max_size         = 2
 wildfly-back_scaledown_desired    = 2
@@ -407,10 +407,10 @@ obs_scaleup_recurrence   = "00 04 * * 1-7"
 ## ibs
 ibs_instance_type  = "m4.large"
 ibs_asg_min_size         = 0
-ibs_asg_max_size         = 4
-ibs_scaledown_desired    = 4
+ibs_asg_max_size         = 8
+ibs_scaledown_desired    = 8
 ibs_scaledown_recurrence = "00 16 * * 1-7"
-ibs_scaleup_desired      = 4
+ibs_scaleup_desired      = 8
 ibs_scaleup_recurrence   = "10 04 * * 1-7"
 
 ## wildfly-front
