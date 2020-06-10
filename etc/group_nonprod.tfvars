@@ -513,7 +513,7 @@ tars_rds_sid_name = "TARSDB"
 # MISDB
 mis_rds_storage_type = "gp2"
 mis_rds_engine = "oracle-se2"
-mis_rds_engine_version = "12.1.0.2.v18"
+mis_rds_engine_version = "12.1.0.2.v19"
 mis_rds_instance_class = "db.t3.medium" # was "db.m4.4xlarge"
 mis_rds_port = "1521"
 mis_rds_public = "false"
