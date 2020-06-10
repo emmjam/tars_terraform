@@ -493,7 +493,7 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 # TARSDB
 tars_rds_storage_type = "gp2"
 tars_rds_engine = "oracle-se2"
-tars_rds_engine_version = "12.2.0.1.ru-2019-10.rur-2019-10.r1"
+tars_rds_engine_version = "12.2.0.1.ru-2020-01.rur-2020-01.r1"
 tars_rds_allow_major_engine_version_upgrade = true
 tars_rds_parameter_group_name = "tarsdb-12-2"
 tars_rds_option_group_name = "option-group-12-2"
