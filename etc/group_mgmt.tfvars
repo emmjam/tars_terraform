@@ -63,6 +63,7 @@ new_all_users = [
   "seun.adiomowo@bjss.com",
   "daniel.singer@irmsecurity.com",
   "graeme.evans@irmsecurity.com",
+  "stephen.davies@bjss.com",
 ]
 
 # TSSOps Access
@@ -118,6 +119,7 @@ administrators_platform_users = [
   "callum.massey@bjss.com",
   "michael.tribbick@bjss.com",
   "seun.adiomowo@bjss.com",
+  "stephen.davies@bjss.com",
 ]
 
 readonly_platform_users = [
@@ -126,6 +128,7 @@ readonly_platform_users = [
   "michelle.pike@bjss.com",
   "callum.massey@bjss.com",
   "michael.tribbick@bjss.com",
+  "stephen.davies@bjss.com",
 ]
 
 # Developer Access
