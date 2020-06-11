@@ -61,8 +61,6 @@ new_all_users = [
   "usman.rasool@bjss.com",
   "chris.peska@bjss.com",
   "seun.adiomowo@bjss.com",
-  "daniel.singer@irmsecurity.com",
-  "graeme.evans@irmsecurity.com",
   "stephen.davies@bjss.com",
 ]
 
@@ -198,8 +196,6 @@ dms_users = [
 # Non Prod
 
 readonly_no_secrets_nonprod_users = [
-  "daniel.singer@irmsecurity.com",
-  "graeme.evans@irmsecurity.com",
 ]
 
 ctrl_vpc_cidr = "10.167.64.0/22"
