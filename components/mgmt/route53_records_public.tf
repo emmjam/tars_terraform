@@ -46,3 +46,14 @@ resource "aws_route53_record" "nexus" {
   }
 }
 
+resource "aws_route53_record" "upgrade_gitlab_test" {
+  name    = "ug-gitlab"
+  zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
+  type    = "A"
+
+  alias {
+    name                   = module.upgrade_gitlab_test.public_elb_dns_name
+    zone_id                = module.upgrade_gitlab_test.public_elb_zone_id
+    evaluate_target_health = true
+  }
+}

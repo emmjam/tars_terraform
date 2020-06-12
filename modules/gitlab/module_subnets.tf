@@ -29,7 +29,7 @@ module "elb_private_subnets" {
 module "db_subnets" {
   source = "../../modules/subnets"
 
-  name        = "${var.module}-db"
+  name        = "${var.name}-db"
   project     = var.project
   environment = var.environment
   component   = var.component
@@ -43,7 +43,7 @@ module "db_subnets" {
 module "redis_subnets" {
   source = "../../modules/subnets"
 
-  name        = "${var.module}-redis"
+  name        = "${var.name}-redis"
   project     = var.project
   environment = var.environment
   component   = var.component

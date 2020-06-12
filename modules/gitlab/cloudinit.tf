@@ -25,7 +25,7 @@ data "template_file" "gitlab_config" {
     AWS_REGION      = data.aws_region.current.name
     DB_ENDPOINT     = aws_route53_record.db.fqdn
     REDIS_ENDPOINT  = var.redis_endpoint
-    #    REDIS_ENDPOINT  = "${data.aws_elasticache_cluster.gitlab.cluster_address}"
+    # REDIS_ENDPOINT  = aws_elasticache_replication_group.gitlab.configuration_endpoint_address
     EXTERNAL_URL = var.elb_public_external_address
   }
 }

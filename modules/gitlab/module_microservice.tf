@@ -1,7 +1,7 @@
 module "gitlab" {
   source = "../../modules/microservice-old"
 
-  name        = var.module
+  name        = var.name
   project     = var.project
   environment = var.environment
   component   = var.component

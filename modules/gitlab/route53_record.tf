@@ -11,7 +11,7 @@ resource "aws_route53_record" "gitlab" {
 }
 
 resource "aws_route53_record" "db" {
-  name    = "gitlab-db"
+  name    = "${var.r53_record_name}-db"
   zone_id = var.hosted_zone_id
   type    = "A"
 

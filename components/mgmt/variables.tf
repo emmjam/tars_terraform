@@ -739,3 +739,182 @@ variable "non_prod_jenkins_cidrs" {
   description = "NonProd base cidr for jenkins access to Nexus"
   default     = []
 }
+
+
+####################################
+# Gitlab Upgrade Testing
+####################################
+
+# Gitlab Instance
+variable "upgrade_gitlab_ami_build_id" {
+  type        = string
+  description = ""
+}
+
+variable "upgrade_gitlab_instance_type" {
+  type        = string
+  description = ""
+}
+
+
+# Gitlab Database
+variable "upgrade_gitlab_db_subnets_cidrs" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
+
+variable "upgrade_gitlab_db_allocated_storage" {
+  type        = string
+  description = ""
+}
+
+variable "upgrade_gitlab_db_backup_retention_period" {
+  type        = string
+  description = ""
+}
+
+variable "upgrade_gitlab_db_backup_window" {
+  type        = string
+  description = ""
+}
+
+variable "upgrade_gitlab_db_db_name" {
+  type        = string
+  description = ""
+}
+
+variable "upgrade_gitlab_db_engine_version" {
+  type        = string
+  description = ""
+}
+
+variable "upgrade_gitlab_db_instance_class" {
+  type        = string
+  description = ""
+}
+
+variable "upgrade_gitlab_db_maintenance_window" {
+  type        = string
+  description = ""
+}
+
+variable "upgrade_gitlab_db_multi_az" {
+  type        = string
+  description = ""
+}
+
+variable "upgrade_gitlab_db_password" {
+  type        = string
+  description = ""
+}
+
+variable "upgrade_gitlab_db_pg_family" {
+  type        = string
+  description = ""
+}
+
+variable "upgrade_gitlab_db_skip_final_snapshot" {
+  type        = string
+  description = ""
+}
+
+variable "upgrade_gitlab_db_storage_type" {
+  type        = string
+  description = ""
+}
+
+variable "upgrade_gitlab_db_username" {
+  type        = string
+  description = ""
+}
+
+
+# Gitlab  EBS
+variable "upgrade_gitlab_ebs_volume_size" {
+  type        = string
+  description = ""
+}
+
+variable "upgrade_gitlab_ebs_volume_type" {
+  type        = string
+  description = ""
+}
+
+
+# Gitlab  ELB
+variable "upgrade_gitlab_elb_public_public_port" {
+  type        = string
+  description = ""
+}
+
+variable "upgrade_gitlab_elb_public_public_protocol" {
+  type        = string
+  description = ""
+}
+
+
+# Gitlab Subnets
+variable "upgrade_gitlab_elb_subnets_cidrs" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
+
+variable "upgrade_gitlab_elb_private_subnets_cidrs" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
+
+variable "upgrade_gitlab_subnets_cidrs" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
+
+
+# Gitlab Redis
+variable "upgrade_gitlab_redis_subnets_cidrs" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
+
+variable "upgrade_gitlab_redis_endpoint_address" {
+  type        = string
+  description = ""
+}
+
+variable "upgrade_gitlab_redis_engine_version" {
+  type        = string
+  description = ""
+}
+
+variable "upgrade_gitlab_redis_maintenance_window" {
+  type        = string
+  description = ""
+}
+
+variable "upgrade_gitlab_redis_node_type" {
+  type        = string
+  description = ""
+}
+
+variable "upgrade_gitlab_redis_parameter_group_name" {
+  type        = string
+  description = ""
+}
+
+variable "upgrade_gitlab_redis_snapshot_retention_limit" {
+  type        = string
+  description = ""
+}
+
+variable "upgrade_gitlab_redis_snapshot_window" {
+  type        = string
+  description = ""
+}
+####################################
+# End Gitlab Upgrade Testing
+####################################
