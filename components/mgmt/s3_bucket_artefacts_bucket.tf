@@ -1,13 +1,25 @@
-module "artefacts_bucket" {
-  source     = "../../modules/standard-bucket"
-  log_bucket = aws_s3_bucket.bucketlogs.id
-  name       = "${local.csi_global}-artefacts"
+resource "aws_s3_bucket" "artefacts" {
+    bucket     = "${local.csi_global}-artefacts"
+    acl        = "private"
 
-  tags = merge(
-    local.default_tags,
-    {
-      "Name" = "${local.csi_global}-artefacts"
-    },
-  )
+    versioning {
+        enabled = true
+    }
+
+    tags = merge(
+        local.default_tags,
+        {
+            "Name" = "${local.csi_global}-artefacts"
+        },
+    )
+
+    lifecycle_rule {
+        id      = "wars_file_90_days_rentention"
+        prefix  = "release-candidates/applications/"
+        enabled = true
+        
+        expiration {
+    	    days = 90
+        } 
+    }
 }
-
