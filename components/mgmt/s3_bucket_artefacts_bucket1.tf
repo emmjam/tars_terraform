@@ -19,7 +19,7 @@ resource "aws_s3_bucket" "artefacts" {
         enabled = true
         
         expiration {
-        days = 90
-    } 
- }
+    	    days = 90
+        } 
+    }
 }
