@@ -391,7 +391,7 @@ upgrade_gitlab_elb_subnets_cidrs = ["10.200.5.16/28"]
 
 upgrade_gitlab_elb_private_subnets_cidrs = ["10.200.5.128/28"]
 
-upgrade_gitlab_db_db_name                 = "ug-gitlab"
+upgrade_gitlab_db_db_name                 = "uggitlab"
 upgrade_gitlab_db_allocated_storage       = "20"
 upgrade_gitlab_db_storage_type            = "gp2"
 upgrade_gitlab_db_engine_version          = "9.6.11"
