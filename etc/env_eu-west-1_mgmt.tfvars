@@ -417,7 +417,7 @@ upgrade_gitlab_redis_node_type                = "cache.m3.medium"
 upgrade_gitlab_redis_maintenance_window       = "sun:04:00-sun:07:00"
 upgrade_gitlab_redis_snapshot_window          = "00:00-03:00"
 upgrade_gitlab_redis_snapshot_retention_limit = 0                                                           # backups turned off
-upgrade_gitlab_redis_endpoint_address         = "TBC" # endpoint address is not revealable yet
+upgrade_gitlab_redis_endpoint_address         = "tars-mgmt-mgmtug-gitlab.pciqxb.0001.euw1.cache.amazonaws.com" # endpoint address is not revealable yet
 
 
 upgrade_gitlab_redis_subnets_cidrs = [
