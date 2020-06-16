@@ -15,13 +15,13 @@ data "aws_iam_policy_document" "gitlab" {
 }
 
 resource "aws_iam_policy" "gitlab" {
-  name        = "${var.project}-${var.environment}-${var.component}-gitlab"
-  description = "IAM policy for ${var.project}-${var.environment}-${var.component}-gitlab"
+  name        = "${var.project}-${var.environment}-${var.component}-${var.name}"
+  description = "IAM policy for ${var.project}-${var.environment}-${var.component}-${var.name}"
   policy      = data.aws_iam_policy_document.gitlab.json
 }
 
 resource "aws_iam_policy_attachment" "gitlab" {
-  name = "${var.project}-${var.environment}-${var.component}-gitlab"
+  name = "${var.project}-${var.environment}-${var.component}-${var.name}"
   # TF-UPGRADE-TODO: In Terraform v0.10 and earlier, it was sometimes necessary to
   # force an interpolation expression to be interpreted as a list by wrapping it
   # in an extra set of list brackets. That form was supported for compatibility in
