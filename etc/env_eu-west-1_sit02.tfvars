@@ -335,7 +335,7 @@ cpc_rds_password = "Mg28yDQjuEWndbtz"
 
 # CPCTSDB
 cpc_rds_allocated_storage = "100"
-cpc_rds_snapshot = "tars-sit01-cpc-cpcdb-20190226-5-4-0-2"
+cpc_rds_snapshot = "cpc-cpcdb-20190315-5-4-0-1"
 
 # IBSDB
 ibs_rds_username = "ibsuatadmin"
