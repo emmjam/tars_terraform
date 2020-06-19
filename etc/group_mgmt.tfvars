@@ -84,6 +84,7 @@ administrators_tssops_users = [
   "ian.harris@bjss.com",
   "irfan.sidat@bjss.com",
   "david.walsh@bjss.com",
+  "seun.adiomowo@bjss.com",
 ]
 
 readonly_tssops_users = [
@@ -106,6 +107,7 @@ readonly_tssops_users = [
   "david.walsh@bjss.com",
   "rebecca.howell@bjss.com",
   "usman.rasool@bjss.com",
+  "seun.adiomowo@bjss.com",
 ]
 
 # TARS Platform Access
@@ -116,7 +118,6 @@ administrators_platform_users = [
   "michelle.pike@bjss.com",
   "callum.massey@bjss.com",
   "michael.tribbick@bjss.com",
-  "seun.adiomowo@bjss.com",
   "stephen.davies@bjss.com",
 ]
 
