@@ -313,28 +313,19 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 
 # TARSDB
 tars_rds_username = "tarsdevadmin"
-
 tars_rds_password = "password"
-
-# TARSDB
 tars_rds_allocated_storage = "20" # 20 Gigabyte - was 1500GB
 tars_rds_snapshot = "tars-dev01-tars-core-tarsdb-5-4-2019-5-7-0-2"
 
 # CPCSDB
 cpc_rds_username = "tarscpcadmin"
-
 cpc_rds_password = "YwBWc8HvweT3Lun8"
-
-# CPCTSDB
 cpc_rds_allocated_storage = "20" # 20 Gigabyte - was 1500GB
 cpc_rds_snapshot = "tars-dev01-cpc-cpcdb-5-4-2019-5-7-0-2"
 
-
 # IBSDB
 ibs_rds_username = "ibsdevadmin"
-
 ibs_rds_password = "password"
-
 ibs_rds_snapshot = "dev01-ibs-subnet-move"
 
 # MISDB
@@ -366,176 +357,6 @@ transit_peering_enabled = false
 ad_peering_enabled = true
 ad_peering_vpc = "vpc-02072cb35506d9b73"
 ad_account = "233824316563"
-
-# Target DMS RDS instances
-target_dms_tars_rds_storage_type = "gp2"
-target_dms_tars_rds_engine = "oracle-se2"
-target_dms_tars_rds_engine_version = "12.1.0.2.v16"
-target_dms_tars_rds_instance_class = "db.r4.xlarge" # was "db.m4.4xlarge"
-target_dms_tars_rds_port = "1521"
-target_dms_tars_rds_public = "true"
-target_dms_tars_rds_multi_az = "false" # it takes an age to build if true
-target_dms_tars_rds_backup_retention = "7"
-target_dms_tars_rds_backup_window = "02:38-03:08"
-target_dms_tars_rds_maint_window = "sun:03:16-sun:03:46"
-target_dms_tars_rds_skip_final_snapshot = true
-target_dms_tars_rds_apply_immediately = "true"
-target_dms_tars_rds_license_model = "license-included"
-target_dms_tars_rds_autoscale = "True"
-target_dms_tars_rds_username = "tarsdmsadmin"
-target_dms_tars_rds_password = "password"
-target_dms_tars_rds_allocated_storage = "300"
-target_dms_tars_rds_name = "TARSDB"
-target_dms_tars_rds_snapshot = "tars-dev01-tars-dms-tarsdmstg-20180720"
-
-target_dms_on_prem_tars_rds_snapshot = "tars-dms-target-180704"
-
-target_dms_cpc_rds_storage_type = "gp2"
-target_dms_cpc_rds_engine = "oracle-se2"
-target_dms_cpc_rds_engine_version = "12.1.0.2.v16"
-target_dms_cpc_rds_instance_class = "db.r4.large" # was "db.m4.4xlarge"
-target_dms_cpc_rds_port = "1521"
-target_dms_cpc_rds_public = "true"
-target_dms_cpc_rds_multi_az = "false" # it takes an age to build if true
-target_dms_cpc_rds_backup_retention = "7"
-target_dms_cpc_rds_backup_window = "02:38-03:08"
-target_dms_cpc_rds_maint_window = "sun:03:16-sun:03:46"
-target_dms_cpc_rds_skip_final_snapshot = true
-target_dms_cpc_rds_apply_immediately = "true"
-target_dms_cpc_rds_license_model = "license-included"
-target_dms_cpc_rds_autoscale = "True"
-target_dms_cpc_rds_username = "cpcdmsadmin"
-target_dms_cpc_rds_password = "password"
-target_dms_cpc_rds_allocated_storage = "100"
-target_dms_cpc_rds_name = "CPCDB"
-target_dms_cpc_rds_snapshot = "tars-dev01-tars-dms-cpcdmstg-20180720"
-
-target_dms_on_prem_cpc_rds_snapshot = "cpc-dms-target-180619"
-
-target_dms_rsis_rds_storage_type = "gp2"
-target_dms_rsis_rds_engine = "oracle-se2"
-target_dms_rsis_rds_engine_version = "12.1.0.2.v16"
-target_dms_rsis_rds_instance_class = "db.t3.medium" # was "db.m4.4xlarge"
-target_dms_rsis_rds_port = "1521"
-target_dms_rsis_rds_public = "true"
-target_dms_rsis_rds_multi_az = "false" # it takes an age to build if true
-target_dms_rsis_rds_backup_retention = "7"
-target_dms_rsis_rds_backup_window = "02:38-03:08"
-target_dms_rsis_rds_maint_window = "sun:03:16-sun:03:46"
-target_dms_rsis_rds_skip_final_snapshot = true
-target_dms_rsis_rds_apply_immediately = "true"
-target_dms_rsis_rds_license_model = "license-included"
-target_dms_rsis_rds_autoscale = "True"
-target_dms_rsis_rds_username = "rsisdmsadmin"
-target_dms_rsis_rds_password = "password"
-target_dms_rsis_rds_allocated_storage = "80"
-target_dms_rsis_rds_name = "RSISDB"
-target_dms_rsis_rds_snapshot = "tars-dev01-tars-dms-rsisdmstg-20180720"
-
-target_dms_on_prem_rsis_rds_snapshot = "rsis-dms-target-180628"
-
-target_dms_mis_rds_storage_type = "gp2"
-target_dms_mis_rds_engine = "oracle-se2"
-target_dms_mis_rds_engine_version = "12.1.0.2.v16"
-target_dms_mis_rds_instance_class = "db.t3.medium" # was "db.m4.4xlarge"
-target_dms_mis_rds_port = "1521"
-target_dms_mis_rds_public = "true"
-target_dms_mis_rds_multi_az = "false" # it takes an age to build if true
-target_dms_mis_rds_backup_retention = "7"
-target_dms_mis_rds_backup_window = "02:38-03:08"
-target_dms_mis_rds_maint_window = "sun:03:16-sun:03:46"
-target_dms_mis_rds_skip_final_snapshot = true
-target_dms_mis_rds_apply_immediately = "true"
-target_dms_mis_rds_license_model = "license-included"
-target_dms_mis_rds_autoscale = "True"
-target_dms_mis_rds_username = "misdmsadmin"
-target_dms_mis_rds_password = "password"
-target_dms_mis_rds_allocated_storage = "300"
-target_dms_mis_rds_name = "MISDB"
-target_dms_mis_rds_snapshot = "tars-dev01-tars-dms-misdmstg-20180720"
-
-target_dms_on_prem_mis_rds_snapshot = "tars-dev01-tars-dms-misopdmstg-20180720"
-
-# Source DMS RDS instances
-source_dms_tars_rds_storage_type = "gp2"
-source_dms_tars_rds_engine = "oracle-se2"
-source_dms_tars_rds_engine_version = "12.1.0.2.v16"
-source_dms_tars_rds_instance_class = "db.t3.medium" # was "db.m4.4xlarge"
-source_dms_tars_rds_port = "1521"
-source_dms_tars_rds_public = "true"
-source_dms_tars_rds_multi_az = "false" # it takes an age to build if true
-source_dms_tars_rds_backup_retention = "7"
-source_dms_tars_rds_backup_window = "02:38-03:08"
-source_dms_tars_rds_maint_window = "sun:03:16-sun:03:46"
-source_dms_tars_rds_skip_final_snapshot = true
-source_dms_tars_rds_apply_immediately = "true"
-source_dms_tars_rds_license_model = "license-included"
-source_dms_tars_rds_autoscale = "True"
-source_dms_tars_rds_username = "tarsuatadmin"
-source_dms_tars_rds_password = "jZKS9PsapxXfkg8a"
-source_dms_tars_rds_allocated_storage = "300"
-source_dms_tars_rds_name = "TARSDB"
-source_dms_tars_rds_snapshot = "tarsuatdms-07062018"
-
-source_dms_cpc_rds_storage_type = "gp2"
-source_dms_cpc_rds_engine = "oracle-se2"
-source_dms_cpc_rds_engine_version = "12.1.0.2.v16"
-source_dms_cpc_rds_instance_class = "db.t3.medium" # was "db.m4.4xlarge"
-source_dms_cpc_rds_port = "1521"
-source_dms_cpc_rds_public = "true"
-source_dms_cpc_rds_multi_az = "false" # it takes an age to build if true
-source_dms_cpc_rds_backup_retention = "7"
-source_dms_cpc_rds_backup_window = "02:38-03:08"
-source_dms_cpc_rds_maint_window = "sun:03:16-sun:03:46"
-source_dms_cpc_rds_skip_final_snapshot = true
-source_dms_cpc_rds_apply_immediately = "true"
-source_dms_cpc_rds_license_model = "license-included"
-source_dms_cpc_rds_autoscale = "True"
-source_dms_cpc_rds_username = "cpcuatadmin"
-source_dms_cpc_rds_password = "Mg28yDQjuEWndbtz"
-source_dms_cpc_rds_allocated_storage = "100"
-source_dms_cpc_rds_name = "CPCDB"
-source_dms_cpc_rds_snapshot = "tars-dev01-tars-dms-cpcdmssc-20180720"
-
-source_dms_rsis_rds_storage_type = "gp2"
-source_dms_rsis_rds_engine = "oracle-se2"
-source_dms_rsis_rds_engine_version = "12.1.0.2.v16"
-source_dms_rsis_rds_instance_class = "db.t3.medium" # was "db.m4.4xlarge"
-source_dms_rsis_rds_port = "1521"
-source_dms_rsis_rds_public = "true"
-source_dms_rsis_rds_multi_az = "false" # it takes an age to build if true
-source_dms_rsis_rds_backup_retention = "7"
-source_dms_rsis_rds_backup_window = "02:38-03:08"
-source_dms_rsis_rds_maint_window = "sun:03:16-sun:03:46"
-source_dms_rsis_rds_skip_final_snapshot = true
-source_dms_rsis_rds_apply_immediately = "true"
-source_dms_rsis_rds_license_model = "license-included"
-source_dms_rsis_rds_autoscale = "True"
-source_dms_rsis_rds_username = "tarsrsisadmin"
-source_dms_rsis_rds_password = "FC2Vyu8ejnWCKfYU"
-source_dms_rsis_rds_allocated_storage = "80"
-source_dms_rsis_rds_name = "RSISDB"
-source_dms_rsis_rds_snapshot = "tars-dev01-tars-dms-rsisdmssc-20180719"
-
-source_dms_mis_rds_storage_type = "gp2"
-source_dms_mis_rds_engine = "oracle-se2"
-source_dms_mis_rds_engine_version = "12.1.0.2.v16"
-source_dms_mis_rds_instance_class = "db.t3.medium" # was "db.m4.4xlarge"
-source_dms_mis_rds_port = "1521"
-source_dms_mis_rds_public = "true"
-source_dms_mis_rds_multi_az = "false" # it takes an age to build if true
-source_dms_mis_rds_backup_retention = "7"
-source_dms_mis_rds_backup_window = "02:38-03:08"
-source_dms_mis_rds_maint_window = "sun:03:16-sun:03:46"
-source_dms_mis_rds_skip_final_snapshot = true
-source_dms_mis_rds_apply_immediately = "true"
-source_dms_mis_rds_license_model = "license-included"
-source_dms_mis_rds_autoscale = "True"
-source_dms_mis_rds_username = "misuatadmin"
-source_dms_mis_rds_password = "W53dBTJhdsdAuf3V"
-source_dms_mis_rds_allocated_storage = "300"
-source_dms_mis_rds_name = "MISDB"
-source_dms_mis_rds_snapshot = "misuat01-060418"
 
 # These names will be added to our private zone so we can resolve them.
 dsa-drora-db-rac01 = "10.86.192.16"
