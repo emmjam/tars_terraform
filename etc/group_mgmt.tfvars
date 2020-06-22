@@ -164,7 +164,6 @@ billing_users = [
 
 readonly_appsupport_users = [
   "billy.dhillon@bjss.com",
-  "winston.coleman@bjss.com",
   "steven.millington@bjss.com",
   "andrew.malcolm@bjss.com",
   "chris.peska@bjss.com",
@@ -177,11 +176,13 @@ qaengineer_users = [
   "john.reynolds@bjss.com",
   "richard.freitas@bjss.com",
   "john.morley@bjss.com",
+  "winston.coleman@bjss.com",
 ]
 
 readonly_qaengineer_users = [
   "balkar.bains@bjss.com",
   "john.reynolds@bjss.com",
+  "winston.coleman@bjss.com",
 ]
 
 # DBA Access
