@@ -21,7 +21,7 @@ module "upgrade_gitlab_test" {
   domain_name = "${var.component}.${local.vpc_domain_name}"
   
   lc_instance_type = var.upgrade_gitlab_instance_type
-  lc_ami_id        = data.aws_ami.gitlab.image_id
+  lc_ami_id        = var.upgrade_gitlab_ami_build_id
 
   lc_additional_sg_ids = [
     aws_security_group.common.id,
