@@ -515,7 +515,7 @@ nexus_config = {
   asg_min       = "0"
   asg_max       = "1"
   asg_desired   = "1"
-  instance_type = "t3.small"
+  instance_type = "t3.medium"
   listen_port   = "8081"
   nexus_ami_build_id = "662"
 }
