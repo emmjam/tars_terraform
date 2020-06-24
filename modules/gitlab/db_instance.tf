@@ -9,7 +9,9 @@ resource "aws_db_instance" "gitlab" {
 
   vpc_security_group_ids = [aws_security_group.db.id]
   db_subnet_group_name   = aws_db_subnet_group.gitlab.name
-  parameter_group_name   = aws_db_parameter_group.gitlab.name
+  # parameter_group_name   = aws_db_parameter_group.gitlab.name
+  parameter_group_name   = var.db_pg_family == "postgres11" ? aws_db_parameter_group.gitlab_pg_11.name : aws_db_parameter_group.gitlab.name
+
 
   name                    = var.db_name
   allocated_storage       = var.db_allocated_storage
