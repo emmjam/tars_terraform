@@ -411,8 +411,8 @@ upgrade_gitlab_db_subnets_cidrs = [
   "10.200.5.64/28",
 ]
 
-upgrade_gitlab_redis_engine_version           = "3.2.4"
-upgrade_gitlab_redis_parameter_group_name     = "default.redis3.2"
+upgrade_gitlab_redis_engine_version           = "5.0.6"
+upgrade_gitlab_redis_parameter_group_name     = "default.redis5.0"
 upgrade_gitlab_redis_node_type                = "cache.m3.medium"
 upgrade_gitlab_redis_maintenance_window       = "sun:04:00-sun:07:00"
 upgrade_gitlab_redis_snapshot_window          = "00:00-03:00"
