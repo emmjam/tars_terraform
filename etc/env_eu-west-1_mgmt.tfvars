@@ -372,7 +372,7 @@ gitlab_redis_subnets_cidrs = [
 ## Gitlab Upgrade Testing
 
 upgrade_gitlab_instance_type        = "m4.large"
-upgrade_gitlab_ami_build_id         = "ami-0f59f6ed8805288c3"
+upgrade_gitlab_ami_build_id         = "ami-074b1c005a7c0830a"
 upgrade_gitlab_asg_min_size         = 0
 upgrade_gitlab_asg_max_size         = 1
 upgrade_gitlab_ebs_volume_type      = "gp2"
