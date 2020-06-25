@@ -13,11 +13,9 @@ default_tags = {
 
 new_all_users = [
   "adam.hall@bjss.com",
-  "adrian.riley@bjss.com",
   "aiman.chaudhary@bjss.com",
   "alice.haws@dvsa.gov.uk",
   "andrew.malcolm@bjss.com",
-  "andy.white2@bjss.com",
   "arthur.coombes@bjss.com",
   "balkar.bains@bjss.com",
   "billy.dhillon@bjss.com",
@@ -133,10 +131,8 @@ readonly_platform_users = [
 # Developer Access
 
 readonly_developer_users = [
-  "andy.white2@bjss.com",
   "david.woodley@bjss.com",
   "hamzaan.bridle@bjss.com",
-  "adrian.riley@bjss.com",
   "joseph.burgess@bjss.com",
   "chris.nappin@bjss.com",
   "josh.paveley@bjss.com",
