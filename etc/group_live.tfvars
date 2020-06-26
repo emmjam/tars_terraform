@@ -133,10 +133,10 @@ wildfly-front_scaleup_recurrence   = "00 08 * * 1-5"
 obs_instance_type        = "m4.large"
 obs_puppet_nodetype      = "obs"
 obs_asg_min_size         = 0
-obs_asg_max_size         = 2
-obs_scaledown_desired    = 2
+obs_asg_max_size         = 8
+obs_scaledown_desired    = 8
 obs_scaledown_recurrence = "00 18 * * 1-5"
-obs_scaleup_desired      = 2
+obs_scaleup_desired      = 8
 obs_scaleup_recurrence   = "00 08 * * 1-5"
 
 ## ibs
