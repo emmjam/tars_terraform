@@ -121,6 +121,9 @@ else
   log 'ERROR' 'Bootstrap abandon for nodetype: ${NODETYPE}'
 fi
 
+sed -i -e "s|production|${ENVIRONMENT}|g" /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.toml
+/etc/init.d/cloudwatch restart
+
 # Sure would be lovely if date could give unix time 
 # in milliseconds
 timestamp=$(($(date +'%s * 1000 + %-N / 1000000')))
