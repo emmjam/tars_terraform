@@ -372,7 +372,7 @@ gitlab_redis_subnets_cidrs = [
 ## Gitlab Upgrade Testing
 
 upgrade_gitlab_instance_type        = "m4.large"
-upgrade_gitlab_ami_build_id         = "ami-01b71a27d0aedfeaf"
+upgrade_gitlab_ami_build_id         = "ami-308ed749"
 upgrade_gitlab_asg_min_size         = 0
 upgrade_gitlab_asg_max_size         = 1
 upgrade_gitlab_ebs_volume_type      = "gp2"
@@ -394,7 +394,7 @@ upgrade_gitlab_elb_private_subnets_cidrs = ["10.200.5.128/28"]
 upgrade_gitlab_db_db_name                 = "uggitlab"
 upgrade_gitlab_db_allocated_storage       = "20"
 upgrade_gitlab_db_storage_type            = "gp2"
-upgrade_gitlab_db_engine_version          = "11.7"
+upgrade_gitlab_db_engine_version          = "9.6.11"
 upgrade_gitlab_db_instance_class          = "db.t3.medium"
 upgrade_gitlab_db_multi_az                = true
 upgrade_gitlab_db_username                = "gitLabAdmin"
@@ -403,7 +403,7 @@ upgrade_gitlab_db_backup_retention_period = 14
 upgrade_gitlab_db_backup_window           = "01:00-02:00"
 upgrade_gitlab_db_maintenance_window      = "Sun:03:00-Sun:06:00"
 upgrade_gitlab_db_skip_final_snapshot     = false
-upgrade_gitlab_db_pg_family               = "postgres11"
+upgrade_gitlab_db_pg_family               = "postgres9.6"
 
 upgrade_gitlab_db_subnets_cidrs = [
   "10.200.5.32/28",
@@ -411,8 +411,8 @@ upgrade_gitlab_db_subnets_cidrs = [
   "10.200.5.64/28",
 ]
 
-upgrade_gitlab_redis_engine_version           = "5.0.6"
-upgrade_gitlab_redis_parameter_group_name     = "default.redis5.0"
+upgrade_gitlab_redis_engine_version           = "3.2.4"
+upgrade_gitlab_redis_parameter_group_name     = "default.redis3.2"
 upgrade_gitlab_redis_node_type                = "cache.m3.medium"
 upgrade_gitlab_redis_maintenance_window       = "sun:04:00-sun:07:00"
 upgrade_gitlab_redis_snapshot_window          = "00:00-03:00"
