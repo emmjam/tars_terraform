@@ -1012,3 +1012,9 @@ variable "dlm_retain_rule" {
   type        = string
   description = "How many backups to retain"
 }
+
+variable "ibs1_ibs2_redirect_env" {
+  type        = list(string)
+  description = ""
+  default     = []
+}

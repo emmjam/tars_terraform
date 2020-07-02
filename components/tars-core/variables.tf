@@ -505,3 +505,9 @@ variable "rds_cw_metric_alarm_action_enabled" {
   default     = "false"
   description = "Enable action to OpsGenie for rds CloudWatch metric alarm"
 }
+
+variable "ibs1_ibs2_redirect_env" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
