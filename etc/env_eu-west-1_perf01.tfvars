@@ -506,3 +506,6 @@ rds_cw_metric_alarm_enabled = false
 
 # Enable action for RDS CloudWatch Alarm
 rds_cw_metric_alarm_action_enabled = false
+
+#Introduced for gatling
+jenkinsnode_instance_type        = "m3.medium"
