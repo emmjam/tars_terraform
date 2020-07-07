@@ -31,3 +31,7 @@ output "tars-apache-dns-zone-id" {
   value = aws_alb.apache_public.zone_id
 }
 
+output "tars-apache-autoscaling-group-name" {
+  value = module.apache.autoscaling_group_name
+}
+
