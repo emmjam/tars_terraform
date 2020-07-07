@@ -662,3 +662,9 @@ variable "efs_dbretention_env" {
   description = ""
   default     = []
 }
+
+variable "perf_jenkinsnode" {
+  type        = list(string)
+  description = ""
+  default     = []
+}

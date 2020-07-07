@@ -87,6 +87,26 @@ resource "aws_security_group_rule" "core_ingress_jenkinsnode_ssh" {
   source_security_group_id = module.jenkinsnode.security_group_id
 }
 
+resource "aws_security_group_rule" "core_ingress_jenkinsnode_80" {
+  count                    = contains(var.perf_jenkinsnode, var.environment) ? 1 : 0
+  type                     = "ingress"
+  protocol                 = "tcp"
+  from_port                = "80"
+  to_port                  = "80"
+  security_group_id        = aws_security_group.core.id
+  source_security_group_id = module.jenkinsnode.security_group_id
+}
+
+resource "aws_security_group_rule" "core_ingress_jenkinsnode_443" {
+  count                    = contains(var.perf_jenkinsnode, var.environment) ? 1 : 0
+  type                     = "ingress"
+  protocol                 = "tcp"
+  from_port                = "443"
+  to_port                  = "443"
+  security_group_id        = aws_security_group.core.id
+  source_security_group_id = module.jenkinsnode.security_group_id
+}
+
 resource "aws_security_group_rule" "core_egress_squidnat_explicit" {
   type                     = "egress"
   protocol                 = "tcp"

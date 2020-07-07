@@ -100,3 +100,7 @@ ibs1_ibs2_redirect_env  = [
   "prep",
   "prod"
 ]
+
+perf_jenkinsnode  = [
+  "perf01"
+]
