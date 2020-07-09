@@ -344,3 +344,14 @@ variable "bobj_cert" {
   description = "ACM cert name"
 }
 
+variable "rds_cw_metric_freestoragespace_alarm_action_enabled" {
+  type        = string
+  default     = "false"
+  description = "Enable action for rds CloudWatch metric alarm"
+}
+
+variable "rds_cw_metric_alarm_enabled" {
+  type        = string
+  default     = "false"
+  description = "Enable or disable RDS CloudWatch Metrics"
+}

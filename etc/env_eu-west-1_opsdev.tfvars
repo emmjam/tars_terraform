@@ -307,13 +307,13 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 # TARSDB
 tars_rds_username = "tarsdevadmin"
 tars_rds_password = "password"
-tars_rds_allocated_storage = "20" 
+tars_rds_allocated_storage = "20"
 tars_rds_snapshot = "tars-opsdev-tars-core-tarsdb-5-4-2019-5-7-0-2"
 
 # CPCSDB
 cpc_rds_username = "cpcdevadmin"
 cpc_rds_password = "YwBWc8HvweT3Lun8"
-cpc_rds_allocated_storage = "50" 
+cpc_rds_allocated_storage = "50"
 cpc_rds_snapshot = "tars-opsdev-cpc-cpcdb-5-4-2019-5-7-0-2"
 
 # IBSDB
@@ -389,7 +389,8 @@ mes_api_cidr_block = [
 alert_logic = ""
 
 # RDS CloudWatch Monitoring
-rds_cw_metric_alarm_enabled = false
+rds_cw_metric_alarm_enabled = true
 
 # Enable action for RDS CloudWatch Alarm
 rds_cw_metric_alarm_action_enabled = false
+rds_cw_metric_freestoragespace_alarm_action_enabled = true

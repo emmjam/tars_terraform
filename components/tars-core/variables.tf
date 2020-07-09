@@ -506,6 +506,12 @@ variable "rds_cw_metric_alarm_action_enabled" {
   description = "Enable action to OpsGenie for rds CloudWatch metric alarm"
 }
 
+variable "rds_cw_metric_freestoragespace_alarm_action_enabled" {
+  type        = string
+  default     = "false"
+  description = "Enable action for rds CloudWatch metric alarm"
+}
+
 variable "ibs1_ibs2_redirect_env" {
   type        = list(string)
   description = ""
