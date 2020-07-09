@@ -25,4 +25,8 @@ resource "aws_rds_cluster_parameter_group" "ibs-cluster-parameter-group-2020-04-
     value = "CONNECT,QUERY,TABLE"
   }
 
+  parameter {
+    name  = "event_scheduler"
+    value = "ON"
+  }
 }
