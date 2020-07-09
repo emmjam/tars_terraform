@@ -506,8 +506,3 @@ rds_cw_metric_alarm_enabled = false
 
 # Enable action for RDS CloudWatch Alarm
 rds_cw_metric_alarm_action_enabled = false
-
-#Introduced for gatling
-jenkinsnode_instance_type        = "m3.medium"
-jenkinsnode_ami_build_id         = "815"
-squidnat_ami_build_id            = "816"
