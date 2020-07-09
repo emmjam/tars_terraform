@@ -36,7 +36,7 @@ resource "aws_rds_cluster_instance" "ibsdb_instance" {
   instance_class          = var.ibs_rds_instance_class
   db_subnet_group_name    = aws_db_subnet_group.ibsdb.name
   publicly_accessible     = true
-  db_parameter_group_name = aws_rds_cluster_parameter_group.ibs-cluster-writer-par-group-2020-04-17.name 
+  db_parameter_group_name = aws_db_parameter_group.ibs-cluster-writer-par-group-2020-04-17.name 
 
   tags = merge(
     local.default_tags,
