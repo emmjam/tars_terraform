@@ -10,11 +10,11 @@ resource "aws_cloudwatch_metric_alarm" "rds_rsis_freestoragespace_average" {
     DBInstanceIdentifier    = aws_db_instance.rsisdb.id
   }
 
-  period               = "60"
+  period               = "300"
   statistic            = "Average"
-  threshold            = "90"
-  unit                 = "Percent"
-  alarm_description    = "Alarm when the Average RDS Free Storage Space exceeds 90% for a period of 1 minutes."
+  threshold            = "5000000000" # 5GiB
+  unit                 = "Bytes"
+  alarm_description    = "Alarm when the Average RDS Free Storage Space is less than or equal to 5GB for a period of 5 minutes."
   actions_enabled      = var.rds_cw_metric_freestoragespace_alarm_action_enabled
   alarm_actions        = [data.terraform_remote_state.base.outputs.sns_alerts_arn]
 }
