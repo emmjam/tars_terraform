@@ -336,7 +336,7 @@ gitlab_elb_private_subnets_cidrs = ["10.200.2.128/28"]
 gitlab_db_db_name                 = "gitlab"
 gitlab_db_allocated_storage       = "20"
 gitlab_db_storage_type            = "gp2"
-gitlab_db_engine_version          = "9.6.11"
+gitlab_db_engine_version          = "11.1"
 gitlab_db_instance_class          = "db.t3.medium"
 gitlab_db_multi_az                = true
 gitlab_db_username                = "gitLabAdmin"
@@ -345,7 +345,7 @@ gitlab_db_backup_retention_period = 14
 gitlab_db_backup_window           = "01:00-02:00"
 gitlab_db_maintenance_window      = "Sun:03:00-Sun:06:00"
 gitlab_db_skip_final_snapshot     = false
-gitlab_db_pg_family               = "postgres9.6"
+gitlab_db_pg_family               = "postgres11"
 
 gitlab_db_subnets_cidrs = [
   "10.200.2.32/28",
