@@ -353,8 +353,8 @@ gitlab_db_subnets_cidrs = [
   "10.200.2.64/28",
 ]
 
-gitlab_redis_engine_version           = "3.2.4"
-gitlab_redis_parameter_group_name     = "default.redis3.2"
+gitlab_redis_engine_version           = "5.0.6"
+gitlab_redis_parameter_group_name     = "default.redis5.0"
 gitlab_redis_node_type                = "cache.m3.medium"
 gitlab_redis_maintenance_window       = "sun:04:00-sun:07:00"
 gitlab_redis_snapshot_window          = "00:00-03:00"
