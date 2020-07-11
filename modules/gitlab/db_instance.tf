@@ -13,7 +13,6 @@ resource "aws_db_instance" "gitlab" {
 
   # these two attributes are being set specifically for the gitlab upgrade - cleanup and remove once completed.
   parameter_group_name   = var.db_pg_family == "postgres11" ? aws_db_parameter_group.gitlab_pg_11.name : aws_db_parameter_group.gitlab.name
-  allow_major_version_upgrade = var.db_pg_family == "postgres11" ? true : false
 
   name                    = var.db_name
   allocated_storage       = var.db_allocated_storage
