@@ -572,6 +572,7 @@ tars_dms_publicly_accessible = false
 tars_dms_replication_instance_class = "dms.t2.medium"
 
 # IBSDB
+# value is overridden for perf to match prod & prep
 ibs_rds_instance_class = "db.t2.small" //Aurora doesn't support t2.micro
 ibs_rds_backup_retention_period = "7"
 ibs_rds_backup_window = "02:38-03:08"
