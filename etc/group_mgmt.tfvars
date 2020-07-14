@@ -59,6 +59,7 @@ new_all_users = [
   "chris.peska@bjss.com",
   "seun.adiomowo@bjss.com",
   "stephen.davies@bjss.com",
+  "nadeem.khan@bjss.com",
 ]
 
 # TSSOps Access
@@ -81,6 +82,7 @@ administrators_tssops_users = [
   "irfan.sidat@bjss.com",
   "david.walsh@bjss.com",
   "seun.adiomowo@bjss.com",
+  "nadeem.khan@bjss.com",
 ]
 
 readonly_tssops_users = [
@@ -103,6 +105,7 @@ readonly_tssops_users = [
   "rebecca.howell@bjss.com",
   "usman.rasool@bjss.com",
   "seun.adiomowo@bjss.com",
+  "nadeem.khan@bjss.com",
 ]
 
 # TARS Platform Access
