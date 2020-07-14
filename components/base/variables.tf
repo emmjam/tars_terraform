@@ -668,3 +668,8 @@ variable "perf_jenkinsnode" {
   description = ""
   default     = []
 }
+
+variable "jmeter_ami_build_id" {
+  type        = string
+  description = "AMI Build number to use for jmeter"
+}

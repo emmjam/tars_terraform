@@ -80,7 +80,7 @@ data "aws_ami" "jmeter" {
         var.project,
         "amzn",
         "jmeter",
-        "*"
+        var.jmeter_ami_build_id,
       )
     ]
   }
