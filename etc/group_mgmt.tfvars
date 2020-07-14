@@ -60,6 +60,8 @@ new_all_users = [
   "seun.adiomowo@bjss.com",
   "stephen.davies@bjss.com",
   "nadeem.khan@bjss.com",
+  "ryu.sasai@bjss.com",
+  "yathursan.kailainathan@bjss.com",
 ]
 
 # TSSOps Access
@@ -140,6 +142,8 @@ readonly_developer_users = [
   "richard.freitas@bjss.com",
   "john.morley@bjss.com",
   "elliot.brown@bjss.com",
+  "ryu.sasai@bjss.com",
+  "yathursan.kailainathan@bjss.com",
 ]
 
 # DVSA Access
