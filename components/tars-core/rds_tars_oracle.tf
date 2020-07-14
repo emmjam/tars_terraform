@@ -24,6 +24,7 @@ resource "aws_db_instance" "tarsdb" {
   option_group_name           = "${local.csi}-${var.tars_rds_option_group_name}"
   name                        = var.tars_rds_sid_name
   deletion_protection         = var.tars_rds_delete_protect
+  enabled_cloudwatch_logs_exports = ["alert", "listener"]
 
   vpc_security_group_ids = [
     aws_security_group.tars-core-db.id,

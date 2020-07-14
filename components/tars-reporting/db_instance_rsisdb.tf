@@ -23,6 +23,7 @@ resource "aws_db_instance" "rsisdb" {
   option_group_name         = aws_db_option_group.rsis.id
   name                      = var.rsis_rds_sid_name
   deletion_protection       = var.risdb_rds_delete_protect
+  enabled_cloudwatch_logs_exports = ["alert", "listener"]
 
   timeouts {
     update = "6h"

@@ -23,6 +23,7 @@ resource "aws_db_instance" "misdb" {
   option_group_name         = aws_db_option_group.mis.id
   name                      = var.mis_rds_sid_name
   deletion_protection       = var.misdb_rds_delete_protect
+  enabled_cloudwatch_logs_exports = ["alert", "listener"]
 
   vpc_security_group_ids = [
     aws_security_group.tars-mis-db.id,
