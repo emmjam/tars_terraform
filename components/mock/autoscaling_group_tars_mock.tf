@@ -1,6 +1,6 @@
 # AGS for TARS Mock server
 resource "aws_autoscaling_group" "tars-mock" {
-  name_prefix          = "${local.csi}-wf-mock-"
+  name                 = format("%s/%s", local.csi, "mock")
   launch_configuration = aws_launch_configuration.tars-mock.id
   max_size             = var.wildfly-mock_asg_max_size
   min_size             = var.wildfly-mock_asg_min_size
@@ -22,12 +22,12 @@ resource "aws_autoscaling_group" "tars-mock" {
       [
         {
           "key"                 = "Name"
-          "value"               = "${local.csi}-wf-mock"
+          "value"               = format("%s/%s", local.csi, "mock")
           "propagate_at_launch" = "true"
         },
         {
           "key"                 = "Nodetype"
-          "value"               = "wildfly"
+          "value"               = "wildfly-mock"
           "propagate_at_launch" = "true"
         },
         {

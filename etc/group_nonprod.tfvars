@@ -173,7 +173,7 @@ wildfly-messaging_scaleup_desired      = 1
 wildfly-messaging_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## wildfly-mock
-wildfly-mock_instance_type        = "m3.medium"
+wildfly-mock_instance_type        = "t3.medium"
 wildfly-mock_puppet_nodetype      = "mock"
 wildfly-mock_asg_min_size         = 0
 wildfly-mock_asg_max_size         = 1
