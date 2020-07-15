@@ -583,3 +583,6 @@ dc_vif_asn = "64515"
 
 # TSS Opsgenie
 opsgenie_endpoint = "https://api.opsgenie.com/v1/json/amazonsns?apiKey=4cb725d3-32c1-47ae-b3b7-e38187fb9202"
+
+#Jmeter
+jmeter_ami_build_id               = "829"
