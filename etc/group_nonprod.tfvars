@@ -221,7 +221,7 @@ bobj_instance_type = "m5.xlarge"
 ## Xenco
 xenco_key_name = ""
 xenco_asg_max_size = "1"
-xenco_asg_min_size = "1"
+xenco_asg_min_size = "0"
 xenco_instance_type = "t2.small"
 
 
