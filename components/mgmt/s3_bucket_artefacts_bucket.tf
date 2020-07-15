@@ -28,3 +28,46 @@ resource "aws_s3_bucket" "artefacts" {
     },
   )
 }
+
+data "aws_iam_policy_document" "artefacts" {
+  statement {
+    sid = "AllAccountsArtefactList"
+
+    resources = [
+      aws_s3_bucket.artefacts.arn,
+    ]
+
+    actions = [
+      "s3:ListBucket",
+    ]
+
+    principals {
+      type = "AWS"
+
+      identifiers = var.aws_account_ids
+    }
+  }
+
+  statement {
+    sid = "AllAccountsArtefactRead"
+
+    resources = [
+      "${aws_s3_bucket.artefacts.arn}/*",
+    ]
+
+    actions = [
+      "s3:GetObject",
+    ]
+
+    principals {
+      type = "AWS"
+
+      identifiers = var.aws_account_ids
+    }
+  }
+}
+
+resource "aws_s3_bucket_policy" "artefacts" {
+  bucket = aws_s3_bucket.artefacts.id
+  policy = data.aws_iam_policy_document.artefacts.json
+}

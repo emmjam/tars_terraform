@@ -1018,3 +1018,9 @@ variable "ibs1_ibs2_redirect_env" {
   description = ""
   default     = []
 }
+
+variable "ibsdb_monitoring_enabled" {
+  type        = string
+  description = "Whether to monitor IBSDB for concurrent users"
+  default     = "false"
+}
