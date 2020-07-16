@@ -324,7 +324,7 @@ tars_rds_autoscale = "False"
 
 
 # CPCSDB
-cpc_rds_username = "cpcuatadmin"
+cpc_rds_username = "cpcadmin"
 cpc_rds_password = "Mg28yDQjuEWndbtz"
 cpc_rds_allocated_storage = "100"
 cpc_rds_snapshot = "tars-uat01-cpc-cpcdb-2019-05-03-5-5-0-2"
