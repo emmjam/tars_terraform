@@ -62,6 +62,9 @@ new_all_users = [
   "nadeem.khan@bjss.com",
   "ryu.sasai@bjss.com",
   "yathursan.kailainathan@bjss.com",
+  "matthew.turner@bjss.com",
+  "richard.teasdale@bjss.com",
+  "ismahil.khan@bjss.com",
 ]
 
 # TSSOps Access
@@ -108,6 +111,9 @@ readonly_tssops_users = [
   "usman.rasool@bjss.com",
   "seun.adiomowo@bjss.com",
   "nadeem.khan@bjss.com",
+  "matthew.turner@bjss.com",
+  "richard.teasdale@bjss.com",
+  "ismahil.khan@bjss.com",
 ]
 
 # TARS Platform Access
