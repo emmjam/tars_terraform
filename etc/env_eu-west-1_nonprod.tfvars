@@ -91,3 +91,12 @@ jenkinsctrl_scaleup_recurrence   = "15 07 * * 1-5"
 # Alert Logic
 # Enable the shipping of cloud watch logs to Alert Logic.  Empty value equals false
 alert_logic = ""
+
+##
+# Cloudability Cross Account Access
+##
+
+cloudability_xacct = {
+  aws_account_id = "165736516723"
+  external_id    = "9cccdc45-4734-430e-aa94-cff93bb600ac"
+}

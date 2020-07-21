@@ -487,3 +487,12 @@ non_prod_jenkins_cidrs = [
     "10.167.32.0/21",
     "10.167.144.0/21",
 ]
+
+##
+# Cloudability Cross Account Access
+##
+
+cloudability_xacct = {
+  aws_account_id = "165736516723"
+  external_id    = "9cccdc45-4734-430e-aa94-cff93bb600ac"
+}

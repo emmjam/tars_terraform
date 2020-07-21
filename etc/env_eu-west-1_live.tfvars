@@ -127,3 +127,11 @@ alert_logic = ""
 # This is to trigger deployemnt of apology page deployment (s3 buckets, cloudfront) only in prod
 cloudfront_enabled = "1"
 
+##
+# Cloudability Cross Account Access
+##
+
+cloudability_xacct = {
+  aws_account_id = "165736516723"
+  external_id    = "9cccdc45-4734-430e-aa94-cff93bb600ac"
+}

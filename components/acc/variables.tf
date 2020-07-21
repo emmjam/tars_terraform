@@ -154,3 +154,13 @@ variable "cloudfront_enabled" {
 
   default = "0"
 }
+
+##
+# Cloudability Cross Account Access
+##
+
+variable "cloudability_xacct" {
+  type        = "map"
+  description = "The information needed to permit cross account access from Cloudability. Requires aws_account_id and external_id"
+  default     = {}
+}
