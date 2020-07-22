@@ -13,6 +13,7 @@ resource "aws_rds_cluster" "ibsdb_cluster" {
   deletion_protection             = var.ibsdb_cluster_delete_protect
   db_cluster_parameter_group_name = aws_rds_cluster_parameter_group.ibs-cluster-parameter-group-2020-04-17.name
   iam_roles                       = [ "${aws_iam_role.ibs_rds_role.arn}"]
+  apply_immediately               = var.ibs_rds_apply_immediately
   vpc_security_group_ids = [
     aws_security_group.ibs_aurora.id,
   ]
@@ -36,7 +37,8 @@ resource "aws_rds_cluster_instance" "ibsdb_instance" {
   instance_class          = var.ibs_rds_instance_class
   db_subnet_group_name    = aws_db_subnet_group.ibsdb.name
   publicly_accessible     = true
-  db_parameter_group_name = aws_db_parameter_group.ibs-cluster-writer-par-group-2020-04-17.name 
+  db_parameter_group_name = aws_db_parameter_group.ibs-cluster-writer-par-group-2020-04-17.name
+  apply_immediately       = var.ibs_rds_apply_immediately
 
   tags = merge(
     local.default_tags,

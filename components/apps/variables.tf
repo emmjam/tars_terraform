@@ -298,6 +298,12 @@ variable "cpc_rds_apply_immediately" {
   default     = "false"
 }
 
+variable "ibs_rds_apply_immediately" {
+  type        = string
+  description = "ibs RDS Apply changes immediately"
+  default     = "false"
+}
+
 variable "cpc_rds_autoscale" {
   type        = string
   description = "Auto shutdown/restart RDS Instances tag"
