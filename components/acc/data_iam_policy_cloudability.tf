@@ -8,8 +8,8 @@ data "aws_iam_policy_document" "cloudability" {
     ]
 
     resources = [
-      "arn:aws:iam::${var.aws_account_id}:user/cloudabilityRole",
-    ]
+      "${aws_iam_role.cloudabilityRole.arn}"
+      ]
   }
   statement {
     sid = "CloudabilityMonitorResourcesPolicy"
