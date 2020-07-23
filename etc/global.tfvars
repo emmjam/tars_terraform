@@ -96,7 +96,6 @@ elise_log_group_name           = "/opt/wildfly/logs/applications/elise-timing.js
 sftpplus_client_log_group_name = "/opt/SFTPPlus-client/message.log"
 
 ibs1_ibs2_redirect_env  = [
-  "uat02",
   "prep",
   "prod"
 ]
