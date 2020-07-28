@@ -385,7 +385,7 @@ tars_rds_snapshot = ""
 # MISDB
 mis_rds_username = "misadmin"
 mis_rds_password = "rXTdAxhj3kN8S2Gc"
-mis_rds_allocated_storage = "330"
+mis_rds_allocated_storage = "360"
 mis_rds_autoscale = "False"
 mis_rds_snapshot = ""
 
@@ -509,10 +509,10 @@ mes_api_cidr_block = [
 # Enable the shipping of cloud watch logs to Alert Logic.  Empty value equals false
 alert_logic = "true"
 
-tars_rds_backup_retention = "14"
-mis_rds_backup_retention = "14"
-cpc_rds_backup_retention = "14"
-rsis_rds_backup_retention = "14"
+tars_rds_backup_retention = "30"
+mis_rds_backup_retention = "30"
+cpc_rds_backup_retention = "30"
+rsis_rds_backup_retention = "30"
 
 sftpplus_alarm_count = "1"
 sftpplus_topic_count = "1"
