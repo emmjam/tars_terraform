@@ -64,6 +64,17 @@ resource "aws_security_group_rule" "mocksftp_ingress_tars_batch" {
   cidr_blocks = data.terraform_remote_state.base.outputs.subnet_cidrs_tars_backend
 }
 
+resource "aws_security_group_rule" "mocksftp_ingress_jenkins" {
+  description       = "Allow TCP/22 in from NLB for jenkins"
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  security_group_id = aws_security_group.tars-mock.id
+
+  cidr_blocks = var.jenkinsnode_subnets_cidrs
+}
+
 resource "aws_security_group_rule" "mock_tars_db_egress_port_1521" {
   description              = "Allow TCP/1521 to tars DB"
   type                     = "egress"

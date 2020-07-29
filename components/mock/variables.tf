@@ -30,6 +30,12 @@ variable "release_version" {
   description = "Version of infrastructure deployed"
 }
 
+variable "jenkinsnode_subnets_cidrs" {
+  type        = list
+  description = "jenkins cidrs for mock"
+  default     = []
+}
+
 variable "aws_autoscaling_enabled" {
   type        = string
   default     = "1"
