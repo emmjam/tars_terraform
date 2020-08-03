@@ -354,6 +354,7 @@ whitelist = [
   "10.84.192.161/32",      # End DVSA MS-RDS
   "85.115.53.201/32",   #DSCALLARDS
   "80.194.75.82/32",    #DSCALLARDS
+  "34.242.28.119/32",   #MGMT Jenkins for url checks
 ]
 
 dvsa_dc_whitelist = [
