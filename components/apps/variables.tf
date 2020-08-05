@@ -117,6 +117,11 @@ variable "avarto_sftp_server" {
   description = "Avarto"
 }
 
+variable "avarto_aws_sftp_server" {
+  type        = string
+  description = "Avarto AWS"
+}
+
 variable "aws_account_id" {
   type        = string
   description = "Account ID"

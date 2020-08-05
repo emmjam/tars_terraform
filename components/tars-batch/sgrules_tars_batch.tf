@@ -71,6 +71,19 @@ resource "aws_security_group_rule" "tars_batch_egress_avarto_sftp" {
   ]
 }
 
+resource "aws_security_group_rule" "tars_batch_egress_avarto_aws_sftp" {
+  description       = "Allow TCP/22 to AVARTO AWS"
+  type              = "egress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  security_group_id = module.tars_batch.security_group_id
+
+  cidr_blocks = [
+    var.avarto_aws_sftp_server,
+  ]
+}
+
 # TODO: peacheym: Seems too wide. Should allow explicit requirements
 resource "aws_security_group_rule" "tars_batch_egress_sweda_sftp" {
   description       = "Allow ALL to Sweda Samba"

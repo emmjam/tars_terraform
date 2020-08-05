@@ -345,6 +345,7 @@ whitelist = [
   "10.84.192.161/32",      # End DVSA MS-RDS
   "85.115.53.201/32",
   "80.194.75.82/32",    #DSCALLARDS
+  "34.242.28.119/32",   #MGMT Jenkins for url checks
 ]
 
 dvsa_dc_whitelist = [
@@ -423,6 +424,7 @@ dvsa_epo_services = "10.84.192.158/32"
 
 # 3rd party
 avarto_sftp_server = "85.133.77.93/32"
+avarto_aws_sftp_server = "10.7.107.0/24"
 sweda_samba_server = "10.69.3.11/32"
 dvla_adli_server = "51.231.10.92/32"
 dvla_elise_server = "51.231.10.84/32"

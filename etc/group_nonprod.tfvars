@@ -436,6 +436,7 @@ dvsa_epo_services = "10.84.192.158/32"
 
 # 3rd party
 avarto_sftp_server = "85.133.77.5/32"
+avarto_aws_sftp_server = "10.7.107.0/24"
 sweda_samba_server = "10.69.3.11/32"
 dvla_adli_server = "51.231.10.109/32"
 dvla_elise_server = "51.231.10.112/32"

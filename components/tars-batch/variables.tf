@@ -212,6 +212,11 @@ variable "avarto_sftp_server" {
   description = "Avarto"
 }
 
+variable "avarto_aws_sftp_server" {
+  type        = string
+  description = "Avarto AWS"
+}
+
 variable "sweda_samba_server" {
   type        = string
   description = "Sweda"
