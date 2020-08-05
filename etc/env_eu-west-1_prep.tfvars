@@ -453,3 +453,79 @@ rds_cw_metric_alarm_enabled = true
 # Enable action for RDS CloudWatch Alarm
 rds_cw_metric_alarm_action_enabled = false
 rds_cw_metric_freestoragespace_alarm_action_enabled = true
+
+## Elasticache
+elc_main_node_type = "cache.t2.micro"
+
+## Xenco
+xenco_instance_type = "t2.small"
+
+# TARSDB
+tars_rds_instance_class = "db.t3.medium"
+
+# MISDB
+mis_rds_instance_class = "db.t3.medium"
+
+# RSISDB
+rsis_rds_instance_class = "db.t3.medium"
+
+# CPCDB
+cpc_rds_instance_class = "db.t3.medium"
+
+# DMS Replication instance
+tars_dms_replication_instance_class = "dms.t2.medium"
+
+#Monitoring
+prometheus_asg_max_size = 1
+prometheus_instance_type = "m3.medium"
+
+## wildfly-back
+wildfly-back_instance_type = "m3.large"
+wildfly-back_asg_max_size = 2
+
+## wildfly-batch
+wildfly-batch_instance_type = "m3.medium"
+
+## wildfly-front
+wildfly-front_instance_type = "m3.medium"
+
+## obs
+obs_instance_type        = "m3.medium"
+obs_asg_max_size         = 2
+obs_scaledown_desired    = 2
+
+## ibs
+ibs_instance_type  = "m3.medium"
+ibs_asg_max_size         = 2
+ibs_scaledown_desired    = 2
+
+
+#ibsdb
+ibs_rds_instance_class = "db.t2.small"
+
+## fyndi-f
+fyndi-f_instance_type = "m3.medium"
+
+## fyndi_back
+fyndi-b_instance_type = "m3.medium"
+
+## wildfly-messaging
+wildfly-messaging_instance_type = "t3.medium"
+
+##aws_mq
+aws_mq_host_instance_type = "mq.t2.micro"
+
+## cpc-back
+cpc-back_instance_type = "m3.medium"
+
+## cpc-front
+cpc-front_instance_type = "m3.medium"
+
+## sftpplus-svr
+sftpplus-svr_instance_type = "m3.medium"
+
+## cpc-batch
+cpc-batch_instance_type = "m3.medium"
+
+## apache
+apache_instance_type = "m3.medium"
