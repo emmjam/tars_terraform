@@ -197,3 +197,37 @@ then
 else
   log 'INFO' 'Using R53 DNS'
 fi
+
+log 'INFO' 'Checking Arvato Key'
+# copying the current sshhostkey to try
+mkdir  -p ~/.putty
+cp /opt/SFTPPlus-client/.putty/sshhostkeys ~/.putty/sshhostkeys
+# get values from config files
+export user=$(awk '/user/{print $3}' /opt/SFTPPlus-client/conf/Payord_Put.conf | tr -d \')
+export password=$(awk '/password/{print $3}' /opt/SFTPPlus-client/conf/Payord_Put.conf | tr -d \')
+export host=$(awk '/server/{print $3}' /opt/SFTPPlus-client/conf/Payord_Put.conf | tr -d \')
+
+if [ $${host} == "tars-mock-sftp" ]; then
+  log 'INFO' 'Using SFTP Mock'
+  exit
+else
+  # make batch connection that will end if any user input required, i.e. password if sshkey present, or sshkey if changed
+  result=$(/opt/SFTPPlus-client/bin/psftp $${user}@$${host} -batch 2>&1)
+  if [[ $result == *"Connection abandoned"* ]]; then
+     log 'ERROR' '********ARVATO KEY HAS CHANGED*********'
+     log 'ERROR' 'adding new key'
+     rm -rf ~/.putty/sshhostkeys
+     echo y bye | /opt/SFTPPlus-client/bin/psftp $${user}@$${host} -pw $${password}
+     cat ~/.putty/sshhostkeys > /opt/SFTPPlus-client/.putty/sshhostkeys
+     service sftpplus stop
+     sleep 2
+     service sftpplus free
+     sleep 2
+     service sftpplus start
+  elif [[ $result == *"Name or service not known"* ]]; then
+     log 'ERROR' '********ARVATO SERVICE CONNECTION ERROR*********'
+     log 'ERROR' 'Arvato Key not changed'
+  else
+     log 'INFO' 'Arvato Key not changed'
+  fi
+fi
