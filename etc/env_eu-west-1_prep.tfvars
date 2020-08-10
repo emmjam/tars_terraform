@@ -481,7 +481,6 @@ prometheus_instance_type = "m3.medium"
 
 ## wildfly-back
 wildfly-back_instance_type = "m3.large"
-wildfly-back_asg_max_size = 2
 
 ## wildfly-batch
 wildfly-batch_instance_type = "m3.medium"
@@ -493,12 +492,13 @@ wildfly-front_instance_type = "m3.medium"
 obs_instance_type        = "m3.medium"
 obs_asg_max_size         = 2
 obs_scaledown_desired    = 2
+obs_scaleup_desired       = 2
 
 ## ibs
 ibs_instance_type  = "m3.medium"
 ibs_asg_max_size         = 2
 ibs_scaledown_desired    = 2
-
+ibs_scaleup_desired      = 2
 
 #ibsdb
 ibs_rds_instance_class = "db.t2.small"
