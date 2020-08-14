@@ -1035,3 +1035,14 @@ variable "ibsdb_monitoring_enabled" {
   description = "Whether to monitor IBSDB for concurrent users"
   default     = "false"
 }
+
+variable "unhealthy_host_alarm_count" {
+  type        = string
+  description = "Number of alarms to have in this account"
+  default = "0"
+}
+
+variable "opsgenie_endpoint" {
+  type        = string
+  description = "The opsgenie endpoint to send alerts to TSS"
+}

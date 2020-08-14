@@ -527,5 +527,8 @@ rds_cw_metric_freestoragespace_alarm_action_enabled = true
 # Whether to alert opsgenie on wms unhealthy host
 wms_host_alarm_count = "1"
 
+# Whether to alert opsgenie on unhealthy host
+unhealthy_host_alarm_count = "1"
+
 # IBSDB Concurrent Users Monitoring
 ibsdb_monitoring_enabled = true
