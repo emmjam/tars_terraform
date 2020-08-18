@@ -314,7 +314,7 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 # TARSDB
 tars_rds_username = "tarsdevadmin"
 tars_rds_password = "password"
-tars_rds_allocated_storage = "30" # 20 Gigabyte - was 1500GB
+tars_rds_allocated_storage = "60" # 20 Gigabyte - was 1500GB
 tars_rds_snapshot = "tars-dev01-tars-core-tarsdb-5-4-2019-5-7-0-2"
 
 # CPCSDB
