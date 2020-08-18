@@ -1,4 +1,5 @@
 resource "aws_alb_target_group" "grafana-80" {
+  count    = "${var.account_environment != "mgmt" ? 1 : 0}"
   name     = "${local.csi}-grafana-80"
   port     = "80"
   protocol = "HTTP"

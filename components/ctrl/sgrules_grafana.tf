@@ -1,5 +1,6 @@
 # Grafana
 resource "aws_security_group_rule" "grafana_ingress_bastion_ssh" {
+  count             = "${var.account_environment != "mgmt" ? 1 : 0}"
   description              = "Allow TCP/22 from Bastion"
   type                     = "ingress"
   from_port                = 22
@@ -10,6 +11,7 @@ resource "aws_security_group_rule" "grafana_ingress_bastion_ssh" {
 }
 
 resource "aws_security_group_rule" "grafana_ingress_grafana_alb_http" {
+  count             = "${var.account_environment != "mgmt" ? 1 : 0}"
   description              = "Allow HTTP from Grafana ALB"
   type                     = "ingress"
   from_port                = 80

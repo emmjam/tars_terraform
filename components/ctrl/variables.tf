@@ -392,3 +392,8 @@ variable "dc_vif_asn" {
   default     = 0
 }
 
+variable "account_environment" {
+  type        = string
+  description = "Account Name"
+  default     = ""
+}
