@@ -30,7 +30,7 @@ resource "aws_lb_listener_rule" "ibs-100" {
 
   condition {
     path_pattern {
-    values = ["/", "/application*"]
+    values = ["/*"]
     }
   }
 }
@@ -82,7 +82,7 @@ resource "aws_lb_listener_rule" "ibs-102" {
   }
   condition {
     path_pattern {
-    values = ["/", "/application*"]
+    values = ["/*"]
     }
   }
 }
@@ -121,7 +121,7 @@ resource "aws_lb_listener_rule" "ibs-104" {
 
   condition {
     path_pattern {
-    values = ["/", "/application*"]
+    values = ["/*"]
     }
   }
 }
@@ -166,7 +166,7 @@ resource "aws_lb_listener_rule" "ibs-106" {
 
   condition {
     path_pattern {
-    values = ["/", "/application*"]
+    values = ["/*"]
     }
   }
 }
