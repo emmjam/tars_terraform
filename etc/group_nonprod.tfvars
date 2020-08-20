@@ -244,7 +244,7 @@ apache_scaledown_desired     = 0
 apache_scaledown_recurrence  = "00 19 * * 1-5"
 apache_scaleup_desired       = 1
 apache_scaleup_recurrence    = "00 04 * * 1-5"
-apache_ami_build_id          = "809"
+apache_ami_build_id          = "833"
 
 ## AWS MQ
 aws_mq_engine_type             = "ActiveMQ"
