@@ -589,3 +589,7 @@ opsgenie_endpoint = "https://api.opsgenie.com/v1/json/amazonsns?apiKey=4cb725d3-
 
 #Jmeter
 jmeter_ami_build_id               = "829"
+
+# Enable action for AmazonMQ Velocity Email Queue CloudWatch Alarm
+velocity_email_cw_metric_alarm_enabled = false
+mq_cw_metric_velocity_email_alarm_action_enabled = false

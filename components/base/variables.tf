@@ -673,3 +673,13 @@ variable "jmeter_ami_build_id" {
   type        = string
   description = "AMI Build number to use for jmeter"
 }
+
+variable "mq_cw_metric_velocity_email_alarm_action_enabled" {
+  type = string
+  description = "Enable or disable velocity email CloudWatch Metrics Alarm"
+}
+
+variable "velocity_email_cw_metric_alarm_enabled" {
+  type = string
+  description = "Enable or disable velocity email CloudWatch Metrics Alarm"
+}

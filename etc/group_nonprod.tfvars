@@ -620,3 +620,7 @@ opsgenie_endpoint = "https://api.opsgenie.com/v1/json/amazonsns?apiKey=b7ee3dc7-
 
 sftpplus_alarm_count = "0"
 sftpplus_topic_count = "0"
+
+# Enable action for AmazonMQ Velocity Email Queue CloudWatch Alarm
+velocity_email_cw_metric_alarm_enabled = false
+mq_cw_metric_velocity_email_alarm_action_enabled = false

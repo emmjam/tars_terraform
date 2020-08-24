@@ -394,3 +394,7 @@ rds_cw_metric_alarm_enabled = true
 # Enable action for RDS CloudWatch Alarm
 rds_cw_metric_alarm_action_enabled = false
 rds_cw_metric_freestoragespace_alarm_action_enabled = true
+
+# Enable action for AmazonMQ Velocity Email Queue CloudWatch Alarm
+velocity_email_cw_metric_alarm_enabled = true
+mq_cw_metric_velocity_email_alarm_action_enabled = true
