@@ -56,5 +56,11 @@ resource "aws_db_parameter_group" "rsis" {
     value        = "7800"
     apply_method = "immediate"
   }
+
+  parameter {
+    name         = "sql92_security"
+    value        = "TRUE"
+    apply_method = "pending-reboot"
+  }
 }
 

@@ -45,5 +45,11 @@ resource "aws_db_parameter_group" "cpc" {
     value        = "TRUE"
     apply_method = "immediate"
   }
+
+  parameter {
+    name         = "sql92_security"
+    value        = "TRUE"
+    apply_method = "pending-reboot"
+  }
 }
 
