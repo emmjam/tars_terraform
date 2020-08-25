@@ -683,3 +683,23 @@ variable "velocity_email_cw_metric_alarm_enabled" {
   type = string
   description = "Enable or disable velocity email CloudWatch Metrics Alarm"
 }
+
+variable "mq_cw_metric_email_queue_alarm_action_enabled" {
+  type = string
+  description = "Enable or disable email queue CloudWatch Metrics Alarm"
+}
+
+variable "email_queue_cw_metric_alarm_enabled" {
+  type = string
+  description = "Enable or disable email queue CloudWatch Metrics Alarm"
+}
+
+variable "mq_cw_metric_print_queue_alarm_action_enabled" {
+  type = string
+  description = "Enable or disable print queue CloudWatch Metrics Alarm"
+}
+
+variable "print_queue_cw_metric_alarm_enabled" {
+  type = string
+  description = "Enable or disable print queue CloudWatch Metrics Alarm"
+}
