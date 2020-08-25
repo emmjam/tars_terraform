@@ -143,10 +143,10 @@ obs_scaleup_recurrence   = "00 08 * * 1-5"
 ibs_instance_type        = "m4.4xlarge"
 ibs_puppet_nodetype      = "ibs"
 ibs_asg_min_size         = 0
-ibs_asg_max_size         = 16
-ibs_scaledown_desired    = 16
+ibs_asg_max_size         = 30
+ibs_scaledown_desired    = 30
 ibs_scaledown_recurrence = "00 18 * * 1-5"
-ibs_scaleup_desired      = 16
+ibs_scaleup_desired      = 30
 ibs_scaleup_recurrence   = "00 08 * * 1-5"
 
 #ibsdb
