@@ -597,3 +597,7 @@ email_queue_cw_metric_alarm_enabled = false
 mq_cw_metric_email_queue_alarm_action_enabled = false
 print_queue_cw_metric_alarm_enabled = false
 mq_cw_metric_print_queue_alarm_action_enabled = false
+
+# Enable action for Sftp CPU CloudWatch Alarm
+sftp_cpuutilization_cw_metric_alarm_enabled = false
+sftp_cpuutilization_cw_metric_alarm_action_enabled = false

@@ -229,3 +229,13 @@ variable "dlm_retain_rule" {
   type        = string
   description = "How many backups to retain"
 }
+
+variable "sftp_cpuutilization_cw_metric_alarm_enabled" {
+  type = string
+  description = "Enable or disable email queue CloudWatch Metrics Alarm"
+}
+
+variable "sftp_cpuutilization_cw_metric_alarm_action_enabled" {
+  type = string
+  description = "Enable or disable email queue CloudWatch Metrics Alarm"
+}
