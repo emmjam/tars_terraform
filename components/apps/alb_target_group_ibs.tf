@@ -4,6 +4,7 @@ resource "aws_alb_target_group" "ibs-8080" {
   port     = "8080"
   protocol = "HTTP"
   vpc_id   = data.terraform_remote_state.base.outputs.vpc_id
+  deregistration_delay = "1200"
 
   health_check {
     path                = "/ping"
