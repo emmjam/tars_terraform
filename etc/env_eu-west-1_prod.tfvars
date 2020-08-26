@@ -544,3 +544,7 @@ ibsdb_monitoring_enabled = true
 # Enable action for Sftp CPU CloudWatch Alarm
 sftp_cpuutilization_cw_metric_alarm_enabled = true
 sftp_cpuutilization_cw_metric_alarm_action_enabled = true
+
+# Enable action for tars-core CPU CloudWatch Alarm
+tars_core_cpuutilization_cw_metric_alarm_enabled = true
+tars_core_cpuutilization_cw_metric_alarm_action_enabled = true
