@@ -83,7 +83,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_card_authorisation_decline" {
     "epdq-card-auth-decline",
   )
 
-  pattern        = "{ $.message = \"*Response*\" && $.message = \"*nSTATUS=\\\"0\\\"*\" && $.message != \"*NCSTATUS=\\\"0\\\"}"
+  pattern        = "{ $.message = \"*Response*\" && $.message = \"*nSTATUS=\\\"0\\\"*\" && $.message != \"*NCSTATUS=\\\"0\\\"*\"}"
   log_group_name = "/aws/ec2/${var.environment}/tars-back/opt/wildfly/logs/epdq-timings.json"
 
   metric_transformation {
