@@ -83,7 +83,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_card_authorisation_decline" {
     "epdq-card-auth-decline",
   )
 
-  pattern        = "{ $.message = \"*Response*\" && $.message = \"*nSTATUS=\\\"0\\\"*\" && $.message != \"*NCSTATUS=\\\"0\\\"*\"}"
+  pattern        = "{ $.message = \"*Response*\" && $.message = \"*STATUS=\\\"0\\\"*\" && $.message != \"*NCSTATUS=\\\"0\\\"*\"}"
   log_group_name = "/aws/ec2/${var.environment}/tars-back/opt/wildfly/logs/epdq-timings.json"
 
   metric_transformation {
@@ -102,7 +102,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_payment_accepted" {
     "epdq-payment-accepted",
   )
 
-  pattern        = "{ $.message = \"*Response*\" && $.message = \"*nSTATUS=\\\"9\\\"*\"}"
+  pattern        = "{ $.message = \"*Response*\" && $.message = \"*STATUS=\\\"9\\\"*\"}"
   log_group_name = "/aws/ec2/${var.environment}/tars-back/opt/wildfly/logs/epdq-timings.json"
 
   metric_transformation {
@@ -121,7 +121,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_payment_challenged" {
     "epdq-payment-challenged",
   )
 
-  pattern        = "{ $.message = \"*Response*\" && $.message = \"*nSTATUS=\\\"46\\\"*\"}"
+  pattern        = "{ $.message = \"*Response*\" && $.message = \"*STATUS=\\\"46\\\"*\"}"
   log_group_name = "/aws/ec2/${var.environment}/tars-back/opt/wildfly/logs/epdq-timings.json"
 
   metric_transformation {
@@ -140,7 +140,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_refund_accepted" {
     "epdq-refund-accepted",
   )
 
-  pattern        = "{ $.message = \"*Response*\" && $.message = \"*nSTATUS=\\\"81\\\"*\"}"
+  pattern        = "{ $.message = \"*Response*\" && $.message = \"*STATUS=\\\"81\\\"*\"}"
   log_group_name = "/aws/ec2/${var.environment}/tars-back/opt/wildfly/logs/epdq-timings.json"
 
   metric_transformation {
