@@ -8,7 +8,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_ecom_refund_request" {
   )
 
   pattern        = "{ $.message = \"*Request*\" && $.message = \"*OPERATION=RFD*\" && $.message = \"*FLAG3D=Y*\"}"
-  log_group_name = "/aws/ec2/${var.environment}/tars-back/opt/wildfly/logs/epdq-timings.json"
+  log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
 
   metric_transformation {
     name      = "EcomRefundRequestCount"
@@ -27,7 +27,8 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_ecom_payment_request" {
   )
 
   pattern        = "{ $.message = \"*Request*\" && $.message = \"*OPERATION=SAL*\" && $.message = \"*FLAG3D=Y*\"}"
-  log_group_name = "/aws/ec2/${var.environment}/tars-back/opt/wildfly/logs/epdq-timings.json"
+  log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
+
 
   metric_transformation {
     name      = "EcomPaymentRequestCount"
@@ -46,7 +47,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_moto_refund_request" {
   )
 
   pattern        = "{ $.message = \"*Request*\" && $.message = \"*OPERATION=RFD*\" && $.message != \"*FLAG3D*\"}"
-  log_group_name = "/aws/ec2/${var.environment}/tars-back/opt/wildfly/logs/epdq-timings.json"
+  log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
 
   metric_transformation {
     name      = "MotoRefundRequestCount"
@@ -65,7 +66,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_moto_payment_request" {
   )
 
   pattern        = "{ $.message = \"*Request*\" && $.message = \"*OPERATION=SAL*\" && $.message != \"*FLAG3D*\"}"
-  log_group_name = "/aws/ec2/${var.environment}/tars-back/opt/wildfly/logs/epdq-timings.json"
+  log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
 
   metric_transformation {
     name      = "MotoPaymentRequestCount"
@@ -84,7 +85,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_card_authorisation_decline" {
   )
 
   pattern        = "{ $.message = \"*Response*\" && $.message = \"*STATUS=\\\"0\\\"*\" && $.message != \"*NCSTATUS=\\\"0\\\"*\"}"
-  log_group_name = "/aws/ec2/${var.environment}/tars-back/opt/wildfly/logs/epdq-timings.json"
+  log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
 
   metric_transformation {
     name      = "CardAuthDeclineCount"
@@ -103,7 +104,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_payment_accepted" {
   )
 
   pattern        = "{ $.message = \"*Response*\" && $.message = \"*STATUS=\\\"9\\\"*\"}"
-  log_group_name = "/aws/ec2/${var.environment}/tars-back/opt/wildfly/logs/epdq-timings.json"
+  log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
 
   metric_transformation {
     name      = "PaymentAcceptedCount"
@@ -122,7 +123,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_payment_challenged" {
   )
 
   pattern        = "{ $.message = \"*Response*\" && $.message = \"*STATUS=\\\"46\\\"*\"}"
-  log_group_name = "/aws/ec2/${var.environment}/tars-back/opt/wildfly/logs/epdq-timings.json"
+  log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
 
   metric_transformation {
     name      = "PaymentChallengedCount"
@@ -141,7 +142,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_refund_accepted" {
   )
 
   pattern        = "{ $.message = \"*Response*\" && $.message = \"*STATUS=\\\"81\\\"*\"}"
-  log_group_name = "/aws/ec2/${var.environment}/tars-back/opt/wildfly/logs/epdq-timings.json"
+  log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
 
   metric_transformation {
     name      = "RefundAcceptedCount"
