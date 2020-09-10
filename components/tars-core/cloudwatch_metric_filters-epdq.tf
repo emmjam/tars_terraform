@@ -199,3 +199,22 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_refund_accepted" {
   }
 }
 
+resource "aws_cloudwatch_log_metric_filter" "epdq_exceptions" {
+  name = format(
+    "%s-%s-%s-%s",
+    var.project,
+    var.environment,
+    var.component,
+    "epdq-exceptions",
+  )
+
+  pattern        = "{ $.exception.exception_class = \"*EPDQInterfaceException*\"}"
+  log_group_name = aws_cloudwatch_log_group.tars_back_epdq_interface.name
+
+  metric_transformation {
+    name      = "ePDQException"
+    namespace = "${var.environment}/epdq"
+    value     = "1"
+  }
+}
+
