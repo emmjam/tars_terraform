@@ -84,7 +84,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_card_authorisation_decline" {
     "epdq-card-auth-decline",
   )
 
-  pattern        = "{ $.message = \"*Response*\" && $.message = \"*STATUS=\\\"0\\\"*\" && $.message != \"*NCSTATUS=\\\"0\\\"*\"}"
+  pattern        = "{ $.message = \"*Response*\" && $.message = \"*NCSTATUS=\\\"2\\\"*\"}"
   log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
 
   metric_transformation {
@@ -103,7 +103,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_payment_accepted" {
     "epdq-payment-accepted",
   )
 
-  pattern        = "{ $.message = \"*Response*\" && $.message = \"*STATUS=\\\"9\\\"*\"}"
+  pattern        = "{ $.message = \"*Response*\" && $.message = \"*NCSTATUS=\\\"5\\\"*\"}"
   log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
 
   metric_transformation {
@@ -127,6 +127,44 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_payment_challenged" {
 
   metric_transformation {
     name      = "PaymentChallengedCount"
+    namespace = "${var.environment}/epdq"
+    value     = "1"
+  }
+}
+
+resource "aws_cloudwatch_log_metric_filter" "epdq_payment_challenged_accepted" {
+  name = format(
+    "%s-%s-%s-%s",
+    var.project,
+    var.environment,
+    var.component,
+    "epdq-payment-challenged-accepted",
+  )
+
+  pattern        = "{ $.message = \"*Response*\" && $.message = \"*STATUS=\\\"46\\\"*\" && $.message = \"*NCSTATUS=\\\"5\\\"*\"}"
+  log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
+
+  metric_transformation {
+    name      = "PaymentChallengedAccepted"
+    namespace = "${var.environment}/epdq"
+    value     = "1"
+  }
+}
+
+resource "aws_cloudwatch_log_metric_filter" "epdq_payment_challenged_declined" {
+  name = format(
+    "%s-%s-%s-%s",
+    var.project,
+    var.environment,
+    var.component,
+    "epdq-payment-challenged-declined",
+  )
+
+  pattern        = "{ $.message = \"*Response*\" && $.message = \"*STATUS=\\\"46\\\"*\" && $.message = \"*NCSTATUS=\\\"2\\\"*\"}"
+  log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
+
+  metric_transformation {
+    name      = "PaymentChallengedDeclined"
     namespace = "${var.environment}/epdq"
     value     = "1"
   }
