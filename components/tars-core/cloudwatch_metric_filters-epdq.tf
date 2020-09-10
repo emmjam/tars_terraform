@@ -14,6 +14,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_ecom_refund_request" {
     name      = "EcomRefundRequestCount"
     namespace = "${var.environment}/epdq"
     value     = "1"
+    default_value = "0"
   }
 }
 
@@ -34,6 +35,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_ecom_payment_request" {
     name      = "EcomPaymentRequestCount"
     namespace = "${var.environment}/epdq"
     value     = "1"
+    default_value = "0"
   }
 }
 
@@ -53,6 +55,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_moto_refund_request" {
     name      = "MotoRefundRequestCount"
     namespace = "${var.environment}/epdq"
     value     = "1"
+    default_value = "0"
   }
 }
 
@@ -72,6 +75,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_moto_payment_request" {
     name      = "MotoPaymentRequestCount"
     namespace = "${var.environment}/epdq"
     value     = "1"
+    default_value = "0"
   }
 }
 
@@ -91,6 +95,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_card_authorisation_decline" {
     name      = "CardAuthDeclineCount"
     namespace = "${var.environment}/epdq"
     value     = "1"
+    default_value = "0"
   }
 }
 
@@ -110,6 +115,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_payment_accepted" {
     name      = "PaymentAcceptedCount"
     namespace = "${var.environment}/epdq"
     value     = "1"
+    default_value = "0"
   }
 }
 
@@ -129,6 +135,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_payment_challenged" {
     name      = "PaymentChallengedCount"
     namespace = "${var.environment}/epdq"
     value     = "1"
+    default_value = "0"
   }
 }
 
@@ -148,6 +155,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_payment_challenged_accepted" {
     name      = "PaymentChallengedAccepted"
     namespace = "${var.environment}/epdq"
     value     = "1"
+    default_value = "0"
   }
 }
 
@@ -167,6 +175,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_payment_challenged_declined" {
     name      = "PaymentChallengedDeclined"
     namespace = "${var.environment}/epdq"
     value     = "1"
+    default_value = "0"
   }
 }
 
@@ -186,6 +195,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_refund_accepted" {
     name      = "RefundAcceptedCount"
     namespace = "${var.environment}/epdq"
     value     = "1"
+    default_value = "0"
   }
 }
 
