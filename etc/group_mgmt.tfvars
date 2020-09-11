@@ -117,11 +117,6 @@ readonly_tssops_users = [
 
 administrators_platform_users = [
   "jamie.kelly@bjss.com",
-  "steve.wilson@bjss.com",
-  "michelle.pike@bjss.com",
-  "callum.massey@bjss.com",
-  "michael.tribbick@bjss.com",
-  "stephen.davies@bjss.com",
 ]
 
 readonly_platform_users = [
