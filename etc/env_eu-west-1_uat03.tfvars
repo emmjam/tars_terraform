@@ -412,6 +412,7 @@ whitelist = [
   "80.194.75.82/32",    #DSCALLARDS
   "34.242.28.119/32",   #MGMT Jenkins for url checks
   "194.75.245.154/32",  # DAC Digital Access Centre
+  "154.14.88.249/32", # DVSA Notts Corp & Wifi
 ]
 
 mes_api_cidr_block = ["10.21.0.0/16"]
