@@ -57,7 +57,6 @@ new_all_users = [
   "rebecca.howell@bjss.com",
   "usman.rasool@bjss.com",
   "chris.peska@bjss.com",
-  "seun.adiomowo@bjss.com",
   "stephen.davies@bjss.com",
   "nadeem.khan@bjss.com",
   "ryu.sasai@bjss.com",
@@ -86,7 +85,6 @@ administrators_tssops_users = [
   "ian.harris@bjss.com",
   "irfan.sidat@bjss.com",
   "david.walsh@bjss.com",
-  "seun.adiomowo@bjss.com",
   "nadeem.khan@bjss.com",
 ]
 
@@ -109,7 +107,6 @@ readonly_tssops_users = [
   "david.walsh@bjss.com",
   "rebecca.howell@bjss.com",
   "usman.rasool@bjss.com",
-  "seun.adiomowo@bjss.com",
   "nadeem.khan@bjss.com",
   "matthew.turner@bjss.com",
   "richard.teasdale@bjss.com",
