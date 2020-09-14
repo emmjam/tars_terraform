@@ -79,6 +79,26 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_moto_payment_request" {
   }
 }
 
+resource "aws_cloudwatch_log_metric_filter" "epdq_card_aauthorisation_error" {
+  name = format(
+    "%s-%s-%s-%s",
+    var.project,
+    var.environment,
+    var.component,
+    "epdq-card-auth-error",
+  )
+
+  pattern        = "{ $.message = \"*Response*\" && $.message = \"*NCSTATUS=\\\"5\\\"*\"}"
+  log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
+
+  metric_transformation {
+    name      = "CardAuthError"
+    namespace = "${var.environment}/epdq"
+    value     = "1"
+    default_value = "0"
+  }
+}
+
 resource "aws_cloudwatch_log_metric_filter" "epdq_card_authorisation_decline" {
   name = format(
     "%s-%s-%s-%s",
@@ -88,7 +108,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_card_authorisation_decline" {
     "epdq-card-auth-decline",
   )
 
-  pattern        = "{ $.message = \"*Response*\" && $.message = \"*NCSTATUS=\\\"2\\\"*\"}"
+  pattern        = "{ $.message = \"*Response*\" && $.message = \"*NCSTATUS=\\\"3\\\"*\"}"
   log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
 
   metric_transformation {
