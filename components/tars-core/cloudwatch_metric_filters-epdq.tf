@@ -88,7 +88,7 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_card_aauthorisation_error" {
     "epdq-card-auth-error",
   )
 
-  pattern        = "{ $.message = \"*Response*\" && $.message = \"*NCSTATUS=\\\"5\\\"*\"}"
+  pattern        = "{ $.message = \"*Response*\" && $.message != \"*NCERROR=\\\"0\\\"*\" && $.message = \"*NCSTATUS=\\\"5\\\"*\"}"
   log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
 
   metric_transformation {
