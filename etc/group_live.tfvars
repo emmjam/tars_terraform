@@ -99,7 +99,7 @@ jenkinsctrl_subnets_cidrs = [
   "10.167.56.48/28",
 ]
 
-wildfly-back_instance_type        = "m4.2xlarge"
+wildfly-back_instance_type        = "m4.large"
 wildfly-back_puppet_nodetype      = "tars-back"
 wildfly-back_asg_min_size         = 0
 wildfly-back_asg_max_size         = 3
@@ -133,20 +133,20 @@ wildfly-front_scaleup_recurrence   = "00 08 * * 1-5"
 obs_instance_type        = "m4.large"
 obs_puppet_nodetype      = "obs"
 obs_asg_min_size         = 0
-obs_asg_max_size         = 8
-obs_scaledown_desired    = 8
+obs_asg_max_size         = 2
+obs_scaledown_desired    = 2
 obs_scaledown_recurrence = "00 18 * * 1-5"
-obs_scaleup_desired      = 8
+obs_scaleup_desired      = 2
 obs_scaleup_recurrence   = "00 08 * * 1-5"
 
 ## ibs
-ibs_instance_type        = "m4.4xlarge"
+ibs_instance_type        = "m4.2xlarge"
 ibs_puppet_nodetype      = "ibs"
 ibs_asg_min_size         = 0
-ibs_asg_max_size         = 30
-ibs_scaledown_desired    = 30
+ibs_asg_max_size         = 8
+ibs_scaledown_desired    = 8
 ibs_scaledown_recurrence = "00 18 * * 1-5"
-ibs_scaleup_desired      = 30
+ibs_scaleup_desired      = 8
 ibs_scaleup_recurrence   = "00 08 * * 1-5"
 
 #ibsdb
