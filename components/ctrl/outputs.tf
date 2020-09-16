@@ -70,3 +70,11 @@ output "tars_aws_backup_iam_tars_efs_id" {
   value = aws_backup_plan.tars_efs.id
 }
 
+# SES SNS ARN
+output "sns_topic_arn_ses_complaints" {
+  value = join(" ", aws_sns_topic.ses_complaints.*.arn)
+}
+
+output "sns_topic_arn_ses_bounces" {
+  value = join(" ", aws_sns_topic.ses_bounces.*.arn)
+}

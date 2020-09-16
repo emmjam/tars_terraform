@@ -496,3 +496,9 @@ cloudability_xacct = {
   aws_account_id = "165736516723"
   external_id    = "0b9f3e06-8e9f-41dd-ac27-adab21a4c77b"
 }
+#
+## Turn on SES SNS
+##
+enable_ses_sns = true
+
+
