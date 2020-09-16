@@ -72,9 +72,9 @@ output "tars_aws_backup_iam_tars_efs_id" {
 
 # SES SNS ARN
 output "sns_topic_arn_ses_complaints" {
-  value = aws_sns_topic.ses_complaints.*.arn
+  value = aws_sns_topic.ses_complaints.arn
 }
 
 output "sns_topic_arn_ses_bounces" {
-  value = aws_sns_topic.ses_bounces.*.arn
+  value = aws_sns_topic.ses_bounces.arn
 }
