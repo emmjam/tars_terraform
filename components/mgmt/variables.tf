@@ -668,6 +668,12 @@ variable "administrators_platform_users" {
   default     = []
 }
 
+variable "administrators_platform_nonprod_users" {
+  type        = "list"
+  description = "List of administrator IAM Users for the Platform team, that have Admin access"
+  default     = []
+}
+
 variable "readonly_tssops_users" {
   type        = "list"
   description = "List of RO IAM Users for TSSOps, that have RO access"
