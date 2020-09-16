@@ -18,6 +18,15 @@ resource "aws_security_group_rule" "core_egress_squidnat_https" {
   source_security_group_id = module.squidnat.security_group_id
 }
 
+resource "aws_security_group_rule" "core_egress_squidnat_ftts" {
+  type                     = "egress"
+  protocol                 = "tcp"
+  from_port                = "18079"
+  to_port                  = "18079"
+  security_group_id        = aws_security_group.core.id
+  source_security_group_id = module.squidnat.security_group_id
+}
+
 # This rule is required for the DVSA AD DNS Servers
 resource "aws_security_group_rule" "core_egress_dns" {
   type              = "egress"
