@@ -397,8 +397,3 @@ variable "account_environment" {
   description = "Account Name"
   default     = ""
 }
-
-# SES
-variable "enable_ses_sns" {
-  description = "turn on SES SNS"
-}
