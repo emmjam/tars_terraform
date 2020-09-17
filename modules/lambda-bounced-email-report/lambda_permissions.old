@@ -1,0 +1,17 @@
+resource "aws_lambda_permission" "ses_notifications" {
+  count = "${var.enable_bounced_email_report == "0" ? "0" : length(var.sns_topic_arns)}"
+
+  action        = "lambda:InvokeFunction"
+  function_name = "${aws_lambda_function.ses_notifications.arn}"
+  principal     = "sns.amazonaws.com"
+  source_arn    = "${element(var.sns_topic_arns, count.index)}"
+}
+
+resource "aws_lambda_permission" "ses_report" {
+  count = "${var.enable_bounced_email_report}"
+
+  action        = "lambda:InvokeFunction"
+  function_name = "${aws_lambda_function.ses_report.arn}"
+  principal     = "events.amazonaws.com"
+  source_arn    = "${aws_cloudwatch_event_rule.ses-bounced-email-report.arn}"
+}

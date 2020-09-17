@@ -497,4 +497,22 @@ cloudability_xacct = {
   external_id    = "0b9f3e06-8e9f-41dd-ac27-adab21a4c77b"
 }
 
+##
+# Bounced email
+##
+enable_bounced_email_report = "1"
+
+##
+# Access key rotation/notification - runs every day at 06.00 am
+##
+lambda_access_key_rotation_config = {
+  key_age_max_days                  = 90
+  warning_period_days               = 10
+  tss_email                         = "dvsa.alerts@bjss.com"
+  verified_email                    = "info@tars.dvsacloud.uk"
+  lambda_access_key_rotation_s3_key = "lambda-access-key-rotation/lambda_access_key_rotation.zip"
+  cw_rule_schedule_expression       = "cron(00 06 * * ? *)"
+  enabled                           = "1"
+}
+
 

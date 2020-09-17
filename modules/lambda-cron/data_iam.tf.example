@@ -1,0 +1,15 @@
+data "aws_iam_policy_document" "lambda_cron_myfunction" {
+  statement { 
+    sid    = "AllowDescribeAllInstancesAndEIPs"
+    effect = "Allow"
+  
+    actions = [
+      "ec2:DescribeInstances",
+      "ec2:DescribeAddresses",
+    ]
+
+    resources = [
+      "*",
+    ]
+  }
+}

@@ -164,3 +164,8 @@ variable "cloudability_xacct" {
   description = "The information needed to permit cross account access from Cloudability. Requires aws_account_id and external_id"
   default     = {}
 }
+
+variable "enable_bounced_email_report" {
+  type        = "string"
+  description = "Enable or Disable the bounced email report"
+}
