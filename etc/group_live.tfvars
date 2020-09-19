@@ -99,7 +99,7 @@ jenkinsctrl_subnets_cidrs = [
   "10.167.56.48/28",
 ]
 
-wildfly-back_instance_type        = "m4.large"
+wildfly-back_instance_type        = "m4.xlarge"
 wildfly-back_puppet_nodetype      = "tars-back"
 wildfly-back_asg_min_size         = 0
 wildfly-back_asg_max_size         = 3
