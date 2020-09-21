@@ -745,3 +745,19 @@ variable "non_prod_jenkins_cidrs" {
   description = "NonProd base cidr for jenkins access to Nexus"
   default     = []
 }
+
+variable "enable_bounced_email_report" {
+  description = "Enable bounced email reporting or not"
+  default     = "0"
+}
+
+variable "bounced_email_domain" {
+  type = "string"
+  description = "bounced email idenity"
+}
+
+  # Lambda Access Key Rotation
+  variable "lambda_access_key_rotation_config" {
+    description = "Map of config information for lambda access_key_rotation"
+    type        = map
+}
