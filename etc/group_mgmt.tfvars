@@ -122,6 +122,7 @@ administrators_platform_users = [
  administrators_platform_nonprod_users = [
   "michelle.pike@bjss.com",
   "michael.tribbick@bjss.com",
+  "nadeem.khan@bjss.com",
  ]
 readonly_platform_users = [
   "jamie.kelly@bjss.com",
