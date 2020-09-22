@@ -317,7 +317,6 @@ ad_account = "233824316563"
 
 # TARSDB
 tars_rds_username = "tarsuatadmin"
-tars_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 tars_rds_allocated_storage = "300"
 tars_rds_snapshot = "tars-core-tarsdb-20190410-5-4-0-1"
 tars_rds_autoscale = "False"
@@ -325,25 +324,21 @@ tars_rds_autoscale = "False"
 
 # CPCSDB
 cpc_rds_username = "cpcadmin"
-cpc_rds_password = "Mg28yDQjuEWndbtz"
 cpc_rds_allocated_storage = "100"
 cpc_rds_snapshot = "tars-uat01-cpc-cpcdb-2019-05-03-5-5-0-2"
 
 # IBSDB
 ibs_rds_username = "tarsuatadmin"
-ibs_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 ibs_rds_snapshot = "uat01-ibs-subnet-move"
 
 # MISDB
 mis_rds_username = "misdmsadmin"
-mis_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 mis_rds_allocated_storage = "330"
 mis_rds_snapshot = "tars-uat01-tars-reporting-misdb-20181108"
 mis_rds_autoscale = "False"
 
 # RSISDB
 rsis_rds_username = "tarsrsisadmin"
-rsis_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 rsis_rds_allocated_storage = "300"
 rsis_rds_snapshot = "tars-uat01-tars-reporting-rsisdb-20181108"
 rsis_rds_autoscale = "False"

@@ -1,4 +1,8 @@
 # Create the TARS MIS RDS DB
+data "aws_ssm_parameter" "mis_rds_password" {
+  name = "/${var.environment}/misdb/admin/password"
+}
+
 resource "aws_db_instance" "misdb" {
   identifier                = "${local.csi}-misdb"
   final_snapshot_identifier = "${local.csi}-misdb-final"
@@ -9,7 +13,7 @@ resource "aws_db_instance" "misdb" {
   engine_version            = var.mis_rds_engine_version
   instance_class            = var.mis_rds_instance_class
   username                  = var.mis_rds_username
-  password                  = var.mis_rds_password
+  password                  = data.aws_ssm_parameter.mis_rds_password.value
   port                      = var.mis_rds_port
   publicly_accessible       = var.mis_rds_public
   multi_az                  = var.mis_rds_multi_az

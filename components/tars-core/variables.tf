@@ -159,11 +159,6 @@ variable "tars_rds_skip_final_snapshot" {
   description = "TARS RDS Final Snapshot required"
 }
 
-variable "tars_rds_password" {
-  type        = string
-  description = "TARS RDS Password"
-}
-
 variable "tars_rds_username" {
   type        = string
   description = "TARS RDS Username"

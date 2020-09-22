@@ -1,4 +1,8 @@
 # Create the TARS RDS DB
+data "aws_ssm_parameter" "tars_rds_password" {
+  name = "/${var.environment}/tarsdb/admin/password"
+}
+
 resource "aws_db_instance" "tarsdb" {
   identifier                  = "${local.csi}-tarsdb"
   final_snapshot_identifier   = "${local.csi}-tarsdb-final"
@@ -10,7 +14,7 @@ resource "aws_db_instance" "tarsdb" {
   allow_major_version_upgrade = var.tars_rds_allow_major_engine_version_upgrade
   instance_class              = var.tars_rds_instance_class
   username                    = var.tars_rds_username
-  password                    = var.tars_rds_password
+  password                    = data.aws_ssm_parameter.tars_rds_password.value
   port                        = var.tars_rds_port
   publicly_accessible         = var.tars_rds_public
   multi_az                    = var.tars_rds_multi_az

@@ -1,4 +1,8 @@
 # Create the TARS RSIS RDS DB
+data "aws_ssm_parameter" "rsis_rds_password" {
+  name = "/${var.environment}/rsisdb/admin/password"
+}
+
 resource "aws_db_instance" "rsisdb" {
   identifier                = "${local.csi}-rsisdb"
   final_snapshot_identifier = "${local.csi}-rsisdb-final"
@@ -9,7 +13,7 @@ resource "aws_db_instance" "rsisdb" {
   engine_version            = var.rsis_rds_engine_version
   instance_class            = var.rsis_rds_instance_class
   username                  = var.rsis_rds_username
-  password                  = var.rsis_rds_password
+  password                  = data.aws_ssm_parameter.rsis_rds_password.value
   port                      = var.rsis_rds_port
   publicly_accessible       = var.rsis_rds_public
   multi_az                  = var.rsis_rds_multi_az

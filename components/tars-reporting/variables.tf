@@ -120,11 +120,6 @@ variable "mis_rds_skip_final_snapshot" {
   description = "MIS RDS Final Snapshot required"
 }
 
-variable "mis_rds_password" {
-  type        = string
-  description = "MIS RDS Password"
-}
-
 variable "mis_rds_username" {
   type        = string
   description = "MIS RDS Username"
@@ -230,11 +225,6 @@ variable "rsis_rds_maint_window" {
 variable "rsis_rds_skip_final_snapshot" {
   type        = string
   description = "MIS RDS Final Snapshot required"
-}
-
-variable "rsis_rds_password" {
-  type        = string
-  description = "MIS RDS Password"
 }
 
 variable "rsis_rds_username" {

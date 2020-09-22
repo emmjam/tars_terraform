@@ -318,35 +318,30 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 
 # TARSDB
 tars_rds_username = "tarsadmin"
-tars_rds_password = "YTN5f3RN8kV8u9mX"
 tars_rds_allocated_storage = "500"
 tars_rds_snapshot = "tars-prod-tars-core-tarsdb-20190228"
 tars_rds_skip_final_snapshot = true
 
 # MISDB
 mis_rds_username = "misuatadmin"
-mis_rds_password = "BaLhNU73XCpFCNXP"
 mis_rds_allocated_storage = "500"
 mis_rds_snapshot = "tars-prod1-tars-reporting-misdb-241018"
 mis_rds_skip_final_snapshot = true
 
 # RSISDB
 rsis_rds_username = "tarsrsisadmin"
-rsis_rds_password = "pbj9VQTE4T5GDVbF"
 rsis_rds_allocated_storage = "300"
 rsis_rds_snapshot = "tars-prod1-tars-reporting-rsisdb-241018"
 rsis_rds_skip_final_snapshot = true
 
 # CPCSDB
 cpc_rds_username = "cpcadmin"
-cpc_rds_password = "gKFTFnhM5d2NqCFn"
 cpc_rds_allocated_storage = "100"
 cpc_rds_snapshot = "rds:tars-prod-cpc-cpcdb-2018-12-17-02-49"
 cpc_rds_skip_final_snapshot = true
 
 # IBSDB
 ibs_rds_username = "ibsprepadmin"
-ibs_rds_password = "wZMJ2KWX8ZEEwJqbRmS7FEbWryBFhmWU"
 ibs_rds_snapshot = "prep-ibsdb-19-06-18-comp-collapse"
 
 #############################################################################

@@ -354,11 +354,6 @@ variable "cpc_rds_multi_az" {
   description = "cpc DB Multi AZ"
 }
 
-variable "cpc_rds_password" {
-  type        = string
-  description = "cpc RDS Password"
-}
-
 variable "cpc_rds_port" {
   type        = string
   description = "cpc RDS DB Port"
@@ -581,11 +576,6 @@ variable "ibs_rds_instance_class" {
 variable "ibs_rds_maint_window" {
   type        = string
   description = ""
-}
-
-variable "ibs_rds_password" {
-  type        = string
-  description = "The ID's of the VPC subnets that the RDS cluster instances will be created in"
 }
 
 variable "ibs_rds_snapshot" {
@@ -819,11 +809,6 @@ variable "tars_rds_maint_window" {
 variable "tars_rds_multi_az" {
   type        = string
   description = "TARS DB Multi AZ"
-}
-
-variable "tars_rds_password" {
-  type        = string
-  description = "TARS RDS Password"
 }
 
 variable "tars_rds_port" {

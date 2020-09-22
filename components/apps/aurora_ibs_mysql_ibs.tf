@@ -1,9 +1,13 @@
 # Create the IBS Aurora DB
+data "aws_ssm_parameter" "ibs_aurora_password" {
+  name = "/${var.environment}/ibsdb/admin/password"
+}
+
 resource "aws_rds_cluster" "ibsdb_cluster" {
   cluster_identifier              = "${var.project}-${var.environment}-ibs-ibsdb-cluster"
   database_name                   = "ibsdb"
   master_username                 = var.ibs_rds_username
-  master_password                 = var.ibs_rds_password
+  master_password                 = data.aws_ssm_parameter.ibs_aurora_password.value
   backup_retention_period         = var.ibs_rds_backup_retention_period
   preferred_backup_window         = var.ibs_rds_backup_window
   preferred_maintenance_window    = var.ibs_rds_maint_window

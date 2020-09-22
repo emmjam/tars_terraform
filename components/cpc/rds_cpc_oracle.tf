@@ -1,4 +1,8 @@
 # Create the CPC RDS DB
+data "aws_ssm_parameter" "cpc_rds_password" {
+  name = "/${var.environment}/cpcdb/admin/password"
+}
+
 resource "aws_db_instance" "cpcdb" {
   identifier                = "${local.csi}-cpcdb"
   final_snapshot_identifier = "${local.csi}-cpcdb-final"
@@ -9,7 +13,7 @@ resource "aws_db_instance" "cpcdb" {
   engine_version            = var.cpc_rds_engine_version
   instance_class            = var.cpc_rds_instance_class
   username                  = var.cpc_rds_username
-  password                  = var.cpc_rds_password
+  password                  = data.aws_ssm_parameter.cpc_rds_password.value
   port                      = var.cpc_rds_port
   publicly_accessible       = var.cpc_rds_public
   multi_az                  = var.cpc_rds_multi_az

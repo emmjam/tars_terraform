@@ -329,21 +329,15 @@ ad_account = "233824316563"
 
 # TARSDB
 tars_rds_username = "tarsuatadmin"
-
-tars_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
-
-# TARSDB
 tars_rds_allocated_storage = "500"
 tars_rds_snapshot = "tars-perf01-tars-core-tarsdb-2019-01-28-12-2"
 
 # CPCSDB
 cpc_rds_username = "tarscpcadmin"
 cpc_rds_snapshot = "tars-perf01-tars-core-cpcdb-20-01-20-5-17-0-3"
-cpc_rds_password = "Mg28yDQjuEWndbtz"
 
 # MISDB
 mis_rds_username = "misdmsadmin"
-mis_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 mis_rds_allocated_storage = "300"
 mis_rds_snapshot = "tars-dev01-tars-dms-misopdmstg-20180720"
 mis_rds_storage_type = "gp2"
@@ -359,7 +353,6 @@ mis_rds_autoscale = "True"
 
 # RSISDB
 rsis_rds_username = "tarsrsisadmin"
-rsis_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
 rsis_rds_allocated_storage = "300"
 rsis_rds_snapshot = "tars-dev01-tars-dms-rsisdmssc-20180719"
 rsis_rds_storage_type = "gp2"
@@ -378,11 +371,10 @@ cpc_rds_allocated_storage = "100" # 20 Gigabyte - was 1500GB
 
 # IBSDB
 ibs_rds_username = "ibsuatadmin"
-
-ibs_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
-
 ibs_rds_snapshot = "perf01-ibsdb-with-users-and-geo-data"
 ibs_rds_instance_class = "db.r3.large"
+
+## wildfly
 
 wildfly-back_instance_type  = "m4.2xlarge"
 wildfly-back_asg_min_size         = 0

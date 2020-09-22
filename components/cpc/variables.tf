@@ -245,11 +245,6 @@ variable "cpc_rds_skip_final_snapshot" {
   description = "cpc RDS Final Snapshot required"
 }
 
-variable "cpc_rds_password" {
-  type        = string
-  description = "cpc RDS Password"
-}
-
 variable "cpc_rds_username" {
   type        = string
   description = "cpc RDS Username"

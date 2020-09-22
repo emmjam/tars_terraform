@@ -306,30 +306,25 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 
 # TARSDB
 tars_rds_username = "tarsdevadmin"
-tars_rds_password = "password"
 tars_rds_allocated_storage = "20"
 tars_rds_snapshot = "tars-opsdev-tars-core-tarsdb-5-4-2019-5-7-0-2"
 
 # CPCSDB
 cpc_rds_username = "cpcdevadmin"
-cpc_rds_password = "YwBWc8HvweT3Lun8"
 cpc_rds_allocated_storage = "50"
 cpc_rds_snapshot = "tars-opsdev-cpc-cpcdb-5-4-2019-5-7-0-2"
 
 # IBSDB
 ibs_rds_username = "ibsuatadmin"
-ibs_rds_password = "password"
 ibs_rds_snapshot = "sit01-ibs-subnet-move"
 
 # MISDB
 mis_rds_username = "misdmsadmin"
-mis_rds_password = "password"
 mis_rds_allocated_storage = "300"
 mis_rds_snapshot = "tars-dev01-tars-dms-misopdmstg-20180720"
 
 # RSISDB
 rsis_rds_username = "tarsrsisadmin"
-rsis_rds_password = "password"
 rsis_rds_allocated_storage = "80"
 rsis_rds_snapshot = "tars-dev01-tars-dms-rsisdmssc-20180719"
 

@@ -380,35 +380,28 @@ rhel_spot_pricing = {
 
 # TARSDB
 tars_rds_username = "tarsadmin"
-tars_rds_password = "tjbzVTT83kacEEcY"
 tars_rds_allocated_storage = "500"
 tars_rds_snapshot = ""
 
 # MISDB
 mis_rds_username = "misadmin"
-mis_rds_password = "rXTdAxhj3kN8S2Gc"
 mis_rds_allocated_storage = "400"
 mis_rds_autoscale = "False"
 mis_rds_snapshot = ""
 
 # RSISDB
 rsis_rds_username = "rsisadmin"
-rsis_rds_password = "Wbx8Mdu9YjdjwTRM"
 rsis_rds_allocated_storage = "120"
 rsis_rds_autoscale = "False"
 rsis_rds_snapshot = ""
 
 # CPCSDB
 cpc_rds_username = "cpcadmin"
-cpc_rds_password = "fgvRRVEJPAf2L3wC"
 cpc_rds_allocated_storage = "100"
 cpc_rds_snapshot = ""
 
 # IBSDB
 ibs_rds_username = "ibsprodadmin"
-
-ibs_rds_password = "sPPmE94NsvmfTmqj5K5YvFxZLmnm9T"
-
 ibs_rds_snapshot = "tars-prod-ibsdb-pre-release-5-10-0-3"
 
 #############################################################################
