@@ -14,13 +14,14 @@ resource "aws_dynamodb_table" "bounced_email_report" {
     hash_key       = var.hash_key
     range_key      = var.range_key
     billing_mode   = var.billing_mode
-    
+
+  
     global_secondary_index {
         name               = "SESMessageType-index"
         hash_key           = "SESMessageType"
         range_key          = ""
-        write_capacity     = 5 
-        read_capacity      = 5 
+       # write_capacity     = 5 
+       # read_capacity      = 5 
         projection_type    = "ALL"
         non_key_attributes = []
     }   
