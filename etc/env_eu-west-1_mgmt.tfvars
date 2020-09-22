@@ -369,7 +369,7 @@ gitlab_redis_subnets_cidrs = [
 ]
 
 ## jenkins
-jenkins_instance_type        = "t3.medium"
+jenkins_instance_type        = "m5.large"
 jenkins_ami_build_id         = "634"
 jenkins_asg_min_size         = 0
 jenkins_asg_max_size         = 1
