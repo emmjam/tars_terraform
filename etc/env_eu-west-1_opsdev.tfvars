@@ -193,18 +193,6 @@ squidnat_subnets_cidrs = [
   "10.167.4.160/28",
 ]
 
-xenco_lb_subnets_cidrs = [
-  "10.167.4.176/28",
-  "10.167.4.192/28",
-  "10.167.4.208/28",
-]
-
-xenco_subnets_cidrs = [
-  "10.167.4.224/28",
-  "10.167.4.240/28",
-  "10.167.5.0/28",
-]
-
 elc_main_subnets_cidrs = [
   "10.167.5.16/28",
   "10.167.5.32/28",
@@ -345,26 +333,6 @@ transit_peering_enabled = false
 ad_peering_enabled = false
 ad_peering_vpc = "vpc-02072cb35506d9b73"
 ad_account = "233824316563"
-
-# Xenco temp dev box
-xenconode = {
-  instance_type        = "m4.large"
-  ami_id               = "ami-f06bf389"
-  asg_min_size         = 0
-  asg_max_size         = 1
-  rpms_to_install      = "gcc kernel-devel kernel-headers"
-  key_name             = "deployer"
-}
-
-xenco_whitelist = [
-  "77.86.30.4/32",      # BJSS VPN (Decom ~06/18)
-  "148.253.134.213/32", # BJSS VPN 04/18
-  "92.27.225.23/32",    # Xenco IP
-  "92.27.224.62/32",    # Xenco IP
-  "46.249.193.133/32",  # Xenco IP
-]
-
-xenco_ssh_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAgEAglcxWvitvW4CTzgOZdQJF7FziHgkN5BIdLmjo+AqIxQqzWcGWYKYAJ7QHgKF1hT1Z6t0cYHR+AWIUb+lW2/52m0timHKftucWkTZBzEgpRrzgxhEgJJmfIE++MUtKGMPhE4lEpQ3KgrOwC1jiIkOq9R2CchYZr8rsM9abfet5tjgg/sjxvEUXI0pfByuqtm/s4XygAJMq1dIAfdJkxg9xutm/+t38dfFwbjlRJNwdCCJjBQywzrTVO69rika6gESNtHb75izagyy47HGwi9LxLZgODtAlyeVhSsfxoOgrIV6vOwBb/dEW7hz49mROp3T+2ZzXm85uDRdb/58g6BSIJ6uD81qSRf3W4cBmzB4EklKxlW5zD2aXyNxQescSmTD6VhcU+8EQlZRUhIBZ4DXfmpmQc354tFL1BHyxbqQubUtlfsX9kZUXocgt4aLnglnBbIlWaX+9NqNkOPaJIBxBQo1F6oNb97WtO9o2YBpk63vUv/wuCHH6T3jTThBYYnEveXujHUuZZeAJ11qB4jiyx4a/kjOxY7hI5NT336RCrwG1l5kM8w44XTzQzOoY9A6stsEr7DJhZ24OQ0kX9PuziMCWXLH4Z23fEM4t+tFvXFRD9K5RKASkGqNum9AViZxsZr4uLzqsUyGTOYIDrxlc1X/6s7neAWINQtWFvig4Hc= rsa-key-20180501"
 
 private_cert_domain_name = "dvsa.tars.dev-dvsacloud.uk"
 

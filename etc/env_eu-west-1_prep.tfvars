@@ -200,18 +200,6 @@ squidnat_subnets_cidrs = [
   "10.167.140.160/28",
 ]
 
-xenco_lb_subnets_cidrs = [
-  "10.167.140.176/28",
-  "10.167.140.192/28",
-  "10.167.140.208/28",
-]
-
-xenco_subnets_cidrs = [
-  "10.167.140.224/28",
-  "10.167.140.240/28",
-  "10.167.141.0/28",
-]
-
 elc_main_subnets_cidrs = [
   "10.167.141.16/28",
   "10.167.141.32/28",
@@ -451,9 +439,6 @@ rds_cw_metric_freestoragespace_alarm_action_enabled = true
 
 ## Elasticache
 elc_main_node_type = "cache.t2.micro"
-
-## Xenco
-xenco_instance_type = "t2.small"
 
 # TARSDB
 tars_rds_instance_class = "db.t3.medium"
