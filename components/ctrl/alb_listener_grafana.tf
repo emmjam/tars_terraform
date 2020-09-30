@@ -1,5 +1,5 @@
 resource "aws_alb_listener" "grafna-https" {
-  count             = "${var.account_environment != "mgmt" ? 1 : 0}"
+  count             = var.account_environment != "mgmt" ? 1 : 0
   load_balancer_arn = aws_alb.grafana.arn
   port              = "443"
   protocol          = "HTTPS"
