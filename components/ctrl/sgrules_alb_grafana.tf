@@ -1,6 +1,6 @@
 # Grafana ALB
 resource "aws_security_group_rule" "grafana_alb_ingress_whitelist_https" {
-  count             = "${var.account_environment != "mgmt" ? 1 : 0}"
+  count             = var.account_environment != "mgmt" ? 1 : 0
   description       = "Allow HTTPS from whitelisted IP addresses"
   type              = "ingress"
   from_port         = 443
@@ -12,7 +12,7 @@ resource "aws_security_group_rule" "grafana_alb_ingress_whitelist_https" {
 }
 
 resource "aws_security_group_rule" "grafana_egress_grafana_alb_http" {
-  count             = "${var.account_environment != "mgmt" ? 1 : 0}"
+  count                    = var.account_environment != "mgmt" ? 1 : 0
   description              = "Allow HTTP from Grafana ALB to Grafana"
   type                     = "egress"
   from_port                = 80

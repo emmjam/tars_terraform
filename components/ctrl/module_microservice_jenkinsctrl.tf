@@ -22,7 +22,7 @@ module "jenkinsnode" {
     aws_security_group.core.id,
   ]
 
-  #lc_spot_price    = "${lookup(var.spot_pricing, var.jenkinsctrl_instance_type)}"
+  #lc_spot_price    = lookup(var.spot_pricing, var.jenkinsctrl_instance_type)
 
   asg_size_min               = var.jenkinsctrl_asg_min_size
   asg_size_desired_on_create = var.jenkinsctrl_asg_min_size
