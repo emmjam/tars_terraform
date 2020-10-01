@@ -78,3 +78,7 @@ output "sns_topic_arn_ses_complaints" {
 output "sns_topic_arn_ses_bounces" {
   value = aws_sns_topic.ses_bounces.arn
 }
+
+output "tars_domain_name" {
+  value = aws_ses_domain_identity.tars.domain
+}
