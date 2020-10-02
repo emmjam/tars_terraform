@@ -12,11 +12,11 @@ resource "aws_sns_topic" "ses_bounces" {
 resource "aws_ses_identity_notification_topic" "ses_complaints" {
   topic_arn         = aws_sns_topic.ses_complaints.arn
   notification_type = "Complaint"
-  identity          = aws_ses_domain_identity.tars.domain
+  identity          = data.terraform_remote_state.ctrl.outputs.tars_domain_name
 }
 
 resource "aws_ses_identity_notification_topic" "ses_bounces" {
   topic_arn         = aws_sns_topic.ses_bounces.arn
   notification_type = "Bounce"
-  identity          = aws_ses_domain_identity.tars.domain
+  identity          = data.terraform_remote_state.ctrl.outputs.tars_domain_name
 }

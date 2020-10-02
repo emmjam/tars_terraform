@@ -33,3 +33,13 @@ output "gitlab_elb_sg_id" {
 output "private_alb_sg" {
   value = aws_security_group.alb_private.id
 }
+
+# SES SNS ARN
+output "sns_topic_arn_ses_complaints" {
+  value = aws_sns_topic.ses_complaints.arn
+}
+
+output "sns_topic_arn_ses_bounces" {
+  value = aws_sns_topic.ses_bounces.arn
+}
+

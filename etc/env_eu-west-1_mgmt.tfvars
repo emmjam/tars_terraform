@@ -500,7 +500,7 @@ cloudability_xacct = {
 ##
 # Bounced email
 ##
-enable_bounced_email_report = "1"
+enable_bounced_email_report = "0"
 bounced_email_domain = "prod.tars.dvsacloud.uk"
 ##
 # Access key rotation/notification - runs every day at 06.00 am

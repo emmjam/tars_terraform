@@ -8,8 +8,8 @@ module "lambda-bounced-email-report" {
   component      = "${var.component}"
   default_tags   = "${var.default_tags}"
   sns_topic_arns  = [
-    "${data.terraform_remote_state.ctrl.outputs.sns_topic_arn_ses_complaints}",
-    "${data.terraform_remote_state.ctrl.outputs.sns_topic_arn_ses_bounces}",
+    "${aws_sns_topic.ses_complaints.arn}",
+    "${aws_sns_topic.ses_bounces.arn}",
   ]
   write_capacity = 1
   read_capacity  = 1
