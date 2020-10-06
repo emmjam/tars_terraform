@@ -133,6 +133,7 @@ readonly_platform_users = [
   "callum.massey@bjss.com",
   "michael.tribbick@bjss.com",
   "stephen.davies@bjss.com",
+  "david.giles@bjss.com",
 ]
 
 # Developer Access
