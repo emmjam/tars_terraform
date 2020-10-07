@@ -480,7 +480,7 @@ bobj_instance_type = "m5.xlarge"
 # TARSDB
 tars_rds_storage_type = "gp2"
 tars_rds_engine = "oracle-se2"
-tars_rds_engine_version = "12.2.0.1.ru-2020-04.rur-2020-04.r1"
+tars_rds_engine_version = "12.2.0.1.ru-2020-07.rur-2020-07.r1"
 tars_rds_instance_class = "db.m4.2xlarge"
 tars_rds_allow_major_engine_version_upgrade = true
 tars_rds_parameter_group_name = "tarsdb-12-2"
