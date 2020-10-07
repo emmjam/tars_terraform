@@ -324,14 +324,14 @@ ibs_rds_username = "ibsuatadmin"
 ibs_rds_snapshot = "sit02-ibs-subnet-move"
 
 # MISDB
-mis_rds_username = "misdmsadmin"
+mis_rds_username = "misuatadmin"
 mis_rds_snapshot = "tars-dev01-tars-dms-misopdmstg-20180720"
 mis_rds_allocated_storage = "330"
 mis_rds_autoscale = "False"
 mis_rds_backup_retention = "21"
 
 # RSISDB
-rsis_rds_username = "tarsrsisadmin"
+rsis_rds_username = "rsisuatadmin"
 rsis_rds_snapshot = "tars-dev01-tars-dms-rsisdmssc-20180719"
 rsis_rds_allocated_storage = "300"
 rsis_rds_autoscale = "False"
