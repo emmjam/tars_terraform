@@ -7,14 +7,6 @@ data "aws_iam_policy_document" "assume_readonly_role_tssops" {
       "sts:AssumeRole",
     ]
 
-    condition {
-      test     = "StringLike"
-      variable = "sts:RoleSessionName"
-      values   = [
-         "{aws:username}",
-      ]
-    }
-
     resources = [
       "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/ReadOnly",
       "arn:aws:iam::652856684323:role/ReadOnly",
