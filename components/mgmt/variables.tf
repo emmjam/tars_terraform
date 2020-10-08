@@ -722,12 +722,6 @@ variable "db_cw_users" {
   default     = []
 }
 
-variable "dms_users" {
-  type        = "list"
-  description = "List of DMS Access IAM Users for Support functions, that have DMS access"
-  default     = []
-}
-
 variable "billing_users" {
   type        = "list"
   description = "List of billing IAM Users for Support functions, that have Billing access"

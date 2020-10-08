@@ -197,10 +197,6 @@ db_cw_users = [
   "david.giles@bjss.com",
 ]
 
-dms_users = [
-  "david.giles@bjss.com",
-]
-
 # Non Prod
 
 readonly_no_secrets_nonprod_users = [

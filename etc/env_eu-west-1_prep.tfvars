@@ -452,9 +452,6 @@ rsis_rds_instance_class = "db.t3.medium"
 # CPCDB
 cpc_rds_instance_class = "db.t3.medium"
 
-# DMS Replication instance
-tars_dms_replication_instance_class = "dms.t2.medium"
-
 #Monitoring
 prometheus_asg_max_size = 1
 prometheus_instance_type = "m3.medium"

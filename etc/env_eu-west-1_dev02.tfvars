@@ -337,9 +337,6 @@ ad_peering_enabled = false
 ad_peering_vpc = "vpc-02072cb35506d9b73"
 ad_account = "233824316563"
 
-# DMS Stuff
-xe_role_name = "OracleXE"
-
 # These names will be added to our private zone so we can resolve them.
 dsa-drora-db-rac01 = "10.86.192.16"
 dsa-drora-db-rac02 = "10.86.192.17"

@@ -548,16 +548,7 @@ cpc_rds_license_model = "license-included"
 cpc_rds_autoscale = "False"
 cpc_rds_sid_name = "CPCDB"
 
-# DMS Replication instance
-tars_dms_allocated_storage = "50"
-tars_dms_apply_immediately = true
-tars_dms_auto_minor_version_upgrade = true
-tars_dms_engine_version = "2.4.3"
-tars_dms_multi_az = false
-tars_dms_maint_window = "sun:03:16-sun:03:46"
-tars_dms_publicly_accessible = false
-tars_dms_replication_instance_class = "dms.r4.2xlarge"
-
+# DVSA Mail Domain
 dvsa_external_mail_domain = "dvsa.gov.uk"
 
 # DC Gateway details
