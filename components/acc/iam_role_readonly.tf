@@ -5,7 +5,7 @@ resource "aws_iam_role" "readonly" {
 
   path = "/"
 
-  assume_role_policy = "${data.aws_iam_policy_document.mgmt_trust_temp_test.json}"
+  assume_role_policy = "${data.aws_iam_policy_document.mgmt_trust.json}"
 
   tags = "${merge(
     local.default_tags,
