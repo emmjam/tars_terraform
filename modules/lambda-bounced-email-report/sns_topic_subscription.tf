@@ -14,7 +14,7 @@
 */
 
 resource "aws_sns_topic_subscription" "sns_t_ses_bounces" {
-  count                           = var.enabled
+  count                           = var.enable_bounced_email
   topic_arn                       = "arn:aws:sns:eu-west-1:${var.aws_account_id}:SES_bounces"
   protocol                        = "lambda"
   endpoint                        = "arn:aws:lambda:eu-west-1:${var.aws_account_id}:function:ses-bounced-email-notifications"
@@ -22,7 +22,7 @@ resource "aws_sns_topic_subscription" "sns_t_ses_bounces" {
 }
 
 resource "aws_sns_topic_subscription" "sns_t_ses_complaints" {
-  count                           = var.enabled  
+  count                           = var.enable_bounced_email
   topic_arn                       = "arn:aws:sns:eu-west-1:${var.aws_account_id}:SES_complaints"
   protocol                        = "lambda"
   endpoint                        = "arn:aws:lambda:eu-west-1:${var.aws_account_id}:function:ses-bounced-email-notifications"
