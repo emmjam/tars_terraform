@@ -1,8 +1,0 @@
-resource "aws_sns_topic_subscription" "05c3dcfe-6850-420a-b53b-397a87cdf757" {
-  count = "${var.enable_bounced_email == "0" ? "0" : length(var.sns_topic_arns)}"
-
-  topic_arn                       = "${element(var.sns_topic_arns, count.index)}"
-  protocol                        = "lambda"
-  endpoint                        = "${aws_lambda_function.ses_notifications.arn}"
-  raw_message_delivery            = "false"
-}
