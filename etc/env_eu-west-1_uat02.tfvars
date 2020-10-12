@@ -345,26 +345,10 @@ dvsa_wan_connectivity_enabled = true
 # Old World
 transit_peering_enabled = false
 
-wildfly-back_scaledown_desired = 0
-wildfly-batch_scaledown_desired = 0
-obs_scaledown_desired = 0
-ibs_scaledown_desired = 0
-fyndi-f_scaledown_desired = 0
-fyndi-b_scaledown_desired = 0
-wildfly-front_scaledown_desired = 0
-wildfly-mock_scaledown_desired = 0
-cpc-back_scaledown_desired = 0
-cpc-front_scaledown_desired = 0
-sftpplus-svr_scaledown_desired = 0
-
 ## wildfly-messaging
 wildfly-messaging_instance_type        = "t3.medium"
 wildfly-messaging_puppet_nodetype      = "tars-messaging"
-wildfly-messaging_asg_min_size         = 0
-wildfly-messaging_asg_max_size         = 2
-wildfly-messaging_scaledown_desired    = 2
 wildfly-messaging_scaledown_recurrence = "00 19 * * 1-5"
-wildfly-messaging_scaleup_desired      = 2
 wildfly-messaging_scaleup_recurrence   = "00 07 * * 1-5"
 
 # DHCP Scope options for DNS
