@@ -125,29 +125,9 @@ variable "ami_build_id" {
   default = ""
 }
 
-variable "tars_ami_id" {
-  type        = string
-  description = "TARS AMI build ID"
-}
-
 variable "cpc_ami_id" {
   type        = string
   description = "CPC AMI build ID"
-}
-
-variable "fyndi_ami_id" {
-  type        = string
-  description = ""
-}
-
-variable "ibs_ami_id" {
-  type        = string
-  description = ""
-}
-
-variable "obs_ami_id" {
-  type        = string
-  description = ""
 }
 
 variable "aws_account_id" {
