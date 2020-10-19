@@ -77,7 +77,7 @@ prometheus_efs_provisioned_mibps  = 1
 
 ## jenkinsnode
 jenkinsnode_instance_type        = "t3.medium"
-jenkinsnode_ami_build_id         = "845"
+jenkinsnode_ami_build_id         = "849"
 jenkinsnode_executors            = 20
 jenkinsnode_asg_min_size         = 0
 jenkinsnode_asg_max_size         = 1
@@ -443,7 +443,7 @@ rsis_samba_server = "10.14.0.150/32"
 
 # squidnat
 squidnat_instance_type = "m3.medium"
-squidnat_ami_build_id  = "836"
+squidnat_ami_build_id  = "852"
 
 ops_team_email = "TARSStabilisation@bjss.com"
 
