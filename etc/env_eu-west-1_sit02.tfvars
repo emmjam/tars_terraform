@@ -309,7 +309,7 @@ ad_account = "233824316563"
 # TARSDB
 tars_rds_username = "tarsuatadmin"
 tars_rds_snapshot = "tars-core-tarsdb-20190410-5-4-0-1"
-tars_rds_allocated_storage = "300"
+tars_rds_allocated_storage = "500"
 tars_rds_autoscale = "False"
 tars_rds_backup_retention = "21"
 
@@ -326,7 +326,7 @@ ibs_rds_snapshot = "sit02-ibs-subnet-move"
 # MISDB
 mis_rds_username = "misuatadmin"
 mis_rds_snapshot = "tars-dev01-tars-dms-misopdmstg-20180720"
-mis_rds_allocated_storage = "330"
+mis_rds_allocated_storage = "400"
 mis_rds_autoscale = "False"
 mis_rds_backup_retention = "21"
 
