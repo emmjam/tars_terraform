@@ -46,7 +46,7 @@ data "aws_ami" "squidnat" {
       format(
         "%s-%s-%s/%s",
         var.project,
-        "amzn",
+        "amzn2",
         "squidnat",
         var.squidnat_ami_build_id,
       )
