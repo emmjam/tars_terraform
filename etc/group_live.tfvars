@@ -595,3 +595,5 @@ sftp_cpuutilization_cw_metric_alarm_action_enabled = false
 # Enable action for tars-core CPU CloudWatch Alarm
 tars_core_cpuutilization_cw_metric_alarm_enabled = false
 tars_core_cpuutilization_cw_metric_alarm_action_enabled = false
+
+power_bi_cidr = "10.164.216.0/22"

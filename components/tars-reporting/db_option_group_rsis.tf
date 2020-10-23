@@ -32,5 +32,15 @@ resource "aws_db_option_group" "rsis" {
   option {
     option_name = "SQLT"
   }
+
+  option {
+    option_name = "SSL"
+    option_settings {
+      name  = "SQLNET.SSL_VERSION"
+      value = "1.2"
+    }
+    port                           = "2484"
+    vpc_security_group_memberships = [aws_security_group.tars-rsis-db.id]
+  }
 }
 

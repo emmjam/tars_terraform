@@ -345,3 +345,8 @@ variable "rds_cw_metric_alarm_enabled" {
   default     = "false"
   description = "Enable or disable RDS CloudWatch Metrics"
 }
+
+variable "power_bi_cidr" {
+  type        = string
+  description = "Power BI CIDR range"
+}

@@ -11,3 +11,4 @@ resource "aws_route53_record" "bobj-public" {
   }
 }
 
+

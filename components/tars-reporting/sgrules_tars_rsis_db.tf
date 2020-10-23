@@ -86,3 +86,17 @@ resource "aws_security_group_rule" "rsis_oracle_db_ingress_jemkinsctrl" {
   security_group_id        = aws_security_group.tars-rsis-db.id
   source_security_group_id = data.terraform_remote_state.ctrl.outputs.jenkinsctrl_sg_id
 }
+
+#Power BI to RSIS
+resource "aws_security_group_rule" "rsis_rds_ingress_power_bi" {
+  description              = "Allow TCP/2484 from power_bi"
+  type                     = "ingress"
+  from_port                = "2484"
+  to_port                  = "2484"
+  protocol                 = "tcp"
+  security_group_id        = aws_security_group.tars-rsis-db.id
+
+  cidr_blocks = [
+    var.power_bi_cidr,
+  ]
+}
