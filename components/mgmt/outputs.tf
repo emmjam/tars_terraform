@@ -42,4 +42,3 @@ output "sns_topic_arn_ses_complaints" {
 output "sns_topic_arn_ses_bounces" {
   value = aws_sns_topic.ses_bounces.arn
 }
-

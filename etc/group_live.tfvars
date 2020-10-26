@@ -256,7 +256,7 @@ apache_scaledown_desired     = 2
 apache_scaledown_recurrence  = "00 22 * * 1-5"
 apache_scaleup_desired       = 2
 apache_scaleup_recurrence    = "00 07 * * 1-5"
-apache_ami_build_id          = "833"
+apache_ami_build_id          = "872"
 
 aws_mq_config_description    = "TARS MQ Configuration"
 aws_mq_config_name           = "tars-awsmq"

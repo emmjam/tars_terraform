@@ -4,6 +4,6 @@ resource "aws_iam_policy" "lambda_guardduty_slack" {
   policy = "${data.aws_iam_policy_document.guardduty_slack.json}"
 
   depends_on = [
-    "aws_cloudwatch_log_group.lambda_guardduty_slack",
+    aws_cloudwatch_log_group.lambda_guardduty_slack,
   ]
 }

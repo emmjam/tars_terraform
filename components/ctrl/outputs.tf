@@ -73,3 +73,4 @@ output "tars_aws_backup_iam_tars_efs_id" {
 output "tars_domain_name" {
   value = aws_ses_domain_identity.tars.domain
 }
+

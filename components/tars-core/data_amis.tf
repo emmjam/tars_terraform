@@ -75,7 +75,7 @@ data "aws_ami" "apache" {
       format(
         "%s-%s-%s/%s*",
         var.project,
-        "amzn",
+        "amzn2",
         "apache-routing",
         var.apache_ami_build_id,
       )
