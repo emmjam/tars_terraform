@@ -67,6 +67,7 @@ new_all_users = [
   "richard.teasdale@bjss.com",
   "ismahil.khan@bjss.com",
   "david.smith@bjss.com",
+  "jessica.ferguson@bjss.com",
 ]
 
 # TSSOps Access
@@ -90,6 +91,7 @@ administrators_tssops_users = [
   "david.walsh@bjss.com",
   "nadeem.khan@bjss.com",
   "david.smith@bjss.com",
+  "jessica.ferguson@bjss.com",
 ]
 
 readonly_tssops_users = [
@@ -117,6 +119,7 @@ readonly_tssops_users = [
   "richard.teasdale@bjss.com",
   "ismahil.khan@bjss.com",
   "david.smith@bjss.com",
+  "jessica.ferguson@bjss.com",
 ]
 
 # TARS Platform Access
