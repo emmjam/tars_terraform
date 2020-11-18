@@ -323,7 +323,7 @@ ibs_rds_snapshot = "uat01-ibs-subnet-move"
 
 # MISDB
 mis_rds_username = "misdmsadmin"
-mis_rds_allocated_storage = "300"
+mis_rds_allocated_storage = "330"
 mis_rds_snapshot = "tars-uat01-tars-reporting-misdb-20181108"
 mis_rds_autoscale = "False"
 mis_rds_backup_retention = "21"
