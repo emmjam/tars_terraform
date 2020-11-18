@@ -1,4 +1,4 @@
-resource "aws_security_group_rule" "jenkinsnode_egress_oracle_db" {
+resource "aws_security_group_rule" "jenkinsctrl_mis_egress_oracle_db" {
   description              = "Allow TCP/1521 to RDS"
   type                     = "egress"
   from_port                = 1521

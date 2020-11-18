@@ -111,7 +111,7 @@ resource "aws_security_group_rule" "mis_rds_egress_cpc_rds_sg" {
   source_security_group_id = data.terraform_remote_state.cpc.outputs.cpc-db-sg-id
 }
 
-resource "aws_security_group_rule" "oracle_db_ingress_jemkinsctrl" {
+resource "aws_security_group_rule" "mis_oracle_db_ingress_jemkinsctrl" {
   description              = "Allow TCP/1521 from Jenkinsctrl"
   type                     = "ingress"
   from_port                = 1521

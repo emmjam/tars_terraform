@@ -77,7 +77,7 @@ resource "aws_security_group_rule" "rsis_rds_ingress_tars_batch_sg" {
   source_security_group_id = data.terraform_remote_state.tars-batch.outputs.tars-batch-sg-id
 }
 
-resource "aws_security_group_rule" "oracle_db_ingress_jemkinsctrl" {
+resource "aws_security_group_rule" "rsis_oracle_db_ingress_jemkinsctrl" {
   description              = "Allow TCP/1521 from Jenkinsctrl"
   type                     = "ingress"
   from_port                = 1521
