@@ -316,7 +316,7 @@ mis_rds_snapshot = "tars-dev01-tars-dms-misopdmstg-20180720"
 
 # RSISDB
 rsis_rds_username = "tarsrsisadmin"
-rsis_rds_allocated_storage = "100"
+rsis_rds_allocated_storage = "150"
 rsis_rds_snapshot = "tars-dev01-tars-dms-rsisdmssc-20180719"
 
 #############################################################################
