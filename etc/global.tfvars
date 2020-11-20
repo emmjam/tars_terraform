@@ -102,3 +102,9 @@ ibs1_ibs2_redirect_env  = [
 perf_jenkinsnode  = [
   "perf01"
 ]
+
+rds_tars_cpc_rule_env = [
+  "sit01",
+  "sit02",
+  "uat01"
+]
