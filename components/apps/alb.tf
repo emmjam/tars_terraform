@@ -25,28 +25,3 @@ resource "aws_alb" "apps" {
   )
 }
 
-resource "aws_alb" "fyndi-b" {
-  name         = "${local.csi}-fyndi-b"
-  internal     = true
-  idle_timeout = 300
-
-  access_logs {
-    bucket  = module.access_logs_bucket.id
-    prefix  = "back"
-    enabled = true
-  }
-
-  security_groups = [
-    aws_security_group.fyndi-b-alb.id,
-  ]
-
-  subnets = data.terraform_remote_state.base.outputs.subnets_fyndi_back_alb
-
-  tags = merge(
-    local.default_tags,
-    {
-      "Name" = "${local.csi}-fyndi-b"
-    },
-  )
-}
-

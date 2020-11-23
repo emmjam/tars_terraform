@@ -11,15 +11,3 @@ resource "aws_alb_listener" "apps-8080" {
     target_group_arn = aws_alb_target_group.fyndi-f-8080.arn
   }
 }
-
-resource "aws_alb_listener" "fyndi-b-8080" {
-  load_balancer_arn = aws_alb.fyndi-b.arn
-  port              = "8080"
-  protocol          = "HTTP"
-
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_alb_target_group.fyndi-b-8080.arn
-  }
-}
-
