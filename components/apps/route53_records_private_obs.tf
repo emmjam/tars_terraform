@@ -5,8 +5,8 @@ resource "aws_route53_record" "obs-internal" {
   type    = "A"
 
   alias {
-    name                   = aws_alb.obs.dns_name
-    zone_id                = aws_alb.obs.zone_id
+    name                   = aws_alb.private.dns_name
+    zone_id                = aws_alb.private.zone_id
     evaluate_target_health = true
   }
 }

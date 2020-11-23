@@ -5,8 +5,8 @@ resource "aws_route53_record" "fyndi-backend" {
   type    = "A"
 
   alias {
-    name                   = aws_alb.fyndi-b.dns_name
-    zone_id                = aws_alb.fyndi-b.zone_id
+    name                   = aws_alb.private.dns_name
+    zone_id                = aws_alb.private.zone_id
     evaluate_target_health = true
   }
 }

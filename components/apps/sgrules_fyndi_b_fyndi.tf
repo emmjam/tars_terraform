@@ -1,3 +1,12 @@
+resource "aws_security_group_rule" "fyndi-b-ingress-private-alb-8080" {
+  type                     = "ingress"
+  protocol                 = "tcp"
+  from_port                = "8080"
+  to_port                  = "8080"
+  security_group_id        = module.fyndi-b.security_group_id
+  source_security_group_id = aws_security_group.private-alb.id
+}
+
 resource "aws_security_group_rule" "fyndi-b-ingress-fyndi-b-alb-8080" {
   type                     = "ingress"
   protocol                 = "tcp"

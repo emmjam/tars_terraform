@@ -27,3 +27,12 @@ resource "aws_security_group_rule" "batch_egress_fyndi_back_alb" {
   source_security_group_id = aws_security_group.fyndi-b-alb.id
 }
 
+resource "aws_security_group_rule" "batch_egress_private_alb" {
+  type                     = "egress"
+  from_port                = "8080"
+  to_port                  = "8080"
+  protocol                 = "tcp"
+  security_group_id        = data.terraform_remote_state.tars-batch.outputs.tars-batch-sg-id
+  source_security_group_id = aws_security_group.private-alb.id
+}
+
