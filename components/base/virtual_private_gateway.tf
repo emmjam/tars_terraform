@@ -15,7 +15,7 @@ resource "aws_vpn_gateway" "dx_vpn_gw" {
 resource "aws_dx_gateway_association" "dx_vpn_gw_association" {
   count          = var.dvsa_wan_connectivity_enabled ? 1 : 0
   dx_gateway_id  = data.terraform_remote_state.ctrl.outputs.dx_gateway_id[0]
-  vpn_gateway_id = aws_vpn_gateway.dx_vpn_gw[0].id
+  associated_gateway_id = aws_vpn_gateway.dx_vpn_gw[0].id
 }
 
 # Enable route propagation

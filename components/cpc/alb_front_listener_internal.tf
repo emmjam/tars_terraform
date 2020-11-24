@@ -20,11 +20,11 @@ resource "aws_lb_listener_rule" "cpc-front-internal-9443-delegated" {
   }
 
   condition {
-    field = "path-pattern"
-
-    values = [
-      "/delegated/*",
-    ]
+    path_pattern {
+      values = [
+        "/delegated/*",
+      ]
+    }
   }
 }
 
@@ -38,11 +38,11 @@ resource "aws_lb_listener_rule" "cpc-front-internal-9443-cpcode" {
   }
 
   condition {
-    field = "path-pattern"
-
-    values = [
-      "/cpcode/*",
-    ]
+    path_pattern {
+      values = [
+        "/cpcode/*",
+      ]
+    }
   }
 }
 
@@ -56,11 +56,11 @@ resource "aws_lb_listener_rule" "cpc-front-internal-9443-cpctrain" {
   }
 
   condition {
-    field = "path-pattern"
-
-    values = [
-      "/cpctrain/*",
-    ]
+    path_pattern {
+      values = [
+        "/cpctrain/*",
+      ]
+    }
   }
 }
 

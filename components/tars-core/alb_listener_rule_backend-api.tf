@@ -8,8 +8,9 @@ resource "aws_alb_listener_rule" "private_https_tars_api" {
   }
 
   condition {
-    field  = "path-pattern"
-    values = ["/tars-TarsRestWebServices/*"]
+    path_pattern {
+      values = ["/tars-TarsRestWebServices/*"]
+    }
   }
 }
 
