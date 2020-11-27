@@ -14,7 +14,7 @@ data "aws_ami" "fyndi-f" {
       format(
         "%s-%s-%s/%s",
         var.project,
-        "amzn",
+        "amzn2",
         "fyndi-front",
         var.fyndi_ami_id,
       )
@@ -45,7 +45,7 @@ data "aws_ami" "fyndi-b" {
       format(
         "%s-%s-%s/%s",
         var.project,
-        "amzn",
+        "amzn2",
         "fyndi-back",
         var.fyndi_ami_id,
       )
