@@ -44,6 +44,7 @@ new_all_users = [
   "matthew.bell@dvsa.gov.uk",
   "michael.tribbick@bjss.com",
   "michelle.pike@bjss.com",
+  "mike.peachey@bjss.com",
   "neil.eaton@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
   "prashant.kumar@bjss.com",
@@ -86,6 +87,7 @@ administrators_tssops_users = [
   "ibrar.akram@bjss.com",
   "john.bower@bjss.com",
   "luke.browning@bjss.com",
+  "mike.peachey@bjss.com",
   "ian.harris@bjss.com",
   "irfan.sidat@bjss.com",
   "david.walsh@bjss.com",
@@ -120,6 +122,7 @@ readonly_tssops_users = [
   "ismahil.khan@bjss.com",
   "david.smith@bjss.com",
   "jessica.ferguson@bjss.com",
+  "mike.peachey@bjss.com",
 ]
 
 # TARS Platform Access
