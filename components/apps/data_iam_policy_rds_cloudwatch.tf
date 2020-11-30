@@ -29,6 +29,7 @@ data "aws_iam_policy_document" "aurora_rds_cloudwatch_logs" {
     ]
   }
 }
+
 data "aws_iam_policy_document" "rds_assumerole" {
   statement {
     sid    = "AllowRDSAssumeRole"
