@@ -69,6 +69,7 @@ new_all_users = [
   "ismahil.khan@bjss.com",
   "david.smith@bjss.com",
   "jessica.ferguson@bjss.com",
+  "thomas.webb@bjss.com",
 ]
 
 # TSSOps Access
@@ -160,6 +161,7 @@ readonly_developer_users = [
   "elliot.brown@bjss.com",
   "ryu.sasai@bjss.com",
   "yathursan.kailainathan@bjss.com",
+  "thomas.webb@bjss.com",
 ]
 
 # DVSA Access
