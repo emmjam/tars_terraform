@@ -235,3 +235,9 @@ variable "r53_record_name" {
   default     = "jenkins"
 }
 
+variable "ebs_snapshot_id" {
+  type        = string
+  description = "The ID of a EBS snapshot"
+}
+
+

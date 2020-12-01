@@ -2,8 +2,8 @@ resource "aws_ebs_volume" "jenkins" {
   availability_zone = element(var.availability_zones, 0)
 
   type = var.ebs_volume_type
-  size = var.ebs_volume_size
 
+  snapshot_id       = var.ebs_snapshot_id
   encrypted = "false"
 
   tags = merge(
