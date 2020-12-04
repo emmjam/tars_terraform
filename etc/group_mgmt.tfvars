@@ -71,6 +71,7 @@ new_all_users = [
   "jessica.ferguson@bjss.com",
   "thomas.webb@bjss.com",
   "levent.aksu@bjss.com",
+  "pete.mallam@bjss.com",
 ]
 
 # TSSOps Access
@@ -96,6 +97,7 @@ administrators_tssops_users = [
   "nadeem.khan@bjss.com",
   "david.smith@bjss.com",
   "jessica.ferguson@bjss.com",
+  "pete.mallam@bjss.com",
 ]
 
 readonly_tssops_users = [
@@ -125,6 +127,7 @@ readonly_tssops_users = [
   "david.smith@bjss.com",
   "jessica.ferguson@bjss.com",
   "mike.peachey@bjss.com",
+  "pete.mallam@bjss.com",
 ]
 
 # TARS Platform Access
