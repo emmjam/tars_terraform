@@ -549,7 +549,7 @@ rsis_rds_sid_name = "RSISDB"
 # CPCDB
 cpc_rds_storage_type = "gp2"
 cpc_rds_engine = "oracle-se2"
-cpc_rds_engine_version = "12.1.0.2.v20"
+cpc_rds_engine_version = "12.1.0.2.v21"
 cpc_rds_instance_class = "db.t3.medium" # was "db.m4.4xlarge"
 cpc_rds_port = "1521"
 cpc_rds_public = "false"
