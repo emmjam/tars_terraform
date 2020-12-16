@@ -179,7 +179,19 @@ variable "gitlab_subnets_cidrs" {
   default     = []
 }
 
+variable "gitlab_amzn2_subnets_cidrs" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
+
 variable "gitlab_elb_private_subnets_cidrs" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
+
+variable "gitlab_amzn2_elb_private_subnets_cidrs" {
   type        = list(string)
   description = ""
   default     = []
@@ -191,13 +203,31 @@ variable "gitlab_elb_subnets_cidrs" {
   default     = []
 }
 
+variable "gitlab_amzn2_elb_subnets_cidrs" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
+
 variable "gitlab_db_subnets_cidrs" {
   type        = list(string)
   description = ""
   default     = []
 }
 
+variable "gitlab_amzn2_db_subnets_cidrs" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
+
 variable "gitlab_redis_subnets_cidrs" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
+
+variable "gitlab_amzn2_redis_subnets_cidrs" {
   type        = list(string)
   description = ""
   default     = []
@@ -345,6 +375,11 @@ variable "gitlab_ami_build_id" {
   description = ""
 }
 
+variable "gitlab_amzn2_ami_build_id" {
+  type        = string
+  description = ""
+}
+
 variable "ebs_backup_env" {
   type        = list(string)
   description = ""
@@ -387,6 +422,11 @@ variable "gitlab_db_backup_window" {
 }
 
 variable "gitlab_db_db_name" {
+  type        = string
+  description = ""
+}
+
+variable "gitlab_amzn2_db_db_name" {
   type        = string
   description = ""
 }
@@ -462,6 +502,11 @@ variable "gitlab_instance_type" {
 }
 
 variable "gitlab_redis_endpoint_address" {
+  type        = string
+  description = ""
+}
+
+variable "gitlab_amzn2_redis_endpoint_address" {
   type        = string
   description = ""
 }
