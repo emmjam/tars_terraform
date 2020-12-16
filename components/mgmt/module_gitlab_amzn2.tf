@@ -66,7 +66,7 @@ module "gitlab-amzn2" {
   db_skip_final_snapshot     = var.gitlab_db_skip_final_snapshot
   db_pg_family               = var.gitlab_db_pg_family
 
-  redis_subnets_cidrs = var.gitlab_amzn2_redis_subnets_cidrs
+  redis_subnets_cidrs = var.gitlab_amz2_redis_subnets_cidrs
 
   redis_private_route_table_ids = aws_route_table.private.*.id
 

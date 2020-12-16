@@ -10,4 +10,3 @@ resource "aws_elasticache_subnet_group" "gitlab" {
   description = "ElasticCache subnet group for GitLab"
   subnet_ids = module.redis_subnets.subnet_ids
 }
-

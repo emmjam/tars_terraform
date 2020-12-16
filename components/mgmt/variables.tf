@@ -227,7 +227,7 @@ variable "gitlab_redis_subnets_cidrs" {
   default     = []
 }
 
-variable "gitlab_amzn2_redis_subnets_cidrs" {
+variable "gitlab_amz2_redis_subnets_cidrs" {
   type        = list(string)
   description = ""
   default     = []
