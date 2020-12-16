@@ -71,6 +71,7 @@ new_all_users = [
   "thomas.webb@bjss.com",
   "levent.aksu@bjss.com",
   "pete.mallam@bjss.com",
+  "daren.fang@bjss.com",
 ]
 
 # TSSOps Access
@@ -164,6 +165,7 @@ readonly_developer_users = [
   "yathursan.kailainathan@bjss.com",
   "thomas.webb@bjss.com",
   "levent.aksu@bjss.com",
+  "daren.fang@bjss.com",
 ]
 
 # DVSA Access
