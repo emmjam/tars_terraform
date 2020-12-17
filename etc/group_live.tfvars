@@ -84,7 +84,7 @@ prometheus_efs_provisioned_mibps  = 5
 
 ## jenkinsnode
 jenkinsnode_instance_type        = "m5d.large"
-jenkinsnode_ami_build_id         = "849"
+jenkinsnode_ami_build_id         = "908"
 jenkinsnode_executors            = 20
 jenkinsnode_asg_min_size         = 1
 jenkinsnode_asg_max_size         = 3
