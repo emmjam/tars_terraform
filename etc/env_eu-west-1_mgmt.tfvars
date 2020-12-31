@@ -255,7 +255,7 @@ grafana_cert_name = "*"
 ## jenkinsctrl
 jenkins_worker_image             = "645711882182.dkr.ecr.eu-west-1.amazonaws.com/tars/run/jenkinsci:1.0.0"
 jenkinsctrl_instance_type        = "m5d.large"
-jenkinsctrl_ami_build_id         = "910"
+jenkinsctrl_ami_build_id         = "922"
 jenkinsctrl_executors            = 20
 jenkinsctrl_asg_min_size         = 0
 jenkinsctrl_asg_max_size         = 3
