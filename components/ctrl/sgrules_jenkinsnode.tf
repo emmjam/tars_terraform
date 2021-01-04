@@ -101,4 +101,3 @@ resource "aws_security_group_rule" "jenkinsnode_ingress_self_ssh" {
   security_group_id = module.jenkinsnode.security_group_id
   self              = "true"
 }
-
