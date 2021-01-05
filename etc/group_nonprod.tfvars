@@ -80,10 +80,10 @@ jenkinsnode_instance_type        = "t3.medium"
 jenkinsnode_ami_build_id         = "910"
 jenkinsnode_executors            = 20
 jenkinsnode_asg_min_size         = 0
-jenkinsnode_asg_max_size         = 1
-jenkinsnode_scaledown_desired    = 1
+jenkinsnode_asg_max_size         = 0
+jenkinsnode_scaledown_desired    = 0
 jenkinsnode_scaledown_recurrence = "00 19 * * 1-5"
-jenkinsnode_scaleup_desired      = 1
+jenkinsnode_scaleup_desired      = 0
 jenkinsnode_scaleup_recurrence   = "15 04 * * 1-5"
 
 jenkinsctrl_subnets_cidrs = [
