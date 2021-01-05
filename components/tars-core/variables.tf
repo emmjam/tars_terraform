@@ -502,9 +502,3 @@ variable "tars_core_cpuutilization_cw_metric_alarm_action_enabled" {
   type = string
   description = "Enable or disable tars-back cpuutilization CloudWatch Metrics Alarm"
 }
-
-variable "rds_tars_cpc_rule_env" {
-  type        = list(string)
-  description = ""
-  default     = []
-}

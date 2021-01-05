@@ -60,25 +60,3 @@ resource "aws_security_group_rule" "oracle_db_ingress_jemkinsctrl" {
   security_group_id        = aws_security_group.tars-core-db.id
   source_security_group_id = data.terraform_remote_state.ctrl.outputs.jenkinsctrl_sg_id
 }
-
-resource "aws_security_group_rule" "oracle_db_ingress_cpc" {
-  count                    = contains(var.rds_tars_cpc_rule_env, var.environment) ? 1 : 0
-  description              = "Allow TCP/1521 from cpcdb to RDS"
-  type                     = "ingress"
-  from_port                = 1521
-  to_port                  = 1521
-  protocol                 = "tcp"
-  security_group_id        = aws_security_group.tars-core-db.id
-  source_security_group_id = data.terraform_remote_state.cpc.outputs.cpc-db-sg-id
-}
-
-resource "aws_security_group_rule" "oracle_db_egress_cpc" {
-count                      = contains(var.rds_tars_cpc_rule_env, var.environment) ? 1 : 0
-  description              = "Allow TCP/1521 from RDS to cpcdb"
-  type                     = "egress"
-  from_port                = 1521
-  to_port                  = 1521
-  protocol                 = "tcp"
-  security_group_id        = data.terraform_remote_state.cpc.outputs.cpc-db-sg-id
-  source_security_group_id = aws_security_group.tars-core-db.id
-}

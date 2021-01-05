@@ -400,9 +400,3 @@ variable "rds_cw_metric_alarm_enabled" {
   default     = "false"
   description = "Enable or disable RDS CloudWatch Metrics"
 }
-
-variable "rds_tars_cpc_rule_env" {
-  type        = list(string)
-  description = ""
-  default     = []
-}
