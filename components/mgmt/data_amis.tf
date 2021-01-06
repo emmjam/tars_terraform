@@ -44,7 +44,7 @@ data "aws_ami" "sonarqube" {
         var.project,
         "amzn",
         "sonarqube",
-        "923",
+        var.sonarqube_ami_build_id,
       )
     ]
   }

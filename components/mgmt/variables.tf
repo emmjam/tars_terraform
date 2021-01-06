@@ -582,6 +582,12 @@ variable "prod_subdomains_name_servers" {
   default     = {}
 }
 
+### SonarQube
+variable "sonarqube_ami_build_id" {
+  type        = string
+  description = ""
+}
+
 ##
 # ECR
 ##
