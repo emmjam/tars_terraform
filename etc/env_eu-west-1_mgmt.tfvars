@@ -451,7 +451,7 @@ nexus_config = {
   asg_desired   = "1"
   instance_type = "t3.medium"
   listen_port   = "8081"
-  nexus_ami_build_id = "803"
+  nexus_ami_build_id = "925"
 }
 
 nexus_subnets_cidrs = [
