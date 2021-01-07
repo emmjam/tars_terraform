@@ -14,7 +14,7 @@ data "aws_ami" "ibs" {
       format(
         "%s-%s-%s/%s",
         var.project,
-        "amzn",
+        "amzn2",
         "ibs",
         var.ibs_ami_id
       )
