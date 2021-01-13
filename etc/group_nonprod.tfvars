@@ -313,6 +313,7 @@ payments_whitelist = [
   "148.253.134.213/32", # BJSS VPN 04/18
   "54.72.37.158/32",    # Selenium Elasticgrid Proxy
   "54.76.206.25/32",    # Perf01 NATGW IP
+  "52.214.31.165/32",      #Nonprod NATGW IP
   "185.8.52.254/32",    # Start Barclays IP
   "185.8.53.254/32",
   "185.8.54.254/32",
@@ -343,6 +344,7 @@ whitelist = [
   "45.60.0.0/16",
   "45.223.0.0/16",      # End Incapsula IPs
   "54.76.206.25/32",    # Perf01 NATGW IP
+  "52.214.31.165/32",      #Nonprod NATGW IP
   "10.69.3.15/32",      # Begin DVSA MS-RDS
   "10.69.3.16/32",
   "10.69.3.17/32",
