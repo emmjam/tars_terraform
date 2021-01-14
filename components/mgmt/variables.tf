@@ -582,10 +582,17 @@ variable "prod_subdomains_name_servers" {
   default     = {}
 }
 
-### SonarQube
+
+###########
+# SonarQube
+###########
 variable "sonarqube_ami_build_id" {
   type        = string
-  description = ""
+  description = "Internal ID of the AMI to use - https://wiki.dvsacloud.uk/display/TSS/TARS+-+Base+AMI+Update"
+}
+variable "sonarqube_base_ami" {
+  type        = string
+  description = "Base AMI name to use - https://wiki.dvsacloud.uk/display/TSS/TARS+-+Non-App+Base+AMIs"
 }
 
 ##

@@ -42,7 +42,7 @@ data "aws_ami" "sonarqube" {
       format(
         "%s-%s-%s/%s",
         var.project,
-        "amzn",
+        var.sonarqube_base_ami,
         "sonarqube",
         var.sonarqube_ami_build_id,
       )
