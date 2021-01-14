@@ -9,6 +9,10 @@ resource "aws_ecr_repository" "oracle-xe" {
   name = "tars-oracle-xe"
 }
 
+resource "aws_ecr_repository" "cpc-oracle-xe" {
+  name = "cpc-oracle-xe"
+}
+
 resource "aws_ecr_repository" "jenkins" {
   name = "tars/run/jenkinsci"
 }
