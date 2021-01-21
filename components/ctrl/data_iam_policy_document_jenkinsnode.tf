@@ -12,5 +12,20 @@ data "aws_iam_policy_document" "jenkinsnode" {
       "*",
     ]
   }
+
+  statement {
+    sid = "DenyCreateUser"
+
+    effect = "Deny"
+
+    actions = [
+      "iam:CreateUser"
+    ]
+
+    resources = [
+      "*"
+    ]
+  }
+
 }
 
