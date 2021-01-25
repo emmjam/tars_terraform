@@ -1025,5 +1025,5 @@ variable "opsgenie_endpoint" {
 variable "cwl_retention_days" {
   type        = string
   description = "Retention period in days for Cloudwatch Logs Log Groups for this component"
-  default     = "730"
+  default     = "731"
 }
