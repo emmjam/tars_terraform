@@ -58,3 +58,6 @@ output "ec2_cwl_log_group_arns" {
   value = aws_cloudwatch_log_group.ec2.*.arn
 }
 
+output "launch_template_id" {
+  value = aws_launch_template.main.id
+}

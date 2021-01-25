@@ -201,4 +201,3 @@ variable "rds_maintenance_window" {
   type        = string
   description = "The window to perform maintenance in."
 }
-

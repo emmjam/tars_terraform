@@ -112,6 +112,18 @@ variable "lc_user_data" {
   default     = ""
 }
 
+variable "lc_ebs_size" {
+  type        = string
+  description = "Size of the EBS volume for microservice instance on creation"
+  default     = "16"
+}
+
+variable "lc_volume_type" {
+  type        = string
+  description = "Volume type gp2 gp3"
+  default     = "gp2"
+}
+
 variable "name" {
   type        = string
   description = "Microservice name. Used to define resource names and Name tags"
@@ -164,4 +176,3 @@ variable "asg_enabled_metrics" {
     "GroupTotalInstances",
   ]
 }
-

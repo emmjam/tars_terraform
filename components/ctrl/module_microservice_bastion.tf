@@ -18,6 +18,7 @@ module "bastion" {
   lc_ami_id        = data.aws_ami.bastion.image_id
   lc_instance_type = var.bastion_instance_type
   lc_user_data     = data.template_cloudinit_config.bastion.rendered
+
   lc_additional_sg_ids = [
     aws_security_group.outbound-oracle.id,
     aws_security_group.core.id,

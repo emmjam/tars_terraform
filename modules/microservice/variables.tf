@@ -122,6 +122,12 @@ variable "lc_ebs_size" {
   default     = "16"
 }
 
+variable "lc_volume_type" {
+  type        = string
+  description = "Volume type gp2 gp3"
+  default     = "gp2"
+}
+
 variable "lifecycle_hook_launching_default_result" {
   type        = string
   description = "If creating a lifecycle hook for the ASG, what should the default result be"
@@ -233,4 +239,3 @@ variable "failed_lifecycle_action_sns_topic" {
   description = "The Amazon Resource Name (ARN) associated of the target."
   default     = ""
 }
-

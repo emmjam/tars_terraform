@@ -18,11 +18,11 @@ module "jenkinsnode" {
   lc_ami_id        = data.aws_ami.jenkinsctrl.image_id
   lc_instance_type = var.jenkinsctrl_instance_type
   lc_user_data     = data.template_cloudinit_config.jenkinsctrl.rendered
+
   lc_additional_sg_ids = [
     aws_security_group.core.id,
   ]
-
-  #lc_spot_price    = lookup(var.spot_pricing, var.jenkinsctrl_instance_type)
+  #lt_spot_price    = lookup(var.spot_pricing, var.jenkinsctrl_instance_type)
 
   asg_size_min               = var.jenkinsctrl_asg_min_size
   asg_size_desired_on_create = var.jenkinsctrl_asg_min_size

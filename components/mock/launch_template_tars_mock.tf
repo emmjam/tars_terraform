@@ -1,0 +1,28 @@
+resource "aws_launch_template" "tars-mock" {
+  name_prefix = "${local.csi}-wf-mock-"
+
+  image_id      = data.aws_ami.wildfly-mock.image_id
+  instance_type = var.wildfly-mock_instance_type
+  key_name      = data.terraform_remote_state.acc.outputs.key_name
+  user_data     = data.template_cloudinit_config.wildfly-mock.rendered
+
+  instance_market_options {
+    market_type = "spot"
+      spot_options {
+        max_price   = var.rhel_spot_pricing[var.wildfly-mock_instance_type]
+      }
+  }
+
+  vpc_security_group_ids = [
+    aws_security_group.tars-mock.id,
+    data.terraform_remote_state.base.outputs.core_sg_id,
+  ]
+
+  iam_instance_profile {
+    name = data.terraform_remote_state.base.outputs.tars_core_iam_instance_profile_name
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}

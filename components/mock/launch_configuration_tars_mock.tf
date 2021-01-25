@@ -17,4 +17,3 @@ resource "aws_launch_configuration" "tars-mock" {
     create_before_destroy = true
   }
 }
-

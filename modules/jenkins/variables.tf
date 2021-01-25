@@ -240,4 +240,3 @@ variable "ebs_snapshot_id" {
   description = "The ID of a EBS snapshot"
 }
 
-

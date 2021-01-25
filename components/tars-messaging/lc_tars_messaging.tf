@@ -20,4 +20,3 @@ resource "aws_launch_configuration" "tars-messaging" {
   # Debugging
   #associate_public_ip_address = true
 }
-

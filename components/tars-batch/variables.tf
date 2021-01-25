@@ -103,18 +103,6 @@ variable "asg_default_tags" {
   default     = []
 }
 
-variable "lc_spot_price" {
-  type        = string
-  description = "The price to use for reserving spot instances"
-  default     = ""
-}
-
-variable "lc_key_name" {
-  type        = string
-  description = "The key name that should be used for the instance"
-  default     = ""
-}
-
 variable "ami_build_id" {
   type        = string
   description = "AMI build ID"
@@ -273,4 +261,16 @@ variable "sftpplus_alarm_count" {
 variable "sftpplus_topic_count" {
   type        = string
   description = "Number of topics to have in this account"
+}
+
+variable "lc_spot_price" {
+  type        = string
+  description = "The price to use for reserving spot instances"
+  default     = ""
+}
+
+variable "lc_key_name" {
+  type        = string
+  description = "The key name that should be used for the instance"
+  default     = ""
 }

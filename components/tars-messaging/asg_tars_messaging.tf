@@ -1,9 +1,14 @@
 # ASG for tars messaging server
 resource "aws_autoscaling_group" "tars-messaging" {
   name_prefix          = "${local.csi}-wf-messaging-"
-  launch_configuration = aws_launch_configuration.tars-messaging.id
   max_size             = var.wildfly-messaging_asg_max_size
   min_size             = var.wildfly-messaging_asg_min_size
+  launch_configuration = aws_launch_configuration.tars-messaging.id
+  
+  #launch_template {
+   # id = aws_launch_template.tars-messaging.id
+    #version = "$Latest"
+  #}
 
   termination_policies = var.asg_termination_policies
 

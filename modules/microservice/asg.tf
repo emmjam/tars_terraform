@@ -2,6 +2,11 @@
 resource "aws_autoscaling_group" "main" {
   name = format("%s/%s", local.csi, var.name)
 
+  #launch_template {
+  #  id = aws_launch_template.main.id
+  #  version = "$Latest"
+  #}
+
   launch_configuration = aws_launch_configuration.main.id
   max_size             = var.asg_size_max
   min_size             = var.asg_size_min
