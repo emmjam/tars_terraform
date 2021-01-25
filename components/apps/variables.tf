@@ -1021,3 +1021,9 @@ variable "opsgenie_endpoint" {
   type        = string
   description = "The opsgenie endpoint to send alerts to TSS"
 }
+
+variable "cwl_retention_days" {
+  type        = string
+  description = "Retention period in days for Cloudwatch Logs Log Groups for this component"
+  default     = "730"
+}
