@@ -5,6 +5,18 @@
 # in the multiverse, so it unique by its own name,
 # not as an aspect of its deployment.
  
+resource "aws_ecr_repository" "wildfly11" {
+  name = "tars-wildfly11"
+}
+
+resource "aws_ecr_repository" "tomcat8" {
+  name = "tars-tomcat8"
+}
+
+resource "aws_ecr_repository" "tomcat9" {
+  name = "tars-tomcat9"
+}
+
 resource "aws_ecr_repository" "oracle-xe" {
   name = "tars-oracle-xe"
 }
