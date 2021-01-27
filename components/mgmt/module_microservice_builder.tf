@@ -23,8 +23,6 @@ module "builder" {
     aws_security_group.common.id,
   ]
 
-  lc_spot_price    = lookup(var.spot_pricing, var.builder["instance_type"])
-
   asg_size_min               = var.builder["asg_min_size"]
   asg_size_desired_on_create = var.builder["asg_min_size"]
   asg_size_max               = var.builder["asg_max_size"]
