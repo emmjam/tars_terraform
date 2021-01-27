@@ -255,7 +255,7 @@ grafana_cert_name = "*"
 ## jenkinsctrl
 jenkins_worker_image             = "645711882182.dkr.ecr.eu-west-1.amazonaws.com/tars/run/jenkinsci:1.0.0"
 jenkinsctrl_instance_type        = "m5d.large"
-jenkinsctrl_ami_build_id         = "922"
+jenkinsctrl_ami_build_id         = "1074"
 jenkinsctrl_executors            = 20
 jenkinsctrl_asg_min_size         = 0
 jenkinsctrl_asg_max_size         = 3
@@ -388,11 +388,11 @@ jenkins_elb_subnets_cidrs = ["10.200.3.32/28"]
 ## jenkinsnode
 #jenkinsnode = {
 #  instance_type        = "m4.large"
-#  ami_build_id         = "32"
- # executors            = 5
- ## asg_min_size         = 0
- # asg_max_size         = 3
- # scaledown_desired    = 0
+#  ami_build_id         = "1057"
+#  executors            = 5
+#  asg_min_size         = 0
+#  asg_max_size         = 3
+#  scaledown_desired    = 0
 #  scaledown_recurrence = "00 19 * * 1-5"
 #  scaleup_desired      = 1
 #  scaleup_recurrence   = "15 07 * * 1-5"

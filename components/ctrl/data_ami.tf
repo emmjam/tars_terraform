@@ -21,7 +21,7 @@ data "aws_ami" "jenkinsctrl" {
       format(
         "%s-%s-%s/%s",
         var.project,
-        "amzn",
+        "amzn2",
         "jenkinsnode",
         var.jenkinsctrl_ami_build_id,
       )
