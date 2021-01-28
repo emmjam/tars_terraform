@@ -552,6 +552,8 @@ rsis_rds_sid_name = "RSISDB"
 cpc_rds_storage_type = "gp2"
 cpc_rds_engine = "oracle-se2"
 cpc_rds_engine_version = "12.1.0.2.v21"
+cpc_rds_parameter_group_name = "cpcdb"
+cpc_rds_option_group_name = "option-group"
 cpc_rds_instance_class = "db.t3.medium" # was "db.m4.4xlarge"
 cpc_rds_port = "1521"
 cpc_rds_public = "false"
@@ -564,6 +566,7 @@ cpc_rds_apply_immediately = "true"
 cpc_rds_license_model = "license-included"
 cpc_rds_autoscale = "True"
 cpc_rds_sid_name = "CPCDB"
+cpc_allow_major_version_upgrade = false
 
 # IBSDB
 # value is overridden for perf to match prod & prep

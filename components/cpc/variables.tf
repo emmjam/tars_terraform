@@ -400,3 +400,18 @@ variable "rds_cw_metric_alarm_enabled" {
   default     = "false"
   description = "Enable or disable RDS CloudWatch Metrics"
 }
+
+variable "cpc_rds_parameter_group_name" {
+  type        = string
+  description = "CPC RDS DB Parameter Group Name"
+}
+
+variable "cpc_rds_option_group_name" {
+  type        = string
+  description = "CPC RDS DB Option Group Name"
+}
+
+variable "cpc_allow_major_version_upgrade" {
+  type        = string
+  description = "CPC RDS DB Version Update"
+}

@@ -23,11 +23,12 @@ resource "aws_db_instance" "cpcdb" {
   apply_immediately         = var.cpc_rds_apply_immediately
   license_model             = var.cpc_rds_license_model
   snapshot_identifier       = var.cpc_rds_snapshot
-  parameter_group_name      = aws_db_parameter_group.cpc.id
-  option_group_name         = aws_db_option_group.cpcdb.id
+  parameter_group_name      = "${local.csi}-${var.cpc_rds_parameter_group_name}"
+  option_group_name         = "${local.csi}-${var.cpc_rds_option_group_name}"
   name                      = var.cpc_rds_sid_name
   deletion_protection       = var.cpc_rds_delete_protect
   enabled_cloudwatch_logs_exports = ["alert", "listener"]
+  allow_major_version_upgrade     = var.cpc_allow_major_version_upgrade
 
   vpc_security_group_ids = [
     aws_security_group.cpc-db.id,
