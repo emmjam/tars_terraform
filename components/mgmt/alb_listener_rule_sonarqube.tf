@@ -8,11 +8,11 @@ resource "aws_alb_listener_rule" "public_https_sonarqube" {
   }
 
   condition {
-    field = "host-header"
-
-    values = [
-      aws_route53_record.sonarqube.fqdn,
-    ]
+    host_header {
+      values = [
+        aws_route53_record.sonarqube.fqdn,
+      ]
+    }
   }
 }
 
@@ -26,11 +26,11 @@ resource "aws_alb_listener_rule" "private_http_sonarqube" {
   }
 
   condition {
-    field = "host-header"
-
-    values = [
-      aws_route53_record.sonarqube_private.fqdn,
-    ]
+    host_header {
+      values = [
+        aws_route53_record.sonarqube_private.fqdn,
+      ]
+    }
   }
 }
 

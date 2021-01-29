@@ -37,14 +37,12 @@ data "aws_iam_policy_document" "lambda_ssl_cert_expiry" {
     actions = [
       "logs:CreateLogStream",
       "logs:PutLogEvents",
-      "logs:CreateLogGroup",
     ]
 
     resources = [
-      aws_cloudwatch_log_group.ssl_cert_expiry.arn,
+      "${aws_cloudwatch_log_group.ssl_cert_expiry.arn}:*",
     ]
   }
-
   statement {
     sid    = "AllowListDescribeCertificates"
     effect = "Allow"

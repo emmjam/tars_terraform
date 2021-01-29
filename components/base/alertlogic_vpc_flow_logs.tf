@@ -6,7 +6,6 @@
 resource "aws_s3_bucket" "alertlogic_vpc_logs" {
   count  = length(var.alert_logic) == 0 ? 0 : 1
   bucket = "alertlogic-${local.csi}-vpc-logs"
-  region = "eu-west-1"
 }
 
 ## IAM Role for this account's Firehose to access/write to S3

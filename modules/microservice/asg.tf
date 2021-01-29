@@ -27,33 +27,39 @@ resource "aws_autoscaling_group" "main" {
   # interpolated tag insertion that works for AWS Autoscaling Groups.
   # Please don't hurt me.
   tags = concat(
-      var.asg_default_tags,
-      [
-        {
-          "key"                 = "Name"
-          "value"               = format("%s/%s", local.csi, var.name)
-          "propagate_at_launch" = "true"
-        },
-        {
-          "key"                 = "Nodetype"
-          "value"               = var.name
-          "propagate_at_launch" = "true"
-        },
-        {
-          "key"                 = "Component"
-          "value"               = var.component
-          "propagate_at_launch" = "true"
-        },
-        {
-          "key"                 = "Module"
-          "value"               = var.module
-          "propagate_at_launch" = "true"
-        },
-      ],
-    )
+    var.asg_default_tags,
+    [
+      {
+        "key"                 = "Name"
+        "value"               = format("%s/%s", local.csi, var.name)
+        "propagate_at_launch" = "true"
+      },
+      {
+        "key"                 = "Nodetype"
+        "value"               = var.name
+        "propagate_at_launch" = "true"
+      },
+      {
+        "key"                 = "Component"
+        "value"               = var.component
+        "propagate_at_launch" = "true"
+      },
+      {
+        "key"                 = "Module"
+        "value"               = var.module
+        "propagate_at_launch" = "true"
+      },
+    ],
+  )
 
   provisioner "local-exec" {
     command = "aws autoscaling update-auto-scaling-group --auto-scaling-group-name ${aws_autoscaling_group.main.name} --desired-capacity ${var.asg_size_desired_on_create} --region ${var.region}"
+  }
+
+  lifecycle {
+    ignore_changes = [
+      target_group_arns
+    ]
   }
 }
 

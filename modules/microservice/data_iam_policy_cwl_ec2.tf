@@ -26,7 +26,7 @@ data "aws_iam_policy_document" "cwl_ec2" {
       "logs:PutLogEvents",
     ]
 
-    resources = aws_cloudwatch_log_group.ec2.*.arn
+    resources = formatlist("%s:*", aws_cloudwatch_log_group.ec2.*.arn)
   }
 
   # This statement is *solely* to work around a bug in the awslogs package.

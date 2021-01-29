@@ -11,7 +11,7 @@ data "aws_iam_policy_document" "lambda_curator" {
     ]
 
     resources = [
-      aws_cloudwatch_log_group.lambda_curator.arn,
+      "${aws_cloudwatch_log_group.lambda_curator.arn}:*",
     ]
   }
 

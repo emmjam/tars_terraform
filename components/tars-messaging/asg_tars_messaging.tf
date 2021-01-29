@@ -4,10 +4,10 @@ resource "aws_autoscaling_group" "tars-messaging" {
   max_size             = var.wildfly-messaging_asg_max_size
   min_size             = var.wildfly-messaging_asg_min_size
   launch_configuration = aws_launch_configuration.tars-messaging.id
-  
+
   #launch_template {
-   # id = aws_launch_template.tars-messaging.id
-    #version = "$Latest"
+  # id = aws_launch_template.tars-messaging.id
+  #version = "$Latest"
   #}
 
   termination_policies = var.asg_termination_policies
@@ -22,30 +22,36 @@ resource "aws_autoscaling_group" "tars-messaging" {
   enabled_metrics = var.asg_enabled_metrics
 
   tags = concat(
-      var.asg_default_tags,
-      [
-        {
-          "key"                 = "Name"
-          "value"               = "${local.csi}/wf-messaging"
-          "propagate_at_launch" = "true"
-        },
-        {
-          "key"                 = "Nodetype"
-          "value"               = "wildfly"
-          "propagate_at_launch" = "true"
-        },
-        {
-          "key"                 = "Component"
-          "value"               = var.component
-          "propagate_at_launch" = "true"
-        },
-      ],
-    )
+    var.asg_default_tags,
+    [
+      {
+        "key"                 = "Name"
+        "value"               = "${local.csi}/wf-messaging"
+        "propagate_at_launch" = "true"
+      },
+      {
+        "key"                 = "Nodetype"
+        "value"               = "wildfly"
+        "propagate_at_launch" = "true"
+      },
+      {
+        "key"                 = "Component"
+        "value"               = var.component
+        "propagate_at_launch" = "true"
+      },
+    ],
+  )
 
   # Spin up max desired messaging servers
   # Spin up max desired messaging servers
   provisioner "local-exec" {
     command = "aws autoscaling update-auto-scaling-group --auto-scaling-group-name ${aws_autoscaling_group.tars-messaging.name} --desired-capacity ${var.wildfly-messaging_scaleup_desired} --region ${var.aws_region}"
+  }
+
+  lifecycle {
+    ignore_changes = [
+      target_group_arns
+    ]
   }
 }
 

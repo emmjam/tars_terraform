@@ -19,8 +19,3 @@ output "user" {
 output "access_key" {
   value = aws_iam_access_key.ses_user.id
 }
-
-output "ses_password" {
-  value = aws_iam_access_key.ses_user.ses_smtp_password
-}
-

@@ -10,7 +10,7 @@ data "aws_iam_policy_document" "guardduty_slack" {
     ]
 
     resources = [
-      "${aws_cloudwatch_log_group.lambda_guardduty_slack.arn}",
+      "${aws_cloudwatch_log_group.lambda_guardduty_slack.arn}:*",
     ]
   }
 

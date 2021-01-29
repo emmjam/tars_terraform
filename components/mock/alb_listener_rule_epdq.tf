@@ -8,8 +8,9 @@ resource "aws_lb_listener_rule" "epdq" {
   }
 
   condition {
-    field  = "host-header"
-    values = ["mock-epdq.${local.vpc_domain_name}"]
+    host_header {
+      values = ["mock-epdq.${local.vpc_domain_name}"]
+    }
   }
 }
 

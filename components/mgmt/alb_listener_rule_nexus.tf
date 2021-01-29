@@ -8,11 +8,11 @@ resource "aws_alb_listener_rule" "public_https_nexus" {
   }
 
   condition {
-    field = "host-header"
-
-    values = [
-      aws_route53_record.nexus.fqdn,
-    ]
+    host_header {
+      values = [
+        aws_route53_record.nexus.fqdn,
+      ]
+    }
   }
 }
 
@@ -26,11 +26,11 @@ resource "aws_alb_listener_rule" "private_http_nexus" {
   }
 
   condition {
-    field = "host-header"
-
-    values = [
-      aws_route53_record.nexus_private.fqdn,
-    ]
+    host_header {
+      values = [
+        aws_route53_record.nexus_private.fqdn,
+      ]
+    }
   }
 }
 
@@ -44,11 +44,11 @@ resource "aws_alb_listener_rule" "private_https_nexus" {
   }
 
   condition {
-    field = "host-header"
-
-    values = [
-      aws_route53_record.nexus_private.fqdn,
-    ]
+    host_header {
+      values = [
+        aws_route53_record.nexus_private.fqdn,
+      ]
+    }
   }
 }
 

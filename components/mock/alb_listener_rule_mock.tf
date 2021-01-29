@@ -8,8 +8,9 @@ resource "aws_lb_listener_rule" "epdq-public" {
   }
 
   condition {
-    field  = "host-header"
-    values = ["mock-epdq-${var.environment}-public.${data.terraform_remote_state.acc.outputs.public_domain_name}"]
+    host_header {
+      values = ["mock-epdq-${var.environment}-public.${data.terraform_remote_state.acc.outputs.public_domain_name}"]
+    }
   }
 }
 

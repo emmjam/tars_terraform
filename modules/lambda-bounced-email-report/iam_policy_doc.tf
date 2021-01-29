@@ -4,16 +4,19 @@ data "aws_iam_policy_document" "sesnotification_lambda_policy" {
   statement {
     sid = "SESNotificationLogging"
     actions = [
-      "logs:CreateLogGroup",
       "logs:CreateLogStream",
       "logs:PutLogEvents",
     ]
 
-    resources = flatten([
-      aws_cloudwatch_log_group.ses-bounced-email-report[count.index][*].arn,
-      aws_cloudwatch_log_group.ses-bounced-email-report[count.index].arn
-    ])
+    resources = formatlist(
+      "%s:*",
+      flatten([
+        aws_cloudwatch_log_group.ses-bounced-email-report[count.index].arn,
+        aws_cloudwatch_log_group.ses-bounced-email-report[count.index].arn
+      ])
+    )
   }
+
   statement {
     sid = "SESNotificationDynamodb"
     actions = [
@@ -41,23 +44,23 @@ data "aws_iam_policy_document" "sesreport_lambda_policy" {
     sid = "SESReportSendMail"
     actions = [
       "ses:SendRawEmail",
-      ]
+    ]
     resources = [
       "arn:aws:ses:eu-west-1:${var.aws_account_id}:identity/prod.tars.dvsacloud.uk"
-      ]
+    ]
   }
   statement {
     sid = "SESReportLogging"
     actions = [
-      "logs:CreateLogGroup",
       "logs:CreateLogStream",
       "logs:PutLogEvents",
     ]
-    resources = flatten([
+    resources = formatlist("%s:*", flatten([
       aws_cloudwatch_log_group.ses-bounced-email-report[count.index][*].arn,
       aws_cloudwatch_log_group.ses-bounced-email-report[count.index].arn
-    ])
+    ]))
   }
+
   statement {
     sid = "SESReportDynamodb"
     actions = [
@@ -71,7 +74,7 @@ data "aws_iam_policy_document" "sesreport_lambda_policy" {
     resources = flatten([
       aws_dynamodb_table.bounced_email_report[count.index][*].arn,
       aws_dynamodb_table.bounced_email_report[count.index].arn
-      ])
+    ])
   }
 }
- 
+
