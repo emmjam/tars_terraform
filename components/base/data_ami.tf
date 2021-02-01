@@ -109,7 +109,7 @@ data "aws_ami" "prometheus" {
       format(
         "%s-%s-%s/%s",
         var.project,
-        "amzn",
+        "amzn2",
         "prometheus",
         var.prometheus_ami_build_id,
       )
