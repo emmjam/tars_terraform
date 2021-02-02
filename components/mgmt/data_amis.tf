@@ -102,7 +102,7 @@ data "aws_ami" "nexus" {
       format(
         "%s-%s-%s/%s",
         var.project,
-        "amzn",
+        "amzn2",
         "nexus",
         var.nexus_config["nexus_ami_build_id"],
       )
