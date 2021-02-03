@@ -463,8 +463,8 @@ cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 # maintenance pages should be aware of.
 holding_pages_domains = [
   "dsa.dft.gov.uk",
-  "finddrivinginstructor.direct.gov.uk",
-  "driverpracticaltest.direct.gov.uk",
+  "finddrivinginstructor.dvsa.gov.uk",
+  "driverpracticaltest.dvsa.gov.uk",
 ]
 
 #RDS Deletion Protection

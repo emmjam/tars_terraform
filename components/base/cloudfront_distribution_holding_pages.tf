@@ -1,4 +1,5 @@
 resource "aws_cloudfront_distribution" "holding_pages" {
+
   enabled             = true
   default_root_object = "index.html"
 
@@ -20,7 +21,12 @@ resource "aws_cloudfront_distribution" "holding_pages" {
       ],
       var.holding_pages_domains,
     )
-  
+
+  restrictions {
+    geo_restriction {
+      restriction_type = "none"
+    }
+  }
 
   default_cache_behavior {
     allowed_methods = [
@@ -49,6 +55,11 @@ resource "aws_cloudfront_distribution" "holding_pages" {
     }
 
     viewer_protocol_policy = "allow-all"
+
+    lambda_function_association {
+      event_type = "viewer-request"
+      lambda_arn = "${module.lambda-holding-pages.lambda_holding_pages_lambda_arn}"
+    }
   }
 
   #Ensure all urls return the maintenance page
@@ -59,15 +70,6 @@ resource "aws_cloudfront_distribution" "holding_pages" {
   }
 
   price_class = "PriceClass_200"
-
-  restrictions {
-    geo_restriction {
-      restriction_type = "whitelist"
-      locations = [
-        "GB",
-      ]
-    }
-  }
 
   viewer_certificate {
     acm_certificate_arn = data.aws_acm_certificate.holding_pages.arn

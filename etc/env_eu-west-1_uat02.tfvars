@@ -394,3 +394,12 @@ rds_cw_metric_freestoragespace_alarm_action_enabled = true
 
 # IBSDB Concurrent Users Monitoring
 ibsdb_monitoring_enabled = true
+
+run-flag-lambda-holding-pages = "true" # controls deployment of holding pages lambda module
+
+# Extra domains that the CloudFront distribution for
+# maintenance pages should be aware of.
+holding_pages_domains = [
+  "incapsula-uat02-public.dvsa.tars.dev-dvsacloud.uk",
+  "incapsula-ibs-uat02-public.dvsa.tars.dev-dvsacloud.uk",
+]
