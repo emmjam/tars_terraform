@@ -38,7 +38,6 @@ new_all_users = [
   "michael.tribbick@bjss.com",
   "michelle.pike@bjss.com",
   "mike.peachey@bjss.com",
-  "neil.eaton@bjss.com",
   "ogbonna.quarcoopome-harper@bjss.com",
   "prashant.kumar@bjss.com",
   "richard.freitas@bjss.com",
@@ -162,7 +161,6 @@ readonly_dvsa_users = [
 # Billing Dashboard Access
 
 billing_users = [
-  "neil.eaton@bjss.com",
   "david.johnson@bjss.com",
 ]
 
