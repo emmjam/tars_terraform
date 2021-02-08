@@ -1,13 +1,20 @@
-resource "aws_alb_listener" "bobj-443" {
-  load_balancer_arn = aws_alb.tars-alb-bobj-private.arn
-  port              = "443"
-  protocol          = "HTTPS"
-  ssl_policy        = "ELBSecurityPolicy-2016-08"
-  certificate_arn   = data.aws_acm_certificate.nonprod_tars_dvsacloud_uk.arn
+resource "aws_lb_listener_rule" "bobj" {
+  listener_arn = data.terraform_remote_state.cpc.outputs.cpc_dvsa_internet_listener_arn
+  priority     = 100
 
-  default_action {
+  action {
     type             = "forward"
     target_group_arn = aws_alb_target_group.bobj-8080.arn
   }
+
+  condition {
+    host_header {
+      values = ["bobj-${var.environment}.${data.terraform_remote_state.acc.outputs.public_domain_name}"]
+    }
+  }
 }
 
+resource "aws_lb_listener_certificate" "bobj" {
+  listener_arn    = data.terraform_remote_state.cpc.outputs.cpc_dvsa_internet_listener_arn
+  certificate_arn = data.aws_acm_certificate.nonprod_tars_dvsacloud_uk.arn
+}

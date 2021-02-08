@@ -5,8 +5,8 @@ resource "aws_route53_record" "bobj-public" {
   type    = "A"
 
   alias {
-    name                   = aws_alb.tars-alb-bobj-private.dns_name
-    zone_id                = aws_alb.tars-alb-bobj-private.zone_id
+    name                   = data.terraform_remote_state.cpc.outputs.cpc_dvsa_internet_alb_dns_name
+    zone_id                = data.terraform_remote_state.cpc.outputs.cpc_dvsa_internet_alb_zone_id
     evaluate_target_health = true
   }
 }

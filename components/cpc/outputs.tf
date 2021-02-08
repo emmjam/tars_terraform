@@ -23,3 +23,19 @@ output "cpc-alb-target-group-internet-frontend" {
   value = aws_alb_target_group.cpc-front-internal-9443.arn
 }
 
+output "cpc_dvsa_internet_sg_id" {
+  value = aws_security_group.cpc-front-dvsa-internet-alb.id
+}
+
+output "cpc_dvsa_internet_alb_zone_id" {
+  value = aws_alb.cpc-front-dvsa-internet.zone_id
+}
+
+output "cpc_dvsa_internet_alb_dns_name" {
+  value = aws_alb.cpc-front-dvsa-internet.dns_name
+}
+
+output "cpc_dvsa_internet_listener_arn" {
+  value = aws_alb_listener.cpc-front-dvsa-internet-8443.arn
+}
+
