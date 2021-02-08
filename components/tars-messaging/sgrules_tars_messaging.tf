@@ -121,3 +121,13 @@ resource "aws_security_group_rule" "win_msg_ssh_ingress_jenkinsnode" {
   source_security_group_id = data.terraform_remote_state.base.outputs.jenkinsnode_sg_id
 }
 
+resource "aws_security_group_rule" "jmeter_ingress_jenkinsnode_22" {
+  type                     = "ingress"
+  protocol                 = "tcp"
+  from_port                = "22"
+  to_port                  = "22"
+  security_group_id        = aws_security_group.tars-messaging.id
+  source_security_group_id = data.terraform_remote_state.ctrl.outputs.jenkinsctrl_sg_id
+}
+
+
