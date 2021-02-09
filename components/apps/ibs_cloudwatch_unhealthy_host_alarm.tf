@@ -14,6 +14,7 @@ resource "aws_cloudwatch_metric_alarm" "TARS_ibs_unhealthyhost" {
   treat_missing_data  = "notBreaching"
 
   dimensions = {
-    AutoScalingGroupName = module.ibs.autoscaling_group_name
+    TargetGroup = aws_alb_target_group.ibs-8080.arn_suffix
+    LoadBalancer = aws_alb.apps.arn_suffix
   }
 }
