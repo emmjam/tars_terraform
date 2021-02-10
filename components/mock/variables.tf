@@ -173,3 +173,7 @@ variable "whitelist" {
   default     = []
 }
 
+variable "mock_ami_build_id" {
+  type        = string
+  description = "MOCK AMI build ID"
+}

@@ -4,7 +4,7 @@ data "aws_ami" "sftpplus_svr" {
     var.project,
     "rhel",
     "sftpplus-svr",
-    var.ami_build_id,
+    var.sftpplus_svr_id,
   )
 
   most_recent = "true"

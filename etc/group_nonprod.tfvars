@@ -275,7 +275,17 @@ jmeter_asg_size_min               = 0
 jmeter_ami_build_id               = "829"
 
 ## XE
-xe_ami_name = "OracleXE"
+xe_ami_name = "OracleXE-040319"
+
+## Mock
+mock_ami_build_id = "350c3094/214"
+
+## SFTP
+sftpplus_svr_id = "576"
+
+## Messaging
+wildfly_messaging_id = "release_201903_2"
+
 
 bastion_elb_subnets_cidrs = [
   "10.167.60.64/28",

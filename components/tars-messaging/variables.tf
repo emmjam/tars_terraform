@@ -243,3 +243,8 @@ variable "wms_host_alarm_count" {
   description = "Number of alarms to have in this account"
   default = "0"
 }
+
+variable "wildfly_messaging_id" {
+  type        = string
+  description = "Messaging AMI build ID"
+}

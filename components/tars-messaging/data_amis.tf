@@ -5,7 +5,7 @@ data "aws_ami" "wildfly-messaging" {
     var.project,
     "windows",
     "wildfly-messaging",
-    var.ami_build_id,
+    var.wildfly_messaging_id,
   )
 
   most_recent = "true"

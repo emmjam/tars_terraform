@@ -5,7 +5,7 @@ data "aws_ami" "wildfly-mock" {
     var.project,
     "amzn",
     "mock",
-    var.ami_build_id,
+    var.mock_ami_build_id,
   )
 
   most_recent = "true"

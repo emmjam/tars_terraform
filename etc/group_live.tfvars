@@ -270,8 +270,13 @@ jmeter_asg_size_max               = 3
 jmeter_asg_size_min               = 0
 
 ## XE
-xe_ami_name = "OracleXE"
+xe_ami_name = "OracleXE-100119"
 
+## SFTP
+sftpplus_svr_id = "472"
+
+## Messaging
+wildfly_messaging_id = "release_201903_1"
 
 bastion_elb_subnets_cidrs = [
   "10.167.56.64/28",
