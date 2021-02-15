@@ -274,3 +274,9 @@ variable "lc_key_name" {
   description = "The key name that should be used for the instance"
   default     = ""
 }
+
+variable "rsisbucket_env" {
+  type        = list(string)
+  description = ""
+  default     = []
+}

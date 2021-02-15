@@ -102,3 +102,8 @@ ibs1_ibs2_redirect_env  = [
 perf_jenkinsnode  = [
   "perf01"
 ]
+
+rsisbucket_env  = [
+  "opsdev",
+  "prod"
+]
