@@ -552,6 +552,9 @@ cpc_rds_apply_immediately = "true"
 cpc_rds_license_model = "license-included"
 cpc_rds_autoscale = "False"
 cpc_rds_sid_name = "CPCDB"
+cpc_allow_major_version_upgrade = false
+cpc_rds_parameter_group_name = "cpcdb"
+cpc_rds_option_group_name = "option-group"
 
 # DVSA Mail Domain
 dvsa_external_mail_domain = "dvsa.gov.uk"
