@@ -61,6 +61,7 @@ new_all_users = [
   "daren.fang@bjss.com",
   "ross.bamford@bjss.com",
   "elizabeth.edwards@bjss.com",
+  "azeez.oluwa@bjss.com",
 ]
 
 # TSSOps Access
@@ -176,6 +177,7 @@ qaengineer_users = [
   "richard.freitas@bjss.com",
   "john.morley@bjss.com",
   "winston.coleman@bjss.com",
+  "azeez.oluwa@bjss.com",
 ]
 
 readonly_qaengineer_users = [
@@ -183,6 +185,7 @@ readonly_qaengineer_users = [
   "balkar.bains@bjss.com",
   "john.reynolds@bjss.com",
   "winston.coleman@bjss.com",
+  "azeez.oluwa@bjss.com",
 ]
 
 # DBA Access
