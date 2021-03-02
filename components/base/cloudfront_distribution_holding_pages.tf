@@ -24,7 +24,10 @@ resource "aws_cloudfront_distribution" "holding_pages" {
 
   restrictions {
     geo_restriction {
-      restriction_type = "none"
+      restriction_type = "whitelist"
+      locations = [
+        "GB",
+      ]
     }
   }
 
@@ -56,10 +59,6 @@ resource "aws_cloudfront_distribution" "holding_pages" {
 
     viewer_protocol_policy = "allow-all"
 
-    lambda_function_association {
-      event_type = "viewer-request"
-      lambda_arn = "${module.lambda-holding-pages.lambda_holding_pages_lambda_arn}"
-    }
   }
 
   #Ensure all urls return the maintenance page
