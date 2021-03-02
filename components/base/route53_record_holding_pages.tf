@@ -1,5 +1,4 @@
 resource "aws_route53_record" "holding_pages" {
-
   name = format("%s-%s", "maintenance", var.environment)
 
   zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
