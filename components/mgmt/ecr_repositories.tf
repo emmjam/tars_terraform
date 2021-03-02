@@ -5,6 +5,10 @@
 # in the multiverse, so it unique by its own name,
 # not as an aspect of its deployment.
  
+resource "aws_ecr_repository" "government_gateway_mock" {
+  name = "tars-government-gateway-mock"
+}
+
 resource "aws_ecr_repository" "wildfly11" {
   name = "tars-wildfly11"
 }
