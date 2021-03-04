@@ -272,7 +272,7 @@ jmeter_instance_type              = "t3.micro"
 jmeter_asg_size_desired_on_create = 0
 jmeter_asg_size_max               = 0
 jmeter_asg_size_min               = 0
-jmeter_ami_build_id               = "829"
+jmeter_ami_build_id               = "1075"
 
 ## XE
 xe_ami_name = "OracleXE-040319"
