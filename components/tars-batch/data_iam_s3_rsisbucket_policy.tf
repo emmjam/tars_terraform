@@ -24,7 +24,8 @@ data "aws_iam_policy_document" "rsisbucket_tiff_repo" {
     ]
 
     resources = [
-      aws_s3_bucket.rsisbucket_tiff_repo[0].arn,
+      "${aws_s3_bucket.rsisbucket_tiff_repo[0].arn}",
+      "${aws_s3_bucket.rsisbucket_tiff_repo[0].arn}/*",
     ]
   }
 
