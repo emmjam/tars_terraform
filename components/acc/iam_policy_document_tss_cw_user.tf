@@ -1,21 +1,31 @@
 data "aws_iam_policy_document" "tss_cw_users" {
-	  statement {
-	    sid    = "CloudwatchReadOnly"
-	    effect = "Allow"
-	
-	    actions = [
-	      "autoscaling:Describe*",
-	      "cloudwatch:Describe*",
-	      "cloudwatch:Get*",
-	      "cloudwatch:List*",
-	      "logs:Get*",
-	      "logs:Describe*",
-	      "sns:Get*",
-	      "sns:List*",
-	    ]
-	
-	    resources = [
-	      "*",
-	    ]
-	  }
-	}
+  statement {
+    sid    = "AllowCWDescribe"
+    effect = "Allow"
+
+    actions = [
+      "cloudwatch:Describe*",
+    ]
+
+    resources = [
+      "*",
+    ]
+  }
+
+  statement {
+    sid    = "AllowCW"
+    effect = "Allow"
+
+    actions = [
+        "cloudwatch:GetDashboard",
+        "cloudwatch:GetMetricData",
+        "cloudwatch:GetMetricStatistics",
+        "cloudwatch:ListDashboards",
+        "cloudwatch:ListMetrics",
+    ]
+
+    resources = [
+      "*",
+    ]
+  }
+}
