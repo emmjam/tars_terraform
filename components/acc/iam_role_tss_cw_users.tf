@@ -5,7 +5,7 @@ resource "aws_iam_role" "tss_cw_users" {
 
   path = "/"
 
-  assume_role_policy = "${data.aws_iam_policy_document.tss_cw_users.json}"
+  assume_role_policy = "${data.aws_iam_policy_document.mgmt_trust.json}"
 
   tags = "${merge(
     local.default_tags,
