@@ -194,6 +194,11 @@ db_cw_users = [
   "david.giles@bjss.com",
 ]
 
+# TSS Dashboard
+tss_cw_users = [
+"tss-dashboard",
+]
+
 # Non Prod
 
 readonly_no_secrets_nonprod_users = [
