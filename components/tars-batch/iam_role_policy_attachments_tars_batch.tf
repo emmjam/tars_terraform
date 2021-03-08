@@ -18,3 +18,9 @@ resource "aws_iam_role_policy_attachment" "rsisbucket_tiff_repo_batch" {
   role       = module.tars_batch.iam_role_name
   policy_arn = aws_iam_policy.rsisbucket_tiff_repo[0].arn
 }
+
+resource "aws_iam_role_policy_attachment" "rsisbucket_tiff_repo_batch2" {
+  count      = contains(var.rsisbucket_env, var.environment) ? 1 : 0
+  role       = module.tars_batch.iam_role_name
+  policy_arn = aws_iam_policy.rsisbucket_tiff_repo2[0].arn
+}
