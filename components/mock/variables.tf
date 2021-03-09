@@ -177,3 +177,9 @@ variable "mock_ami_build_id" {
   type        = string
   description = "MOCK AMI build ID"
 }
+
+variable "jenkinsctrl_subnets_cidrs" {
+  type        = list
+  description = "jenkins cidrs for mock"
+  default     = []
+}
