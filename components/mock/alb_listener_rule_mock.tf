@@ -4,7 +4,7 @@ resource "aws_lb_listener_rule" "epdq-public" {
 
   action {
     type             = "forward"
-    target_group_arn = module.mock_fargate.lb_target_group_epdq-2
+    target_group_arn = module.mock_fargate.lb_target_group_epdq-public
   }
 
   condition {

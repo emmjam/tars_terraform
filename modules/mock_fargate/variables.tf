@@ -43,7 +43,7 @@ variable "cwl_retention_in_days" {
   default     = "60"
 }
 
-variable "image" {
+variable "epdq_image" {
   type        = string
   description = "image to pass throug hto jenkins worker task"
 }
@@ -51,16 +51,6 @@ variable "image" {
 variable "vpc_id" {
   type        = string
   description = "VPC ID"
-}
-
-variable "lb_private" {
-  type        = string
-  description = "Private ALB"
-}
-
-variable "lb_public" {
-  type        = string
-  description = "Public ALB"
 }
 
 variable "additional_sg_ids" {
@@ -74,7 +64,7 @@ variable "subnet_ids" {
   description = "Subnet IDs"
 }
 
-variable "iam_policy_arn" {
+variable "epdq_iam_policy_arn" {
   type        = string
   description = "Policy arn for jenkins workers to execute with, typical administrator"
 }

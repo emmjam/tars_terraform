@@ -1,5 +1,5 @@
-resource "aws_lb_target_group" "mock-epdq-8080" {
-  name       = "${local.csi}-8080"
+resource "aws_lb_target_group" "mock-epdq-8080-private" {
+  name       = "${local.csi}-8080-private"
   port       = "8080"
   protocol   = "HTTP"
   vpc_id     = var.vpc_id
@@ -17,8 +17,8 @@ resource "aws_lb_target_group" "mock-epdq-8080" {
   }
 }
 
-resource "aws_lb_target_group" "mock-epdq-8080-2" {
-  name       = "${local.csi}-8080-2"
+resource "aws_lb_target_group" "mock-epdq-8080-public" {
+  name       = "${local.csi}-8080-public"
   port       = "8080"
   protocol   = "HTTP"
   vpc_id     = var.vpc_id

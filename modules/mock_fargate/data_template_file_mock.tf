@@ -3,13 +3,12 @@ data "template_file" "task" {
     "${path.module}/templates/task.json.tmpl",
   )
 
-
   vars = {
     region        = var.region
-    image         = var.image
-    log_group     = aws_cloudwatch_log_group.main.name
-    stream_prefix = "${local.csi}-ecs"
-    name          = "${var.name}"
-    response_domain = "https://mock-epdq-${var.environment}-public.dvsa.tars.dev-dvsacloud.uk"
+    epdq_image         = var.epdq_image
+    epdq_log_group     = aws_cloudwatch_log_group.epdq.name
+    epdq_stream_prefix = "${local.csi}-ecs-epdq"
+    epdq_name          = local.epdq_name
+    epdq_response_domain = "https://mock-epdq-${var.environment}-public.dvsa.tars.dev-dvsacloud.uk"
   }
 }

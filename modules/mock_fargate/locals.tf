@@ -1,7 +1,7 @@
 locals {
   # Compound Scope Identifier
   csi = replace(
-    format("%s-%s-%s-%s", var.project, var.environment, var.component, var.name),
+    format("%s-%s-%s", var.project, var.environment, var.component),
     "_",
     "",
   )
@@ -12,5 +12,7 @@ locals {
       "Module" = var.module
     },
   )
+
+  epdq_name = "epdq"
 }
 

@@ -8,15 +8,12 @@ module "mock_fargate" {
   component   = var.component
   vpc_id      = data.terraform_remote_state.base.outputs.vpc_id
   subnet_ids  = data.terraform_remote_state.base.outputs.subnets_tars_backend
-  lb_private  = aws_alb.tars-alb-mock-public.id
-  lb_public   = aws_alb.tars-alb-mock-private.id
 
   additional_sg_ids = list(data.terraform_remote_state.base.outputs.core_sg_id)
 
   default_tags = local.default_tags
 
-  iam_policy_arn = aws_iam_policy.mock.arn
-  image                 = var.mock_image
-
+  epdq_iam_policy_arn = aws_iam_policy.mock.arn
+  epdq_image                 = var.mock_image
 }
 

@@ -11,14 +11,14 @@ resource "aws_ecs_service" "main" {
   }
 
   load_balancer {
-    target_group_arn = aws_lb_target_group.mock-epdq-8080.arn
-    container_name   = var.name
+    target_group_arn = aws_lb_target_group.mock-epdq-8080-private.arn
+    container_name   = local.epdq_name
     container_port   = 8080
   }
 
   load_balancer {
-    target_group_arn = aws_lb_target_group.mock-epdq-8080-2.arn
-    container_name   = var.name
+    target_group_arn = aws_lb_target_group.mock-epdq-8080-public.arn
+    container_name   = local.epdq_name
     container_port   = 8080
   }
 
