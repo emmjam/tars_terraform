@@ -60,7 +60,6 @@ new_all_users = [
   "pete.mallam@bjss.com",
   "daren.fang@bjss.com",
   "ross.bamford@bjss.com",
-  "elizabeth.edwards@bjss.com",
   "azeez.oluwa@bjss.com",
 ]
 
@@ -110,7 +109,6 @@ readonly_tssops_users = [
   "jessica.ferguson@bjss.com",
   "mike.peachey@bjss.com",
   "pete.mallam@bjss.com",
-  "elizabeth.edwards@bjss.com",
 ]
 
 # TARS Platform Access
