@@ -14,6 +14,7 @@ module "mock_fargate" {
   default_tags = local.default_tags
 
   epdq_iam_policy_arn = aws_iam_policy.mock.arn
-  epdq_image                 = var.mock_image
+  epdq_image          = var.mock_image
+  gov_gateway_image   = var.gov_gateway_image
 }
 

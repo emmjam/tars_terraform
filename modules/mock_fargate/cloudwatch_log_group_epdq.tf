@@ -5,7 +5,7 @@ resource "aws_cloudwatch_log_group" "epdq" {
   tags = merge(
     var.default_tags,
     {
-      "Name" = local.csi
+      "Name"   = local.csi
       "Module" = var.module
     },
   )

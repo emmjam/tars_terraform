@@ -7,6 +7,36 @@
 # Should be:
 # policy = "${data.aws_iam_policy_document.ecr_repository_main.json}"
 
+resource "aws_ecr_repository_policy" "gov_gateway_mocktars_run_jenkins" {
+  repository = aws_ecr_repository.government_gateway_mock.name
+  policy     = data.template_file.ecr_repository_policy_main.rendered
+}
+
+resource "aws_ecr_repository_policy" "wildfly11" {
+  repository = aws_ecr_repository.wildfly11.name
+  policy     = data.template_file.ecr_repository_policy_main.rendered
+}
+
+resource "aws_ecr_repository_policy" "tomcat8" {
+  repository = aws_ecr_repository.tomcat8.name
+  policy     = data.template_file.ecr_repository_policy_main.rendered
+}
+
+resource "aws_ecr_repository_policy" "tomcat9" {
+  repository = aws_ecr_repository.tomcat9.name
+  policy     = data.template_file.ecr_repository_policy_main.rendered
+}
+
+resource "aws_ecr_repository_policy" "oracle-xe" {
+  repository = aws_ecr_repository.oracle-xe.name
+  policy     = data.template_file.ecr_repository_policy_main.rendered
+}
+
+resource "aws_ecr_repository_policy" "cpc-oracle-xe" {
+  repository = aws_ecr_repository.cpc-oracle-xe.name
+  policy     = data.template_file.ecr_repository_policy_main.rendered
+}
+
 resource "aws_ecr_repository_policy" "tars_run_jenkins" {
   repository = aws_ecr_repository.jenkins.name
   policy     = data.template_file.ecr_repository_policy_main.rendered

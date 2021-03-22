@@ -22,4 +22,16 @@ resource "aws_ecs_service" "main" {
     container_port   = 8080
   }
 
+  load_balancer {
+    target_group_arn = aws_lb_target_group.mock_gov_gateway_9090_private.arn
+    container_name   = local.gov_gateway_name
+    container_port   = 9090
+  }
+
+  load_balancer {
+    target_group_arn = aws_lb_target_group.mock_gov_gateway_9090_public.arn
+    container_name   = local.gov_gateway_name
+    container_port   = 9090
+  }
+
 }

@@ -13,6 +13,7 @@ locals {
     },
   )
 
-  epdq_name = "epdq"
+  epdq_name        = "epdq"
+  gov_gateway_name = "gov_gateway"
 }
 

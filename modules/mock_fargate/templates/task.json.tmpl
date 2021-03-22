@@ -24,5 +24,37 @@
                 "protocol": "tcp"
             }
         ]
+    },
+    {
+        "essential": true,
+        "image": "${gov_gateway_image}",
+        "logConfiguration": {
+            "logDriver": "awslogs",
+            "options": {
+                "awslogs-group": "${gov_gateway_log_group}",
+                "awslogs-region": "${region}",
+                "awslogs-stream-prefix": "${gov_gateway_stream_prefix}"
+            }
+        },
+        "volumesFrom": [],
+        "mountPoints": [
+        ],
+        "name": "${gov_gateway_name}",
+        "environment": [
+          { "name" : "PORT", "value" : "9090"},
+          { "name" : "STUB_CLIENT_ID", "value" : "stubOidcClient"},
+          { "name" : "STUB_CLIENT_SECRET", "value" : "secretsarehardtokeep"},
+          { "name" : "AUTH_CALLBACKS", "value" : "${gov_gateway_auth_callbacks}"},
+          { "name" : "TEST_USER_NAME", "value" : "TestName TestEmail"},
+          { "name" : "TEST_USER_EMAIL", "value" : "testname@testprovider.com"},
+          { "name" : "SERVICE_RETURN_URL", "value" : "${gov_gateway_return_url}"}
+        ],
+        "portMappings": [
+            {
+                "containerPort": 9090,
+                "hostPort": 9090,
+                "protocol": "tcp"
+            }
+        ]
     }
 ]

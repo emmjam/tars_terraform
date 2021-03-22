@@ -75,3 +75,7 @@ variable "default_tags" {
   description = "Tags to apply to all taggable resources"
 }
 
+variable "gov_gateway_image" {
+  type        = string
+  description = "Gov Gateway image name"
+}

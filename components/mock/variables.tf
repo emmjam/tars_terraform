@@ -24,6 +24,11 @@ variable "mock_image" {
   description = "Mock docker image"
 }
 
+variable "gov_gateway_image" {
+  type        = string
+  description = "Mock Gov Gateway docker image"
+}
+
 variable "release_version" {
   type        = string
   default     = "Not provided"
@@ -105,9 +110,9 @@ variable "asg_enabled_metrics" {
 }
 
 variable "asg_default_tags" {
-  type        = list(object({
-    key = string
-    value = string
+  type = list(object({
+    key                 = string
+    value               = string
     propagate_at_launch = string
   }))
   description = "See code comments"
@@ -129,7 +134,7 @@ variable "lc_key_name" {
 variable "ami_build_id" {
   type        = string
   description = "TARS mock AMI build ID"
-  default = ""
+  default     = ""
 }
 
 variable "aws_account_id" {
