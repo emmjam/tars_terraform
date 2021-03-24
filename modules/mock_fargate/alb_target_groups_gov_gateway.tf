@@ -8,12 +8,12 @@ resource "aws_lb_target_group" "mock_gov_gateway_9090_private" {
   deregistration_delay = 30
 
   health_check {
-    path                = "/register/grant"
+    path                = "/api/account/list"
     timeout             = 5
     interval            = 30
     healthy_threshold   = 3
     unhealthy_threshold = 3
-    matcher             = 200
+    matcher             = "200,302"
   }
 }
 
@@ -27,12 +27,12 @@ resource "aws_lb_target_group" "mock_gov_gateway_9090_public" {
   deregistration_delay = 30
 
   health_check {
-    path                = "/register/grant"
+    path                = "/api/account/list"
     timeout             = 5
     interval            = 30
     healthy_threshold   = 3
     unhealthy_threshold = 3
-    matcher             = 200
+    matcher             = "200,302"
   }
 }
 
