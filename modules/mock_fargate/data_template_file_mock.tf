@@ -16,5 +16,6 @@ data "template_file" "task" {
     gov_gateway_name           = local.gov_gateway_name
     gov_gateway_auth_callbacks = "https://tars-${var.environment}-cpc-internet.dvsa.tars.dev-dvsacloud.uk/cpctrain/login?app=CPCER, https://obs-${var.environment}-public.dvsa.tars.dev-dvsacloud.uk/obs-web/login?app=OBS"
     gov_gateway_return_url     = "https://tars-${var.environment}-cpc-internet.dvsa.tars.dev-dvsacloud.uk/cpctrain/login?app=CPCER"
+    gov_gateway_issuer         = "https://mock-gov-gateway-${var.environment}-public.dvsa.tars.dev-dvsacloud.uk"
   }
 }

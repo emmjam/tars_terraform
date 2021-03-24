@@ -12,9 +12,9 @@ resource "aws_route53_record" "mock_epdq" {
 }
 
 resource "aws_route53_record" "mock_gov_gateway" {
-  name = "mock-gov_gateway"
+  name = "mock-gov-gateway-private-${var.environment}"
 
-  zone_id = data.terraform_remote_state.base.outputs.private_zone_id
+  zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
   type    = "A"
 
   alias {

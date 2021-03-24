@@ -121,8 +121,8 @@ resource "aws_security_group_rule" "mock_fargate_ingress_mock_public_alb" {
 resource "aws_security_group_rule" "cpc_egress_mock_alb" {
   description              = "CPC egress TCP/9090 to gov gateway"
   type                     = "egress"
-  from_port                = 9090
-  to_port                  = 9090
+  from_port                = 443
+  to_port                  = 443
   protocol                 = "tcp"
   source_security_group_id = aws_security_group.tars-alb-mock.id
   security_group_id        = data.terraform_remote_state.cpc.outputs.cpc-back-sg-id
@@ -131,8 +131,8 @@ resource "aws_security_group_rule" "cpc_egress_mock_alb" {
 resource "aws_security_group_rule" "mock_alb_ingress_cpc" {
   description              = "Mock ALB egress TCP/9090 from CPC"
   type                     = "ingress"
-  from_port                = 9090
-  to_port                  = 9090
+  from_port                = 443
+  to_port                  = 443
   protocol                 = "tcp"
   source_security_group_id = data.terraform_remote_state.cpc.outputs.cpc-back-sg-id
   security_group_id        = aws_security_group.tars-alb-mock.id
@@ -141,8 +141,8 @@ resource "aws_security_group_rule" "mock_alb_ingress_cpc" {
 resource "aws_security_group_rule" "obs_egress_mock_alb" {
   description              = "OBS egress TCP/9090 to gov gateway"
   type                     = "egress"
-  from_port                = 9090
-  to_port                  = 9090
+  from_port                = 443
+  to_port                  = 443
   protocol                 = "tcp"
   source_security_group_id = aws_security_group.tars-alb-mock.id
   security_group_id        = data.terraform_remote_state.apps.outputs.obs-sg-id
@@ -151,8 +151,8 @@ resource "aws_security_group_rule" "obs_egress_mock_alb" {
 resource "aws_security_group_rule" "mock_alb_ingress_obs" {
   description              = "Mock ALB ingress TCP/9090 from OBS"
   type                     = "ingress"
-  from_port                = 9090
-  to_port                  = 9090
+  from_port                = 443
+  to_port                  = 443
   protocol                 = "tcp"
   source_security_group_id = data.terraform_remote_state.apps.outputs.obs-sg-id
   security_group_id        = aws_security_group.tars-alb-mock.id
