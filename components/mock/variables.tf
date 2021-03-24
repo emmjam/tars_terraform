@@ -188,3 +188,9 @@ variable "jenkinsctrl_subnets_cidrs" {
   description = "jenkins cidrs for mock"
   default     = []
 }
+
+variable "lc_volume_type" {
+  type        = string
+  description = "Volume type gp2 gp3"
+  default     = "gp3"
+}

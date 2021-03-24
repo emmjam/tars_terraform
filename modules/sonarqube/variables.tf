@@ -117,7 +117,7 @@ variable "ebs_volume_size" {
 
 variable "ebs_volume_type" {
   type    = string
-  default = "gp2"
+  default = "gp3"
 }
 
 ## rds

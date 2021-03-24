@@ -205,7 +205,7 @@ variable "elb_healthcheck_interval" {
 variable "ebs_volume_type" {
   type        = string
   description = "The type of EBS volume"
-  default     = "gp2"
+  default     = "gp3"
 }
 
 variable "ebs_volume_size" {

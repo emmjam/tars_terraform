@@ -13,6 +13,13 @@ resource "aws_launch_template" "tars-mock" {
       }
   }
 
+  block_device_mappings {
+    device_name = "/dev/xvda"
+      ebs {
+        volume_type = var.lc_volume_type
+      }
+  }
+
   vpc_security_group_ids = [
     aws_security_group.tars-mock.id,
     data.terraform_remote_state.base.outputs.core_sg_id,
