@@ -489,6 +489,12 @@ non_prod_jenkins_cidrs = [
     "10.167.60.48/28",
 ]
 
+non_prod_ctrl_jenkins_cidrs = [
+  "10.167.60.16/28",
+  "10.167.60.32/28",
+  "10.167.60.48/28",
+]
+
 ##
 # Cloudability Cross Account Access
 ##

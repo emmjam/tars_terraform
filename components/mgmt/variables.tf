@@ -779,3 +779,9 @@ variable "bounced_email_domain" {
     description = "Map of config information for lambda access_key_rotation"
     type        = map
 }
+
+variable "non_prod_ctrl_jenkins_cidrs" {
+  type        = list(string)
+  description = ""
+  default     = []
+}

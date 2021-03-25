@@ -59,6 +59,28 @@ resource "aws_security_group_rule" "nexus_egress_nexus_efs_nfs" {
   source_security_group_id = aws_security_group.nexus_efs.id
 }
 
+resource "aws_security_group_rule" "nexus_ingress_jenkinsctrl_https" {
+  type                     = "ingress"
+  from_port                = "443"
+  to_port                  = "443"
+  protocol                 = "tcp"
+  security_group_id        = module.microservice_nexus.security_group_id
+  
+  cidr_blocks =  var.non_prod_ctrl_jenkins_cidrs
+
+}
+
+resource "aws_security_group_rule" "nexus_ingress_jenkinsctrl_http" {
+  type                     = "ingress"
+  from_port                = "80"
+  to_port                  = "80"
+  protocol                 = "tcp"
+  security_group_id        = module.microservice_nexus.security_group_id
+
+  cidr_blocks =  var.non_prod_ctrl_jenkins_cidrs
+
+}
+
 /* We don't have one.. yet(?)
 # This allows nexus to authenticate against OpenLDAP
 resource "aws_security_group_rule" "nexus_egress_openldap_ldaps" {
