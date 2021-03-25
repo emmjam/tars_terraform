@@ -29,4 +29,3 @@ resource "aws_security_group_rule" "nexus_ingress_nat_mgmt_https" {
     )}/32",
   ]
 }
-

@@ -59,7 +59,7 @@ resource "aws_security_group_rule" "alb_private_ingress_builder_nexus" {
 }
 
 resource "aws_security_group_rule" "alb_private_ingress_builder_nexus_443" {
-  description              = "Allow TCP/443 from nexux"
+  description              = "Allow TCP/443 from nexus"
   type                     = "ingress"
   from_port                = 443
   to_port                  = 443
@@ -67,5 +67,3 @@ resource "aws_security_group_rule" "alb_private_ingress_builder_nexus_443" {
   security_group_id        = aws_security_group.alb_private.id
   source_security_group_id = module.builder.security_group_id
 }
-
-
