@@ -205,7 +205,7 @@ cpc-front_scaleup_desired      = 2
 cpc-front_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## sftpplus-svr
-sftpplus-svr_instance_type        = "m3.medium"
+sftpplus-svr_instance_type        = "m4.large"
 sftpplus-svr_puppet_nodetype      = "sftpplus-svr"
 sftpplus-svr_asg_min_size         = 0
 sftpplus-svr_asg_max_size         = 1

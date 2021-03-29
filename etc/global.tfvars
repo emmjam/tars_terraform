@@ -32,6 +32,7 @@ spot_pricing = {
   "t3.micro"   = "0.0048"
   "t3.small"   = "0.0075"
   "t3.medium"  = "0.0151"
+  "m6g.medium" = "0.026"
 }
 
 rhel_spot_pricing = {
@@ -60,6 +61,7 @@ rhel_spot_pricing = {
   "t3.micro"   = "0.0648"
   "t3.small"   = "0.0675"
   "t3.medium"  = "0.0810"
+  "m6g.medium" = "0.026"
 }
 
 efs_backup_env  = [
