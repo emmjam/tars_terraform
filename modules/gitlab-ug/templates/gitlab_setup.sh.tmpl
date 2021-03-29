@@ -1,0 +1,86 @@
+#!/bin/bash -xe
+
+function log() {
+  echo "[$(date)]$1" | tee -a /var/log/gitlab_cloudinit.log
+}
+
+log '[INFO] Preparing configuration variables'
+instance_id=$(curl http://169.254.169.254/latest/meta-data/instance-id)
+gitlab_home='/gitlab-data'
+ebs_volume_id=${EBS_VOLUME_ID}
+ebs_device_name=${EBS_DEVICE_NAME}
+aws_region=${AWS_REGION}
+db_endpoint=${DB_ENDPOINT}
+redis_endpoint=${REDIS_ENDPOINT}
+gitlab_external_url=${EXTERNAL_URL}
+
+log '[INFO] Attaching EBS volume'
+attach_retries=10
+until [ $${attach_retries} -eq 0 ]; do
+  aws ec2 attach-volume \
+    --volume-id $${ebs_volume_id} \
+    --instance-id $${instance_id} \
+    --device $${ebs_device_name} \
+    --region $${aws_region} \
+    && break
+  let attach_retries=$${attach_retries}-1
+  sleep 10
+done
+
+log '[INFO] Waiting for EBS volume to be attached'
+attach_status='unknown'
+attach_retries=10
+until [ $${attach_status} == 'attached' ]; do
+  attach_status=$(aws ec2 describe-volumes \
+    --volume-ids $${ebs_volume_id} \
+    --query Volumes[].Attachments[].State \
+    --region $${aws_region} \
+    --output text)
+  let attach_retries=$${attach_retries}-1
+  if [ $${attach_retries} -eq 0 ]; then 
+    log "[ERROR] Could not attach EBS volume after $${attach_retries} retries"
+    exit 1
+  fi
+  sleep 5
+done
+
+bootstrap=false
+check_ebs=$(file -s $${ebs_device_name})
+if [[ $${check_ebs} == "$${ebs_device_name}: data" ]]; then
+  log '[INFO] Creating ext4 file system on EBS'
+  mkfs -t ext4 $${ebs_device_name}
+  bootstrap=true
+else
+  log '[INFO] EBS volume already contains a filesystem'
+fi
+
+log '[INFO] Mounting'
+mount $${ebs_device_name} $${gitlab_home}
+
+log '[INFO] Adding new configuration entry to FSTAB'
+echo "$${ebs_device_name}  $${gitlab_home}  ext4  defaults,nofail  0 0" >> /etc/fstab
+
+if [ $${bootstrap} = true ]; then
+  log '[INFO] Backing up gitlab-secrets.json'
+  mkdir -p $${gitlab_home}/config_backup
+  cp /etc/gitlab/gitlab-secrets.json $${gitlab_home}/config_backup/
+else
+  log '[INFO] Restoring gitlab-secrets.json'
+  rm -f /etc/gitlab/gitlab-secrets.json
+  cp $${gitlab_home}/config_backup/gitlab-secrets.json /etc/gitlab/
+fi
+
+log '[INFO] Injecting external url and endpoints to config file'
+sed -i 's|http://unknown_external_url|https://'$${gitlab_external_url}'|g' /etc/gitlab/gitlab.rb
+sed -i 's|db_unknown_host|'$${db_endpoint}'|g' /etc/gitlab/gitlab.rb
+sed -i 's|redis_unknown_host|'$${redis_endpoint}'|g' /etc/gitlab/gitlab.rb
+
+log '[INFO] Reconfiguring and starting GitLab'
+gitlab-ctl reconfigure
+gitlab-ctl start
+sleep 5
+gitlab-ctl stop
+sleep 5
+gitlab-ctl start
+
+log '[INFO] GitLab configuration finished'
