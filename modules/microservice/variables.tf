@@ -125,7 +125,7 @@ variable "lc_ebs_size" {
 variable "lc_volume_type" {
   type        = string
   description = "Volume type gp2 gp3"
-  default     = "gp3"
+  default     = "gp2"
 }
 
 variable "lifecycle_hook_launching_default_result" {
