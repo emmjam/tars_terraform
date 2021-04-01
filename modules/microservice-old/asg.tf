@@ -7,12 +7,12 @@ resource "aws_autoscaling_group" "main" {
     var.name,
   )
 
-  launch_template {
-    id = aws_launch_template.main.id
-    version = "$Latest"
-  }
+  #launch_template {
+  #  id = aws_launch_template.main.id
+  #  version = "$Latest"
+  #}
 
-  #launch_configuration = aws_launch_configuration.main.id
+  launch_configuration = aws_launch_configuration.main.id
   max_size             = var.asg_size_max
   min_size             = var.asg_size_min
   termination_policies = var.asg_termination_policies
