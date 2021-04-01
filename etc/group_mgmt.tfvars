@@ -21,7 +21,6 @@ new_all_users = [
   "billy.dhillon@bjss.com",
   "christopher.swanson@bjss.com",
   "damian.skiba@bjss.com",
-  "daniel.billing@bjss.com",
   "daniel.thompson@bjss.com",
   "david.giles@bjss.com",
   "david.johnson@bjss.com",
@@ -40,7 +39,6 @@ new_all_users = [
   "prashant.kumar@bjss.com",
   "richard.freitas@bjss.com",
   "saul.kashani@bjss.com",
-  "steve.wilson@bjss.com",
   "steven.millington@bjss.com",
   "jamie.kelly@bjss.com",
   "winston.coleman@bjss.com",
@@ -59,7 +57,6 @@ new_all_users = [
   "levent.aksu@bjss.com",
   "pete.mallam@bjss.com",
   "daren.fang@bjss.com",
-  "ross.bamford@bjss.com",
   "azeez.oluwa@bjss.com",
   "ryu.sasai@bjss.com",
 ]
@@ -73,7 +70,6 @@ administrators_tssops_users = [
   "christopher.swanson@bjss.com",
   "prashant.kumar@bjss.com",
   "damian.skiba@bjss.com",
-  "daniel.billing@bjss.com",
   "daniel.thompson@bjss.com",
   "ibrar.akram@bjss.com",
   "mike.peachey@bjss.com",
@@ -93,7 +89,6 @@ readonly_tssops_users = [
   "christopher.swanson@bjss.com",
   "prashant.kumar@bjss.com",
   "damian.skiba@bjss.com",
-  "daniel.billing@bjss.com",
   "daniel.thompson@bjss.com",
   "ibrar.akram@bjss.com",
   "ian.harris@bjss.com",
@@ -125,7 +120,6 @@ administrators_platform_users = [
  ]
 readonly_platform_users = [
   "jamie.kelly@bjss.com",
-  "steve.wilson@bjss.com",
   "michelle.pike@bjss.com",
   "michael.tribbick@bjss.com",
   "david.giles@bjss.com",
@@ -142,7 +136,6 @@ readonly_developer_users = [
   "thomas.webb@bjss.com",
   "levent.aksu@bjss.com",
   "daren.fang@bjss.com",
-  "ross.bamford@bjss.com",
   "ryu.sasai@bjss.com",
 ]
 
