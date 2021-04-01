@@ -7,6 +7,16 @@
 # Should be:
 # policy = "${data.aws_iam_policy_document.ecr_repository_main.json}"
 
+resource "aws_ecr_repository_policy" "epdq" {
+  repository = aws_ecr_repository.epdq.name
+  policy     = data.template_file.ecr_repository_policy_main.rendered
+}
+
+resource "aws_ecr_repository_policy" "epdq_db" {
+  repository = aws_ecr_repository.epdq_db.name
+  policy     = data.template_file.ecr_repository_policy_main.rendered
+}
+
 resource "aws_ecr_repository_policy" "gov_gateway_mocktars_run_jenkins" {
   repository = aws_ecr_repository.government_gateway_mock.name
   policy     = data.template_file.ecr_repository_policy_main.rendered
