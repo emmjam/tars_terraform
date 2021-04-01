@@ -57,7 +57,6 @@ new_all_users = [
   "levent.aksu@bjss.com",
   "pete.mallam@bjss.com",
   "daren.fang@bjss.com",
-  "azeez.oluwa@bjss.com",
   "ryu.sasai@bjss.com",
 ]
 
@@ -170,7 +169,6 @@ qaengineer_users = [
   "richard.freitas@bjss.com",
   "john.morley@bjss.com",
   "winston.coleman@bjss.com",
-  "azeez.oluwa@bjss.com",
 ]
 
 readonly_qaengineer_users = [
@@ -178,7 +176,6 @@ readonly_qaengineer_users = [
   "balkar.bains@bjss.com",
   "john.reynolds@bjss.com",
   "winston.coleman@bjss.com",
-  "azeez.oluwa@bjss.com",
 ]
 
 # DBA Access
