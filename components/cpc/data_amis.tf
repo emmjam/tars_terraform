@@ -14,7 +14,7 @@ data "aws_ami" "cpc-front" {
       format(
         "%s-%s-%s/%s",
         var.project,
-        "amzn2",
+        "amzn",
         "cpc-front",
         var.cpc_ami_id
       )
@@ -45,7 +45,7 @@ data "aws_ami" "cpc-back" {
       format(
         "%s-%s-%s/%s",
         var.project,
-        "amzn2",
+        "amzn",
         "cpc-back",
         var.cpc_ami_id
       )

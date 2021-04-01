@@ -13,7 +13,7 @@ data "aws_ami" "cpc-batch" {
       format(
         "%s-%s-%s/%s",
         var.project,
-        "amzn2",
+        "amzn",
         "cpc-batch",
         var.cpc_ami_id,
       )
