@@ -122,6 +122,12 @@ variable "lc_ebs_size" {
   default     = "16"
 }
 
+variable "lc_ebs_size_tars" {
+  type        = string
+  description = "Size of the EBS volume for microservice instance on creation"
+  default     = "10"
+}
+
 variable "lc_volume_type" {
   type        = string
   description = "Volume type gp2 gp3"
