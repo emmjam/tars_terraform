@@ -5,7 +5,7 @@ resource "aws_security_group_rule" "tars_alb_private_ingress_mock_epdq" {
   to_port                  = 8080
   protocol                 = "tcp"
   source_security_group_id = aws_security_group.tars-alb-mock.id
-  security_group_id        = module.mock_fargate.sg_mock
+  security_group_id        = module.mock_fargate.sg_epdq
 }
 
 resource "aws_security_group_rule" "tars_db_mock2_egress_port_1521" {
@@ -15,7 +15,7 @@ resource "aws_security_group_rule" "tars_db_mock2_egress_port_1521" {
   to_port                  = 1521
   protocol                 = "tcp"
   source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-db-sg-id
-  security_group_id        = module.mock_fargate.sg_mock
+  security_group_id        = module.mock_fargate.sg_epdq
 }
 
 resource "aws_security_group_rule" "tars_db_mock2_ingress_port_1521" {
@@ -25,7 +25,7 @@ resource "aws_security_group_rule" "tars_db_mock2_ingress_port_1521" {
   to_port                  = 1521
   protocol                 = "tcp"
   security_group_id        = data.terraform_remote_state.tars-core.outputs.tars-core-db-sg-id
-  source_security_group_id = module.mock_fargate.sg_mock
+  source_security_group_id = module.mock_fargate.sg_epdq
 }
 
 resource "aws_security_group_rule" "tars_backend_egress_tars_alb_mock2_port_8080" {
@@ -35,7 +35,7 @@ resource "aws_security_group_rule" "tars_backend_egress_tars_alb_mock2_port_8080
   to_port                  = 8080
   protocol                 = "tcp"
   security_group_id        = data.terraform_remote_state.tars-core.outputs.tars-core-backend-sg-id
-  source_security_group_id = module.mock_fargate.sg_mock
+  source_security_group_id = module.mock_fargate.sg_epdq
 }
 
 resource "aws_security_group_rule" "tars_backend_ingress_tars_alb_mock2_port_8080" {
@@ -45,7 +45,7 @@ resource "aws_security_group_rule" "tars_backend_ingress_tars_alb_mock2_port_808
   to_port                  = 8080
   protocol                 = "tcp"
   source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-backend-sg-id
-  security_group_id        = module.mock_fargate.sg_mock
+  security_group_id        = module.mock_fargate.sg_epdq
 }
 
 resource "aws_security_group_rule" "tars_alb_public_ingress_mock_epdq" {
@@ -55,7 +55,7 @@ resource "aws_security_group_rule" "tars_alb_public_ingress_mock_epdq" {
   to_port                  = 8080
   protocol                 = "tcp"
   source_security_group_id = aws_security_group.tars-alb-mock-public.id
-  security_group_id        = module.mock_fargate.sg_mock
+  security_group_id        = module.mock_fargate.sg_epdq
 }
 
 resource "aws_security_group_rule" "tars_back_egress_mock_epdq" {
@@ -65,7 +65,7 @@ resource "aws_security_group_rule" "tars_back_egress_mock_epdq" {
   to_port                  = 8080
   protocol                 = "tcp"
   source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-backend-alb-sg-id
-  security_group_id        = module.mock_fargate.sg_mock
+  security_group_id        = module.mock_fargate.sg_epdq
 }
 
 resource "aws_security_group_rule" "tars_back_alb_ingress_mock_epdq" {
@@ -75,7 +75,7 @@ resource "aws_security_group_rule" "tars_back_alb_ingress_mock_epdq" {
   to_port                  = 8080
   protocol                 = "tcp"
   security_group_id        = data.terraform_remote_state.tars-core.outputs.tars-core-backend-alb-sg-id
-  source_security_group_id = module.mock_fargate.sg_mock
+  source_security_group_id = module.mock_fargate.sg_epdq
 }
 
 resource "aws_security_group_rule" "mock_gov_gateway_ingress_mock_alb" {
@@ -85,7 +85,7 @@ resource "aws_security_group_rule" "mock_gov_gateway_ingress_mock_alb" {
   to_port                  = 9090
   protocol                 = "tcp"
   source_security_group_id = aws_security_group.tars-alb-mock.id
-  security_group_id        = module.mock_fargate.sg_mock
+  security_group_id        = module.mock_fargate.sg_gov_gateway
 }
 
 resource "aws_security_group_rule" "mock_alb_egress_mock_gov_gateway" {
@@ -94,7 +94,7 @@ resource "aws_security_group_rule" "mock_alb_egress_mock_gov_gateway" {
   from_port                = 9090
   to_port                  = 9090
   protocol                 = "tcp"
-  source_security_group_id = module.mock_fargate.sg_mock
+  source_security_group_id = module.mock_fargate.sg_gov_gateway
   security_group_id        = aws_security_group.tars-alb-mock.id
 }
 
@@ -104,7 +104,7 @@ resource "aws_security_group_rule" "mock_public_alb_egress_mock_fargate" {
   from_port                = 9090
   to_port                  = 9090
   protocol                 = "tcp"
-  source_security_group_id = module.mock_fargate.sg_mock
+  source_security_group_id = module.mock_fargate.sg_gov_gateway
   security_group_id        = aws_security_group.tars-alb-mock-public.id
 }
 
@@ -115,7 +115,7 @@ resource "aws_security_group_rule" "mock_fargate_ingress_mock_public_alb" {
   to_port                  = 9090
   protocol                 = "tcp"
   source_security_group_id = aws_security_group.tars-alb-mock-public.id
-  security_group_id        = module.mock_fargate.sg_mock
+  security_group_id        = module.mock_fargate.sg_gov_gateway
 }
 
 resource "aws_security_group_rule" "cpc_egress_mock_alb" {

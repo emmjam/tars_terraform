@@ -1,15 +1,10 @@
-data "template_file" "task" {
+data "template_file" "gov_gateway_task" {
   template = file(
-    "${path.module}/templates/task.json.tmpl",
+    "${path.module}/templates/gov_gateway_task.json.tmpl",
   )
 
   vars = {
     region                     = var.region
-    epdq_image                 = var.epdq_image
-    epdq_log_group             = aws_cloudwatch_log_group.epdq.name
-    epdq_stream_prefix         = "${local.csi}-ecs-epdq"
-    epdq_name                  = local.epdq_name
-    epdq_response_domain       = "https://mock-epdq-${var.environment}-public.dvsa.tars.dev-dvsacloud.uk"
     gov_gateway_image          = var.gov_gateway_image
     gov_gateway_log_group      = aws_cloudwatch_log_group.gov_gateway.name
     gov_gateway_stream_prefix  = "${local.csi}-ecs-gov-gateway"

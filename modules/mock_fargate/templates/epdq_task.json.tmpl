@@ -1,0 +1,28 @@
+[
+    {
+        "essential": true,
+        "image": "${epdq_image}",
+        "logConfiguration": {
+            "logDriver": "awslogs",
+            "options": {
+                "awslogs-group": "${epdq_log_group}",
+                "awslogs-region": "${region}",
+                "awslogs-stream-prefix": "${epdq_stream_prefix}"
+            }
+        },
+        "volumesFrom": [],
+        "mountPoints": [
+        ],
+        "name": "${epdq_name}",
+        "environment": [
+          { "name" : "EPDQ_ENVIRONMENT_RESPONSE_URL", "value" : "${epdq_response_domain}"}
+        ],
+        "portMappings": [
+            {
+                "containerPort": 8080,
+                "hostPort": 8080,
+                "protocol": "tcp"
+            }
+        ]
+    }
+]

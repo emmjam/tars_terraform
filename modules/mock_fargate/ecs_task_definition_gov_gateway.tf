@@ -1,6 +1,6 @@
-resource "aws_ecs_task_definition" "main" {
-  family                = "${local.csi}-ecs"
-  container_definitions = data.template_file.task.rendered
+resource "aws_ecs_task_definition" "gov_gateway" {
+  family                = "${local.csi}-ecs-gov-gateway"
+  container_definitions = data.template_file.gov_gateway_task.rendered
 
   requires_compatibilities = list("FARGATE")
 
@@ -16,7 +16,7 @@ resource "aws_ecs_task_definition" "main" {
   tags = merge(
     local.default_tags,
     {
-      "Name"      = "${local.csi}-task"
+      "Name"      = "${local.csi}-task-gov-gateway"
       "Component" = var.component
     },
   ) 

@@ -14,6 +14,10 @@ output "lb_target_group_gov_gateway_public" {
   value = aws_lb_target_group.mock_gov_gateway_9090_public.id
 }
 
-output "sg_mock" {
-  value = aws_security_group.mock.id
+output "sg_epdq" {
+  value = aws_security_group.epdq.id
+}
+
+output "sg_gov_gateway" {
+  value = aws_security_group.gov_gateway.id
 }
