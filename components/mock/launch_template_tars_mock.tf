@@ -16,6 +16,7 @@ resource "aws_launch_template" "tars-mock" {
   block_device_mappings {
     device_name = "/dev/xvda"
       ebs {
+        volume_size = 8
         volume_type = var.lc_volume_type
       }
   }
