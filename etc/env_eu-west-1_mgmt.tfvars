@@ -367,12 +367,12 @@ gitlab_redis_subnets_cidrs = [
 
 ## jenkins
 jenkins_instance_type        = "m5.large"
-jenkins_ami_build_id         = "1072"
+jenkins_ami_build_id         = "1080"
 jenkins_asg_min_size         = 0
 jenkins_asg_max_size         = 1
 jenkins_ebs_volume_type      = "gp3"
 jenkins_ebs_volume_size      = 100
-jenkins_ebs_snapshot_id      = "snap-030570d3adbf36a22"
+jenkins_ebs_snapshot_id      = "snap-01b33b14ed5f34eb1"
 jenkins_blue_nodes_number    = 1
 jenkins_scaledown_desired    = 1
 jenkins_scaledown_recurrence = "00 19 * * 1-5"
@@ -381,7 +381,7 @@ jenkins_scaleup_recurrence   = "00 07 * * 1-5"
 
 jenkins_blue_subnets_cidrs = ["10.200.3.0/28"]
 
-jenkins_blue_version = "2.249.3"
+jenkins_blue_version = "2.277.1"
 
 jenkins_elb_subnets_cidrs = ["10.200.3.32/28"]
 
