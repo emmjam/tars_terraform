@@ -1,6 +1,6 @@
-resource "aws_ecs_task_definition" "gov_gateway" {
-  family                = "${local.csi}-ecs-gov-gateway"
-  container_definitions = data.template_file.gov_gateway_task.rendered
+resource "aws_ecs_task_definition" "epdq_db" {
+  family                = "${local.csi}-ecs-epdq-db"
+  container_definitions = data.template_file.epdq_db_task.rendered
 
   requires_compatibilities = list("FARGATE")
 
@@ -16,7 +16,7 @@ resource "aws_ecs_task_definition" "gov_gateway" {
   tags = merge(
     local.default_tags,
     {
-      "Name"      = "${local.csi}-task-gov-gateway"
+      "Name"      = "${local.csi}-task-epdq-db"
       "Component" = var.component
     },
   )

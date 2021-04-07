@@ -22,4 +22,5 @@ resource "aws_ecs_service" "gov_gateway" {
     container_port   = 9090
   }
 
+  tags = var.default_tags
 }

@@ -19,5 +19,5 @@ resource "aws_ecs_task_definition" "epdq" {
       "Name"      = "${local.csi}-task-epdq"
       "Component" = var.component
     },
-  ) 
+  )
 }

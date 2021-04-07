@@ -29,7 +29,7 @@ variable "component" {
 variable "module" {
   type        = string
   description = "The name of this module. Should only be set here."
-  default     = "microservice"
+  default     = "mock"
 }
 
 variable "name" {
@@ -84,3 +84,4 @@ variable "gov_gateway_image" {
   type        = string
   description = "Gov Gateway image name"
 }
+

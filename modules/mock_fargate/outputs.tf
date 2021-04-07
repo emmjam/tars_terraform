@@ -22,6 +22,10 @@ output "sg_epdq" {
   value = aws_security_group.epdq.id
 }
 
+output "sg_epdq_db" {
+  value = aws_security_group.epdq_db.id
+}
+
 output "sg_gov_gateway" {
   value = aws_security_group.gov_gateway.id
 }

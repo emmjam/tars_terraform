@@ -8,26 +8,6 @@ resource "aws_security_group_rule" "tars_alb_private_ingress_mock_epdq" {
   security_group_id        = module.mock_fargate.sg_epdq
 }
 
-resource "aws_security_group_rule" "tars_db_mock2_egress_port_1521" {
-  description              = "Fargate mock egress TCP/1521 to tars db"
-  type                     = "egress"
-  from_port                = 1521
-  to_port                  = 1521
-  protocol                 = "tcp"
-  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-db-sg-id
-  security_group_id        = module.mock_fargate.sg_epdq
-}
-
-resource "aws_security_group_rule" "tars_db_mock2_ingress_port_1521" {
-  description              = "TARS DB ingress TCP/1521 from Fargate mock"
-  type                     = "ingress"
-  from_port                = 1521
-  to_port                  = 1521
-  protocol                 = "tcp"
-  security_group_id        = data.terraform_remote_state.tars-core.outputs.tars-core-db-sg-id
-  source_security_group_id = module.mock_fargate.sg_epdq
-}
-
 resource "aws_security_group_rule" "tars_backend_egress_tars_alb_mock2_port_8080" {
   description              = "TARS Back egress TCP/8080 to Fargate mock"
   type                     = "egress"
@@ -165,7 +145,7 @@ resource "aws_security_group_rule" "jenkinsnode_egress_mock_epdq" {
   to_port                  = 5432
   protocol                 = "tcp"
   security_group_id        = data.terraform_remote_state.ctrl.outputs.jenkinsctrl_sg_id
-  source_security_group_id = module.mock_fargate.sg_epdq
+  source_security_group_id = module.mock_fargate.sg_epdq_db
 }
 
 resource "aws_security_group_rule" "mock_epdq_ingress_jenkinsnode" {
@@ -174,7 +154,7 @@ resource "aws_security_group_rule" "mock_epdq_ingress_jenkinsnode" {
   from_port                = 5432
   to_port                  = 5432
   protocol                 = "tcp"
-  security_group_id        = module.mock_fargate.sg_epdq
+  security_group_id        = module.mock_fargate.sg_epdq_db
   source_security_group_id = data.terraform_remote_state.ctrl.outputs.jenkinsctrl_sg_id
 }
 
@@ -188,6 +168,26 @@ resource "aws_security_group_rule" "jenkinsnode_egress_mock_nlb" {
   cidr_blocks       = [for subnet in data.aws_subnet.tars_backend : subnet.cidr_block]
 }
 
+resource "aws_security_group_rule" "epdq_egress_epdq_db" {
+  description              = "epdq egress TCP/5432 to epdq-db"
+  type                     = "egress"
+  from_port                = 5432
+  to_port                  = 5432
+  protocol                 = "tcp"
+  security_group_id        = module.mock_fargate.sg_epdq
+  source_security_group_id = module.mock_fargate.sg_epdq_db
+}
+
+resource "aws_security_group_rule" "epdq_db_ingress_epdq" {
+  description              = "epdq-db egress TCP/5432 from epdq"
+  type                     = "ingress"
+  from_port                = 5432
+  to_port                  = 5432
+  protocol                 = "tcp"
+  security_group_id        = module.mock_fargate.sg_epdq_db
+  source_security_group_id = module.mock_fargate.sg_epdq
+}
+
 # Entire CIDR ranges of subnets containing NLB required for healthchecking Fargate
 resource "aws_security_group_rule" "mock_epdq_ingress_mock_nlb" {
   description       = "Mock EPDQ ingress TCP/5432 from mock NLB"
@@ -195,6 +195,6 @@ resource "aws_security_group_rule" "mock_epdq_ingress_mock_nlb" {
   from_port         = 5432
   to_port           = 5432
   protocol          = "tcp"
-  security_group_id = module.mock_fargate.sg_epdq
+  security_group_id = module.mock_fargate.sg_epdq_db
   cidr_blocks       = [for subnet in data.aws_subnet.tars_backend : subnet.cidr_block]
 }

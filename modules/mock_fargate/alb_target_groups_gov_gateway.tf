@@ -15,6 +15,8 @@ resource "aws_lb_target_group" "mock_gov_gateway_9090_private" {
     unhealthy_threshold = 3
     matcher             = "200,302"
   }
+
+  tags = var.default_tags
 }
 
 resource "aws_lb_target_group" "mock_gov_gateway_9090_public" {
@@ -34,5 +36,7 @@ resource "aws_lb_target_group" "mock_gov_gateway_9090_public" {
     unhealthy_threshold = 3
     matcher             = "200,302"
   }
+
+  tags = var.default_tags
 }
 

@@ -22,7 +22,7 @@ data "aws_iam_policy_document" "ecs" {
     ]
   }
   statement {
-    sid = "ecsCloudwatch"
+    sid    = "ecsCloudwatch"
     effect = "Allow"
 
     actions = [
@@ -32,7 +32,7 @@ data "aws_iam_policy_document" "ecs" {
       "logs:DescribeLogStreams",
     ]
     resources = [
-     "arn:aws:logs:*:*:*"
+      "arn:aws:logs:*:*:*"
     ]
   }
 }
