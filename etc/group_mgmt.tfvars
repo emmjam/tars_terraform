@@ -58,6 +58,7 @@ new_all_users = [
   "pete.mallam@bjss.com",
   "daren.fang@bjss.com",
   "ryu.sasai@bjss.com",
+  "nikolaj.bilgrau@bjss.com",
 ]
 
 # TSSOps Access
@@ -136,6 +137,7 @@ readonly_developer_users = [
   "levent.aksu@bjss.com",
   "daren.fang@bjss.com",
   "ryu.sasai@bjss.com",
+  "nikolaj.bilgrau@bjss.com",
 ]
 
 # DVSA Access
