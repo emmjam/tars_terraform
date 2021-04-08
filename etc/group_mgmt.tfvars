@@ -171,6 +171,7 @@ qaengineer_users = [
   "richard.freitas@bjss.com",
   "john.morley@bjss.com",
   "winston.coleman@bjss.com",
+  "nikolaj.bilgrau@bjss.com",
 ]
 
 readonly_qaengineer_users = [
