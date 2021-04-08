@@ -28,14 +28,6 @@ resource "aws_launch_template" "main" {
       }
   }
 
-  block_device_mappings {
-    device_name = "/dev/sda1"
-      ebs {
-        volume_size = var.lc_ebs_size_tars
-        volume_type = var.lc_volume_type
-      }
-  }
-
   iam_instance_profile {
     name = aws_iam_instance_profile.main.id
   }
