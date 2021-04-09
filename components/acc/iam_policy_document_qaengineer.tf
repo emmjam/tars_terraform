@@ -14,6 +14,7 @@ data "aws_iam_policy_document" "qaengineer" {
       "cloudwatch:*",
       "logs:*",
       "sns:*",
+      "lambda:*",
     ]
 
     resources = [
