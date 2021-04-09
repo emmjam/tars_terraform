@@ -248,3 +248,21 @@ variable "wildfly_messaging_id" {
   type        = string
   description = "Messaging AMI build ID"
 }
+
+variable "cpu_utilization_threshold" {
+  type        = string
+  description = "Max CPU utilization threshold"
+  default     = 99
+}
+
+variable "cpu_utilization_period" {
+  type        = string
+  description = "CPU utilization alarm period"
+  default     = 60
+}
+
+variable "cpu_utilization_evaluation_periods" {
+  type        = string
+  description = "CPU utilization alarm evaluation periods"
+  default     = 5
+}
