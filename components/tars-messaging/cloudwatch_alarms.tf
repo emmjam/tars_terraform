@@ -17,7 +17,7 @@ resource "aws_cloudwatch_metric_alarm" "TARS_messaging_unhealthyhost" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "TARS_messaging_cpu_utilization_too_high" {
-  alarm_name          = "${local.csi}-TARSmessaging-cpu-utilization-too-high"
+  alarm_name          = "${local.csi}-TARS-messaging-cpu-utilization-too-high"
   count               = var.wms_host_alarm_count
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = var.cpu_utilization_evaluation_periods
