@@ -167,3 +167,6 @@ output "iam_role_db_reports_arn" {
   value = "${aws_iam_role.dbreports_output.arn}"
 }
 
+output "squidnat_sg_id" {
+  value = module.squidnat.security_group_id
+}

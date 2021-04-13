@@ -33,6 +33,7 @@ resource "aws_security_group_rule" "squidnat_ingress_core_ftts" {
   security_group_id        = module.squidnat.security_group_id
   source_security_group_id = aws_security_group.core.id
 }
+
 resource "aws_security_group_rule" "squidnat_ingress_core_smtp" {
   type                     = "ingress"
   protocol                 = "tcp"

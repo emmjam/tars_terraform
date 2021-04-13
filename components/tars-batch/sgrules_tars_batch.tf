@@ -148,3 +148,21 @@ resource "aws_security_group_rule" "tars_batch_egress_dvsa_dns" {
   cidr_blocks = var.dvsa_dns_servers
 }
 
+
+resource "aws_security_group_rule" "squidnat_ingress_core_ftts_elig" {
+  type                     = "ingress"
+  protocol                 = "tcp"
+  from_port                = "22"
+  to_port                  = "22"
+  security_group_id        = data.terraform_remote_state.base.outputs.squidnat_sg_id
+  source_security_group_id = module.tars_batch.security_group_id
+}
+
+resource "aws_security_group_rule" "core_egress_squidnat_ftts_elig" {
+  type                     = "egress"
+  protocol                 = "tcp"
+  from_port                = "22"
+  to_port                  = "22"
+  security_group_id        = module.tars_batch.security_group_id
+  source_security_group_id = data.terraform_remote_state.base.outputs.squidnat_sg_id
+}
