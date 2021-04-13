@@ -791,3 +791,8 @@ variable "non_prod_ctrl_jenkins_cidrs" {
   description = ""
   default     = []
 }
+
+variable "opsgenie_endpoint" {
+  type        = string
+  description = "The opsgenie endpoint to send alerts to TSS"
+}
