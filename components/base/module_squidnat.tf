@@ -51,5 +51,11 @@ module "squidnat" {
   additional_sg_ids = [
     aws_security_group.core.id,
   ]
+
+  squidnat_cw_alarm_failure_actions = [
+    aws_sns_topic.alerts.arn,
+  ]
+
+  squidnat_unhealthy_host_alarm_count = var.unhealthy_host_alarm_count
 }
 

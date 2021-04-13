@@ -415,3 +415,9 @@ variable "cpc_allow_major_version_upgrade" {
   type        = string
   description = "CPC RDS DB Version Update"
 }
+
+variable "unhealthy_host_alarm_count" {
+  type        = string
+  description = "Number of alarms to have in this account"
+  default = "0"
+}

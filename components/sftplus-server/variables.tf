@@ -244,3 +244,9 @@ variable "sftpplus_svr_id" {
   type        = string
   description = "Sftp AMI build ID"
 }
+
+variable "unhealthy_host_alarm_count" {
+  type        = string
+  description = "Number of alarms to have in this account"
+  default = "0"
+}

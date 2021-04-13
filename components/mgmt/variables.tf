@@ -496,6 +496,12 @@ variable "gitlab_redis_snapshot_window" {
   description = ""
 }
 
+variable "gitlab_cw_alarm_failure_actions" {
+  type        = list(string)
+  description = "The action to execute when this alarm transitions into an ALARM state from any other state."
+  default = []
+}
+
 ## GuardDuty Notify
 
 variable "guardduty_notify" {

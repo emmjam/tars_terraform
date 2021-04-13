@@ -314,3 +314,9 @@ variable "redis_endpoint" {
   type        = string
   description = ""
 }
+
+variable "gitlab_cw_alarm_failure_actions" {
+  type        = list(string)
+  description = "The sns topic to send alerts to"
+  default = []
+}

@@ -206,3 +206,15 @@ variable "zone_id" {
   type        = string
   description = "Zone ID for the route53 zone"
 }
+
+variable "squidnat_cw_alarm_failure_actions" {
+  type        = list(string)
+  description = "The sns topic to send alerts to"
+  default = []
+}
+
+variable "squidnat_unhealthy_host_alarm_count" {
+  type        = string
+  description = "Number of alarms to have in this account"
+  default = "0"
+}

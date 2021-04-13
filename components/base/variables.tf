@@ -225,6 +225,24 @@ variable "squidnat_ami_build_id" {
   description = "AMI Build number to use for SquidNAT"
 }
 
+variable "squidnat_cw_alarm_failure_actions" {
+  type        = list(string)
+  description = "The sns topic to send alerts to"
+  default = []
+}
+
+variable "unhealthy_host_alarm_count" {
+  type        = string
+  description = "Number of alarms to have in this account"
+  default = "0"
+}
+
+variable "squidnat_unhealthy_host_alarm_count" {
+  type        = string
+  description = "Number of alarms to have in this account pass to module"
+  default = "0"
+}
+
 variable "tf_state_bucket_prefix" {
   type        = string
   description = "TF State bucket prefix"
