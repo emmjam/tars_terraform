@@ -19,6 +19,7 @@ data "template_file" "wildfly-back-config" {
     KMS_KEY        = data.terraform_remote_state.acc.outputs.hieradata_kms_key_id
     AWS_ACCOUNT_ID = var.aws_account_id
     LOG_GROUP      = local.tars_back_log
+    OOM_BUCKET     = data.terraform_remote_state.acc.outputs.oom-s3-log-bucket_id
   }
 }
 

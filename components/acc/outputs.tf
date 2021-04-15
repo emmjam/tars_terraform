@@ -66,3 +66,11 @@ output "DVSA-EC2-Read-Role-role-arn" {
 output "tars_dlm_lifecycle_role_arn" {
   value = aws_iam_role.dlm_lifecycle_role.arn
 }
+
+output "oom-s3-log-bucket" {
+  value = aws_s3_bucket.oom-logs.arn
+}
+
+output "oom-s3-log-bucket_id" {
+  value = aws_s3_bucket.oom-logs.id
+}

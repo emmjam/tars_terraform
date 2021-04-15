@@ -508,3 +508,8 @@ variable "unhealthy_host_alarm_count" {
   description = "Number of alarms to have in this account"
   default = "0"
 }
+
+variable "oom_s3_bucket" {
+  type = string
+  description = "Log bucket for Out Of Memory dump"
+}
