@@ -509,7 +509,3 @@ variable "unhealthy_host_alarm_count" {
   default = "0"
 }
 
-variable "oom_s3_bucket" {
-  type = string
-  description = "Log bucket for Out Of Memory dump"
-}
