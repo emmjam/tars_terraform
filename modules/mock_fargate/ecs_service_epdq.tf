@@ -13,12 +13,18 @@ resource "aws_ecs_service" "epdq" {
   load_balancer {
     target_group_arn = aws_lb_target_group.mock-epdq-8080-private.arn
     container_name   = local.epdq_name
-    container_port   = 8080
+    container_port   = 8181
   }
 
   load_balancer {
     target_group_arn = aws_lb_target_group.mock-epdq-8080-public.arn
     container_name   = local.epdq_name
-    container_port   = 8080
+    container_port   = 8181
+  }
+
+  load_balancer {
+    target_group_arn = aws_lb_target_group.epdq-db.arn
+    container_name   = "${local.epdq_name}-db"
+    container_port   = 5432
   }
 }

@@ -24,6 +24,11 @@ variable "mock_image" {
   description = "Mock docker image"
 }
 
+variable "mock_db_image" {
+  type        = string
+  description = "ePDQ database docker image"
+}
+
 variable "gov_gateway_image" {
   type        = string
   description = "Mock Gov Gateway docker image"

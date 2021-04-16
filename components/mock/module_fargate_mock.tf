@@ -15,6 +15,7 @@ module "mock_fargate" {
 
   epdq_iam_policy_arn = aws_iam_policy.mock.arn
   epdq_image          = var.mock_image
+  epdq_db_image       = var.mock_db_image
   gov_gateway_image   = var.gov_gateway_image
 }
 

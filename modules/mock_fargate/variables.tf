@@ -48,6 +48,11 @@ variable "epdq_image" {
   description = "image to pass throug hto jenkins worker task"
 }
 
+variable "epdq_db_image" {
+  type        = string
+  description = "Image to use for ePDQ database"
+}
+
 variable "vpc_id" {
   type        = string
   description = "VPC ID"

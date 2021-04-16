@@ -11,6 +11,8 @@ resource "aws_lb" "mock-nlb" {
 
   enable_deletion_protection = true
 
+  enable_cross_zone_load_balancing = true
+
   tags = merge(
     local.default_tags,
     {

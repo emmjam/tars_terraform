@@ -72,8 +72,8 @@ resource "aws_security_group_rule" "tars_alb_mock_ingress_tars_batch_port_8080" 
 resource "aws_security_group_rule" "tars_alb_private_egress_mock_epdq" {
   description              = "Allow TCP/443 to tars mock"
   type                     = "egress"
-  from_port                = 8080
-  to_port                  = 8080
+  from_port                = 8181
+  to_port                  = 8181
   protocol                 = "tcp"
   security_group_id        = aws_security_group.tars-alb-mock.id
   source_security_group_id = module.mock_fargate.sg_epdq
