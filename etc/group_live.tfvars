@@ -370,6 +370,7 @@ dvsa_dc_whitelist = [
   "10.100.126.9/32",
   "10.150.36.82/32",
   "10.14.0.140/32",
+  "10.14.0.142/32"
   "10.69.0.0/16",
   "172.21.34.139/32",
   "10.84.202.121/32",
@@ -439,6 +440,7 @@ sweda_samba_server = "10.69.3.11/32"
 dvla_adli_server = "51.231.10.92/32"
 dvla_elise_server = "51.231.10.84/32"
 rsis_samba_server = "10.14.0.140/32"
+rsis_samba_server_archive = "10.14.0.142/32"
 
 # squidnat
 squidnat_instance_type = "m5.large"

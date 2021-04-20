@@ -454,6 +454,7 @@ sweda_samba_server = "10.69.3.11/32"
 dvla_adli_server = "51.231.10.109/32"
 dvla_elise_server = "51.231.10.112/32"
 rsis_samba_server = "10.14.0.150/32"
+rsis_samba_server_archive = "10.14.0.142/32"
 
 # squidnat
 squidnat_instance_type = "m3.medium"
