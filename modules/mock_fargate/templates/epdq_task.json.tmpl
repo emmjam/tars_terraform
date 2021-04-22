@@ -15,7 +15,8 @@
         ],
         "name": "${epdq_name}",
         "environment": [
-          { "name" : "EPDQ_ENVIRONMENT_RESPONSE_URL", "value" : "${epdq_response_domain}"}
+          { "name" : "EPDQ_ENVIRONMENT_RESPONSE_URL", "value" : "${epdq_response_domain}"},
+          { "name" : "SERVER_CALLBACK_URL", "value" : "${async_callback_url}"}
         ],
         "portMappings": [
             {

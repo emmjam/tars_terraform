@@ -8,8 +8,8 @@ resource "aws_security_group_rule" "tars_alb_private_ingress_mock_epdq" {
   security_group_id        = module.mock_fargate.sg_epdq
 }
 
-resource "aws_security_group_rule" "tars_backend_egress_tars_alb_mock2_port_8080" {
-  description              = "TARS Back egress TCP/8080 to Fargate mock"
+resource "aws_security_group_rule" "tars_backend_egress_tars_alb_mock2_port_8181" {
+  description              = "TARS Back egress TCP/8181 to Fargate mock"
   type                     = "egress"
   from_port                = 8181
   to_port                  = 8181
@@ -18,8 +18,8 @@ resource "aws_security_group_rule" "tars_backend_egress_tars_alb_mock2_port_8080
   source_security_group_id = module.mock_fargate.sg_epdq
 }
 
-resource "aws_security_group_rule" "tars_backend_ingress_tars_alb_mock2_port_8080" {
-  description              = "Fargate mock ingress TCP/8080 from TARS back"
+resource "aws_security_group_rule" "tars_backend_ingress_tars_alb_mock2_port_8181" {
+  description              = "Fargate mock ingress TCP/8181 from TARS back"
   type                     = "ingress"
   from_port                = 8181
   to_port                  = 8181
@@ -51,8 +51,8 @@ resource "aws_security_group_rule" "tars_back_egress_mock_epdq" {
 resource "aws_security_group_rule" "tars_back_alb_ingress_mock_epdq" {
   description              = "TARS Backend ALBs ingress TCP/8080 from Fargate mock"
   type                     = "ingress"
-  from_port                = 8181
-  to_port                  = 8181
+  from_port                = 8080
+  to_port                  = 8080
   protocol                 = "tcp"
   security_group_id        = data.terraform_remote_state.tars-core.outputs.tars-core-backend-alb-sg-id
   source_security_group_id = module.mock_fargate.sg_epdq
