@@ -33,4 +33,21 @@ resource "aws_launch_template" "tars-mock" {
   lifecycle {
     create_before_destroy = true
   }
+
+  tag_specifications {
+    resource_type = "volume"
+
+    tags = merge(
+      var.default_tags,
+      {
+        "Name" = format(
+        "%s-%s-%s/%s",
+        var.project,
+        var.environment,
+        var.component,
+        "mock",
+        )
+      },
+    )
+  }
 }
