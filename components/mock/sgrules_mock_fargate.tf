@@ -198,3 +198,33 @@ resource "aws_security_group_rule" "mock_epdq_ingress_mock_nlb" {
   security_group_id = module.mock_fargate.sg_epdq_db
   cidr_blocks       = [for subnet in data.aws_subnet.tars_backend : subnet.cidr_block]
 }
+
+resource "aws_security_group_rule" "bastion_egress_epdq_db" {
+  description              = "Bastion egress TCP/5432 to epdq"
+  type                     = "egress"
+  from_port                = 5432
+  to_port                  = 5432
+  protocol                 = "tcp"
+  security_group_id        = data.terraform_remote_state.ctrl.outputs.bastion_sg_id
+  source_security_group_id = module.mock_fargate.sg_epdq
+}
+
+resource "aws_security_group_rule" "epdq_db_ingress_bastion" {
+  description              = "Mock EPDQ ingress TCP/5432 from bastion"
+  type                     = "ingress"
+  from_port                = 5432
+  to_port                  = 5432
+  protocol                 = "tcp"
+  security_group_id        = module.mock_fargate.sg_epdq
+  source_security_group_id = data.terraform_remote_state.ctrl.outputs.bastion_sg_id
+}
+
+resource "aws_security_group_rule" "bastion_egress_mock_nlb" {
+  description       = "bastion egress TCP/5432 to mock NLB"
+  type              = "egress"
+  from_port         = 5432
+  to_port           = 5432
+  protocol          = "tcp"
+  security_group_id = data.terraform_remote_state.ctrl.outputs.bastion_sg_id
+  cidr_blocks       = [for subnet in data.aws_subnet.tars_backend : subnet.cidr_block]
+}
