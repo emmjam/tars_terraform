@@ -1,5 +1,3 @@
-provider "aws" {
-  region  = var.aws_region
-  version = "3.26.0"
+provider "archive" {
+  version = "2.0.0"
 }
-
