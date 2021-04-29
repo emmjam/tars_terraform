@@ -156,20 +156,9 @@ variable "dvsa_dc_whitelist" {
   default     = []
 }
 
-variable "dvsa_sccm_services" {
-  type        = string
-  description = "DVSA SCCM IP"
-}
-
-variable "dvsa_epo_services" {
-  type        = string
-  description = "DVSA EPO IP"
-}
-
 variable "dvsa_mgmt_inbound" {
-  type        = list(string)
+  type        = string
   description = "DVSA mgmt servers inbound"
-  default     = []
 }
 
 variable "dvsa_icmp_monitoring" {

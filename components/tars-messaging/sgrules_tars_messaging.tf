@@ -81,21 +81,6 @@ resource "aws_security_group_rule" "tars_messaging_egress_tars_core_backend_alb_
   source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-backend-alb-sg-id
 }
 
-# This allows the DVSA to RDP in
-# TODO: peacheym: This seems like a security issue
-resource "aws_security_group_rule" "wan_ingress_tars_messaging_port_3389" {
-  description       = "Allow TCP/3389 from WAN"
-  type              = "ingress"
-  from_port         = 3389
-  to_port           = 3389
-  protocol          = "tcp"
-  security_group_id = aws_security_group.tars-messaging.id
-
-  cidr_blocks = [
-    "0.0.0.0/0",
-  ]
-}
-
 # Allow the messaging nodes to talk to Azure Monitoring Agent servers
 resource "aws_security_group_rule" "tars_messaging_egress_internet_443" {
   description       = "Allow TCP/443 to internet"

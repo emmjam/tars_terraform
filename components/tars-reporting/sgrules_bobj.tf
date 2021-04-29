@@ -70,21 +70,6 @@ resource "aws_security_group_rule" "bobj_ingress_rsis_db" {
   source_security_group_id = aws_security_group.tars-rsis-db.id
 }
 
-# This allows the DVSA to RDP in
-# TODO: peacheym: This seems like a security issue
-resource "aws_security_group_rule" "wan_ingress_tars_messaging_port_3389" {
-  description       = "Allow TCP/3389 from WAN"
-  type              = "ingress"
-  from_port         = 3389
-  to_port           = 3389
-  protocol          = "tcp"
-  security_group_id = aws_security_group.bobj.id
-
-  cidr_blocks = [
-    "0.0.0.0/0",
-  ]
-}
-
 # Allow the messaging nodes to talk to Azure Monitoring Agent servers
 resource "aws_security_group_rule" "tars_messaging_egress_internet_443" {
   description       = "Allow TCP/443 to internet"
