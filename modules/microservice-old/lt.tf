@@ -57,6 +57,7 @@ resource "aws_launch_template" "main" {
         var.name,
         )
         "Module" = var.module
+        "Nodetype" = var.name
       },
     )
   }

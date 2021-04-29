@@ -47,6 +47,7 @@ resource "aws_launch_template" "tars-mock" {
         var.component,
         "mock",
         )
+        "Nodetype" = "mock"
       },
     )
   }

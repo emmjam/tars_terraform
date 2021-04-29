@@ -32,6 +32,7 @@ resource "aws_launch_template" "tars-messaging" {
         var.component,
         "wf-messaging",
         )
+        "Nodetype" = "wf-messaging"
       },
     )
   }
