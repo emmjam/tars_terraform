@@ -382,7 +382,7 @@ gitlab_redis_engine_version           = "5.0.6"
 
 gitlab_amzn2_redis_engine_version     = "6.x"
 
-gitlab_amzn2_redis_parameter_group_name     = "default.redis6.0"
+gitlab_amzn2_redis_parameter_group_name     = "default.redis6.x"
 
 gitlab_redis_parameter_group_name     = "default.redis5.0"
 gitlab_redis_node_type                = "cache.m3.medium"
