@@ -317,6 +317,9 @@ sonarqube = {
 ## gitlab
 gitlab_instance_type        = "m4.large"
 gitlab_ami_build_id         = "912"
+
+gitlab_amzn2_ami_build_id         = "1096"
+
 gitlab_asg_min_size         = 0
 gitlab_asg_max_size         = 1
 gitlab_ebs_volume_type      = "gp3"
@@ -326,14 +329,29 @@ gitlab_scaledown_recurrence = "00 19 * * 1-5"
 gitlab_scaleup_desired      = 1
 gitlab_scaleup_recurrence   = "00 07 * * 1-5"
 gitlab_subnets_cidrs = ["10.200.2.0/28"]
+
+gitlab_amzn2_subnets_cidrs = ["10.200.5.0/28"]
+
 gitlab_elb_public_public_port     = 443
 gitlab_elb_public_public_protocol = "HTTPS"
 gitlab_elb_subnets_cidrs = ["10.200.2.16/28"]
+
+gitlab_amzn2_elb_subnets_cidrs = ["10.200.5.16/28"]
+
 gitlab_elb_private_subnets_cidrs = ["10.200.2.128/28"]
+ 
+gitlab_amzn2_elb_private_subnets_cidrs = ["10.200.5.128/28"]
+
 gitlab_db_db_name                 = "gitlab"
+
+gitlab_amzn2_db_db_name           = "gitlabamzn2"
+
 gitlab_db_allocated_storage       = "20"
 gitlab_db_storage_type            = "gp2"
 gitlab_db_engine_version          = "11"
+
+gitlab_amzn2_db_engine_version    = "12.5"
+
 gitlab_db_instance_class          = "db.t3.medium"
 gitlab_db_multi_az                = true
 gitlab_db_username                = "gitLabAdmin"
@@ -344,6 +362,9 @@ gitlab_db_maintenance_window      = "Sun:03:00-Sun:06:00"
 gitlab_db_skip_final_snapshot     = false
 gitlab_db_pg_family               = "postgres11"
 
+gitlab_amzn2_db_pg_family          = "postgres12"
+
+gitlab_db_snapshot_id             = "tars-mgmt-mgmt-gitlab-29042021"
 
 gitlab_db_subnets_cidrs = [
   "10.200.2.32/28",
@@ -351,7 +372,18 @@ gitlab_db_subnets_cidrs = [
   "10.200.2.64/28",
 ]
 
+gitlab_amzn2_db_subnets_cidrs = [
+  "10.200.5.32/28",
+  "10.200.5.48/28",
+  "10.200.5.64/28",
+]
+
 gitlab_redis_engine_version           = "5.0.6"
+
+gitlab_amzn2_redis_engine_version     = "6"
+
+gitlab_amzn2_redis_parameter_group_name     = "default.redis6.0"
+
 gitlab_redis_parameter_group_name     = "default.redis5.0"
 gitlab_redis_node_type                = "cache.m3.medium"
 gitlab_redis_maintenance_window       = "sun:04:00-sun:07:00"
@@ -359,10 +391,18 @@ gitlab_redis_snapshot_window          = "00:00-03:00"
 gitlab_redis_snapshot_retention_limit = 0                                                           # backups turned off
 gitlab_redis_endpoint_address         = "tars-mgmt-mgmtgitlab.pciqxb.0001.euw1.cache.amazonaws.com" # endpoint address is not revealable yet
 
+gitlab_amzn2_redis_endpoint_address    = "TBC"
+
 gitlab_redis_subnets_cidrs = [
   "10.200.2.80/28",
   "10.200.2.96/28",
   "10.200.2.112/28",
+]
+
+gitlab_amzn2_redis_subnets_cidrs = [
+  "10.200.5.80/28",
+  "10.200.5.96/28",
+  "10.200.5.112/28",
 ]
 
 ## jenkins

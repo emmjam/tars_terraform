@@ -10,6 +10,18 @@ resource "aws_route53_record" "gitlab" {
   }
 }
 
+resource "aws_route53_record" "gitlab_amzn2" {
+  name    = "gitlab_amzn2"
+  zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
+  type    = "A"
+
+  alias {
+    name                   = module.gitlab-amzn2.public_elb_dns_name
+    zone_id                = module.gitlab-amzn2.public_elb_zone_id
+    evaluate_target_health = true
+  }
+}
+
 resource "aws_route53_record" "jenkins" {
   name    = "jenkins"
   zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
