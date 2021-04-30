@@ -380,7 +380,7 @@ gitlab_amzn2_db_subnets_cidrs = [
 
 gitlab_redis_engine_version           = "5.0.6"
 
-gitlab_amzn2_redis_engine_version     = "6.x"
+gitlab_amzn2_redis_engine_version     = "6.0.5"
 
 gitlab_amzn2_redis_parameter_group_name     = "default.redis6.x"
 
@@ -391,7 +391,7 @@ gitlab_redis_snapshot_window          = "00:00-03:00"
 gitlab_redis_snapshot_retention_limit = 0                                                           # backups turned off
 gitlab_redis_endpoint_address         = "tars-mgmt-mgmtgitlab.pciqxb.0001.euw1.cache.amazonaws.com" # endpoint address is not revealable yet
 
-gitlab_amzn2_redis_endpoint_address    = "TBC"
+gitlab_amzn2_redis_endpoint_address    = "tars-mgmt-mgmtgitlabaz2.pciqxb.0001.euw1.cache.amazonaws.com"
 
 gitlab_redis_subnets_cidrs = [
   "10.200.2.80/28",
