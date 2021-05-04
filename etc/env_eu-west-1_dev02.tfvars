@@ -303,6 +303,11 @@ tars_rds_autoscale = "False"
 cpc_rds_username = "tarscpcadmin"
 cpc_rds_allocated_storage = "20" # 20 Gigabyte - was 1500GB
 cpc_rds_snapshot = "tars-dev01-cpc-cpcdb-5-4-2019-5-7-0-2"
+cpc_rds_parameter_group_name = "cpcdb-12-2"
+cpc_rds_option_group_name = "option-group-12-2"
+cpc_rds_engine_version = "12.2.0.1.ru-2020-07.rur-2020-07.r1"
+cpc_allow_major_version_upgrade = true
+
 
 # IBSDB
 ibs_rds_username = "ibsdevadmin"
