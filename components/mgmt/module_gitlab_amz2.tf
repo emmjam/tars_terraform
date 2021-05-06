@@ -5,7 +5,7 @@ module "gitlab-amzn2" {
   component   = var.component
 
   name            = "gitlabaz2"
-  r53_record_name = "gitlab_amzn2"
+  r53_record_name = "gitlabamzn2"
 
   vpc_id = aws_vpc.mgmt.id
 
