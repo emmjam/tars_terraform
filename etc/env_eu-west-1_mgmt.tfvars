@@ -254,7 +254,7 @@ grafana_cert_name = "*"
 # TODO: smarts: Move AMI IDs to versions file
 ## jenkinsctrl
 jenkins_worker_image             = "645711882182.dkr.ecr.eu-west-1.amazonaws.com/tars/run/jenkinsci:1.0.0"
-jenkinsctrl_instance_type        = "m5d.large"
+jenkinsctrl_instance_type        = "t3a.small"
 jenkinsctrl_ami_build_id         = "1085"
 jenkinsctrl_executors            = 20
 jenkinsctrl_asg_min_size         = 0
@@ -291,7 +291,7 @@ sonarqube = {
   sq_asg_size_min             = 1
   sq_asg_size_desired         = 1
   sq_asg_size_max             = 1
-  sq_instance_type            = "t2.medium"
+  sq_instance_type            = "t3a.medium"
   sq_subnets_newbits          = "8"
   sq_subnets_netnum_root      = "10"
   rds_pg_max_allowed_packet   = "104857600"
