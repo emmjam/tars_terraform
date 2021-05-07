@@ -318,6 +318,7 @@ sonarqube = {
 gitlab_instance_type        = "m4.large"
 gitlab_ami_build_id         = "912"
 
+gitlab_amzn2_name = "gitlabaz2"
 gitlab_amzn2_ami_build_id         = "1096"
 
 gitlab_asg_min_size         = 0

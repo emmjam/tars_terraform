@@ -4,8 +4,8 @@ module "gitlab-amzn2" {
   environment = var.environment
   component   = var.component
 
-  name            = "gitlabaz2"
-  r53_record_name = "gitlabamzn2"
+  name            = var.gitlab_amzn2_name
+  r53_record_name = var.gitlab_amzn2_name
 
   vpc_id = aws_vpc.mgmt.id
 

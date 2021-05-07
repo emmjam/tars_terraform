@@ -375,6 +375,11 @@ variable "gitlab_ami_build_id" {
   description = ""
 }
 
+variable "gitlab_amzn2_name" {
+  type        = string
+  description = ""
+}
+
 variable "gitlab_amzn2_ami_build_id" {
   type        = string
   description = ""
