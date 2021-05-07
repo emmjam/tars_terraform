@@ -273,7 +273,7 @@ builder_subnets_cidrs = [
 builder = {
   asg_min_size    = "1"
   asg_max_size    = "1"
-  instance_type   = "m4.large"
+  instance_type   = "m5a.large"
   ebs_volume_size = "150"
 }
 
