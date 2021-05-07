@@ -301,10 +301,6 @@ tars_rds_snapshot = "tars-opsdev-tars-core-tarsdb-5-4-2019-5-7-0-2"
 cpc_rds_username = "cpcdevadmin"
 cpc_rds_allocated_storage = "50"
 cpc_rds_snapshot = "tars-opsdev-cpc-cpcdb-5-4-2019-5-7-0-2"
-cpc_allow_major_version_upgrade = true
-cpc_rds_parameter_group_name = "cpcdb-12-2"
-cpc_rds_option_group_name = "option-group-12-2"
-cpc_rds_engine_version = "12.2.0.1.ru-2021-01.rur-2021-01.r1"
 
 # IBSDB
 ibs_rds_username = "ibsuatadmin"

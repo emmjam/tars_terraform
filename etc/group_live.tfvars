@@ -526,7 +526,7 @@ rsis_rds_sid_name = "RSISDB"
 # CPCDB
 cpc_rds_storage_type = "gp2"
 cpc_rds_engine = "oracle-se2"
-cpc_rds_engine_version = "12.1.0.2"
+cpc_rds_engine_version = "12.2.0.1.ru-2021-01.rur-2021-01.r1"
 cpc_rds_instance_class = "db.r4.xlarge"
 cpc_rds_port = "1521"
 cpc_rds_public = "false"
@@ -539,9 +539,9 @@ cpc_rds_apply_immediately = "true"
 cpc_rds_license_model = "license-included"
 cpc_rds_autoscale = "False"
 cpc_rds_sid_name = "CPCDB"
-cpc_allow_major_version_upgrade = false
-cpc_rds_parameter_group_name = "cpcdb"
-cpc_rds_option_group_name = "option-group"
+cpc_allow_major_version_upgrade = true
+cpc_rds_parameter_group_name = "cpcdb-12-2"
+cpc_rds_option_group_name = "option-group-12-2"
 
 # DVSA Mail Domain
 dvsa_external_mail_domain = "dvsa.gov.uk"
