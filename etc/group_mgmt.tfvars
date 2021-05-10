@@ -62,6 +62,7 @@ new_all_users = [
   "gregory.peters@bjss.com",
   "igor.stimoli@bjss.com",
   "tim.wells@bjss.com",
+  "darren.rathbone@bjss.com",
 ]
 
 # TSSOps Access
@@ -85,6 +86,7 @@ administrators_tssops_users = [
   "pete.mallam@bjss.com",
   "gregory.peters@bjss.com",
   "ismahil.khan@bjss.com",
+  "darren.rathbone@bjss.com",
 ]
 
 readonly_tssops_users = [
@@ -111,6 +113,7 @@ readonly_tssops_users = [
   "mike.peachey@bjss.com",
   "pete.mallam@bjss.com",
   "gregory.peters@bjss.com",
+  "darren.rathbone@bjss.com",
 ]
 
 # TARS Platform Access
