@@ -61,6 +61,7 @@ new_all_users = [
   "nikolaj.bilgrau@bjss.com",
   "gregory.peters@bjss.com",
   "darren.rathbone@bjss.com",
+  "loman.hussain@bjss.com",
 ]
 
 # TSSOps Access
@@ -145,6 +146,7 @@ readonly_developer_users = [
   "daren.fang@bjss.com",
   "ryu.sasai@bjss.com",
   "nikolaj.bilgrau@bjss.com",
+  "loman.hussain@bjss.com",
 ]
 
 # DVSA Access
