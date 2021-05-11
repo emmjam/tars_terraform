@@ -60,8 +60,6 @@ new_all_users = [
   "ryu.sasai@bjss.com",
   "nikolaj.bilgrau@bjss.com",
   "gregory.peters@bjss.com",
-  "igor.stimoli@bjss.com",
-  "tim.wells@bjss.com",
   "darren.rathbone@bjss.com",
 ]
 
