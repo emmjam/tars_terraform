@@ -19,7 +19,7 @@ module "apache" {
 
   lc_ami_id        = data.aws_ami.apache.image_id
   lc_instance_type = var.apache_instance_type
-  lc_user_data     = data.template_cloudinit_config.apache.rendered
+  lc_user_data     = data.cloudinit_config.apache.rendered
   lc_spot_price    = var.spot_pricing[var.apache_instance_type]
 
   cwl_names = [

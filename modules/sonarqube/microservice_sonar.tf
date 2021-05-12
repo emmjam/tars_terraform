@@ -14,7 +14,7 @@ module "microservice_sonarqube" {
 
   lc_ami_id            = var.sq_ami_id
   lc_instance_type     = var.sq_instance_type
-  lc_user_data         = data.template_cloudinit_config.user_data.rendered
+  lc_user_data         = data.cloudinit_config.user_data.rendered
   lc_additional_sg_ids = var.lc_additional_sg_ids
 
   asg_size_min               = var.sq_asg_size_min

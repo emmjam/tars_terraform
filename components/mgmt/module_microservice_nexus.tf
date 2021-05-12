@@ -18,7 +18,7 @@ module "microservice_nexus" {
 
   lc_ami_id        = data.aws_ami.nexus.image_id
   lc_instance_type = var.nexus_config["instance_type"]
-  lc_user_data     = data.template_cloudinit_config.nexus.rendered
+  lc_user_data     = data.cloudinit_config.nexus.rendered
 
   # lifecycle_hook_launching_default_result = "CONTINUE" # Nexus is rather special. Malfunctioning is better than dead.
   # lifecycle_hook_launching_enabled        = "1"

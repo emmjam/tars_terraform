@@ -16,7 +16,7 @@ resource "aws_cloudwatch_event_target" "sns" {
   # We are using an input transformer on this occasion to get around the limitations of lambda-cloudwatch-slack. The transformed input has been crafted to ensure that lambda-cloudwatch-slack generates a useful output with enough information to be actionable. 
 
   input_transformer {
-    input_template = data.template_file.cw_event_target_input_template_failed_lifecycle_actions.rendered
+    input_template = templatefile("${path.module}/templates/cw_event_target_input_template_failed_lifecycle_actions.json.tmpl", {})
 
     input_paths = {
       asg   = "$.detail.AutoScalingGroupName"

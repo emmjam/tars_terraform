@@ -31,7 +31,7 @@ module "jenkinsnode" {
 
   lc_ami_id        = data.aws_ami.jenkinsnode.image_id
   lc_instance_type = var.jenkinsnode_instance_type
-  lc_user_data     = data.template_cloudinit_config.jenkinsnode.rendered
+  lc_user_data     = data.cloudinit_config.jenkinsnode.rendered
 
   #lc_spot_price    = "${lookup(var.spot_pricing, var.jenkinsnode_instance_type)}"
 

@@ -1,41 +1,26 @@
-# Create the cloud init template for common config
-data "template_file" "wildfly-back-common" {
-  template = file("${path.module}/templates/cloudinit_common.yaml.tmpl")
-
-  vars = {
-    NODETYPE    = "tars-back"
-    DOMAIN_NAME = local.vpc_domain_name
-  }
-}
-
-# Create the cloud init template for the wildfly backend core server
-data "template_file" "wildfly-back-config" {
-  template = file("${path.module}/templates/wildfly_back_setup.sh.tmpl")
-
-  # Set puppet factors
-  vars = {
-    ENVIRONMENT    = var.environment
-    NODETYPE       = var.wildfly-back_puppet_nodetype
-    KMS_KEY        = data.terraform_remote_state.acc.outputs.hieradata_kms_key_id
-    AWS_ACCOUNT_ID = var.aws_account_id
-    LOG_GROUP      = local.tars_back_log
-    OOM_BUCKET     = data.terraform_remote_state.acc.outputs.oom-s3-log-bucket_id
-  }
-}
-
-# Render the templates ready for the LC
-data "template_cloudinit_config" "wildfly-back" {
+data "cloudinit_config" "wildfly-back" {
   gzip          = true
   base64_encode = true
 
   part {
     content_type = "text/cloud-config"
-    content      = data.template_file.wildfly-back-common.rendered
+    content      = templatefile("${path.module}/templates/cloudinit_common.yaml.tmpl", 
+      {
+        NODETYPE    = "tars-back"
+        DOMAIN_NAME = local.vpc_domain_name
+      })
   }
 
   part {
     content_type = "text/x-shellscript"
-    content      = data.template_file.wildfly-back-config.rendered
+    content      = templatefile("${path.module}/templates/wildfly_back_setup.sh.tmpl", 
+      {
+        ENVIRONMENT    = var.environment
+        NODETYPE       = var.wildfly-back_puppet_nodetype
+        KMS_KEY        = data.terraform_remote_state.acc.outputs.hieradata_kms_key_id
+        AWS_ACCOUNT_ID = var.aws_account_id
+        LOG_GROUP      = local.tars_back_log
+        OOM_BUCKET     = data.terraform_remote_state.acc.outputs.oom-s3-log-bucket_id
+      })
   }
 }
-

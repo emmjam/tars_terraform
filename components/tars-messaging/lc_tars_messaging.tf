@@ -5,7 +5,10 @@ resource "aws_launch_configuration" "tars-messaging" {
   instance_type        = var.wildfly-messaging_instance_type
   spot_price           = var.lc_spot_price
   key_name             = data.terraform_remote_state.acc.outputs.key_name
-  user_data            = data.template_file.messaging.rendered
+  user_data            = base64encode(templatefile("${path.module}/templates/messaging_setup.ps1.tmpl", 
+      {
+        SEARCH_SUFFIX = local.vpc_domain_name
+      }))
   iam_instance_profile = data.terraform_remote_state.base.outputs.tars_messaging_iam_instance_profile_name
 
   security_groups = [

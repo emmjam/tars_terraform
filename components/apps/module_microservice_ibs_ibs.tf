@@ -17,7 +17,7 @@ module "ibs" {
 
   lc_ami_id        = data.aws_ami.ibs.image_id
   lc_instance_type = var.ibs_instance_type
-  lc_user_data     = data.template_cloudinit_config.ibs.rendered
+  lc_user_data     = data.cloudinit_config.ibs.rendered
   lc_spot_price    = var.spot_pricing[var.ibs_instance_type]
 
   lc_additional_sg_ids = [

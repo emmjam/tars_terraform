@@ -27,7 +27,7 @@ module "tars_back" {
 
   lc_ami_id        = data.aws_ami.wildfly-back.image_id
   lc_instance_type = var.wildfly-back_instance_type
-  lc_user_data     = data.template_cloudinit_config.wildfly-back.rendered
+  lc_user_data     = data.cloudinit_config.wildfly-back.rendered
   lc_spot_price    = var.rhel_spot_pricing[var.wildfly-back_instance_type]
 
   lc_additional_sg_ids = [

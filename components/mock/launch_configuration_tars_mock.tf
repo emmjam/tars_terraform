@@ -5,7 +5,7 @@ resource "aws_launch_configuration" "tars-mock" {
   instance_type        = var.wildfly-mock_instance_type
   spot_price           = var.rhel_spot_pricing[var.wildfly-mock_instance_type]
   key_name             = data.terraform_remote_state.acc.outputs.key_name
-  user_data            = data.template_cloudinit_config.wildfly-mock.rendered
+  user_data            = data.cloudinit_config.wildfly-mock.rendered
   iam_instance_profile = data.terraform_remote_state.base.outputs.tars_core_iam_instance_profile_name
 
   security_groups = [

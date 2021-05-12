@@ -17,7 +17,7 @@ module "fyndi-f" {
 
   lc_ami_id        = data.aws_ami.fyndi-f.image_id
   lc_instance_type = var.fyndi-f_instance_type
-  lc_user_data     = data.template_cloudinit_config.fyndi-f.rendered
+  lc_user_data     = data.cloudinit_config.fyndi-f.rendered
   lc_spot_price    = var.spot_pricing[var.fyndi-f_instance_type]
 
   lc_additional_sg_ids = [

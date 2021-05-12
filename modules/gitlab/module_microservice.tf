@@ -13,7 +13,7 @@ module "gitlab" {
 
   lc_ami_id            = var.lc_ami_id
   lc_instance_type     = var.lc_instance_type
-  lc_user_data         = data.template_cloudinit_config.gitlab.rendered
+  lc_user_data         = data.cloudinit_config.gitlab.rendered
   lc_additional_sg_ids = var.lc_additional_sg_ids
 
   asg_size_min               = 0

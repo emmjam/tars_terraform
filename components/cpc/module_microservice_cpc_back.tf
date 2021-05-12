@@ -16,7 +16,7 @@ module "cpc-back" {
 
   lc_ami_id        = data.aws_ami.cpc-back.image_id
   lc_instance_type = var.cpc-back_instance_type
-  lc_user_data     = data.template_cloudinit_config.cpc-back.rendered
+  lc_user_data     = data.cloudinit_config.cpc-back.rendered
   lc_spot_price    = var.spot_pricing[var.cpc-back_instance_type]
 
   lc_additional_sg_ids = [

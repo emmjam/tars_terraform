@@ -4,7 +4,7 @@ resource "aws_launch_template" "tars-mock" {
   image_id      = data.aws_ami.wildfly-mock.image_id
   instance_type = var.wildfly-mock_instance_type
   key_name      = data.terraform_remote_state.acc.outputs.key_name
-  user_data     = data.template_cloudinit_config.wildfly-mock.rendered
+  user_data     = data.cloudinit_config.wildfly-mock.rendered
 
   instance_market_options {
     market_type = "spot"

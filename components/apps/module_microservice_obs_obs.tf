@@ -17,7 +17,7 @@ module "obs" {
 
   lc_ami_id        = data.aws_ami.obs.image_id
   lc_instance_type = var.obs_instance_type
-  lc_user_data     = data.template_cloudinit_config.obs.rendered
+  lc_user_data     = data.cloudinit_config.obs.rendered
   lc_spot_price    = var.spot_pricing[var.obs_instance_type]
 
   lc_additional_sg_ids = [

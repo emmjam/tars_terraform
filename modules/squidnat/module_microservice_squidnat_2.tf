@@ -25,7 +25,7 @@ module "microservice_squidnat_2" {
   lc_ami_id        = var.ami_id
   lc_instance_type = var.instance_type
   lc_spot_price    = var.spot_price
-  lc_user_data     = data.template_cloudinit_config.squidnat.rendered
+  lc_user_data     = data.cloudinit_config.squidnat.rendered
 
   lifecycle_hook_launching_default_result = var.lifecycle_hook_launching_default_result
   lifecycle_hook_launching_enabled        = var.lifecycle_hook_launching_enabled

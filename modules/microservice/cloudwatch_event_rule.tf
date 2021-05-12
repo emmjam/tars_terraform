@@ -6,6 +6,9 @@ resource "aws_cloudwatch_event_rule" "failed_lifecycle_actions" {
 
   description = "Alert on failed autoscaling lifecycle actions"
 
-  event_pattern = data.template_file.cw_event_pattern_failed_lifecycle_actions.rendered
+  event_pattern = templatefile(
+                    "${path.module}/templates/cw_event_pattern_failed_lifecycle_actions.json.tmpl",
+                    { ASG_NAME = aws_autoscaling_group.main.name }
+                  )
 }
 

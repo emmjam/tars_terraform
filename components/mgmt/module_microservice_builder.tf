@@ -18,7 +18,7 @@ module "builder" {
   lc_ami_id        = data.aws_ami.builder.image_id
   lc_instance_type = var.builder["instance_type"]
   lc_ebs_size      = var.builder["ebs_volume_size"]
-  lc_user_data     = data.template_cloudinit_config.builder.rendered
+  lc_user_data     = data.cloudinit_config.builder.rendered
 
   lc_additional_sg_ids = [
     aws_security_group.common.id,

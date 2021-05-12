@@ -17,7 +17,7 @@ module "sftpplus_svr" {
 
   lc_ami_id        = data.aws_ami.sftpplus_svr.image_id
   lc_instance_type = var.sftpplus-svr_instance_type
-  lc_user_data     = data.template_cloudinit_config.sftpplus_svr.rendered
+  lc_user_data     = data.cloudinit_config.sftpplus_svr.rendered
   lc_spot_price    = var.rhel_spot_pricing[var.sftpplus-svr_instance_type]
 
   lc_additional_sg_ids = [

@@ -22,7 +22,7 @@ module "cpc_batch" {
 
   lc_ami_id        = data.aws_ami.cpc-batch.image_id
   lc_instance_type = var.cpc-batch_instance_type
-  lc_user_data     = data.template_cloudinit_config.cpc-batch.rendered
+  lc_user_data     = data.cloudinit_config.cpc-batch.rendered
   lc_spot_price    = var.spot_pricing[var.cpc-batch_instance_type]
 
   lc_additional_sg_ids = [

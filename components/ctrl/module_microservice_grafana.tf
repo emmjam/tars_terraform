@@ -17,7 +17,7 @@ module "grafana" {
 
   lc_ami_id        = data.aws_ami.grafana.image_id
   lc_instance_type = var.grafana_instance_type
-  lc_user_data     = data.template_cloudinit_config.grafana.rendered
+  lc_user_data     = data.cloudinit_config.grafana.rendered
   lc_spot_price    = var.spot_pricing[var.grafana_instance_type]
 
   lc_additional_sg_ids = [
