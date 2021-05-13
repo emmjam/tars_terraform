@@ -8,8 +8,10 @@ resource "aws_s3_bucket" "dbreports_output" {
   )
 
   force_destroy = "false"
-
-  # Enable versioning
+  logging {
+    target_bucket = aws_s3_bucket.bucketlogs.id
+    target_prefix = "${local.csi_global}-dbreports-output/"
+  }
   versioning {
     enabled = true
   }
@@ -82,3 +84,13 @@ resource "aws_s3_bucket_notification" "dbreports_output" {
     filter_suffix = ".log"
   }
 }
+
+ 
+  resource "aws_s3_bucket_public_access_block" "dbreports_output" {
+  bucket = aws_s3_bucket.dbreports_output.id
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}
+

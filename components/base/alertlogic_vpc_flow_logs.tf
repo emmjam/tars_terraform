@@ -6,6 +6,13 @@
 resource "aws_s3_bucket" "alertlogic_vpc_logs" {
   count  = length(var.alert_logic) == 0 ? 0 : 1
   bucket = "alertlogic-${local.csi}-vpc-logs"
+  logging {
+    target_bucket = aws_s3_bucket.bucketlogs.id
+    target_prefix = "${local.csi_global}-vpc-logs/"
+  }
+  versioning {
+    enabled = true
+  }
 }
 
 ## IAM Role for this account's Firehose to access/write to S3

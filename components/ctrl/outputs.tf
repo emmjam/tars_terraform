@@ -70,3 +70,7 @@ output "tars_domain_name" {
   value = aws_ses_domain_identity.tars.domain
 }
 
+output "tars_acct_bucketlogs" {
+  value = aws_s3_bucket.acc-bucketlogs.id
+}
+
