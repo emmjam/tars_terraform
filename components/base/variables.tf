@@ -687,6 +687,12 @@ variable "perf_jenkinsnode" {
   default     = []
 }
 
+variable "holdingpageenv" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
+
 variable "jmeter_ami_build_id" {
   type        = string
   description = "AMI Build number to use for jmeter"

@@ -1,6 +1,6 @@
 resource "aws_route53_record" "holding_pages" {
 
-  name = format("%s-%s", "maintenance", var.environment)
+  name    = format("%s-%s", "maintenance", var.environment)
 
   zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
   type    = "A"
@@ -13,8 +13,8 @@ resource "aws_route53_record" "holding_pages" {
 }
 
 resource "aws_route53_record" "holding_pages_findnearest" {
-
-  name = format("%s-%s", "findnearest", var.environment)
+  count   = contains(var.holdingpageenv, var.environment) ? 1 : 0
+  name    = format("%s-%s", "findnearest", var.environment)
 
   zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
   type    = "A"
@@ -27,8 +27,8 @@ resource "aws_route53_record" "holding_pages_findnearest" {
 }
 
 resource "aws_route53_record" "holding_pages_dsa" {
-
-  name = format("%s-%s", "dsa", var.environment)
+  count   = contains(var.holdingpageenv, var.environment) ? 1 : 0
+  name    = format("%s-%s", "dsa", var.environment)
 
   zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
   type    = "A"
@@ -41,8 +41,8 @@ resource "aws_route53_record" "holding_pages_dsa" {
 }
 
 resource "aws_route53_record" "holding_pages_driver_practical" {
-
-  name = format("%s-%s", "driver-practical", var.environment)
+  count   = contains(var.holdingpageenv, var.environment) ? 1 : 0
+  name    = format("%s-%s", "driver-practical", var.environment)
 
   zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
   type    = "A"

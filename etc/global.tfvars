@@ -109,3 +109,16 @@ rsisbucket_env  = [
   "opsdev",
   "prod"
 ]
+
+holdingpageenv = [
+  "opsdev",
+  "dev01",
+  "dev02",
+  "sit01",
+  "sit02",
+  "uat01",
+  "uat02",
+  "uat03",
+  "perf01",
+  "train"
+]
