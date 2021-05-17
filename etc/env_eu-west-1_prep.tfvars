@@ -379,7 +379,7 @@ holding_pages_cert      = "maintenance-prod"
 
 ## wildfly-batch temporary 'off' schedule
 wildfly-batch_asg_min_size         = 0
-wildfly-batch_asg_max_size         = 1
+wildfly-batch_asg_max_size         = 0
 wildfly-batch_scaledown_desired    = 0
 wildfly-batch_scaledown_recurrence = "00 18 * * 1-5"
 wildfly-batch_scaleup_desired      = 0
@@ -387,7 +387,7 @@ wildfly-batch_scaleup_recurrence   = "00 08 * * 1-5"
 
 ## cpc-batch temporary 'off' schedule
 cpc-batch_asg_min_size         = 0
-cpc-batch_asg_max_size         = 1
+cpc-batch_asg_max_size         = 0
 cpc-batch_scaledown_desired    = 0
 cpc-batch_scaledown_recurrence = "00 22 * * 1-5"
 cpc-batch_scaleup_desired      = 0
