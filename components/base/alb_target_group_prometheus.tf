@@ -5,7 +5,7 @@ resource "aws_alb_target_group" "prometheus-9090" {
   vpc_id   = aws_vpc.vpc.id
 
   health_check {
-    path                = "/"
+    path                = "/graph"
     timeout             = 5
     interval            = 10
     healthy_threshold   = 3
