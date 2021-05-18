@@ -508,5 +508,8 @@ cpc-batch_instance_type = "m3.medium"
 ## apache
 apache_instance_type = "m3.medium"
 
+## squid
+squidnat_instance_type = "t3.medium"
+
 ## AutoScale disbale/enable
 aws_autoscaling_enabled = "0"
