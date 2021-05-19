@@ -14,6 +14,10 @@ resource "aws_s3_bucket" "rsisbucket_tiff_repo2" {
     prefix  = "/"
     enabled = "true"
 
+    expiration {
+      days = "0"
+    }
+    
   }
 
   tags = merge(

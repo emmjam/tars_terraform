@@ -28,7 +28,7 @@ data "aws_iam_policy_document" "rsisbucket_tiff_repo" {
       "${aws_s3_bucket.rsisbucket_tiff_repo[0].arn}/*",
     ]
   }
-
+  
 }
 
 resource "aws_iam_policy" "rsisbucket_tiff_repo" {

@@ -13,6 +13,10 @@ resource "aws_s3_bucket" "rsisbucket_tiff_repo" {
     id      = "wholebucket"
     prefix  = "/"
     enabled = "true"
+    
+    expiration {
+      days = "0"
+    }
 
   }
 
