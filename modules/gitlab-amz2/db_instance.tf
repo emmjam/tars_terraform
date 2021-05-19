@@ -26,7 +26,7 @@ resource "aws_db_instance" "gitlab" {
   skip_final_snapshot     = var.db_skip_final_snapshot
   snapshot_identifier     = var.db_snapshot_id
   lifecycle {
-    ignore_changes = ["snapshot_identifier"]
+#    ignore_changes = ["snapshot_identifier"]
   }
 
   final_snapshot_identifier = format(
