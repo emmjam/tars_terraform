@@ -11,7 +11,7 @@ resource "aws_route53_record" "gitlab" {
 }
 
 resource "aws_route53_record" "gitlab_amzn2" {
-  name    = var.gitlab_amzn2_name
+  name    = "gitlabaz"
   zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
   type    = "A"
 
