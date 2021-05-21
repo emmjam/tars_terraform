@@ -393,6 +393,14 @@ cpc-batch_scaledown_recurrence = "00 22 * * 1-5"
 cpc-batch_scaleup_desired      = 0
 cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
+## sftpplus-svr temporary 'off' schedule
+sftpplus-svr_asg_min_size         = 0
+sftpplus-svr_asg_max_size         = 0
+sftpplus-svr_scaledown_desired    = 0
+sftpplus-svr_scaledown_recurrence = "00 20 * * 1-5"
+sftpplus-svr_scaleup_desired      = 0
+sftpplus-svr_scaleup_recurrence   = "00 04 * * 1-5"
+
 # Temporarily pointed at the app LBs as
 # incapsula won't issue a site without the
 # DNS records already existing. Catch 22.
