@@ -120,9 +120,8 @@ resource "aws_security_group_rule" "tars_batch_egress_rsis_sftp" {
   security_group_id = module.tars_batch.security_group_id
 
   cidr_blocks = [
-    var.rsis_samba_server,
-    var.rsis_samba_server_archive,
-  ]
+    var.rsis_samba_server_archive
+  ]  
 }
 
 resource "aws_security_group_rule" "tars_batch_egress_dvla_ldap" {

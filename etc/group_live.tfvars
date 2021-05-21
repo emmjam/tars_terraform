@@ -424,7 +424,6 @@ avarto_aws_sftp_server = "10.7.107.0/24"
 sweda_samba_server = "10.69.3.11/32"
 dvla_adli_server = "51.231.10.92/32"
 dvla_elise_server = "51.231.10.84/32"
-rsis_samba_server = "10.14.0.140/32"
 rsis_samba_server_archive = "10.14.0.142/32"
 
 # squidnat

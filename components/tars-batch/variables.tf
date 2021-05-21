@@ -195,11 +195,6 @@ variable "dvla_adli_server" {
   description = "ADLI"
 }
 
-variable "rsis_samba_server" {
-  type        = string
-  description = "RSIS"
-}
-
 variable "rsis_samba_server_archive" {
   type        = string
   description = "RSIS"

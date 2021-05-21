@@ -704,11 +704,6 @@ variable "rds_subnets_cidrs" {
   default     = []
 }
 
-variable "rsis_samba_server" {
-  type        = string
-  description = "RSIS"
-}
-
 variable "spot_pricing" {
   type        = map(string)
   description = "A map containing the the spot instance price (USD) for each instance type"

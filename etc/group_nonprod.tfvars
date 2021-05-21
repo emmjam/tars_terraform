@@ -374,7 +374,6 @@ dvsa_dc_whitelist = [
   "10.166.0.14/32",
   "10.166.0.28/32",
   "10.166.0.43/32",
-  "10.14.0.150/32",
   "10.69.0.0/16",
   "10.69.0.4/31",
   "10.69.3.4/32",
@@ -430,7 +429,7 @@ avarto_aws_sftp_server = "10.7.107.0/24"
 sweda_samba_server = "10.69.3.11/32"
 dvla_adli_server = "51.231.10.109/32"
 dvla_elise_server = "51.231.10.112/32"
-rsis_samba_server = "10.14.0.150/32"
+
 rsis_samba_server_archive = "10.14.0.142/32"
 
 # squidnat
