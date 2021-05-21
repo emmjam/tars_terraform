@@ -76,8 +76,8 @@ sed -i 's|db_unknown_host|'$${db_endpoint}'|g' /etc/gitlab/gitlab.rb
 sed -i 's|redis_unknown_host|'$${redis_endpoint}'|g' /etc/gitlab/gitlab.rb
 
 log '[INFO] Reconfiguring and starting GitLab'
-gitlab-ctl reconfigure
 systemctl start gitlab-runsvdir.service
+gitlab-ctl reconfigure
 sleep 5
 gitlab-ctl stop
 sleep 5
