@@ -75,9 +75,14 @@ sed -i 's|http://unknown_external_url|https://'$${gitlab_external_url}'|g' /etc/
 sed -i 's|db_unknown_host|'$${db_endpoint}'|g' /etc/gitlab/gitlab.rb
 sed -i 's|redis_unknown_host|'$${redis_endpoint}'|g' /etc/gitlab/gitlab.rb
 
+log '[INFO] Enable starting GitLab'
+systemctl enable gitlab-runsvdir.service
+systemctl start gitlab-runsvdir.service && gitlab-ctl stop
+sleep 5
+
 log '[INFO] Reconfiguring and starting GitLab'
-systemctl start gitlab-runsvdir.service
 gitlab-ctl reconfigure
+gitlab-ctl start
 sleep 5
 gitlab-ctl stop
 sleep 5
