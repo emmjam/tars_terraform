@@ -286,3 +286,8 @@ variable "unhealthy_host_alarm_count" {
   description = "Number of alarms to have in this account"
   default = "0"
 }
+
+variable "ftts_elig_port" {
+  type        = string
+  description = "Port for FTTS eligibility instance"
+}

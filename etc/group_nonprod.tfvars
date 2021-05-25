@@ -625,3 +625,4 @@ power_bi_cidr = "10.164.156.0/22"
 # Enable action for tars IBS CPU Cloudwatch alarm
 ibs_high_cpu_cw_metric_alarm_enabled = false
 
+ftts_elig_port = "22"
