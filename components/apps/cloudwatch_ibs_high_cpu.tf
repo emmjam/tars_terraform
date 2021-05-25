@@ -6,7 +6,7 @@ resource "aws_cloudwatch_metric_alarm" "ibs_high_CPU" {
   count		            = var.ibs_high_cpu_cw_metric_alarm_enabled ? 1 : 0
   namespace                 = "AWS/EC2"
   period                    = "120"
-  statistic                 = "Average"
+  statistic                 = "Maximum"
   threshold                 = "95"
   alarm_description         = "This metric monitors IBS ec2 cpu utilization"
   alarm_actions       = [data.terraform_remote_state.base.outputs.sns_alerts_arn]
