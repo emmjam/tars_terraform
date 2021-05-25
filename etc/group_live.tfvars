@@ -82,17 +82,8 @@ prometheus_instance_type          = "t3.medium"
 prometheus_ami_build_id           = "1081"
 prometheus_efs_provisioned_mibps  = 5
 
-## jenkinsnode
-jenkinsnode_instance_type        = "m5d.large"
-jenkinsnode_ami_build_id         = "1085"
-jenkinsnode_executors            = 20
-jenkinsnode_asg_min_size         = 0
-jenkinsnode_asg_max_size         = 0
-jenkinsnode_scaledown_desired    = 0
-jenkinsnode_scaledown_recurrence = "00 19 * * 1-5"
-jenkinsnode_scaleup_desired      = 0
-jenkinsnode_scaleup_recurrence   = "15 07 * * 1-5"
 
+## jenkins
 jenkinsctrl_subnets_cidrs = [
   "10.167.56.16/28",
   "10.167.56.32/28",

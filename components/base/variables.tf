@@ -331,35 +331,10 @@ variable "jenkinsnode_subnets_cidrs" {
   default     = []
 }
 
-variable "jenkins_nat_subnets_cidrs" {
+variable "nat_subnets_cidrs" {
   type        = list(string)
-  description = "Jenkinsnode NAT subnet CIDR's"
+  description = "NAT subnet CIDR's"
   default     = []
-}
-
-variable "jenkinsnode_ami_build_id" {
-  type        = string
-  description = "Jenkinsnode AMI build nomber"
-}
-
-variable "jenkinsnode_executors" {
-  type        = string
-  description = "executor count for jenkinsnodes"
-}
-
-variable "jenkinsnode_instance_type" {
-  type        = string
-  description = "Jnekins instance size"
-}
-
-variable "jenkinsnode_asg_max_size" {
-  type        = string
-  description = ""
-}
-
-variable "jenkinsnode_asg_min_size" {
-  type        = string
-  description = ""
 }
 
 ## JMeter
@@ -681,12 +656,12 @@ variable "efs_dbretention_env" {
   default     = []
 }
 
-variable "perf_jenkinsnode" {
+/*variable "perf_jenkinsnode" {
   type        = list(string)
   description = ""
   default     = []
 }
-
+*/
 variable "holdingpageenv" {
   type        = list(string)
   description = ""

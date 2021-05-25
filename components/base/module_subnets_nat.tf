@@ -9,7 +9,7 @@ module "nat_subnets" {
 
   availability_zones = data.aws_availability_zones.available.names
 
-  cidrs = var.jenkins_nat_subnets_cidrs
+  cidrs = var.nat_subnets_cidrs
 
   route_tables = list(aws_route_table.public.id)
 }

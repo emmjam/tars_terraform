@@ -76,7 +76,7 @@ tars_web_subnets_cidrs = [
   "10.167.128.224/28",
 ]
 
-jenkins_nat_subnets_cidrs = [
+nat_subnets_cidrs = [
   "10.167.128.240/28",
 ]
 
@@ -217,12 +217,13 @@ cpc_efs_subnets_cidrs = [
   "10.167.133.128/28",
   "10.167.133.144/28",
 ]
-
+/*
 jenkinsnode_subnets_cidrs = [
   "10.167.133.160/28",
   "10.167.133.176/28",
   "10.167.133.192/28",
 ]
+*/
 
 # AWS MQ SINGLE_INSTANCE only requires 1 subnets
 # ACTIVE_STANDBY_MULTI_AZ requires 2

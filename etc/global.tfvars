@@ -101,10 +101,6 @@ sftpplus_client_log_group_name = "/aws/ec2/prod/tars-batch/opt/SFTPPlus-client/m
 ibs1_ibs2_redirect_env  = [
 ]
 
-perf_jenkinsnode  = [
-  "perf01"
-]
-
 rsisbucket_env  = [
   "opsdev",
   "prod"

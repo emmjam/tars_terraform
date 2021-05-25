@@ -19,7 +19,7 @@ resource "aws_security_group_rule" "oracle_db_ingress_tars_frontend" {
   source_security_group_id = module.tars_front.security_group_id
 }
 
-# rds DB from jenkinsnode
+/*# rds DB from jenkinsnode
 resource "aws_security_group_rule" "oracle_db_ingress_jenkinsnode" {
   description              = "Allow TCP/1521 from jenkinsnode"
   type                     = "ingress"
@@ -29,6 +29,7 @@ resource "aws_security_group_rule" "oracle_db_ingress_jenkinsnode" {
   security_group_id        = aws_security_group.tars-core-db.id
   source_security_group_id = data.terraform_remote_state.base.outputs.jenkinsnode_sg_id
 }
+*/
 
 # bastion to rds DB
 resource "aws_security_group_rule" "oracle_db_ingress_bastion" {

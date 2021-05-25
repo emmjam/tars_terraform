@@ -45,17 +45,6 @@ resource "aws_security_group_rule" "mis_rds_ingress_tarsdb_sg" {
   source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-db-sg-id
 }
 
-# TARS to MIS DB
-resource "aws_security_group_rule" "mis_rds_egress_jenkins_sg" {
-  description              = "Allow TCP/1521 to TARSDB"
-  type                     = "egress"
-  from_port                = "1521"
-  to_port                  = "1521"
-  protocol                 = "tcp"
-  source_security_group_id = aws_security_group.tars-mis-db.id
-  security_group_id        = data.terraform_remote_state.base.outputs.jenkinsnode_sg_id
-}
-
 # MIS to tars backend for PAN encryption
 resource "aws_security_group_rule" "oracle_mis_egress_tars_backend" {
   description              = "Allow TCP/8080 from MISDB to TARS BACKEND"
@@ -76,17 +65,6 @@ resource "aws_security_group_rule" "oracle_mis_ingress_prometheus" {
   protocol                 = "tcp"
   security_group_id        = aws_security_group.tars-mis-db.id
   source_security_group_id = data.terraform_remote_state.base.outputs.prometheus_sg_id
-}
-
-# rds DB from jenkinsnode
-resource "aws_security_group_rule" "mis_rds_ingress_jenkinsnode" {
-  description              = "Allow TCP/1521 from jenkinsnode"
-  type                     = "ingress"
-  from_port                = "1521"
-  to_port                  = "1521"
-  protocol                 = "tcp"
-  security_group_id        = aws_security_group.tars-mis-db.id
-  source_security_group_id = data.terraform_remote_state.base.outputs.jenkinsnode_sg_id
 }
 
 # TARS BATCH to MIS DB

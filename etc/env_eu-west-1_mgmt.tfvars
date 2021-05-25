@@ -438,13 +438,13 @@ jenkins_elb_subnets_cidrs = ["10.200.3.32/28"]
 #  scaleup_desired      = 1
 #  scaleup_recurrence   = "15 07 * * 1-5"
 #}
-
+/*
 jenkinsnode_subnets_cidrs = [
   "10.200.3.48/28",
   "10.200.3.64/28",
   "10.200.3.80/28",
 ]
-
+*/
 
 # EBS backup lambda
 ebs_snapshot_is_enabled                       = true

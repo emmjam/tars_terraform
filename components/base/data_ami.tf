@@ -1,5 +1,5 @@
 # Get the jenkinsnode AMI id
-data "aws_ami" "jenkinsnode" {
+/*data "aws_ami" "jenkinsnode" {
 
   most_recent = "true"
 
@@ -30,7 +30,7 @@ data "aws_ami" "jenkinsnode" {
     ]
   }
 }
-
+*/
 data "aws_ami" "squidnat" {
   most_recent = "true"
 
