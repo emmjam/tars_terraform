@@ -11,4 +11,7 @@ resource "aws_cloudwatch_metric_alarm" "ibs_high_CPU" {
   alarm_description         = "This metric monitors IBS ec2 cpu utilization"
   alarm_actions       = [data.terraform_remote_state.base.outputs.sns_alerts_arn]
   treat_missing_data  = "notBreaching"
+  dimensions = {
+    AutoScalingGroupName = "${local.csi}/ibs"
   }
+ }
