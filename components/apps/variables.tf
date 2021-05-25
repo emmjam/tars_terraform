@@ -1022,3 +1022,9 @@ variable "cwl_retention_days" {
   description = "Retention period in days for Cloudwatch Logs Log Groups for this component"
   default     = "731"
 }
+variable "ibs_high_cpu_cw_metric_alarm_enabled" {
+  type = string
+  description = "Enable or disable cpuutilisation CloudWatch Metrics alarm"
+
+}
+

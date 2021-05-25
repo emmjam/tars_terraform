@@ -521,3 +521,7 @@ squidnat_instance_type = "t3.medium"
 
 ## AutoScale disbale/enable
 aws_autoscaling_enabled = "0"
+
+# Enable action for tars IBS CPU Cloudwatch alarm
+ibs_high_cpu_cw_metric_alarm_enabled = false
+
