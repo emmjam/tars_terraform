@@ -407,7 +407,7 @@ gitlab_amzn2_redis_subnets_cidrs = [
 ]
 
 ## jenkins
-jenkins_instance_type        = "m5.large"
+jenkins_instance_type        = "m5a.large"
 jenkins_ami_build_id         = "1080"
 jenkins_asg_min_size         = 0
 jenkins_asg_max_size         = 1
