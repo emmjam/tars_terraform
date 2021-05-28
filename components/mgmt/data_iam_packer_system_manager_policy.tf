@@ -33,10 +33,10 @@ data "aws_iam_policy_document" "packer_systems_manager" {
     effect = "Allow"
 
     actions = [
-       "ssmmessages:CreateControlChannel",
-       "ssmmessages:CreateDataChannel",
-       "ssmmessages:OpenControlChannel",
-       "ssmmessages:OpenDataChannel",
+      "ssmmessages:CreateControlChannel",
+      "ssmmessages:CreateDataChannel",
+      "ssmmessages:OpenControlChannel",
+      "ssmmessages:OpenDataChannel",
     ]
 
     resources = [

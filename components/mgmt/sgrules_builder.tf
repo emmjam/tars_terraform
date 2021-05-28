@@ -1,31 +1,31 @@
 resource "aws_security_group_rule" "jenkins_elb_ingress_builder_http" {
-  description       = "Allow TCP/80 from jenkins builder"
-  type              = "ingress"
-  from_port         = 80
-  to_port           = 80
-  protocol          = "tcp"
-  security_group_id = module.jenkins.elb_sg_id
+  description              = "Allow TCP/80 from jenkins builder"
+  type                     = "ingress"
+  from_port                = 80
+  to_port                  = 80
+  protocol                 = "tcp"
+  security_group_id        = module.jenkins.elb_sg_id
   source_security_group_id = module.builder.security_group_id
 }
 
 resource "aws_security_group_rule" "gitlab_elb_private_ingress_builder_jenkinsnode_ssh" {
-  description       = "Allow TCP/22 from CTRL JenkinsNodes"
-  type              = "ingress"
-  from_port         = 22
-  to_port           = 22
-  protocol          = "tcp"
-  security_group_id = module.gitlab.elb_private_sg_id
+  description              = "Allow TCP/22 from CTRL JenkinsNodes"
+  type                     = "ingress"
+  from_port                = 22
+  to_port                  = 22
+  protocol                 = "tcp"
+  security_group_id        = module.gitlab.elb_private_sg_id
   source_security_group_id = module.builder.security_group_id
 
 }
 
 resource "aws_security_group_rule" "jenkins_elb_ingress_builder_jenkinsnode_49187" {
-  description       = "Allow TCP/49187 from jenkins builder"
-  type              = "ingress"
-  from_port         = 49187
-  to_port           = 49187
-  protocol          = "tcp"
-  security_group_id = module.jenkins.elb_sg_id
+  description              = "Allow TCP/49187 from jenkins builder"
+  type                     = "ingress"
+  from_port                = 49187
+  to_port                  = 49187
+  protocol                 = "tcp"
+  security_group_id        = module.jenkins.elb_sg_id
   source_security_group_id = module.builder.security_group_id
 }
 

@@ -4,5 +4,5 @@ resource "aws_iam_group_membership" "readonly_platform" {
   group = aws_iam_group.readonly_platform.name
 
   users = var.readonly_platform_users
-  
+
 }

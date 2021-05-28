@@ -74,9 +74,9 @@ variable "s3_yum_ro_principals" {
 }
 
 variable "asg_default_tags" {
-  type        = list(object({
-    key = string
-    value = string
+  type = list(object({
+    key                 = string
+    value               = string
     propagate_at_launch = string
   }))
   description = ""
@@ -245,8 +245,8 @@ variable "deployer_pub_key" {
 }
 
 variable "ctrl_peers_xacct" {
-  type        = list(object({
-    vpc_id = string
+  type = list(object({
+    vpc_id     = string
     cidr_block = string
     account_id = string
   }))
@@ -254,8 +254,8 @@ variable "ctrl_peers_xacct" {
 }
 
 variable "ctrl_peers_local" {
-  type        = list(object({
-    vpc_id = string
+  type = list(object({
+    vpc_id     = string
     cidr_block = string
     account_id = string
   }))
@@ -264,8 +264,8 @@ variable "ctrl_peers_local" {
 }
 
 variable "base_peers_xacct" {
-  type        = list(object({
-    vpc_id = string
+  type = list(object({
+    vpc_id     = string
     cidr_block = string
     account_id = string
   }))
@@ -273,8 +273,8 @@ variable "base_peers_xacct" {
 }
 
 variable "base_peers_local" {
-  type        = list(object({
-    vpc_id = string
+  type = list(object({
+    vpc_id     = string
     cidr_block = string
     account_id = string
   }))
@@ -574,7 +574,7 @@ variable "gitlab_redis_snapshot_window" {
 variable "gitlab_cw_alarm_failure_actions" {
   type        = list(string)
   description = "The action to execute when this alarm transitions into an ALARM state from any other state."
-  default = []
+  default     = []
 }
 
 ## GuardDuty Notify
@@ -840,7 +840,7 @@ variable "readonly_no_secrets_nonprod_users" {
 }
 
 variable "non_prod_jenkins_cidrs" {
-  type        = list (string)
+  type        = list(string)
   description = "NonProd base cidr for jenkins access to Nexus"
   default     = []
 }
@@ -851,14 +851,14 @@ variable "enable_bounced_email_report" {
 }
 
 variable "bounced_email_domain" {
-  type = "string"
+  type        = "string"
   description = "bounced email idenity"
 }
 
-  # Lambda Access Key Rotation
-  variable "lambda_access_key_rotation_config" {
-    description = "Map of config information for lambda access_key_rotation"
-    type        = map
+# Lambda Access Key Rotation
+variable "lambda_access_key_rotation_config" {
+  description = "Map of config information for lambda access_key_rotation"
+  type        = map
 }
 
 variable "non_prod_ctrl_jenkins_cidrs" {

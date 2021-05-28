@@ -39,7 +39,7 @@ resource "aws_ecr_repository_policy" "tomcat9" {
 
 resource "aws_ecr_repository_policy" "oracle-xe" {
   repository = aws_ecr_repository.oracle-xe.name
- policy     = local.ecr_repository_policy_main
+  policy     = local.ecr_repository_policy_main
 }
 
 resource "aws_ecr_repository_policy" "cpc-oracle-xe" {

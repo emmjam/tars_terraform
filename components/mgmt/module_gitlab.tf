@@ -78,7 +78,7 @@ module "gitlab" {
   default_tags = local.default_tags
 
   gitlab_cw_alarm_failure_actions = [
-                data.terraform_remote_state.acc.outputs.notify_ops_sns_arn,
+    data.terraform_remote_state.acc.outputs.notify_ops_sns_arn,
   ]
 }
 

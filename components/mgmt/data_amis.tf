@@ -4,7 +4,7 @@ data "aws_ami" "jenkins" {
   owners = [
     data.aws_caller_identity.current.account_id,
   ]
-  
+
   filter {
     name = "name"
 

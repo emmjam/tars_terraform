@@ -4,7 +4,7 @@
 # just hosted by Amazon. Each thing exists only once
 # in the multiverse, so it unique by its own name,
 # not as an aspect of its deployment.
- 
+
 resource "aws_ecr_repository" "epdq" {
   name = "tars-mock-epdq"
 }

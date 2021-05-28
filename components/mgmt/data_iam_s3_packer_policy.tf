@@ -28,7 +28,7 @@ data "aws_iam_policy_document" "s3-packer" {
     resources = [
       aws_s3_bucket.artefacts.arn,
       "${aws_s3_bucket.artefacts.arn}/*",
-     
+
     ]
   }
 

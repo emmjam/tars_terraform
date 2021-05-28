@@ -57,17 +57,17 @@ locals {
     data.aws_vpc_peering_connection.ctrl_peers_xacct.*.vpc_id
   )
 
-  ecr_repository_policy_main = templatefile("${path.module}/templates/ecr_repository_policy_main.json.tmpl", 
-      {
-        RO_PRINCIPALS = jsonencode(
-          formatlist(
-            "%s:%s:%s",
-            "arn:aws:iam:",
-            var.ecr_repository_ro_principals,
-            "root",
-          ),
-        )
-      })
+  ecr_repository_policy_main = templatefile("${path.module}/templates/ecr_repository_policy_main.json.tmpl",
+    {
+      RO_PRINCIPALS = jsonencode(
+        formatlist(
+          "%s:%s:%s",
+          "arn:aws:iam:",
+          var.ecr_repository_ro_principals,
+          "root",
+        ),
+      )
+  })
 
   ecr_lifecycle_policy_main = templatefile("${path.module}/templates/ecr_lifecycle_policy_main.json.tmpl", {})
 

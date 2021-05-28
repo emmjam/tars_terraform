@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "artefacts" {
-  bucket     = "${local.csi_global}-artefacts"
-  acl        = "private"
+  bucket = "${local.csi_global}-artefacts"
+  acl    = "private"
 
   logging {
     target_bucket = "${local.csi_global}-bucketlogs"
