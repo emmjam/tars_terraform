@@ -1,0 +1,11 @@
+{
+  "TableName": "tars-mgmt-mgmt-release_data",
+  "KeyConditionExpression": "pk=:name",
+  "ExpressionAttributeValues": {
+    ":name": {
+      "S": "$input.params('name')"
+    }
+  },
+  "Limit": 1,
+  "ScanIndexForward": false
+}
