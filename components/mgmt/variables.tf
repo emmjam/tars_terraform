@@ -839,6 +839,12 @@ variable "readonly_no_secrets_nonprod_users" {
   default     = []
 }
 
+variable "rsis_tif_access_users" {
+  type        = "list"
+  description = "List of IAM Users, that have RSIS TIF bucket access"
+  default     = []
+}
+
 variable "non_prod_jenkins_cidrs" {
   type        = list(string)
   description = "NonProd base cidr for jenkins access to Nexus"

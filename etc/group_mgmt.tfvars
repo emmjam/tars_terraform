@@ -63,6 +63,22 @@ new_all_users = [
   "gregory.peters@bjss.com",
   "darren.rathbone@bjss.com",
   "loman.hussain@bjss.com",
+  "rhona.ruggeri@dvsa.gov.uk",
+  "helen.sharp@dvsa.gov.uk",
+  "michelle.leonard@dvsa.gov.uk",
+  "paul.mckay@dvsa.gov.uk",
+  "fiona.mackay@dvsa.gov.uk",
+  "gez.stevenson@dvsa.gov.uk",
+  "malcolm.sims@dvsa.gov.uk",
+  "michael.courtney@dvsa.gov.uk",
+  "darren.winship@dvsa.gov.uk",
+  "chantelle.nicholson-pratt@dvsa.gov.uk",
+  "jacqueline.johnston@dvsa.gov.uk",
+  "denise.scott@dvsa.gov.uk",
+  "matthew.gregory@dvsa.gov.uk",
+  "elaine.patrick@dvsa.gov.uk",
+  "peter.ancrum@dvsa.gov.uk",
+  "helen.tiller@dvsa.gov.uk",
 ]
 
 # TSSOps Access
@@ -202,6 +218,27 @@ db_cw_users = [
 # TSS Dashboard
 tss_cw_users = [
 "tss-dashboard",
+]
+
+# Rsis Tif bucket Access
+rsis_tif_access_users = [
+  "michael.tribbick@bjss.com",
+  "rhona.ruggeri@dvsa.gov.uk",
+  "helen.sharp@dvsa.gov.uk",
+  "michelle.leonard@dvsa.gov.uk",
+  "paul.mckay@dvsa.gov.uk",
+  "fiona.mackay@dvsa.gov.uk",
+  "gez.stevenson@dvsa.gov.uk",
+  "malcolm.sims@dvsa.gov.uk",
+  "michael.courtney@dvsa.gov.uk",
+  "darren.winship@dvsa.gov.uk",
+  "chantelle.nicholson-pratt@dvsa.gov.uk",
+  "jacqueline.johnston@dvsa.gov.uk",
+  "denise.scott@dvsa.gov.uk",
+  "matthew.gregory@dvsa.gov.uk",
+  "elaine.patrick@dvsa.gov.uk",
+  "peter.ancrum@dvsa.gov.uk",
+  "helen.tiller@dvsa.gov.uk",
 ]
 
 # Non Prod
