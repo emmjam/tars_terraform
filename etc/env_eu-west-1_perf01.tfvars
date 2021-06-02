@@ -366,10 +366,10 @@ ibs_rds_instance_class = "db.r3.large"
 
 wildfly-back_instance_type  = "m4.xlarge"
 wildfly-back_asg_min_size         = 0
-wildfly-back_asg_max_size         = 2
-wildfly-back_scaledown_desired    = 2
+wildfly-back_asg_max_size         = 3
+wildfly-back_scaledown_desired    = 3
 wildfly-back_scaledown_recurrence = "00 16 * * 1-7"
-wildfly-back_scaleup_desired      = 2
+wildfly-back_scaleup_desired      = 3
 wildfly-back_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## wildfly-batch

@@ -93,10 +93,10 @@ jenkinsctrl_subnets_cidrs = [
 wildfly-back_instance_type        = "m4.xlarge"
 wildfly-back_puppet_nodetype      = "tars-back"
 wildfly-back_asg_min_size         = 0
-wildfly-back_asg_max_size         = 3
-wildfly-back_scaledown_desired    = 2
+wildfly-back_asg_max_size         = 4
+wildfly-back_scaledown_desired    = 3
 wildfly-back_scaledown_recurrence = "0 * * * *"
-wildfly-back_scaleup_desired      = 3
+wildfly-back_scaleup_desired      = 4
 wildfly-back_scaleup_recurrence   = "30 * * * *"
 
 ## wildfly-batch
