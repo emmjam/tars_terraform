@@ -269,7 +269,13 @@ jmeter_asg_size_min               = 0
 jmeter_ami_build_id               = "1075"
 
 ## XE
-xe_ami_name = "OracleXE-040319"
+xe_ami_name = "OracleXE18c230621"
+oraclexe_asg_min_size         = 0
+oraclexe_asg_max_size         = 1
+oraclexe_scaledown_desired    = 0
+oraclexe_scaledown_recurrence = "00 19 * * 1-5"
+oraclexe_scaleup_desired      = 1
+oraclexe_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## Mock
 mock_ami_build_id = "350c3094/214"
@@ -311,6 +317,11 @@ vpc_endpoint_subnets_cidrs = [
   "10.167.61.32/28",
 ]
 
+oraclexe_subnets_cidrs = [
+  "10.167.62.0/28",
+  "10.167.62.16/28",
+  "10.167.62.32/28",
+]
 payments_whitelist = [
   "135.196.73.204/32",  # DVSA Notts
   "213.160.121.250/32", # DVSA Notts Corp & Wifi
