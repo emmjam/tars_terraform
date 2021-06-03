@@ -306,7 +306,7 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 
 # TARSDB
 tars_rds_username = "tarsadmin"
-tars_rds_allocated_storage = "500"
+tars_rds_allocated_storage = "550"
 tars_rds_snapshot = "tars-prod-tars-core-tarsdb-20190228"
 tars_rds_skip_final_snapshot = true
 
