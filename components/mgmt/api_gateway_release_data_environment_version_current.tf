@@ -25,6 +25,10 @@ resource "aws_api_gateway_integration_response" "environment_name_version_curren
   http_method = aws_api_gateway_method.environment_name_version_current_get.http_method
   status_code = aws_api_gateway_method_response.environment_name_version_current_get.status_code
 
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Origin" = "'*'"
+  }
+
   response_templates = {
     "application/json" = file("${path.module}/files/environment_name_current_get_integration_response.json")
   }
@@ -35,6 +39,10 @@ resource "aws_api_gateway_method_response" "environment_name_version_current_get
   resource_id = aws_api_gateway_resource.environment_name_version_current.id
   http_method = aws_api_gateway_method.environment_name_version_current_get.http_method
   status_code = "200"
+
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Origin" = true
+  }
 
   response_models = {
     "application/json" = "Empty"

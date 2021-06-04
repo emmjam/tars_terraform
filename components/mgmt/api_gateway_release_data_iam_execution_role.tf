@@ -19,11 +19,11 @@ resource "aws_iam_role" "release_data_api_execution_role" {
 resource "aws_iam_policy" "release_data_read_table" {
   name = "${local.csi}-release-data-read"
 
-  policy = jsonencode ({
+  policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
       {
-        Action   = [
+        Action = [
           "logs:CreateLogGroup",
           "logs:CreateLogStream",
           "logs:DescribeLogGroups",
@@ -36,14 +36,14 @@ resource "aws_iam_policy" "release_data_read_table" {
         Resource = "*"
       },
       {
-        Action   = [
+        Action = [
           "dynamodb:BatchGetItem",
           "dynamodb:Describe*",
           "dynamodb:List*",
           "dynamodb:GetItem",
           "dynamodb:Query",
         ]
-        Effect   = "Allow"
+        Effect = "Allow"
         Resource = [
           aws_dynamodb_table.release_data.arn,
           "${aws_dynamodb_table.release_data.arn}/index/*"

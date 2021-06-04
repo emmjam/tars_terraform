@@ -716,7 +716,7 @@ variable "nexus_efs_subnets_cidrs" {
 
 /*
 variable "nexus_ami_build_id" {
-  type        = "string"
+  type        = string
   description = ""
 }
 */
@@ -738,103 +738,103 @@ variable "nexus_domain_name" {
 ##
 
 variable "users" {
-  type        = "list"
+  type        = list
   description = "List of IAM Users"
   default     = []
 }
 
 variable "administrators" {
-  type        = "list"
+  type        = list
   description = "List of IAM Users from the 'users' list with Admin rights"
   default     = []
 }
 
 variable "new_all_users" {
-  type        = "list"
+  type        = list
   description = "List of All IAM Users"
   default     = []
 }
 
 variable "administrators_tssops_users" {
-  type        = "list"
+  type        = list
   description = "List of administrator IAM Users for the TSSOps, that have Admin access"
   default     = []
 }
 
 variable "administrators_platform_users" {
-  type        = "list"
+  type        = list
   description = "List of administrator IAM Users for the Platform team, that have Admin access"
   default     = []
 }
 
 variable "administrators_platform_nonprod_users" {
-  type        = "list"
+  type        = list
   description = "List of administrator IAM Users for the Platform team, that have Admin access"
   default     = []
 }
 
 variable "readonly_tssops_users" {
-  type        = "list"
+  type        = list
   description = "List of RO IAM Users for TSSOps, that have RO access"
   default     = []
 }
 
 variable "readonly_platform_users" {
-  type        = "list"
+  type        = list
   description = "List of RO IAM Users for Platform Team, that have full RO access"
   default     = []
 }
 
 variable "readonly_developer_users" {
-  type        = "list"
+  type        = list
   description = "List of RO IAM Users for developers, that have RO access"
   default     = []
 }
 
 variable "readonly_appsupport_users" {
-  type        = "list"
+  type        = list
   description = "List of RO IAM Users for App Support, that have RO access"
   default     = []
 }
 
 variable "readonly_qaengineer_users" {
-  type        = "list"
+  type        = list
   description = "List of qaengineer IAM Users for testing, that have RO access"
   default     = []
 }
 
 variable "readonly_dvsa_users" {
-  type        = "list"
+  type        = list
   description = "List of dvsa IAM Users for POs, that have RO access"
   default     = []
 }
 
 variable "qaengineer_users" {
-  type        = "list"
+  type        = list
   description = "List of qaengineer IAM Users for testing, that have specific access"
   default     = []
 }
 
 variable "db_cw_users" {
-  type        = "list"
+  type        = list
   description = "List of DB CW Access IAM Users for Support functions, that have DB CW access"
   default     = []
 }
 
 variable "tss_cw_users" {
-  type        = "list"
+  type        = list
   description = "List of DB CW Access IAM Users for Support functions, that have TSS CW access"
   default     = []
 }
 
 variable "billing_users" {
-  type        = "list"
+  type        = list
   description = "List of billing IAM Users for Support functions, that have Billing access"
   default     = []
 }
 
 variable "readonly_no_secrets_nonprod_users" {
-  type        = "list"
+  type        = list
   description = "List of IAM Users, that have Non Prod RO no secrets access"
   default     = []
 }
@@ -851,7 +851,7 @@ variable "enable_bounced_email_report" {
 }
 
 variable "bounced_email_domain" {
-  type        = "string"
+  type        = string
   description = "bounced email idenity"
 }
 

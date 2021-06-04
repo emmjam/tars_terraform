@@ -13,11 +13,11 @@ resource "aws_dlm_lifecycle_policy" "tars_mgmt_gitlab" {
       create_rule {
         interval      = var.dlm_interval
         interval_unit = "HOURS"
-        times         = ["${var.dlm_time}"]
+        times         = [var.dlm_time]
       }
 
       retain_rule {
-        count = "${var.dlm_retain_rule}"
+        count = var.dlm_retain_rule
       }
 
       tags_to_add = {

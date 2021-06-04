@@ -1,27 +1,27 @@
 locals {
   # GENERAL
-  csi = "${format(
+  csi = format(
     "%s-%s-%s",
     var.project,
     var.environment,
     var.component,
-  )}"
+  )
 
-  csi_global = "${format(
+  csi_global = format(
     "%s-%s-%s-%s",
     var.project,
     data.aws_caller_identity.current.account_id,
     var.environment,
     var.component,
-  )}"
+  )
 
-  parent_module = "${lookup(
+  parent_module = lookup(
     var.default_tags,
     "Module",
     "",
-  )}"
+  )
 
-  default_tags = "${merge(
+  default_tags = merge(
     var.default_tags,
     map(
       "Module", local.parent_module == "" ? var.module : format(
@@ -30,7 +30,7 @@ locals {
         var.module,
       ),
     ),
-  )}"
+  )
 
   # SPECIFIC
   # ...

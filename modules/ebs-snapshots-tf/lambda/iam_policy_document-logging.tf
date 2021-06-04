@@ -38,6 +38,6 @@ resource "aws_iam_policy_attachment" "logging" {
     "logging"
   )
 
-  roles      = ["${aws_iam_role.main.name}"]
+  roles      = [aws_iam_role.main.name]
   policy_arn = aws_iam_policy.logging.arn
 }

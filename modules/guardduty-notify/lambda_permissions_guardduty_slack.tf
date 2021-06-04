@@ -3,7 +3,7 @@ resource "aws_lambda_permission" "lambda_cloudwatch_guardduty_slack" {
   statement_id = "AllowGuarddutyToTriggerGuartdutyToSlackLambda"
 
   action        = "lambda:InvokeFunction"
-  function_name = "${aws_lambda_function.guardduty_slack.arn}"
+  function_name = aws_lambda_function.guardduty_slack.arn
   principal     = "events.amazonaws.com"
-  source_arn    = "${aws_cloudwatch_event_rule.guardduty_slack.arn}"
+  source_arn    = aws_cloudwatch_event_rule.guardduty_slack.arn
 }
