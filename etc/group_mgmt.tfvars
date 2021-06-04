@@ -29,6 +29,7 @@ new_all_users = [
   "ian.harris@bjss.com",
   "ibrar.akram@bjss.com",
   "irfan.sidat@bjss.com",
+  "isaac.phillip@bjss.com",
   "john.morley@bjss.com",
   "john.reynolds@bjss.com",
   "joseph.burgess@bjss.com",
@@ -176,6 +177,7 @@ readonly_appsupport_users = [
 qaengineer_users = [
   "ali.mohammed@bjss.com",
   "balkar.bains@bjss.com",
+  "isaac.phillip@bjss.com",
   "john.reynolds@bjss.com",
   "richard.freitas@bjss.com",
   "john.morley@bjss.com",
@@ -186,6 +188,7 @@ qaengineer_users = [
 readonly_qaengineer_users = [
   "ali.mohammed@bjss.com",
   "balkar.bains@bjss.com",
+  "isaac.phillip@bjss.com",
   "john.reynolds@bjss.com",
   "winston.coleman@bjss.com",
 ]
