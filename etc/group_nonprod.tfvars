@@ -157,7 +157,7 @@ wildfly-front_scaleup_desired      = 2
 wildfly-front_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## wildfly-messaging
-wildfly-messaging_instance_type        = "t3.medium"
+wildfly-messaging_instance_type        = "t3.large"
 wildfly-messaging_puppet_nodetype      = "tars-messaging"
 wildfly-messaging_asg_min_size         = 0
 wildfly-messaging_asg_max_size         = 1
@@ -165,6 +165,7 @@ wildfly-messaging_scaledown_desired    = 1
 wildfly-messaging_scaledown_recurrence = "00 19 * * 1-5"
 wildfly-messaging_scaleup_desired      = 1
 wildfly-messaging_scaleup_recurrence   = "00 04 * * 1-5"
+wildfly_messaging_id                   = "release_202107"
 
 ## wildfly-mock
 wildfly-mock_instance_type        = "t3.medium"
@@ -284,10 +285,6 @@ mock_ami_build_id = "350c3094/214"
 
 ## SFTP
 sftpplus_svr_id = "576"
-
-## Messaging
-wildfly_messaging_id = "release_201903_2"
-
 
 bastion_elb_subnets_cidrs = [
   "10.167.60.64/28",
