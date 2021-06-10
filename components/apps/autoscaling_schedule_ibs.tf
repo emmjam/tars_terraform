@@ -18,3 +18,18 @@ resource "aws_autoscaling_schedule" "ibs_up" {
   autoscaling_group_name = module.ibs.autoscaling_group_id
 }
 
+resource "aws_autoscaling_policy" "ibs" {
+  count                  = var.aws_autoscaling_enabled
+  name                   = "${local.csi}/ibs"
+  autoscaling_group_name = module.ibs.autoscaling_group_id
+  policy_type            = "TargetTrackingScaling"
+  adjustment_type        = "ChangeInCapacity"
+
+  target_tracking_configuration {
+    predefined_metric_specification {
+      predefined_metric_type = "ASGAverageCPUUtilization"
+    }
+
+    target_value = 50.0
+  }
+}
