@@ -257,7 +257,7 @@ aws_mq_config_engine_version = "5.15.9"
 ##  JMeter
 jmeter_instance_type              = "t3.micro"
 jmeter_asg_size_desired_on_create = 0
-jmeter_asg_size_max               = 3
+jmeter_asg_size_max               = 0
 jmeter_asg_size_min               = 0
 
 ## XE
