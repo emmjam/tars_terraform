@@ -377,6 +377,9 @@ apache_cert             = "routing-prep-public"
 bobj-server             = "*"
 holding_pages_cert      = "maintenance-prod"
 
+## eildly-back prep scaling
+wildfly-back_asg_max_size         = 2
+
 ## wildfly-batch temporary 'off' schedule
 wildfly-batch_asg_min_size         = 0
 wildfly-batch_asg_max_size         = 0
