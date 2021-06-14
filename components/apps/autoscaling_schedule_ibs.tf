@@ -23,7 +23,6 @@ resource "aws_autoscaling_policy" "ibs" {
   name                   = "${local.csi}/ibs"
   autoscaling_group_name = module.ibs.autoscaling_group_id
   policy_type            = "TargetTrackingScaling"
-  adjustment_type        = "ChangeInCapacity"
 
   target_tracking_configuration {
     predefined_metric_specification {
