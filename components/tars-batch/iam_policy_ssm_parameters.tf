@@ -11,6 +11,10 @@ data "aws_iam_policy_document" "ssm_parameters" {
       "arn:aws:ssm:${var.aws_region}:${var.aws_account_id}:parameter/tars-${var.environment}-GetTheory*",
       "arn:aws:ssm:${var.aws_region}:${var.aws_account_id}:parameter/tars-${var.environment}-TransferTheory*",
       "arn:aws:ssm:${var.aws_region}:${var.aws_account_id}:parameter/tars-${var.environment}-DocumentGeneration*",
+      "arn:aws:ssm:${var.aws_region}:${var.aws_account_id}:parameter/tars-${var.environment}-ProcessUnknownCardAuthorisationsJob*",
+      "arn:aws:ssm:${var.aws_region}:${var.aws_account_id}:parameter/tars-${var.environment}-ProcessUnknownCardAuthorisationsJob*",
+      "arn:aws:ssm:${var.aws_region}:${var.aws_account_id}:parameter/${var.environment}/tars/all/*",
+      "arn:aws:ssm:${var.aws_region}:${var.aws_account_id}:parameter/${var.environment}/tars/batch/*",
     ]
   }
 }
