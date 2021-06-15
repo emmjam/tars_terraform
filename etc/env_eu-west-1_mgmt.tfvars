@@ -365,7 +365,7 @@ gitlab_db_pg_family               = "postgres11"
 
 gitlab_amzn2_db_pg_family          = "postgres12"
 
-gitlab_db_snapshot_id             = "tars-mgmt-mgmt-gitlab-upgrade"
+gitlab_db_snapshot_id             = "ops-3304-gitlab-13-1-2-testing-13-9"
 
 gitlab_db_subnets_cidrs = [
   "10.200.2.32/28",
