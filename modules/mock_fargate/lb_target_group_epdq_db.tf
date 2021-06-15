@@ -1,8 +1,9 @@
 resource "aws_lb_target_group" "epdq-db" {
-  name     = "${local.csi}-5432"
-  port     = "5432"
-  protocol = "TCP"
-  vpc_id   = var.vpc_id
+  name                 = "${local.csi}-5432"
+  port                 = "5432"
+  protocol             = "TCP"
+  vpc_id               = var.vpc_id
+  deregistration_delay = 0
 
   health_check {
     port                = "traffic-port"
