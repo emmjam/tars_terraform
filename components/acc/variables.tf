@@ -149,7 +149,7 @@ variable "dvsa_ro_users" {
 }
 
 variable "cloudfront_enabled" {
-  type        = "string"
+  type        = string
   description = "flag to trigger deployment of cloudfront for holding/maintenance pages"
 
   default = "0"
@@ -160,7 +160,7 @@ variable "cloudfront_enabled" {
 ##
 
 variable "cloudability_xacct" {
-  type        = "map"
+  type        = map
   description = "The information needed to permit cross account access from Cloudability. Requires aws_account_id and external_id"
   default     = {}
 }
