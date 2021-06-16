@@ -5,8 +5,6 @@ module "gitlab-amzn2" {
   component   = var.component
 
   name = var.gitlab_amzn2_name
-  #  r53_record_name = var.gitlab_amzn2_name
-  r53_record_name = "gitlabaz2"
 
   vpc_id = aws_vpc.mgmt.id
 
@@ -14,7 +12,7 @@ module "gitlab-amzn2" {
 
   hosted_zone_id = aws_route53_zone.mgmt.zone_id
 
-  # TODO: peacheym: gitlab and jenkins have different domain name values?
+  # TODO: peacheym: Gitlab and jenkins have different domain name values?
   domain_name = "${var.component}.${local.vpc_domain_name}"
 
   lc_instance_type = var.gitlab_instance_type

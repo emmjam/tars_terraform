@@ -6,6 +6,7 @@ module "gitlab" {
 
   vpc_id = aws_vpc.mgmt.id
 
+  r53_record_name = "gitlabold"
   availability_zones = data.aws_availability_zones.available.names
 
   hosted_zone_id = aws_route53_zone.mgmt.zone_id

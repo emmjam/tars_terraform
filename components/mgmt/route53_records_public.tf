@@ -1,5 +1,5 @@
 resource "aws_route53_record" "gitlab" {
-  name    = "gitlab"
+  name    = "gitlabold"
   zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
   type    = "A"
 
@@ -11,7 +11,7 @@ resource "aws_route53_record" "gitlab" {
 }
 
 resource "aws_route53_record" "gitlab_amzn2" {
-  name    = "gitlabaz2"
+  name    = "gitlab"
   zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
   type    = "A"
 
