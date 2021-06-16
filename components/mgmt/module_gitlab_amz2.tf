@@ -6,7 +6,7 @@ module "gitlab-amzn2" {
 
   name = var.gitlab_amzn2_name
   #  r53_record_name = var.gitlab_amzn2_name
-  r53_record_name = "gitlabaz"
+  r53_record_name = "gitlabaz2"
 
   vpc_id = aws_vpc.mgmt.id
 
