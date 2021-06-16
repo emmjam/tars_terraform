@@ -164,6 +164,19 @@ readonly_developer_users = [
   "ryu.sasai@bjss.com",
   "nikolaj.bilgrau@bjss.com",
   "loman.hussain@bjss.com",
+  "rhona.ruggeri@dvsa.gov.uk",
+  "helen.sharp@@dvsa.gov.uk",
+  "michelle.leonard@dvsa.gov.uk",
+  "paul.mckay@dvsa.gov.uk",
+  "fiona.mackay@dvsa.gov.uk",
+  "gez.stevenson@dvsa.gov.uk",
+  "malcolm.sims@dvsa.gov.uk",
+  "michael.courtney@dvsa.gov.uk",
+  "darren.winship@dvsa.gov.uk",
+  "chantelle.nicholson-pratt@dvsa.gov.uk",
+  "jacqueline.johnston@dvsa.gov.uk",
+  "denise.scott@dvsa.gov.uk",
+  "matthew.gregory@dvsa.gov.uk",
 ]
 
 # DVSA Access

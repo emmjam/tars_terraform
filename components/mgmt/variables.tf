@@ -840,7 +840,7 @@ variable "readonly_no_secrets_nonprod_users" {
 }
 
 variable "rsis_tif_access_users" {
-  type        = "list"
+  type        = list
   description = "List of IAM Users, that have RSIS TIF bucket access"
   default     = []
 }
