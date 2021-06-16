@@ -3,7 +3,7 @@ resource "aws_lb_target_group" "epdq-db" {
   port                 = "5432"
   protocol             = "TCP"
   vpc_id               = var.vpc_id
-  deregistration_delay = 0
+  deregistration_delay = 10
 
   health_check {
     port                = "traffic-port"
