@@ -1,0 +1,5 @@
+#set($inputRoot = $input.path('$'))
+{
+    "release_candidate": "$inputRoot.Items[0].release_candidate.S"
+}
+

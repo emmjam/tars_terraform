@@ -27,6 +27,12 @@ resource "aws_api_gateway_deployment" "release_data" {
       aws_api_gateway_integration.environment_name_version_current_get,
       aws_api_gateway_integration_response.environment_name_version_current_get,
       aws_api_gateway_method_response.environment_name_version_current_get,
+      aws_api_gateway_resource.version,
+      aws_api_gateway_resource.version_latest,
+      aws_api_gateway_method.version_latest_get,
+      aws_api_gateway_integration.version_latest_get,
+      aws_api_gateway_integration_response.version_latest_get,
+      aws_api_gateway_method_response.version_latest_get,
       data.aws_iam_policy_document.release_data_api_resource_policy,
     ]))
   }
