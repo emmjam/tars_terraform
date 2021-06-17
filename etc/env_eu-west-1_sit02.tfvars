@@ -357,7 +357,7 @@ domain_name_servers = [
   "10.166.0.43",
 ]
 
-private_cert_domain_name = "sit02.tars.dvsa.aws"
+private_cert_domain_name = "dvsa.tars.dev-dvsacloud.uk"
 
 mes_api_cidr_block = ["10.21.0.0/16"]
 
