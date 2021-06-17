@@ -461,9 +461,9 @@ cpc-batch_scaleup_desired      = 1
 cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
 # IBS Autoscaling
-ibs_asg_min_size         = 6
+ibs_asg_min_size         = 5
 ibs_asg_max_size         = 10
-ibs_scaledown_desired    = 6
+ibs_scaledown_desired    = 5
 ibs_scaledown_recurrence = "30 00 * * 1-5"
 ibs_scaleup_desired      = 6
 ibs_scaleup_recurrence   = "40 03 * * 1-5"
