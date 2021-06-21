@@ -15,9 +15,6 @@ resource "aws_cloudfront_distribution" "holding_pages" {
   aliases = concat(
       [
         "maintenance-${var.environment}.${data.terraform_remote_state.acc.outputs.public_domain_name}",
-        "findnearest-${var.environment}.${data.terraform_remote_state.acc.outputs.public_domain_name}",
-        "dsa-${var.environment}.${data.terraform_remote_state.acc.outputs.public_domain_name}",
-        "driver-practical-${var.environment}.${data.terraform_remote_state.acc.outputs.public_domain_name}",
       ],
       var.holding_pages_domains,
     )
