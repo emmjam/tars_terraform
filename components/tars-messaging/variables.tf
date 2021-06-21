@@ -255,3 +255,8 @@ variable "cpu_utilization_evaluation_periods" {
   description = "CPU utilization alarm evaluation periods"
   default     = 5
 }
+
+variable "messaging_print" {
+  type        = string 
+  description = "Enable DVSA printers for messgaing"
+}
