@@ -426,22 +426,12 @@ variable "gitlab_db_backup_window" {
   description = ""
 }
 
-variable "gitlab_db_db_name" {
-  type        = string
-  description = ""
-}
-
 variable "gitlab_amzn2_db_db_name" {
   type        = string
   description = ""
 }
 
 variable "gitlab_db_snapshot_id" {
-  type        = string
-  description = ""
-}
-
-variable "gitlab_db_engine_version" {
   type        = string
   description = ""
 }
@@ -467,11 +457,6 @@ variable "gitlab_db_multi_az" {
 }
 
 variable "gitlab_db_password" {
-  type        = string
-  description = ""
-}
-
-variable "gitlab_db_pg_family" {
   type        = string
   description = ""
 }
@@ -521,17 +506,7 @@ variable "gitlab_instance_type" {
   description = ""
 }
 
-variable "gitlab_redis_endpoint_address" {
-  type        = string
-  description = ""
-}
-
 variable "gitlab_amzn2_redis_endpoint_address" {
-  type        = string
-  description = ""
-}
-
-variable "gitlab_redis_engine_version" {
   type        = string
   description = ""
 }
@@ -547,11 +522,6 @@ variable "gitlab_redis_maintenance_window" {
 }
 
 variable "gitlab_redis_node_type" {
-  type        = string
-  description = ""
-}
-
-variable "gitlab_redis_parameter_group_name" {
   type        = string
   description = ""
 }

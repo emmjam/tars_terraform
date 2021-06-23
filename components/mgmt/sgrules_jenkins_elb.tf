@@ -112,16 +112,6 @@ resource "aws_security_group_rule" "jenkins_elb_ingress_base_xacct_jenkinsnode_4
   ]
 }
 
-resource "aws_security_group_rule" "jenkins_elb_ingress_gitlab_80" {
-  description              = "Allow TCP/80 from GitLab"
-  type                     = "ingress"
-  from_port                = 80
-  to_port                  = 80
-  protocol                 = "tcp"
-  security_group_id        = module.jenkins.elb_sg_id
-  source_security_group_id = module.gitlab.gitlab_sg_id
-}
-
 resource "aws_security_group_rule" "jenkins_elb_ingress_gitlab-amzn2_80" {
   description              = "Allow TCP/80 from GitLab"
   type                     = "ingress"

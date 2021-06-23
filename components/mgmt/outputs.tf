@@ -27,7 +27,7 @@ output "jenkins_iam_role_name" {
 }
 
 output "gitlab_elb_sg_id" {
-  value = module.gitlab.elb_private_sg_id
+  value = module.gitlab-amzn2.elb_private_sg_id
 }
 
 output "private_alb_sg" {

@@ -8,17 +8,6 @@ resource "aws_security_group_rule" "jenkins_elb_ingress_builder_http" {
   source_security_group_id = module.builder.security_group_id
 }
 
-resource "aws_security_group_rule" "gitlab_elb_private_ingress_builder_jenkinsnode_ssh" {
-  description              = "Allow TCP/22 from CTRL JenkinsNodes"
-  type                     = "ingress"
-  from_port                = 22
-  to_port                  = 22
-  protocol                 = "tcp"
-  security_group_id        = module.gitlab.elb_private_sg_id
-  source_security_group_id = module.builder.security_group_id
-
-}
-
 resource "aws_security_group_rule" "gitlab-amzn2_elb_private_ingress_builder_jenkinsnode_ssh" {
   description              = "Allow TCP/22 from CTRL JenkinsNodes"
   type                     = "ingress"
@@ -62,16 +51,6 @@ resource "aws_security_group_rule" "builder_egress_jenkins_elb_49187" {
 }
 
 # builder-gitlab
-resource "aws_security_group_rule" "builder_egress_gitlab_ssh" {
-  description              = "Allow TCP/22 to GitLab"
-  type                     = "egress"
-  from_port                = 22
-  to_port                  = 22
-  protocol                 = "tcp"
-  security_group_id        = module.builder.security_group_id
-  source_security_group_id = module.gitlab.elb_private_sg_id
-}
-
 resource "aws_security_group_rule" "builder_egress_gitlab-amzn2_ssh" {
   description              = "Allow TCP/22 to GitLab"
   type                     = "egress"

@@ -20,7 +20,7 @@ module "ebs-snapshots" {
 
   # TODO: peacheym: Shouldn't this be two values in a list, not a single csv string?
   volume_ids = [
-    "${module.jenkins.ebs_volume_id},${module.gitlab.ebs_volume_id}",
+    "${module.jenkins.ebs_volume_id},${module.gitlab-amzn2.ebs_volume_id}",
   ]
 
   cw_rule_schedule_expression = var.ebs_snapshot_cw_rule_schedule_expression
