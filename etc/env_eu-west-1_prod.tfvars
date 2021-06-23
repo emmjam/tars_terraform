@@ -471,9 +471,9 @@ ibs_scaleup_recurrence   = "40 03 * * 1-5"
 # Extra domains that the CloudFront distribution for
 # maintenance pages should be aware of.
 holding_pages_domains = [
-  "driverpracticaltest.direct.gov.uk",
   "dsa.dft.gov.uk",
-  "finddrivinginstructor.direct.gov.uk"
+  "finddrivinginstructor.dvsa.gov.uk",
+  "driverpracticaltest.dvsa.gov.uk",
 ]
 
 #RDS Deletion Protection

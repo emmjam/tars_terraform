@@ -24,10 +24,7 @@ resource "aws_cloudfront_distribution" "holding_pages" {
 
   restrictions {
     geo_restriction {
-      restriction_type = "whitelist"
-      locations = [
-        "GB",
-      ]
+      restriction_type = "none" # incapsula traffic may come not only from UK locations
     }
   }
 
@@ -59,7 +56,11 @@ resource "aws_cloudfront_distribution" "holding_pages" {
 
     viewer_protocol_policy = "allow-all"
 
-  }
+    lambda_function_association {
+      event_type = "viewer-request"
+      lambda_arn = "${module.lambda-holding-pages.lambda_holding_pages_lambda_arn}"
+    }
+}
 
   #Ensure all urls return the maintenance page
   custom_error_response {
