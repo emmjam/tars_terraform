@@ -4,7 +4,7 @@ module "gitlab-amzn2" {
   environment = var.environment
   component   = var.component
 
-  name = var.gitlab_amzn2_name
+  name = var.gitlab_name
 
   vpc_id = aws_vpc.mgmt.id
 
@@ -16,7 +16,7 @@ module "gitlab-amzn2" {
   domain_name = "${var.component}.${local.vpc_domain_name}"
 
   lc_instance_type = var.gitlab_instance_type
-  lc_ami_id        = data.aws_ami.gitlab_amzn2.image_id
+  lc_ami_id        = data.aws_ami.gitlab.image_id
 
   lc_additional_sg_ids = [
     aws_security_group.common.id,
@@ -26,17 +26,17 @@ module "gitlab-amzn2" {
   ebs_volume_type = var.gitlab_ebs_volume_type
   ebs_volume_size = var.gitlab_ebs_volume_size
 
-  gitlab_subnet_cidrs = var.gitlab_amzn2_subnets_cidrs
+  gitlab_subnet_cidrs = var.gitlab_subnets_cidrs
 
   gitlab_private_route_table_ids = aws_route_table.private_nat.*.id
 
   gitlab_whitelist = var.whitelist
 
-  elb_private_subnets_cidrs = var.gitlab_amzn2_elb_private_subnets_cidrs
+  elb_private_subnets_cidrs = var.gitlab_elb_private_subnets_cidrs
 
   elb_private_route_table_ids = aws_route_table.private.*.id
 
-  elb_subnets_cidrs = var.gitlab_amzn2_elb_subnets_cidrs
+  elb_subnets_cidrs = var.gitlab_elb_subnets_cidrs
 
   elb_public_route_table_ids = [
     aws_route_table.public.id,
@@ -47,14 +47,14 @@ module "gitlab-amzn2" {
   elb_public_protocol           = var.gitlab_elb_public_public_protocol
   elb_public_ssl_certificate_id = data.aws_acm_certificate.tars_dvsacloud_uk.arn
 
-  db_subnets_cidrs = var.gitlab_amzn2_db_subnets_cidrs
+  db_subnets_cidrs = var.gitlab_db_subnets_cidrs
 
   db_private_route_table_ids = aws_route_table.private.*.id
 
-  db_name                    = var.gitlab_amzn2_db_db_name
+  db_name                    = var.gitlab_db_db_name
   db_allocated_storage       = var.gitlab_db_allocated_storage
   db_storage_type            = var.gitlab_db_storage_type
-  db_engine_version          = var.gitlab_amzn2_db_engine_version
+  db_engine_version          = var.gitlab_db_engine_version
   db_instance_class          = var.gitlab_db_instance_class
   db_multi_az                = var.gitlab_db_multi_az
   db_username                = var.gitlab_db_username
@@ -63,20 +63,20 @@ module "gitlab-amzn2" {
   db_backup_window           = var.gitlab_db_backup_window
   db_maintenance_window      = var.gitlab_db_maintenance_window
   db_skip_final_snapshot     = var.gitlab_db_skip_final_snapshot
-  db_pg_family               = var.gitlab_amzn2_db_pg_family
+  db_pg_family               = var.gitlab_db_pg_family
   db_snapshot_id             = var.gitlab_db_snapshot_id
 
-  redis_subnets_cidrs = var.gitlab_amzn2_redis_subnets_cidrs
+  redis_subnets_cidrs = var.gitlab_redis_subnets_cidrs
 
   redis_private_route_table_ids = aws_route_table.private.*.id
 
-  redis_engine_version           = var.gitlab_amzn2_redis_engine_version
-  redis_parameter_group_name     = var.gitlab_amzn2_redis_parameter_group_name
+  redis_engine_version           = var.gitlab_redis_engine_version
+  redis_parameter_group_name     = var.gitlab_redis_parameter_group_name
   redis_node_type                = var.gitlab_redis_node_type
   redis_maintenance_window       = var.gitlab_redis_maintenance_window
   redis_snapshot_window          = var.gitlab_redis_snapshot_window
   redis_snapshot_retention_limit = var.gitlab_redis_snapshot_retention_limit
-  redis_endpoint                 = var.gitlab_amzn2_redis_endpoint_address
+  redis_endpoint                 = var.gitlab_redis_endpoint_address
 
   default_tags = local.default_tags
 }
