@@ -6,10 +6,6 @@ output "security_group_name" {
   value = aws_security_group.main.name
 }
 
-output "launch_configuration_id" {
-  value = aws_launch_configuration.main.id
-}
-
 output "autoscaling_group_id" {
   value = aws_autoscaling_group.main.id
 }

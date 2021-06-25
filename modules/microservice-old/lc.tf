@@ -1,4 +1,4 @@
-resource "aws_launch_configuration" "main" {
+/*resource "aws_launch_configuration" "main" {
   name_prefix = format(
     "%s-%s-%s-%s-",
     var.project,
@@ -23,4 +23,4 @@ resource "aws_launch_configuration" "main" {
     create_before_destroy = true
   }
 }
-
+*/
