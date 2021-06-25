@@ -1,5 +1,5 @@
 module "gitlab-amzn2" {
-  source      = "../../modules/gitlab-amz2"
+  source      = "../../modules/gitlab"
   project     = var.project
   environment = var.environment
   component   = var.component
