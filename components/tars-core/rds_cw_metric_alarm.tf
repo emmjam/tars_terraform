@@ -10,11 +10,11 @@ resource "aws_cloudwatch_metric_alarm" "rds_cpuutilization_average" {
     DBInstanceIdentifier    = aws_db_instance.tarsdb.id
   }
 
-  period               = "60"
+  period               = "300"
   statistic            = "Average"
-  threshold            = "85"
+  threshold            = "90"
   unit                 = "Percent"
-  alarm_description    = "Alarm when the Average RDS CPU Utilization exceeds 85% for a period of 3 minutes."
+  alarm_description    = "Alarm when the Average RDS CPU Utilization exceeds 90% for a period of 5 minutes."
   actions_enabled      = var.rds_cw_metric_alarm_action_enabled
   alarm_actions        = [data.terraform_remote_state.base.outputs.sns_alerts_arn]
 }
