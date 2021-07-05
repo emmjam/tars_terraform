@@ -35,6 +35,7 @@ new_all_users = [
   "joseph.burgess@bjss.com",
   "matthew.bell@dvsa.gov.uk",
   "michael.tribbick@bjss.com",
+  "raman.kapoor@bjss.com",
   "michelle.pike@bjss.com",
   "mike.peachey@bjss.com",
   "prashant.kumar@bjss.com",
@@ -138,12 +139,14 @@ administrators_platform_users = [
  administrators_platform_nonprod_users = [
   "michelle.pike@bjss.com",
   "michael.tribbick@bjss.com",
+  "raman.kapoor@bjss.com",
   "nadeem.khan@bjss.com",
  ]
 readonly_platform_users = [
   "jamie.kelly@bjss.com",
   "michelle.pike@bjss.com",
   "michael.tribbick@bjss.com",
+  "raman.kapoor@bjss.com",
   "david.giles@bjss.com",
 ]
 
