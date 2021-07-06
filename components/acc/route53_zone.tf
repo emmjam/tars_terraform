@@ -5,4 +5,9 @@ resource "aws_route53_zone" "public_domain" {
   force_destroy = "false"
 }
 
-# TODO: import MX/TXT records
+resource "aws_route53_zone" "public_domain_acm" {
+  count         = var.public_domain_name_acm == "" ? "0" : "1"
+  name          = var.public_domain_name_acm
+  comment       = "The account level Public Hosted Zone used for ACM"
+  force_destroy = "false"
+}

@@ -4,15 +4,17 @@ account_environment = "nonprod"
 
 aws_account_id = "652856684323"
 
-private_domain_name = "tars.dvsa.aws"
 
 ###############################################################################
 # ACCOUNT
 ###############################################################################
 # aws_account_alias = "tarsnonprod"
 
-# public_domain_name = "dvsa.tars.dev-dvsacloud.uk"
+public_domain_name = "dvsa.tars.dev-dvsacloud.uk"
 
+public_domain_name_acm = "nonprod.tars.dev-dvsacloud.uk"
+
+private_domain_name = "tars.dvsa.aws"
 
 ###############################################################################
 # MGMT
@@ -429,7 +431,7 @@ squidnat_ami_build_id  = "928"
 
 ops_team_email = "TARSStabilisation@bjss.com"
 
-public_domain_name = "dvsa.tars.dev-dvsacloud.uk"
+
 
 # This is new. This is to start the long hike to having
 # one consistent domain name structure across the project.
