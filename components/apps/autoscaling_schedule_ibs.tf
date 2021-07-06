@@ -29,6 +29,6 @@ resource "aws_autoscaling_policy" "ibs" {
       predefined_metric_type = "ASGAverageCPUUtilization"
     }
 
-    target_value = 55.0
+    target_value = 60.0
   }
 }
