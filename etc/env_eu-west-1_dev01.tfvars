@@ -413,3 +413,24 @@ rds_cw_metric_freestoragespace_alarm_action_enabled = true
 
 ## Messaging
 wildfly_messaging_id = "release_202004"
+
+## Sizing
+wildfly-back_asg_max_size     = 1
+wildfly-back_scaleup_desired  = 1
+obs_asg_max_size              = 1
+obs_scaleup_desired           = 1
+ibs_asg_max_size              = 1
+ibs_scaleup_desired           = 1
+fyndi-f_asg_max_size          = 1
+fyndi-f_scaleup_desired       = 1
+fyndi-b_asg_max_size          = 1
+fyndi-b_scaleup_desired       = 1
+wildfly-front_asg_max_size    = 1
+wildfly-front_scaleup_desired = 1
+cpc-back_asg_max_size         = 1
+cpc-back_scaleup_desired      = 1
+cpc-front_asg_max_size        = 1
+cpc-front_scaleup_desired     = 1
+apache_asg_max_size           = 1
+apache_scaleup_desired        = 1
+
