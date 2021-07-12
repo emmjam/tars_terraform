@@ -78,6 +78,7 @@ new_all_users = [
   "elaine.patrick@dvsa.gov.uk",
   "peter.ancrum@dvsa.gov.uk",
   "helen.tiller@dvsa.gov.uk",
+  "raj.bharaj@bjss.com",
 ]
 
 # TSSOps Access
@@ -125,6 +126,7 @@ readonly_tssops_users = [
   "mike.peachey@bjss.com",
   "pete.mallam@bjss.com",
   "darren.rathbone@bjss.com",
+  "raj.bharaj@bjss.com",
 ]
 
 # TARS Platform Access
