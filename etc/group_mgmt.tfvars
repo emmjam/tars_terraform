@@ -60,7 +60,6 @@ new_all_users = [
   "daren.fang@bjss.com",
   "ryu.sasai@bjss.com",
   "nikolaj.bilgrau@bjss.com",
-  "gregory.peters@bjss.com",
   "darren.rathbone@bjss.com",
   "loman.hussain@bjss.com",
   "rhona.ruggeri@dvsa.gov.uk",
@@ -99,7 +98,6 @@ administrators_tssops_users = [
   "nadeem.khan@bjss.com",
   "jessica.ferguson@bjss.com",
   "pete.mallam@bjss.com",
-  "gregory.peters@bjss.com",
   "ismahil.khan@bjss.com",
   "darren.rathbone@bjss.com",
 ]
@@ -126,7 +124,6 @@ readonly_tssops_users = [
   "jessica.ferguson@bjss.com",
   "mike.peachey@bjss.com",
   "pete.mallam@bjss.com",
-  "gregory.peters@bjss.com",
   "darren.rathbone@bjss.com",
 ]
 
