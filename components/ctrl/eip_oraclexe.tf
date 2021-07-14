@@ -1,4 +1,5 @@
 resource "aws_eip" "oraclexe" {
-   instance = aws_instance.oraclexe.id
+   count = var.account_environment != "mgmt" ? 1 : 0
+   instance = aws_instance.oraclexe[count.index].id
    vpc   = true
 }

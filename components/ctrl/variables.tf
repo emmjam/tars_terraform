@@ -401,24 +401,29 @@ variable "account_environment" {
 variable "xe_ami_name" {
   type = string
   description = "OracleXE AMI"
+  default     = ""
 }
 
 variable "oraclexe_asg_min_size" {
   type        = string
   description = ""
+  default     = ""
 }
 
 variable "oraclexe_asg_max_size" {
   type        = string
   description = ""
+  default     = ""
 }
 
 variable "oraclexe_scaleup_desired" {
   type        = string
   description = ""
+  default     = ""
 }
 
 variable "oraclexe_subnets_cidrs" {
    type       = list(string)
+   default    = []
 }
 

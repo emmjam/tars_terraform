@@ -87,13 +87,14 @@ resource "aws_route53_record" "grafana" {
 
 # Create the R53 record for the XE box
 resource "aws_route53_record" "oraclexe" {
+  count = var.account_environment != "mgmt" ? 1 : 0
   name    = "oraclexe"
   type    = "A"
   zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
   ttl     = "600"
 
   records = [
-    aws_instance.oraclexe.private_ip,
+    aws_instance.oraclexe[count.index].private_ip,
   ]
 }
 
