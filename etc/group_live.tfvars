@@ -262,6 +262,12 @@ jmeter_asg_size_min               = 0
 
 ## XE
 xe_ami_name = "OracleXE-100119"
+oraclexe_asg_min_size         = 0
+oraclexe_asg_max_size         = 1
+oraclexe_scaledown_desired    = 0
+oraclexe_scaledown_recurrence = "00 19 * * 1-5"
+oraclexe_scaleup_desired      = 1
+oraclexe_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## SFTP
 sftpplus_svr_id = "472"
@@ -299,6 +305,11 @@ vpc_endpoint_subnets_cidrs = [
   "10.167.57.32/28",
 ]
 
+oraclexe_subnets_cidrs = [
+  "10.167.58.0/28",
+  "10.167.58.16/28",
+  "10.167.58.32/28",
+]
 
 payments_whitelist = [
   "135.196.73.204/32",  # DVSA Notts
