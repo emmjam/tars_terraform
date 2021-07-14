@@ -19,9 +19,8 @@ resource "aws_s3_bucket" "rsisbucket_tiff_repo" {
     enabled = "true"
     
     expiration {
-      days = "0"
+      days = 1825
     }
-
   }
 
   tags = merge(
