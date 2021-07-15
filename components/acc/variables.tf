@@ -89,6 +89,12 @@ variable "public_domain_name_acm" {
   default     = ""
 }
 
+variable "public_domain_name_root" {
+  type        = string
+  description = "The root level domain name for the Public Hosted Zone, if undefined, no zone will be created"
+  default     = ""
+}
+
 variable "subdomains_name_servers" {
   type        = map(string)
   description = "Map of accounts with NS records in a form: '<record_name> = <comma seperated list of NS addresses>'"
