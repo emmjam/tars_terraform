@@ -81,7 +81,7 @@ grafana_scaleup_recurrence   = "00 07 * * 1-5"
 ## jenkinsctrl
 jenkins_worker_image             = "645711882182.dkr.ecr.eu-west-1.amazonaws.com/tars/run/jenkinsci:1.0.0"
 jenkinsctrl_instance_type        = "m5a.large"
-jenkinsctrl_ami_build_id         = "1147"
+jenkinsctrl_ami_build_id         = "1150"
 jenkinsctrl_executors            = 20
 jenkinsctrl_asg_min_size         = 0
 jenkinsctrl_asg_max_size         = 3
