@@ -14,7 +14,7 @@ data "aws_ami" "wildfly-batch" {
       format(
         "%s-%s-%s/%s",
         var.project,
-        "rhel",
+        "amzn2",
         "tars-batch",
         var.tars_ami_id,
       )
