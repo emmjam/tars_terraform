@@ -78,7 +78,7 @@ data "aws_ami" "jmeter" {
       format(
         "%s-%s-%s/%s",
         var.project,
-        "amzn",
+        "amzn2",
         "jmeter",
         var.jmeter_ami_build_id,
       )
