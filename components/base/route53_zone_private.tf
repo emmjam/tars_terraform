@@ -1,7 +1,7 @@
 # Create the private R53 zone for the tars apps
 # Keep it generic so it's the same across all VPC's/envs
 resource "aws_route53_zone" "vpc" {
-  name    = local.vpc_domain_name
+  name    = local.vpc_domain_name_aws
   comment = "Private ${var.component} ${var.environment} ${var.private_domain_name_aws} hosted zone"
 
   vpc {
