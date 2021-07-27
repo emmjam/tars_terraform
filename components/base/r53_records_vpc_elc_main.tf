@@ -10,3 +10,15 @@ resource "aws_route53_record" "elc-main-CNAME" {
   ]
 }
 
+# Record 'name' left as "-web" for backwards compatability.
+#dvsa-cloud private domain
+resource "aws_route53_record" "elc-main-CNAME-private" {
+  zone_id = aws_route53_zone.vpc_private.zone_id
+  name    = "elasticache.cfg.main"
+  type    = "CNAME"
+  ttl     = "30"
+
+  records = [
+    aws_elasticache_cluster.ec.cluster_address,
+  ]
+}
