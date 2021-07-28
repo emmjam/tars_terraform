@@ -234,9 +234,3 @@ variable "r53_record_name" {
   description = "The name of the R53 alias record"
   default     = "jenkins"
 }
-
-variable "ebs_snapshot_id" {
-  type        = string
-  description = "The ID of a EBS snapshot"
-}
-

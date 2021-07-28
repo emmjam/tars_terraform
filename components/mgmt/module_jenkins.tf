@@ -28,7 +28,6 @@ module "jenkins" {
 
   ebs_volume_type = var.jenkins_ebs_volume_type
   ebs_volume_size = var.jenkins_ebs_volume_size
-  ebs_snapshot_id = var.jenkins_ebs_snapshot_id
 
   jenkins_blue_nodes_number = var.jenkins_blue_nodes_number
   jenkins_blue_version      = var.jenkins_blue_version

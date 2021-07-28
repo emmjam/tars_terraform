@@ -551,11 +551,6 @@ variable "jenkins_ebs_volume_type" {
   description = ""
 }
 
-variable "jenkins_ebs_snapshot_id" {
-  type        = string
-  description = ""
-}
-
 variable "jenkins_instance_type" {
   type        = string
   description = ""
