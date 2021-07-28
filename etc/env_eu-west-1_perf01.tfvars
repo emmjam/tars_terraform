@@ -317,7 +317,7 @@ ad_account = "233824316563"
 
 # TARSDB
 tars_rds_username = "tarsuatadmin"
-tars_rds_allocated_storage = "500"
+tars_rds_allocated_storage = "610"
 tars_rds_snapshot = "tars-perf01-tars-core-tarsdb-2019-01-28-12-2"
 
 # CPCSDB

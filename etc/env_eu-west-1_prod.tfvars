@@ -369,7 +369,7 @@ rhel_spot_pricing = {
 
 # TARSDB
 tars_rds_username = "tarsadmin"
-tars_rds_allocated_storage = "550"
+tars_rds_allocated_storage = "610"
 tars_rds_snapshot = ""
 
 # MISDB
