@@ -297,7 +297,6 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 tars_rds_username = "tarsuatadmin"
 tars_rds_allocated_storage = "300"
 tars_rds_snapshot = ""
-tars_rds_autoscale = "False"
 
 # CPCSDB
 cpc_rds_username = "cpcadmin"

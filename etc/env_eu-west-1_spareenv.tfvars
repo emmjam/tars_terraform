@@ -441,7 +441,6 @@ tars_rds_backup_window = "02:38-03:08"
 tars_rds_maint_window = "sun:03:16-sun:03:46"
 tars_rds_skip_final_snapshot = true
 tars_rds_apply_immediately = "true"
-tars_rds_autoscale = "True"
 
 ## wildfly-mock
 wildfly-mock_instance_type  = "t2.medium"
