@@ -76,7 +76,7 @@ output "vpc_id" {
 }
 
 output "private_zone_id" {
-  value = aws_route53_zone.vpc_private.zone_id
+  value = aws_route53_zone.vpc.zone_id
 }
 
 output "public_route_table_id" {
