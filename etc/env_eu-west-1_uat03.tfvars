@@ -357,7 +357,8 @@ domain_name_servers = [
   "10.166.0.43",
 ]
 
-private_cert_domain_name = "dvsa.tars.dev-dvsacloud.uk"
+# private_cert_domain_name = "dvsa.tars.dev-dvsacloud.uk"
+private_cert_domain_name = "nonprod.tars.dev-dvsacloud.uk"
 
 # Temporary allocation -
 # To be removed when overall range is increased
