@@ -288,8 +288,9 @@ oraclexe_scaleup_recurrence   = "00 04 * * 1-5"
 ## Mock
 mock_ami_build_id = "7fc038b6/230"
 
+
 ## SFTP
-sftpplus_svr_id = "576"
+sftpplus_svr_id = "1258"
 
 bastion_elb_subnets_cidrs = [
   "10.167.60.64/28",
