@@ -7,7 +7,7 @@ data "cloudinit_config" "wildfly-front" {
     content      = templatefile("${path.module}/templates/cloudinit_common.yaml.tmpl", 
       {
         NODETYPE    = "tars-front"
-        DOMAIN_NAME = local.vpc_domain_name
+        DOMAIN_NAME = local.trunc_domain_name
       })
   }
 
