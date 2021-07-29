@@ -7,7 +7,7 @@ data "cloudinit_config" "apache" {
     content      = templatefile("${path.module}/templates/cloudinit_common.yaml.tmpl", 
       {
         NODETYPE    = "apache-routing"
-        DOMAIN_NAME = local.vpc_domain_name
+        DOMAIN_NAME = local.trunc_domain_name
       })
   }
 
