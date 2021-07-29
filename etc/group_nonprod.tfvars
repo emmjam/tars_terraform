@@ -20,6 +20,8 @@ private_domain_name_aws = "tars.dvsa.aws"
 
 private_domain_name = "nonprod.tars.dev-dvsacloud.uk"
 
+domain_name = "tars.dev-dvsacloud.uk"
+
 ###############################################################################
 # MGMT
 ###############################################################################
