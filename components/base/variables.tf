@@ -707,3 +707,8 @@ variable "print_queue_cw_metric_alarm_enabled" {
   type = string
   description = "Enable or disable print queue CloudWatch Metrics Alarm"
 }
+
+variable "vol_vpc" {
+  type = string
+  description = "VOL VPC for BIND"
+}
