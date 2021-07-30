@@ -22,6 +22,8 @@ private_domain_name = "nonprod.tars.dev-dvsacloud.uk"
 
 domain_name = "tars.dev-dvsacloud.uk"
 
+vol_vpc = "vpc- b22fa1d7"
+
 ###############################################################################
 # MGMT
 ###############################################################################
