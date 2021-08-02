@@ -465,7 +465,6 @@ cpc_rds_instance_class = "db.t3.medium"
 
 #Monitoring
 prometheus_asg_min_size = 0
-prometheus_asg_max_size = 1
 prometheus_instance_type = "m3.medium"
 
 ## wildfly-back
