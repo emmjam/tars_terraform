@@ -1,6 +1,7 @@
 # The default AWS provider in the default region
 provider "aws" {
   region = "${var.region}"
+  version = "3.50.0"
 
   # For no reason other than redundant safety
   # we only allow the use of the AWS Account

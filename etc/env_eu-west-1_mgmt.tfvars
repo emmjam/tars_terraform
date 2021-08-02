@@ -357,7 +357,7 @@ gitlab_db_subnets_cidrs = [
   "10.200.5.64/28",
 ]
 
-gitlab_redis_engine_version     = "6.0.5"
+gitlab_redis_engine_version     = "6.x"
 
 gitlab_redis_parameter_group_name     = "default.redis6.x"
 gitlab_redis_node_type                = "cache.m3.medium"
