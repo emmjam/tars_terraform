@@ -59,6 +59,11 @@ variable "private_domain_name" {
   description = "R53 Private Domain Name"
 }
 
+variable "private_domain_name_aws" {
+  type        = string
+  description = "R53 Private Domain Name"
+}
+
 variable "spot_pricing" {
   type        = map(string)
   description = "A map containing the the spot instance price (USD) for each instance type"

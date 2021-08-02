@@ -6,6 +6,8 @@ aws_account_id = "246976497890"
 
 private_domain_name = "tars.dvsa.aws"
 
+private_domain_name_aws = "live.tars.dvsacloud.uk"
+
 default_tags = {
   Group = "live"
 }
