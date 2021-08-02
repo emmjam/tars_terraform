@@ -16,6 +16,8 @@ public_domain_name_acm = "nonprod.tars.dev-dvsacloud.uk"
 
 private_domain_name = "tars.dvsa.aws"
 
+private_domain_name_aws = "nonprod.tars.dev-dvsacloud.uk"
+
 ###############################################################################
 # MGMT
 ###############################################################################
