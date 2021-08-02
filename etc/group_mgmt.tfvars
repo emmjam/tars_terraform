@@ -32,7 +32,6 @@ new_all_users = [
   "isaac.phillip@bjss.com",
   "john.morley@bjss.com",
   "john.reynolds@bjss.com",
-  "joseph.burgess@bjss.com",
   "matthew.bell@dvsa.gov.uk",
   "michael.tribbick@bjss.com",
   "raman.kapoor@bjss.com",
@@ -152,7 +151,6 @@ readonly_platform_users = [
 readonly_developer_users = [
   "david.woodley@bjss.com",
   "hamzaan.bridle@bjss.com",
-  "joseph.burgess@bjss.com",
   "richard.freitas@bjss.com",
   "john.morley@bjss.com",
   "thomas.webb@bjss.com",
