@@ -391,3 +391,5 @@ cpc-front_scaleup_desired     = 1
 apache_asg_max_size           = 1
 apache_scaleup_desired        = 1
 
+#Turn off Prometheus
+prometheus_asg_max_size       = 0

@@ -373,3 +373,6 @@ sftp_cpuutilization_cw_metric_alarm_action_enabled = true
 # Enable action for tars-core CPU CloudWatch Alarm
 tars_core_cpuutilization_cw_metric_alarm_enabled = true
 tars_core_cpuutilization_cw_metric_alarm_action_enabled = true
+
+#Turn off Prometheus
+prometheus_asg_max_size       = 0
