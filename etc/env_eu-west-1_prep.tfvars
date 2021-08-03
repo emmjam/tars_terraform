@@ -529,4 +529,3 @@ ibs_high_cpu_cw_metric_alarm_enabled = false
 
 #Turn off Prometheus
 prometheus_asg_max_size       = 0
-prometheus_asg_min_size       = 0
