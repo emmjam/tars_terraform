@@ -8,7 +8,7 @@ data "aws_iam_policy_document" "cloudability" {
     ]
 
     resources = [
-      "${aws_iam_role.cloudabilityRole.arn}"
+      aws_iam_role.cloudabilityRole.arn
       ]
   }
   statement {

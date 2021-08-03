@@ -1,7 +1,7 @@
 resource "aws_dlm_lifecycle_policy" "tars_messaging_dlm" {
   count              = contains(var.ebs_backup_env, var.environment) ? 1 : 0
   description        = "${var.environment}-${var.component}-DLM lifecycle policy"
-  execution_role_arn = "${data.terraform_remote_state.acc.outputs.tars_dlm_lifecycle_role_arn}"
+  execution_role_arn = data.terraform_remote_state.acc.outputs.tars_dlm_lifecycle_role_arn
   state              = "${var.dlm_state}"
 
   policy_details {
