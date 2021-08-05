@@ -5,6 +5,13 @@ resource "aws_route53_zone" "public_domain" {
   force_destroy = "false"
 }
 
+resource "aws_route53_zone" "public_domain" {
+  count         = var.public_domain_name == "" ? "0" : "1"
+  name          = var.public_domain_name
+  comment       = "The account level Private Hosted Zone"
+  force_destroy = "false"
+}
+
 resource "aws_route53_zone" "public_domain_root" {
   count         = var.public_domain_name_root == "" ? "0" : "1"
   name          = var.public_domain_name_root
