@@ -22,8 +22,6 @@ private_domain_name = "nonprod.tars.dev-dvsacloud.uk"
 
 domain_name = "tars.dev-dvsacloud.uk"
 
-vol_vpc = "vpc-b22fa1d7"
-
 ###############################################################################
 # MGMT
 ###############################################################################
@@ -82,7 +80,7 @@ aws_autoscaling_enabled = "0"
 prometheus_asg_min_size           = 0
 prometheus_asg_max_size           = 1
 prometheus_instance_type          = "m3.medium"
-prometheus_ami_build_id           = "1133"
+prometheus_ami_build_id           = "1180"
 prometheus_efs_provisioned_mibps  = 1
 
 ## jenkins
@@ -240,7 +238,7 @@ apache_scaledown_desired     = 0
 apache_scaledown_recurrence  = "00 19 * * 1-5"
 apache_scaleup_desired       = 2
 apache_scaleup_recurrence    = "00 04 * * 1-5"
-apache_ami_build_id          = "872"
+apache_ami_build_id          = "1181"
 
 ## AWS MQ
 aws_mq_engine_type             = "ActiveMQ"
