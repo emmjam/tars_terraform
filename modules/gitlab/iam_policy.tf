@@ -34,3 +34,7 @@ resource "aws_iam_policy_attachment" "gitlab" {
   policy_arn = aws_iam_policy.gitlab.arn
 }
 
+resource "aws_iam_role_policy_attachment" "aws_ssm_managed_instance_core" {
+  role       = module.gitlab.iam_role_name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+}
