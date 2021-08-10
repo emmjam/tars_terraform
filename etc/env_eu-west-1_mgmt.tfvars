@@ -229,7 +229,7 @@ natgw_subnets_cidr = [
 # TODO: smarts: Move AMI IDs to versions file
 ## bastion
 bastion_instance_type        = "t2.micro"
-bastion_ami_build_id         = "1176"
+bastion_ami_build_id         = "1190"
 bastion_asg_min_size         = 0
 bastion_asg_max_size         = 3
 bastion_scaledown_desired    = 1
