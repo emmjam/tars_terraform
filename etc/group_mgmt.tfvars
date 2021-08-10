@@ -77,6 +77,7 @@ new_all_users = [
   "peter.ancrum@dvsa.gov.uk",
   "helen.tiller@dvsa.gov.uk",
   "raj.bharaj@bjss.com",
+  "robert.game@bjss.com",
 ]
 
 # TSSOps Access
@@ -99,6 +100,7 @@ administrators_tssops_users = [
   "pete.mallam@bjss.com",
   "ismahil.khan@bjss.com",
   "darren.rathbone@bjss.com",
+  "robert.game@bjss.com",
 ]
 
 readonly_tssops_users = [
