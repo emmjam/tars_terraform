@@ -14,12 +14,12 @@ resource "aws_route53_record" "obs-front" {
 
 resource "aws_route53_record" "obs-front_priv" {
   name    = format("%s-%s-%s", "obs", var.environment, "public")
-  zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
+  zone_id = data.terraform_remote_state.ctrl.outputs.private_r53_zone
   type    = "A"
 
   alias {
     name                   = data.terraform_remote_state.tars-core.outputs.tars-apache-dns-name
-    zone_id                = data.terraform_remote_state.ctrl.outputs.private_r53_zone
+    zone_id                = data.terraform_remote_state.tars-core.outputs.tars-apache-dns-zone-id
     evaluate_target_health = true
   }
 }
