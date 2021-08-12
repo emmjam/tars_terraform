@@ -14,7 +14,7 @@ resource "aws_route53_zone" "ctrl" {
 }
 
 resource "aws_route53_zone" "private_domain" {
-  count         = var.public_domain_name == "" ? "0" : "1"
+  count   = var.aws_account_id == "652856684323" ? 1 : 0
   name          = var.public_domain_name
   comment = "Private ${var.component} ${var.public_domain_name} hosted zone"
   vpc {
