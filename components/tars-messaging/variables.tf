@@ -61,6 +61,16 @@ variable "private_domain_name" {
   description = "TARS VPC private R53 domain name"
 }
 
+variable "tars_private_cert" {
+  type        = string
+  description = "R53 private domain for TARS"
+}
+
+variable "private_cert_domain_name" {
+  type        = string
+  description = "R53 private domain for TARS"
+}
+
 variable "asg_termination_policies" {
   type        = list(string)
   description = "A list of policies to decide how the instances in the auto scale group should be terminated"
