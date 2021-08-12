@@ -14,7 +14,7 @@ resource "aws_route53_record" "ibs-front" {
 
 resource "aws_route53_record" "ibs-front_priv" {
   name    = format("%s-%s-%s", "ibs", var.environment, "public")
-  zone_id = data.terraform_remote_state.ctrl.outputs.private_r53_zone
+  zone_id = data.terraform_remote_state.ctrl.outputs.private_r53_zone[0]
   type    = "A"
 
   alias {
