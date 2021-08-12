@@ -550,7 +550,7 @@ rsis_rds_sid_name = "RSISDB"
 # CPCDB
 cpc_rds_storage_type = "gp2"
 cpc_rds_engine = "oracle-se2"
-cpc_rds_engine_version = "12.2.0.1.ru-2021-01.rur-2021-01.r1"
+cpc_rds_engine_version = "12.2.0.1.ru-2021-04.rur-2021-04.r1"
 cpc_rds_parameter_group_name = "cpcdb-12-2"
 cpc_rds_option_group_name = "option-group-12-2"
 cpc_rds_instance_class = "db.t3.medium" # was "db.m4.4xlarge"
