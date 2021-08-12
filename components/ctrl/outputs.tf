@@ -74,3 +74,6 @@ output "tars_acct_bucketlogs" {
   value = aws_s3_bucket.acc-bucketlogs.id
 }
 
+output "private_r53_zone" {
+value = aws_route53_zone.private_domain'id
+}
