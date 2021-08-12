@@ -12,6 +12,19 @@ resource "aws_route53_record" "ibs-front" {
   }
 }
 
+resource "aws_route53_record" "ibs-front_private" {
+  count   = var.account_environment == "nonprod" ? 1 : 0
+  name    = format("%s-%s-%s", "ibs", var.environment, "public")
+  zone_id = data.terraform_remote_state.ctrl.outputs.private_r53_zone[0]
+  type    = "A"
+
+  alias {
+    name                   = aws_alb.apps.dns_name
+    zone_id                = aws_alb.apps.zone_id
+    evaluate_target_health = true
+  }
+}
+
 resource "aws_route53_record" "incapsula-ibs-frontend" {
   count   = var.environment == "uat02" ? 1 : 0
   name    = format("%s-%s-%s", "incapsula-ibs", var.environment, "public")
@@ -21,7 +34,5 @@ resource "aws_route53_record" "incapsula-ibs-frontend" {
 
   ttl = 300
 
-  records = ["p9vg8tj.x.incapdns.net"]
- 
+  records = ["p9vg8tj.x.incapdns.net"] 
 }
-

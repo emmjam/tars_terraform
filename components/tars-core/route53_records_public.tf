@@ -12,6 +12,21 @@ resource "aws_route53_record" "tars-core-public" {
   }
 }
 
+
+resource "aws_route53_record" "tars-dvsa-private" {
+  count   = var.account_environment == "nonprod" ? 1 : 0
+  name = format("%s-%s-%s", var.project, var.environment, "public")
+  zone_id = data.terraform_remote_state.ctrl.outputs.private_r53_zone[0]
+  type    = "A"
+
+  alias {
+    name                   = aws_alb.tars-dvsa-public.dns_name
+    zone_id                = aws_alb.tars-dvsa-public.zone_id
+    evaluate_target_health = true
+  }
+}
+
+
 resource "aws_route53_record" "tars-core-private" {
   name = format("%s-%s-%s", var.project, var.environment, "private")
 
@@ -52,12 +67,38 @@ resource "aws_route53_record" "irdt-public" {
   }
 }
 
+resource "aws_route53_record" "irdt-private" {
+  count   = var.account_environment == "nonprod" ? 1 : 0
+  name = format("%s-%s-%s", "irdt", var.environment, "public")
+  zone_id = data.terraform_remote_state.ctrl.outputs.private_r53_zone[0]
+  type    = "A"
+
+  alias {
+    name                   = aws_alb.apache_public.dns_name
+    zone_id                = aws_alb.apache_public.zone_id
+    evaluate_target_health = true
+  }
+}
+
 #Create R53 record for payments ALB
 
 resource "aws_route53_record" "payments-public" {
   name = format("%s-%s-%s", "payments", var.environment, "public")
 
   zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
+  type    = "A"
+
+  alias {
+    name                   = aws_alb.tars-alb-backend-payments.dns_name
+    zone_id                = aws_alb.tars-alb-backend-payments.zone_id
+    evaluate_target_health = true
+  }
+}
+
+resource "aws_route53_record" "payments-private" {
+  count   = var.account_environment == "nonprod" ? 1 : 0
+  name = format("%s-%s-%s", "payments", var.environment, "public")
+  zone_id = data.terraform_remote_state.ctrl.outputs.private_r53_zone[0]
   type    = "A"
 
   alias {
@@ -80,5 +121,3 @@ resource "aws_route53_record" "incapsula-frontend" {
   records = ["wahy2a6.x.incapdns.net"]
 
 }
-
-
