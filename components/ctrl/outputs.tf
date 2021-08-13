@@ -75,5 +75,5 @@ output "tars_acct_bucketlogs" {
 }
 
 output "private_r53_zone" {
-value = aws_route53_zone.private_domain.*.id
+value = aws_route53_zone.private_domain.id
 }
