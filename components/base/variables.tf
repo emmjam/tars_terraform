@@ -707,3 +707,9 @@ variable "print_queue_cw_metric_alarm_enabled" {
   type = string
   description = "Enable or disable print queue CloudWatch Metrics Alarm"
 }
+
+variable "vpc_endpoint_subnets_cidrs" {
+  type        = list(string)
+  description = "TARS VPC endpoint Subnet CIDR's"
+  default     = []
+}

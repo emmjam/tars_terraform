@@ -43,6 +43,11 @@ asg_default_tags = [
 # The VPC CIDR Block for this environment
 vpc_cidr = "10.167.0.0/21"
 
+## endpoint cidr
+vpc_endpoint_subnets_cidrs = [
+  "10.167.5.160/28",
+]
+
 ## alb public
 alb_public_subnets_cidrs = [
   "10.167.0.0/27",

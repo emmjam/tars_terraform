@@ -9,7 +9,7 @@ resource "aws_vpc_endpoint" "logs" {
   vpc_endpoint_type = "Interface"
 
   security_group_ids  = list(aws_security_group.vpc_endpoints.id)
-  subnet_ids          = module.tars_alb_internal.subnet_ids
+  subnet_ids          = module.vpc_endpoint_subnets.subnet_ids
   private_dns_enabled = "true"
   tags                = local.default_tags
 }
@@ -25,7 +25,7 @@ resource "aws_vpc_endpoint" "ecr_dkr" {
   vpc_endpoint_type = "Interface"
 
   security_group_ids  = list(aws_security_group.vpc_endpoints.id)
-  subnet_ids          = module.tars_alb_internal.subnet_ids
+  subnet_ids          = module.vpc_endpoint_subnets.subnet_ids
   private_dns_enabled = "true"
   tags                = local.default_tags
 }
@@ -41,7 +41,7 @@ resource "aws_vpc_endpoint" "ecr_api" {
   vpc_endpoint_type = "Interface"
 
   security_group_ids  = list(aws_security_group.vpc_endpoints.id)
-  subnet_ids          = module.tars_alb_internal.subnet_ids
+  subnet_ids          = module.vpc_endpoint_subnets.subnet_ids
   private_dns_enabled = "true"
   tags                = local.default_tags
 }
@@ -52,7 +52,7 @@ resource "aws_vpc_endpoint" "ssm" {
   vpc_endpoint_type = "Interface"
 
   security_group_ids  = [aws_security_group.vpc_endpoints.id]
-  subnet_ids          = module.tars_alb_internal.subnet_ids
+  subnet_ids          = module.vpc_endpoint_subnets.subnet_ids
   private_dns_enabled = "true"
   tags                = local.default_tags
 }
@@ -67,7 +67,7 @@ resource "aws_vpc_endpoint" "monitoring" {
   vpc_endpoint_type = "Interface"
 
   security_group_ids  = [aws_security_group.vpc_endpoints.id]
-  subnet_ids          = module.tars_alb_internal.subnet_ids
+  subnet_ids          = module.vpc_endpoint_subnets.subnet_ids
   private_dns_enabled = "true"
   tags                = local.default_tags
 }
