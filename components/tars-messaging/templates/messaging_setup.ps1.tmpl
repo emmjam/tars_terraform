@@ -114,51 +114,9 @@ if (-Not (Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain) {
   Write-Log-Entry "Stage 1 - Join Domain skipped" "INFO"
 }
 
-# Stage 2 - Install ePO, only if we joined the domain
-if (-Not (Get-ItemProperty -Path $regPath -Name "ePO" -ErrorAction SilentlyContinue) -and ((Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain)) {
-  Write-Log-Entry "Stage 2 - Install EPO" "INFO"
-  # Install ePO agent by copying locally and running
-  try {
-  $sourceDirectory  = "\\dvsa-app38\EPO5Repository\Current\EPOAGENT3000\Install\*"
-  $destinationDirectory = "E:\McAfee\EPOAGENT3000\"
-  Copy-item -Force -Recurse -Verbose $sourceDirectory -Destination $destinationDirectory -ErrorAction SilentlyContinue | out-null
-  Start-Process -FilePath 'E:\McAfee\EPOAGENT3000\FramePkg.exe' -ArgumentList '/install=agent /silent' -Wait
-  Write-Log-Entry "Stage 2 - Installed EPO OK" "INFO"
-  # Add a reg key to show we installed ok
-  New-ItemProperty -Path $regPath -Name "ePO" -PropertyType "DWORD" -Value 1 | Out-Null 
-  }
-  catch {
-          Write-Warning "Error with ePO Agent install"
-          Continue
-  }
-} else {
-  Write-Log-Entry "Stage 2 - Install ePO skipped" "INFO"
-}
-
-# Stage 3 - Install AV, only if we joined the domain
-if (-Not (Get-ItemProperty -Path $regPath -Name "AV" -ErrorAction SilentlyContinue) -and ((Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain)) {
-  Write-Log-Entry "Stage 3 - Install AV" "INFO"
-  # Install McAFee AV by copying locally and running
-  try {
-  $sourceDirectory  = "\\dvsa-app38\EPO5Repository\Evaluation\VIRUSCAN8800\Install\*"
-  $destinationDirectory = "E:\McAfee\VIRUSCAN8800\"
-  Copy-item -Force -Recurse -Verbose $sourceDirectory -Destination $destinationDirectory -ErrorAction SilentlyContinue | out-null
-  Start-Process -FilePath 'E:\McAFee\VIRUSCAN8800\setupvse.exe' -ArgumentList '/qn' -Wait
-  Write-Log-Entry "Stage 3 - Installed AV OK" "INFO"
-  # Add a reg key to show we installed ok
-  New-ItemProperty -Path $regPath -Name "AV" -PropertyType "DWORD" -Value 1  | Out-Null 
-  }
-  catch {
-          Write-Warning "Error with McAfee AV install"
-          Continue
-  }
-} else {
-  Write-Log-Entry "Stage 3 - Install AV skipped" "INFO"
-}
-
-# Stage 4 - Install OMS agent, only if we joined the domain
+# Stage 2 - Install OMS agent, only if we joined the domain
 if (-Not (Get-ItemProperty -Path $regPath -Name "OMS" -ErrorAction SilentlyContinue) -and ((Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain)) {
-  Write-Log-Entry "Stage 4 - Install OMS agent" "INFO"
+  Write-Log-Entry "Stage 2 - Install OMS agent" "INFO"
   # Install OMS agent by copying locally and running
   try {
   $destinationDirectory = "E:\MMASetup-AMD64.exe"
@@ -182,4 +140,91 @@ if (-Not (Get-ItemProperty -Path $regPath -Name "OMS" -ErrorAction SilentlyConti
   Write-Log-Entry "Stage 4 - Install OMS agent skipped" "INFO"
 }
 
+# Stage 1 - Join the domain
+if (-Not (Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain) {
+  Write-Log-Entry "Stage 1 - Join Domain" "INFO"
+  #Retrieve the AWS instance ID, keep trying until the metadata is available
+  $instanceID = "null"
+  while ($instanceID -NotLike "i-*") {
+    Start-Sleep -s 3
+    $instanceID = invoke-restmethod -uri http://169.254.169.254/latest/meta-data/instance-id
+  }
+
+  $dnsIp = Get-DnsClientServerAddress | Select-Object –ExpandProperty ServerAddresses -Unique -First 1
+  Write-Log-Entry "Stage 1 - DNS IP before $${dnsIp}" "INFO"
+
+  #Set DNS servers
+  $dnslist = (Get-SSMParameterValue -Name AD-DNS-List).Parameters[0].Value
+  Write-Log-Entry "Stage 1 - DNS list $${dnslist}" "INFO"
+  Get-NetAdapter | Set-DnsClientServerAddress -ServerAddresses $dnslist
+
+  $dnsIp = Get-DnsClientServerAddress | Select-Object –ExpandProperty ServerAddresses -Unique -First 1
+  Write-Log-Entry "Stage 1 - DNS IP after $${dnsIp}" "INFO"
+
+  #Set DNS Search suffix
+  Set-DnsClientGlobalSetting -SuffixSearchList @("${SEARCH_SUFFIX}","dsa.gsi.gov.uk","eu-west-1.ec2-utilities.amazonaws.com","us-east-1.ec2-utilities.amazonaws.com","eu-west-1.compute.internal")
+
+  # Get Domain and OU information that stored in the ssm parameter store
+  $DomainName = (Get-SSMParameterValue -Name AD-domainName).Parameters[0].Value
+  $BaseOU = (Get-SSMParameterValue -Name AD-Base-OU).Parameters[0].Value
+
+  # Get AD credentials that are stored in the ssm parameter store
+  $username = $DomainName + "\" + (Get-SSMParameterValue -Name AD-domainJoinUserName).Parameters[0].Value
+  $password = (Get-SSMParameterValue -Name AD-domainpassword -WithDecryption $True).Parameters[0].Value |
+                  ConvertTo-SecureString -asPlainText -Force
+
+  # Create PS credential from previously pulling in the credentials from the ssm parameter store
+  $cred = New-Object System.Management.Automation.PSCredential($username,$password)
+
+  Try {
+      #Join-Machine to AD Domain
+      Add-Computer -Domain $DomainName -Credential $cred -OUPath $BaseOU  -ErrorAction 'Stop' -Options "JoinWithNewName, AccountCreate"
+
+      Write-Verbose -Message "Succesfully joined domain."
+      Write-Log-Entry "Stage 1 - Re-run userdata" "INFO"
+      C:\ProgramData\Amazon\EC2-Windows\Launch\Scripts\InitializeInstance.ps1 -Schedule
+
+      Write-Log-Entry "Stage 1 - Reboot" "INFO"
+
+      Restart-Computer
+  }
+
+  Catch{
+      Write-Host $_.Exception | Out-File c:\error-joindomain.txt -Append
+      Write-Log-Entry "Stage 1 - Join Domain failed using R53 DNS" "INFO"
+      # Update the DNS IP so that it reverts back to R53
+      $macAddress = invoke-restmethod -uri http://169.254.169.254/latest/meta-data/network/interfaces/macs
+      $cidrBlock = invoke-restmethod -uri http://169.254.169.254/latest/meta-data/network/interfaces/macs/$macAddress/vpc-ipv4-cidr-blocks
+      $dnsIP = $cidrBlock.Substring(0,$cidrBlock.Length-3) -replace(".\d{1,2}$",".2")
+      Get-NetAdapter | Set-DnsClientServerAddress -ServerAddresses $dnsIP
+  }
+} else {
+  Write-Log-Entry "Stage 1 - Join Domain skipped" "INFO"
+}
+
+# Stage 2 - Install OMS agent, only if we joined the domain
+if (-Not (Get-ItemProperty -Path $regPath -Name "OMS" -ErrorAction SilentlyContinue) -and ((Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain)) {
+  Write-Log-Entry "Stage 4 - Install OMS agent" "INFO"
+  # Install OMS agent by copying locally and running
+  try {
+  $destinationDirectory = "E:\MMASetup-AMD64.exe"
+  $WorkSpaceID = "87fd425e-640a-4c76-a703-d756b2bf7450"
+  $URL = "http://download.microsoft.com/download/1/5/E/15E274B9-F9E2-42AE-86EC-AC988F7631A0/MMASetup-AMD64.exe"
+  $WorkSpaceKey = "9EFWl4gvQZGtfKR5UjUeBe5c9yw6jQ+fPuZ9MhKc6h8+dfNl/JLxWNi1LmgWuqlakd6iMxy0phpwqJQvbp8OGg=="
+  $ArgumentList = '/C:"setup.exe /qn AcceptEndUserLicenseAgreement=1 ADD_OPINSIGHTS_WORKSPACE=1 '+  "OPINSIGHTS_WORKSPACE_ID=$WorkspaceID " + "OPINSIGHTS_WORKSPACE_KEY=$WorkSpaceKey " +'"'
+  ## Download latest OMS Agent from the Web
+  Invoke-WebRequest -Uri $URl -OutFile $destinationDirectory | Out-Null
+  ## Install the agent
+  Start-Process -FilePath 'E:\MMASetup-AMD64.exe' -ArgumentList $ArgumentList  -Wait
+  Write-Log-Entry "Stage 2 - Installed OMS OK" "INFO"
+  # Add a reg key to show we installed ok
+  New-ItemProperty -Path $regPath -Name "OMS" -PropertyType "DWORD" -Value 1  | Out-Null 
+  }
+  catch {
+          Write-Warning "Error with OMS Agent install"
+          Continue
+  }
+} else {
+  Write-Log-Entry "Stage 2 - Install OMS agent skipped" "INFO"
+}
 </powershell>
