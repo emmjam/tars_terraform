@@ -10,5 +10,6 @@ resource "aws_vpc_endpoint" "kms" {
   subnet_ids = module.vpc_endpoint_subnets.subnet_ids
 
   private_dns_enabled = true
+  tags                = local.default_tags
 }
 
