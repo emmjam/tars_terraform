@@ -1,5 +1,5 @@
 resource "aws_acm_certificate" "cert" {
-  domain_name       = "*.${local.new_vpc_domain_name}"
+  domain_name       = "*.${local.vpc_domain_name}"
   validation_method = "DNS"
 
   lifecycle {

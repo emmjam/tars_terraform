@@ -16,9 +16,11 @@ public_domain_name_acm = "nonprod.tars.dev-dvsacloud.uk"
 
 public_domain_name_root = "tars.dev-dvsacloud.uk"
 
-private_domain_name = "tars.dvsa.aws"
+private_domain_name_aws = "tars.dvsa.aws"
 
-private_domain_name_aws = "nonprod.tars.dev-dvsacloud.uk"
+private_domain_name = "nonprod.tars.dev-dvsacloud.uk"
+
+domain_name = "tars.dev-dvsacloud.uk"
 
 ###############################################################################
 # MGMT
@@ -78,7 +80,7 @@ aws_autoscaling_enabled = "0"
 prometheus_asg_min_size           = 0
 prometheus_asg_max_size           = 1
 prometheus_instance_type          = "m3.medium"
-prometheus_ami_build_id           = "1175"
+prometheus_ami_build_id           = "1180"
 prometheus_efs_provisioned_mibps  = 1
 
 ## jenkins
@@ -167,7 +169,7 @@ wildfly-messaging_scaledown_desired    = 1
 wildfly-messaging_scaledown_recurrence = "00 19 * * 1-5"
 wildfly-messaging_scaleup_desired      = 1
 wildfly-messaging_scaleup_recurrence   = "00 04 * * 1-5"
-wildfly_messaging_id                   = "release_201903_2"
+wildfly_messaging_id                   = "release_202108"
 
 ## wildfly-mock
 wildfly-mock_instance_type        = "t3.medium"
@@ -237,7 +239,7 @@ apache_scaledown_desired     = 0
 apache_scaledown_recurrence  = "00 19 * * 1-5"
 apache_scaleup_desired       = 2
 apache_scaleup_recurrence    = "00 04 * * 1-5"
-apache_ami_build_id          = "872"
+apache_ami_build_id          = "1181"
 
 ## AWS MQ
 aws_mq_engine_type             = "ActiveMQ"

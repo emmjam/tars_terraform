@@ -478,7 +478,7 @@ jmeter_asg_size_min               = 0
 # squidnat
 squidnat_instance_type = "m5.large"
 
-private_cert_domain_name = "perf01.tars.dvsa.aws"
+private_cert_domain_name = "perf01.nonprod.tars.dev-dvsacloud.uk"
 
 mes_api_cidr_block = ["10.21.0.0/16"]
 

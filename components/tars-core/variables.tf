@@ -79,6 +79,11 @@ variable "private_domain_name" {
   description = "R53 private domain for TARS"
 }
 
+variable "domain_name" {
+  type        = string
+  description = "R53 private domain for TARS"
+}
+
 variable "private_cert_domain_name" {
   type        = string
   description = "R53 private domain for TARS"

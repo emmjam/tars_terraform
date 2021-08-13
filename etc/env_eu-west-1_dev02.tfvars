@@ -351,7 +351,7 @@ domain_name_servers = [
   "10.166.0.43",
 ]
 
-private_cert_domain_name = "dev02.tars.dvsa.aws"
+private_cert_domain_name = "dev02.nonprod.tars.dev-dvsacloud.uk"
 
 ## Schedules
 ## wildfly-front

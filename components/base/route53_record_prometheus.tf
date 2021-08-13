@@ -1,7 +1,7 @@
 resource "aws_route53_record" "prometheus-private" {
   name = format("%s.%s", "prometheus", var.component)
 
-  zone_id = aws_route53_zone.vpc.zone_id
+  zone_id = aws_route53_zone.vpc_private.zone_id
   type    = "A"
 
   alias {

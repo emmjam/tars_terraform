@@ -4,7 +4,7 @@ resource "aws_route53_record" "awsmq" {
 
   name = format("%s-%s-%s", var.project, "awsmq", count.index + 1)
 
-  zone_id = aws_route53_zone.vpc.zone_id
+  zone_id = aws_route53_zone.vpc_private.zone_id
   type    = "CNAME"
   ttl     = 60
 

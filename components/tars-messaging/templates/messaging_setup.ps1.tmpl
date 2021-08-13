@@ -114,49 +114,8 @@ if (-Not (Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain) {
   Write-Log-Entry "Stage 1 - Join Domain skipped" "INFO"
 }
 
-# Stage 2 - Install ePO, only if we joined the domain
-if (-Not (Get-ItemProperty -Path $regPath -Name "ePO" -ErrorAction SilentlyContinue) -and ((Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain)) {
-  Write-Log-Entry "Stage 2 - Install EPO" "INFO"
-  # Install ePO agent by copying locally and running
-  try {
-  $sourceDirectory  = "\\dvsa-app38\EPO5Repository\Current\EPOAGENT3000\Install\*"
-  $destinationDirectory = "E:\McAfee\EPOAGENT3000\"
-  Copy-item -Force -Recurse -Verbose $sourceDirectory -Destination $destinationDirectory -ErrorAction SilentlyContinue | out-null
-  Start-Process -FilePath 'E:\McAfee\EPOAGENT3000\FramePkg.exe' -ArgumentList '/install=agent /silent' -Wait
-  Write-Log-Entry "Stage 2 - Installed EPO OK" "INFO"
-  # Add a reg key to show we installed ok
-  New-ItemProperty -Path $regPath -Name "ePO" -PropertyType "DWORD" -Value 1 | Out-Null 
-  }
-  catch {
-          Write-Warning "Error with ePO Agent install"
-          Continue
-  }
-} else {
-  Write-Log-Entry "Stage 2 - Install ePO skipped" "INFO"
-}
 
-# Stage 3 - Install AV, only if we joined the domain
-if (-Not (Get-ItemProperty -Path $regPath -Name "AV" -ErrorAction SilentlyContinue) -and ((Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain)) {
-  Write-Log-Entry "Stage 3 - Install AV" "INFO"
-  # Install McAFee AV by copying locally and running
-  try {
-  $sourceDirectory  = "\\dvsa-app38\EPO5Repository\Evaluation\VIRUSCAN8800\Install\*"
-  $destinationDirectory = "E:\McAfee\VIRUSCAN8800\"
-  Copy-item -Force -Recurse -Verbose $sourceDirectory -Destination $destinationDirectory -ErrorAction SilentlyContinue | out-null
-  Start-Process -FilePath 'E:\McAFee\VIRUSCAN8800\setupvse.exe' -ArgumentList '/qn' -Wait
-  Write-Log-Entry "Stage 3 - Installed AV OK" "INFO"
-  # Add a reg key to show we installed ok
-  New-ItemProperty -Path $regPath -Name "AV" -PropertyType "DWORD" -Value 1  | Out-Null 
-  }
-  catch {
-          Write-Warning "Error with McAfee AV install"
-          Continue
-  }
-} else {
-  Write-Log-Entry "Stage 3 - Install AV skipped" "INFO"
-}
-
-# Stage 4 - Install OMS agent, only if we joined the domain
+# Stage 2 - Install OMS agent, only if we joined the domain
 if (-Not (Get-ItemProperty -Path $regPath -Name "OMS" -ErrorAction SilentlyContinue) -and ((Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain)) {
   Write-Log-Entry "Stage 4 - Install OMS agent" "INFO"
   # Install OMS agent by copying locally and running
@@ -170,7 +129,7 @@ if (-Not (Get-ItemProperty -Path $regPath -Name "OMS" -ErrorAction SilentlyConti
   Invoke-WebRequest -Uri $URl -OutFile $destinationDirectory | Out-Null
   ## Install the agent
   Start-Process -FilePath 'E:\MMASetup-AMD64.exe' -ArgumentList $ArgumentList  -Wait
-  Write-Log-Entry "Stage 4 - Installed OMS OK" "INFO"
+  Write-Log-Entry "Stage 2 - Installed OMS OK" "INFO"
   # Add a reg key to show we installed ok
   New-ItemProperty -Path $regPath -Name "OMS" -PropertyType "DWORD" -Value 1  | Out-Null 
   }
@@ -179,7 +138,7 @@ if (-Not (Get-ItemProperty -Path $regPath -Name "OMS" -ErrorAction SilentlyConti
           Continue
   }
 } else {
-  Write-Log-Entry "Stage 4 - Install OMS agent skipped" "INFO"
+  Write-Log-Entry "Stage 2 - Install OMS agent skipped" "INFO"
 }
 
 </powershell>

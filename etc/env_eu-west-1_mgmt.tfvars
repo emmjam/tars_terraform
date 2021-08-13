@@ -69,6 +69,11 @@ prod_subdomains_name_servers = {
   prod = "ns-426.awsdns-53.com,ns-1049.awsdns-03.org,ns-2041.awsdns-63.co.uk,ns-611.awsdns-12.net"
 }
 
+prep_public_domain_name = "prep.live.tars.dvsacloud.uk"
+prep_domains_name_servers = { 
+    prep = "ns-1096.awsdns-09.org,ns-946.awsdns-54.net,ns-492.awsdns-61.com,ns-1981.awsdns-55.co.uk"
+}
+
 # ACM Certname
 cert_name = "*"
 

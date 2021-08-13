@@ -39,7 +39,7 @@ locals {
   )
 
   vpc_domain_name = "${var.environment}.${var.private_domain_name}"
-  new_vpc_domain_name = "${var.environment}.${var.private_domain_name_aws}"
+  vpc_domain_name_aws = "${var.environment}.${var.private_domain_name_aws}"
 
   jmeter_log = format(
     "/aws/ec2/%s-%s-%s/%s",

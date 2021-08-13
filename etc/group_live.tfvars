@@ -4,9 +4,21 @@ account_environment = "live"
 
 aws_account_id = "246976497890"
 
-private_domain_name = "tars.dvsa.aws"
+public_domain_name = "prod.tars.dvsacloud.uk"
 
-private_domain_name_aws = "live.tars.dvsacloud.uk"
+private_domain_name_aws = "tars.dvsa.aws"
+
+private_domain_name = "live.tars.dvsacloud.uk"
+
+root_domain_name = "tars.dvsacloud.uk"
+
+aws_account_alias = "tarslive"
+
+domain_name = "tars.dvsacloud.uk"
+
+# ACM Certname
+cert_name = "tars-prod-public"
+payments_cert_name = "payments-prod-public"
 
 default_tags = {
   Group = "live"
@@ -81,7 +93,7 @@ ctrl_mgmt_tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote s
 prometheus_asg_min_size           = 1
 prometheus_asg_max_size           = 1
 prometheus_instance_type          = "t3.medium"
-prometheus_ami_build_id           = "1175"
+prometheus_ami_build_id           = "1180"
 prometheus_efs_provisioned_mibps  = 5
 
 
@@ -275,7 +287,7 @@ oraclexe_scaleup_recurrence   = "00 04 * * 1-5"
 sftpplus_svr_id = "472"
 
 ## Messaging
-wildfly_messaging_id = "release_201903_1"
+wildfly_messaging_id = "release_202108"
 
 bastion_elb_subnets_cidrs = [
   "10.167.56.64/28",
@@ -437,7 +449,7 @@ squidnat_ami_build_id  = "1122"
 
 ops_team_email = "TARSStabilisation@bjss.com"
 
-public_domain_name = "prod.tars.dvsacloud.uk"
+
 
 # This is new. This is to start the long hike to having
 # one consistent domain name structure across the project.
@@ -448,13 +460,7 @@ public_domain_name = "prod.tars.dvsacloud.uk"
 # become malleable. One day, all groups may share one single
 # domain root and make use of it for all domain purposes,
 # public *and* private
-root_domain_name = "tars.dvsacloud.uk"
 
-aws_account_alias = "tarslive"
-
-# ACM Certname
-cert_name = "tars-prod-public"
-payments_cert_name = "payments-prod-public"
 
 # Deployer pub key
 deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVSO8uKpdbwww94azylwjnFxsFGcmXG4ObL1oOFibHMN0x+SsSwjfC1DEziWPK3m/Crmar0+ad/68nQC+iWo/MYclh8h3bkKlv9dO4Xtv/0H6uDRW3l3bBO0rWYbt46fMAOCqX96N3LRTfUlPuzsVAd0NGZZlSSAZF0AMl4xE/tZl2m+Dqylrjp3qLT4UxEIrAuvPW06PqkGy63hZznjCjQDaadOAUpY19ZaA71JBueyGBnZ8pSVzr5hT1TpNw/cXxA6WLj4CCipIVm0M64OT/ArqcnQMX9Htf4Gp5apXZ3f6MerfjgHnkrm1t6JNuhSjVB deployer@mgmt.tars.dvsa.aws"
