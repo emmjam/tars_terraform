@@ -75,5 +75,5 @@ output "tars_acct_bucketlogs" {
 }
 
 output "private_r53_zone" {  
-value = element(concat(aws_route53_zone.private_domain.id, [""]), 0)
+value = element(concat(aws_route53_zone.private_domain.*.id, [""]), 0)
 }
