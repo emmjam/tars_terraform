@@ -10,6 +10,10 @@ output "public_domain_name_zone_id" {
   value = element(concat(aws_route53_zone.public_domain.*.zone_id, [""]), 0)
 }
 
+output "public_domain_root_zone_id" {
+  value = element(concat(aws_route53_zone.public_domain_root.*.zone_id, [""]), 0)
+}
+
 output "account_alias" {
   value = var.aws_account_alias
 }
