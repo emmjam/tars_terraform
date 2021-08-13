@@ -46,6 +46,8 @@ vpc_cidr = "10.167.0.0/21"
 ## endpoint cidr
 vpc_endpoint_subnets_cidrs = [
   "10.167.5.160/28",
+  "10.167.5.176/28",
+  "10.167.5.192/28",
 ]
 
 ## alb public
