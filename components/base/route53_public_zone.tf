@@ -5,7 +5,7 @@ resource "aws_route53_zone" "public_domain" {
 }
 
 resource "aws_route53_record" "public_domain" {
-  zone_id = data.terraform_remote_state.ctrl.outputs.private_r53_zone
+  zone_id = element(concat(data.terraform_remote_state.ctrl.outputs.private_r53_zone, [""]), 0)
   name    = local.vpc_domain_name
   type    = "NS"
   ttl     = "30"
