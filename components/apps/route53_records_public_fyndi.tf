@@ -12,3 +12,15 @@ resource "aws_route53_record" "fyndi" {
   }
 }
 
+resource "aws_route53_record" "fyndi_private" {
+  name    = format("%s-%s-%s", "fyndi", var.environment, "public")
+  zone_id = data.terraform_remote_state.ctrl.outputs.private_r53_zone[0]
+  type    = "A"
+
+  alias {
+    name                   = aws_alb.apps.dns_name
+    zone_id                = aws_alb.apps.zone_id
+    evaluate_target_health = true
+  }
+}
+
