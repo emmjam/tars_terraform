@@ -7,8 +7,8 @@ resource "aws_vpc_endpoint" "kms" {
 
   security_group_ids = list(aws_security_group.kms_endpoint.id)
 
-  subnet_ids = module.tars_backend_subnets.subnet_ids
+  subnet_ids = module.vpc_endpoint_subnets.subnet_ids
 
   private_dns_enabled = true
+  tags                = local.default_tags
 }
-

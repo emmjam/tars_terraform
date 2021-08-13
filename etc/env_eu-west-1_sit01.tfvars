@@ -43,6 +43,12 @@ asg_default_tags = [
 # The VPC CIDR Block for this environment
 vpc_cidr = "10.167.16.0/21"
 
+vpc_endpoint_subnets_cidrs = [
+  "10.167.21.160/28",
+  "10.167.21.176/28",
+  "10.167.21.192/28",
+]
+
 ## alb public
 alb_public_subnets_cidrs = [
   "10.167.16.0/27",
@@ -85,9 +91,6 @@ tars_backend_elb_subnets_cidrs = [
   "10.167.17.112/28",
   "10.167.17.128/28",
 ]
-
-#  "10.167.17.144/28",
-#  "10.167.17.160/28",
 
 tars_messaging_alb_subnets_cidrs = [
   "10.167.17.176/28",
@@ -210,13 +213,6 @@ cpc_efs_subnets_cidrs = [
   "10.167.21.128/28",
   "10.167.21.144/28",
 ]
-/*
-jenkinsnode_subnets_cidrs = [
-  "10.167.21.160/28",
-  "10.167.21.176/28",
-  "10.167.21.192/28",
-]
-*/
 
 # AWS MQ SINGLE_INSTANCE only requires 1 subnets
 # ACTIVE_STANDBY_MULTI_AZ requires 2
@@ -229,8 +225,6 @@ apache_subnet_cidrs = [
   "10.167.21.240/28",
   "10.167.22.0/28",
 ]
-
-#  "10.167.22.16/28",
 
 sftpplus_nlb_subnets_cidrs = [
   "10.167.22.32/28",
