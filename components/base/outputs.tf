@@ -166,3 +166,8 @@ output "iam_role_db_reports_arn" {
 output "squidnat_sg_id" {
   value = module.squidnat.security_group_id
 }
+
+output "nameservers" {
+  value = aws_route53_zone.public_domain.name_servers
+}
+ 
