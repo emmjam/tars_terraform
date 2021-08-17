@@ -12,7 +12,7 @@ resource "aws_route53_record" "fyndi" {
   }
 }
 
-resource "aws_route53_record" "fyndi_priv" {
+resource "aws_route53_record" "fyndi_private" {
   name    = format("%s-%s-%s", "fyndi", var.environment, "public")
   zone_id = data.terraform_remote_state.ctrl.outputs.private_r53_zone[0]
   type    = "A"
