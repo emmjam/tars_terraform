@@ -12,7 +12,7 @@ resource "aws_route53_record" "obs-front" {
   }
 }
 
-resource "aws_route53_record" "obs-front_priv" {
+resource "aws_route53_record" "obs-front_private" {
   name    = format("%s-%s-%s", "obs", var.environment, "public")
   zone_id = data.terraform_remote_state.ctrl.outputs.private_r53_zone[0]
   type    = "A"
