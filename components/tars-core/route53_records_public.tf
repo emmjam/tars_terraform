@@ -14,7 +14,6 @@ resource "aws_route53_record" "tars-core-public" {
 
 
 resource "aws_route53_record" "tars-dvsa-private" {
-  count   = var.account_environment == "nonprod" ? 1 : 0
   name = format("%s-%s-%s", var.project, var.environment, "public")
   zone_id = data.terraform_remote_state.ctrl.outputs.private_r53_zone[0]
   type    = "A"
@@ -68,7 +67,6 @@ resource "aws_route53_record" "irdt-public" {
 }
 
 resource "aws_route53_record" "irdt-private" {
-  count   = var.account_environment == "nonprod" ? 1 : 0
   name = format("%s-%s-%s", "irdt", var.environment, "public")
   zone_id = data.terraform_remote_state.ctrl.outputs.private_r53_zone[0]
   type    = "A"
@@ -96,7 +94,6 @@ resource "aws_route53_record" "payments-public" {
 }
 
 resource "aws_route53_record" "payments-private" {
-  count   = var.account_environment == "nonprod" ? 1 : 0
   name = format("%s-%s-%s", "payments", var.environment, "public")
   zone_id = data.terraform_remote_state.ctrl.outputs.private_r53_zone[0]
   type    = "A"
