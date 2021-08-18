@@ -807,3 +807,15 @@ variable "opsgenie_endpoint" {
   type        = string
   description = "The opsgenie endpoint to send alerts to TSS"
 }
+
+variable "prep_public_domain_name" {
+  type        = string
+  description = "Prep Domain name"
+}
+
+variable "prep_domains_name_servers" {
+  type        = map(string)
+  description = "Map of accounts with NS records in a form: '<record_name> = <comma seperated list of NS addresses>'"
+  default     = {}
+}
+
