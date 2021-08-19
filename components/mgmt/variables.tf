@@ -819,3 +819,13 @@ variable "prep_domains_name_servers" {
   default     = {}
 }
 
+variable "prod_public_dvsa_domain_name" {
+  type        = string
+  description = "Prod Domain name"
+}
+
+variable "prod_domains_name_servers" {
+  type        = map(string)
+  description = "Map of accounts with NS records in a form: '<record_name> = <comma seperated list of NS addresses>'"
+  default     = {}
+}
