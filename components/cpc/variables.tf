@@ -421,3 +421,8 @@ variable "unhealthy_host_alarm_count" {
   description = "Number of alarms to have in this account"
   default = "0"
 }
+
+variable "domain_name" {
+  type        = string
+  description = "TARS VPC private R53 domain name"
+}

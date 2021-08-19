@@ -21,7 +21,7 @@ module "squidnat" {
   route_tables     = [aws_route_table.private_natgw.id]
   subnets_cidrs    = var.squidnat_subnets_cidrs
   vpc_id           = aws_vpc.vpc.id
-  zone_id          = aws_route53_zone.vpc.zone_id
+  zone_id          = aws_route53_zone.vpc_private.zone_id
 
   lifecycle_hook_launching_default_result = "ABANDON"
   lifecycle_hook_launching_enabled        = "1"

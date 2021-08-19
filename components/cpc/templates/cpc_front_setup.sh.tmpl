@@ -118,6 +118,7 @@ then
   echo -n 'environment: ${ENVIRONMENT}'    > "$${facts_path}/environment.yaml"
   echo -n 'nodetype: ${NODETYPE}'          > "$${facts_path}/nodetype.yaml"
   echo -n 'aws_account: ${AWS_ACCOUNT_ID}' > "$${facts_path}/aws_account.yaml"
+  echo -n 'domain: ${PRIVATE_DOMAIN}' > "$${facts_path}/domain.yaml"
 
   cd /opt/packer-puppet-masterless
 

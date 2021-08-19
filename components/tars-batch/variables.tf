@@ -291,3 +291,8 @@ variable "ftts_elig_port" {
   type        = string
   description = "Port for FTTS eligibility instance"
 }
+
+variable "domain_name" {
+  type        = string
+  description = "TARS VPC private R53 domain name"
+}

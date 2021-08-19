@@ -17,6 +17,7 @@ data "cloudinit_config" "wildfly-front" {
       {
         ENVIRONMENT    = var.environment
         NODETYPE       = var.wildfly-front_puppet_nodetype
+        PRIVATE_DOMAIN = var.private_domain_name
         KMS_KEY        = data.terraform_remote_state.acc.outputs.hieradata_kms_key_id
         AWS_ACCOUNT_ID = var.aws_account_id
         LOG_GROUP      = local.tars_front_log
