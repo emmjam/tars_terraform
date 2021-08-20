@@ -169,7 +169,7 @@ wildfly-messaging_scaledown_desired    = 1
 wildfly-messaging_scaledown_recurrence = "00 19 * * 1-5"
 wildfly-messaging_scaleup_desired      = 1
 wildfly-messaging_scaleup_recurrence   = "00 04 * * 1-5"
-wildfly_messaging_id                   = "release_201903_2"
+wildfly_messaging_id                   = "release_202108"
 
 ## wildfly-mock
 wildfly-mock_instance_type        = "t3.medium"
