@@ -430,4 +430,3 @@ cpc-front_asg_max_size        = 1
 cpc-front_scaleup_desired     = 1
 apache_asg_max_size           = 1
 apache_scaleup_desired        = 1
-
