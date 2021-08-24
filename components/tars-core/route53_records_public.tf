@@ -105,12 +105,25 @@ resource "aws_route53_record" "payments-private" {
   }
 }
 
-#UAT01
+#UAT02
 resource "aws_route53_record" "incapsula-frontend" {
   count   = var.environment == "uat02" ? 1 : 0
   name    = format("%s-%s-%s", "incapsula", var.environment, "public")
 
   zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
+  type    = "CNAME"
+
+  ttl = 300
+
+  records = ["wahy2a6.x.incapdns.net"]
+
+}
+
+resource "aws_route53_record" "incapsula-frontend-private" {
+  count   = var.environment == "uat02" ? 1 : 0
+  name    = format("%s-%s-%s", "incapsula", var.environment, "public")
+
+  zone_id = data.terraform_remote_state.ctrl.outputs.private_r53_zone[0]
   type    = "CNAME"
 
   ttl = 300
