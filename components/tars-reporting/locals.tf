@@ -38,6 +38,6 @@ locals {
     ],
   )
 
-  vpc_domain_name = "${var.environment}.${var.private_domain_name}"
+  vpc_domain_name = "${var.environment}.${var.private_domain_name_aws}"
 }
 
