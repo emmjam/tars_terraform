@@ -35,3 +35,11 @@ output "tars-apache-autoscaling-group-name" {
   value = module.apache.autoscaling_group_name
 }
 
+output "tars-batch-sg-id" {
+  value = "${module.tars_batch.security_group_id}"
+}
+
+output "batch_efs_id" {
+  value = "${aws_efs_file_system.batch.id}"
+}
+

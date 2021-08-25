@@ -51,8 +51,8 @@ resource "aws_security_group_rule" "rsis_rds_ingress_tars_batch_sg" {
   from_port                = "1521"
   to_port                  = "1521"
   protocol                 = "tcp"
-  security_group_id        = aws_security_group.tars-rsis-db.id
-  source_security_group_id = data.terraform_remote_state.tars-batch.outputs.tars-batch-sg-id
+  security_group_id        = "${aws_security_group.tars-rsis-db.id}"
+  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-batch-sg-id}"
 }
 
 resource "aws_security_group_rule" "rsis_oracle_db_ingress_jemkinsctrl" {

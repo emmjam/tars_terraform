@@ -37,8 +37,8 @@ resource "aws_security_group_rule" "tars_batch_ingress_cpc_db" {
   from_port                = 1521
   to_port                  = 1521
   protocol                 = "tcp"
-  security_group_id        = aws_security_group.cpc-db.id
-  source_security_group_id = data.terraform_remote_state.tars-batch.outputs.tars-batch-sg-id
+  security_group_id        = "${aws_security_group.cpc-db.id}"
+  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-batch-sg-id}"
 }
 
 resource "aws_security_group_rule" "oracle_db_ingress_jemkinsctrl" {
@@ -50,3 +50,4 @@ resource "aws_security_group_rule" "oracle_db_ingress_jemkinsctrl" {
   security_group_id        = aws_security_group.cpc-db.id
   source_security_group_id = data.terraform_remote_state.ctrl.outputs.jenkinsctrl_sg_id
 }
+  
