@@ -73,6 +73,18 @@ resource "aws_route53_record" "bastion" {
   }
 }
 
+resource "aws_route53_record" "bastion-private" {
+  name    = "bastion"
+  zone_id = aws_route53_zone.private_domain.id 
+  type    = "A"
+
+  alias {
+    name                   = aws_elb.bastion.dns_name
+    zone_id                = aws_elb.bastion.zone_id
+    evaluate_target_health = true
+  }
+}
+
 resource "aws_route53_record" "grafana" {
   name    = "grafana"
   zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
