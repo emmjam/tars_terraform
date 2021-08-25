@@ -16,4 +16,3 @@ resource "aws_security_group_rule" "tars_back_alb_ingress_cpc_back" {
   security_group_id        = data.terraform_remote_state.tars-core.outputs.tars-core-backend-alb-sg-id
   source_security_group_id = module.cpc-back.security_group_id
 }
-

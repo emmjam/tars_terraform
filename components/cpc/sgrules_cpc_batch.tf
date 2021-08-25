@@ -5,7 +5,7 @@ resource "aws_security_group_rule" "cpc_batch_egress_cpc_db" {
   to_port                  = 1521
   protocol                 = "tcp"
   security_group_id        = module.cpc_batch.security_group_id
-  source_security_group_id = data.terraform_remote_state.cpc.outputs.cpc-db-sg-id
+  source_security_group_id = aws_security_group.cpc-db.id
 }
 
 resource "aws_security_group_rule" "cpc_batch_egress_kms_endpoint" {

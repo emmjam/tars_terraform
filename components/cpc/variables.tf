@@ -426,3 +426,44 @@ variable "domain_name" {
   type        = string
   description = "TARS VPC private R53 domain name"
 }
+
+variable "cpc-batch_puppet_nodetype" {
+  type        = "string"
+  description = ""
+}
+
+variable "cpc-batch_asg_max_size" {
+  type        = "string"
+  description = ""
+}
+
+variable "cpc-batch_asg_min_size" {
+  type        = "string"
+  description = ""
+}
+
+variable "cpc-batch_instance_type" {
+  type        = "string"
+  description = ""
+}
+
+variable "cpc_efs_subnets_cidrs" {
+  type        = "list"
+  description = "CPC EFS subnets list"
+}
+
+variable "cpc_sftp_subnets_cidrs" {
+  type        = "list"
+  description = ""
+}
+
+variable "cpc-batch-efs-arn" {
+  type    = "string"
+  default = ""
+}
+
+variable "efs_backup_env" {
+  type        = "list"
+  description = ""
+  default     = []
+}

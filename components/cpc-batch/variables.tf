@@ -13,20 +13,36 @@ variable "environment" {
   description = "TF Scaffold environment"
 }
 
+variable "component" {
+  type        = string
+  description = "TF Scaffold component"
+  default     = "cpc"
+}
+
 variable "release_version" {
   type        = string
   default     = "Not provided"
   description = "Version of infrastructure deployed"
 }
 
-# TODO: peacheym: This value is incorrect.
-# It is not intentionally incorrect.
-# However due to current pressures, it is intentional
-# not to correct this at this time.
-variable "component" {
+variable "aws_autoscaling_enabled" {
   type        = string
-  description = "TF Scaffold component"
-  default     = "cpc"
+  default     = "1"
+  description = "Enable or not the built in AWS autocaling scaling group scheduled actions"
+}
+
+# TODO: peacheym: Valid description
+variable "whitelist" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
+
+# TODO: peacheym: Valid description
+variable "dva_whitelist" {
+  type        = list(string)
+  description = ""
+  default     = []
 }
 
 variable "account_component_name" {
@@ -124,22 +140,144 @@ variable "mgmt_aws_account_id" {
   description = ""
 }
 
-variable "cpc-batch_puppet_nodetype" {
+variable "cpc-front_asg_max_size" {
   type        = string
   description = ""
 }
 
-variable "cpc-batch_asg_max_size" {
+variable "cpc-front_asg_min_size" {
   type        = string
   description = ""
 }
 
-variable "cpc-batch_asg_min_size" {
+variable "cpc-front_instance_type" {
   type        = string
   description = ""
 }
 
-variable "cpc-batch_instance_type" {
+variable "cpc-front_puppet_nodetype" {
+  type        = string
+  description = ""
+}
+
+variable "cpc-back_puppet_nodetype" {
+  type        = string
+  description = ""
+}
+
+variable "cpc_rds_allocated_storage" {
+  type        = string
+  description = "cpc RDS DB Allocated Storage"
+}
+
+variable "cpc_rds_storage_type" {
+  type        = string
+  description = "cpc RDS DB Storage Type"
+}
+
+variable "cpc_rds_engine" {
+  type        = string
+  description = "cpc RDS DB Engine"
+}
+
+variable "cpc_rds_engine_version" {
+  type        = string
+  description = "cpc RDS DB Engine Version"
+}
+
+variable "cpc_rds_instance_class" {
+  type        = string
+  description = "cpc RDS DB Instance Class"
+}
+
+variable "cpc_rds_port" {
+  type        = string
+  description = "cpc RDS DB Port"
+}
+
+variable "cpc_rds_public" {
+  type        = string
+  description = "Is cpc RDS DB Publically Accessible"
+}
+
+variable "cpc_rds_multi_az" {
+  type        = string
+  description = "cpc DB Multi AZ"
+}
+
+variable "cpc_rds_backup_retention" {
+  type        = string
+  description = "cpc RDS Backup Rentention"
+}
+
+variable "cpc_rds_backup_window" {
+  type        = string
+  description = "cpc RDS Backup Window"
+}
+
+variable "cpc_rds_maint_window" {
+  type        = string
+  description = "cpc RDS Maintenance Window"
+}
+
+variable "cpc_rds_skip_final_snapshot" {
+  type        = string
+  description = "cpc RDS Final Snapshot required"
+}
+
+variable "cpc_rds_username" {
+  type        = string
+  description = "cpc RDS Username"
+}
+
+variable "cpc_rds_sid_name" {
+  type        = string
+  description = "Oracle SID name"
+}
+
+variable "cpc_rds_delete_protect" {
+  type        = string
+  description = "RDS Deletion Protection"
+}
+
+variable "cpc_rds_apply_immediately" {
+  type        = string
+  description = "cpc RDS Apply changes immediately"
+  default     = "false"
+}
+
+variable "cpc_rds_license_model" {
+  type        = string
+  description = "cpc RDS License Model"
+}
+
+variable "cpc_rds_snapshot" {
+  type        = string
+  description = "cpc RDS Snapshot to use to restore data"
+}
+
+variable "cpc_rds_autoscale" {
+  type        = string
+  description = "Auto shutdown/restart RDS Instances tag"
+}
+
+variable "cpc-front_subnets_cidrs" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
+
+variable "cpc-back_asg_max_size" {
+  type        = string
+  description = ""
+}
+
+variable "cpc-back_asg_min_size" {
+  type        = string
+  description = ""
+}
+
+variable "cpc-back_instance_type" {
   type        = string
   description = ""
 }
@@ -150,16 +288,34 @@ variable "cpc-back_subnets_cidrs" {
   default     = []
 }
 
-variable "cpc_efs_subnets_cidrs" {
-  type        = list(string)
-  description = "CPC EFS subnets list"
-  default     = []
+variable "cert_name" {
+  type        = string
+  description = "ACM cert name"
 }
 
-variable "cpc_sftp_subnets_cidrs" {
-  type        = list(string)
-  description = ""
-  default     = []
+variable "cpc_internet_cert" {
+  type        = string
+  description = "CPC ACM cert name"
+}
+
+variable "cpc_dvsa_internet_cert" {
+  type        = string
+  description = "CPC ACM cert name"
+}
+
+variable "cpc_cert" {
+  type        = string
+  description = "CPC ACM cert name"
+}
+
+variable "cpc_private_cert" {
+  type        = string
+  description = "cpc private cert subdomain"
+}
+
+variable "private_cert_domain_name" {
+  type        = string
+  description = "R53 private domain for CPC"
 }
 
 variable "dvla_elise_server" {
@@ -167,15 +323,44 @@ variable "dvla_elise_server" {
   description = "DVLA Elise"
 }
 
-variable "cpc-batch-efs-arn" {
-  type    = string
-  default = ""
+variable "cpc-front_scaledown_desired" {
+  type        = string
+  description = ""
 }
 
-variable "efs_backup_env" {
-  type        = list(string)
+variable "cpc-front_scaleup_desired" {
+  type        = string
   description = ""
-  default     = []
+}
+
+variable "cpc-front_scaledown_recurrence" {
+  type        = string
+  description = ""
+}
+
+variable "cpc-front_scaleup_recurrence" {
+  type        = string
+  description = ""
+}
+
+variable "cpc-back_scaledown_desired" {
+  type        = string
+  description = ""
+}
+
+variable "cpc-back_scaleup_desired" {
+  type        = string
+  description = ""
+}
+
+variable "cpc-back_scaledown_recurrence" {
+  type        = string
+  description = ""
+}
+
+variable "cpc-back_scaleup_recurrence" {
+  type        = string
+  description = ""
 }
 
 variable "ebs_backup_env" {
@@ -204,6 +389,33 @@ variable "dlm_retain_rule" {
   description = "How many backups to retain"
 }
 
+variable "rds_cw_metric_freestoragespace_alarm_action_enabled" {
+  type        = string
+  default     = "false"
+  description = "Enable action for rds CloudWatch metric alarm"
+}
+
+variable "rds_cw_metric_alarm_enabled" {
+  type        = string
+  default     = "false"
+  description = "Enable or disable RDS CloudWatch Metrics"
+}
+
+variable "cpc_rds_parameter_group_name" {
+  type        = string
+  description = "CPC RDS DB Parameter Group Name"
+}
+
+variable "cpc_rds_option_group_name" {
+  type        = string
+  description = "CPC RDS DB Option Group Name"
+}
+
+variable "cpc_allow_major_version_upgrade" {
+  type        = string
+  description = "CPC RDS DB Version Update"
+}
+
 variable "unhealthy_host_alarm_count" {
   type        = string
   description = "Number of alarms to have in this account"
@@ -213,4 +425,45 @@ variable "unhealthy_host_alarm_count" {
 variable "domain_name" {
   type        = string
   description = "TARS VPC private R53 domain name"
+}
+
+variable "cpc-batch_puppet_nodetype" {
+  type        = "string"
+  description = ""
+}
+
+variable "cpc-batch_asg_max_size" {
+  type        = "string"
+  description = ""
+}
+
+variable "cpc-batch_asg_min_size" {
+  type        = "string"
+  description = ""
+}
+
+variable "cpc-batch_instance_type" {
+  type        = "string"
+  description = ""
+}
+
+variable "cpc_efs_subnets_cidrs" {
+  type        = "list"
+  description = "CPC EFS subnets list"
+}
+
+variable "cpc_sftp_subnets_cidrs" {
+  type        = "list"
+  description = ""
+}
+
+variable "cpc-batch-efs-arn" {
+  type    = "string"
+  default = ""
+}
+
+variable "efs_backup_env" {
+  type        = "list"
+  description = ""
+  default     = []
 }

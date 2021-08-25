@@ -60,5 +60,13 @@ locals {
     var.component,
     "cpc-front/cloud-init-output",
   )
+
+  cpc_batch_log = format(
+    "/aws/ec2/%s-%s-%s/%s",
+    var.project,
+    var.environment,
+    var.component,
+    "cpc-batch/cloud-init-output",
+  )
 }
 
