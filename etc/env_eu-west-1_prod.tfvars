@@ -422,7 +422,7 @@ ibs_incapsula   = "5cdgrpe.x.incapdns.net"
 obs_incapsula   = "zv9vwoz.x.incapdns.net"
 irdt_incapsula  = "zi5ckxk.x.incapdns.net"
 
-private_cert_domain_name = "prod.live.dvsacloud.uk"
+private_cert_domain_name = "prod.live.tars.dvsacloud.uk"
 
 cpc_internet_cert       = "tars-prod-cpc-internet"
 cpc_dvsa_internet_cert  = "tars-prod-cpc-dvsa-internet"

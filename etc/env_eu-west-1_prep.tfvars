@@ -356,7 +356,7 @@ domain_name_servers = [
   "10.166.0.43",
 ]
 
-private_cert_domain_name = "prep.live.dvsacloud.uk"
+private_cert_domain_name = "prep.live.tars.dvsacloud.uk"
 
 cpc_internet_cert       = "tars-prep-cpc-internet"
 cpc_dvsa_internet_cert  = "tars-prep-cpc-dvsa-internet"
