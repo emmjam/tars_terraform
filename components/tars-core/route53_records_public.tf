@@ -52,6 +52,19 @@ resource "aws_route53_record" "apache_public" {
   }
 }
 
+resource "aws_route53_record" "apache_private" {
+  name = format("%s-%s-%s", "routing", var.environment, "public")
+
+  zone_id = data.terraform_remote_state.ctrl.outputs.private_r53_zone[0]
+  type    = "A"
+
+  alias {
+    name                   = aws_alb.apache_public.dns_name
+    zone_id                = aws_alb.apache_public.zone_id
+    evaluate_target_health = true
+  }
+}
+
 # Create the R53 record for the IRDT ALB
 resource "aws_route53_record" "irdt-public" {
   name = format("%s-%s-%s", "irdt", var.environment, "public")
