@@ -60,6 +60,11 @@ variable "private_domain_name" {
   description = "R53 private domain for MIS DB"
 }
 
+variable "private_domain_name_aws" {
+  type        = string
+  description = "R53 private domain for MIS DB"
+}
+
 variable "mis_rds_allocated_storage" {
   type        = string
   description = "MIS RDS DB Allocated Storage"
