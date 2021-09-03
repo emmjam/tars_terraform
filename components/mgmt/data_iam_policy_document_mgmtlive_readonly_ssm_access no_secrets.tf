@@ -1,6 +1,6 @@
-data "aws_iam_policy_document" "assume_readonly_ssm_access_no_secrets" {
+data "aws_iam_policy_document" "assume_mgmtlive_readonly_ssm_access_no_secrets" {
   statement {
-    sid    = "AllowAssumeReadOnlySSMAccessNoSecrets"
+    sid    = "AllowAssumeMgmtLiveReadOnlySSMAccessNoSecrets"
     effect = "Allow"
 
     actions = [
