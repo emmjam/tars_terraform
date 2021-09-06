@@ -10,6 +10,6 @@ resource "aws_iam_policy" "ibs_rds_policy" {
 
 resource "aws_iam_policy_attachment" "ibs-attach-ibs-to-cloudwatch" {
   name       = "${local.csi}-ibs-policy-attachment"
-  roles      = [ "${aws_iam_role.ibs_rds_role.name}" ]
+  roles      = [aws_iam_role.ibs_rds_role.name]
   policy_arn = aws_iam_policy.ibs_rds_policy.arn
 }

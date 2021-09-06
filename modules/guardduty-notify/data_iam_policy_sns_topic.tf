@@ -21,7 +21,7 @@ data "aws_iam_policy_document" "guardduty_opsgenie" {
       variable = "AWS:SourceOwner"
 
       values = [
-        "${data.aws_caller_identity.current.account_id}",
+        data.aws_caller_identity.current.account_id,
       ]
     }
 
@@ -33,7 +33,7 @@ data "aws_iam_policy_document" "guardduty_opsgenie" {
     }
 
     resources = [
-      "${aws_sns_topic.guardduty_opsgenie.arn}",
+      aws_sns_topic.guardduty_opsgenie.arn,
     ]
 
   }
@@ -55,7 +55,7 @@ data "aws_iam_policy_document" "guardduty_opsgenie" {
     }
 
     resources = [
-      "${aws_sns_topic.guardduty_opsgenie.arn}",
+      aws_sns_topic.guardduty_opsgenie.arn,
     ]
   }
 }

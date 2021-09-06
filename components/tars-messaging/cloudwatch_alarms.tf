@@ -12,7 +12,7 @@ resource "aws_cloudwatch_metric_alarm" "TARS_messaging_unhealthyhost" {
   alarm_actions       = [data.terraform_remote_state.base.outputs.sns_alerts_arn, aws_sns_topic.wms_unhealthy_host[0].arn]
   treat_missing_data  = "notBreaching"
   dimensions = {
-    AutoScalingGroupName = "${aws_autoscaling_group.tars-messaging.name}"
+    AutoScalingGroupName = aws_autoscaling_group.tars-messaging.name
   }
 }
 
@@ -30,6 +30,6 @@ resource "aws_cloudwatch_metric_alarm" "TARS_messaging_cpu_utilization_too_high"
   alarm_actions       = [data.terraform_remote_state.base.outputs.sns_alerts_arn]
   treat_missing_data  = "notBreaching"
   dimensions = {
-    AutoScalingGroupName = "${aws_autoscaling_group.tars-messaging.name}"
+    AutoScalingGroupName = aws_autoscaling_group.tars-messaging.name
   }
 }

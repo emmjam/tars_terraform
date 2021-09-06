@@ -8,7 +8,7 @@ data "aws_iam_policy_document" "oom_logs_iam_policy_document" {
     ]
 
     resources = [
-      "${data.terraform_remote_state.acc.outputs.oom-s3-log-bucket}",
+      data.terraform_remote_state.acc.outputs.oom-s3-log-bucket,
       "${data.terraform_remote_state.acc.outputs.oom-s3-log-bucket}/*",
     ]
   }
