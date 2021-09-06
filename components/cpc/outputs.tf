@@ -39,10 +39,10 @@ output "cpc_dvsa_internet_listener_arn" {
   value = aws_alb_listener.cpc-front-dvsa-internet-8443.arn
 }
 output "cpc-batch-sg-id" {
-  value = "${module.cpc_batch.security_group_id}"
+  value = module.cpc_batch.security_group_id
 }
 
 output "cpc-batch_efs_id" {
-  value = "${aws_efs_file_system.cpc-batch-efs.id}"
+  value = aws_efs_file_system.cpc-batch-efs.id
 }
 
