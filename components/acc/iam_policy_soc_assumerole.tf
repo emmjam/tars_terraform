@@ -12,12 +12,12 @@ data "aws_iam_policy_document" "soc_assumerole" {
       type = "AWS"
 
       identifiers = [
-        "${format(
+        format(
           "%s:%s:%s",
           "arn:aws:iam:",
           "164381891383",
           "root"
-        )}",
+        ),
       ]
     }
   }

@@ -12,7 +12,7 @@ data "aws_iam_policy_document" "allow_cloudability_assumerole" {
       type = "AWS"
 
       identifiers = [
-        "${format(
+        format(
           "%s::%s:%s",
           "arn:aws:iam",
           lookup(
@@ -20,7 +20,7 @@ data "aws_iam_policy_document" "allow_cloudability_assumerole" {
             "aws_account_id"
           ),
           "root",
-        )}",
+        ),
       ]
     }
 
@@ -29,10 +29,10 @@ data "aws_iam_policy_document" "allow_cloudability_assumerole" {
       variable = "sts:ExternalId"
 
       values = [
-        "${lookup(
+        lookup(
           var.cloudability_xacct,
           "external_id"
-        )}",
+        ),
       ]
     }
   }

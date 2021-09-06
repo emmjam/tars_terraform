@@ -5,12 +5,12 @@ resource "aws_iam_role" "jenkins_admin" {
 
   path = "/"
 
-  assume_role_policy = "${data.aws_iam_policy_document.jenkins_trust.json}"
+  assume_role_policy = data.aws_iam_policy_document.jenkins_trust.json
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
     map(
       "Name", "${local.csi}/jenkins-admin",
     ),
-  )}"
+  )
 }

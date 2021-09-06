@@ -4,24 +4,24 @@ resource "aws_lambda_function" "holding-pages" {
   depends_on = [data.archive_file.holing-pages-inline]
   description = "${var.name} Lambda function"
 
-  filename         = "${data.archive_file.holing-pages-inline.output_path}"
-  source_code_hash = "${data.archive_file.holing-pages-inline.output_base64sha256}"
+  filename         = data.archive_file.holing-pages-inline.output_path
+  source_code_hash = data.archive_file.holing-pages-inline.output_base64sha256
 
   publish  = true
   provider = aws.us-east-1
 
-  runtime     = "${var.runtime}"
-  handler     = "${var.handler}"
-  memory_size = "${var.memory_size}"
+  runtime     = var.runtime
+  handler     = var.handler
+  memory_size = var.memory_size
 
-  role = "${aws_iam_role.lambda_holding_pages.arn}"
+  role = aws_iam_role.lambda_holding_pages.arn
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
     map(
       "Name", "${local.csi}/${var.name}",
     )
-  )}"
+  )
 }
 
 data "archive_file" "holing-pages-inline" {

@@ -47,7 +47,7 @@ RUN yum upgrade -y \
 
 ADD entrypoints /etc/rc.d/init.d
 
-RUN curl -s https://releases.hashicorp.com/terraform/0.13.7/terraform_0.13.7_linux_amd64.zip -o terraform_0.13.7_linux_amd64.zip \
-    && unzip terraform_0.13.7_linux_amd64.zip \
+RUN curl -s https://releases.hashicorp.com/terraform/0.14.11/terraform_0.14.11_linux_amd64.zip -o terraform_0.14.11_linux_amd64.zip \
+    && unzip terraform_0.14.11_linux_amd64.zip \
     && mv terraform /bin \
     && chmod +x /bin/terraform

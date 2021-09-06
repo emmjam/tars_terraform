@@ -22,7 +22,7 @@ data "aws_iam_policy_document" "dbreports_output" {
     ]
 
     resources = [
-      "${aws_s3_bucket.dbreports_output.arn}"
+      aws_s3_bucket.dbreports_output.arn
     ]
   }
 }
