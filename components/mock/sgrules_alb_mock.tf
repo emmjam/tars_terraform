@@ -46,7 +46,7 @@ resource "aws_security_group_rule" "tars_alb_mock_ingress_cpc_batch_port_8080" {
   to_port                  = 8080
   protocol                 = "tcp"
   security_group_id        = aws_security_group.tars-alb-mock.id
-  source_security_group_id = data.terraform_remote_state.cpc.cpc-batch-sg-id
+  source_security_group_id = data.terraform_remote_state.cpc.outputs.cpc-batch-sg-id
 }
 
 resource "aws_security_group_rule" "tars_alb_mock_ingress_tars_frontend_port_8080" {
