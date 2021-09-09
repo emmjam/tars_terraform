@@ -65,8 +65,8 @@ resource "aws_security_group_rule" "tars_alb_mock_ingress_tars_batch_port_8080" 
   from_port                = 8080
   to_port                  = 8080
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-alb-mock.id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-batch-sg-id}"
+  security_group_id        = aws_security_group.tars-alb-mock.id
+  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-batch-sg-id
 }
 
 resource "aws_security_group_rule" "tars_alb_private_egress_mock_epdq" {

@@ -74,8 +74,8 @@ resource "aws_security_group_rule" "mis_rds_ingress_tars_batch_sg" {
   from_port                = "1521"
   to_port                  = "1521"
   protocol                 = "tcp"
-  security_group_id        = "${aws_security_group.tars-mis-db.id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-batch-sg-id}"
+  security_group_id        = aws_security_group.tars-mis-db.id
+  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-batch-sg-id
 }
 
 # MIS to CPC
