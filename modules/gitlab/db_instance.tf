@@ -15,6 +15,7 @@ resource "aws_db_instance" "gitlab" {
   storage_type            = var.db_storage_type
   engine                  = "postgres"
   engine_version          = var.db_engine_version
+  auto_minor_version_upgrade  = false
   instance_class          = var.db_instance_class
   port                    = 5432
   multi_az                = var.db_multi_az

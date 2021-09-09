@@ -12,7 +12,6 @@ default_tags = {
 # All Users
 
 new_all_users = [
-  "ali.mohammed@bjss.com",
   "adam.hall@bjss.com",
   "alice.haws@dvsa.gov.uk",
   "andrew.malcolm@bjss.com",
@@ -188,7 +187,6 @@ readonly_appsupport_users = [
 # QA Engineer Access
 
 qaengineer_users = [
-  "ali.mohammed@bjss.com",
   "balkar.bains@bjss.com",
   "isaac.phillip@bjss.com",
   "john.reynolds@bjss.com",
@@ -199,7 +197,6 @@ qaengineer_users = [
 ]
 
 readonly_qaengineer_users = [
-  "ali.mohammed@bjss.com",
   "balkar.bains@bjss.com",
   "isaac.phillip@bjss.com",
   "john.reynolds@bjss.com",

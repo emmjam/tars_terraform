@@ -347,7 +347,7 @@ gitlab_elb_private_subnets_cidrs = ["10.200.5.128/28"]
 gitlab_db_db_name           = "gitlabamzn2"
 gitlab_db_allocated_storage       = "20"
 gitlab_db_storage_type            = "gp2"
-gitlab_db_engine_version    = "12.5"
+gitlab_db_engine_version    = "12.7"
 
 gitlab_db_instance_class          = "db.t3.medium"
 gitlab_db_multi_az                = true
