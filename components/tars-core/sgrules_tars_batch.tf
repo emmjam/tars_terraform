@@ -15,8 +15,8 @@ resource "aws_security_group_rule" "tars_batch_egress_oracle_db" {
   from_port                = 1521
   to_port                  = 1521
   protocol                 = "tcp"
-  security_group_id        = "${module.tars_batch.security_group_id}"
-  source_security_group_id = "${aws_security_group.tars-core-db.id}"
+  security_group_id        = module.tars_batch.security_group_id
+  source_security_group_id = aws_security_group.tars-core-db.id
 }
 
 resource "aws_security_group_rule" "tars_batch_ingress_bastion" {

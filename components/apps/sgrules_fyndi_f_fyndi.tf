@@ -32,7 +32,7 @@ resource "aws_security_group_rule" "fyndi-f-egress-tars-core-8080" {
   protocol                 = "tcp"
   from_port                = "8080"
   to_port                  = "8080"
-  security_group_id        = "${module.fyndi-f.security_group_id}"
-  source_security_group_id = "${data.terraform_remote_state.tars-core.tars-batch-sg-id}"
+  security_group_id        = module.fyndi-f.security_group_id
+  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-batch-sg-id
 }
 
