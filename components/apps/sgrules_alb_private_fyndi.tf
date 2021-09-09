@@ -23,6 +23,6 @@ resource "aws_security_group_rule" "private-alb_ingress_tars_batch" {
   from_port                = "8080"
   to_port                  = "8080"
   security_group_id        = aws_security_group.private-alb.id
-  source_security_group_id = data.terraform_remote_state.tars-batch.outputs.tars-batch-sg-id
+  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-batch-sg-id
 }
 
