@@ -32,6 +32,6 @@ resource "aws_security_group_rule" "fyndi-b-egress-tars-core-8080" {
   from_port                = "8080"
   to_port                  = "8080"
   security_group_id        = module.fyndi-b.security_group_id
-  source_security_group_id = data.terraform_remote_state.tars-core.outsputs.tars-batch-sg-id
+  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-batch-sg-id
 }
 

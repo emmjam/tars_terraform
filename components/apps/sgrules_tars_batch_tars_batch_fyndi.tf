@@ -23,6 +23,6 @@ resource "aws_security_group_rule" "batch_egress_private_alb" {
   to_port                  = "8080"
   protocol                 = "tcp"
   security_group_id        = data.terraform_remote_state.tars-core.outputs.tars-batch-sg-id
-  source_security_group_id = aws_security_group.fyndi-b-alb.id
+  source_security_group_id = aws_security_group.private-alb.id
 }
 
