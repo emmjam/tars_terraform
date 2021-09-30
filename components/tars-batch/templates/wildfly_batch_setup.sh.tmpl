@@ -145,6 +145,8 @@ sed -i -e "s|production|${ENVIRONMENT}|g" /opt/aws/amazon-cloudwatch-agent/etc/a
 timestamp=$(($(date +'%s * 1000 + %-N / 1000000')))
 log_data="$(json_escape "$(cat /var/log/cloud-init-output.log)")"
 
+/etc/init.d/d90wrapper restart
+
 echo """
 [
   {
