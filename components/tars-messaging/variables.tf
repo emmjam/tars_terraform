@@ -260,3 +260,9 @@ variable "messaging_print" {
   type        = string 
   description = "Enable DVSA printers for messgaing"
 }
+
+variable "wildfly-messaging_ebs_vol" {
+  type        = string 
+  description = "EBS Volumes size for messaging instances"
+  default     = 50
+}

@@ -5,6 +5,7 @@ resource "aws_launch_template" "tars-messaging" {
   user_data     = base64encode(templatefile("${path.module}/templates/messaging_setup.ps1.tmpl", 
       {
         SEARCH_SUFFIX = local.vpc_domain_name
+        ENVIRONMENT = var.environment
       }))
   key_name      = data.terraform_remote_state.acc.outputs.key_name
 
@@ -21,7 +22,13 @@ resource "aws_launch_template" "tars-messaging" {
   lifecycle {
     create_before_destroy = true
   }
+  block_device_mappings {
+    device_name = "/dev/sda1"
 
+    ebs {
+      volume_size = var.wildfly-messaging_ebs_vol
+    }
+  }
   tag_specifications {
     resource_type = "volume"
 

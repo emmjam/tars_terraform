@@ -190,6 +190,7 @@ wildfly-messaging_scaledown_desired    = 2
 wildfly-messaging_scaledown_recurrence = "00 19 * * 1-5"
 wildfly-messaging_scaleup_desired      = 2
 wildfly-messaging_scaleup_recurrence   = "00 07 * * 1-5"
+wildfly_messaging_id                   = "release_202109"
 
 ## AWS MQ
 aws_mq_engine_type             = "ActiveMQ"
@@ -285,9 +286,6 @@ oraclexe_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## SFTP
 sftpplus_svr_id = "472"
-
-## Messaging
-wildfly_messaging_id = "release_202108"
 
 bastion_elb_subnets_cidrs = [
   "10.167.56.64/28",

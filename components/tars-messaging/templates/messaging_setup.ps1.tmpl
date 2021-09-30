@@ -47,6 +47,12 @@ Function Write-Log-Entry {
     Write-Log-Line $Line
 }
 
+# Remove MQ Failover for nonProd envs
+Write-Log-Line "Env is [${ENVIRONMENT}]"
+if (-Not ("${ENVIRONMENT}" -eq "prod" -Or "${ENVIRONMENT}" -eq "prep")) {
+  ((Get-Content -path C:\opt\wildfly\jboss.properties -Raw) -replace "failover:\(ssl://tars-awsmq-1:61617,ssl://tars-awsmq-2:61617\)\?randomize=false", "ssl://tars-awsmq-1:61617" | Set-Content -Path C:\opt\wildfly\jboss.properties)
+}
+
 # Create the reg path if it doesn't exist
 if (-Not (Test-Path $regPath)) {
   New-Item -Path $regPath -Force | Out-Null 
