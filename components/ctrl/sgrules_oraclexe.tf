@@ -20,3 +20,16 @@ resource "aws_security_group_rule" "oraclexe_ingress_grafana_alb_http" {
   source_security_group_id = aws_security_group.grafana_alb.id
 }
 
+resource "aws_security_group_rule" "oraclexe_egress_s3_https" {
+  count             = var.account_environment != "mgmt" ? 1 : 0
+  description       = "Allow HTTPS to s3 vpc endpoint"
+  type              = "egress"
+  protocol          = "tcp"
+  from_port         = "443"
+  to_port           = "443"
+  security_group_id = aws_security_group.oraclexe[count.index].id
+
+  prefix_list_ids = [
+    aws_vpc_endpoint.s3.prefix_list_id,
+  ]
+}
