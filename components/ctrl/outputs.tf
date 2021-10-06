@@ -26,6 +26,10 @@ output "rt_private_id" {
   value = aws_route_table.private.id
 }
 
+output "vpc_endpoint_s3_prefix_list_id"{
+  value = aws_vpc_endpoint.s3.prefix_list_id
+}
+
 ## Output the SES user secrets
 
 output "secret" {
@@ -76,4 +80,8 @@ output "tars_acct_bucketlogs" {
 
 output "private_r53_zone" {
 value = aws_route53_zone.private_domain.*.id
+}
+
+output "s3_bucket_resources_arn" {
+  value = aws_s3_bucket.resources.arn
 }
