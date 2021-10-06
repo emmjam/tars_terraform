@@ -370,7 +370,7 @@ tars_rds_snapshot = ""
 
 # MISDB
 mis_rds_username = "misadmin"
-mis_rds_allocated_storage = "400"
+mis_rds_allocated_storage = "440"
 mis_rds_autoscale = "False"
 mis_rds_snapshot = ""
 
