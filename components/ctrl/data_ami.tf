@@ -92,12 +92,19 @@ data "aws_ami" "grafana" {
 }
 
 data "aws_ami" "oraclexe" {
-  name_regex = var.xe_ami_name
+  name_regex = format(
+    "%s-%s-%s/%s*",
+    var.project,
+    "amzn2",
+    "oraclexe",
+    var.oraclexe_svr_id,
+  )
 
   most_recent = "true"
 
   owners = [
     data.aws_caller_identity.current.account_id,
+    var.mgmt_aws_account_id,
   ]
 
   filter {

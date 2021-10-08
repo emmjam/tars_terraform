@@ -11,6 +11,11 @@ resource "aws_instance" "oraclexe" {
     aws_security_group.outbound-oracle.id,
   ]
 
+  root_block_device {
+    volume_size = 40
+    volume_type = "gp3"
+  }
+
   tags = merge(
     local.default_tags,
     {
