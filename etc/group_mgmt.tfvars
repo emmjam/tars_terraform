@@ -76,7 +76,7 @@ new_all_users = [
   "helen.tiller@dvsa.gov.uk",
   "raj.bharaj@bjss.com",
   "robert.game@bjss.com",
-  "balal.mahmood@bjss.com",
+  "bilal.mahmood@bjss.com",
 ]
 
 # TSSOps Access
@@ -158,7 +158,7 @@ readonly_developer_users = [
   "ryu.sasai@bjss.com",
   "nikolaj.bilgrau@bjss.com",
   "loman.hussain@bjss.com",
-  "balal.mahmood@bjss.com",
+  "bilal.mahmood@bjss.com",
 ]
 
 # DVSA Access
