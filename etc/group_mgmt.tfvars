@@ -77,6 +77,7 @@ new_all_users = [
   "raj.bharaj@bjss.com",
   "robert.game@bjss.com",
   "bilal.mahmood@bjss.com",
+  "aamir.soni@bjss.com",
 ]
 
 # TSSOps Access
@@ -99,6 +100,7 @@ administrators_tssops_users = [
   "ismahil.khan@bjss.com",
   "darren.rathbone@bjss.com",
   "robert.game@bjss.com",
+  "aamir.soni@bjss.com",
 ]
 
 readonly_tssops_users = [
@@ -123,6 +125,7 @@ readonly_tssops_users = [
   "pete.mallam@bjss.com",
   "darren.rathbone@bjss.com",
   "raj.bharaj@bjss.com",
+  "aamir.soni@bjss.com",
 ]
 
 # TARS Platform Access
