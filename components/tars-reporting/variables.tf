@@ -344,3 +344,18 @@ variable "power_bi_cidr" {
   type        = string
   description = "Power BI CIDR range"
 }
+
+variable "mis_rds_parameter_group_name" {
+  type        = string
+  description = "MIS RDS DB Parameter Group Name"
+}
+
+variable "mis_rds_option_group_name" {
+  type        = string
+  description = "MIS RDS DB Option Group Name"
+}
+
+variable "mis_allow_major_version_upgrade" {
+  type        = string
+  description = "MIS RDS DB Major Engine Version Upgrade"
+}

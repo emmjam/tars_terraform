@@ -527,6 +527,8 @@ mis_rds_apply_immediately = "true"
 mis_rds_license_model = "license-included"
 mis_rds_autoscale = "True"
 mis_rds_sid_name = "MISDB"
+mis_rds_parameter_group_name = "misdb"
+mis_rds_option_group_name = "option-group"
 
 # RSISDB
 rsis_rds_storage_type = "gp2"

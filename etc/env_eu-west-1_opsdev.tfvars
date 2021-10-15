@@ -306,6 +306,10 @@ ibs_rds_snapshot = "sit01-ibs-subnet-move"
 mis_rds_username = "misdmsadmin"
 mis_rds_allocated_storage = "300"
 mis_rds_snapshot = "tars-dev01-tars-dms-misopdmstg-20180720"
+mis_rds_engine_version = "19.0.0.0.ru-2021-07.rur-2021-07.r1"
+mis_rds_parameter_group_name = "misdb-19c"
+mis_rds_option_group_name = "option-group-19c"
+mis_allow_major_version_upgrade = true
 
 # RSISDB
 rsis_rds_username = "tarsrsisadmin"
