@@ -17,6 +17,10 @@ resource "aws_ecr_repository" "government_gateway_mock" {
   name = "tars-government-gateway-mock"
 }
 
+resource "aws_ecr_repository" "tars-amzl2" {
+  name = "tars-amzl2"
+}
+
 resource "aws_ecr_repository" "wildfly11" {
   name = "tars-wildfly11"
 }

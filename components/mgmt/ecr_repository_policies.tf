@@ -22,6 +22,11 @@ resource "aws_ecr_repository_policy" "gov_gateway_mocktars_run_jenkins" {
   policy     = local.ecr_repository_policy_main
 }
 
+resource "aws_ecr_repository_policy" "tars-amzl2" {
+  repository = aws_ecr_repository.tars-amzl2.name
+  policy     = local.ecr_repository_policy_main
+}
+
 resource "aws_ecr_repository_policy" "wildfly11" {
   repository = aws_ecr_repository.wildfly11.name
   policy     = local.ecr_repository_policy_main
