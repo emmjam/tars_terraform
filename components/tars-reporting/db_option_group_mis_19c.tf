@@ -1,5 +1,11 @@
 resource "aws_db_option_group" "mis-19c" {
-  name = "${local.csi}-option-group-19c"
+  name = format(
+    "%s-%s-%s-%s",
+    var.project,
+    "mis-reporting",
+    var.environment,
+    "option-group-19c",
+  )
 
   option_group_description = "Terraform Option Group"
   engine_name              = "oracle-se2"

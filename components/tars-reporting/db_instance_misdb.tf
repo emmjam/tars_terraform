@@ -23,10 +23,8 @@ resource "aws_db_instance" "misdb" {
   apply_immediately         = var.mis_rds_apply_immediately
   license_model             = var.mis_rds_license_model
   snapshot_identifier       = var.mis_rds_snapshot
-  //parameter_group_name      = aws_db_parameter_group.mis.id
-  //option_group_name         = aws_db_option_group.mis.id
   parameter_group_name      = "${local.csi}-${var.mis_rds_parameter_group_name}"
-  option_group_name         = "${local.csi}-${var.mis_rds_option_group_name}"
+  option_group_name         = "tars-mis-reporting-${var.environment}-${var.mis_rds_option_group_name}"
   name                      = var.mis_rds_sid_name
   deletion_protection       = var.misdb_rds_delete_protect
   enabled_cloudwatch_logs_exports = ["alert", "listener"]

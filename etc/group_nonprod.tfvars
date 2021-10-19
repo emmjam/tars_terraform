@@ -531,7 +531,6 @@ mis_rds_parameter_group_name = "misdb"
 mis_rds_option_group_name = "option-group"
 mis_allow_major_version_upgrade = false
 
-
 # RSISDB
 rsis_rds_storage_type = "gp2"
 rsis_rds_engine = "oracle-se2"

@@ -6,7 +6,7 @@ resource "aws_db_option_group" "mis" {
     var.environment,
     "option-group",
   )
-
+  
   option_group_description = "Terraform Option Group"
   engine_name              = "oracle-se2"
   major_engine_version     = "12.1"
