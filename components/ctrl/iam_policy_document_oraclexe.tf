@@ -21,8 +21,7 @@ data "aws_iam_policy_document" "oraclexe" {
     ]
     resources = [
       aws_s3_bucket.resources.arn,
-      "${aws_s3_bucket.resources.arn}/xe-sql-scripts/*",
+      "${aws_s3_bucket.resources.arn}/${local.csi}-oraclexe-data/*",
     ]
   }
 }
-
