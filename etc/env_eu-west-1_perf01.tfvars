@@ -471,7 +471,7 @@ jmeter_asg_size_max               = 6
 jmeter_asg_size_min               = 0
 
 # squidnat
-squidnat_instance_type = "m5.large"
+squidnat_instance_type = "m5d.large"
 
 private_cert_domain_name = "perf01.nonprod.tars.dev-dvsacloud.uk"
 
