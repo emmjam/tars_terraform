@@ -97,6 +97,18 @@ resource "aws_route53_record" "grafana" {
   }
 }
 
+resource "aws_route53_record" "grafana-private" {
+  name    = "grafana"
+  zone_id = aws_route53_zone.private_domain.id 
+  type    = "A"
+
+  alias {
+    name                   = aws_alb.grafana.dns_name
+    zone_id                = aws_alb.grafana.zone_id
+    evaluate_target_health = true
+  }
+}
+
 # Create the R53 record for the XE box
 resource "aws_route53_record" "oraclexe" {
   count = var.account_environment != "mgmt" ? 1 : 0
