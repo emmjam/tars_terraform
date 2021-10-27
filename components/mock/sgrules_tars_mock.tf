@@ -84,3 +84,15 @@ resource "aws_security_group_rule" "mocksftp_ingress_jenkinsctrl" {
   
   cidr_blocks = var.jenkinsctrl_subnets_cidrs
 }
+
+#  Mock D90 rules
+
+resource "aws_security_group_rule" "tars_mock_ingress_nlb_port_10001" {
+  description              = "Allow TCP/10001 from tars"
+  type                     = "ingress"
+  from_port                = 10001
+  to_port                  = 10001
+  protocol                 = "tcp"
+  security_group_id        = aws_security_group.tars-mock.id
+  cidr_blocks = data.terraform_remote_state.base.outputs.subnet_cidrs_tars_backend
+}

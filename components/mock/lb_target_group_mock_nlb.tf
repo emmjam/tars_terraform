@@ -22,3 +22,27 @@ resource "aws_lb_target_group" "mock-nlb" {
   )
 }
 
+resource "aws_lb_target_group" "mock-nlb-d90" {
+  name     = "${local.csi}-10001"
+  port     = "10001"
+  protocol = "TCP"
+  vpc_id   = data.terraform_remote_state.base.outputs.vpc_id
+
+  health_check {
+    port                = "traffic-port"
+    protocol            = "TCP"
+    healthy_threshold   = "3"
+    unhealthy_threshold = "3"
+    interval            = "10"
+  }
+
+  target_type = "instance"
+
+  tags = merge(
+    local.default_tags,
+    {
+      "Name" = "${local.csi}-10001"
+    },
+  )
+}
+
