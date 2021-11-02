@@ -4,7 +4,7 @@ module "gitlab-upgrade" {
   environment = var.environment
   component   = var.component
 
-  name = "gitlabupgrade"
+  name = "gitlabupgd"
   r53_record_name = "gitlab_upgrade"
 
   vpc_id = aws_vpc.mgmt.id
