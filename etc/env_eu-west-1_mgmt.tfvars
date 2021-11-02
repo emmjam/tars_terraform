@@ -349,7 +349,7 @@ gitlab_elb_private_subnets_cidrs = ["10.200.5.128/28"]
 gitlab_upgrade_elb_private_subnets_cidrs = ["10.200.2.128/28"]
 
 gitlab_db_db_name           = "gitlabamzn2"
-gitlab_upgrade_db_db_name           = "gitlaba_upgrade"
+gitlab_upgrade_db_db_name           = "gitlabupgrade"
 gitlab_db_allocated_storage       = "20"
 gitlab_db_storage_type            = "gp2"
 gitlab_db_engine_version    = "12.7"
