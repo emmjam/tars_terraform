@@ -95,7 +95,7 @@ data "aws_ami" "gitlab_upgrade" {
         "%s-%s-%s/%s",
         var.project,
         "amzn2",
-        "gitlabupgrade",
+        "gitlab",
         var.gitlab_upgrade_ami_build_id,
       )
     ]
