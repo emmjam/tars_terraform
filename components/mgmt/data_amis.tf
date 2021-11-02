@@ -80,6 +80,28 @@ data "aws_ami" "gitlab" {
   }
 }
 
+data "aws_ami" "gitlab_upgrade" {
+  most_recent = "true"
+
+  owners = [
+    data.aws_caller_identity.current.account_id,
+  ]
+
+  filter {
+    name = "name"
+
+    values = [
+      format(
+        "%s-%s-%s/%s",
+        var.project,
+        "amzn2",
+        "gitlab",
+        var.gitlab_upgrade_ami_build_id,
+      )
+    ]
+  }
+}
+
 data "aws_ami" "nexus" {
   most_recent = "true"
 

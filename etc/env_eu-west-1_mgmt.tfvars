@@ -327,6 +327,7 @@ sonarqube = {
 ## gitlab
 gitlab_instance_type        = "m4.large"
 gitlab_ami_build_id   = "1096"
+gitlab_upgrade_ami_build_id   = "1096"
 gitlab_name           = "gitlabaz2"
 
 gitlab_asg_min_size         = 0
@@ -338,13 +339,17 @@ gitlab_scaledown_recurrence = "00 19 * * 1-5"
 gitlab_scaleup_desired      = 1
 gitlab_scaleup_recurrence   = "00 07 * * 1-5"
 gitlab_subnets_cidrs = ["10.200.5.0/28"]
+gitlab_upgrade_subnets_cidrs = ["10.200.2.0/28"]
 
 gitlab_elb_public_public_port     = 443
 gitlab_elb_public_public_protocol = "HTTPS"
 gitlab_elb_subnets_cidrs = ["10.200.5.16/28"]
+gitlab_upgrade_elb_subnets_cidrs = ["10.200.2.16/28"]
 gitlab_elb_private_subnets_cidrs = ["10.200.5.128/28"]
+gitlab_upgrade_elb_private_subnets_cidrs = ["10.200.2.128/28"]
 
 gitlab_db_db_name           = "gitlabamzn2"
+gitlab_upgrade_db_db_name           = "gitlaba_upgrade"
 gitlab_db_allocated_storage       = "20"
 gitlab_db_storage_type            = "gp2"
 gitlab_db_engine_version    = "12.7"
@@ -367,6 +372,12 @@ gitlab_db_subnets_cidrs = [
   "10.200.5.64/28",
 ]
 
+gitlab_upgrade_db_subnets_cidrs = [
+  "10.200.2.32/28",
+  "10.200.2.48/28",
+  "10.200.2.64/28",
+]
+
 gitlab_redis_engine_version     = "6.x"
 
 gitlab_redis_parameter_group_name     = "default.redis6.x"
@@ -375,11 +386,18 @@ gitlab_redis_maintenance_window       = "sun:04:00-sun:07:00"
 gitlab_redis_snapshot_window          = "00:00-03:00"
 gitlab_redis_snapshot_retention_limit = 0                                                           # backups turned off
 gitlab_redis_endpoint_address    = "tars-mgmt-mgmtgitlabaz2.pciqxb.0001.euw1.cache.amazonaws.com" # endpoint address is not revealable yet
+gitlab_upgrade_redis_endpoint_address = "TBC"
 
 gitlab_redis_subnets_cidrs = [
   "10.200.5.80/28",
   "10.200.5.96/28",
   "10.200.5.112/28",
+]
+
+gitlab_upgrade_redis_subnets_cidrs = [
+  "10.200.2.80/28",
+  "10.200.2.96/28",
+  "10.200.2.112/28",
 ]
 
 ## jenkins
