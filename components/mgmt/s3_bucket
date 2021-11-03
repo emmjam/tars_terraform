@@ -1,0 +1,63 @@
+resource "aws_s3_bucket" "lambda-repository" {
+  bucket = "${local.csi_global}-lambda-repository"
+  acl    = "private"
+
+  logging {
+    target_bucket = "${local.csi_global}-bucketlogs"
+    target_prefix = "${local.csi_global}-lambda-repository"
+  }
+
+  versioning {
+    enabled = true
+  }
+
+  tags = merge(
+    local.default_tags,
+    {
+      "Name" = "${local.csi_global}-lambda-repository"
+    },
+  )
+}
+
+data "aws_iam_policy_document" "lambda-repository" {
+  statement {
+    sid = "AllAccountsArtefactList"
+
+    resources = [
+      aws_s3_bucket.lambda-repository.arn,
+    ]
+
+    actions = [
+      "s3:ListBucket",
+    ]
+
+    principals {
+      type = "AWS"
+
+      identifiers = var.aws_account_ids
+    }
+  }
+
+  statement {
+    sid = "AllAccountsArtefactRead"
+
+    resources = [
+      "${aws_s3_bucket.lambda-repository.arn}/*",
+    ]
+
+    actions = [
+      "s3:GetObject",
+    ]
+
+    principals {
+      type = "AWS"
+
+      identifiers = var.aws_account_ids
+    }
+  }
+}
+
+resource "aws_s3_bucket_policy" "lambda-repository" {
+  bucket = aws_s3_bucket.lambda-repository.id
+  policy = data.aws_iam_policy_document.lambda-repository.json
+}

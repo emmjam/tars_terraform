@@ -281,6 +281,12 @@ sftpplus_efs_subnets_cidrs = [
   "10.167.7.192/28",
 ]
 
+tars_lambda_subnets_cidrs = [
+  "10.167.7.208/28",
+  "10.167.7.224/28",
+  "10.167.7.240/28",
+]
+
 # Deployer pub key
 deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVSO8uKpdbwww94azylwjnFxsFGcmXG4ObL1oOFibHMN0x+SsSwjfC1DEziWPK3m/Crmar0+ad/68nQC+iWo/MYclh8h3bkKlv9dO4Xtv/0H6uDRW3l3bBO0rWYbt46fMAOCqX96N3LRTfUlPuzsVAd0NGZZlSSAZF0AMl4xE/tZl2m+Dqylrjp3qLT4UxEIrAuvPW06PqkGy63hZznjCjQDaadOAUpY19ZaA71JBueyGBnZ8pSVzr5hT1TpNw/cXxA6WLj4CCipIVm0M64OT/ArqcnQMX9Htf4Gp5apXZ3f6MerfjgHnkrm1t6JNuhSjVB deployer@mgmt.tars.dvsa.aws"
 
@@ -373,3 +379,20 @@ sftp_cpuutilization_cw_metric_alarm_action_enabled = true
 # Enable action for tars-core CPU CloudWatch Alarm
 tars_core_cpuutilization_cw_metric_alarm_enabled = true
 tars_core_cpuutilization_cw_metric_alarm_action_enabled = true
+
+
+# Lambda
+
+notify_lambda_version = "002"
+api_notify = {
+  handler                = "notify.handleAsync"
+  #s3_key_prefix          = "functions/notify"
+  s3_key_prefix          = "lambda-repo/packages/gov-notify/tars-gov-notify"
+  memory_size            = 128
+  timeout                = 5
+  publish                = false
+  cwlg_retention_in_days = 3
+  log_level              = "DEBUG"
+}
+
+

@@ -274,6 +274,12 @@ prometheus_alb_private_cidrs = [
   "10.167.55.224/28",
 ]
 
+tars_lambda_subnets_cidrs = [
+  "10.167.49.0/28",
+  "10.167.49.16/28",
+  "10.167.49.32/28",
+]
+
 
 # Environment & Component for Accessing mgmt_prd remote state
 mgmt_component = "mgmt"
@@ -393,3 +399,16 @@ holding_pages_domains = [
   "incapsula-uat02-public.dvsa.tars.dev-dvsacloud.uk",
   "incapsula-ibs-uat02-public.dvsa.tars.dev-dvsacloud.uk",
 ]
+
+# Lambda
+
+notify_lambda_version = "002"
+api_notify = {
+  handler                = "notify.handleAsync"
+  s3_key_prefix          = "lambda-repo/packages/gov-notify/tars-gov-notify"
+  memory_size            = 128
+  timeout                = 5
+  publish                = false
+  cwlg_retention_in_days = 3
+  log_level              = "DEBUG"
+}

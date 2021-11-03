@@ -713,3 +713,18 @@ variable "vpc_endpoint_subnets_cidrs" {
   description = "TARS VPC endpoint Subnet CIDR's"
   default     = []
 }
+
+variable "api_notify" {
+  type        = map
+  description = "Map of variables for notify lambda"
+}
+
+variable "tars_lambda_subnets_cidrs" {
+  type        = list (string)
+  description = "List of CIDR blocks for Lambda subnets"
+}
+
+variable "notify_lambda_version" {
+  type = string
+  description = "Lambda version"
+}

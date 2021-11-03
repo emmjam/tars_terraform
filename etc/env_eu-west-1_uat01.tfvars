@@ -276,6 +276,11 @@ prometheus_alb_private_cidrs = [
   "10.167.15.224/28",
 ]
 
+tars_lambda_subnets_cidrs = [
+  "10.167.9.0/28",
+  "10.167.9.16/28",
+  "10.167.9.32/28",
+]
 
 # Environment & Component for Accessing mgmt_prd remote state
 mgmt_component = "mgmt"
@@ -378,3 +383,17 @@ rds_cw_metric_alarm_enabled = true
 # Enable action for RDS CloudWatch Alarm
 rds_cw_metric_alarm_action_enabled = false
 rds_cw_metric_freestoragespace_alarm_action_enabled = true
+
+# Lambda
+
+notify_lambda_version = "002"
+api_notify = {
+  handler                = "notify.handleAsync"
+  s3_key_prefix          = "lambda-repo/packages/gov-notify/tars-gov-notify"
+  memory_size            = 128
+  timeout                = 5
+  publish                = false
+  cwlg_retention_in_days = 3
+  log_level              = "DEBUG"
+}
+

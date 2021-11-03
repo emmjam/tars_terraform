@@ -276,6 +276,11 @@ sftpplus_efs_subnets_cidrs = [
   "10.167.47.192/28",
 ]
 
+tars_lambda_subnets_cidrs = [
+  "10.167.47.208/28",
+  "10.167.47.224/28",
+  "10.167.47.240/28",
+]
 
 # Environment & Component for Accessing mgmt_prd remote state
 mgmt_component = "mgmt"
@@ -435,4 +440,19 @@ cpc-front_asg_max_size        = 1
 cpc-front_scaleup_desired     = 1
 apache_asg_max_size           = 1
 apache_scaleup_desired        = 1
+
+
+# Lambda
+
+notify_lambda_version = "002"
+api_notify = {
+  handler                = "uk.gov.dvsa.notify.sms.SMSNotifyHandler"
+  #s3_key_prefix          = "functions/notify"
+  s3_key_prefix          = "lambda-repo/packages/gov-notify/tars-gov-notify"
+  memory_size            = 512
+  timeout                = 5
+  publish                = false
+  cwlg_retention_in_days = 3
+  log_level              = "DEBUG"
+}
 

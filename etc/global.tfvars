@@ -119,3 +119,12 @@ holdingpageenv = [
   "perf01",
   "train"
 ]
+
+notifier_lambda_vars = {
+  notifier_memory_size    = "512"
+  notifier_lambda_timeout = "30"
+  notifier_lambda_runtime = "java8"
+  notifier_lambda_handler = "uk.gov.dvsa.LambdaHandler::handleRequest"
+  notifier_s3_key         = "notify/notify-service-79.zip"
+  notify_api_key          = ""
+}

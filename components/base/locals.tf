@@ -37,7 +37,7 @@ locals {
       },
     ],
   )
-
+  
   vpc_domain_name = "${var.environment}.${var.private_domain_name}"
   vpc_domain_name_aws = "${var.environment}.${var.private_domain_name_aws}"
 
@@ -57,4 +57,5 @@ locals {
     "prometheus/cloud-init-output",
   )
 }
+
 
