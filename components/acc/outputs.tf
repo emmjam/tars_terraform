@@ -78,3 +78,23 @@ output "oom-s3-log-bucket" {
 output "oom-s3-log-bucket_id" {
   value = aws_s3_bucket.oom-logs.id
 }
+
+##
+# SQS Queue outputs gov notify
+##
+
+output "sqs_queue_messages_name" {
+  value = "${aws_sqs_queue.messages.name}"
+}
+
+output "sqs_queue_messages_arn" {
+  value = "${aws_sqs_queue.messages.arn}"
+}
+
+output "sqs_queue_dead_letter_name" {
+  value = "${aws_sqs_queue.dead_letter.name}"
+}
+
+output "sqs_queue_dead_letter_arn" {
+  value = "${aws_sqs_queue.dead_letter.arn}"
+}
