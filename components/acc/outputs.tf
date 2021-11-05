@@ -79,6 +79,9 @@ output "oom-s3-log-bucket_id" {
   value = aws_s3_bucket.oom-logs.id
 }
 
+output "lambda-artefacts-bucket" {
+  value = aws_s3_bucket.lambda_artefacts.id
+}
 ##
 # SQS Queue outputs gov notify
 ##

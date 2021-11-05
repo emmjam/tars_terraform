@@ -713,3 +713,50 @@ variable "vpc_endpoint_subnets_cidrs" {
   description = "TARS VPC endpoint Subnet CIDR's"
   default     = []
 }
+
+variable "authorisation_enabled" {
+  type        = "string"
+  description = "Whether the authorisation features should be enabled or not"
+  default     = false
+}
+
+variable "stage_name" {
+  type        = "string"
+  description = "The name of the stage"
+  default     = ""
+}
+
+variable "api_private_stage_name" {
+  type        = "string"
+  description = "The name of the stage for Private API"
+  default     = ""
+}
+
+variable "api_private_execution_log_level" {
+  type        = "string"
+  description = "Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs"
+  default     = "ERROR"
+}
+
+
+variable "api_private_data_trace_enabled" {
+  type        = "string"
+  description = "Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs"
+  default     = false
+}
+
+variable "api_notify" {
+  type        = "map"
+  description = "Map of variables for notify lambda"
+}
+
+variable "tars_lambda_subnets_cidrs" {
+  type        = list (string)
+  description = "List of CIDR blocks for Lambda subnets"
+}
+
+variable "notify_lambda_version" {
+  type = string
+  description = "Lambda version"
+  default = "DEFAULT"
+}

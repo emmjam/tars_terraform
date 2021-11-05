@@ -28,6 +28,11 @@ output "role_name" {
   description = "The name of the role"
 }
 
+output "role_arn" {
+  value       = aws_iam_role.main.arn
+  description = "The ARN of the role"
+}
+
 output "log_group_name" {
   value       = aws_cloudwatch_log_group.main.name
   description = "The name of the log group"

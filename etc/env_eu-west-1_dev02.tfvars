@@ -276,6 +276,11 @@ sftpplus_efs_subnets_cidrs = [
   "10.167.47.192/28",
 ]
 
+tars_lambda_subnets_cidrs = [
+  "10.167.47.208/28",
+  "10.167.47.224/28",
+  "10.167.47.240/28",
+]
 
 # Environment & Component for Accessing mgmt_prd remote state
 mgmt_component = "mgmt"
@@ -436,3 +441,16 @@ cpc-front_scaleup_desired     = 1
 apache_asg_max_size           = 1
 apache_scaleup_desired        = 1
 
+
+# Lambda
+
+api_notify = {
+  handler                = "notify.handleAsync"
+  #s3_key_prefix          = "functions/notify"
+  s3_key_prefix          = "lambda-functions"
+  memory_size            = 128
+  timeout                = 5
+  publish                = false
+  cwlg_retention_in_days = 3
+  log_level              = "DEBUG"
+}

@@ -170,3 +170,11 @@ output "iam_role_db_reports_arn" {
 output "squidnat_sg_id" {
   value = module.squidnat.security_group_id
 }
+
+output "sqs_send_govnotify_arn" {
+  value = aws_sqs_queue.send_gov_notify.arn
+}
+
+output "sqs_results_govnotify_arn" {
+  value = aws_sqs_queue.results_gov_notify.arn
+}
