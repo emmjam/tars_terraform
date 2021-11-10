@@ -34,6 +34,8 @@ new_all_users = [
   "matthew.bell@dvsa.gov.uk",
   "michael.tribbick@bjss.com",
   "raman.kapoor@bjss.com",
+  "rob.whyte@bjss.com",
+  "costa.vorontsov@bjss.com",
   "michelle.pike@bjss.com",
   "mike.peachey@bjss.com",
   "prashant.kumar@bjss.com",
@@ -140,6 +142,8 @@ administrators_platform_users = [
   "michelle.pike@bjss.com",
   "michael.tribbick@bjss.com",
   "raman.kapoor@bjss.com",
+  "rob.whyte@bjss.com",
+  "costa.vorontsov@bjss.com",
   "nadeem.khan@bjss.com",
  ]
 readonly_platform_users = [
@@ -147,6 +151,8 @@ readonly_platform_users = [
   "michelle.pike@bjss.com",
   "michael.tribbick@bjss.com",
   "raman.kapoor@bjss.com",
+  "rob.whyte@bjss.com",
+  "costa.vorontsov@bjss.com",
   "david.giles@bjss.com",
 ]
 
