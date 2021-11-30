@@ -109,9 +109,9 @@ wildfly-back_puppet_nodetype      = "tars-back"
 wildfly-back_asg_min_size         = 0
 wildfly-back_asg_max_size         = 4
 wildfly-back_scaledown_desired    = 3
-wildfly-back_scaledown_recurrence = "0 * * * *"
+wildfly-back_scaledown_recurrence = "0 */2 * * *"
 wildfly-back_scaleup_desired      = 4
-wildfly-back_scaleup_recurrence   = "30 * * * *"
+wildfly-back_scaleup_recurrence   = "0 1-23/2 * * *"
 
 ## wildfly-batch
 wildfly-batch_instance_type        = "m4.large"
