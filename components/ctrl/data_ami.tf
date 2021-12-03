@@ -83,7 +83,7 @@ data "aws_ami" "grafana" {
       format(
         "%s-%s-%s/%s",
         var.project,
-        "amzn2",
+        "amzn",
         "grafana",
         var.grafana_ami_build_id,
       )
