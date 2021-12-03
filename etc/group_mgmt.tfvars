@@ -24,7 +24,6 @@ new_all_users = [
   "david.giles@bjss.com",
   "david.johnson@bjss.com",
   "david.woodley@bjss.com",
-  "hamzaan.bridle@bjss.com",
   "ian.harris@bjss.com",
   "ibrar.akram@bjss.com",
   "irfan.sidat@bjss.com",
@@ -158,7 +157,6 @@ readonly_platform_users = [
 
 readonly_developer_users = [
   "david.woodley@bjss.com",
-  "hamzaan.bridle@bjss.com",
   "richard.freitas@bjss.com",
   "john.morley@bjss.com",
   "thomas.webb@bjss.com",
