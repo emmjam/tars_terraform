@@ -10,7 +10,7 @@ resource "aws_network_interface" "squid" {
   )
 
   source_dest_check = "false"
-  security_groups = concat(list(aws_security_group.squidnat.id), var.additional_sg_ids)
+  security_groups = concat(tolist([aws_security_group.squidnat.id]), var.additional_sg_ids)
 
   tags = merge(
     var.default_tags,

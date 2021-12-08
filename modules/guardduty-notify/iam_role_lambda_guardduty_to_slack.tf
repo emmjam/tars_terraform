@@ -4,9 +4,9 @@ resource "aws_iam_role" "lambda_guardduty_slack" {
 
   tags = merge(
    local.default_tags,
-    map(
-      "Name", "${local.csi}/${var.module}",
-    ),
+    tomap({
+      "Name" = "${local.csi}/${var.module}",
+    }),
   )
 }
 

@@ -13,7 +13,7 @@ module "jenkinsnode" {
 
   subnets_cidrs = var.jenkinsctrl_subnets_cidrs
 
-  subnets_route_tables = list(aws_route_table.private_nat.id)
+  subnets_route_tables = tolist([aws_route_table.private_nat.id])
 
   lc_ami_id        = data.aws_ami.jenkinsctrl.image_id
   lc_instance_type = var.jenkinsctrl_instance_type

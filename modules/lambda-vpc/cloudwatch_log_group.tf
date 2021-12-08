@@ -5,8 +5,8 @@ resource "aws_cloudwatch_log_group" "main" {
 
   tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}/${var.name}",
-    ),
+    tomap({
+      "Name" = "${local.csi}/${var.name}",
+    }),
   )
 }

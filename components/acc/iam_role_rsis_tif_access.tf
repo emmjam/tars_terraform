@@ -9,8 +9,8 @@ resource "aws_iam_role" "rsis_tif_access" {
 
   tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}/DVSATifAccess",
-    ),
+    tomap({
+      "Name" = "${local.csi}/DVSATifAccess",
+    }),
   )
 }

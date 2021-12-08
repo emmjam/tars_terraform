@@ -20,7 +20,7 @@ module "jenkins_blue" {
 
   lc_additional_sg_ids = concat(
     var.lc_additional_sg_ids,
-    list(aws_security_group.jenkins.id)
+    tolist([aws_security_group.jenkins.id])
   )
 
   asg_size_min               = 0

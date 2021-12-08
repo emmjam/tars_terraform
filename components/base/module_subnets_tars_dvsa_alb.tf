@@ -11,7 +11,7 @@ module "tars_dvsa_alb_subnets" {
 
   cidrs = var.tars_dvsa_alb_cidrs
 
-  route_tables = list(aws_route_table.public.id)
+  route_tables = tolist([aws_route_table.public.id])
 
   vpc_id       = aws_vpc.vpc.id
   default_tags = local.default_tags

@@ -23,13 +23,13 @@ locals {
 
   default_tags = merge(
     var.default_tags,
-    map(
-      "Module", local.parent_module == "" ? var.module : format(
+    tomap({
+      "Module" = local.parent_module == "" ? var.module : format(
         "%s/%s",
         local.parent_module,
         var.module,
       ),
-    ),
+    }),
   )
 
   # SPECIFIC

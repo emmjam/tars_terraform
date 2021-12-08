@@ -34,6 +34,7 @@ output "vpc_endpoint_s3_prefix_list_id"{
 
 output "secret" {
   value = aws_iam_access_key.ses_user.secret
+  sensitive = true
 }
 
 output "user" {

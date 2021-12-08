@@ -9,8 +9,8 @@ resource "aws_iam_role" "billing" {
 
   tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}/Billing",
-    ),
+    tomap({
+      "Name" = "${local.csi}/Billing",
+    }),
   )
 }

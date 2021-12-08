@@ -4,7 +4,8 @@ resource "aws_launch_template" "main" {
   image_id               = var.lc_ami_id
   instance_type          = var.lc_instance_type
   user_data              = var.lc_user_data
-  vpc_security_group_ids = concat(list(aws_security_group.main.id), var.lc_additional_sg_ids)
+  vpc_security_group_ids = concat(tolist([aws_security_group.main.id]), var.lc_additional_sg_ids)
+  
 
   dynamic "instance_market_options" {
     for_each = var.lc_spot_price != "" ? [1] : []

@@ -11,7 +11,7 @@ resource "aws_ecs_task_definition" "jenkins_worker" {
         memory_reservation = "2048"
       })
 
-  requires_compatibilities = list("FARGATE")
+  requires_compatibilities = tolist(["FARGATE"])
 
   cpu    = "1024"
   memory = "2048"

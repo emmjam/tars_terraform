@@ -9,7 +9,7 @@ module "mock_fargate" {
   vpc_id      = data.terraform_remote_state.base.outputs.vpc_id
   subnet_ids  = data.terraform_remote_state.base.outputs.subnets_tars_backend
 
-  additional_sg_ids = list(data.terraform_remote_state.base.outputs.core_sg_id)
+  additional_sg_ids = tolist([data.terraform_remote_state.base.outputs.core_sg_id])
 
   default_tags = local.default_tags
 

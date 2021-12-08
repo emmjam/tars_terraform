@@ -9,7 +9,7 @@ resource "aws_ecs_task_definition" "epdq_db" {
         epdq_name          = local.epdq_name
       })
 
-  requires_compatibilities = list("FARGATE")
+  requires_compatibilities = tolist(["FARGATE"])
 
   cpu    = "512"
   memory = "1024"

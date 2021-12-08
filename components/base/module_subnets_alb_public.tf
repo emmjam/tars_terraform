@@ -11,6 +11,6 @@ module "alb_public_subnets" {
 
   cidrs = var.alb_public_subnets_cidrs
 
-  route_tables = list(aws_route_table.public.id)
+  route_tables = tolist([aws_route_table.public.id])
 }
 

@@ -12,6 +12,6 @@ module "tars_backend_api_alb_subnets" {
   cidrs = var.tars_backend_api_alb_subnets_cidrs
 
   # Check this - what does MES need? Public for testing only
-  route_tables = list(aws_route_table.private_nonat.id)
+  route_tables = tolist([aws_route_table.private_nonat.id])
 }
 

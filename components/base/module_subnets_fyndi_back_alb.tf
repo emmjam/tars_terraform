@@ -11,6 +11,6 @@ module "fyndi_back_alb_subnets" {
 
   cidrs = var.fyndi_back_alb_subnets_cidrs
 
-  route_tables = list(aws_route_table.private_nonat.id)
+  route_tables = tolist([aws_route_table.private_nonat.id])
 }
 

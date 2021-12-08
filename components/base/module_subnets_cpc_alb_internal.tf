@@ -11,6 +11,6 @@ module "cpc_alb_internal" {
 
   cidrs = var.cpc_alb_internal
 
-  route_tables = list(aws_route_table.private_nonat.id)
+  route_tables = tolist([aws_route_table.private_nonat.id])
 }
 

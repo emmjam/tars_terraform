@@ -12,7 +12,7 @@ resource "aws_ecs_task_definition" "gov_gateway" {
         gov_gateway_issuer         = "https://mock-gov-gateway-${var.environment}-public.dvsa.tars.dev-dvsacloud.uk"
       })
 
-  requires_compatibilities = list("FARGATE")
+  requires_compatibilities = tolist(["FARGATE"])
 
   cpu    = "512"
   memory = "1024"

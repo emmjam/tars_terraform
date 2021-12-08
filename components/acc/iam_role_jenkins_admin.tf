@@ -9,8 +9,8 @@ resource "aws_iam_role" "jenkins_admin" {
 
   tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}/jenkins-admin",
-    ),
+    tomap({
+      "Name" = "${local.csi}/jenkins-admin",
+    }),
   )
 }

@@ -44,16 +44,16 @@ resource "aws_dynamodb_table" "bounced_email_report" {
   
     tags = merge(
       var.default_tags,
-      map(
-        "Name", format(
+      tomap({
+        "Name" = format(
           "%s-%s-%s-%s",
           var.project,
           var.environment,
           var.component,
           var.name
         ),
-        "Module", var.module
-      )
+        "Module" = var.module
+      })
     )
 
 }

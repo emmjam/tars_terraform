@@ -9,8 +9,8 @@ resource "aws_iam_role" "qaengineer" {
 
   tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}/QAEngineerAccess",
-    ),
+    tomap({
+      "Name" = "${local.csi}/QAEngineerAccess",
+    }),
   )
 }

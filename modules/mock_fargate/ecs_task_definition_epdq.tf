@@ -12,7 +12,7 @@ resource "aws_ecs_task_definition" "epdq" {
         async_callback_url   = "http://tars-core-backend.${var.environment}.tars.dvsa.aws:8080/DSAPostPaymentConfirmationService/confirm"
       })
 
-  requires_compatibilities = list("FARGATE")
+  requires_compatibilities = tolist(["FARGATE"])
 
   cpu    = "512"
   memory = "1024"

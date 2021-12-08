@@ -43,17 +43,17 @@ resource "aws_lambda_function" "lambda_cron" {
 
   environment {
     variables = merge(
-      map(
-        "REGION", data.aws_region.current.name
-      ),
+      tomap({
+        "REGION" = data.aws_region.current.name
+      }),
       var.lambda_env_vars
     )
   }
 
   tags = merge(
     var.default_tags,
-    map(
-      "Name", format(
+    tomap({
+      "Name" = format(
         "%s-%s-%s/%s/%s",
         var.project,
         var.environment,
@@ -61,9 +61,9 @@ resource "aws_lambda_function" "lambda_cron" {
         var.module,
         var.function_name
       ),
-      "Component", var.component,
-      "Module", var.module
-    )
+      "Component" = var.component,
+      "Module" = var.module
+    })
   )
   lifecycle {
     ignore_changes = [

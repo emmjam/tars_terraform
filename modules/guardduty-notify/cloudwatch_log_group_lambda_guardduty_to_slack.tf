@@ -5,9 +5,9 @@ resource "aws_cloudwatch_log_group" "lambda_guardduty_slack" {
 
   tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}/${var.name}",
-      "Module", var.module,
-    )
+    tomap({
+      "Name" = "${local.csi}/${var.name}",
+      "Module" = var.module,
+    })
   )
 }

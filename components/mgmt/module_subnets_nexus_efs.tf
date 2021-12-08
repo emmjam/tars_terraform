@@ -11,7 +11,7 @@ module "subnets_nexus_efs" {
 
   cidrs = var.nexus_efs_subnets_cidrs
 
-  route_tables = list(aws_route_table.private.id)
+  route_tables = tolist([aws_route_table.private.id])
 
   vpc_id = aws_vpc.mgmt.id
 

@@ -11,6 +11,6 @@ module "elc_subnets" {
 
   cidrs = var.elc_main_subnets_cidrs
 
-  route_tables = list(aws_route_table.private_nonat.id)
+  route_tables = tolist([aws_route_table.private_nonat.id])
 }
 

@@ -19,9 +19,9 @@ resource "aws_s3_bucket" "envis" {
 
   tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}-envis-frontend",
-    )
+    tomap({
+      "Name" = "${local.csi}-envis-frontend",
+    })
   )
 }
 

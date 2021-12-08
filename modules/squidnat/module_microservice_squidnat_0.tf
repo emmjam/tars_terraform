@@ -20,7 +20,7 @@ module "microservice_squidnat_0" {
     data.aws_availability_zones.azs.names[0],
   ]
 
-  lc_additional_sg_ids = concat(list(aws_security_group.squidnat.id), var.additional_sg_ids)
+  lc_additional_sg_ids = concat(tolist([aws_security_group.squidnat.id]), var.additional_sg_ids)
 
   lc_ami_id        = var.ami_id
   lc_instance_type = var.instance_type

@@ -18,9 +18,9 @@ resource "aws_lambda_function" "holding-pages" {
 
   tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}/${var.name}",
-    )
+    tomap({
+      "Name" = "${local.csi}/${var.name}",
+    })
   )
 }
 

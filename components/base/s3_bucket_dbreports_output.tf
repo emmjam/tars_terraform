@@ -2,9 +2,9 @@ resource "aws_s3_bucket" "dbreports_output" {
   bucket = "${local.csi_global}-dbreports-output"
   tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi_global}-dbreports-output"
-    )
+    tomap({
+      "Name" = "${local.csi_global}-dbreports-output"
+    })
   )
 
   force_destroy = "false"

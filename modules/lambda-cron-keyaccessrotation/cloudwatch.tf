@@ -4,8 +4,8 @@ resource "aws_cloudwatch_log_group" "lambda" {
 
   tags = merge(
     var.default_tags,
-    map(
-      "Name", format(
+    tomap({
+      "Name" = format(
         "%s-%s-%s/%s/%s",
         var.project,
         var.environment,
@@ -13,9 +13,9 @@ resource "aws_cloudwatch_log_group" "lambda" {
         var.module,
         var.function_name
       ),
-      "Component", var.component,
-      "Module", var.module
-    )
+      "Component" = var.component,
+      "Module" = var.module
+    })
   )
 }
 

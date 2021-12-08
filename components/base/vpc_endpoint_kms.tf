@@ -5,7 +5,7 @@ resource "aws_vpc_endpoint" "kms" {
   service_name      = "com.amazonaws.eu-west-1.kms"
   vpc_endpoint_type = "Interface"
 
-  security_group_ids = list(aws_security_group.kms_endpoint.id)
+  security_group_ids = tolist([aws_security_group.kms_endpoint.id])
 
   subnet_ids = module.vpc_endpoint_subnets.subnet_ids
 

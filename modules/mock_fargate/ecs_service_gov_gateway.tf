@@ -7,7 +7,7 @@ resource "aws_ecs_service" "gov_gateway" {
 
   network_configuration {
     subnets         = var.subnet_ids
-    security_groups = concat(list(aws_security_group.gov_gateway.id), var.additional_sg_ids)
+    security_groups = concat(tolist([aws_security_group.gov_gateway.id]), var.additional_sg_ids)
   }
 
   load_balancer {

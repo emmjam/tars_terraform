@@ -4,7 +4,7 @@ resource "aws_vpc_endpoint" "dynamodb" {
   service_name = data.aws_vpc_endpoint_service.dynamodb.service_name
 
   route_table_ids = concat(
-    list(aws_route_table.public.id),
+    tolist([aws_route_table.public.id]),
     aws_route_table.private_nat.*.id
   )
 }

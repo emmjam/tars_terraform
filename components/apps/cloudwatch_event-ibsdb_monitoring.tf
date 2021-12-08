@@ -6,9 +6,9 @@ resource "aws_cloudwatch_event_rule" "ibsdb_monitoring" {
 
   tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}/ibsdb-monitoring",
-    ),
+    tomap({
+      "Name" = "${local.csi}/ibsdb-monitoring",
+    }),
   )
 }
 

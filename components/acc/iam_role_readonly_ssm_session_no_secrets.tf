@@ -9,8 +9,8 @@ resource "aws_iam_role" "readonly_ssm_session_no_secrets" {
 
   tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}/ReadOnlySSMSessionNoSecrets",
-    ),
+    tomap({
+      "Name" = "${local.csi}/ReadOnlySSMSessionNoSecrets",
+    }),
   )
 }

@@ -10,7 +10,7 @@ module "grafana_alb_subnets" {
 
   cidrs = var.grafana_alb_subnets_cidrs
 
-  route_tables = list(aws_route_table.public.id)
+  route_tables = tolist([aws_route_table.public.id])
 
   default_tags = local.default_tags
 }

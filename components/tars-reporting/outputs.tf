@@ -10,6 +10,7 @@ output "rsis-db-sg-id" {
 
 output "secret" {
   value = aws_iam_access_key.ses_user.secret
+  sensitive = true
 }
 
 output "user" {

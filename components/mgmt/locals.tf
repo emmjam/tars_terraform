@@ -50,7 +50,7 @@ locals {
   vpc_domain_name = "${var.environment}.${var.private_domain_name}"
 
   trusted_vpc_ids = concat(
-    list(aws_vpc.mgmt.id),
+    tolist([aws_vpc.mgmt.id]),
     data.aws_vpc_peering_connection.base_peers_local.*.vpc_id,
     data.aws_vpc_peering_connection.base_peers_xacct.*.vpc_id,
     data.aws_vpc_peering_connection.ctrl_peers_local.*.vpc_id,

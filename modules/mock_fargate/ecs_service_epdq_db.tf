@@ -11,7 +11,7 @@ resource "aws_ecs_service" "epdq_db" {
 
   network_configuration {
     subnets         = var.subnet_ids
-    security_groups = concat(list(aws_security_group.epdq_db.id), var.additional_sg_ids)
+    security_groups = concat(tolist([aws_security_group.epdq_db.id]), var.additional_sg_ids)
   }
 
   load_balancer {

@@ -8,7 +8,7 @@ resource "aws_vpc_endpoint" "logs" {
   service_name      = data.aws_vpc_endpoint_service.logs.service_name
   vpc_endpoint_type = "Interface"
 
-  security_group_ids  = list(aws_security_group.vpc_endpoints.id)
+  security_group_ids  = tolist([aws_security_group.vpc_endpoints.id])
   subnet_ids          = module.vpc_endpoints_subnets.subnet_ids
   private_dns_enabled = "true"
   tags                = local.default_tags
@@ -24,7 +24,7 @@ resource "aws_vpc_endpoint" "ecr_dkr" {
   service_name      = data.aws_vpc_endpoint_service.ecr_dkr.service_name
   vpc_endpoint_type = "Interface"
 
-  security_group_ids  = list(aws_security_group.vpc_endpoints.id)
+  security_group_ids  = tolist([aws_security_group.vpc_endpoints.id])
   subnet_ids          = module.vpc_endpoints_subnets.subnet_ids
   private_dns_enabled = "true"
   tags                = local.default_tags
@@ -40,7 +40,7 @@ resource "aws_vpc_endpoint" "ecr_api" {
   service_name      = data.aws_vpc_endpoint_service.ecr_api.service_name
   vpc_endpoint_type = "Interface"
 
-  security_group_ids  = list(aws_security_group.vpc_endpoints.id)
+  security_group_ids  = tolist([aws_security_group.vpc_endpoints.id])
   subnet_ids          = module.vpc_endpoints_subnets.subnet_ids
   private_dns_enabled = "true"
   tags                = local.default_tags

@@ -37,15 +37,15 @@ resource "aws_dynamodb_table" "release_data" {
 
   tags = merge(
     var.default_tags,
-    map(
-      "Name", format(
+    tomap({
+      "Name" = format(
         "%s-%s-%s-%s",
         var.project,
         var.environment,
         var.component,
         "release_data"
       ),
-    )
+    })
   )
 
 }

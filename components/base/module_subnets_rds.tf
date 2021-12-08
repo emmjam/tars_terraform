@@ -11,7 +11,7 @@ module "subnets_rds" {
 
   cidrs = var.rds_subnets_cidrs
 
-  route_tables = list(aws_route_table.private_nonat.id)
+  route_tables = tolist([aws_route_table.private_nonat.id])
 
   vpc_id       = aws_vpc.vpc.id
   default_tags = local.default_tags

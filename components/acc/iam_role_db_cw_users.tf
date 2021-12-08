@@ -9,8 +9,8 @@ resource "aws_iam_role" "db_cw_users" {
 
   tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}/DBCWAccess",
-    ),
+    tomap({
+      "Name" = "${local.csi}/DBCWAccess",
+    }),
   )
 }
