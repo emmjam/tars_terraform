@@ -3,7 +3,7 @@ resource "aws_alb_listener" "private_https" {
   port              = "443"
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-2016-08"
-  certificate_arn   = data.aws_acm_certificate.mgmt_mgmt_tars_dvsa_aws.arn
+  certificate_arn   = data.aws_acm_certificate.tars_dvsacloud_uk.arn
 
   default_action {
     type             = "forward"
