@@ -22,7 +22,6 @@ new_all_users = [
   "damian.skiba@bjss.com",
   "daniel.thompson@bjss.com",
   "david.giles@bjss.com",
-  "david.johnson@bjss.com",
   "david.woodley@bjss.com",
   "ian.harris@bjss.com",
   "ibrar.akram@bjss.com",
@@ -41,7 +40,6 @@ new_all_users = [
   "richard.freitas@bjss.com",
   "saul.kashani@bjss.com",
   "steven.millington@bjss.com",
-  "jamie.kelly@bjss.com",
   "winston.coleman@bjss.com",
   "david.walsh@bjss.com",
   "rebecca.howell@bjss.com",
@@ -132,7 +130,6 @@ readonly_tssops_users = [
 # TARS Platform Access
 
 administrators_platform_users = [
-  "jamie.kelly@bjss.com",
 ]
 
  administrators_platform_nonprod_users = [
@@ -144,7 +141,6 @@ administrators_platform_users = [
   "nadeem.khan@bjss.com",
  ]
 readonly_platform_users = [
-  "jamie.kelly@bjss.com",
   "michelle.pike@bjss.com",
   "michael.tribbick@bjss.com",
   "raman.kapoor@bjss.com",
@@ -181,7 +177,6 @@ readonly_dvsa_users = [
 # Billing Dashboard Access
 
 billing_users = [
-  "david.johnson@bjss.com",
 ]
 
 # Application Support Access
