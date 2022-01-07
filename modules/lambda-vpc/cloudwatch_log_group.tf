@@ -18,7 +18,7 @@ resource "aws_cloudwatch_log_group" "api_private_access_logs" {
 
   tags = "${merge(
     local.default_tags,
-    map(
+    tomap(
       "Name", "${local.csi}/access-logs",
     ),
   )}"
