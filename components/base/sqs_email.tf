@@ -1,9 +1,11 @@
 resource "aws_sqs_queue" "send_gov_notify" {
-  name = "${local.csi}-Send-SMSGovNotify"
+  name = "${local.csi}-Send-SMSGovNotify.fifo"
 
   receive_wait_time_seconds         = 10
-#  kms_master_key_id                 = aws_kms_alias.email_key_alias.id
-# kms_data_key_reuse_period_seconds = 3600
+  fifo_queue                  = true
+  content_based_deduplication = true
+  kms_master_key_id                 = aws_kms_alias.email_key_alias.id
+  kms_data_key_reuse_period_seconds = 3600
 
   redrive_policy = jsonencode({
     deadLetterTargetArn = aws_sqs_queue.govnotify_dlq.arn
@@ -13,34 +15,13 @@ resource "aws_sqs_queue" "send_gov_notify" {
   tags = merge(
     local.default_tags,
     {
-      "Name" = "${local.csi}/Send-SMSGovNotify"
+      "Name" = "${local.csi}/Send-SMSGovNotify.fifo"
     },
   )
 
   depends_on = [
     aws_kms_alias.email_key_alias
   ]
-}
-resource "aws_sqs_queue_policy" "send_gov_notify" {
-  queue_url = aws_sqs_queue.send_gov_notify.id
-
-  policy = <<POLICY
-{
-  "Version": "2012-10-17",
-  "Id": "sqspolicy",
-  "Statement":  [
-    {
-      "Sid": "Stmt1641547592020",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "${module.lambda_notify.role_arn}"
-      },
-      "Action": "sqs:*",
-      "Resource": "${aws_sqs_queue.results_gov_notify.arn}"
-    }
-  ]
-}
-POLICY
 }
 
 resource "aws_kms_key" "email_key" {
@@ -53,9 +34,11 @@ resource "aws_kms_alias" "email_key_alias" {
 }
 
 resource "aws_sqs_queue" "results_gov_notify" {
-  name = "${local.csi}-Results-SMSGovNotify"
+  name = "${local.csi}-DocumentBatchUpdate.fifo"
 
   receive_wait_time_seconds         = 10
+  fifo_queue                  = true
+  content_based_deduplication = true
 
   redrive_policy = jsonencode({
     deadLetterTargetArn = aws_sqs_queue.govnotify_dlq.arn
@@ -65,30 +48,7 @@ resource "aws_sqs_queue" "results_gov_notify" {
   tags = merge(
     local.default_tags,
     {
-      "Name" = "${local.csi}/Results-SMSGovNotify"
+      "Name" = "${local.csi}/DocumentBatchUpdate.fifo"
     },
   )
-}
-
-resource "aws_sqs_queue_policy" "results_gov_notify" {
-  queue_url = aws_sqs_queue.results_gov_notify.id
-
-  policy = <<POLICY
-{
-  "Version": "2012-10-17",
-  "Id": "sqspolicy",
-  "Statement": [
-    {
-      "Sid": "Stmt1641547592020",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "${module.lambda_notify.role_arn}"
-      },
-      "Action": "sqs:*",
-      "Resource": "${aws_sqs_queue.results_gov_notify.arn}"
-    }
-  ]
-
-}
-POLICY
 }

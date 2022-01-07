@@ -15,5 +15,40 @@ data "aws_iam_policy_document" "kms_root_managed" {
     resources = [
       "*"
     ]
+
   }
+  
+  statement {
+    sid    = "EnableSQS Encryption"
+    effect = "Allow"
+
+    principals {
+      type        = "AWS"
+      identifiers = ["*"]
+    }
+
+    actions =  [
+                "kms:Encrypt",
+                "kms:Decrypt",
+                "kms:ReEncrypt*",
+                "kms:GenerateDataKey*",
+                "kms:CreateGrant",
+                "kms:DescribeKey"
+            ]
+
+    resources = [
+      "*"
+    ]
+    condition {
+                test     = "StringEquals"
+                variable = "kms:CallerAccount"
+                values = ["${var.aws_account_id}"]
+            }
+    condition {
+                test     = "StringEquals"
+                variable = "kms:ViaService"
+                values = ["sqs.eu-west-1.amazonaws.com"]
+            }
+  }
+  
 }

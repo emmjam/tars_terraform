@@ -60,7 +60,7 @@ resource "aws_vpc_endpoint" "ssm" {
 
   security_group_ids  = [aws_security_group.vpc_endpoints.id]
   subnet_ids          = module.vpc_endpoint_subnets.subnet_ids
-  private_dns_enabled = "false"
+  private_dns_enabled = "true"
   tags                = local.default_tags
 }
 
@@ -76,17 +76,6 @@ resource "aws_vpc_endpoint" "monitoring" {
 
   security_group_ids  = [aws_security_group.vpc_endpoints.id]
   subnet_ids          = module.vpc_endpoint_subnets.subnet_ids
-  private_dns_enabled = "true"
-  tags                = local.default_tags
-}
-
-resource "aws_vpc_endpoint" "ssm_lambda" {
-  vpc_id            = aws_vpc.vpc.id
-  service_name      = data.aws_vpc_endpoint_service.ssm.service_name
-  vpc_endpoint_type = "Interface"
-
-  security_group_ids  = [aws_security_group.api_lambda_sg.id]
-  subnet_ids          = module.tars_lambda_subnets.subnet_ids
   private_dns_enabled = "true"
   tags                = local.default_tags
 }

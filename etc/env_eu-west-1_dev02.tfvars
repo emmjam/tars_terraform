@@ -444,13 +444,15 @@ apache_scaleup_desired        = 1
 
 # Lambda
 
+notify_lambda_version = "002"
 api_notify = {
-  handler                = "notify.handleAsync"
+  handler                = "uk.gov.dvsa.notify.sms.SMSNotifyHandler"
   #s3_key_prefix          = "functions/notify"
-  s3_key_prefix          = "lambda-functions"
-  memory_size            = 128
+  s3_key_prefix          = "lambda-repo/packages/gov-notify/tars-gov-notify"
+  memory_size            = 512
   timeout                = 5
   publish                = false
   cwlg_retention_in_days = 3
   log_level              = "DEBUG"
 }
+

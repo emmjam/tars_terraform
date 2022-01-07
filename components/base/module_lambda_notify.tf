@@ -8,18 +8,19 @@ module "lambda_notify" {
   component   = "${var.component}"
 
   s3_bucket = "tars-nonprod-ctrl-resources"
-  s3_key = "lambda-functions/tars-gov-notify.zip"
-#  s3_key = "${format(
-#    "%s-%s",
-   # "${var.notify_lambda_version}.zip"
- #   "michelle-b998e0b1-4cc3-4df2-b64b-4dc28b02a8eb.zip"
-#    lookup(var.api_notify, "s3_key_prefix"),
-#  )}"
+ # s3_bucket = "tars-645711882182-eu-west-1-mgmt-mgmt-artefacts"
 
-  runtime     = "java8"
-  handler     = "uk.gov.notify.sms.SMSHandler"
+  s3_key = "${format(
+    "%s-%s",
+    lookup(var.api_notify, "s3_key_prefix"),
+    "${var.notify_lambda_version}.zip"
+  )}"
+
+  runtime     = "java8.al2"
+  handler     = "uk.gov.dvsa.notify.sms.SMSNotifyHandler"
   memory_size = 512
   timeout     = 5
+  lambda_version     = "${var.notify_lambda_version}"
 
   vpc_id                       = aws_vpc.vpc.id 
   subnet_ids  =  module.tars_lambda_subnets.subnet_ids
@@ -29,7 +30,7 @@ module "lambda_notify" {
   invoker_source_arn = "${aws_sqs_queue.send_gov_notify.arn}/*/*/*"
 
   env_variables = {
-    env = var.environment
+    ENV = var.environment
   }
   cwlg_retention_in_days = "${lookup(var.api_notify, "cwlg_retention_in_days")}"
 

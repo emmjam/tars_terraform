@@ -16,10 +16,10 @@ resource "aws_cloudwatch_log_group" "api_private_access_logs" {
 
   retention_in_days = var.cwlg_retention_in_days
 
-  tags = "${merge(
+  tags = merge(
     local.default_tags,
-    map(
-      "Name", "${local.csi}/access-logs",
-    ),
-  )}"
+    tomap({
+      "Name" = "${local.csi}/access-logs",
+    }),
+  )
 }
