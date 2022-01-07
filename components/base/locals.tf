@@ -38,11 +38,6 @@ locals {
     ],
   )
   
-  authorization = "${var.authorisation_enabled ? "CUSTOM" : "NONE"}"
-  stage_name = "${var.stage_name == "" ? var.environment : var.stage_name}"
-  stage_description = ""
-  api_private_stage_name = "${var.api_private_stage_name == "" ? var.environment : var.api_private_stage_name}"
-  
   vpc_domain_name = "${var.environment}.${var.private_domain_name}"
   vpc_domain_name_aws = "${var.environment}.${var.private_domain_name_aws}"
 
