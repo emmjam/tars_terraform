@@ -13,7 +13,7 @@ resource "aws_sqs_queue_policy" "send_gov_notify" {
         "AWS": "${module.lambda_notify.role_arn}"
       },
       "Action": "sqs:*",
-      "Resource": "${aws_sqs_queue.results_gov_notify.arn}"
+      "Resource": "${data.sqs_send_govnotify_arn}"
     }
   ]
 }
