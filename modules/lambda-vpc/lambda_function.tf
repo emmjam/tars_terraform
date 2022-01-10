@@ -32,7 +32,7 @@ resource "aws_lambda_function" "main" {
     local.default_tags,
     tomap({
       "Name" = "${local.csi}/${var.name}",
-      "Version" = var.lambda_version,
+      "Version" = "${var.lambda_version}",
     }),
   )
 }
