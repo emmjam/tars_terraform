@@ -444,7 +444,7 @@ apache_scaleup_desired        = 1
 
 # Lambda
 
-notify_lambda_version = "FIFO"
+notify_lambda_version = "002"
 api_notify = {
   handler                = "uk.gov.dvsa.notify.sms.SMSNotifyHandler"
   #s3_key_prefix          = "functions/notify"
