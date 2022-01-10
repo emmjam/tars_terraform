@@ -42,7 +42,7 @@ data "aws_iam_policy_document" "kms_root_managed" {
     condition {
                 test     = "StringEquals"
                 variable = "kms:CallerAccount"
-                values = var.aws_account_id
+                values = ["${var.aws_account_id}"]
             }
     condition {
                 test     = "StringEquals"
