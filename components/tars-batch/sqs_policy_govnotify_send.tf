@@ -1,4 +1,4 @@
-resource "aws_sqs_queue_policy" "send_gov_notify" {
+resource "aws_sqs_queue_policy" "batch_send_gov_notify" {
   queue_url = data.terraform_remote_state.base.outputs.sqs_send_govnotify_id
 
   policy = <<POLICY
@@ -20,7 +20,7 @@ resource "aws_sqs_queue_policy" "send_gov_notify" {
 POLICY
 }
 
-resource "aws_sqs_queue_policy" "results_gov_notify" {
+resource "aws_sqs_queue_policy" "batch_results_gov_notify" {
   queue_url = data.terraform_remote_state.base.outputs.sqs_results_govnotify_id
 
   policy = <<POLICY
