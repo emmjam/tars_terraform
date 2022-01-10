@@ -16,7 +16,7 @@ data "aws_iam_policy_document" "kms_root_managed" {
       "*"
     ]
 
-  },
+  }
   
   statement {
     sid    = "Enable IAM policies"
