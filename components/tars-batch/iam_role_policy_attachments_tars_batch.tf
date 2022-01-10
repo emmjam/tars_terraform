@@ -24,8 +24,3 @@ resource "aws_iam_role_policy_attachment" "rsisbucket_tiff_repo_batch2" {
   role       = module.tars_batch.iam_role_name
   policy_arn = aws_iam_policy.rsisbucket_tiff_repo2[0].arn
 }
-
-resource "aws_iam_role_policy_attachment" "send_sqs_message" {
-  role       = module.tars_batch.iam_role_name
-  policy_arn = aws_iam_policy.send_sqs_message.arn
-}
