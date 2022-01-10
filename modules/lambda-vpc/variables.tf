@@ -89,6 +89,11 @@ variable "default_tags" {
   default     = {}
 }
 
+varibale "lambda_version" {
+  type        = string
+  description = "Lambda version deployed" 
+}
+
 variable "vpc_id" {
   type        = string
   description = "Parent VPC ID"
