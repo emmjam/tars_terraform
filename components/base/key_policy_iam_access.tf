@@ -38,12 +38,12 @@ data "aws_iam_policy_document" "kms_root_managed" {
     resources = [
       "*"
     ]
-    condition = {
+    condition {
                 test     = "StringEquals"
                 variable = "kms:CallerAccount"
                 values = [ "652856684323" ]
             }
-    condition = {
+    condition {
                 test     = "StringEquals"
                 variable = "kms:ViaService"
                 values = [ "sqs.eu-west-1.amazonaws.com" ]
