@@ -440,10 +440,11 @@ apache_scaleup_desired        = 1
 
 # Lambda
 
+notify_lambda_version = "001"
 api_notify = {
   handler                = "notify.handleAsync"
   #s3_key_prefix          = "functions/notify"
-  s3_key_prefix          = "lambda-repo/packages/gov-notify/"
+  s3_key_prefix          = "lambda-repo/packages/gov-notify/tars-gov-notify"
   memory_size            = 128
   timeout                = 5
   publish                = false
