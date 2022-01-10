@@ -6,7 +6,6 @@ module "lambda_notify" {
   project     = "${var.project}"
   environment = "${var.environment}"
   component   = "${var.component}"
-  version     = "${var.notify_lambda_version}"
 
   s3_bucket = "tars-nonprod-ctrl-resources"
 #  s3_key = "lambda-functions/tars-gov-notify.zip"
@@ -20,6 +19,7 @@ module "lambda_notify" {
   handler     = "uk.gov.dvsa.notify.sms.SMSHandler"
   memory_size = 512
   timeout     = 5
+  version     = "${var.notify_lambda_version}"
 
   vpc_id                       = aws_vpc.vpc.id 
   subnet_ids  =  module.tars_lambda_subnets.subnet_ids
