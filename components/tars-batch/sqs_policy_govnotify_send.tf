@@ -13,7 +13,7 @@ resource "aws_sqs_queue_policy" "send_gov_notify" {
         "AWS": "${module.lambda_notify.role_arn}"
       },
       "Action": "sqs:*",
-      "Resource": "${data.sqs_send_govnotify_arn}"
+      "Resource": "${data.terraform_remote_state.tars-core.outputs.sqs_send_govnotify_arn}"
     }
   ]
 }
