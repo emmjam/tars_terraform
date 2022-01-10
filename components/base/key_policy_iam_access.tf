@@ -15,6 +15,7 @@ data "aws_iam_policy_document" "kms_root_managed" {
     resources = [
       "*"
     ]
+
   },
   
   statement {
@@ -49,4 +50,5 @@ data "aws_iam_policy_document" "kms_root_managed" {
                 values = [ "sqs.eu-west-1.amazonaws.com" ]
             }
   }
+  
 }
