@@ -10,7 +10,7 @@ resource "aws_sqs_queue_policy" "send_gov_notify" {
       "Sid": "Stmt1641547592020",
       "Effect": "Allow",
       "Principal": {
-        "AWS": "${module.lambda_notify.role_arn}"
+        "AWS": "${module.tars_batch.iam_role_name}"
       },
       "Action": "sqs:*",
       "Resource": "${data.terraform_remote_state.tars-core.outputs.sqs_send_govnotify_arn}"
