@@ -11,8 +11,8 @@ module "lambda_notify" {
 #  s3_key = "lambda-functions/tars-gov-notify.zip"
   s3_key = "${format(
     "%s-%s",
-    lookup(var.api_notify, "s3_key_prefix"
-    "${var.notify_lambda_version}.zip"),
+    lookup(var.api_notify, "s3_key_prefix",
+    "${var.notify_lambda_version}.zip")
   )}"
 
   runtime     = "java8.al2"
