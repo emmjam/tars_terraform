@@ -7,14 +7,13 @@ module "lambda_notify" {
   environment = "${var.environment}"
   component   = "${var.component}"
 
-  s3_bucket = "tars-nonprod-ctrl-resources"
-  s3_key = "lambda-functions/tars-gov-notify.zip"
-#  s3_key = "${format(
-#    "%s-%s",
-   # "${var.notify_lambda_version}.zip"
- #   "michelle-b998e0b1-4cc3-4df2-b64b-4dc28b02a8eb.zip"
-#    lookup(var.api_notify, "s3_key_prefix"),
-#  )}"
+#  s3_bucket = "tars-nonprod-ctrl-resources"
+#  s3_key = "lambda-functions/tars-gov-notify.zip"
+  s3_key = "${format(
+    "%s-%s",
+    lookup(var.api_notify, "s3_key_prefix"
+    "${var.notify_lambda_version}.zip"),
+  )}"
 
   runtime     = "java8.al2"
   handler     = "uk.gov.dvsa.notify.sms.SMSHandler"
