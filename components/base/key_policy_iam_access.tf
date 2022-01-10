@@ -24,7 +24,7 @@ data "aws_iam_policy_document" "kms_root_managed" {
 
     principals {
       type        = "AWS"
-      identifiers = ["arn:aws:iam::${var.aws_account_id}:root"]
+      identifiers = ["*"]
     }
 
     actions =  [
@@ -42,7 +42,7 @@ data "aws_iam_policy_document" "kms_root_managed" {
     condition {
                 test     = "StringEquals"
                 variable = "kms:CallerAccount"
-                values = [ "652856684323" ]
+                values = [ ${var.aws_account_id} ]
             }
     condition {
                 test     = "StringEquals"
