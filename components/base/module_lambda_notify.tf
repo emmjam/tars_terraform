@@ -3,10 +3,10 @@ module "lambda_notify" {
   source = "../../modules/lambda-vpc"
 
   name        = "notify-service"
-  project     = var.project
-  environment = var.environment
-  component   = var.component
-  version     = var.notify_lambda_version
+  project     = "${var.project}"
+  environment = "${var.environment}"
+  component   = "${var.component}"
+  version     = "${var.notify_lambda_version}"
 
   s3_bucket = "tars-nonprod-ctrl-resources"
 #  s3_key = "lambda-functions/tars-gov-notify.zip"
