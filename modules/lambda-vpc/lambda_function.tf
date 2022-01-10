@@ -6,10 +6,10 @@ resource "aws_lambda_function" "main" {
   s3_bucket = var.s3_bucket
   s3_key    = var.s3_key
 
-  runtime     = "${var.runtime}"
-  handler     = "${var.handler}"
-  memory_size = "${var.memory_size}"
-  timeout     = "${var.timeout}"
+  runtime     = var.runtime
+  handler     = var.handler
+  memory_size = var.memory_size
+  timeout     = var.timeout
 
   reserved_concurrent_executions = var.reserved_concurrent_executions
 
