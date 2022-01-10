@@ -727,5 +727,4 @@ variable "tars_lambda_subnets_cidrs" {
 variable "notify_lambda_version" {
   type = string
   description = "Lambda version"
-  default = "DEFAULT"
 }
