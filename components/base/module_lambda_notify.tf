@@ -17,7 +17,7 @@ module "lambda_notify" {
 #  )}"
 
   runtime     = "java8.al2"
-  handler     = "uk.gov.notify.sms.SMSHandler"
+  handler     = "uk.gov.dvsa.notify.sms.SMSHandler"
   memory_size = 512
   timeout     = 5
 
