@@ -32,7 +32,7 @@ resource "aws_sqs_queue_policy" "send_gov_notify" {
   "Id": "sqspolicy",
   "Statement":  [
     {
-      "Sid": "Stmt1641547592020",
+      "Sid": "AllowSendGN",
       "Effect": "Allow",
       "Principal": {
         "AWS": "${module.lambda_notify.role_arn}"
@@ -83,7 +83,7 @@ resource "aws_sqs_queue_policy" "results_gov_notify" {
   "Id": "sqspolicy",
   "Statement": [
     {
-      "Sid": "Stmt1641547592020",
+      "Sid": "AllowResultsGN",
       "Effect": "Allow",
       "Principal": {
         "AWS": "${module.lambda_notify.role_arn}"
