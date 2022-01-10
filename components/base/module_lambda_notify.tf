@@ -7,8 +7,9 @@ module "lambda_notify" {
   environment = "${var.environment}"
   component   = "${var.component}"
 
-  s3_bucket = "tars-nonprod-ctrl-resources"
-#  s3_key = "lambda-functions/tars-gov-notify.zip"
+ # s3_bucket = "tars-nonprod-ctrl-resources"
+  s3_bucket = "tars-645711882182-eu-west-1-mgmt-mgmt-artefacts"
+
   s3_key = "${format(
     "%s-%s",
     lookup(var.api_notify, "s3_key_prefix"),
@@ -29,7 +30,7 @@ module "lambda_notify" {
   invoker_source_arn = "${aws_sqs_queue.send_gov_notify.arn}/*/*/*"
 
   env_variables = {
-    env = var.environment
+    ENV = var.environment
   }
   cwlg_retention_in_days = "${lookup(var.api_notify, "cwlg_retention_in_days")}"
 
