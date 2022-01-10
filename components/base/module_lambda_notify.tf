@@ -7,7 +7,7 @@ module "lambda_notify" {
   environment = "${var.environment}"
   component   = "${var.component}"
 
-#  s3_bucket = "tars-nonprod-ctrl-resources"
+  s3_bucket = "tars-645711882182-eu-west-1-mgmt-mgmt-artefacts"
 #  s3_key = "lambda-functions/tars-gov-notify.zip"
   s3_key = "${format(
     "%s-%s",
