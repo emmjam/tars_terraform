@@ -16,7 +16,7 @@ module "lambda_notify" {
 #    lookup(var.api_notify, "s3_key_prefix"),
 #  )}"
 
-  runtime     = "java8"
+  runtime     = "java8.al2"
   handler     = "uk.gov.notify.sms.SMSHandler"
   memory_size = 512
   timeout     = 5
