@@ -89,7 +89,7 @@ variable "default_tags" {
   default     = {}
 }
 
-varibale "lambda_version" {
+variable "lambda_version" {
   type        = string
   description = "Lambda version deployed" 
 }
