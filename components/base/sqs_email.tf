@@ -15,7 +15,7 @@ resource "aws_sqs_queue" "send_gov_notify" {
   tags = merge(
     local.default_tags,
     {
-      "Name" = "${local.csi}/Send-SMSGovNotify"
+      "Name" = "${local.csi}/Send-SMSGovNotify.fifo"
     },
   )
 
@@ -55,7 +55,7 @@ resource "aws_kms_alias" "email_key_alias" {
 }
 
 resource "aws_sqs_queue" "results_gov_notify" {
-  name = "${local.csi}-Results-SMSGovNotify.fifo"
+  name = "${local.csi}-DocumentBatchUpdate.fifo"
 
   receive_wait_time_seconds         = 10
   fifo_queue                  = true
@@ -69,7 +69,7 @@ resource "aws_sqs_queue" "results_gov_notify" {
   tags = merge(
     local.default_tags,
     {
-      "Name" = "${local.csi}/Results-SMSGovNotify"
+      "Name" = "${local.csi}/DocumentBatchUpdate.fifo"
     },
   )
 }
