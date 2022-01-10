@@ -4,8 +4,8 @@ resource "aws_sqs_queue" "send_gov_notify" {
   receive_wait_time_seconds         = 10
   fifo_queue                  = true
   content_based_deduplication = true
-#  kms_master_key_id                 = aws_kms_alias.email_key_alias.id
-# kms_data_key_reuse_period_seconds = 3600
+  kms_master_key_id                 = aws_kms_alias.email_key_alias.id
+  kms_data_key_reuse_period_seconds = 3600
 
   redrive_policy = jsonencode({
     deadLetterTargetArn = aws_sqs_queue.govnotify_dlq.arn
