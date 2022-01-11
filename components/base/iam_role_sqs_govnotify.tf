@@ -1,30 +1,29 @@
-data "aws_iam_policy_document" "sqs_govnotify" {
+data "aws_iam_policy_document" "send_sqs_message" {
   statement {
-    sid    = ""
+    sid    = "SendMessage"
     effect = "Allow"
 
-    principals {
-      type        = "AWS"
-      identifiers = ["sqs.amazonaws.com"]
-    }
+    actions = [
+      "sqs:SendMessage",
+      "sqs:GetQueueAttributes",
+      "sqs:SendMessageBatch",
+      "sqs:ReceiveMessage",
+    ]
 
-    actions = ["sts:AssumeRole"]
+    resources = [
+      "*"
+    ]
   }
 }
 
-resource "aws_iam_role" "sqs_govnotify" {
-  name = format(
-    "%s-%s-%s-%s",
-    var.project,
-    var.environment,
-    var.component,
-    "sqs_govnotify"
-  )
-
-  assume_role_policy = data.aws_iam_policy_document.sqs_govnotify.json
+resource "aws_iam_policy" "send_sqs_message" {
+  name        = "${local.csi}-send_sqs_message"
+  description = "Send Message from sqs Policy"
+  policy      = data.aws_iam_policy_document.send_sqs_message.json
 }
 
-resource "aws_iam_role_policy" "sqs_govnotify" {
+
+resource "aws_iam_role" "send_sqs_message" {
   name = format(
     "%s-%s-%s-%s",
     var.project,
@@ -33,6 +32,5 @@ resource "aws_iam_role_policy" "sqs_govnotify" {
     "sqs_govnotify"
   )
 
-  role   = aws_iam_role.sqs_govnotify.id
-  policy = data.aws_iam_policy_document.sqs_govnotify.json
+  assume_role_policy = data.aws_iam_policy_document.send_sqs_message.json
 }
