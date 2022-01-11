@@ -39,6 +39,15 @@ resource "aws_sqs_queue_policy" "send_gov_notify" {
       },
       "Action": "sqs:*",
       "Resource": "${aws_sqs_queue.send_gov_notify.arn}"
+    },
+    {
+      "Sid": "AllowSendGN",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "${aws_iam_role.send_sqs_message.arn}"
+      },
+      "Action": "sqs:*",
+      "Resource": "${aws_sqs_queue.send_gov_notify.arn}"
     }
   ]
 }
