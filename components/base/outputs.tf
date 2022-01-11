@@ -188,5 +188,5 @@ output "sqs_results_govnotify_id" {
 }
 
 output "lambda_notify_role_arn" {
-  valure = module.lambda_notify.role_arn
+  value = module.lambda_notify.role_arn
 }
