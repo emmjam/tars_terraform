@@ -40,7 +40,7 @@ resource "aws_sqs_queue_policy" "send_gov_notify" {
         ]
       },
       "Action": "sqs:*",
-      "Resource": "${aws_sqs_queue.send_gov_notify.arn}"
+      "Resource": "${aws_sqs_queue.send_sqs_message.arn}"
     }
   ]
 }
