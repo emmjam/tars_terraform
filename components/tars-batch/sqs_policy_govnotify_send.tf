@@ -10,7 +10,7 @@ resource "aws_sqs_queue_policy" "send_gov_notify" {
       "Sid": "AllowGNSendBatch",
       "Effect": "Allow",
       "Principal": {
-        "AWS": "${module.tars_batch.iam_role_name}"
+        "AWS": "${module.tars_batch.iam_role_arn}"
       },
       "Action": "sqs:*",
       "Resource": "${data.terraform_remote_state.base.outputs.sqs_send_govnotify_arn}"
@@ -42,7 +42,7 @@ resource "aws_sqs_queue_policy" "results_gov_notify" {
       "Sid": "AllowGNResultsBatch",
       "Effect": "Allow",
       "Principal": {
-        "AWS": "${module.tars_batch.iam_role_name}"
+        "AWS": "${module.tars_batch.iam_role_arn}"
       },
       "Action": "sqs:*",
       "Resource": "${data.terraform_remote_state.base.outputs.sqs_results_govnotify_arn}"
