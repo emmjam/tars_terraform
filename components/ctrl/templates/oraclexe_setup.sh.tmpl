@@ -1,0 +1,21 @@
+#!/bin/bash
+
+function log() {
+  echo "[$(date)]$1" | tee -a /var/log/${NODETYPE}_cloudinit.log
+}
+
+log '[INFO] Running puppet to configure environment'
+
+# Shift this to cloud-init config yaml
+facts_path="/opt/puppetlabs/facter/facts.d"
+echo -n 'environment: ${ENVIRONMENT}'    > "$${facts_path}/environment.yaml"
+echo -n 'nodetype: ${NODETYPE}'          > "$${facts_path}/nodetype.yaml"
+echo -n 'aws_account: ${AWS_ACCOUNT_ID}' > "$${facts_path}/aws_account.yaml"
+
+cd /opt/packer-puppet-masterless
+
+if [ ${ENVIRONMENT} == 'live' ]; then
+  sed -i 's/dev/live/' /etc/profile.d/bash_prompt.sh
+fi
+
+log '[INFO] ${NODETYPE} configuration finished'
