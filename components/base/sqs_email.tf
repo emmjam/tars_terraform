@@ -36,7 +36,7 @@ resource "aws_sqs_queue_policy" "send_gov_notify" {
       "Effect": "Allow",
       "Principal": {
         "AWS": ["${module.lambda_notify.role_arn}",
-        aws_iam_role.sqs_govnotify.arn
+        "${aws_iam_role.sqs_govnotify.arn}"
         ]
       },
       "Action": "sqs:*",
