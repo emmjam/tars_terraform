@@ -7,14 +7,24 @@ resource "aws_sqs_queue_policy" "send_gov_notify" {
   "Id": "sqspolicy",
   "Statement":  [
     {
-      "Sid": "AllowGNSendSQS",
+      "Sid": "AllowGNSendBatch",
       "Effect": "Allow",
       "Principal": {
         "AWS": "${module.tars_batch.iam_role_name}"
       },
       "Action": "sqs:*",
       "Resource": "${data.terraform_remote_state.base.outputs.sqs_send_govnotify_arn}"
+    },
+    {
+      "Sid": "AllowSendLambda",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "${data.terraform_remote_state.base.outputs.lambda_notify_role_arn}"
+      },
+      "Action": "sqs:*",
+      "Resource": "${aws_sqs_queue.send_gov_notify.arn}"
     }
+
   ]
 }
 POLICY
@@ -29,13 +39,22 @@ resource "aws_sqs_queue_policy" "results_gov_notify" {
   "Id": "sqspolicy",
   "Statement":  [
     {
-      "Sid": "AllowGNResultsSQS",
+      "Sid": "AllowGNResultsBatch",
       "Effect": "Allow",
       "Principal": {
         "AWS": "${module.tars_batch.iam_role_name}"
       },
       "Action": "sqs:*",
       "Resource": "${data.terraform_remote_state.base.outputs.sqs_results_govnotify_arn}"
+    },
+    {
+      "Sid": "AllowResultsLambda",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "${data.terraform_remote_state.base.outputs.lambda_notify_role_arn}"
+      },
+      "Action": "sqs:*",
+      "Resource": "${aws_sqs_queue.results_gov_notify.arn}"
     }
   ]
 }
