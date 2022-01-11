@@ -23,36 +23,6 @@ resource "aws_sqs_queue" "send_gov_notify" {
     aws_kms_alias.email_key_alias
   ]
 }
-resource "aws_sqs_queue_policy" "send_gov_notify" {
-  queue_url = aws_sqs_queue.send_gov_notify.id
-
-  policy = <<POLICY
-{
-  "Version": "2012-10-17",
-  "Id": "sqspolicy",
-  "Statement":  [
-    {
-      "Sid": "AllowSendGN",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "${module.lambda_notify.role_arn}"
-      },
-      "Action": "sqs:*",
-      "Resource": "${aws_sqs_queue.send_gov_notify.arn}"
-    },
-    {
-      "Sid": "AllowSendGN",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "${aws_iam_role.send_sqs_message.arn}"
-      },
-      "Action": "sqs:*",
-      "Resource": "${aws_sqs_queue.send_gov_notify.arn}"
-    }
-  ]
-}
-POLICY
-}
 
 resource "aws_kms_key" "email_key" {
   policy = data.aws_iam_policy_document.kms_root_managed.json
@@ -81,27 +51,4 @@ resource "aws_sqs_queue" "results_gov_notify" {
       "Name" = "${local.csi}/DocumentBatchUpdate.fifo"
     },
   )
-}
-
-resource "aws_sqs_queue_policy" "results_gov_notify" {
-  queue_url = aws_sqs_queue.results_gov_notify.id
-
-  policy = <<POLICY
-{
-  "Version": "2012-10-17",
-  "Id": "sqspolicy",
-  "Statement": [
-    {
-      "Sid": "AllowResultsGN",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "${module.lambda_notify.role_arn}"
-      },
-      "Action": "sqs:*",
-      "Resource": "${aws_sqs_queue.results_gov_notify.arn}"
-    }
-  ]
-
-}
-POLICY
 }
