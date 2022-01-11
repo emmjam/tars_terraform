@@ -18,7 +18,7 @@ resource "aws_iam_role" "sqs_govnotify" {
     var.project,
     var.environment,
     var.component,
-    "db-reports"
+    "sqs_govnotify"
   )
 
   assume_role_policy = data.aws_iam_policy_document.sqs_govnotify.json
