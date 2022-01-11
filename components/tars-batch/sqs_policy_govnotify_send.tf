@@ -22,7 +22,7 @@ resource "aws_sqs_queue_policy" "send_gov_notify" {
         "AWS": "${data.terraform_remote_state.base.outputs.lambda_notify_role_arn}"
       },
       "Action": "sqs:*",
-      "Resource": "${aws_sqs_queue.send_gov_notify.arn}"
+      "Resource": "${data.terraform_remote_state.base.outputs.sqs_send_govnotify_arn}"
     }
 
   ]
@@ -54,7 +54,7 @@ resource "aws_sqs_queue_policy" "results_gov_notify" {
         "AWS": "${data.terraform_remote_state.base.outputs.lambda_notify_role_arn}"
       },
       "Action": "sqs:*",
-      "Resource": "${aws_sqs_queue.results_gov_notify.arn}"
+      "Resource": "${data.terraform_remote_state.base.outputs.sqs_results_govnotify_arn}"
     }
   ]
 }
