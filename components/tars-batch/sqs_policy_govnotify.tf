@@ -19,7 +19,7 @@ resource "aws_sqs_queue_policy" "send_gov_notify" {
       "Sid": "AllowSendGN",
       "Effect": "Allow",
       "Principal": {
-        "AWS": "${aws_iam_role.tars-batch.arn}"
+        "AWS": "${module.tars_batch.iam_role_arn}"
       },
       "Action": "sqs:*",
       "Resource": "${aws_sqs_queue.send_gov_notify.arn}"
