@@ -32,5 +32,5 @@ resource "aws_iam_role" "send_sqs_message" {
     "sqs_govnotify"
   )
 
-  assume_role_policy = data.aws_iam_policy_document.send_sqs_message.json
+  assume_role_policy = data.aws_iam_policy_document.lambda_assumerole.json
 }
