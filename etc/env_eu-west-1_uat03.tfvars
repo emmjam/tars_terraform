@@ -413,7 +413,7 @@ prometheus_asg_max_size       = 0
 
 # Lambda
 
-notify_lambda_version = "002"
+notify_lambda_version = "1"
 api_notify = {
   handler                = "notify.handleAsync"
   s3_key_prefix          = "lambda-repo/packages/gov-notify/tars-gov-notify"

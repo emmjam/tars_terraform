@@ -402,7 +402,7 @@ holding_pages_domains = [
 
 # Lambda
 
-notify_lambda_version = "002"
+notify_lambda_version = "1"
 api_notify = {
   handler                = "notify.handleAsync"
   s3_key_prefix          = "lambda-repo/packages/gov-notify/tars-gov-notify"
