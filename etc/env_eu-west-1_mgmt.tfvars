@@ -295,7 +295,7 @@ alb_public_subnets_cidrs = [
 ]
 
 ## sonarqube
-sonarqube_ami_build_id        = "1121"
+sonarqube_ami_build_id        = "1267"
 sonarqube_base_ami            = "amzn2"
 sonarqube = {
   sq_asg_size_min             = 1
