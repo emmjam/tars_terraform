@@ -289,6 +289,12 @@ sftpplus_efs_subnets_cidrs = [
   "10.167.135.192/28",
 ]
 
+tars_lambda_subnets_cidrs = [
+  "10.167.135.208/28",
+  "10.167.135.224/28",
+  "10.167.135.240/28",
+]
+
 # Environment & Component for Accessing mgmt_prd remote state
 mgmt_component = "mgmt"
 
