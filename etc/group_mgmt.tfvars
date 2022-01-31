@@ -51,6 +51,7 @@ new_all_users = [
   "ismahil.khan@bjss.com",
   "thomas.webb@bjss.com",
   "levent.aksu@bjss.com",
+  "tanaka.pisa@bjss.com",
   "daren.fang@bjss.com",
   "ryu.sasai@bjss.com",
   "nikolaj.bilgrau@bjss.com",
@@ -152,6 +153,7 @@ readonly_platform_users = [
 # Developer Access
 
 readonly_developer_users = [
+  "tanaka.pisa@bjss.com",
   "david.woodley@bjss.com",
   "richard.freitas@bjss.com",
   "john.morley@bjss.com",
