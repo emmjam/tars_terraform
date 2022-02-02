@@ -80,6 +80,7 @@ new_all_users = [
   "dominic.took@bjss.com",
   "graeme.bullimore@bjss.com",
   "tom.bonam@bjss.com",
+  "ian.davies@bjss.com",
 ]
 
 # TSSOps Access
@@ -140,6 +141,7 @@ administrators_platform_users = [
   "rob.whyte@bjss.com",
   "costa.vorontsov@bjss.com",
   "nadeem.khan@bjss.com",
+  "ian.davies@bjss.com",
  ]
 readonly_platform_users = [
   "michelle.pike@bjss.com",
@@ -148,6 +150,7 @@ readonly_platform_users = [
   "rob.whyte@bjss.com",
   "costa.vorontsov@bjss.com",
   "david.giles@bjss.com",
+  "ian.davies@bjss.com"
 ]
 
 # Developer Access
