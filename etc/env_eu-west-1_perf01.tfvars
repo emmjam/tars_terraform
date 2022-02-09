@@ -365,7 +365,7 @@ ibs_rds_instance_class = "db.r3.large"
 
 ## wildfly
 
-wildfly-back_instance_type  = "m4.xlarge"
+wildfly-back_instance_type  = "m5a.xlarge"  # "m4.xlarge" ID
 wildfly-back_asg_min_size         = 0
 wildfly-back_asg_max_size         = 3
 wildfly-back_scaledown_desired    = 3
@@ -374,7 +374,7 @@ wildfly-back_scaleup_desired      = 3
 wildfly-back_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## wildfly-batch
-wildfly-batch_instance_type  = "m4.large"
+wildfly-batch_instance_type  = "m5a.large"  # "m4.large" ID
 wildfly-batch_asg_min_size         = 0
 wildfly-batch_asg_max_size         = 1
 wildfly-batch_scaledown_desired    = 1
@@ -383,7 +383,7 @@ wildfly-batch_scaleup_desired      = 1
 wildfly-batch_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## obs
-obs_instance_type  = "m4.large"
+obs_instance_type  = "m5a.large"  # "m4.large" ID
 obs_asg_min_size         = 0
 obs_asg_max_size         = 2
 obs_scaledown_desired    = 2
@@ -392,7 +392,7 @@ obs_scaleup_desired      = 2
 obs_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## ibs
-ibs_instance_type  = "m4.large"
+ibs_instance_type  = "m5a.large" # "m4.large" ID
 ibs_asg_min_size         = 0
 ibs_asg_max_size         = 10
 ibs_scaledown_desired    = 5
@@ -401,7 +401,7 @@ ibs_scaleup_desired      = 6
 ibs_scaleup_recurrence   = "10 04 * * 1-7"
 
 ## wildfly-front
-wildfly-front_instance_type  = "m4.large"
+wildfly-front_instance_type  = "m5a.large"  # "m4.large" ID
 wildfly-front_asg_min_size         = 0
 wildfly-front_asg_max_size         = 2
 wildfly-front_scaledown_desired    = 2
@@ -419,7 +419,7 @@ wildfly-messaging_scaleup_desired      = 1
 wildfly-messaging_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## cpc-back
-cpc-back_instance_type  = "m4.large"
+cpc-back_instance_type  = "m5a.large"  # "m4.large" ID
 cpc-back_asg_min_size         = 0
 cpc-back_asg_max_size         = 2
 cpc-back_scaledown_desired    = 2
@@ -428,7 +428,7 @@ cpc-back_scaleup_desired      = 2
 cpc-back_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## cpc-front
-cpc-front_instance_type  = "m4.large"
+cpc-front_instance_type  = "m5a.large" # "m4.large" ID
 cpc-front_asg_min_size         = 0
 cpc-front_asg_max_size         = 2
 cpc-front_scaledown_desired    = 2
@@ -461,7 +461,7 @@ wildfly-mock_scaleup_desired      = 1
 wildfly-mock_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## apache
-apache_instance_type         = "m4.large"
+apache_instance_type         = "m5a.large"  # "m4.large" ID
 apache_asg_min_size          = 0
 apache_asg_max_size          = 2
 apache_scaledown_desired     = 2
@@ -509,3 +509,13 @@ api_notify = {
   cwlg_retention_in_days = 3
   log_level              = "DEBUG"
 }
+
+######### Testing over-rides for TSCI6587 ID
+## fyndi-f
+fyndi-f_instance_type = "m5a.large"  
+
+## fyndi_back
+fyndi-b_instance_type = "m5a.large" 
+
+## cpc-batch
+cpc-batch_instance_type = "m5a.large" 
