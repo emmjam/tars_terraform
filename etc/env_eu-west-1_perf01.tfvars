@@ -510,7 +510,7 @@ api_notify = {
   log_level              = "DEBUG"
 }
 
-######### Testing over-rides for TSCI6587 ID
+######### Testing overrides for TSCI6587 ID
 ## fyndi-f
 fyndi-f_instance_type = "m5a.large"  
 
