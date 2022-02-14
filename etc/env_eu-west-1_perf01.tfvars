@@ -361,9 +361,6 @@ rsis_rds_skip_final_snapshot = true
 rsis_rds_apply_immediately = "true"
 rsis_rds_autoscale = "True"
 
-# CPCTSDB
-cpc_rds_allocated_storage = "100" # 20 Gigabyte - was 1500GB
-
 # IBSDB
 ibs_rds_username = "ibsuatadmin"
 ibs_rds_snapshot = "perf01-ibsdb-with-users-and-geo-data"
