@@ -442,9 +442,7 @@ cpc-front_scaleup_desired     = 1
 apache_asg_max_size           = 1
 apache_scaleup_desired        = 1
 
-# Lambda
 
-notify_lambda_version = "1"
 api_notify = {
   handler                = "notify.handleAsync"
   #s3_key_prefix          = "functions/notify"

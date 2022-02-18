@@ -400,9 +400,6 @@ holding_pages_domains = [
   "incapsula-ibs-uat02-public.dvsa.tars.dev-dvsacloud.uk",
 ]
 
-# Lambda
-
-notify_lambda_version = "1"
 api_notify = {
   handler                = "notify.handleAsync"
   s3_key_prefix          = "lambda-repo/packages/gov-notify/tars-gov-notify"

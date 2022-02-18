@@ -398,9 +398,6 @@ apache_scaleup_desired        = 1
 #Turn off Prometheus
 prometheus_asg_max_size       = 0
 
-# Lambda
-
-notify_lambda_version = "1"
 api_notify = {
   handler                = "notify.handleAsync"
   #s3_key_prefix          = "functions/notify"

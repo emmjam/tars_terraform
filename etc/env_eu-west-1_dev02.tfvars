@@ -441,10 +441,6 @@ cpc-front_scaleup_desired     = 1
 apache_asg_max_size           = 1
 apache_scaleup_desired        = 1
 
-
-# Lambda
-
-notify_lambda_version = "1"
 api_notify = {
   handler                = "uk.gov.dvsa.notify.sms.SMSNotifyHandler"
   #s3_key_prefix          = "functions/notify"

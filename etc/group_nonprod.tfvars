@@ -286,7 +286,7 @@ oraclexe_scaleup_desired      = 1
 oraclexe_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## Mock
-mock_ami_build_id = "7fc038b6/230"
+mock_ami_build_id = "31040370/231"
 
 
 ## SFTP
@@ -638,3 +638,6 @@ power_bi_cidr = "10.164.156.0/22"
 ibs_high_cpu_cw_metric_alarm_enabled = false
 
 ftts_elig_port = "22"
+
+#Lambda Govnotify
+notify_lambda_version = "2"

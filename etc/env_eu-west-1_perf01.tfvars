@@ -500,9 +500,6 @@ rds_cw_metric_freestoragespace_alarm_action_enabled = true
 #Prometheus on / off
 prometheus_asg_max_size = 1
 
-# Lambda
-
-notify_lambda_version = "1"
 api_notify = {
   handler                = "notify.handleAsync"
   s3_key_prefix          = "lambda-repo/packages/gov-notify/tars-gov-notify"
