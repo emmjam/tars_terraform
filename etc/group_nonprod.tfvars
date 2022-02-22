@@ -640,4 +640,4 @@ ibs_high_cpu_cw_metric_alarm_enabled = false
 ftts_elig_port = "22"
 
 #Lambda Govnotify
-notify_lambda_version = "2"
+notify_lambda_version = "3"
