@@ -1,7 +1,7 @@
-resource "aws_alb_target_group" "tarspub80" {
-  name     = "${local.csi}-tarspub80"
-  port     = "80"
-  protocol = "HTTP"
+resource "aws_alb_target_group" "tarspub443" {
+  name     = "${local.csi}-tarspub443"
+  port     = "443"
+  protocol = "HTTPS"
   vpc_id   = data.terraform_remote_state.base.outputs.vpc_id
 
   health_check {
