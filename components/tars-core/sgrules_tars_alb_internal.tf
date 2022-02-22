@@ -1,10 +1,20 @@
 resource "aws_security_group_rule" "tars_alb_internal_ingress_apache" {
-  description              = "Allow TCP/443 from Apache"
+  description              = "Allow TCP/803 from Apache"
   type                     = "ingress"
   from_port                = 80
   to_port                  = 80
   protocol                 = "tcp"
   security_group_id        = aws_security_group.tars-alb-internal.id
+  source_security_group_id = module.apache.security_group_id
+}
+
+resource "aws_security_group_rule" "tars_alb_public_ingress_apache" {
+  description              = "Allow TCP/80 from Public ALB"
+  type                     = "ingress"
+  from_port                = 80
+  to_port                  = 80
+  protocol                 = "tcp"
+  security_group_id        = aws_security_group.apache_alb_public.id
   source_security_group_id = module.apache.security_group_id
 }
 
