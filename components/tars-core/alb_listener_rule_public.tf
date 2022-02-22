@@ -9,9 +9,9 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_1" {
       #host            = #{host}
       path             = "/DSAWeb"
       port             = 443
-      protocol         = "https"
+      protocol         = "HTTPS"
       query            = "TYPE=true"
-      status_code      = "301"
+      status_code      = "HTTP_301"
     }
   }
 
@@ -42,9 +42,9 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_2" {
       #host            = #{host}
       path             = "/DSAWeb/#{path}"
       port             = 443
-      protocol         = "https"
+      protocol         = "HTTPS"
       query            = ""
-      status_code      = "301"
+      status_code      = "HTTP_301"
     }
   }
 
@@ -71,13 +71,13 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_3" {
 
   action {
     type             = "redirect"
-    redirct {
+    redirect {
       #host            = #{host}
       path             = "/DSAWeb/#{path}"
       port             = 443
-      protocol         = "https"
+      protocol         = "HTTPS"
       #query           = #{query}
-      status_code      = "301"
+      status_code      = "HTTP_301"
     }
   }
 
