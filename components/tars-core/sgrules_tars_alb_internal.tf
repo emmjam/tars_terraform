@@ -8,13 +8,14 @@ resource "aws_security_group_rule" "tars_alb_internal_ingress_apache" {
   source_security_group_id = module.apache.security_group_id
 }
 
-resource "aws_security_group_rule" "tars_alb_public_ingress_apache" {
+resource "aws_security_group_rule" "tars_alb_public_ingress_alb" {
+  # Will replace Apache rule above  - IanD
   description              = "Allow TCP/80 from Public ALB"
   type                     = "ingress"
   from_port                = 80
   to_port                  = 80
   protocol                 = "tcp"
-  security_group_id        = aws_security_group.apache_alb_public.id
+  security_group_id        = aws_security_group.apache_alb_internal.id
   source_security_group_id = module.apache.security_group_id
 }
 
