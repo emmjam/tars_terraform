@@ -112,7 +112,7 @@ resource "aws_lb_listener_rule" "apache-proxy-drop-in" {
 
   action {
     type             = "forward"
-    target_group_arn = aws_alb_target_group.tars-public-80.arn
+    target_group_arn = aws_alb_target_group.tarspub80.arn
   }
 
   condition {

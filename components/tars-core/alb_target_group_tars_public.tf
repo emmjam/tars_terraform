@@ -1,5 +1,5 @@
-resource "aws_alb_target_group" "tars-public-80" {
-  name     = "${local.csi}-tars-public-80"
+resource "aws_alb_target_group" "tarspub80" {
+  name     = "${local.csi}-tarspub80"
   port     = "80"
   protocol = "HTTP"
   vpc_id   = data.terraform_remote_state.base.outputs.vpc_id
