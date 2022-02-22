@@ -1,6 +1,6 @@
 resource "aws_lb_listener_rule" "rewrite_dsaweb_1" {
   count        = contains(var.ibs1_ibs2_redirect_env, var.environment) ? 1 : 0
-  listener_arn = aws_alb.apache_public.arn
+  listener_arn = aws_alb_listener.apache-https-public.arn
   priority     = "101"
 
   action {
