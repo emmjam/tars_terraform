@@ -30,12 +30,4 @@ resource "aws_security_group_rule" "tars_alb_dvsa_egress_tars_front_port_443" {
   source_security_group_id = module.tars_front.security_group_id
 }
 
-resource "aws_security_group_rule" "tars_alb_egress_to_internal_alb" {
-  description              = "Allow TCP/80 to tars core internal LB"
-  type                     = "egress"
-  from_port                = 80
-  to_port                  = 80
-  protocol                 = "tcp"
-  security_group_id        = aws_security_group.tars-alb-internal.id
-  source_security_group_id = module.tars_front.security_group_id
-}
+
