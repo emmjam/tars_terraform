@@ -47,5 +47,5 @@ resource "aws_security_group_rule" "apache-alb-public-egress-internal-obs-ec2" {
   from_port                = 8080
   to_port                  = 8080
   security_group_id        = aws_security_group.apache_alb_public.id
-  source_security_group_id = module.obs.security_group_id
+  source_security_group_id = data.terraform_remote_state.apps.outputs.obs-sg-id
 }

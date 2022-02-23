@@ -280,7 +280,7 @@ resource "aws_lb_listener_rule" "obs_proxy" {
 
   action {
     type             = "forward"
-    target_group_arn = aws_alb_target_group.obs-frontend2-8080.arn
+    target_group_arn = data.terraform_remote_state.apps.outputs.obs-tg-8080-arn
   }
 
   condition {
