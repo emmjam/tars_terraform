@@ -64,7 +64,7 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_30" {
     redirect {
       #host            = #{host}
       path             = "/DSAWeb"
-      port             = 4433
+      port             = 443
       protocol         = "HTTPS"
       query            = "TYPE=true"
       status_code      = "HTTP_301"
@@ -199,14 +199,14 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_70" {
   }
 }
 
-resource "aws_lb_listener_rule" "apache-proxy-drop-in" {
+resource "aws_lb_listener_rule" "irdt_proxy" {
   count        = contains(var.ibs1_ibs2_redirect_env, var.environment) ? 1 : 0
   listener_arn = aws_alb_listener.apache-https-public.arn
   priority     = "100"
 
   action {
     type             = "forward"
-    target_group_arn = aws_alb_target_group.tarspub443.arn
+    target_group_arn = aws_alb_target_group.irdt-frontend2-7443.arn
   }
 
   condition {
