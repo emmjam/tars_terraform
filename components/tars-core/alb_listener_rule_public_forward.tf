@@ -1,3 +1,25 @@
+resource "aws_lb_listener_rule" "static" {
+  listener_arn = aws_alb_listener.apache-https-public.arn
+  priority     = 100
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_alb_target_group.irdt-frontend2-7443.arn
+  }
+
+  condition {
+    path_pattern {
+      values = ["/static/*"]
+    }
+  }
+
+  condition {
+    host_header {
+      values = ["example.com"]
+    }
+  }
+}
+
 resource "aws_lb_listener_rule" "irdt_proxy" {
   #  ProxyPassReverse   "http://irdt-internal.opsdev.nonprod.tars.dev-dvsacloud.uk/DSAWeb"
   count        = contains(var.ibs1_ibs2_redirect_env, var.environment) ? 1 : 0
