@@ -90,3 +90,13 @@ resource "aws_security_group_rule" "tars_core_frontend_egress_kms_endpoint" {
   source_security_group_id = data.terraform_remote_state.base.outputs.kms_sg_id
 }
 
+resource "aws_security_group_rule" "tars_core_frontend_alb_inbound" {
+  # allowing incomming directly from front alb -- IanD
+  description              = "Allow TCP/7443 fron ALB"
+  type                     = "ingress"
+  from_port                = 7443
+  to_port                  = 7443
+  protocol                 = "tcp"
+  security_group_id        = module.tars_front.security_group_id
+  source_security_group_id = aws_security_group.apache_alb_public
+}

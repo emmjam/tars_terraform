@@ -27,3 +27,15 @@ resource "aws_security_group_rule" "apache-alb-public-egress-internal-alb" {
   security_group_id        = aws_security_group.apache_alb_public.id
   source_security_group_id = aws_security_group.tars-alb-internal.id
 }
+
+resource "aws_security_group_rule" "apache-alb-public-egress-internal-ec2-alb" {
+  # Will replace Apache rule above  - IanD
+  description              = "Allow TCP/7443 from public LB to EC2"
+  type                     = "egress"
+  protocol                 = "tcp"
+  from_port                = 7443
+  to_port                  = 7443
+  security_group_id        = aws_security_group.apache_alb_public.id
+  source_security_group_id = module.tars_front.security_group_id
+}
+
