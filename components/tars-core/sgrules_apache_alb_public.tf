@@ -28,9 +28,9 @@ resource "aws_security_group_rule" "apache-alb-public-egress-internal-alb" {
   source_security_group_id = aws_security_group.tars-alb-internal.id
 }
 
-resource "aws_security_group_rule" "apache-alb-public-egress-internal-ec2-alb" {
+resource "aws_security_group_rule" "apache-alb-public-egress-internal-irdt-ec2" {
   # Will replace Apache rule above  - IanD
-  description              = "Allow TCP/7443 from public LB to EC2"
+  description              = "Allow TCP/7443 from public LB to irdt EC2"
   type                     = "egress"
   protocol                 = "tcp"
   from_port                = 7443
@@ -39,3 +39,13 @@ resource "aws_security_group_rule" "apache-alb-public-egress-internal-ec2-alb" {
   source_security_group_id = module.tars_front.security_group_id
 }
 
+resource "aws_security_group_rule" "apache-alb-public-egress-internal-obs-ec2" {
+  # Will replace Apache rule above  - IanD
+  description              = "Allow TCP/8080 from public LB to obs EC2"
+  type                     = "egress"
+  protocol                 = "tcp"
+  from_port                = 8080
+  to_port                  = 8080
+  security_group_id        = aws_security_group.apache_alb_public.id
+  source_security_group_id = module.obs.security_group_id
+}
