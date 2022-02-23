@@ -42,7 +42,6 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_20" {
     }
   }
 
-
  #   RewriteRule ^/irdta/(.*)    https://%{SERVER_NAME}/DSAWeb/irdta/$1      [R,L]
   condition {
     path_pattern {
@@ -98,7 +97,6 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_40" {
       status_code      = "HTTP_301"
     }
   }
-
  
  #   RewriteRule ^/irdtatb$      https://%{SERVER_NAME}/DSAWeb/irdtatb       [R,L]
   condition {
@@ -128,7 +126,6 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_50" {
     }
   }
 
-
  #   RewriteRule ^/irdtatb/(.*)  https://%{SERVER_NAME}/DSAWeb/irdtatb/$1    [R,L]
   condition {
     path_pattern {
@@ -156,7 +153,6 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_60" {
       status_code      = "HTTP_301"
     }
   }
-
 
  #   RewriteRule ^/irdtm$        https://%{SERVER_NAME}/DSAWeb/irdtm         [R,L]
   condition {
@@ -186,7 +182,6 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_70" {
     }
   }
 
-
  #   RewriteRule ^/irdtm/(.*)    https://%{SERVER_NAME}/DSAWeb/irdtm/$1      [R,L]
   condition {
     path_pattern {
@@ -200,6 +195,7 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_70" {
 }
 
 resource "aws_lb_listener_rule" "irdt_proxy" {
+  #  ProxyPassReverse   "http://irdt-internal.opsdev.nonprod.tars.dev-dvsacloud.uk/DSAWeb"
   count        = contains(var.ibs1_ibs2_redirect_env, var.environment) ? 1 : 0
   listener_arn = aws_alb_listener.apache-https-public.arn
   priority     = "100"
@@ -212,6 +208,84 @@ resource "aws_lb_listener_rule" "irdt_proxy" {
   condition {
     path_pattern {
     values = ["/DSAWeb"]
+    }
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+resource "aws_lb_listener_rule" "rewrite_obsweb_80" {
+  listener_arn = aws_alb_listener.apache-https-public.arn
+  priority     = "80"
+
+  action {
+    type             = "redirect"
+    redirect {
+      #host            = #{host}
+      path             = "/obs-web"
+      port             = 443
+      protocol         = "HTTPS"
+      #query           = #{query}
+      status_code      = "HTTP_301"
+    }
+  }
+
+ #   RewriteRule ^/obs/(.*)  https://%{SERVER_NAME}/obs-web/$1 [R,L]
+  condition {
+    path_pattern {
+    values = ["/obs/"]
+    }
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+resource "aws_lb_listener_rule" "rewrite_obsweb_90" {
+  listener_arn = aws_alb_listener.apache-https-public.arn
+  priority     = "90"
+
+  action {
+    type             = "redirect"
+    redirect {
+      #host            = #{host}
+      path             = "/obs-web/pages/home"
+      port             = 443
+      protocol         = "HTTPS"
+      #query           = #{query}
+      status_code      = "HTTP_301"
+    }
+  }
+
+ #   RewriteRule ^/obs/(.*)  https://%{SERVER_NAME}/obs-web/$1 [R,L]
+  condition {
+    path_pattern {
+    values = ["/obs"]
+    }
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+resource "aws_lb_listener_rule" "obs_proxy" {
+  #  ProxyPassReverse   "http://obs-internal.opsdev.nonprod.tars.dev-dvsacloud.uk/obs-web"
+  count        = contains(var.ibs1_ibs2_redirect_env, var.environment) ? 1 : 0
+  listener_arn = aws_alb_listener.apache-https-public.arn
+  priority     = "100"
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_alb_target_group.obs-frontend2-8080.arn
+  }
+
+  condition {
+    path_pattern {
+    values = ["/obs"]
     }
   }
 
