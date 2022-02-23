@@ -39,3 +39,6 @@ output "cpc_dvsa_internet_listener_arn" {
   value = aws_alb_listener.cpc-front-dvsa-internet-8443.arn
 }
 
+output "cpc-tg-9443-arn" {
+  value = aws_alb_target_group.cpc-front-internal2-9443.arn
+}

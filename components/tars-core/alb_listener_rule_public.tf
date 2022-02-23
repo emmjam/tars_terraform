@@ -90,7 +90,7 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_40" {
     type             = "redirect"
     redirect {
       #host            = #{host}
-      path             = "/DSAWeb/#{path}"
+      path             = "/DSAWeb/irdtatb"
       port             = 443
       protocol         = "HTTPS"
       query            = ""
@@ -146,10 +146,10 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_60" {
     type             = "redirect"
     redirect {
       #host            = #{host}
-      path             = "/DSAWeb/#{path}"
+      path             = "/DSAWeb/irdtm"
       port             = 443
       protocol         = "HTTPS"
-      #query           = #{query}
+      query            = ""
       status_code      = "HTTP_301"
     }
   }
@@ -255,12 +255,12 @@ resource "aws_lb_listener_rule" "rewrite_obsweb_90" {
       path             = "/obs-web/pages/home"
       port             = 443
       protocol         = "HTTPS"
-      #query           = #{query}
+      query            = ""
       status_code      = "HTTP_301"
     }
   }
 
- #   RewriteRule ^/obs/(.*)  https://%{SERVER_NAME}/obs-web/$1 [R,L]
+ #   RewriteRule ^/obs$      https://%{SERVER_NAME}/obs-web/pages/home [R,L]
   condition {
     path_pattern {
     values = ["/obs"]
@@ -285,7 +285,85 @@ resource "aws_lb_listener_rule" "obs_proxy" {
 
   condition {
     path_pattern {
-    values = ["/obs"]
+    values = ["/obs-web"]
+    }
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+resource "aws_lb_listener_rule" "rewrite_cpc_100" {
+  listener_arn = aws_alb_listener.apache-https-public.arn
+  priority     = "100"
+
+  action {
+    type             = "redirect"
+    redirect {
+      #host            = #{host}
+      path             = "/cpctrain/delegatedTest"
+      port             = 443
+      protocol         = "HTTPS"
+      query            = ""
+      status_code      = "HTTP_301"
+    }
+  }
+
+ #  RewriteRule ^/delegated$        https://%{SERVER_NAME}/cpctrain/delegatedTest    [R,L]
+  condition {
+    path_pattern {
+    values = ["/delegated"]
+    }
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+resource "aws_lb_listener_rule" "rewrite_cpc_110" {
+  listener_arn = aws_alb_listener.apache-https-public.arn
+  priority     = "110"
+
+  action {
+    type             = "redirect"
+    redirect {
+      #host            = #{host}
+      path             = "/cpctrain/delegatedTest"
+      port             = 443
+      protocol         = "HTTPS"
+      #query            = #{query}
+      status_code      = "HTTP_301"
+    }
+  }
+
+ #  RewriteRule ^/delegated/(.*)    https://%{SERVER_NAME}/cpctrain/delegatedTest/$1 [R,L]
+  condition {
+    path_pattern {
+    values = ["/delegated/"]
+    }
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+resource "aws_lb_listener_rule" "cpc_proxy" {
+  #  ProxyPassReverse   "http://cpc-internal.opsdev.nonprod.tars.dev-dvsacloud.uk/cpcode"
+  count        = contains(var.ibs1_ibs2_redirect_env, var.environment) ? 1 : 0
+  listener_arn = aws_alb_listener.apache-https-public.arn
+  priority     = "120"
+
+  action {
+    type             = "forward"
+    target_group_arn = data.terraform_remote_state.apps.outputs.cpc-tg-9443-arn
+  }
+
+  condition {
+    path_pattern {
+    values = ["/cpctrain"]
     }
   }
 

@@ -49,3 +49,14 @@ resource "aws_security_group_rule" "apache-alb-public-egress-internal-obs-ec2" {
   security_group_id        = aws_security_group.apache_alb_public.id
   source_security_group_id = data.terraform_remote_state.apps.outputs.obs-sg-id
 }
+
+resource "aws_security_group_rule" "apache-alb-public-egress-internal-cpc-ec2" {
+  # Will replace Apache rule above  - IanD
+  description              = "Allow TCP/9443 from public LB to obs EC2"
+  type                     = "egress"
+  protocol                 = "tcp"
+  from_port                = 9443
+  to_port                  = 9443
+  security_group_id        = aws_security_group.apache_alb_public.id
+  source_security_group_id = data.terraform_remote_state.cpc.outputs.cpc-front-sg-id
+}
