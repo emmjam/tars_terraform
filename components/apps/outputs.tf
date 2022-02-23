@@ -4,5 +4,5 @@ output "obs-sg-id" {
 }
 
 output "obs-tg-8080-arn" {
-  value = aws_alb_target_group.obs-frontend2-8080.arn
+  value = aws_alb_target_group.private-obs2-8080.arn
 }
