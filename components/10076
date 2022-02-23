@@ -1,7 +1,0 @@
-tars_db_version = "6e052ee2"
-cpc_db_version = "7d9cbf5a"
-tars_ami_id = "fc02826d-6e052ee2"
-cpc_ami_id = "fc02826d-7d9cbf5a"
-ibs_ami_id = "b8a7940c-6a318020"
-obs_ami_id = "0cda13c7-99128dcc"
-fyndi_ami_id = "fc02826d-c0715507"
