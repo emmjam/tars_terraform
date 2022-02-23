@@ -1,6 +1,6 @@
-resource "aws_lb_listener_rule" "rewrite_dsaweb_10" {
+resource "aws_lb_listener_rule" "rewrite_dsaweb_1" {
   listener_arn = aws_alb_listener.apache-https-public.arn
-  priority     = "10"
+  priority     = "5"
 
   action {
     type             = "redirect"
@@ -26,9 +26,9 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_10" {
   }
 }
 
-resource "aws_lb_listener_rule" "rewrite_dsaweb_20" {
+resource "aws_lb_listener_rule" "rewrite_dsaweb_2" {
   listener_arn = aws_alb_listener.apache-https-public.arn
-  priority     = "20"
+  priority     = "10"
 
   action {
     type             = "redirect"
@@ -54,9 +54,9 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_20" {
   }
 }
 
-resource "aws_lb_listener_rule" "rewrite_dsaweb_30" {
+resource "aws_lb_listener_rule" "rewrite_dsaweb_3" {
   listener_arn = aws_alb_listener.apache-https-public.arn
-  priority     = "30"
+  priority     = "15"
 
   action {
     type             = "redirect"
@@ -82,9 +82,9 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_30" {
   }
 }
 
-resource "aws_lb_listener_rule" "rewrite_dsaweb_40" {
+resource "aws_lb_listener_rule" "rewrite_dsaweb_4" {
   listener_arn = aws_alb_listener.apache-https-public.arn
-  priority     = "40"
+  priority     = "20"
 
   action {
     type             = "redirect"
@@ -110,9 +110,9 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_40" {
   }
 }
 
-resource "aws_lb_listener_rule" "rewrite_dsaweb_50" {
+resource "aws_lb_listener_rule" "rewrite_dsaweb_5" {
   listener_arn = aws_alb_listener.apache-https-public.arn
-  priority     = "50"
+  priority     = "25"
 
   action {
     type             = "redirect"
@@ -138,9 +138,9 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_50" {
   }
 }
 
-resource "aws_lb_listener_rule" "rewrite_dsaweb_60" {
+resource "aws_lb_listener_rule" "rewrite_dsaweb_6" {
   listener_arn = aws_alb_listener.apache-https-public.arn
-  priority     = "60"
+  priority     = "30"
 
   action {
     type             = "redirect"
@@ -166,9 +166,9 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_60" {
   }
 }
 
-resource "aws_lb_listener_rule" "rewrite_dsaweb_70" {
+resource "aws_lb_listener_rule" "rewrite_dsaweb_7" {
   listener_arn = aws_alb_listener.apache-https-public.arn
-  priority     = "70"
+  priority     = "35"
 
   action {
     type             = "redirect"
@@ -198,7 +198,7 @@ resource "aws_lb_listener_rule" "irdt_proxy" {
   #  ProxyPassReverse   "http://irdt-internal.opsdev.nonprod.tars.dev-dvsacloud.uk/DSAWeb"
   count        = contains(var.ibs1_ibs2_redirect_env, var.environment) ? 1 : 0
   listener_arn = aws_alb_listener.apache-https-public.arn
-  priority     = "100"
+  priority     = "40"
 
   action {
     type             = "forward"
@@ -216,9 +216,9 @@ resource "aws_lb_listener_rule" "irdt_proxy" {
   }
 }
 
-resource "aws_lb_listener_rule" "rewrite_obsweb_80" {
+resource "aws_lb_listener_rule" "rewrite_obsweb_1" {
   listener_arn = aws_alb_listener.apache-https-public.arn
-  priority     = "80"
+  priority     = "45"
 
   action {
     type             = "redirect"
@@ -244,9 +244,9 @@ resource "aws_lb_listener_rule" "rewrite_obsweb_80" {
   }
 }
 
-resource "aws_lb_listener_rule" "rewrite_obsweb_90" {
+resource "aws_lb_listener_rule" "rewrite_obsweb_2" {
   listener_arn = aws_alb_listener.apache-https-public.arn
-  priority     = "90"
+  priority     = "50"
 
   action {
     type             = "redirect"
@@ -276,7 +276,7 @@ resource "aws_lb_listener_rule" "obs_proxy" {
   #  ProxyPassReverse   "http://obs-internal.opsdev.nonprod.tars.dev-dvsacloud.uk/obs-web"
   count        = contains(var.ibs1_ibs2_redirect_env, var.environment) ? 1 : 0
   listener_arn = aws_alb_listener.apache-https-public.arn
-  priority     = "100"
+  priority     = "55"
 
   action {
     type             = "forward"
@@ -294,9 +294,9 @@ resource "aws_lb_listener_rule" "obs_proxy" {
   }
 }
 
-resource "aws_lb_listener_rule" "rewrite_cpc_100" {
+resource "aws_lb_listener_rule" "rewrite_cpc_1" {
   listener_arn = aws_alb_listener.apache-https-public.arn
-  priority     = "100"
+  priority     = "60"
 
   action {
     type             = "redirect"
@@ -322,9 +322,9 @@ resource "aws_lb_listener_rule" "rewrite_cpc_100" {
   }
 }
 
-resource "aws_lb_listener_rule" "rewrite_cpc_110" {
+resource "aws_lb_listener_rule" "rewrite_cpc_2" {
   listener_arn = aws_alb_listener.apache-https-public.arn
-  priority     = "110"
+  priority     = "65"
 
   action {
     type             = "redirect"
@@ -354,7 +354,7 @@ resource "aws_lb_listener_rule" "cpc_proxy" {
   #  ProxyPassReverse   "http://cpc-internal.opsdev.nonprod.tars.dev-dvsacloud.uk/cpcode"
   count        = contains(var.ibs1_ibs2_redirect_env, var.environment) ? 1 : 0
   listener_arn = aws_alb_listener.apache-https-public.arn
-  priority     = "120"
+  priority     = "70"
 
   action {
     type             = "forward"
