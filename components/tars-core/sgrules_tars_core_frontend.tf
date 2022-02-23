@@ -98,5 +98,5 @@ resource "aws_security_group_rule" "tars_core_frontend_alb_inbound" {
   to_port                  = 7443
   protocol                 = "tcp"
   security_group_id        = module.tars_front.security_group_id
-  source_security_group_id = aws_security_group.apache_alb_public
+  source_security_group_id = aws_security_group.apache_alb_public.id
 }
