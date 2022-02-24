@@ -304,6 +304,10 @@ cpc_rds_username = "cpcadmin"
 # CPCTSDB
 cpc_rds_allocated_storage = "100" # 20 Gigabyte - was 1500GB
 cpc_rds_snapshot = ""
+cpc_rds_engine_version = "19.0.0.0.ru-2021-07.rur-2021-07.r1"
+cpc_rds_parameter_group_name = "cpcdb-19c"
+cpc_rds_option_group_name = "option-group-19c"
+cpc_allow_major_version_upgrade = true
 
 # IBSDB
 ibs_rds_username = "ibsuatadmin"
