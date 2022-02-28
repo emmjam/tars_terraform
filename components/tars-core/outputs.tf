@@ -19,6 +19,10 @@ output "tars-core-apache-sg-id" {
   value = module.apache.security_group_id
 }
 
+output "tars-core-public-alb-sg-id" {
+  value = aws_security_group.apache_alb_public.id
+}
+
 output "tars-core-alb-target-group-irdt-frontend" {
   value = aws_alb_target_group.irdt-frontend-7443.arn
 }
