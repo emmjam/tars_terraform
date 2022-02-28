@@ -286,7 +286,7 @@ oraclexe_scaleup_desired      = 1
 oraclexe_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## Mock
-mock_ami_build_id = "31040370/231"
+mock_ami_build_id = "6d0074d8/235"
 
 
 ## SFTP
@@ -552,9 +552,9 @@ rsis_rds_sid_name = "RSISDB"
 # CPCDB
 cpc_rds_storage_type = "gp2"
 cpc_rds_engine = "oracle-se2"
-cpc_rds_engine_version = "12.2.0.1"
-cpc_rds_parameter_group_name = "cpcdb-12-2"
-cpc_rds_option_group_name = "option-group-12-2"
+cpc_rds_engine_version = "19.0.0.0.ru-2021-10.rur-2021-10.r1"
+cpc_rds_parameter_group_name = "cpcdb-19c"
+cpc_rds_option_group_name = "option-group-19c"
 cpc_rds_instance_class = "db.t3.medium" # was "db.m4.4xlarge"
 cpc_rds_port = "1521"
 cpc_rds_public = "false"
@@ -567,7 +567,7 @@ cpc_rds_apply_immediately = "true"
 cpc_rds_license_model = "license-included"
 cpc_rds_autoscale = "True"
 cpc_rds_sid_name = "CPCDB"
-cpc_allow_major_version_upgrade = false
+cpc_allow_major_version_upgrade = true
 
 # IBSDB
 # value is overridden for perf to match prod & prep
@@ -640,4 +640,4 @@ ibs_high_cpu_cw_metric_alarm_enabled = false
 ftts_elig_port = "22"
 
 #Lambda Govnotify
-notify_lambda_version = "2"
+notify_lambda_version = "3"
