@@ -9,7 +9,6 @@ resource "aws_security_group_rule" "apache-alb-public-ingress-whitelist" {
 }
 
 resource "aws_security_group_rule" "apache-alb-public-egress-internal-alb" {
-  # Will replace Apache rule above  - IanD
   description              = "Allow TCP/443 from public LB to tars core internal LB"
   type                     = "egress"
   protocol                 = "tcp"
@@ -20,7 +19,6 @@ resource "aws_security_group_rule" "apache-alb-public-egress-internal-alb" {
 }
 
 resource "aws_security_group_rule" "apache-alb-public-egress-internal-irdt-ec2" {
-  # Will replace Apache rule above  - IanD
   description              = "Allow TCP/7443 from public LB to irdt EC2"
   type                     = "egress"
   protocol                 = "tcp"
@@ -31,7 +29,6 @@ resource "aws_security_group_rule" "apache-alb-public-egress-internal-irdt-ec2" 
 }
 
 resource "aws_security_group_rule" "apache-alb-public-egress-internal-obs-ec2" {
-  # Will replace Apache rule above  - IanD
   description              = "Allow TCP/8080 from public LB to obs EC2"
   type                     = "egress"
   protocol                 = "tcp"
@@ -42,7 +39,6 @@ resource "aws_security_group_rule" "apache-alb-public-egress-internal-obs-ec2" {
 }
 
 resource "aws_security_group_rule" "apache-alb-public-egress-internal-cpc-ec2" {
-  # Will replace Apache rule above  - IanD
   description              = "Allow TCP/9443 from public LB to obs EC2"
   type                     = "egress"
   protocol                 = "tcp"

@@ -19,7 +19,6 @@ resource "aws_security_group_rule" "tars_alb_public_egress_irdt_front_port_7443_
 }
 
 resource "aws_security_group_rule" "tars_alb_public_ingress_alb" {
-  # Will replace the apache ingress above -- IanD
   description              = "Allow TCP/80 from Public ALB"
   type                     = "ingress"
   from_port                = 443
