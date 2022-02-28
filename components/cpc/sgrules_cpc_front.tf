@@ -8,12 +8,13 @@ resource "aws_security_group_rule" "cpc-front-ingress-cpc-front-internal-alb-944
 }
 
 resource "aws_security_group_rule" "cpc-front-ingress-tars-public-alb-9443" {
+  description              = "Inbound TCP/9443 from public apache alb"
   type                     = "ingress"
   protocol                 = "tcp"
   from_port                = "9443"
   to_port                  = "9443"
   security_group_id        = module.cpc-front.security_group_id
-  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-backend-alb-sg-id
+  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-public-alb-sg-id
 }
 
 resource "aws_security_group_rule" "cpc-front-ingress-cpc-front-dvs-alb-7443" {
