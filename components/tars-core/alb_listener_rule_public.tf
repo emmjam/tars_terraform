@@ -206,7 +206,7 @@ resource "aws_lb_listener_rule" "irdt_proxy" {
 
   condition {
     path_pattern {
-    values = ["/DSAWeb"]
+    values = ["/DSAWeb/*"]
     }
   }
 
@@ -283,7 +283,7 @@ resource "aws_lb_listener_rule" "obs_proxy" {
 
   condition {
     path_pattern {
-    values = ["/obs-web"]
+    values = ["/obs-web/*"]
     }
   }
 
@@ -360,7 +360,7 @@ resource "aws_lb_listener_rule" "cpc_proxy" {
 
   condition {
     path_pattern {
-    values = ["/cpctrain"]
+    values = ["/cpctrain/*"]
     }
   }
 
