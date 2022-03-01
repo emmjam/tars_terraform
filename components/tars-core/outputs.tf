@@ -39,3 +39,10 @@ output "tars-apache-autoscaling-group-name" {
   value = module.apache.autoscaling_group_name
 }
 
+output "alb-tg-obs2-8080" {
+  value = aws_alb_target_group.obs2-8080.id
+}
+
+output "alb-tg-cpc2-9443" {
+  value = aws_alb_target_group.cpc2-9443.id
+}
