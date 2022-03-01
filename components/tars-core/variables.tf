@@ -386,35 +386,6 @@ variable "tars_private_cert" {
   description = "TARS Private ACM cert name"
 }
 
-variable "apache_asg_max_size" {
-  type        = string
-  description = ""
-}
-
-variable "apache_asg_min_size" {
-  type        = string
-  description = ""
-}
-
-variable "apache_scaledown_desired" {
-  type        = string
-  description = ""
-}
-
-variable "apache_scaleup_desired" {
-  type        = string
-  description = ""
-}
-
-variable "apache_scaledown_recurrence" {
-  type        = string
-  description = ""
-}
-
-variable "apache_scaleup_recurrence" {
-  type        = string
-  description = ""
-}
 
 variable "apache_instance_type" {
   type        = string
