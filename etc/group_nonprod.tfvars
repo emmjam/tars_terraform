@@ -235,10 +235,10 @@ cpc-batch_scaleup_recurrence   = "00 04 * * 1-5"
 ## apache
 apache_instance_type         = "m3.medium"
 apache_asg_min_size          = 0
-apache_asg_max_size          = 2
+apache_asg_max_size          = 0
 apache_scaledown_desired     = 0
 apache_scaledown_recurrence  = "00 19 * * 1-5"
-apache_scaleup_desired       = 2
+apache_scaleup_desired       = 0
 apache_scaleup_recurrence    = "00 04 * * 1-5"
 apache_ami_build_id          = "1248"
 
