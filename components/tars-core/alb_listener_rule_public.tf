@@ -278,7 +278,7 @@ resource "aws_lb_listener_rule" "obs_proxy" {
 
   action {
     type             = "forward"
-    target_group_arn = aws_alb_target_group.private-obs2-8080.arn
+    target_group_arn = aws_alb_target_group.obs-pub-8080.arn
   }
 
   condition {
@@ -355,7 +355,7 @@ resource "aws_lb_listener_rule" "cpc_proxy" {
 
   action {
     type             = "forward"
-    target_group_arn = aws_alb_target_group.cpc-front-internal2-9443.arn
+    target_group_arn = aws_alb_target_group.cpc-pub-9443.arn
   }
 
   condition {
