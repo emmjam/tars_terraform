@@ -355,7 +355,7 @@ resource "aws_lb_listener_rule" "cpc_proxy" {
 
   action {
     type             = "forward"
-    target_group_arn = data.terraform_remote_state.cpc.outputs.cpc-tg-9443-arn
+    target_group_arn = aws_alb_target_group.cpc-front-internal2-9443.arn
   }
 
   condition {

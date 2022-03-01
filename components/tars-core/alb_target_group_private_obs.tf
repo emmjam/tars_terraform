@@ -1,6 +1,6 @@
-resource "aws_alb_target_group" "private-obs2-8080" {
+resource "aws_alb_target_group" "obs-pub-8080" {
   # OBS Target for public LB -- IanD
-  name     = "${local.csi}-private-obs2"
+  name     = "${local.csi}-obs-pub-8080"
   port     = "8080"
   protocol = "HTTP"
   vpc_id   = data.terraform_remote_state.base.outputs.vpc_id
