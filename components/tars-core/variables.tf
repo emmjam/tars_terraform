@@ -514,6 +514,3 @@ variable "unhealthy_host_alarm_count" {
   default = "0"
 }
 
-variable "reporting_xe_count" {
-  type    = number
-}

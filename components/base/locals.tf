@@ -56,14 +56,6 @@ locals {
     var.component,
     "prometheus/cloud-init-output",
   )
-
-  reporting_xe_log = format(
-    "/aws/ec2/%s-%s-%s/%s",
-    var.project,
-    var.environment,
-    var.component,
-    "reporting-xe/cloud-init-output",
-  )
 }
 
 

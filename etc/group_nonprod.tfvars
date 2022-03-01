@@ -235,7 +235,7 @@ cpc-batch_scaleup_recurrence   = "00 04 * * 1-5"
 ## apache
 apache_instance_type         = "m3.medium"
 apache_asg_min_size          = 0
-apache_asg_max_size          = 0
+apache_asg_max_size          = 2
 apache_scaledown_desired     = 0
 apache_scaledown_recurrence  = "00 19 * * 1-5"
 apache_scaleup_desired       = 2
@@ -641,14 +641,3 @@ ftts_elig_port = "22"
 
 #Lambda Govnotify
 notify_lambda_version = "3"
-
-# reporting-xe
-reporting_xe_instance_type = "t2.medium"
-reporting_xe_count = 0
-reporting_xe_ami_build_id = "1290"
-reporting_xe_asg_min_size = 0
-reporting_xe_asg_max_size = 0
-reporting_xe_asg_desired_size = 0
-reporting_xe_subnet_cidr = [""]
-
-ssm_kms_key_id = "5fc7cd0f-a4d7-4d2e-b32f-f28391249a00"
