@@ -40,9 +40,9 @@ output "tars-apache-autoscaling-group-name" {
 }
 
 output "alb-tg-obs2-8080" {
-  value = aws_alb_target_group.obs2-8080.id
+  value = aws_alb_target_group.obs2-8080.arn
 }
 
 output "alb-tg-cpc2-9443" {
-  value = aws_alb_target_group.cpc2-9443.id
+  value = aws_alb_target_group.cpc2-9443.arn
 }
