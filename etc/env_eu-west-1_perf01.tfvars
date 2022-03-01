@@ -463,6 +463,16 @@ wildfly-mock_scaledown_recurrence = "00 16 * * 1-7"
 wildfly-mock_scaleup_desired      = 1
 wildfly-mock_scaleup_recurrence   = "00 04 * * 1-7"
 
+## apache
+apache_instance_type         = "m4.large"
+apache_asg_min_size          = 0
+apache_asg_max_size          = 2
+apache_scaledown_desired     = 2
+apache_scaledown_recurrence  = "00 22 * * 1-5"
+apache_scaleup_desired       = 2
+apache_scaleup_recurrence    = "00 07 * * 1-5"
+
+
 ##  JMeter
 jmeter_instance_type              = "m5d.large"
 jmeter_asg_size_desired_on_create = 0

@@ -21,6 +21,7 @@ resource "aws_alb_target_group" "private-obs-8080" {
 }
 
 resource "aws_alb_target_group" "private-obs2-8080" {
+  # Target for public LB -- IanD
   name     = "${local.csi}-private-obs2"
   port     = "8080"
   protocol = "HTTP"

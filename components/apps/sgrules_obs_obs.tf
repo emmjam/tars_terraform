@@ -8,6 +8,7 @@ resource "aws_security_group_rule" "obs-ingress-private-alb-8080" {
 }
 
 resource "aws_security_group_rule" "obs-ingress-public-alb-8080" {
+  # Removing Apache  -- IanD
   description              = "Incomming 8080 from tars-core-apache public alb"
   type                     = "ingress"
   protocol                 = "tcp"
