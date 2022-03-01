@@ -386,27 +386,6 @@ variable "tars_private_cert" {
   description = "TARS Private ACM cert name"
 }
 
-
-variable "apache_instance_type" {
-  type        = string
-  description = ""
-}
-
-variable "apache_ami_build_id" {
-  type        = string
-  description = ""
-}
-
-variable "apache_cert" {
-  type        = string
-  description = ""
-}
-
-variable "apache_subnet_cidrs" {
-  type        = list(string)
-  description = ""
-}
-
 variable "mes_db_cidr_block" {
   type        = list(string)
   description = "MES CIDR block for DB SG connection"
