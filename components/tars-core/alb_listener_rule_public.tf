@@ -350,7 +350,7 @@ resource "aws_lb_listener_rule" "rewrite_cpc_2" {
 
 resource "aws_lb_listener_rule" "rewrite_cpc_3" {
   listener_arn = aws_alb_listener.apache-https-public.arn
-  priority     = "170"
+  priority     = "70"
 
   action {
     type             = "redirect"
@@ -378,7 +378,7 @@ resource "aws_lb_listener_rule" "rewrite_cpc_3" {
 resource "aws_lb_listener_rule" "cpc_proxy1" {
   #  ProxyPassReverse   "http://cpc-internal.opsdev.nonprod.tars.dev-dvsacloud.uk/cpctrain"
   listener_arn = aws_alb_listener.apache-https-public.arn
-  priority     = "175"
+  priority     = "75"
 
   action {
     type             = "forward"
