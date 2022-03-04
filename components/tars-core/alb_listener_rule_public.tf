@@ -372,7 +372,7 @@ resource "aws_lb_listener_rule" "cpc_proxy1" {
 resource "aws_lb_listener_rule" "cpc_proxy2" {
   #  ProxyPassReverse   "http:////cpc-internal.opsdev.nonprod.tars.dev-dvsacloud.uk/cpcode"
   listener_arn = aws_alb_listener.apache-https-public.arn
-  priority     = "70"
+  priority     = "75"
 
   action {
     type             = "forward"
