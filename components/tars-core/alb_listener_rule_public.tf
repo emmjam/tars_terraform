@@ -348,8 +348,8 @@ resource "aws_lb_listener_rule" "rewrite_cpc_2" {
   }
 }
 
-resource "aws_lb_listener_rule" "cpc_proxy" {
-  #  ProxyPassReverse   "http://cpc-internal.opsdev.nonprod.tars.dev-dvsacloud.uk/cpcode"
+resource "aws_lb_listener_rule" "cpc_proxy1" {
+  #  ProxyPassReverse   "http://cpc-internal.opsdev.nonprod.tars.dev-dvsacloud.uk/cpctrain"
   listener_arn = aws_alb_listener.apache-https-public.arn
   priority     = "70"
 
@@ -361,6 +361,27 @@ resource "aws_lb_listener_rule" "cpc_proxy" {
   condition {
     path_pattern {
     values = ["/cpctrain/*"]
+    }
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+resource "aws_lb_listener_rule" "cpc_proxy2" {
+  #  ProxyPassReverse   "http:////cpc-internal.opsdev.nonprod.tars.dev-dvsacloud.uk/cpcode"
+  listener_arn = aws_alb_listener.apache-https-public.arn
+  priority     = "70"
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_alb_target_group.cpc2-9443.arn
+  }
+
+  condition {
+    path_pattern {
+    values = ["/cpcode/*"]
     }
   }
 
