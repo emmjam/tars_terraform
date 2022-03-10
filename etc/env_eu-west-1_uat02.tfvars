@@ -328,6 +328,10 @@ mis_rds_allocated_storage = "300"
 mis_rds_snapshot = "tars-uat01-tars-reporting-misdb-20181108"
 mis_rds_autoscale = "False"
 mis_rds_backup_retention = "21"
+mis_rds_parameter_group_name = "misdb"
+mis_rds_option_group_name = "option-group"
+mis_allow_major_version_upgrade = false
+mis_rds_engine_version = "12.1.0.2"
 
 # RSISDB
 rsis_rds_username = "tarsrsisadmin"
