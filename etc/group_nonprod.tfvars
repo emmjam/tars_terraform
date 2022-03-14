@@ -240,7 +240,7 @@ apache_scaledown_desired     = 0
 apache_scaledown_recurrence  = "00 19 * * 1-5"
 apache_scaleup_desired       = 2
 apache_scaleup_recurrence    = "00 04 * * 1-5"
-apache_ami_build_id          = "1248"
+apache_ami_build_id          = "1302"
 
 ## AWS MQ
 aws_mq_engine_type             = "ActiveMQ"
@@ -286,11 +286,11 @@ oraclexe_scaleup_desired      = 1
 oraclexe_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## Mock
-mock_ami_build_id = "098a8562/237"
+mock_ami_build_id = "ed1ce966/238"
 
 
 ## SFTP
-sftpplus_svr_id = "1258"
+sftpplus_svr_id = "1303"
 
 bastion_elb_subnets_cidrs = [
   "10.167.60.64/28",
@@ -443,7 +443,7 @@ rsis_samba_server_archive = "10.14.0.142/32"
 
 # squidnat
 squidnat_instance_type = "m3.medium"
-squidnat_ami_build_id  = "1260"
+squidnat_ami_build_id  = "1301"
 
 ops_team_email = "TARSStabilisation@bjss.com"
 
@@ -645,7 +645,7 @@ notify_lambda_version = "3"
 # reporting-xe
 reporting_xe_instance_type = "t2.medium"
 reporting_xe_count = 0
-reporting_xe_ami_build_id = "1290"
+reporting_xe_ami_build_id = "1299"
 reporting_xe_asg_min_size = 0
 reporting_xe_asg_max_size = 0
 reporting_xe_asg_desired_size = 0
