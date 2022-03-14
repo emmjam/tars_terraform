@@ -277,7 +277,7 @@ jmeter_asg_size_min               = 0
 jmeter_ami_build_id               = "1266"
 
 ## XE
-oraclexe_svr_id = "1259"
+oraclexe_svr_id = "1296"
 oraclexe_asg_min_size         = 0
 oraclexe_asg_max_size         = 1
 oraclexe_scaledown_desired    = 0
@@ -286,7 +286,7 @@ oraclexe_scaleup_desired      = 1
 oraclexe_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## Mock
-mock_ami_build_id = "6d0074d8/235"
+mock_ami_build_id = "098a8562/237"
 
 
 ## SFTP
@@ -515,7 +515,7 @@ tars_rds_sid_name = "TARSDB"
 # MISDB
 mis_rds_storage_type = "gp2"
 mis_rds_engine = "oracle-se2"
-mis_rds_engine_version = "12.1.0.2"
+mis_rds_engine_version = "19.0.0.0.ru-2021-10.rur-2021-10.r1"
 mis_rds_instance_class = "db.t3.medium" # was "db.m4.4xlarge"
 mis_rds_port = "1521"
 mis_rds_public = "false"
@@ -528,9 +528,9 @@ mis_rds_apply_immediately = "true"
 mis_rds_license_model = "license-included"
 mis_rds_autoscale = "True"
 mis_rds_sid_name = "MISDB"
-mis_rds_parameter_group_name = "misdb"
-mis_rds_option_group_name = "option-group"
-mis_allow_major_version_upgrade = false
+mis_rds_parameter_group_name = "misdb-19c"
+mis_rds_option_group_name = "option-group-19c"
+mis_allow_major_version_upgrade = true
 
 # RSISDB
 rsis_rds_storage_type = "gp2"
