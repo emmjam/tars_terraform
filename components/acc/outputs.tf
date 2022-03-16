@@ -78,4 +78,3 @@ output "oom-s3-log-bucket" {
 output "oom-s3-log-bucket_id" {
   value = aws_s3_bucket.oom-logs.id
 }
-

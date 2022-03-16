@@ -86,3 +86,7 @@ value = aws_route53_zone.private_domain.*.id
 output "s3_bucket_resources_arn" {
   value = aws_s3_bucket.resources.arn
 }
+
+output "tars_acct_bucketlog_arn" {
+  value = aws_s3_bucket.acc-bucketlogs.arn
+}
