@@ -91,12 +91,11 @@ resource "aws_security_group_rule" "tars_core_frontend_egress_kms_endpoint" {
 }
 
 resource "aws_security_group_rule" "tars_core_frontend_alb_inbound" {
-  # allowing incomming directly from front alb -- IanD
-  description              = "Allow TCP/7443 fron ALB"
+  description              = "Allow TCP/7443 fron tars-core public ALB"
   type                     = "ingress"
   from_port                = 7443
   to_port                  = 7443
   protocol                 = "tcp"
   security_group_id        = module.tars_front.security_group_id
-  source_security_group_id = aws_security_group.apache_alb_public.id
+  source_security_group_id = aws_security_group.tars_core_alb_public.id
 }

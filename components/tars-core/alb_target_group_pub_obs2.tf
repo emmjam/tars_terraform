@@ -1,5 +1,5 @@
 resource "aws_alb_target_group" "obs2-8080" {
-  # OBS Target for public LB -- IanD
+  # OBS Target group for tars-core public LB
   name     = "${local.csi}-obs2-8080"
   port     = "8080"
   protocol = "HTTP"

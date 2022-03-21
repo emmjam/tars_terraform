@@ -5,8 +5,8 @@ resource "aws_route53_record" "cpc-internet" {
   type    = "A"
 
   alias {
-    name                   = data.terraform_remote_state.tars-core.outputs.tars-apache-dns-name
-    zone_id                = data.terraform_remote_state.tars-core.outputs.tars-apache-dns-zone-id
+    name                   = data.terraform_remote_state.tars-core.outputs.tars-core-dns-name
+    zone_id                = data.terraform_remote_state.tars-core.outputs.tars-core-dns-zone-id
     evaluate_target_health = true
   }
 }
@@ -17,8 +17,8 @@ resource "aws_route53_record" "cpc-internet-private" {
   type    = "A"
 
   alias {
-    name                   = data.terraform_remote_state.tars-core.outputs.tars-apache-dns-name
-    zone_id                = data.terraform_remote_state.tars-core.outputs.tars-apache-dns-zone-id
+    name                   = data.terraform_remote_state.tars-core.outputs.tars-core-dns-name
+    zone_id                = data.terraform_remote_state.tars-core.outputs.tars-core-dns-zone-id
     evaluate_target_health = true
   }
 }

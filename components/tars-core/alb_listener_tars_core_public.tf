@@ -1,9 +1,9 @@
-resource "aws_alb_listener" "apache-https-public" {
-  load_balancer_arn = aws_alb.apache_public.arn
+resource "aws_alb_listener" "https-public" {
+  load_balancer_arn = aws_alb.tars_core_public.arn
   port              = "443"
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-2016-08"
-  certificate_arn   = data.aws_acm_certificate.apache.arn
+  certificate_arn   = data.aws_acm_certificate.public.arn
 
   default_action {
     type             = "forward"

@@ -486,7 +486,7 @@ tars_pdf_cert           = "*"
 obs_cert                = "*"
 ibs_cert                = "*"
 irdt_cert               = "*"
-apache_cert             = "*"
+public_cert             = "*"
 holding_pages_cert      = "*"
 
 # Deployer pub key

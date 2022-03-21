@@ -376,7 +376,7 @@ tars_pdf_cert           = "*"
 obs_cert                = "obs-prep-public"
 ibs_cert                = "ibs-prep-public"
 irdt_cert               = "irdt-prep-public"
-apache_cert             = "routing-prep-public"
+public_cert             = "routing-prep-public"
 bobj-server             = "*"
 holding_pages_cert      = "maintenance-prod"
 

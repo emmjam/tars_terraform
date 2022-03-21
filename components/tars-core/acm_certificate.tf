@@ -8,7 +8,7 @@ data "aws_acm_certificate" "nonprod_tars_dvsacloud_uk" {
 }
 
 data "aws_acm_certificate" "apache" {
-  domain = "${var.apache_cert}.${data.terraform_remote_state.acc.outputs.public_domain_name}"
+  domain = "${var.public_cert}.${data.terraform_remote_state.acc.outputs.public_domain_name}"
 
   statuses = [
     "ISSUED",
