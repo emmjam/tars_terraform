@@ -56,4 +56,4 @@ locals {
     var.component,
     "front/cloud-init-output",
   )
-
+}
