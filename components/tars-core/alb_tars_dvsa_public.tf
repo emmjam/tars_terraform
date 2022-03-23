@@ -1,6 +1,6 @@
 # ALB for public facing tars
 resource "aws_alb" "tars-dvsa-public" {
-  name         = "${local.csi}-dvsa-public"
+  name         = "${local.csi}-dvsa-pub"
   internal     = "false"
   idle_timeout = 300
 
