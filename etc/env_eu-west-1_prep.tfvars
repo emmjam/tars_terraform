@@ -312,6 +312,11 @@ tars_rds_username = "tarsadmin"
 tars_rds_allocated_storage = "550"
 tars_rds_snapshot = "tars-prod-tars-core-tarsdb-20190228"
 tars_rds_skip_final_snapshot = true
+tars_rds_engine_version = "19.0.0.0.ru-2021-10.rur-2021-10.r1"
+tars_rds_parameter_group_name = "tarsdb-19c"
+tars_rds_option_group_name = "option-group-19c"
+tars_allow_major_version_upgrade = true
+
 
 # MISDB
 mis_rds_username = "misuatadmin"
