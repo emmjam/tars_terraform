@@ -1,4 +1,5 @@
 resource "aws_security_group_rule" "apache-alb-public-ingress-whitelist" {
+  description       = "Allow TCP/443 from public whitelist"
   type              = "ingress"
   protocol          = "tcp"
   from_port         = 443
