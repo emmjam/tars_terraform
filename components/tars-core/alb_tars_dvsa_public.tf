@@ -16,7 +16,7 @@ resource "aws_alb" "tars-dvsa-public" {
 
   subnets = data.terraform_remote_state.base.outputs.subnets_tars_dvsa_public
 
-    lifecycle {
+  lifecycle {
     create_before_destroy = true
   }
 
