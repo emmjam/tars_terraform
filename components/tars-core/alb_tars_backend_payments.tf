@@ -15,10 +15,6 @@ resource "aws_alb" "tars-alb-backend-payments" {
 
   subnets = data.terraform_remote_state.base.outputs.subnets_alb_public
 
-  lifecycle {
-    create_before_destroy = true
-  }
-
   tags = merge(
     local.default_tags,
     {

@@ -15,10 +15,6 @@ resource "aws_alb" "tars-internal" {
 
   subnets = data.terraform_remote_state.base.outputs.subnets_tars_alb_internal
 
-  lifecycle {
-    create_before_destroy = true
-  }
-
   tags = merge(
     local.default_tags,
     {

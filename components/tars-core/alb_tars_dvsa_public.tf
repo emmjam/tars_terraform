@@ -16,14 +16,10 @@ resource "aws_alb" "tars-dvsa-public" {
 
   subnets = data.terraform_remote_state.base.outputs.subnets_tars_dvsa_public
 
-  lifecycle {
-    create_before_destroy = true
-  }
-
   tags = merge(
     local.default_tags,
     {
-      "Name" = "${local.csi}/dvsa-public"
+      "Name" = "${local.csi}/public"
     },
   )
 }

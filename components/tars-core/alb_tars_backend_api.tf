@@ -16,10 +16,6 @@ resource "aws_alb" "tars-alb-backend-api" {
 
   subnets = data.terraform_remote_state.base.outputs.subnets_tars_backend_api_alb
 
-  lifecycle {
-    create_before_destroy = true
-  }
-
   tags = merge(
     local.default_tags,
     {
