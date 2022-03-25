@@ -5,7 +5,7 @@ resource "aws_lb_listener_rule" "ibs-100" {
 
   action {
     type             = "forward"
-    target_group_arn = aws_alb_target_group.ibs-80.arn
+    target_group_arn = aws_alb_target_group.ibs-8080.arn
   }
 
   condition {
@@ -57,7 +57,7 @@ resource "aws_lb_listener_rule" "ibs-102" {
 
   action {
     type             = "forward"
-    target_group_arn = aws_alb_target_group.ibs-80.arn
+    target_group_arn = aws_alb_target_group.ibs-8080.arn
   }
 
   condition {
@@ -96,7 +96,7 @@ resource "aws_lb_listener_rule" "ibs-104" {
 
   action {
     type             = "forward"
-    target_group_arn = aws_alb_target_group.ibs-80.arn
+    target_group_arn = aws_alb_target_group.ibs-8080.arn
   }
 
   condition {
@@ -136,7 +136,7 @@ resource "aws_lb_listener_rule" "ibs-106" {
 
   action {
     type             = "forward"
-    target_group_arn = aws_alb_target_group.ibs-80.arn
+    target_group_arn = aws_alb_target_group.ibs-8080.arn
   }
 
   condition {
