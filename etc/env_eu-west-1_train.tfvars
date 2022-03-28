@@ -297,6 +297,10 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 tars_rds_username = "tarsuatadmin"
 tars_rds_allocated_storage = "300"
 tars_rds_snapshot = ""
+tars_rds_engine_version = "19.0.0.0.ru-2021-10.rur-2021-10.r1"
+tars_rds_parameter_group_name = "tarsdb-19c"
+tars_rds_option_group_name = "option-group-19c"
+tars_allow_major_version_upgrade = true
 
 # CPCSDB
 cpc_rds_username = "cpcadmin"
