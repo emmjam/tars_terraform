@@ -311,10 +311,6 @@ tars_rds_username = "tarsuatadmin"
 tars_rds_snapshot = "tars-core-tarsdb-20190410-5-4-0-1"
 tars_rds_allocated_storage = "350"
 tars_rds_backup_retention = "21"
-tars_rds_engine_version = "19.0.0.0.ru-2021-10.rur-2021-10.r1"
-tars_rds_parameter_group_name = "tarsdb-19c"
-tars_rds_option_group_name = "option-group-19c"
-tars_allow_major_version_upgrade = true
 
 # CPCDB
 cpc_rds_username = "cpcadmin"
