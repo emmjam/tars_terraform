@@ -262,7 +262,7 @@ apache_scaledown_desired     = 0
 apache_scaledown_recurrence  = "00 22 * * 1-5"
 apache_scaleup_desired       = 0
 apache_scaleup_recurrence    = "00 07 * * 1-5"
-apache_ami_build_id          = "1248"
+apache_ami_build_id          = "1302"
 
 aws_mq_config_description    = "TARS MQ Configuration"
 aws_mq_config_name           = "tars-awsmq"
@@ -285,7 +285,7 @@ oraclexe_scaleup_desired      = 1
 oraclexe_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## SFTP
-sftpplus_svr_id = "1258"
+sftpplus_svr_id = "1303"
 
 bastion_elb_subnets_cidrs = [
   "10.167.56.64/28",
@@ -443,7 +443,7 @@ rsis_samba_server_archive = "10.14.0.142/32"
 
 # squidnat
 squidnat_instance_type = "m5.large"
-squidnat_ami_build_id  = "1260"
+squidnat_ami_build_id  = "1304"
 
 ops_team_email = "TARSStabilisation@bjss.com"
 
@@ -480,11 +480,11 @@ bobj_instance_type = "m5.xlarge"
 # TARSDB
 tars_rds_storage_type = "gp2"
 tars_rds_engine = "oracle-se2"
-tars_rds_engine_version = "12.2.0.1"
+tars_rds_engine_version = "19.0.0.0.ru-2021-10.rur-2021-10.r1"
 tars_rds_instance_class = "db.m4.2xlarge"
-tars_rds_allow_major_engine_version_upgrade = true
-tars_rds_parameter_group_name = "tarsdb-12-2"
-tars_rds_option_group_name = "option-group-12-2"
+tars_rds_allow_major_engine_version_upgrade = false
+tars_rds_parameter_group_name = "tarsdb-19c"
+tars_rds_option_group_name = "option-group-19c"
 tars_rds_port = "1521"
 tars_rds_public = "false"
 tars_rds_multi_az = "true" # it takes an age to build if true

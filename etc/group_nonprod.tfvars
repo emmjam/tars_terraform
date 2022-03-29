@@ -240,7 +240,7 @@ apache_scaledown_desired     = 0
 apache_scaledown_recurrence  = "00 19 * * 1-5"
 apache_scaleup_desired       = 0
 apache_scaleup_recurrence    = "00 04 * * 1-5"
-apache_ami_build_id          = "1248"
+apache_ami_build_id          = "1302"
 
 ## AWS MQ
 aws_mq_engine_type             = "ActiveMQ"
@@ -274,7 +274,7 @@ jmeter_instance_type              = "t3.micro"
 jmeter_asg_size_desired_on_create = 0
 jmeter_asg_size_max               = 0
 jmeter_asg_size_min               = 0
-jmeter_ami_build_id               = "1266"
+jmeter_ami_build_id               = "1305"
 
 ## XE
 oraclexe_svr_id = "1296"
@@ -286,11 +286,11 @@ oraclexe_scaleup_desired      = 1
 oraclexe_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## Mock
-mock_ami_build_id = "098a8562/237"
+mock_ami_build_id = "ed1ce966/238"
 
 
 ## SFTP
-sftpplus_svr_id = "1258"
+sftpplus_svr_id = "1303"
 
 bastion_elb_subnets_cidrs = [
   "10.167.60.64/28",
@@ -443,7 +443,7 @@ rsis_samba_server_archive = "10.14.0.142/32"
 
 # squidnat
 squidnat_instance_type = "m3.medium"
-squidnat_ami_build_id  = "1260"
+squidnat_ami_build_id  = "1304"
 
 ops_team_email = "TARSStabilisation@bjss.com"
 
@@ -495,10 +495,10 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 # TARSDB
 tars_rds_storage_type = "gp2"
 tars_rds_engine = "oracle-se2"
-tars_rds_engine_version = "12.2.0.1"
+tars_rds_engine_version = "19.0.0.0.ru-2021-10.rur-2021-10.r1"
 tars_rds_allow_major_engine_version_upgrade = true
-tars_rds_parameter_group_name = "tarsdb-12-2"
-tars_rds_option_group_name = "option-group-12-2"
+tars_rds_parameter_group_name = "tarsdb-19c"
+tars_rds_option_group_name = "option-group-19c"
 tars_rds_instance_class = "db.t3.medium" # was "db.m4.4xlarge"
 tars_rds_port = "1521"
 tars_rds_public = "false"
@@ -641,3 +641,14 @@ ftts_elig_port = "22"
 
 #Lambda Govnotify
 notify_lambda_version = "3"
+
+# reporting-xe
+reporting_xe_instance_type = "t2.medium"
+reporting_xe_count = 0
+reporting_xe_ami_build_id = "1299"
+reporting_xe_asg_min_size = 0
+reporting_xe_asg_max_size = 0
+reporting_xe_asg_desired_size = 0
+reporting_xe_subnet_cidr = [""]
+
+ssm_kms_key_id = "5fc7cd0f-a4d7-4d2e-b32f-f28391249a00"

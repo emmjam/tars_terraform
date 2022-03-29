@@ -307,6 +307,7 @@ tars_rds_username = "tarsdevadmin"
 tars_rds_allocated_storage = "90" # 20 Gigabyte - was 1500GB
 tars_rds_snapshot = "tars-dev01-tars-core-tarsdb-5-4-2019-5-7-0-2"
 
+
 # CPCSDB
 cpc_rds_username = "tarscpcadmin"
 cpc_rds_allocated_storage = "20" # 20 Gigabyte - was 1500GB
