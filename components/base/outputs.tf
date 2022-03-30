@@ -190,3 +190,11 @@ output "sqs_results_govnotify_id" {
 output "lambda_notify_role_arn" {
   value = module.lambda_notify.role_arn
 }
+
+output "reporting_xe_sg_id" {
+  value = var.reporting_xe_count == 1 ? module.microservice_reporting_xe[0].security_group_id : null
+}
+
+output "subnets_reporting_xe" {
+  value = module.microservice_reporting_xe.*.subnet_ids
+}
