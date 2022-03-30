@@ -200,7 +200,7 @@ resource "aws_lb_listener_rule" "irdt_proxy" {
 
   action {
     type             = "forward"
-    target_group_arn = aws_alb_target_group.irdt-7443.arn
+    target_group_arn = aws_alb_target_group.irdt-frontend-7443.arn
   }
 
   condition {
