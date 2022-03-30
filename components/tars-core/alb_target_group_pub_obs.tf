@@ -1,6 +1,6 @@
-resource "aws_alb_target_group" "obs2-8080" {
+resource "aws_alb_target_group" "obs-8080" {
   # OBS Target group for tars-core public LB
-  name     = "${local.csi}-obs2-8080"
+  name     = "${local.csi}-obs-8080"
   port     = "8080"
   protocol = "HTTP"
   vpc_id   = data.terraform_remote_state.base.outputs.vpc_id

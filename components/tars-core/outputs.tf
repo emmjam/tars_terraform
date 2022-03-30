@@ -31,12 +31,12 @@ output "tars-core-dns-zone-id" {
   value = aws_alb.tars_core_public.zone_id
 }
 
-output "alb-tg-obs2-8080" {
-  value = aws_alb_target_group.obs2-8080.arn
+output "alb-tg-obs-8080" {
+  value = aws_alb_target_group.obs-8080.arn
 }
 
-output "alb-tg-cpc2-9443" {
-  value = aws_alb_target_group.cpc2-9443.arn
+output "alb-tg-cpc-9443" {
+  value = aws_alb_target_group.cpc-9443.arn
 }
 
 output "tars-core-sg-id" {

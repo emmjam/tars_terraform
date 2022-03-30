@@ -200,7 +200,7 @@ resource "aws_lb_listener_rule" "irdt_proxy" {
 
   action {
     type             = "forward"
-    target_group_arn = aws_alb_target_group.irdt-frontend2-7443.arn
+    target_group_arn = aws_alb_target_group.irdt-7443.arn
   }
 
   condition {
@@ -277,7 +277,7 @@ resource "aws_lb_listener_rule" "obs_proxy" {
 
   action {
     type             = "forward"
-    target_group_arn = aws_alb_target_group.obs2-8080.arn
+    target_group_arn = aws_alb_target_group.obs-8080.arn
   }
 
   condition {
@@ -381,7 +381,7 @@ resource "aws_lb_listener_rule" "cpc_proxy1" {
 
   action {
     type             = "forward"
-    target_group_arn = aws_alb_target_group.cpc2-9443.arn
+    target_group_arn = aws_alb_target_group.cpc-9443.arn
   }
 
   condition {
@@ -402,7 +402,7 @@ resource "aws_lb_listener_rule" "cpc_proxy2" {
 
   action {
     type             = "forward"
-    target_group_arn = aws_alb_target_group.cpc2-9443.arn
+    target_group_arn = aws_alb_target_group.cpc-9443.arn
   }
 
   condition {

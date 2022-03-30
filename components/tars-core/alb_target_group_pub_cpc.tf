@@ -1,5 +1,5 @@
-resource "aws_alb_target_group" "cpc2-9443" {
-  name     = "${local.csi}-cpc2-9443"
+resource "aws_alb_target_group" "cpc-9443" {
+  name     = "${local.csi}-cpc-9443"
   port     = "9443"
   protocol = "HTTPS"
   vpc_id   = data.terraform_remote_state.base.outputs.vpc_id
