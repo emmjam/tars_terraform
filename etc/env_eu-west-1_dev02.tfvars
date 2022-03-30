@@ -220,12 +220,6 @@ awsmq_subnets_cidrs = [
   "10.167.45.208/28",
 ]
 
-apache_subnet_cidrs = [
-  "10.167.45.224/28",
-  "10.167.45.240/28",
-  "10.167.46.0/28",
-]
-
 #  "10.167.46.16/28",
 
 tars_backend_api_alb_subnets_cidrs = [
@@ -438,8 +432,6 @@ cpc-back_asg_max_size         = 1
 cpc-back_scaleup_desired      = 1
 cpc-front_asg_max_size        = 1
 cpc-front_scaleup_desired     = 1
-apache_asg_max_size           = 0
-apache_scaleup_desired        = 0
 
 api_notify = {
   handler                = "uk.gov.dvsa.notify.sms.SMSNotifyHandler"

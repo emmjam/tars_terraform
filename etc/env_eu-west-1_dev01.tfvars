@@ -220,12 +220,6 @@ awsmq_subnets_cidrs = [
   "10.167.29.208/28",
 ]
 
-apache_subnet_cidrs = [
-  "10.167.29.224/28",
-  "10.167.29.240/28",
-  "10.167.30.0/28",
-]
-
 #  "10.167.30.16/28",
 
 
@@ -437,8 +431,6 @@ cpc-back_asg_max_size         = 1
 cpc-back_scaleup_desired      = 1
 cpc-front_asg_max_size        = 1
 cpc-front_scaleup_desired     = 1
-apache_asg_max_size           = 0
-apache_scaleup_desired        = 0
 
 
 api_notify = {

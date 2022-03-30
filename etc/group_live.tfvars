@@ -254,16 +254,6 @@ cpc-batch_scaledown_recurrence = "00 22 * * 1-5"
 cpc-batch_scaleup_desired      = 1
 cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
-## apache
-apache_instance_type         = "m5.xlarge"
-apache_asg_min_size          = 0
-apache_asg_max_size          = 0
-apache_scaledown_desired     = 0
-apache_scaledown_recurrence  = "00 22 * * 1-5"
-apache_scaleup_desired       = 0
-apache_scaleup_recurrence    = "00 07 * * 1-5"
-apache_ami_build_id          = "1302"
-
 aws_mq_config_description    = "TARS MQ Configuration"
 aws_mq_config_name           = "tars-awsmq"
 aws_mq_config_engine_type    = "ActiveMQ"
@@ -608,3 +598,14 @@ ftts_elig_port = "18079"
 
 #Lambda Govnotify
 notify_lambda_version = "3"
+
+# reporting-xe
+reporting_xe_instance_type = "t2.medium"
+reporting_xe_count = 0
+reporting_xe_ami_build_id = "1290"
+reporting_xe_asg_min_size = 0
+reporting_xe_asg_max_size = 0
+reporting_xe_asg_desired_size = 0
+reporting_xe_subnet_cidr = [""]
+
+ssm_kms_key_id = "e6d167b6-b8a0-4acb-b982-9846429c79a5"

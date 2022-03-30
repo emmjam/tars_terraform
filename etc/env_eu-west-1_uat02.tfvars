@@ -358,14 +358,6 @@ domain_name_servers = [
 
 private_cert_domain_name = "uat02.nonprod.tars.dev-dvsacloud.uk"
 
-# Temporary allocation -
-# To be removed when overall range is increased
-apache_subnet_cidrs = [
- "10.167.52.224/28",
- "10.167.52.240/28",
- "10.167.53.96/28",
-]
-
 mes_db_cidr_block = [
   "10.141.120.32/28",
   "10.141.120.48/28",
@@ -409,3 +401,16 @@ api_notify = {
   cwlg_retention_in_days = 3
   log_level              = "DEBUG"
 }
+
+# reporting xe
+reporting_xe_count = 1
+reporting_xe_asg_min_size = 1
+reporting_xe_asg_max_size = 1
+reporting_xe_asg_desired_size = 1
+reporting_xe_subnets_cidrs = [
+  "10.167.53.240/28",
+  "10.167.54.0/28",
+  "10.167.54.16/28",
+]
+
+reporting_xe_subnet_cidr = ["10.167.53.240/28"]

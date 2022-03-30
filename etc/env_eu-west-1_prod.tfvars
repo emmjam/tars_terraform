@@ -229,12 +229,6 @@ awsmq_subnets_cidrs = [
   "10.167.133.224/28",
 ]
 
-apache_subnet_cidrs = [
-  "10.167.133.240/28",
-  "10.167.134.0/28",
-  "10.167.134.16/28",
-]
-
 sftpplus_nlb_subnets_cidrs = [
   "10.167.134.32/28",
   "10.167.134.48/28",
@@ -557,3 +551,15 @@ api_notify = {
   log_level              = "DEBUG"
 }
 
+# reporting xe
+reporting_xe_count = 1
+reporting_xe_asg_min_size = 1
+reporting_xe_asg_max_size = 1
+reporting_xe_asg_desired_size = 1
+reporting_xe_subnets_cidrs = [
+  "10.167.132.176/28",
+  "10.167.132.192/28",
+  "10.167.132.208/28",
+]
+
+reporting_xe_subnet_cidr = ["10.167.132.176/28"]

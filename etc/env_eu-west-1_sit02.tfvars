@@ -220,12 +220,6 @@ awsmq_subnets_cidrs = [
   "10.167.85.208/28",
 ]
 
-apache_subnet_cidrs = [
-  "10.167.85.224/28",
-  "10.167.85.240/28",
-  "10.167.86.0/28",
-]
-
 sftpplus_nlb_subnets_cidrs = [
   "10.167.86.32/28",
   "10.167.86.48/28",
@@ -388,8 +382,6 @@ cpc-back_asg_max_size         = 1
 cpc-back_scaleup_desired      = 1
 cpc-front_asg_max_size        = 1
 cpc-front_scaleup_desired     = 1
-apache_asg_max_size           = 0
-apache_scaleup_desired        = 0
 
 #Turn off Prometheus
 prometheus_asg_max_size       = 0

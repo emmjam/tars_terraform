@@ -358,14 +358,6 @@ domain_name_servers = [
 
 private_cert_domain_name = "uat03.nonprod.tars.dev-dvsacloud.uk"
 
-# Temporary allocation -
-# To be removed when overall range is increased
-apache_subnet_cidrs = [
- "10.167.92.224/28",
- "10.167.92.240/28",
- "10.167.93.96/28",
-]
-
 whitelist = [
   "135.196.73.204/32",  # DVSA Notts
   "213.160.121.250/32", # DVSA Notts Corp & Wifi

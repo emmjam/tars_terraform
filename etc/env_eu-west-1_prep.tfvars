@@ -228,12 +228,6 @@ awsmq_subnets_cidrs = [
   "10.167.141.224/28",
 ]
 
-apache_subnet_cidrs = [
-  "10.167.141.240/28",
-  "10.167.142.0/28",
-  "10.167.142.16/28",
-]
-
 sftpplus_nlb_subnets_cidrs = [
   "10.167.142.32/28",
   "10.167.142.48/28",
@@ -517,9 +511,6 @@ sftpplus-svr_instance_type = "m3.medium"
 
 ## cpc-batch
 cpc-batch_instance_type = "m3.medium"
-
-## apache
-apache_instance_type = "m3.medium"
 
 ## squid
 squidnat_instance_type = "t3a.medium"

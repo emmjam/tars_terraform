@@ -358,14 +358,6 @@ domain_name_servers = [
 
 private_cert_domain_name = "uat01.nonprod.tars.dev-dvsacloud.uk"
 
-# Temporary allocation -
-# To be removed when overall range is increased
-apache_subnet_cidrs = [
- "10.167.12.224/28",
- "10.167.12.240/28",
- "10.167.13.96/28",
-]
-
 mes_api_cidr_block = ["10.21.0.0/16"]
 
 # Alert Logic

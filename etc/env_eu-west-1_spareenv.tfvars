@@ -220,12 +220,6 @@ awsmq_subnets_cidrs = [
   "10.167.77.208/28",
 ]
 
-apache_subnet_cidrs = [
-  "10.167.77.224/28",
-  "10.167.77.240/28",
-  "10.167.78.0/28",
-]
-
 tars_backend_api_alb_subnets_cidrs = [
    "10.167.78.32/27",
    "10.167.78.64/27",
@@ -445,14 +439,6 @@ wildfly-mock_scaledown_recurrence = "00 16 * * 1-7"
 wildfly-mock_scaleup_desired      = 0
 wildfly-mock_scaleup_recurrence   = "00 04 * * 1-7"
 
-## apache
-apache_instance_type         = "m4.large"
-apache_asg_min_size          = 0
-apache_asg_max_size          = 0
-apache_scaledown_desired     = 0
-apache_scaledown_recurrence  = "00 22 * * 1-5"
-apache_scaleup_desired       = 0
-apache_scaleup_recurrence    = "00 07 * * 1-5"
 
 
 ##  JMeter

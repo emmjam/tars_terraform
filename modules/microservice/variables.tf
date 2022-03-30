@@ -76,6 +76,12 @@ variable "asg_load_balancers" {
   description = "A list of load balancer names to add to the autoscaling group names"
 }
 
+variable "target_group_arns" {
+  description = "A set of aws_alb_target_group ARNs, for use with Application or Network Load Balancing."
+  type        = list(string)
+  default     = []
+}
+
 variable "availability_zones" {
   type        = list(string)
   default     = []

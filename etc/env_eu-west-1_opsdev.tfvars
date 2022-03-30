@@ -221,12 +221,6 @@ awsmq_subnets_cidrs = [
   "10.167.5.208/28",
 ]
 
-apache_subnet_cidrs = [
-  "10.167.5.224/28",
-  "10.167.5.240/28",
-  "10.167.6.0/28",
-]
-
 sftpplus_nlb_subnets_cidrs = [
   "10.167.6.32/28",
   "10.167.6.48/28",
@@ -303,10 +297,6 @@ tars_rds_snapshot = "tars-opsdev-tars-core-tarsdb-5-4-2019-5-7-0-2"
 cpc_rds_username = "cpcdevadmin"
 cpc_rds_allocated_storage = "50"
 cpc_rds_snapshot = "tars-opsdev-cpc-cpcdb-5-4-2019-5-7-0-2"
-cpc_rds_engine_version = "19.0.0.0.ru-2021-10.rur-2021-10.r1"
-cpc_rds_parameter_group_name = "cpcdb-19c"
-cpc_rds_option_group_name = "option-group-19c"
-cpc_allow_major_version_upgrade = true
 
 # IBSDB
 ibs_rds_username = "ibsuatadmin"
@@ -392,3 +382,15 @@ api_notify = {
 }
 
 
+# reporting xe
+
+reporting_xe_count = 1
+reporting_xe_asg_min_size = 0
+reporting_xe_asg_max_size = 0
+reporting_xe_asg_desired_size = 0
+reporting_xe_subnets_cidrs = [
+  "10.167.4.176/28",
+  "10.167.4.192/28",
+  "10.167.4.208/28",
+]
+reporting_xe_subnet_cidr = ["10.167.4.176/28"]

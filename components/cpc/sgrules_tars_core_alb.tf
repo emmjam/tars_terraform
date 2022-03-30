@@ -1,4 +1,4 @@
-resource "aws_security_group_rule" "tars_core_apache_egress_cpc_internal_alb" {
+resource "aws_security_group_rule" "tars_core_egress_cpc_internal_alb" {
   description              = "Allow TCP/80 to CPC Front Internal ALB"
   type                     = "egress"
   from_port                = 80
