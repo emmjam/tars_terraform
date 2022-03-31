@@ -320,6 +320,10 @@ ad_account = "233824316563"
 tars_rds_username = "tarsuatadmin"
 tars_rds_allocated_storage = "610"
 tars_rds_snapshot = "tars-perf01-tars-core-tarsdb-2019-01-28-12-2"
+tars_rds_engine_version = "19.0.0.0.ru-2021-10.rur-2021-10.r1"
+tars_rds_parameter_group_name = "tarsdb-19c"
+tars_rds_option_group_name = "option-group-19c"
+tars_allow_major_version_upgrade = true
 
 # CPCDB
 cpc_rds_username = "tarscpcadmin"
