@@ -779,6 +779,11 @@ variable "reporting_xe_subnet_cidr" {
   description = "Reporting XE subnet CIDR"
 }
 
+variable "reporting_xe_cert_name" {
+  type        = string
+  description = "Reporting XE certificate name"
+}
+
 variable "ssm_kms_key_id" {
   type        = string
   description = "ssm kms key id"

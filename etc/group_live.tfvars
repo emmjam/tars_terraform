@@ -19,6 +19,7 @@ domain_name = "tars.dvsacloud.uk"
 # ACM Certname
 cert_name = "tars-prod-public"
 payments_cert_name = "payments-prod-public"
+reporting_xe_cert_name  = "*"
 
 default_tags = {
   Group = "live"
