@@ -374,6 +374,33 @@ resource "aws_lb_listener_rule" "rewrite_cpc_3" {
   }
 }
 
+resource "aws_lb_listener_rule" "rewrite_cpc_4" {
+  listener_arn = aws_alb_listener.apache-https-public.arn
+  priority     = "72"
+
+  action {
+    type             = "redirect"
+    redirect {
+      #host            = #{host}
+      path             = "/cpctrain/"
+      port             = 443
+      protocol         = "HTTPS"
+      #query            = #{query}
+      status_code      = "HTTP_302"
+    }
+  }
+
+  condition {
+    path_pattern {
+    values = ["/cpctrain"]
+    }
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
 resource "aws_lb_listener_rule" "cpc_proxy1" {
   #  ProxyPassReverse   "http://cpc-internal.opsdev.nonprod.tars.dev-dvsacloud.uk/cpctrain"
   listener_arn = aws_alb_listener.apache-https-public.arn
