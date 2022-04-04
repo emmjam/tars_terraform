@@ -11,7 +11,7 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_1" {
       port             = 443
       protocol         = "HTTPS"
       query            = "TYPE=true"
-      status_code      = "HTTP_301"
+      status_code      = "HTTP_302"
     }
   }
   condition {
@@ -38,7 +38,7 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_2" {
       port             = 443
       protocol         = "HTTPS"
       #query           = #{query}
-      status_code      = "HTTP_301"
+      status_code      = "HTTP_302"
     }
   }
 
@@ -66,7 +66,7 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_3" {
       port             = 443
       protocol         = "HTTPS"
       query            = "TYPE=true"
-      status_code      = "HTTP_301"
+      status_code      = "HTTP_302"
     }
   }
 
@@ -94,7 +94,7 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_4" {
       port             = 443
       protocol         = "HTTPS"
       query            = ""
-      status_code      = "HTTP_301"
+      status_code      = "HTTP_302"
     }
   }
  
@@ -122,7 +122,7 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_5" {
       port             = 443
       protocol         = "HTTPS"
       #query           = #{query}
-      status_code      = "HTTP_301"
+      status_code      = "HTTP_302"
     }
   }
 
@@ -150,7 +150,7 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_6" {
       port             = 443
       protocol         = "HTTPS"
       query            = ""
-      status_code      = "HTTP_301"
+      status_code      = "HTTP_302"
     }
   }
 
@@ -178,7 +178,7 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_7" {
       port             = 443
       protocol         = "HTTPS"
       #query           = #{query}
-      status_code      = "HTTP_301"
+      status_code      = "HTTP_302"
     }
   }
 
@@ -227,7 +227,7 @@ resource "aws_lb_listener_rule" "rewrite_obsweb_1" {
       port             = 443
       protocol         = "HTTPS"
       #query           = #{query}
-      status_code      = "HTTP_301"
+      status_code      = "HTTP_302"
     }
   }
 
@@ -255,7 +255,7 @@ resource "aws_lb_listener_rule" "rewrite_obsweb_2" {
       port             = 443
       protocol         = "HTTPS"
       query            = ""
-      status_code      = "HTTP_301"
+      status_code      = "HTTP_302"
     }
   }
 
@@ -304,7 +304,7 @@ resource "aws_lb_listener_rule" "rewrite_cpc_1" {
       port             = 443
       protocol         = "HTTPS"
       query            = ""
-      status_code      = "HTTP_301"
+      status_code      = "HTTP_302"
     }
   }
 
@@ -332,7 +332,7 @@ resource "aws_lb_listener_rule" "rewrite_cpc_2" {
       port             = 443
       protocol         = "HTTPS"
       #query            = #{query}
-      status_code      = "HTTP_301"
+      status_code      = "HTTP_302"
     }
   }
 
@@ -359,7 +359,7 @@ resource "aws_lb_listener_rule" "rewrite_cpc_3" {
       port             = 443
       protocol         = "HTTPS"
       #query            = #{query}
-      status_code      = "HTTP_301"
+      status_code      = "HTTP_302"
     }
   }
 
