@@ -7,7 +7,7 @@ resource "aws_alb_listener" "apache-https-public" {
 
   default_action {
     type             = "forward"
-    target_group_arn = aws_alb_target_group.apache-80.arn
+    target_group_arn = aws_alb_target_group.irdt-frontend2-7443.arn
   }
 }
 

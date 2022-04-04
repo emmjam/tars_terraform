@@ -38,4 +38,3 @@ output "cpc_dvsa_internet_alb_dns_name" {
 output "cpc_dvsa_internet_listener_arn" {
   value = aws_alb_listener.cpc-front-dvsa-internet-8443.arn
 }
-

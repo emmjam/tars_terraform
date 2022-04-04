@@ -438,8 +438,8 @@ cpc-back_asg_max_size         = 1
 cpc-back_scaleup_desired      = 1
 cpc-front_asg_max_size        = 1
 cpc-front_scaleup_desired     = 1
-apache_asg_max_size           = 1
-apache_scaleup_desired        = 1
+apache_asg_max_size           = 0
+apache_scaleup_desired        = 0
 
 api_notify = {
   handler                = "uk.gov.dvsa.notify.sms.SMSNotifyHandler"

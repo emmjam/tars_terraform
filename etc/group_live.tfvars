@@ -257,10 +257,10 @@ cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 ## apache
 apache_instance_type         = "m5.xlarge"
 apache_asg_min_size          = 0
-apache_asg_max_size          = 2
-apache_scaledown_desired     = 2
+apache_asg_max_size          = 0
+apache_scaledown_desired     = 0
 apache_scaledown_recurrence  = "00 22 * * 1-5"
-apache_scaleup_desired       = 2
+apache_scaleup_desired       = 0
 apache_scaleup_recurrence    = "00 07 * * 1-5"
 apache_ami_build_id          = "1302"
 
@@ -443,7 +443,7 @@ rsis_samba_server_archive = "10.14.0.142/32"
 
 # squidnat
 squidnat_instance_type = "m5.large"
-squidnat_ami_build_id  = "1304"
+squidnat_ami_build_id  = "1260"
 
 ops_team_email = "TARSStabilisation@bjss.com"
 

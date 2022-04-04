@@ -1,6 +1,6 @@
-# TARS Batch AB target group for port 8080
-resource "aws_alb_target_group" "private-obs-8080" {
-  name     = "${local.csi}-private-obs"
+resource "aws_alb_target_group" "obs2-8080" {
+  # OBS Target for public LB -- IanD
+  name     = "${local.csi}-obs2-8080"
   port     = "8080"
   protocol = "HTTP"
   vpc_id   = data.terraform_remote_state.base.outputs.vpc_id
@@ -19,3 +19,4 @@ resource "aws_alb_target_group" "private-obs-8080" {
     enabled = true
   }
 }
+
