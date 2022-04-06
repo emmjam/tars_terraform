@@ -389,7 +389,6 @@ whitelist = [
   "34.242.28.119/32",   #MGMT Jenkins for url checks
   "194.75.245.154/32",  # DAC Digital Access Centre
   "154.14.88.249/32", # DVSA Notts Corp & Wifi
-  "62.254.63.52/32", # Kainos Zscaler
 ]
 
 mes_api_cidr_block = ["10.21.0.0/16"]

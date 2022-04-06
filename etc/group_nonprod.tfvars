@@ -478,6 +478,7 @@ ibs_cert                = "*"
 irdt_cert               = "*"
 public_cert             = "*"
 holding_pages_cert      = "*"
+reporting_xe_cert_name  = "*"
 
 # Deployer pub key
 deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVSO8uKpdbwww94azylwjnFxsFGcmXG4ObL1oOFibHMN0x+SsSwjfC1DEziWPK3m/Crmar0+ad/68nQC+iWo/MYclh8h3bkKlv9dO4Xtv/0H6uDRW3l3bBO0rWYbt46fMAOCqX96N3LRTfUlPuzsVAd0NGZZlSSAZF0AMl4xE/tZl2m+Dqylrjp3qLT4UxEIrAuvPW06PqkGy63hZznjCjQDaadOAUpY19ZaA71JBueyGBnZ8pSVzr5hT1TpNw/cXxA6WLj4CCipIVm0M64OT/ArqcnQMX9Htf4Gp5apXZ3f6MerfjgHnkrm1t6JNuhSjVB deployer@mgmt.tars.dvsa.aws"
@@ -630,15 +631,17 @@ ibs_high_cpu_cw_metric_alarm_enabled = false
 ftts_elig_port = "22"
 
 #Lambda Govnotify
-notify_lambda_version = "3"
+notify_lambda_version = "4"
 
 # reporting-xe
 reporting_xe_instance_type = "t2.medium"
 reporting_xe_count = 0
-reporting_xe_ami_build_id = "1299"
+reporting_xe_ami_build_id = "1320"
 reporting_xe_asg_min_size = 0
 reporting_xe_asg_max_size = 0
 reporting_xe_asg_desired_size = 0
 reporting_xe_subnet_cidr = [""]
 
 ssm_kms_key_id = "5fc7cd0f-a4d7-4d2e-b32f-f28391249a00"
+
+kms_inspector_count = 1

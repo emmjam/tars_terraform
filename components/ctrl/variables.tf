@@ -427,3 +427,6 @@ variable "oraclexe_subnets_cidrs" {
    default    = []
 }
 
+variable "kms_inspector_count" {
+  type    = number
+}

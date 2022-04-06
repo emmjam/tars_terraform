@@ -439,6 +439,7 @@ irdt_cert               = "irdt-prod-public"
 public_cert             = "routing-prod-public"
 bobj_cert               = "bobj-prod"
 holding_pages_cert      = "maintenance-prod"
+reporting_xe_cert_name  = "reporting-xe-prod-public"
 
 
 ## wildfly-batch temporary 'off' schedule

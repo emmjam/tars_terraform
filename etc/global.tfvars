@@ -160,3 +160,5 @@ reporting_xe_alb_sg_whitelist_hosts = [
   "80.194.75.82/32",
   "34.242.28.119/32"
 ]
+
+kms_inspector_count = 0

@@ -19,6 +19,7 @@ domain_name = "tars.dvsacloud.uk"
 # ACM Certname
 cert_name = "tars-prod-public"
 payments_cert_name = "payments-prod-public"
+reporting_xe_cert_name  = "*"
 
 default_tags = {
   Group = "live"
@@ -433,7 +434,7 @@ rsis_samba_server_archive = "10.14.0.142/32"
 
 # squidnat
 squidnat_instance_type = "m5.large"
-squidnat_ami_build_id  = "1304"
+squidnat_ami_build_id  = "1260"
 
 ops_team_email = "TARSStabilisation@bjss.com"
 
@@ -597,12 +598,12 @@ power_bi_cidr = "10.164.216.0/22"
 ftts_elig_port = "18079"
 
 #Lambda Govnotify
-notify_lambda_version = "3"
+notify_lambda_version = "4"
 
 # reporting-xe
 reporting_xe_instance_type = "t2.medium"
 reporting_xe_count = 0
-reporting_xe_ami_build_id = "1290"
+reporting_xe_ami_build_id = "1320"
 reporting_xe_asg_min_size = 0
 reporting_xe_asg_max_size = 0
 reporting_xe_asg_desired_size = 0
