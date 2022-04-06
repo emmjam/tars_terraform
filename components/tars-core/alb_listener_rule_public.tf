@@ -374,7 +374,7 @@ resource "aws_lb_listener_rule" "rewrite_cpc_3" {
   }
 }
 
-resource "aws_lb_listener_rule" "rewrite_cpc_3" {
+resource "aws_lb_listener_rule" "rewrite_cpc_4" {
   listener_arn = aws_alb_listener.https-public.arn
   priority     = "72"
 
