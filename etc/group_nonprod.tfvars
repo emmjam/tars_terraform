@@ -646,7 +646,7 @@ notify_lambda_version = "4"
 # reporting-xe
 reporting_xe_instance_type = "t2.medium"
 reporting_xe_count = 0
-reporting_xe_ami_build_id = "1299"
+reporting_xe_ami_build_id = "1320"
 reporting_xe_asg_min_size = 0
 reporting_xe_asg_max_size = 0
 reporting_xe_asg_desired_size = 0
