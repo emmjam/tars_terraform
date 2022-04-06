@@ -389,3 +389,4 @@ api_notify = {
   log_level              = "DEBUG"
 }
 
+ses_user_access_key = true

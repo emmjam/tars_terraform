@@ -359,3 +359,8 @@ variable "mis_allow_major_version_upgrade" {
   type        = string
   description = "MIS RDS DB Major Engine Version Upgrade"
 }
+
+variable "ses_user_access_key" {
+  type        = bool
+  description = "Create access key for SES user"
+}
