@@ -426,4 +426,4 @@ api_notify = {
   log_level              = "DEBUG"
 }
 
-mock_ami_build_id = "ed1ce966/238"
+mock_ami_build_id = "28b37014/242"
