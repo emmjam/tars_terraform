@@ -20,3 +20,8 @@ output "user" {
 output "access_key" {
   value = aws_iam_access_key.ses_user.id
 }
+
+output "ses_smtp_password_v4" {
+  value = aws_iam_access_key.ses_user.ses_smtp_password_v4
+  sensitive = true
+}
