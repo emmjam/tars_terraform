@@ -50,6 +50,7 @@ resource "aws_s3_bucket_public_access_block" "inspector_reports" {
 }
 
 data "aws_iam_policy_document" "inspector_reports" {
+  count  = var.kms_inspector_count
   statement {
     sid    = "1"
     effect = "Allow"
@@ -75,6 +76,6 @@ data "aws_iam_policy_document" "inspector_reports" {
 resource "aws_s3_bucket_policy" "inspector_reports" {
   count  = var.kms_inspector_count
   bucket = aws_s3_bucket.inspector_reports[0].id
-  policy = data.aws_iam_policy_document.inspector_reports.json
+  policy = data.aws_iam_policy_document.inspector_reports[0].json
 }
 
