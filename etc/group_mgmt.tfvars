@@ -316,7 +316,6 @@ jenkinsctrl_subnets_cidrs = [
 
 whitelist = [
   "135.196.73.204/32",  # DVSA Notts
-  "213.160.121.250/32", # DVSA Notts Corp & Wifi
   "148.253.134.213/32", # BJSS VPN 04/18
   "148.253.134.212/32", # BJSS Guest Wifi 10/18
   "165.225.81.53/32",   # DVSA Swansea

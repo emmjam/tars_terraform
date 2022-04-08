@@ -326,7 +326,6 @@ oraclexe_subnets_cidrs = [
 
 payments_whitelist = [
   "135.196.73.204/32",  # DVSA Notts
-  "213.160.121.250/32", # DVSA Notts Corp & Wifi
   "148.253.134.213/32", # BJSS VPN 04/18
   "54.72.37.158/32",    # Selenium Elasticgrid Proxy
   "54.76.206.25/32",    # Perf01 NATGW IP
@@ -343,7 +342,6 @@ payments_whitelist = [
 
 whitelist = [
   "135.196.73.204/32",  # DVSA Notts
-  "213.160.121.250/32", # DVSA Notts Corp & Wifi
   "10.201.80.0/21",     # DVSA Notts Internal
   "10.69.3.64/26",      # DVSA ZPA VPN
   "10.69.131.64/26",    # DVSA ZPA VPN
