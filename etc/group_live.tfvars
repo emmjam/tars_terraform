@@ -500,7 +500,7 @@ tars_rds_sid_name = "TARSDB"
 # MISDB
 mis_rds_storage_type = "gp2"
 mis_rds_engine = "oracle-se2"
-mis_rds_engine_version = "12.1.0.2"
+mis_rds_engine_version = "19.0.0.0.ru-2021-10.rur-2021-10.r1"
 mis_rds_instance_class = "db.m4.xlarge"
 mis_rds_port = "1521"
 mis_rds_public = "false"
@@ -513,9 +513,9 @@ mis_rds_apply_immediately = "true"
 mis_rds_license_model = "license-included"
 mis_rds_autoscale = "True"
 mis_rds_sid_name = "MISDB"
-mis_allow_major_version_upgrade = false
-mis_rds_parameter_group_name = "misdb"
-mis_rds_option_group_name = "option-group"
+mis_allow_major_version_upgrade = true
+mis_rds_parameter_group_name = "misdb-19c"
+mis_rds_option_group_name = "option-group-19c"
 
 # RSISDB
 rsis_rds_storage_type = "gp2"
