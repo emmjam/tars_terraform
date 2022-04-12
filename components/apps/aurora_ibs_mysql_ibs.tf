@@ -40,7 +40,7 @@ resource "aws_rds_cluster_instance" "ibsdb_instance" {
   cluster_identifier      = aws_rds_cluster.ibsdb_cluster.id
   instance_class          = var.ibs_rds_instance_class
   db_subnet_group_name    = aws_db_subnet_group.ibsdb.name
-  publicly_accessible     = true
+  publicly_accessible     = false
   db_parameter_group_name = aws_db_parameter_group.ibs-cluster-writer-par-group-2020-04-17.name
   apply_immediately       = var.ibs_rds_apply_immediately
 
