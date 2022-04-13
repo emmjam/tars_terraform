@@ -83,6 +83,7 @@ new_all_users = [
   "tom.bonam@bjss.com",
   "ian.davies@bjss.com",
   "zawar.shah@bjss.com",
+  "andrew.massey@bjss.com",
 ]
 
 # TSSOps Access
@@ -177,6 +178,7 @@ readonly_developer_users = [
   "dominic.took@bjss.com",
   "graeme.bullimore@bjss.com",
   "tom.bonam@bjss.com",
+  "andrew.massey@bjss.com",
 ]
 
 # DVSA Access
