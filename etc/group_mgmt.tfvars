@@ -12,6 +12,7 @@ default_tags = {
 # All Users
 
 new_all_users = [
+  "talha.ozleblebici@bjss.com",
   "tom.bibb@bjss.com",
   "adam.hall@bjss.com",
   "alice.haws@dvsa.gov.uk",
@@ -164,6 +165,7 @@ readonly_platform_users = [
 # Developer Access
 
 readonly_developer_users = [
+  "talha.ozleblebici@bjss.com",
   "tanaka.pisa@bjss.com",
   "david.woodley@bjss.com",
   "richard.freitas@bjss.com",
