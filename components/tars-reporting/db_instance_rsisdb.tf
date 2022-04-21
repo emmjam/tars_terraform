@@ -23,11 +23,12 @@ resource "aws_db_instance" "rsisdb" {
   apply_immediately         = var.rsis_rds_apply_immediately
   license_model             = var.rsis_rds_license_model
   snapshot_identifier       = var.rsis_rds_snapshot
-  parameter_group_name      = aws_db_parameter_group.rsis.id
-  option_group_name         = aws_db_option_group.rsis.id
+  parameter_group_name      = "${local.csi}-${var.rsis_rds_parameter_group_name}"
+  option_group_name         = "tars-rsis-reporting-${var.environment}-${var.rsis_rds_option_group_name}"
   name                      = var.rsis_rds_sid_name
   deletion_protection       = var.risdb_rds_delete_protect
   enabled_cloudwatch_logs_exports = ["alert", "listener"]
+  allow_major_version_upgrade = var.rsis_allow_major_version_upgrade
 
   timeouts {
     update = "6h"

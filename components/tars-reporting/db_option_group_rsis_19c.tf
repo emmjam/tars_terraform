@@ -1,8 +1,8 @@
-resource "aws_db_option_group" "mis-19c" {
+resource "aws_db_option_group" "rsis-19c" {
   name = format(
     "%s-%s-%s-%s",
     var.project,
-    "mis-reporting",
+    "rsis-reporting",
     var.environment,
     "option-group-19c",
   )
@@ -40,7 +40,7 @@ resource "aws_db_option_group" "mis-19c" {
       value = "1.2"
     }
     port                           = "2484"
-    vpc_security_group_memberships = [aws_security_group.tars-mis-db.id]
+    vpc_security_group_memberships = [aws_security_group.tars-rsis-db.id]
   }
 }
 

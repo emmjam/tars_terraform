@@ -360,6 +360,21 @@ variable "mis_allow_major_version_upgrade" {
   description = "MIS RDS DB Major Engine Version Upgrade"
 }
 
+variable "rsis_rds_parameter_group_name" {
+  type        = string
+  description = "RSIS RDS DB Parameter Group Name"
+}
+
+variable "rsis_rds_option_group_name" {
+  type        = string
+  description = "RSIS RDS DB Option Group Name"
+}
+
+variable "rsis_allow_major_version_upgrade" {
+  type        = string
+  description = "RSIS RDS DB Major Engine Version Upgrade"
+}
+
 variable "ses_user_access_key" {
   type        = bool
   description = "Create access key for SES user"
