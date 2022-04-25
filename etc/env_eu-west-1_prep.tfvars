@@ -318,6 +318,7 @@ mis_rds_username = "misuatadmin"
 mis_rds_allocated_storage = "500"
 mis_rds_snapshot = "tars-prod1-tars-reporting-misdb-241018"
 mis_rds_skip_final_snapshot = true
+mis_allow_major_version_upgrade = true
 
 # RSISDB
 rsis_rds_username = "tarsrsisadmin"
