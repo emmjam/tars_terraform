@@ -532,6 +532,10 @@ rsis_rds_apply_immediately = "true"
 rsis_rds_license_model = "license-included"
 rsis_rds_autoscale = "True"
 rsis_rds_sid_name = "RSISDB"
+rsis_rds_parameter_group_name = "rsisdb"
+rsis_rds_option_group_name = "option-group"
+rsis_allow_major_version_upgrade = false
+
 
 # CPCDB
 cpc_rds_storage_type = "gp2"
