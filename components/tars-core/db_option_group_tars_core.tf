@@ -1,4 +1,6 @@
 resource "aws_db_option_group" "tars_core" {
+  count = var.deprecated_rds_compatibility ? 1 : 0
+  
   name = "${local.csi}-option-group"
 
   option_group_description = "Terraform Option Group"

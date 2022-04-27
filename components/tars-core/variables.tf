@@ -517,3 +517,9 @@ variable "unhealthy_host_alarm_count" {
 variable "reporting_xe_count" {
   type    = number
 }
+
+variable "deprecated_rds_compatibility" {
+  type        = bool
+  default     = false
+  description = "Whether or not to create RDS old option and parameter groups. Required in Prod only"
+}

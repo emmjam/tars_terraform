@@ -657,3 +657,6 @@ ssm_kms_key_id = "5fc7cd0f-a4d7-4d2e-b32f-f28391249a00"
 
 kms_inspector_count = 1
 ses_user_access_key = false
+
+# Whether or not to create old RDS option and parameter groups
+deprecated_rds_compatibility = false
