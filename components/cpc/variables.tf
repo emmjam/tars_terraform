@@ -426,3 +426,9 @@ variable "domain_name" {
   type        = string
   description = "TARS VPC private R53 domain name"
 }
+
+variable "deprecated_rds_compatibility" {
+  type        = bool
+  default     = false
+  description = "Whether or not to create RDS old option and parameter groups. Required in Prod only"
+}

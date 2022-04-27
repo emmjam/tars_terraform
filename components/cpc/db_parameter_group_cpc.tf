@@ -5,6 +5,8 @@
 ################################################################################
 
 resource "aws_db_parameter_group" "cpc" {
+  count = var.deprecated_rds_compatibility ? 1 : 0
+  
   name        = "${local.csi}-cpcdb"
   description = "${local.csi}-cpcdb"
 
