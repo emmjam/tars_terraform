@@ -424,3 +424,5 @@ api_notify = {
   cwlg_retention_in_days = 3
   log_level              = "DEBUG"
 }
+
+mock_ami_build_id = "28b37014/242"
