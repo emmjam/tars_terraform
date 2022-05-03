@@ -479,7 +479,7 @@ bobj_instance_type = "m5.xlarge"
 # TARSDB
 tars_rds_storage_type = "gp2"
 tars_rds_engine = "oracle-se2"
-tars_rds_engine_version = "19.0.0.0.ru-2021-10.rur-2021-10.r1"
+tars_rds_engine_version = "19.0.0.0.ru"
 tars_rds_instance_class = "db.m4.2xlarge"
 tars_rds_allow_major_engine_version_upgrade = false
 tars_rds_parameter_group_name = "tarsdb-19c"
@@ -499,7 +499,7 @@ tars_rds_sid_name = "TARSDB"
 # MISDB
 mis_rds_storage_type = "gp2"
 mis_rds_engine = "oracle-se2"
-mis_rds_engine_version = "19.0.0.0.ru-2021-10.rur-2021-10.r1"
+mis_rds_engine_version = "19.0.0.0.ru"
 mis_rds_instance_class = "db.m4.xlarge"
 mis_rds_port = "1521"
 mis_rds_public = "false"
@@ -540,7 +540,7 @@ rsis_allow_major_version_upgrade = false
 # CPCDB
 cpc_rds_storage_type = "gp2"
 cpc_rds_engine = "oracle-se2"
-cpc_rds_engine_version = "19.0.0.0.ru-2021-10.rur-2021-10.r1"
+cpc_rds_engine_version = "19.0.0.0.ru"
 cpc_rds_instance_class = "db.r4.xlarge"
 cpc_rds_port = "1521"
 cpc_rds_public = "false"

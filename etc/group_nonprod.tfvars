@@ -494,7 +494,7 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 # TARSDB
 tars_rds_storage_type = "gp2"
 tars_rds_engine = "oracle-se2"
-tars_rds_engine_version = "19.0.0.0.ru-2021-10.rur-2021-10.r1"
+tars_rds_engine_version = "19.0.0.0.ru"
 tars_rds_allow_major_engine_version_upgrade = false
 tars_rds_parameter_group_name = "tarsdb-19c"
 tars_rds_option_group_name = "option-group-19c"
@@ -514,7 +514,7 @@ tars_rds_sid_name = "TARSDB"
 # MISDB
 mis_rds_storage_type = "gp2"
 mis_rds_engine = "oracle-se2"
-mis_rds_engine_version = "19.0.0.0.ru-2021-10.rur-2021-10.r1"
+mis_rds_engine_version = "19.0.0.0.ru"
 mis_rds_instance_class = "db.t3.medium" # was "db.m4.4xlarge"
 mis_rds_port = "1521"
 mis_rds_public = "false"
@@ -554,7 +554,7 @@ rsis_rds_option_group_name = "option-group"
 # CPCDB
 cpc_rds_storage_type = "gp2"
 cpc_rds_engine = "oracle-se2"
-cpc_rds_engine_version = "19.0.0.0.ru-2021-10.rur-2021-10.r1"
+cpc_rds_engine_version = "19.0.0.0.ru"
 cpc_rds_parameter_group_name = "cpcdb-19c"
 cpc_rds_option_group_name = "option-group-19c"
 cpc_rds_instance_class = "db.t3.medium" # was "db.m4.4xlarge"
