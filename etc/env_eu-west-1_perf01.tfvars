@@ -323,7 +323,7 @@ tars_rds_snapshot = "tars-perf01-tars-core-tarsdb-2019-01-28-12-2"
 
 # CPCDB
 cpc_rds_username = "tarscpcadmin"
-cpc_rds_snapshot = "tars-perf01-tars-core-cpcdb-20-01-20-5-17-0-3"
+cpc_rds_snapshot = ""
 cpc_rds_allocated_storage = "100" 
 cpc_rds_backup_retention = "21"
 
