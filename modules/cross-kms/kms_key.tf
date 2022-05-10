@@ -9,7 +9,7 @@ resource "aws_kms_key" "main" {
   )
 
   deletion_window_in_days = var.deletion_window
-  policy                  = data.aws_iam_policy_document.key.json
+  policy                  = data.aws_iam_policy_document.key2.json
 
   tags = merge(
     var.default_tags,
