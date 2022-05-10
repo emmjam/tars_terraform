@@ -1,15 +1,5 @@
 data "aws_iam_policy_document" "key" {
 
-  policy_id = format(
-    "%s-%s-%s-%s-%s-%s",
-    var.project,
-    var.environment,
-    var.component,
-    var.module,
-    var.name,
-    "cross-key",
-  )
-
   statement {
     sid    = "EnableIAMUserPermissions"
     effect = "Allow"
