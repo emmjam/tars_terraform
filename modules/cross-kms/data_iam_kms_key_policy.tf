@@ -108,11 +108,6 @@ data "aws_iam_policy_document" "key" {
       "*",
     ]
 
-    condition {
-      test = "bool"
-      variable = "kms:GrantIsForAWSResource"
-      values = ["true"]
-    }
   }
 
 }
