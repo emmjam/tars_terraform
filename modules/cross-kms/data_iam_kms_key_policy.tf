@@ -6,7 +6,7 @@ data "aws_iam_policy_document" "key" {
     var.component,
     var.module,
     var.name,
-    "key",
+    "cross-key",
   )
 
   statement {
