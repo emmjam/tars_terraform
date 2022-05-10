@@ -6,7 +6,7 @@ module "kms_cross_account_ami" {
   component   = var.component
 
   name            = "cross-account-kms"
-  alias           = "alias/tars-mgmt-ami"
+  alias           = "alias/tars-mgmt-acc-ami"
   deletion_window = "30"
 
   default_tags = local.default_tags

@@ -25,4 +25,47 @@ data "aws_iam_policy_document" "key" {
       "*",
     ]
   }
+
+  statement {
+    sid    = "AllowUseOfTheKmskey"
+    effect = "Allow"
+
+    principals {
+      type = "AWS"
+
+      identifiers = [
+        format(
+          "%s:%s:%s",
+          "arn:aws:iam:",
+          652856684323,
+          "root",
+        ),
+        format(
+          "%s:%s:%s",
+          "arn:aws:iam:",
+          246976497890,
+          "root",
+        ),
+        format(
+          "%s:%s:%s",
+          "arn:aws:iam:",
+          645711882182,
+          "root",
+        ),
+      ]
+    }
+
+    actions = [
+      "kms:Encrypt",
+      "kms:Decrypt",
+      "kms:ReEncrypt*",
+      "kms:GenerateDataKey*",
+      "kms:DescribeKey",
+    ]
+
+    resources = [
+      "*"
+    ]
+  }
+
 }
