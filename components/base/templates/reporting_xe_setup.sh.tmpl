@@ -61,6 +61,7 @@ log '[INFO] Waiting for Network Interface to be attached'
 ATTACH_STATUS='unknown'
 ATTACH_RETRIES=10
 until [ $${ATTACH_STATUS} == 'attached' ]; do
+  log "[INFO] ATTACH_RETRIES is $ATTACH_RETRIES"
   ATTACH_STATUS=$(aws ec2 describe-network-interfaces \
     --network-interface-ids $${NETWORK_INTERFACE_ID}\
     --query NetworkInterfaces[].Attachment.Status \
@@ -71,8 +72,9 @@ until [ $${ATTACH_STATUS} == 'attached' ]; do
     log "[ERROR] Could not attach Network Interface after $${ATTACH_RETRIES} retries"
     exit 1
   fi
-  sleep 5
+  sleep 10
 done
+log "[INFO] network interface attached, retries left: $ATTACH_RETRIES"
 
 # Instance ID begets all things...
 log 'INFO' 'Retrieving Instance ID from Metadata';
