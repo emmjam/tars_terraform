@@ -99,6 +99,11 @@ variable "tars_rds_storage_type" {
   description = "TARS RDS DB Storage Type"
 }
 
+variable "tars_rds_storage_encrypted" {
+  type        = bool
+  description = "TARS RDS DB Storage encrypted"
+}
+
 variable "tars_rds_engine" {
   type        = string
   description = "TARS RDS DB Engine"
@@ -183,6 +188,11 @@ variable "tars_rds_license_model" {
 variable "tars_rds_snapshot" {
   type        = string
   description = "TARS RDS Snapshot to use to restore data"
+}
+
+variable "tars_rds_encrypted_snapshot" {
+  type        = string
+  description = "TARS RDS encrypted snapshot to use to restore data"
 }
 
 variable "tars_rds_autoscale" {

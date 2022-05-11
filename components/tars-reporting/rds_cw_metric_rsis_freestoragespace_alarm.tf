@@ -7,7 +7,7 @@ resource "aws_cloudwatch_metric_alarm" "rds_rsis_freestoragespace_average" {
   namespace           = "AWS/RDS"
 
   dimensions = {
-    DBInstanceIdentifier = aws_db_instance.rsisdb.id
+    DBInstanceIdentifier = aws_db_instance.rsisdb_encrypted.id
   }
 
   period            = "300"

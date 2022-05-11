@@ -175,6 +175,11 @@ variable "cpc_rds_storage_type" {
   description = "cpc RDS DB Storage Type"
 }
 
+variable "cpc_rds_storage_encrypted" {
+  type        = string
+  description = "cpc RDS DB Storage encrypted"
+}
+
 variable "cpc_rds_engine" {
   type        = string
   description = "cpc RDS DB Engine"
@@ -254,6 +259,11 @@ variable "cpc_rds_license_model" {
 variable "cpc_rds_snapshot" {
   type        = string
   description = "cpc RDS Snapshot to use to restore data"
+}
+
+variable "cpc_rds_encrypted_snapshot" {
+  type        = string
+  description = "cpc RDS encrypted snapshot to use to restore data"
 }
 
 variable "cpc_rds_autoscale" {

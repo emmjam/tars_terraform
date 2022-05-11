@@ -508,3 +508,19 @@ api_notify = {
 
 # DocumentBatchUpdate - maximum records processed in the Job Polling
 dbu_maxrecordsprocessed = 500
+cpc_rds_engine_version = "19.0.0.0.ru-2021-07.rur-2021-07.r1"
+
+# enable rds db encryption
+ibsdb_cluster_storage_encrypted = true
+
+tars_rds_storage_encrypted      = true
+tars_rds_encrypted_snapshot     = "tars-perf01-tars-core-tarsdb-encrypted-11-05-22-do-not-delete"
+
+cpc_rds_storage_encrypted       = true
+cpc_rds_encrypted_snapshot      = "tars-perf01-cpc-cpcdb-encrypted-11-05-22-do-not-delete"
+
+# rsis_rds_storage_encrypted      = true
+# rsis_rds_encrypted_snapshot     = "__CHANGE_ME__"
+# 
+# mis_rds_storage_encrypted       = true
+# mis_rds_encrypted_snapshot      = "__CHANGE_ME__"

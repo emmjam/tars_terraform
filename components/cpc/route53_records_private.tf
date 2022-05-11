@@ -5,8 +5,8 @@ resource "aws_route53_record" "cpcdb" {
   type    = "A"
 
   alias {
-    name                   = aws_db_instance.cpcdb.address
-    zone_id                = aws_db_instance.cpcdb.hosted_zone_id
+    name                   = aws_db_instance.cpcdb_encrypted.address
+    zone_id                = aws_db_instance.cpcdb_encrypted.hosted_zone_id
     evaluate_target_health = true
   }
 }
@@ -17,8 +17,8 @@ resource "aws_route53_record" "cpcdb_dvsacloud" {
   type    = "A"
 
   alias {
-    name                   = aws_db_instance.cpcdb.address
-    zone_id                = aws_db_instance.cpcdb.hosted_zone_id
+    name                   = aws_db_instance.cpcdb_encrypted.address
+    zone_id                = aws_db_instance.cpcdb_encrypted.hosted_zone_id
     evaluate_target_health = true
   }
 }

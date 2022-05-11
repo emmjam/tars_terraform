@@ -18,8 +18,8 @@ resource "aws_route53_record" "rsisdb" {
   type    = "A"
 
   alias {
-    name                   = aws_db_instance.rsisdb.address
-    zone_id                = aws_db_instance.rsisdb.hosted_zone_id
+    name                   = aws_db_instance.rsisdb_encrypted.address
+    zone_id                = aws_db_instance.rsisdb_encrypted.hosted_zone_id
     evaluate_target_health = true
   }
 }
@@ -42,8 +42,8 @@ resource "aws_route53_record" "rsisdb_dvsacloud" {
   type    = "A"
 
   alias {
-    name                   = aws_db_instance.rsisdb.address
-    zone_id                = aws_db_instance.rsisdb.hosted_zone_id
+    name                   = aws_db_instance.rsisdb_encrypted.address
+    zone_id                = aws_db_instance.rsisdb_encrypted.hosted_zone_id
     evaluate_target_health = true
   }
 }
