@@ -16,7 +16,7 @@ data "aws_iam_policy_document" "grant_policy" {
       principals {
         type = "AWS"
         identifiers =[
-                        "arn:aws:iam::${data.aws_caller_identity.current}:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling"
+                        "arn:aws:iam::${var.aws_account_id}:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling"
                      ]
       }
       actions = ["sts:AssumeRole"]
