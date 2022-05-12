@@ -1,4 +1,4 @@
-module "kms_cross_account_ami" {
+/*module "kms_cross_account_ami" {
   source = "../../modules/cross-kms"
 
   project     = var.project
@@ -10,4 +10,4 @@ module "kms_cross_account_ami" {
   deletion_window = "30"
 
   default_tags = local.default_tags
-}
+}*/
