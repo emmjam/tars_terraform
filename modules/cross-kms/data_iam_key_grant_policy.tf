@@ -1,4 +1,5 @@
 data "aws_iam_policy_document" "grant_policy" {
+  count = contains(["prod","nonprod",var.environment]) ? 1 : 0
   policy_id = format(
     "%s-%s-%s-%s-%s-%s",
     var.project,
@@ -15,10 +16,9 @@ data "aws_iam_policy_document" "grant_policy" {
       principals {
         type = "AWS"
         identifiers =[
-                        "arn:aws:iam::652856684323:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling",
+                        "arn:aws:iam::${data.aws_caller_identity.current}:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling"
                      ]
       }
       actions = ["sts:AssumeRole"]
     }
-
 }
