@@ -83,7 +83,7 @@ data "aws_iam_policy_document" "key" {
         format(
           "%s:%s:%s",
           "arn:aws:iam:",
-          652856684323,
+          645711882182,
           "root",
         ),
         format(
