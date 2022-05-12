@@ -47,12 +47,6 @@ data "aws_iam_policy_document" "key" {
         format(
           "%s:%s:%s",
           "arn:aws:iam:",
-          652856684323,
-          "root",
-        ),
-        format(
-          "%s:%s:%s",
-          "arn:aws:iam:",
           246976497890,
           "root",
         ),
@@ -90,12 +84,6 @@ data "aws_iam_policy_document" "key" {
           "%s:%s:%s",
           "arn:aws:iam:",
           652856684323,
-          "root",
-        ),
-        format(
-          "%s:%s:%s",
-          "arn:aws:iam:",
-          645711882182,
           "root",
         ),
         format(
