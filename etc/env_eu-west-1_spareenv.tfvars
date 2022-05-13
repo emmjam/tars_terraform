@@ -486,3 +486,6 @@ rds_cw_metric_alarm_enabled = true
 # Enable action for RDS CloudWatch Alarm
 rds_cw_metric_alarm_action_enabled = false
 rds_cw_metric_freestoragespace_alarm_action_enabled = true
+
+# DocumentBatchUpdate - maximum records processed in the Job Polling
+dbu_maxrecordsprocessed = 500

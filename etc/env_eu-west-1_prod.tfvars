@@ -570,3 +570,6 @@ reporting_xe_subnets_cidrs = [
 ]
 
 reporting_xe_subnet_cidr = ["10.167.132.176/28"]
+
+# DocumentBatchUpdate - maximum records processed in the Job Polling
+dbu_maxrecordsprocessed = 500

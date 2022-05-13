@@ -296,3 +296,8 @@ variable "domain_name" {
   type        = string
   description = "TARS VPC private R53 domain name"
 }
+
+variable "dbu_maxrecordsprocessed" {
+  type        = string
+  description = "DocumentBatchUpdate - maximum records processed in the Job Polling"
+}

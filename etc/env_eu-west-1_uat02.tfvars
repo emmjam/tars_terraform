@@ -460,3 +460,6 @@ whitelist = [
   "88.97.60.11/32",     # cyberis IPs for ITHC
   "3.10.4.97/32",       # cyberis IPs for ITHC
 ]
+
+# DocumentBatchUpdate - maximum records processed in the Job Polling
+dbu_maxrecordsprocessed = 500

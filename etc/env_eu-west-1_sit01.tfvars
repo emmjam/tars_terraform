@@ -408,3 +408,5 @@ api_notify = {
   log_level              = "DEBUG"
 }
 
+# DocumentBatchUpdate - maximum records processed in the Job Polling
+dbu_maxrecordsprocessed = 500

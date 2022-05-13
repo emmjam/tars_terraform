@@ -394,3 +394,6 @@ api_notify = {
 }
 
 ses_user_access_key = true
+
+# DocumentBatchUpdate - maximum records processed in the Job Polling
+dbu_maxrecordsprocessed = 500
