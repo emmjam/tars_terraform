@@ -25,7 +25,7 @@ data "aws_iam_policy_document" "key" {
           "root",
         ),
          "arn:aws:iam::652856684323:role/tars-nonprod-ctrl-jenkinsctrl-20180403122511377400000002",
-         "arn:aws:iam::246976497890:role/tars-nonprod-ctrl-jenkinsctrl-20180403122511377400000002",
+         "arn:aws:iam::246976497890:role/tars-live-ctrl-jenkinsctrl-20181025153328009900000001",
       ]
     }
 
