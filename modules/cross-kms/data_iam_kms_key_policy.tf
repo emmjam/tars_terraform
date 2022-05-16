@@ -1,4 +1,5 @@
 data "aws_iam_policy_document" "key" {
+  count = var.environment == "mgmt" ? 1 : 0
   policy_id = format(
     "%s-%s-%s-%s-%s-%s",
     var.project,
@@ -23,7 +24,8 @@ data "aws_iam_policy_document" "key" {
           645711882182,
           "root",
         ),
-         "arn:aws:iam::652856684323:role/tars-nonprod-ctrl-jenkinsctrl-20180403122511377400000002"
+         "arn:aws:iam::652856684323:role/tars-nonprod-ctrl-jenkinsctrl-20180403122511377400000002",
+         "arn:aws:iam::246976497890:role/tars-nonprod-ctrl-jenkinsctrl-20180403122511377400000002",
       ]
     }
 
@@ -47,12 +49,6 @@ data "aws_iam_policy_document" "key" {
         format(
           "%s:%s:%s",
           "arn:aws:iam:",
-          652856684323,
-          "root",
-        ),
-        format(
-          "%s:%s:%s",
-          "arn:aws:iam:",
           246976497890,
           "root",
         ),
@@ -60,6 +56,12 @@ data "aws_iam_policy_document" "key" {
           "%s:%s:%s",
           "arn:aws:iam:",
           645711882182,
+          "root",
+        ),
+        format(
+          "%s:%s:%s",
+          "arn:aws:iam:",
+          652856684323,
           "root",
         ),
       ]
@@ -89,12 +91,6 @@ data "aws_iam_policy_document" "key" {
         format(
           "%s:%s:%s",
           "arn:aws:iam:",
-          652856684323,
-          "root",
-        ),
-        format(
-          "%s:%s:%s",
-          "arn:aws:iam:",
           645711882182,
           "root",
         ),
@@ -102,6 +98,12 @@ data "aws_iam_policy_document" "key" {
           "%s:%s:%s",
           "arn:aws:iam:",
           246976497890,
+          "root",
+        ),
+        format(
+          "%s:%s:%s",
+          "arn:aws:iam:",
+          652856684323,
           "root",
         ),
       ]

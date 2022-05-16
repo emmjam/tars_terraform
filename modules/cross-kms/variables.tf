@@ -17,6 +17,11 @@ variable "component" {
   description = "The name of the terraformscaffold component calling this module"
 }
 
+variable "aws_account_id" {
+  type        = string
+  description = "The name of the terraformscaffold account id calling this module"
+}
+
 ##
 # Module self-identification
 ##
