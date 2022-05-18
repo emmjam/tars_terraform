@@ -376,6 +376,43 @@ whitelist = [
   "154.14.88.249/32", # DVSA Notts Corp & Wifi
 ]
 
+whitelist_temp = [
+  "135.196.73.204/32",  # DVSA Notts
+  "10.201.80.0/21", # DVSA Notts Internal
+  "10.69.3.64/26",      # DVSA ZPA VPN
+  "10.69.131.64/26",    # DVSA ZPA VPN
+  "148.253.134.213/32", # BJSS VPN 04/18
+  "54.72.37.158/32",    # Selenium Elasticgrid Proxy
+  "199.83.128.0/21",    # Begin Incapsula IPs
+  "198.143.32.0/19",
+  "149.126.72.0/21",
+  "103.28.248.0/22",
+  "185.11.124.0/22",
+  "192.230.64.0/18",
+  "45.64.64.0/22",
+  "107.154.0.0/16",
+  "45.60.0.0/16",
+  "45.223.0.0/16",      # End Incapsula IPs
+  "54.76.206.25/32",    # Perf01 NATGW IP
+  "52.214.31.165/32",      #Nonprod NATGW IP
+  "10.69.3.15/32",      # Begin DVSA MS-RDS
+  "10.69.3.16/32",
+  "10.69.3.17/32",
+  "10.69.3.18/32",
+  "10.69.1.70/31",
+  "10.84.192.159/32",
+  "10.84.192.161/32",      # End DVSA MS-RDS
+  "85.115.53.201/32",   #DSCALLARDS
+  "80.194.75.82/32",    #DSCALLARDS
+  "34.242.28.119/32",   #MGMT Jenkins for url checks
+  "154.14.88.249/32", # DVSA Notts Corp & Wifi
+  "90.155.48.192/26",   # cyberis IPs for ITHC
+  "81.2.127.144/28",    # cyberis IPs for ITHC
+  "81.187.169.170/32",  # cyberis IPs for ITHC
+  "88.97.60.11/32",     # cyberis IPs for ITHC
+  "3.10.4.97/32",       # cyberis IPs for ITHC
+]
+
 dvsa_dc_whitelist = [
   "10.166.0.14/32",
   "10.166.0.28/32",
