@@ -187,6 +187,14 @@ output "sqs_results_govnotify_id" {
   value = aws_sqs_queue.results_gov_notify.id
 }
 
+output "sqs_printgovnotify_arn" {
+  value = aws_sqs_queue.printgovnotify.arn
+}
+
+output "sqs_printgovnotify_id" {
+  value = aws_sqs_queue.printgovnotify.id
+}
+
 output "lambda_notify_role_arn" {
   value = module.lambda_notify.role_arn
 }
