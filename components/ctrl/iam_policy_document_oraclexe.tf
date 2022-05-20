@@ -24,4 +24,20 @@ data "aws_iam_policy_document" "oraclexe" {
       "${aws_s3_bucket.resources.arn}/${local.csi}-oraclexe-data/*",
     ]
   }
+  statement {
+    sid    = "AmiKmsKey"
+    effect = "Allow"
+
+    actions = [
+      "kms:Decrypt",
+      "kms:ReEncryptTo",
+      "kms:DescribeKey",
+      "kms:CreateGrant",
+      "kms:ReEncryptFrom",
+    ]
+
+    resources = [
+      "arn:aws:kms:eu-west-1:645711882182:key/303c3787-4bb4-4c17-a9d7-7870544b1d46",
+    ]
+  }
 }
