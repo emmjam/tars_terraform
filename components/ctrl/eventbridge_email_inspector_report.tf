@@ -1,16 +1,16 @@
 resource "aws_cloudwatch_event_rule" "email_inspector_report" {
-  count       = var.kms_inspector_count
-  name        = format(
+  count = var.kms_inspector_count
+  name = format(
     "%s-%s-%s-%s",
     var.project,
     var.environment,
     var.component,
     "email_inspector_report",
   )
-  description = "email_inspector_report"
+  description         = "email_inspector_report"
   schedule_expression = "cron(0 9 ? * 2#1 *)"
 
-    tags = merge(
+  tags = merge(
     local.default_tags,
     {
       "Name" = "${local.csi}-email-inspector-report"

@@ -318,7 +318,7 @@ variable "redis_endpoint" {
 variable "gitlab_cw_alarm_failure_actions" {
   type        = list(string)
   description = "The sns topic to send alerts to"
-  default = []
+  default     = []
 }
 
 variable "db_snapshot_id" {

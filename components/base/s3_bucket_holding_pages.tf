@@ -15,7 +15,7 @@ resource "aws_s3_bucket" "holding_pages" {
 }
 
 resource "aws_s3_bucket_public_access_block" "holding_pages" {
-  bucket = aws_s3_bucket.holding_pages.id
+  bucket                  = aws_s3_bucket.holding_pages.id
   block_public_acls       = true
   block_public_policy     = true
   ignore_public_acls      = true

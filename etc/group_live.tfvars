@@ -17,9 +17,9 @@ aws_account_alias = "tarslive"
 domain_name = "tars.dvsacloud.uk"
 
 # ACM Certname
-cert_name = "tars-prod-public"
-payments_cert_name = "payments-prod-public"
-reporting_xe_cert_name  = "*"
+cert_name              = "tars-prod-public"
+payments_cert_name     = "payments-prod-public"
+reporting_xe_cert_name = "*"
 
 default_tags = {
   Group = "live"
@@ -48,11 +48,11 @@ mgmt_vpc_cidr_block         = "10.200.0.0/16"          # TODO: use remote state
 mgmt_tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote state
 mgmt_jenkins_elb_subnet     = "10.200.3.32/28"         # TODO: use remote state
 mgmt_gitlab_subnet          = "10.200.5.128/28"        # TODO: use remote state
-mgmt_aws_account_id = "645711882182"
-mgmt_aws_region     = "eu-west-1"
-mgmt_project        = "tars"
-mgmt_environment    = "mgmt"
-mgmt_component      = "mgmt"
+mgmt_aws_account_id         = "645711882182"
+mgmt_aws_region             = "eu-west-1"
+mgmt_project                = "tars"
+mgmt_environment            = "mgmt"
+mgmt_component              = "mgmt"
 
 
 ###############################################################################
@@ -91,11 +91,11 @@ ctrl_mgmt_tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote s
 ###############################################################################
 
 #Monitoring
-prometheus_asg_min_size           = 1
-prometheus_asg_max_size           = 1
-prometheus_instance_type          = "t3.medium"
-prometheus_ami_build_id           = "1274"
-prometheus_efs_provisioned_mibps  = 5
+prometheus_asg_min_size          = 1
+prometheus_asg_max_size          = 1
+prometheus_instance_type         = "t3.medium"
+prometheus_ami_build_id          = "1274"
+prometheus_efs_provisioned_mibps = 5
 
 
 ## jenkins
@@ -156,15 +156,15 @@ ibs_scaleup_desired      = 6
 ibs_scaleup_recurrence   = "00 08 * * 1-5"
 
 #ibsdb
-ibs_rds_instance_class = "db.r3.large" //Aurora doesn't support t2.micro
+ibs_rds_instance_class          = "db.r3.large" //Aurora doesn't support t2.micro
 ibs_rds_backup_retention_period = "7"
-ibs_rds_backup_window = "02:38-03:08"
-ibs_rds_maint_window = "sun:03:16-sun:03:46"
-ibs_rds_apply_immediately = "true"
+ibs_rds_backup_window           = "02:38-03:08"
+ibs_rds_maint_window            = "sun:03:16-sun:03:46"
+ibs_rds_apply_immediately       = "true"
 
 ## fyndi-f
-fyndi-f_instance_type  = "m4.large"
-fyndi-f_puppet_nodetype    = "fyndi-front"
+fyndi-f_instance_type        = "m4.large"
+fyndi-f_puppet_nodetype      = "fyndi-front"
 fyndi-f_asg_min_size         = 0
 fyndi-f_asg_max_size         = 2
 fyndi-f_scaledown_desired    = 2
@@ -173,8 +173,8 @@ fyndi-f_scaleup_desired      = 2
 fyndi-f_scaleup_recurrence   = "00 08 * * 1-5"
 
 ## fyndi_back
-fyndi-b_instance_type  = "m4.large"
-fyndi-b_puppet_nodetype    = "fyndi-back"
+fyndi-b_instance_type        = "m4.large"
+fyndi-b_puppet_nodetype      = "fyndi-back"
 fyndi-b_asg_min_size         = 0
 fyndi-b_asg_max_size         = 2
 fyndi-b_scaledown_desired    = 2
@@ -194,10 +194,10 @@ wildfly-messaging_scaleup_recurrence   = "00 07 * * 1-5"
 wildfly_messaging_id                   = "release_202109"
 
 ## AWS MQ
-aws_mq_engine_type             = "ActiveMQ"
-aws_mq_engine_version          = "5.15.9"
-aws_mq_host_instance_type      = "mq.m5.large"
-aws_mq_deployment_mode         = "ACTIVE_STANDBY_MULTI_AZ"
+aws_mq_engine_type        = "ActiveMQ"
+aws_mq_engine_version     = "5.15.9"
+aws_mq_host_instance_type = "mq.m5.large"
+aws_mq_deployment_mode    = "ACTIVE_STANDBY_MULTI_AZ"
 
 aws_mq_users_admin_user              = "admin"
 aws_mq_users_admin_password          = "admin123456789"
@@ -256,14 +256,14 @@ cpc-batch_scaleup_desired      = 1
 cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## apache
-apache_instance_type         = "m5.xlarge"
-apache_asg_min_size          = 0
-apache_asg_max_size          = 0
-apache_scaledown_desired     = 0
-apache_scaledown_recurrence  = "00 22 * * 1-5"
-apache_scaleup_desired       = 0
-apache_scaleup_recurrence    = "00 07 * * 1-5"
-apache_ami_build_id          = "1302"
+apache_instance_type        = "m5.xlarge"
+apache_asg_min_size         = 0
+apache_asg_max_size         = 0
+apache_scaledown_desired    = 0
+apache_scaledown_recurrence = "00 22 * * 1-5"
+apache_scaleup_desired      = 0
+apache_scaleup_recurrence   = "00 07 * * 1-5"
+apache_ami_build_id         = "1302"
 
 aws_mq_config_description    = "TARS MQ Configuration"
 aws_mq_config_name           = "tars-awsmq"
@@ -277,7 +277,7 @@ jmeter_asg_size_max               = 0
 jmeter_asg_size_min               = 0
 
 ## XE
-oraclexe_svr_id = "1259"
+oraclexe_svr_id               = "1259"
 oraclexe_asg_min_size         = 0
 oraclexe_asg_max_size         = 1
 oraclexe_scaledown_desired    = 0
@@ -336,8 +336,8 @@ payments_whitelist = [
   "91.208.214.0/24",
   "185.8.52.0/22",
   "185.139.244.0/22",
-  "212.35.124.164/32",  # End Barclays IP
-  "154.14.88.249/32", # DVSA Notts Corp & Wifi
+  "212.35.124.164/32", # End Barclays IP
+  "154.14.88.249/32",  # DVSA Notts Corp & Wifi
 ]
 
 whitelist = [
@@ -357,23 +357,23 @@ whitelist = [
   "45.64.64.0/22",
   "107.154.0.0/16",
   "45.60.0.0/16",
-  "45.223.0.0/16",      # End Incapsula IPs
-  "10.69.3.15/32",      # Begin DVSA MS-RDS
+  "45.223.0.0/16", # End Incapsula IPs
+  "10.69.3.15/32", # Begin DVSA MS-RDS
   "10.69.3.16/32",
   "10.69.3.17/32",
   "10.69.3.18/32",
   "10.69.1.70/31",
   "10.84.192.159/32",
-  "10.84.192.161/32",      # End DVSA MS-RDS
+  "10.84.192.161/32", # End DVSA MS-RDS
   "85.115.53.201/32",
-  "80.194.75.82/32",    #DSCALLARDS
-  "34.242.28.119/32",   #MGMT Jenkins for url checks
+  "80.194.75.82/32",  #DSCALLARDS
+  "34.242.28.119/32", #MGMT Jenkins for url checks
   "154.14.88.249/32", # DVSA Notts Corp & Wifi
 ]
 
 whitelist_temp = [
   "135.196.73.204/32",  # DVSA Notts
-  "10.201.80.0/21", # DVSA Notts Internal
+  "10.201.80.0/21",     # DVSA Notts Internal
   "10.69.3.64/26",      # DVSA ZPA VPN
   "10.69.131.64/26",    # DVSA ZPA VPN
   "148.253.134.213/32", # BJSS VPN 04/18
@@ -387,19 +387,19 @@ whitelist_temp = [
   "45.64.64.0/22",
   "107.154.0.0/16",
   "45.60.0.0/16",
-  "45.223.0.0/16",      # End Incapsula IPs
-  "54.76.206.25/32",    # Perf01 NATGW IP
-  "52.214.31.165/32",      #Nonprod NATGW IP
-  "10.69.3.15/32",      # Begin DVSA MS-RDS
+  "45.223.0.0/16",    # End Incapsula IPs
+  "54.76.206.25/32",  # Perf01 NATGW IP
+  "52.214.31.165/32", #Nonprod NATGW IP
+  "10.69.3.15/32",    # Begin DVSA MS-RDS
   "10.69.3.16/32",
   "10.69.3.17/32",
   "10.69.3.18/32",
   "10.69.1.70/31",
   "10.84.192.159/32",
-  "10.84.192.161/32",      # End DVSA MS-RDS
-  "85.115.53.201/32",   #DSCALLARDS
-  "80.194.75.82/32",    #DSCALLARDS
-  "34.242.28.119/32",   #MGMT Jenkins for url checks
+  "10.84.192.161/32", # End DVSA MS-RDS
+  "85.115.53.201/32", #DSCALLARDS
+  "80.194.75.82/32",  #DSCALLARDS
+  "34.242.28.119/32", #MGMT Jenkins for url checks
   "154.14.88.249/32", # DVSA Notts Corp & Wifi
 ]
 
@@ -465,11 +465,11 @@ dvsa_ldap_server = "10.166.0.14/32"
 dvsa_irdt_printers = "10.201.0.0/16"
 
 # 3rd party
-avarto_sftp_server = "85.133.77.93/32"
-avarto_aws_sftp_server = "10.7.107.0/24"
-sweda_samba_server = "10.69.3.11/32"
-dvla_adli_server = "51.231.10.92/32"
-dvla_elise_server = "51.231.10.84/32"
+avarto_sftp_server        = "85.133.77.93/32"
+avarto_aws_sftp_server    = "10.7.107.0/24"
+sweda_samba_server        = "10.69.3.11/32"
+dvla_adli_server          = "51.231.10.92/32"
+dvla_elise_server         = "51.231.10.84/32"
 rsis_samba_server_archive = "10.14.0.142/32"
 
 # squidnat
@@ -504,112 +504,112 @@ elc_main_parameter_group = "default.memcached1.4"
 elc_main_port            = "11211"
 
 ### Business Objects
-bobj_asg_max_size = 1
-bobj_asg_min_size = 0
+bobj_asg_max_size  = 1
+bobj_asg_min_size  = 0
 bobj_instance_type = "m5.xlarge"
 
 # TARSDB
-tars_rds_storage_type = "gp2"
-tars_rds_engine = "oracle-se2"
-tars_rds_engine_version = "19.0.0.0.ru"
-tars_rds_instance_class = "db.m4.2xlarge"
+tars_rds_storage_type                       = "gp2"
+tars_rds_engine                             = "oracle-se2"
+tars_rds_engine_version                     = "19.0.0.0.ru"
+tars_rds_instance_class                     = "db.m4.2xlarge"
 tars_rds_allow_major_engine_version_upgrade = false
-tars_rds_parameter_group_name = "tarsdb-19c"
-tars_rds_option_group_name = "option-group-19c"
-tars_rds_port = "1521"
-tars_rds_public = "false"
-tars_rds_multi_az = "true" # it takes an age to build if true
-tars_rds_backup_retention = "30"
-tars_rds_backup_window = "02:38-03:08"
-tars_rds_maint_window = "sun:03:16-sun:03:46"
-tars_rds_skip_final_snapshot = false
-tars_rds_apply_immediately = "true"
-tars_rds_license_model = "license-included"
-tars_rds_autoscale = "True"
-tars_rds_sid_name = "TARSDB"
+tars_rds_parameter_group_name               = "tarsdb-19c"
+tars_rds_option_group_name                  = "option-group-19c"
+tars_rds_port                               = "1521"
+tars_rds_public                             = "false"
+tars_rds_multi_az                           = "true" # it takes an age to build if true
+tars_rds_backup_retention                   = "30"
+tars_rds_backup_window                      = "02:38-03:08"
+tars_rds_maint_window                       = "sun:03:16-sun:03:46"
+tars_rds_skip_final_snapshot                = false
+tars_rds_apply_immediately                  = "true"
+tars_rds_license_model                      = "license-included"
+tars_rds_autoscale                          = "True"
+tars_rds_sid_name                           = "TARSDB"
 
 # MISDB
-mis_rds_storage_type = "gp2"
-mis_rds_engine = "oracle-se2"
-mis_rds_engine_version = "19.0.0.0.ru"
-mis_rds_instance_class = "db.m4.xlarge"
-mis_rds_port = "1521"
-mis_rds_public = "false"
-mis_rds_multi_az = "true" # it takes an age to build if true
-mis_rds_backup_retention = "30"
-mis_rds_backup_window = "02:38-03:08"
-mis_rds_maint_window = "sun:05:01-sun:05:31"
-mis_rds_skip_final_snapshot = false
-mis_rds_apply_immediately = "true"
-mis_rds_license_model = "license-included"
-mis_rds_autoscale = "True"
-mis_rds_sid_name = "MISDB"
+mis_rds_storage_type            = "gp2"
+mis_rds_engine                  = "oracle-se2"
+mis_rds_engine_version          = "19.0.0.0.ru"
+mis_rds_instance_class          = "db.m4.xlarge"
+mis_rds_port                    = "1521"
+mis_rds_public                  = "false"
+mis_rds_multi_az                = "true" # it takes an age to build if true
+mis_rds_backup_retention        = "30"
+mis_rds_backup_window           = "02:38-03:08"
+mis_rds_maint_window            = "sun:05:01-sun:05:31"
+mis_rds_skip_final_snapshot     = false
+mis_rds_apply_immediately       = "true"
+mis_rds_license_model           = "license-included"
+mis_rds_autoscale               = "True"
+mis_rds_sid_name                = "MISDB"
 mis_allow_major_version_upgrade = false
-mis_rds_parameter_group_name = "misdb-19c"
-mis_rds_option_group_name = "option-group-19c"
+mis_rds_parameter_group_name    = "misdb-19c"
+mis_rds_option_group_name       = "option-group-19c"
 
 # RSISDB
-rsis_rds_storage_type = "gp2"
-rsis_rds_engine = "oracle-se2"
-rsis_rds_engine_version = "12.1.0.2"
-rsis_rds_instance_class = "db.m4.xlarge"
-rsis_rds_port = "1521"
-rsis_rds_public = "false"
-rsis_rds_multi_az = "true" # it takes an age to build if true
-rsis_rds_backup_retention = "30"
-rsis_rds_backup_window = "02:38-03:08"
-rsis_rds_maint_window = "sun:03:16-sun:03:46"
-rsis_rds_skip_final_snapshot = false
-rsis_rds_apply_immediately = "true"
-rsis_rds_license_model = "license-included"
-rsis_rds_autoscale = "True"
-rsis_rds_sid_name = "RSISDB"
-rsis_rds_parameter_group_name = "rsisdb"
-rsis_rds_option_group_name = "option-group"
+rsis_rds_storage_type            = "gp2"
+rsis_rds_engine                  = "oracle-se2"
+rsis_rds_engine_version          = "12.1.0.2"
+rsis_rds_instance_class          = "db.m4.xlarge"
+rsis_rds_port                    = "1521"
+rsis_rds_public                  = "false"
+rsis_rds_multi_az                = "true" # it takes an age to build if true
+rsis_rds_backup_retention        = "30"
+rsis_rds_backup_window           = "02:38-03:08"
+rsis_rds_maint_window            = "sun:03:16-sun:03:46"
+rsis_rds_skip_final_snapshot     = false
+rsis_rds_apply_immediately       = "true"
+rsis_rds_license_model           = "license-included"
+rsis_rds_autoscale               = "True"
+rsis_rds_sid_name                = "RSISDB"
+rsis_rds_parameter_group_name    = "rsisdb"
+rsis_rds_option_group_name       = "option-group"
 rsis_allow_major_version_upgrade = false
 
 
 # CPCDB
-cpc_rds_storage_type = "gp2"
-cpc_rds_engine = "oracle-se2"
-cpc_rds_engine_version = "19.0.0.0.ru"
-cpc_rds_instance_class = "db.r4.xlarge"
-cpc_rds_port = "1521"
-cpc_rds_public = "false"
-cpc_rds_multi_az = "true" # it takes an age to build if true
-cpc_rds_backup_retention = "30"
-cpc_rds_backup_window = "02:38-03:08"
-cpc_rds_maint_window = "sun:03:16-sun:03:46"
-cpc_rds_skip_final_snapshot = false
-cpc_rds_apply_immediately = "true"
-cpc_rds_license_model = "license-included"
-cpc_rds_autoscale = "True"
-cpc_rds_sid_name = "CPCDB"
-cpc_rds_parameter_group_name = "cpcdb-19c"
-cpc_rds_option_group_name = "option-group-19c"
+cpc_rds_storage_type            = "gp2"
+cpc_rds_engine                  = "oracle-se2"
+cpc_rds_engine_version          = "19.0.0.0.ru"
+cpc_rds_instance_class          = "db.r4.xlarge"
+cpc_rds_port                    = "1521"
+cpc_rds_public                  = "false"
+cpc_rds_multi_az                = "true" # it takes an age to build if true
+cpc_rds_backup_retention        = "30"
+cpc_rds_backup_window           = "02:38-03:08"
+cpc_rds_maint_window            = "sun:03:16-sun:03:46"
+cpc_rds_skip_final_snapshot     = false
+cpc_rds_apply_immediately       = "true"
+cpc_rds_license_model           = "license-included"
+cpc_rds_autoscale               = "True"
+cpc_rds_sid_name                = "CPCDB"
+cpc_rds_parameter_group_name    = "cpcdb-19c"
+cpc_rds_option_group_name       = "option-group-19c"
 cpc_allow_major_version_upgrade = false
 
 # DVSA Mail Domain
 dvsa_external_mail_domain = "dvsa.gov.uk"
 
 # DC Gateway details
-dc_gateway_name = "Tars-Prod-DirCon"
+dc_gateway_name    = "Tars-Prod-DirCon"
 dc_gateway_aws_asn = "64514"
 
 # DC Gateway Primary VIF
-dc_primary_connection_id = "dxcon-fgjp09jy"
-dc_vif_primary_name = "Tars-Prod-DirCon-Pri"
-dc_vif_primary_vlan = "381"
-dc_vif_primary_router = "10.111.0.13/30"
-dc_vif_primary_aws_router = "10.111.0.14/30"
+dc_primary_connection_id    = "dxcon-fgjp09jy"
+dc_vif_primary_name         = "Tars-Prod-DirCon-Pri"
+dc_vif_primary_vlan         = "381"
+dc_vif_primary_router       = "10.111.0.13/30"
+dc_vif_primary_aws_router   = "10.111.0.14/30"
 dc_vif_primary_bgp_auth_key = "6fbuqVX7bKFvM43KpdGFLwThACH4nB"
 
 # DC Gateway Secondary VIF
-dc_secondary_connection_id = "dxcon-ffgc0859"
-dc_vif_secondary_vlan = "307"
-dc_vif_secondary_name = "Tars-Prod-DirCon-Sec"
-dc_vif_secondary_router = "10.111.8.13/30"
-dc_vif_secondary_aws_router = "10.111.8.14/30"
+dc_secondary_connection_id    = "dxcon-ffgc0859"
+dc_vif_secondary_vlan         = "307"
+dc_vif_secondary_name         = "Tars-Prod-DirCon-Sec"
+dc_vif_secondary_router       = "10.111.8.13/30"
+dc_vif_secondary_aws_router   = "10.111.8.14/30"
 dc_vif_secondary_bgp_auth_key = "jXjTQvJpEnuFvzpy2XvEBDpJe5khPc"
 
 # DC Gateway VIF parameters
@@ -619,22 +619,22 @@ dc_vif_asn = "64515"
 opsgenie_endpoint = "https://api.opsgenie.com/v1/json/amazonsns?apiKey=4cb725d3-32c1-47ae-b3b7-e38187fb9202"
 
 #Jmeter
-jmeter_ami_build_id               = "1266"
+jmeter_ami_build_id = "1266"
 
 # Enable action for AmazonMQ Queue CloudWatch Alarm
-velocity_email_cw_metric_alarm_enabled = false
+velocity_email_cw_metric_alarm_enabled           = false
 mq_cw_metric_velocity_email_alarm_action_enabled = false
-email_queue_cw_metric_alarm_enabled = false
-mq_cw_metric_email_queue_alarm_action_enabled = false
-print_queue_cw_metric_alarm_enabled = false
-mq_cw_metric_print_queue_alarm_action_enabled = false
+email_queue_cw_metric_alarm_enabled              = false
+mq_cw_metric_email_queue_alarm_action_enabled    = false
+print_queue_cw_metric_alarm_enabled              = false
+mq_cw_metric_print_queue_alarm_action_enabled    = false
 
 # Enable action for Sftp CPU CloudWatch Alarm
-sftp_cpuutilization_cw_metric_alarm_enabled = false
+sftp_cpuutilization_cw_metric_alarm_enabled        = false
 sftp_cpuutilization_cw_metric_alarm_action_enabled = false
 
 # Enable action for tars-core CPU CloudWatch Alarm
-tars_core_cpuutilization_cw_metric_alarm_enabled = false
+tars_core_cpuutilization_cw_metric_alarm_enabled        = false
 tars_core_cpuutilization_cw_metric_alarm_action_enabled = false
 
 power_bi_cidr = "10.164.216.0/22"
@@ -645,15 +645,15 @@ ftts_elig_port = "18079"
 notify_lambda_version = "4"
 
 # reporting-xe
-reporting_xe_instance_type = "t2.medium"
-reporting_xe_count = 0
-reporting_xe_ami_build_id = "1320"
-reporting_xe_asg_min_size = 0
-reporting_xe_asg_max_size = 0
+reporting_xe_instance_type    = "t2.medium"
+reporting_xe_count            = 0
+reporting_xe_ami_build_id     = "1320"
+reporting_xe_asg_min_size     = 0
+reporting_xe_asg_max_size     = 0
 reporting_xe_asg_desired_size = 0
-reporting_xe_subnet_cidr = [""]
+reporting_xe_subnet_cidr      = [""]
 
-ssm_kms_key_id = "e6d167b6-b8a0-4acb-b982-9846429c79a5"
+ssm_kms_key_id      = "e6d167b6-b8a0-4acb-b982-9846429c79a5"
 ses_user_access_key = true
 
 # Whether or not to create old RDS option and parameter groups

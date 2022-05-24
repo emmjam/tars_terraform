@@ -1,5 +1,5 @@
 resource "aws_security_group_rule" "alb_xe_8443" {
-  count = var.reporting_xe_count
+  count             = var.reporting_xe_count
   security_group_id = aws_security_group.reporting_xe_alb[count.index].id
   description       = "Allow TCP/8443 from Whitelist"
   type              = "ingress"
@@ -12,7 +12,7 @@ resource "aws_security_group_rule" "alb_xe_8443" {
 }
 
 resource "aws_security_group_rule" "reporting_alb_egress_8443" {
-  count = var.reporting_xe_count
+  count             = var.reporting_xe_count
   security_group_id = aws_security_group.reporting_xe_alb[count.index].id
   description       = "Allow TCP/8443 to Reporting-XE instance"
   type              = "egress"
@@ -25,7 +25,7 @@ resource "aws_security_group_rule" "reporting_alb_egress_8443" {
 }
 
 resource "aws_security_group_rule" "reporting_xe_8443" {
-  count = var.reporting_xe_count
+  count                    = var.reporting_xe_count
   type                     = "ingress"
   description              = "Allow TCP/8443 from ALB"
   protocol                 = "tcp"

@@ -6,13 +6,13 @@ data "aws_iam_policy_document" "reportingxe" {
     actions = [
       "kms:Decrypt",
     ]
-   resources = [
+    resources = [
       "arn:aws:kms:${var.aws_region}:${var.aws_account_id}:key/${var.ssm_kms_key_id}"
     ]
   }
   statement {
-    sid     = "AllowGetParameter"
-    effect  = "Allow"
+    sid    = "AllowGetParameter"
+    effect = "Allow"
     actions = [
       "ssm:GetParameter"
     ]
@@ -22,8 +22,8 @@ data "aws_iam_policy_document" "reportingxe" {
   }
 
   statement {
-    sid     = "AttachNetworkInterface"
-    effect  = "Allow"
+    sid    = "AttachNetworkInterface"
+    effect = "Allow"
     actions = [
       "ec2:AttachNetworkInterface",
       "ec2:DescribeNetworkInterfaces",

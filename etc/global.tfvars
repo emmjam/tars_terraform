@@ -65,7 +65,7 @@ rhel_spot_pricing = {
   "m6g.medium" = "0.026"
 }
 
-efs_backup_env  = [
+efs_backup_env = [
   "sit01",
   "sit02",
   "uat01",
@@ -90,7 +90,7 @@ dlm_interval    = "24"
 dlm_state       = "ENABLED"
 dlm_retain_rule = "7"
 
-metric_env  = [
+metric_env = [
   "opsdev",
   "uat01",
   "prod"
@@ -99,10 +99,10 @@ metric_env  = [
 elise_log_group_name           = "/opt/wildfly/logs/applications/elise-timing.json"
 sftpplus_client_log_group_name = "/aws/ec2/prod/tars-batch/opt/SFTPPlus-client/message.log"
 
-ibs1_ibs2_redirect_env  = [
+ibs1_ibs2_redirect_env = [
 ]
 
-rsisbucket_env  = [
+rsisbucket_env = [
   "opsdev",
   "prod"
 ]

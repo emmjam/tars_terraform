@@ -26,9 +26,9 @@ variable "release_version" {
 }
 
 variable "asg_default_tags" {
-  type        = list(object({
-    key = string
-    value = string
+  type = list(object({
+    key                 = string
+    value               = string
     propagate_at_launch = string
   }))
   description = ""
@@ -233,19 +233,19 @@ variable "squidnat_ami_build_id" {
 variable "squidnat_cw_alarm_failure_actions" {
   type        = list(string)
   description = "The sns topic to send alerts to"
-  default = []
+  default     = []
 }
 
 variable "unhealthy_host_alarm_count" {
   type        = string
   description = "Number of alarms to have in this account"
-  default = "0"
+  default     = "0"
 }
 
 variable "squidnat_unhealthy_host_alarm_count" {
   type        = string
   description = "Number of alarms to have in this account pass to module"
-  default = "0"
+  default     = "0"
 }
 
 variable "tf_state_bucket_prefix" {
@@ -679,32 +679,32 @@ variable "jmeter_ami_build_id" {
 }
 
 variable "mq_cw_metric_velocity_email_alarm_action_enabled" {
-  type = string
+  type        = string
   description = "Enable or disable velocity email CloudWatch Metrics Alarm"
 }
 
 variable "velocity_email_cw_metric_alarm_enabled" {
-  type = string
+  type        = string
   description = "Enable or disable velocity email CloudWatch Metrics Alarm"
 }
 
 variable "mq_cw_metric_email_queue_alarm_action_enabled" {
-  type = string
+  type        = string
   description = "Enable or disable email queue CloudWatch Metrics Alarm"
 }
 
 variable "email_queue_cw_metric_alarm_enabled" {
-  type = string
+  type        = string
   description = "Enable or disable email queue CloudWatch Metrics Alarm"
 }
 
 variable "mq_cw_metric_print_queue_alarm_action_enabled" {
-  type = string
+  type        = string
   description = "Enable or disable print queue CloudWatch Metrics Alarm"
 }
 
 variable "print_queue_cw_metric_alarm_enabled" {
-  type = string
+  type        = string
   description = "Enable or disable print queue CloudWatch Metrics Alarm"
 }
 
@@ -715,17 +715,17 @@ variable "vpc_endpoint_subnets_cidrs" {
 }
 
 variable "api_notify" {
-  type        = map
+  type        = map(any)
   description = "Map of variables for notify lambda"
 }
 
 variable "tars_lambda_subnets_cidrs" {
-  type        = list (string)
+  type        = list(string)
   description = "List of CIDR blocks for Lambda subnets"
 }
 
 variable "notify_lambda_version" {
-  type = string
+  type        = string
   description = "Lambda version"
 }
 
@@ -740,7 +740,7 @@ variable "public_domain_name" {
 }
 
 variable "reporting_xe_count" {
-  type    = number
+  type = number
 }
 
 variable "reporting_xe_instance_type" {

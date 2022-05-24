@@ -7,11 +7,11 @@ resource "aws_s3_bucket" "inspector_reports" {
   server_side_encryption_configuration {
     rule {
       apply_server_side_encryption_by_default {
-        sse_algorithm     = "aws:kms"
+        sse_algorithm = "aws:kms"
       }
     }
   }
-  
+
   logging {
     target_bucket = aws_s3_bucket.acc-bucketlogs.id
     target_prefix = "${local.csi}-inspector-reports/"
@@ -25,7 +25,7 @@ resource "aws_s3_bucket" "inspector_reports" {
     id      = "wholebucket"
     prefix  = "/"
     enabled = "true"
-    
+
     expiration {
       days = 1825
     }
@@ -40,17 +40,17 @@ resource "aws_s3_bucket" "inspector_reports" {
 }
 
 resource "aws_s3_bucket_public_access_block" "inspector_reports" {
-  count                    = var.kms_inspector_count
-  bucket                   = aws_s3_bucket.inspector_reports[count.index].id
-  block_public_acls        = true
-  block_public_policy      = true
-  restrict_public_buckets  = true
-  ignore_public_acls       = true
+  count                   = var.kms_inspector_count
+  bucket                  = aws_s3_bucket.inspector_reports[count.index].id
+  block_public_acls       = true
+  block_public_policy     = true
+  restrict_public_buckets = true
+  ignore_public_acls      = true
 
 }
 
 data "aws_iam_policy_document" "inspector_reports" {
-  count  = var.kms_inspector_count
+  count = var.kms_inspector_count
   statement {
     sid    = "1"
     effect = "Allow"

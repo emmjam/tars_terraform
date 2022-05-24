@@ -1,5 +1,5 @@
 resource "aws_route" "internet_private" {
-  count                     = length(var.ctrl_nat_subnets_cidrs)
+  count                  = length(var.ctrl_nat_subnets_cidrs)
   route_table_id         = aws_route_table.private_nat.id
   destination_cidr_block = "0.0.0.0/0"
   nat_gateway_id         = element(aws_nat_gateway.ctrl.*.id, count.index)

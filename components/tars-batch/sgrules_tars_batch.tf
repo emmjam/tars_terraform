@@ -121,7 +121,7 @@ resource "aws_security_group_rule" "tars_batch_egress_rsis_sftp" {
 
   cidr_blocks = [
     var.rsis_samba_server_archive
-  ]  
+  ]
 }
 
 resource "aws_security_group_rule" "tars_batch_egress_dvla_ldap" {

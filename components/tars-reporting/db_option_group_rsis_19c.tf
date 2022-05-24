@@ -32,7 +32,7 @@ resource "aws_db_option_group" "rsis-19c" {
   option {
     option_name = "SQLT"
   }
- 
+
   option {
     option_name = "SSL"
     option_settings {

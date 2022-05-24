@@ -256,7 +256,7 @@ bobj_subnets_cidrs = [
   "10.167.39.0/28",
 ]
 
-prometheus_subnets_cidrs  = [
+prometheus_subnets_cidrs = [
   "10.167.39.16/28",
   "10.167.39.32/28",
   "10.167.39.48/28",
@@ -309,62 +309,62 @@ transit_peering_enabled = true
 #############################################################################
 
 ad_peering_enabled = true
-ad_peering_vpc = "vpc-02072cb35506d9b73"
-ad_account = "233824316563"
+ad_peering_vpc     = "vpc-02072cb35506d9b73"
+ad_account         = "233824316563"
 
 ##
 # RDS
 ##
 
 # TARSDB
-tars_rds_username = "tarsuatadmin"
+tars_rds_username          = "tarsuatadmin"
 tars_rds_allocated_storage = "610"
-tars_rds_snapshot = "tars-perf01-tars-core-tarsdb-2019-01-28-12-2"
+tars_rds_snapshot          = "tars-perf01-tars-core-tarsdb-2019-01-28-12-2"
 
 # CPCDB
-cpc_rds_username = "tarscpcadmin"
-cpc_rds_snapshot = ""
-cpc_rds_allocated_storage = "100" 
-cpc_rds_backup_retention = "21"
+cpc_rds_username          = "tarscpcadmin"
+cpc_rds_snapshot          = ""
+cpc_rds_allocated_storage = "100"
+cpc_rds_backup_retention  = "21"
 
 # MISDB
-mis_rds_username = "misdmsadmin"
-mis_rds_allocated_storage = "300"
-mis_rds_snapshot = "tars-perf01-tars-reporting-misdb-10-08-21-do-not-delete"
-mis_rds_storage_type = "gp2"
-mis_rds_instance_class = "db.r5.large" # was "db.m4.4xlarge"
-mis_rds_public = "false"
-mis_rds_multi_az = "false" # it takes an age to build if true
-mis_rds_backup_retention = "7"
-mis_rds_backup_window = "02:38-03:08"
-mis_rds_maint_window = "sun:03:16-sun:03:46"
+mis_rds_username            = "misdmsadmin"
+mis_rds_allocated_storage   = "300"
+mis_rds_snapshot            = "tars-perf01-tars-reporting-misdb-10-08-21-do-not-delete"
+mis_rds_storage_type        = "gp2"
+mis_rds_instance_class      = "db.r5.large" # was "db.m4.4xlarge"
+mis_rds_public              = "false"
+mis_rds_multi_az            = "false" # it takes an age to build if true
+mis_rds_backup_retention    = "7"
+mis_rds_backup_window       = "02:38-03:08"
+mis_rds_maint_window        = "sun:03:16-sun:03:46"
 mis_rds_skip_final_snapshot = true
-mis_rds_apply_immediately = "true"
-mis_rds_autoscale = "True"
+mis_rds_apply_immediately   = "true"
+mis_rds_autoscale           = "True"
 
 # RSISDB
-rsis_rds_username = "tarsrsisadmin"
-rsis_rds_allocated_storage = "300"
-rsis_rds_snapshot = "tars-perf01-tars-reporting-rsisdb-10-08-21-do-not-delete"
-rsis_rds_storage_type = "gp2"
-rsis_rds_instance_class = "db.r5.large" # was "db.m4.4xlarge"
-rsis_rds_public = "false"
-rsis_rds_multi_az = "false" # it takes an age to build if true
-rsis_rds_backup_retention = "7"
-rsis_rds_backup_window = "02:38-03:08"
-rsis_rds_maint_window = "sun:03:16-sun:03:46"
+rsis_rds_username            = "tarsrsisadmin"
+rsis_rds_allocated_storage   = "300"
+rsis_rds_snapshot            = "tars-perf01-tars-reporting-rsisdb-10-08-21-do-not-delete"
+rsis_rds_storage_type        = "gp2"
+rsis_rds_instance_class      = "db.r5.large" # was "db.m4.4xlarge"
+rsis_rds_public              = "false"
+rsis_rds_multi_az            = "false" # it takes an age to build if true
+rsis_rds_backup_retention    = "7"
+rsis_rds_backup_window       = "02:38-03:08"
+rsis_rds_maint_window        = "sun:03:16-sun:03:46"
 rsis_rds_skip_final_snapshot = true
-rsis_rds_apply_immediately = "true"
-rsis_rds_autoscale = "True"
+rsis_rds_apply_immediately   = "true"
+rsis_rds_autoscale           = "True"
 
 # IBSDB
-ibs_rds_username = "ibsuatadmin"
-ibs_rds_snapshot = "perf01-ibsdb-with-users-and-geo-data"
+ibs_rds_username       = "ibsuatadmin"
+ibs_rds_snapshot       = "perf01-ibsdb-with-users-and-geo-data"
 ibs_rds_instance_class = "db.r3.large"
 
 ## wildfly
 
-wildfly-back_instance_type  = "m4.xlarge"
+wildfly-back_instance_type        = "m4.xlarge"
 wildfly-back_asg_min_size         = 0
 wildfly-back_asg_max_size         = 3
 wildfly-back_scaledown_desired    = 3
@@ -373,7 +373,7 @@ wildfly-back_scaleup_desired      = 3
 wildfly-back_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## wildfly-batch
-wildfly-batch_instance_type  = "m4.large"
+wildfly-batch_instance_type        = "m4.large"
 wildfly-batch_asg_min_size         = 0
 wildfly-batch_asg_max_size         = 1
 wildfly-batch_scaledown_desired    = 1
@@ -382,7 +382,7 @@ wildfly-batch_scaleup_desired      = 1
 wildfly-batch_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## obs
-obs_instance_type  = "m4.large"
+obs_instance_type        = "m4.large"
 obs_asg_min_size         = 0
 obs_asg_max_size         = 2
 obs_scaledown_desired    = 2
@@ -391,7 +391,7 @@ obs_scaleup_desired      = 2
 obs_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## ibs
-ibs_instance_type  = "m4.large"
+ibs_instance_type        = "m4.large"
 ibs_asg_min_size         = 0
 ibs_asg_max_size         = 10
 ibs_scaledown_desired    = 5
@@ -400,7 +400,7 @@ ibs_scaleup_desired      = 6
 ibs_scaleup_recurrence   = "10 04 * * 1-7"
 
 ## wildfly-front
-wildfly-front_instance_type  = "m4.large"
+wildfly-front_instance_type        = "m4.large"
 wildfly-front_asg_min_size         = 0
 wildfly-front_asg_max_size         = 2
 wildfly-front_scaledown_desired    = 2
@@ -409,7 +409,7 @@ wildfly-front_scaleup_desired      = 2
 wildfly-front_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## wildfly-messaging
-wildfly-messaging_instance_type  = "m4.large"
+wildfly-messaging_instance_type        = "m4.large"
 wildfly-messaging_asg_min_size         = 0
 wildfly-messaging_asg_max_size         = 1
 wildfly-messaging_scaledown_desired    = 1
@@ -418,7 +418,7 @@ wildfly-messaging_scaleup_desired      = 1
 wildfly-messaging_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## cpc-back
-cpc-back_instance_type  = "m4.large"
+cpc-back_instance_type        = "m4.large"
 cpc-back_asg_min_size         = 0
 cpc-back_asg_max_size         = 2
 cpc-back_scaledown_desired    = 2
@@ -427,7 +427,7 @@ cpc-back_scaleup_desired      = 2
 cpc-back_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## cpc-front
-cpc-front_instance_type  = "m4.large"
+cpc-front_instance_type        = "m4.large"
 cpc-front_asg_min_size         = 0
 cpc-front_asg_max_size         = 2
 cpc-front_scaledown_desired    = 2
@@ -436,22 +436,22 @@ cpc-front_scaleup_desired      = 2
 cpc-front_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## AWS MQ
-aws_mq_host_instance_type      = "mq.t2.micro"
-aws_mq_deployment_mode         = "SINGLE_INSTANCE"
+aws_mq_host_instance_type = "mq.t2.micro"
+aws_mq_deployment_mode    = "SINGLE_INSTANCE"
 
 # TARSDB
-tars_rds_storage_type = "gp2"
-tars_rds_instance_class = "db.m4.xlarge" # was "db.m4.4xlarge"
-tars_rds_public = "false"
-tars_rds_multi_az = "false" # it takes an age to build if true
-tars_rds_backup_retention = "7"
-tars_rds_backup_window = "02:38-03:08"
-tars_rds_maint_window = "sun:03:16-sun:03:46"
+tars_rds_storage_type        = "gp2"
+tars_rds_instance_class      = "db.m4.xlarge" # was "db.m4.4xlarge"
+tars_rds_public              = "false"
+tars_rds_multi_az            = "false" # it takes an age to build if true
+tars_rds_backup_retention    = "7"
+tars_rds_backup_window       = "02:38-03:08"
+tars_rds_maint_window        = "sun:03:16-sun:03:46"
 tars_rds_skip_final_snapshot = true
-tars_rds_apply_immediately = "true"
+tars_rds_apply_immediately   = "true"
 
 ## wildfly-mock
-wildfly-mock_instance_type  = "t2.medium"
+wildfly-mock_instance_type        = "t2.medium"
 wildfly-mock_asg_min_size         = 0
 wildfly-mock_asg_max_size         = 1
 wildfly-mock_scaledown_desired    = 1
@@ -460,13 +460,13 @@ wildfly-mock_scaleup_desired      = 1
 wildfly-mock_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## apache
-apache_instance_type         = "m4.large"
-apache_asg_min_size          = 0
-apache_asg_max_size          = 0
-apache_scaledown_desired     = 0
-apache_scaledown_recurrence  = "00 22 * * 1-5"
-apache_scaleup_desired       = 0
-apache_scaleup_recurrence    = "00 07 * * 1-5"
+apache_instance_type        = "m4.large"
+apache_asg_min_size         = 0
+apache_asg_max_size         = 0
+apache_scaledown_desired    = 0
+apache_scaledown_recurrence = "00 22 * * 1-5"
+apache_scaleup_desired      = 0
+apache_scaleup_recurrence   = "00 07 * * 1-5"
 
 
 ##  JMeter
@@ -490,7 +490,7 @@ alert_logic = ""
 rds_cw_metric_alarm_enabled = true
 
 # Enable action for RDS CloudWatch Alarm
-rds_cw_metric_alarm_action_enabled = false
+rds_cw_metric_alarm_action_enabled                  = false
 rds_cw_metric_freestoragespace_alarm_action_enabled = true
 
 #Prometheus on / off

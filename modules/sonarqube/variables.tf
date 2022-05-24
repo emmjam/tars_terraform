@@ -72,9 +72,9 @@ variable "sq_asg_size_desired" {
 }
 
 variable "asg_default_tags" {
-  type        = list(object({
-    key = string
-    value = string
+  type = list(object({
+    key                 = string
+    value               = string
     propagate_at_launch = string
   }))
   description = ""

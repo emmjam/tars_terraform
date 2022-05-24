@@ -14,7 +14,7 @@ resource "aws_cloudwatch_log_group" "lambda" {
         var.function_name
       ),
       "Component" = var.component,
-      "Module" = var.module
+      "Module"    = var.module
     })
   )
 }

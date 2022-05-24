@@ -19,5 +19,5 @@ resource "aws_iam_policy" "obs_ssm_parameters" {
 
 resource "aws_iam_role_policy_attachment" "obs_parameter_store" {
   role       = module.obs.iam_role_name
-  policy_arn = aws_iam_policy.obs_ssm_parameters.arn 
+  policy_arn = aws_iam_policy.obs_ssm_parameters.arn
 }

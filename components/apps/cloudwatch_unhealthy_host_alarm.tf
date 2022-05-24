@@ -1,5 +1,5 @@
 resource "aws_cloudwatch_metric_alarm" "ibs_unhealthyhost" {
-  alarm_name          = "${local.csi}-ibs-unhealthy-host"
+  alarm_name = "${local.csi}-ibs-unhealthy-host"
 
   count               = var.unhealthy_host_alarm_count
   comparison_operator = "GreaterThanOrEqualToThreshold"
@@ -14,13 +14,13 @@ resource "aws_cloudwatch_metric_alarm" "ibs_unhealthyhost" {
   treat_missing_data  = "notBreaching"
 
   dimensions = {
-    TargetGroup = aws_alb_target_group.ibs-8080.arn_suffix
+    TargetGroup  = aws_alb_target_group.ibs-8080.arn_suffix
     LoadBalancer = aws_alb.apps.arn_suffix
   }
 }
 
 resource "aws_cloudwatch_metric_alarm" "ibs_unhealthyhost_critical" {
-  alarm_name          = "${local.csi}-ibs-unhealthy-host-critical"
+  alarm_name = "${local.csi}-ibs-unhealthy-host-critical"
 
   count               = var.unhealthy_host_alarm_count
   comparison_operator = "GreaterThanOrEqualToThreshold"
@@ -35,13 +35,13 @@ resource "aws_cloudwatch_metric_alarm" "ibs_unhealthyhost_critical" {
   treat_missing_data  = "notBreaching"
 
   dimensions = {
-    TargetGroup = aws_alb_target_group.ibs-8080.arn_suffix
+    TargetGroup  = aws_alb_target_group.ibs-8080.arn_suffix
     LoadBalancer = aws_alb.apps.arn_suffix
   }
 }
 
 resource "aws_cloudwatch_metric_alarm" "obs_unhealthyhost" {
-  alarm_name          = "${local.csi}-obs-unhealthy-host"
+  alarm_name = "${local.csi}-obs-unhealthy-host"
 
   count               = var.unhealthy_host_alarm_count
   comparison_operator = "GreaterThanOrEqualToThreshold"
@@ -62,7 +62,7 @@ resource "aws_cloudwatch_metric_alarm" "obs_unhealthyhost" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "fyndi_unhealthyhost" {
-  alarm_name          = "${local.csi}-fyndi-unhealthy-host"
+  alarm_name = "${local.csi}-fyndi-unhealthy-host"
 
   count               = var.unhealthy_host_alarm_count
   comparison_operator = "GreaterThanOrEqualToThreshold"

@@ -38,7 +38,7 @@ locals {
     ],
   )
 
-  vpc_domain_name = "${var.environment}.${var.private_domain_name}"
+  vpc_domain_name   = "${var.environment}.${var.private_domain_name}"
   trunc_domain_name = "${var.environment}.${var.domain_name}"
 
   # If environment = prod, just use component, else use component-environment

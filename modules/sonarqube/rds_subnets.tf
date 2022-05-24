@@ -22,7 +22,7 @@ resource "aws_db_subnet_group" "sonarqube" {
   )
 
   description = "SonarQube DB"
-  subnet_ids = module.rds_subents.subnet_ids
+  subnet_ids  = module.rds_subents.subnet_ids
 
   tags = merge(
     var.default_tags,

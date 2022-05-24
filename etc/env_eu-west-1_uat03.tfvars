@@ -210,7 +210,7 @@ cpc_efs_subnets_cidrs = [
 # ACTIVE_STANDBY_MULTI_AZ requires 2
 awsmq_subnets_cidrs = [
   "10.167.93.208/28",
-#  "10.167.93.224/28",
+  #  "10.167.93.224/28",
 ]
 
 sftpplus_nlb_subnets_cidrs = [
@@ -256,7 +256,7 @@ batch_efs_subnets_cidrs = [
   "10.167.95.80/28",
 ]
 
-prometheus_subnets_cidrs  = [
+prometheus_subnets_cidrs = [
   "10.167.95.96/28",
   "10.167.95.112/28",
   "10.167.95.128/28",
@@ -297,36 +297,36 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 #############################################################################
 
 ad_peering_enabled = false
-ad_peering_vpc = "vpc-02072cb35506d9b73"
-ad_account = "233824316563"
+ad_peering_vpc     = "vpc-02072cb35506d9b73"
+ad_account         = "233824316563"
 
 # TARSDB
-tars_rds_username = "tarsuatadmin"
+tars_rds_username          = "tarsuatadmin"
 tars_rds_allocated_storage = "300"
-tars_rds_snapshot = "tars-core-tarsdb-20190410-5-4-0-1"
+tars_rds_snapshot          = "tars-core-tarsdb-20190410-5-4-0-1"
 
 
 # CPCSDB
-cpc_rds_username = "cpcadmin"
+cpc_rds_username          = "cpcadmin"
 cpc_rds_allocated_storage = "100"
-cpc_rds_snapshot = "tars-uat01-cpc-cpcdb-2019-05-03-5-5-0-2"
+cpc_rds_snapshot          = "tars-uat01-cpc-cpcdb-2019-05-03-5-5-0-2"
 
 # IBSDB
 ibs_rds_username = "tarsuatadmin"
 ibs_rds_snapshot = "uat01-ibs-subnet-move"
 
 # MISDB
-mis_rds_username = "misdmsadmin"
-mis_rds_allocated_storage = "330"
-mis_rds_snapshot = "tars-uat01-tars-reporting-misdb-20181108"
-mis_rds_autoscale = "False"
+mis_rds_username                = "misdmsadmin"
+mis_rds_allocated_storage       = "330"
+mis_rds_snapshot                = "tars-uat01-tars-reporting-misdb-20181108"
+mis_rds_autoscale               = "False"
 mis_allow_major_version_upgrade = true
 
 # RSISDB
-rsis_rds_username = "tarsrsisadmin"
+rsis_rds_username          = "tarsrsisadmin"
 rsis_rds_allocated_storage = "300"
-rsis_rds_snapshot = "tars-uat01-tars-reporting-rsisdb-20181108"
-rsis_rds_autoscale = "False"
+rsis_rds_snapshot          = "tars-uat01-tars-reporting-rsisdb-20181108"
+rsis_rds_autoscale         = "False"
 
 #############################################################################
 # VPC to DVSA WAN via DX
@@ -358,15 +358,15 @@ private_cert_domain_name = "uat03.nonprod.tars.dev-dvsacloud.uk"
 # Temporary allocation -
 # To be removed when overall range is increased
 apache_subnet_cidrs = [
- "10.167.92.224/28",
- "10.167.92.240/28",
- "10.167.93.96/28",
+  "10.167.92.224/28",
+  "10.167.92.240/28",
+  "10.167.93.96/28",
 ]
 
 whitelist = [
   "135.196.73.204/32",  # DVSA Notts
   "213.160.121.250/32", # DVSA Notts Corp & Wifi
-  "10.201.80.0/21", # DVSA Notts Internal
+  "10.201.80.0/21",     # DVSA Notts Internal
   "10.69.3.64/26",      # DVSA ZPA VPN
   "10.69.131.64/26",    # DVSA ZPA VPN
   "148.253.134.213/32", # BJSS VPN 04/18
@@ -380,21 +380,21 @@ whitelist = [
   "45.64.64.0/22",
   "107.154.0.0/16",
   "45.60.0.0/16",
-  "45.223.0.0/16",      # End Incapsula IPs
-  "54.76.206.25/32",    # Perf01 NATGW IP
-  "10.69.3.15/32",      # Begin DVSA MS-RDS
+  "45.223.0.0/16",   # End Incapsula IPs
+  "54.76.206.25/32", # Perf01 NATGW IP
+  "10.69.3.15/32",   # Begin DVSA MS-RDS
   "10.69.3.16/32",
   "10.69.3.17/32",
   "10.69.3.18/32",
   "10.69.1.70/31",
   "10.84.192.159/32",
-  "10.84.192.161/32",      # End DVSA MS-RDS
-  "85.115.53.201/32",   #DSCALLARDS
-  "80.194.75.82/32",    #DSCALLARDS
-  "34.242.28.119/32",   #MGMT Jenkins for url checks
-  "194.75.245.154/32",  # DAC Digital Access Centre
-  "154.14.88.249/32", # DVSA Notts Corp & Wifi
-  "62.254.63.52/32", # Kainos Zscaler
+  "10.84.192.161/32",  # End DVSA MS-RDS
+  "85.115.53.201/32",  #DSCALLARDS
+  "80.194.75.82/32",   #DSCALLARDS
+  "34.242.28.119/32",  #MGMT Jenkins for url checks
+  "194.75.245.154/32", # DAC Digital Access Centre
+  "154.14.88.249/32",  # DVSA Notts Corp & Wifi
+  "62.254.63.52/32",   # Kainos Zscaler
 ]
 
 mes_api_cidr_block = ["10.21.0.0/16"]
@@ -407,11 +407,11 @@ alert_logic = ""
 rds_cw_metric_alarm_enabled = true
 
 # Enable action for RDS CloudWatch Alarm
-rds_cw_metric_alarm_action_enabled = false
+rds_cw_metric_alarm_action_enabled                  = false
 rds_cw_metric_freestoragespace_alarm_action_enabled = true
 
 #Turn off Prometheus
-prometheus_asg_max_size       = 0
+prometheus_asg_max_size = 0
 
 api_notify = {
   handler                = "notify.handleAsync"

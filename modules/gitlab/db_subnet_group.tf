@@ -8,7 +8,7 @@ resource "aws_db_subnet_group" "gitlab" {
   )
 
   description = "GitLab DB"
-  subnet_ids = module.db_subnets.subnet_ids
+  subnet_ids  = module.db_subnets.subnet_ids
 
   tags = merge(
     var.default_tags,

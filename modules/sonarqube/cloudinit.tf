@@ -4,16 +4,16 @@ data "cloudinit_config" "user_data" {
 
   part {
     content_type = "text/cloud-config"
-    content      = templatefile("${path.module}/templates/cloudinit_config.yaml.tmpl",
+    content = templatefile("${path.module}/templates/cloudinit_config.yaml.tmpl",
       {
         NODETYPE    = "sonarqube"
         DOMAIN_NAME = var.vpc_domain_name
-      })
+    })
   }
 
   part {
     content_type = "text/x-shellscript"
-    content      = templatefile("${path.module}/templates/sonar-config.sh.tmpl", 
+    content = templatefile("${path.module}/templates/sonar-config.sh.tmpl",
       {
         ENVIRONMENT     = var.environment
         NODETYPE        = "sonarqube"
@@ -22,6 +22,6 @@ data "cloudinit_config" "user_data" {
         EBS_VOLUME_ID   = aws_ebs_volume.sonarqube.id
         EBS_DEVICE_NAME = "/dev/xvdg"
         AWS_REGION      = var.region
-      })
+    })
   }
 }

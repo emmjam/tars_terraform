@@ -9,8 +9,8 @@ data "aws_acm_certificate" "holding_pages" {
 }
 
 data "aws_acm_certificate" "reporting_xe_cert" {
-  count    = var.environment == "prod" ? "1" : "0"
-  domain   = "${var.reporting_xe_cert_name}.${var.public_domain_name}"
+  count  = var.environment == "prod" ? "1" : "0"
+  domain = "${var.reporting_xe_cert_name}.${var.public_domain_name}"
   statuses = [
     "ISSUED",
   ]

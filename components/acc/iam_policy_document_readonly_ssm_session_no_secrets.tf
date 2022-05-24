@@ -13,7 +13,7 @@ data "aws_iam_policy_document" "readonly_ssm_session_no_secrets" {
   }
 
   statement {
-    sid    =  "DenySSMSecrets"
+    sid    = "DenySSMSecrets"
     effect = "Deny"
 
     actions = [
@@ -91,7 +91,7 @@ data "aws_iam_policy_document" "readonly_ssm_session_no_secrets" {
   }
 
   statement {
-    sid    =  "AllowSSMTerminateSession"
+    sid    = "AllowSSMTerminateSession"
     effect = "Allow"
 
     actions = [
@@ -104,7 +104,7 @@ data "aws_iam_policy_document" "readonly_ssm_session_no_secrets" {
   }
 
   statement {
-    sid    =  "AllowSSMDescribeSession"
+    sid    = "AllowSSMDescribeSession"
     effect = "Allow"
 
     actions = [

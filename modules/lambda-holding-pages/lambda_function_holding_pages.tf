@@ -1,7 +1,7 @@
 resource "aws_lambda_function" "holding-pages" {
   function_name = "${local.csi}-${var.name}"
 
-  depends_on = [data.archive_file.holing-pages-inline]
+  depends_on  = [data.archive_file.holing-pages-inline]
   description = "${var.name} Lambda function"
 
   filename         = data.archive_file.holing-pages-inline.output_path

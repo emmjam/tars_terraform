@@ -6,7 +6,7 @@ resource "aws_db_option_group" "mis" {
     var.environment,
     "option-group",
   )
-  
+
   option_group_description = "Terraform Option Group"
   engine_name              = "oracle-se2"
   major_engine_version     = "12.1"
@@ -25,14 +25,14 @@ resource "aws_db_option_group" "mis" {
   }
 
   option {
-  option_name = "S3_INTEGRATION"
-  version     = "1.0"
+    option_name = "S3_INTEGRATION"
+    version     = "1.0"
   }
 
   option {
     option_name = "SQLT"
   }
- 
+
   option {
     option_name = "SSL"
     option_settings {

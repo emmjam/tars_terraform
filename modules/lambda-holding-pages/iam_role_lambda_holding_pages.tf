@@ -3,7 +3,7 @@ resource "aws_iam_role" "lambda_holding_pages" {
   assume_role_policy = data.aws_iam_policy_document.lambda_holding_pages_assumerole.json
 
   tags = merge(
-   local.default_tags,
+    local.default_tags,
     tomap({
       "Name" = "${local.csi}/${var.module}",
     }),

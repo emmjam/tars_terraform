@@ -19,55 +19,55 @@ variable "table_name" {
 }
 
 variable "read_capacity" {
-  type = string
+  type        = string
   description = "Read capacity of dynamodb"
 }
 
 variable "write_capacity" {
-  type = string
+  type        = string
   description = "Write capacity of dynamodb"
 }
 
 variable "billing_mode" {
-  type = string
+  type        = string
   description = "Billing mode type"
-  default = "PAY_PER_REQUEST"
+  default     = "PAY_PER_REQUEST"
 }
 
 variable "hash_key" {
-  type = string
+  type        = string
   description = "Hash key for dynamodb"
 }
 
 variable "range_key" {
-  type = string
+  type        = string
   description = "Range key for dynamodb"
 }
 
 variable "sns_topic_arns" {
-  type = list
+  type        = list(any)
   description = "SNS topic arn for subscription"
 }
 
 variable "default_tags" {
-  type = map
+  type        = map(any)
   description = "Map of default tags to apply to all taggable resources within the module"
 }
 
 variable "aws_account_id" {
-  type = string
+  type        = string
   description = "The AWS Account ID (numeric)"
 }
 
 variable "name" {
-  type = string
+  type        = string
   description = "A unique name to distinguish this module invocation from others within the     same CSI scope"
 }
 
 variable "module" {
-  type = string
+  type        = string
   description = "The name of this module. Should only be set here"
-  default = "lambda-bounced-email-report"
+  default     = "lambda-bounced-email-report"
 }
 
 variable "bounced_email_s3_bucket" {

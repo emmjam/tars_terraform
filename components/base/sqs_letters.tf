@@ -1,9 +1,9 @@
 resource "aws_sqs_queue" "printgovnotify" {
-  name       = "${local.csi}-Queue-PrintGovNotify.fifo"
- 
+  name = "${local.csi}-Queue-PrintGovNotify.fifo"
+
   receive_wait_time_seconds         = 10
-  fifo_queue                  = true
-  content_based_deduplication = true
+  fifo_queue                        = true
+  content_based_deduplication       = true
   kms_master_key_id                 = aws_kms_alias.print_key_alias.id
   kms_data_key_reuse_period_seconds = 3600
 

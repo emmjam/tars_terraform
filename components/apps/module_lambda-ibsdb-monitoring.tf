@@ -15,19 +15,19 @@ module "lambda_ibsdb_monitoring" {
   memory_size = "128"
   timeout     = "10"
 
-  vpc_id                       = data.terraform_remote_state.base.outputs.vpc_id
-  subnet_ids                   = module.ibs.subnet_ids
-  additional_security_groups   = [data.terraform_remote_state.base.outputs.core_sg_id]
+  vpc_id                     = data.terraform_remote_state.base.outputs.vpc_id
+  subnet_ids                 = module.ibs.subnet_ids
+  additional_security_groups = [data.terraform_remote_state.base.outputs.core_sg_id]
 
   principal_service  = "events"
   invoker_source_arn = aws_cloudwatch_event_rule.ibsdb_monitoring.arn
 
   env_variables = {
-    ENVIRONMENT = var.environment
-    MYSQL_HOST = aws_rds_cluster.ibsdb_cluster.reader_endpoint
-    MYSQL_DB_NAME = "ibsappdb"
+    ENVIRONMENT        = var.environment
+    MYSQL_HOST         = aws_rds_cluster.ibsdb_cluster.reader_endpoint
+    MYSQL_DB_NAME      = "ibsappdb"
     MYSQL_USERNAME_KEY = "ibsdb/ibsappuser/username"
-    MYSQL_PASSWORD_KEY ="ibsdb/ibsappuser/password"
+    MYSQL_PASSWORD_KEY = "ibsdb/ibsappuser/password"
   }
 
   cwlg_retention_in_days = "7"

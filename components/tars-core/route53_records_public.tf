@@ -14,7 +14,7 @@ resource "aws_route53_record" "tars-core-public" {
 
 
 resource "aws_route53_record" "tars-dvsa-private" {
-  name = format("%s-%s-%s", var.project, var.environment, "public")
+  name    = format("%s-%s-%s", var.project, var.environment, "public")
   zone_id = data.terraform_remote_state.ctrl.outputs.private_r53_zone[0]
   type    = "A"
 
@@ -80,7 +80,7 @@ resource "aws_route53_record" "irdt-public" {
 }
 
 resource "aws_route53_record" "irdt-private" {
-  name = format("%s-%s-%s", "irdt", var.environment, "public")
+  name    = format("%s-%s-%s", "irdt", var.environment, "public")
   zone_id = data.terraform_remote_state.ctrl.outputs.private_r53_zone[0]
   type    = "A"
 
@@ -107,7 +107,7 @@ resource "aws_route53_record" "payments-public" {
 }
 
 resource "aws_route53_record" "payments-private" {
-  name = format("%s-%s-%s", "payments", var.environment, "public")
+  name    = format("%s-%s-%s", "payments", var.environment, "public")
   zone_id = data.terraform_remote_state.ctrl.outputs.private_r53_zone[0]
   type    = "A"
 
@@ -120,8 +120,8 @@ resource "aws_route53_record" "payments-private" {
 
 #UAT02
 resource "aws_route53_record" "incapsula-frontend" {
-  count   = var.environment == "uat02" ? 1 : 0
-  name    = format("%s-%s-%s", "incapsula", var.environment, "public")
+  count = var.environment == "uat02" ? 1 : 0
+  name  = format("%s-%s-%s", "incapsula", var.environment, "public")
 
   zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
   type    = "CNAME"
@@ -133,8 +133,8 @@ resource "aws_route53_record" "incapsula-frontend" {
 }
 
 resource "aws_route53_record" "incapsula-frontend-private" {
-  count   = var.environment == "uat02" ? 1 : 0
-  name    = format("%s-%s-%s", "incapsula", var.environment, "public")
+  count = var.environment == "uat02" ? 1 : 0
+  name  = format("%s-%s-%s", "incapsula", var.environment, "public")
 
   zone_id = data.terraform_remote_state.ctrl.outputs.private_r53_zone[0]
   type    = "CNAME"

@@ -4,16 +4,16 @@ data "cloudinit_config" "prometheus" {
 
   part {
     content_type = "text/cloud-config"
-    content      = templatefile("${path.module}/templates/cloudinit_common.yaml.tmpl", 
+    content = templatefile("${path.module}/templates/cloudinit_common.yaml.tmpl",
       {
         NODETYPE    = "prometheus"
         DOMAIN_NAME = local.vpc_domain_name
-      })
+    })
   }
 
   part {
     content_type = "text/x-shellscript"
-    content      = templatefile("${path.module}/templates/prometheus_setup.sh.tmpl", 
+    content = templatefile("${path.module}/templates/prometheus_setup.sh.tmpl",
       {
         NODETYPE       = "prometheus"
         ENVIRONMENT    = var.environment
@@ -23,7 +23,7 @@ data "cloudinit_config" "prometheus" {
         EFS_ID         = aws_efs_file_system.prometheus.id
         MOUNT_POINT    = "/var/lib/prometheus"
         LOG_GROUP      = local.prometheus_log
-        DOMAIN_NAME = local.vpc_domain_name
-      })
+        DOMAIN_NAME    = local.vpc_domain_name
+    })
   }
 }

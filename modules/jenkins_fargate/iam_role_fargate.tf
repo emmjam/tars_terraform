@@ -9,6 +9,6 @@ resource "aws_iam_role" "fargate" {
       "Name"      = "${local.csi}-fargate"
       "Component" = var.component
     },
-  ) 
+  )
 }
 

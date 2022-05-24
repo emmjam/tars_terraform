@@ -11,14 +11,14 @@ resource "aws_acm_certificate" "reporting_xe_cert" {
 resource "aws_route53_record" "reporting_xe_cert" {
   for_each = {
     for dvo in flatten([
-      for cert in aws_acm_certificate.reporting_xe_cert: cert.domain_validation_options
-    ]): dvo.domain_name => {
+      for cert in aws_acm_certificate.reporting_xe_cert : cert.domain_validation_options
+      ]) : dvo.domain_name => {
       name   = dvo.resource_record_name
       record = dvo.resource_record_value
       type   = dvo.resource_record_type
     }
   }
-  
+
 
   allow_overwrite = true
   name            = each.value.name

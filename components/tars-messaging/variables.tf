@@ -88,9 +88,9 @@ variable "asg_enabled_metrics" {
 }
 
 variable "asg_default_tags" {
-  type        = list(object({
-    key = string
-    value = string
+  type = list(object({
+    key                 = string
+    value               = string
     propagate_at_launch = string
   }))
   description = "See code comments"
@@ -112,7 +112,7 @@ variable "lc_key_name" {
 variable "ami_build_id" {
   type        = string
   description = "TARS Messaging AMI build ID"
-  default = ""
+  default     = ""
 }
 
 variable "aws_account_id" {
@@ -230,7 +230,7 @@ variable "opsgenie_endpoint" {
 variable "wms_host_alarm_count" {
   type        = string
   description = "Number of alarms to have in this account"
-  default = "0"
+  default     = "0"
 }
 
 variable "wildfly_messaging_id" {
@@ -257,12 +257,12 @@ variable "cpu_utilization_evaluation_periods" {
 }
 
 variable "messaging_print" {
-  type        = string 
+  type        = string
   description = "Enable DVSA printers for messgaing"
 }
 
 variable "wildfly-messaging_ebs_vol" {
-  type        = string 
+  type        = string
   description = "EBS Volumes size for messaging instances"
   default     = 50
 }

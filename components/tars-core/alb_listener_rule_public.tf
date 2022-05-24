@@ -4,19 +4,19 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_1" {
   priority     = "5"
 
   action {
-    type             = "redirect"
+    type = "redirect"
     redirect {
       #host            = #{host}
-      path             = "/DSAWeb"
-      port             = 443
-      protocol         = "HTTPS"
-      query            = "TYPE=true"
-      status_code      = "HTTP_302"
+      path        = "/DSAWeb"
+      port        = 443
+      protocol    = "HTTPS"
+      query       = "TYPE=true"
+      status_code = "HTTP_302"
     }
   }
   condition {
     path_pattern {
-    values = ["/irdta"]
+      values = ["/irdta"]
     }
   }
 
@@ -31,20 +31,20 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_2" {
   priority     = "10"
 
   action {
-    type             = "redirect"
+    type = "redirect"
     redirect {
       #host            = #{host}
-      path             = "/DSAWeb/#{path}"
-      port             = 443
-      protocol         = "HTTPS"
+      path     = "/DSAWeb/#{path}"
+      port     = 443
+      protocol = "HTTPS"
       #query           = #{query}
-      status_code      = "HTTP_302"
+      status_code = "HTTP_302"
     }
   }
 
   condition {
     path_pattern {
-    values = ["/irdta/"]
+      values = ["/irdta/"]
     }
   }
 
@@ -59,20 +59,20 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_3" {
   priority     = "15"
 
   action {
-    type             = "redirect"
+    type = "redirect"
     redirect {
       #host            = #{host}
-      path             = "/DSAWeb"
-      port             = 443
-      protocol         = "HTTPS"
-      query            = "TYPE=true"
-      status_code      = "HTTP_302"
+      path        = "/DSAWeb"
+      port        = 443
+      protocol    = "HTTPS"
+      query       = "TYPE=true"
+      status_code = "HTTP_302"
     }
   }
 
   condition {
     path_pattern {
-    values = ["/DSAWeb/irdta"]
+      values = ["/DSAWeb/irdta"]
     }
   }
 
@@ -87,20 +87,20 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_4" {
   priority     = "20"
 
   action {
-    type             = "redirect"
+    type = "redirect"
     redirect {
       #host            = #{host}
-      path             = "/DSAWeb/irdtatb"
-      port             = 443
-      protocol         = "HTTPS"
-      query            = ""
-      status_code      = "HTTP_302"
+      path        = "/DSAWeb/irdtatb"
+      port        = 443
+      protocol    = "HTTPS"
+      query       = ""
+      status_code = "HTTP_302"
     }
   }
- 
+
   condition {
     path_pattern {
-    values = ["/irdtatb"]
+      values = ["/irdtatb"]
     }
   }
 
@@ -115,20 +115,20 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_5" {
   priority     = "25"
 
   action {
-    type             = "redirect"
+    type = "redirect"
     redirect {
       #host            = #{host}
-      path             = "/DSAWeb/#{path}"
-      port             = 443
-      protocol         = "HTTPS"
+      path     = "/DSAWeb/#{path}"
+      port     = 443
+      protocol = "HTTPS"
       #query           = #{query}
-      status_code      = "HTTP_302"
+      status_code = "HTTP_302"
     }
   }
 
   condition {
     path_pattern {
-    values = ["/irdtatb/"]
+      values = ["/irdtatb/"]
     }
   }
 
@@ -143,20 +143,20 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_6" {
   priority     = "30"
 
   action {
-    type             = "redirect"
+    type = "redirect"
     redirect {
       #host            = #{host}
-      path             = "/DSAWeb/irdtm"
-      port             = 443
-      protocol         = "HTTPS"
-      query            = ""
-      status_code      = "HTTP_302"
+      path        = "/DSAWeb/irdtm"
+      port        = 443
+      protocol    = "HTTPS"
+      query       = ""
+      status_code = "HTTP_302"
     }
   }
 
   condition {
     path_pattern {
-    values = ["/irdtm"]
+      values = ["/irdtm"]
     }
   }
 
@@ -171,20 +171,20 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_7" {
   priority     = "35"
 
   action {
-    type             = "redirect"
+    type = "redirect"
     redirect {
       #host            = #{host}
-      path             = "/DSAWeb/#{path}"
-      port             = 443
-      protocol         = "HTTPS"
+      path     = "/DSAWeb/#{path}"
+      port     = 443
+      protocol = "HTTPS"
       #query           = #{query}
-      status_code      = "HTTP_302"
+      status_code = "HTTP_302"
     }
   }
 
   condition {
     path_pattern {
-    values = ["/irdtm/"]
+      values = ["/irdtm/"]
     }
   }
 
@@ -205,7 +205,7 @@ resource "aws_lb_listener_rule" "irdt_proxy" {
 
   condition {
     path_pattern {
-    values = ["/DSAWeb/*"]
+      values = ["/DSAWeb/*"]
     }
   }
 
@@ -220,20 +220,20 @@ resource "aws_lb_listener_rule" "rewrite_obsweb_1" {
   priority     = "45"
 
   action {
-    type             = "redirect"
+    type = "redirect"
     redirect {
       #host            = #{host}
-      path             = "/obs-web"
-      port             = 443
-      protocol         = "HTTPS"
+      path     = "/obs-web"
+      port     = 443
+      protocol = "HTTPS"
       #query           = #{query}
-      status_code      = "HTTP_302"
+      status_code = "HTTP_302"
     }
   }
 
   condition {
     path_pattern {
-    values = ["/obs/"]
+      values = ["/obs/"]
     }
   }
 
@@ -248,20 +248,20 @@ resource "aws_lb_listener_rule" "rewrite_obsweb_2" {
   priority     = "50"
 
   action {
-    type             = "redirect"
+    type = "redirect"
     redirect {
       #host            = #{host}
-      path             = "/obs-web/pages/home"
-      port             = 443
-      protocol         = "HTTPS"
-      query            = ""
-      status_code      = "HTTP_302"
+      path        = "/obs-web/pages/home"
+      port        = 443
+      protocol    = "HTTPS"
+      query       = ""
+      status_code = "HTTP_302"
     }
   }
 
   condition {
     path_pattern {
-    values = ["/obs"]
+      values = ["/obs"]
     }
   }
 
@@ -282,7 +282,7 @@ resource "aws_lb_listener_rule" "obs_proxy" {
 
   condition {
     path_pattern {
-    values = ["/obs-web/*"]
+      values = ["/obs-web/*"]
     }
   }
 
@@ -297,20 +297,20 @@ resource "aws_lb_listener_rule" "rewrite_cpc_1" {
   priority     = "60"
 
   action {
-    type             = "redirect"
+    type = "redirect"
     redirect {
       #host            = #{host}
-      path             = "/cpctrain/delegatedTest"
-      port             = 443
-      protocol         = "HTTPS"
-      query            = ""
-      status_code      = "HTTP_302"
+      path        = "/cpctrain/delegatedTest"
+      port        = 443
+      protocol    = "HTTPS"
+      query       = ""
+      status_code = "HTTP_302"
     }
   }
 
   condition {
     path_pattern {
-    values = ["/delegated"]
+      values = ["/delegated"]
     }
   }
 
@@ -325,20 +325,20 @@ resource "aws_lb_listener_rule" "rewrite_cpc_2" {
   priority     = "65"
 
   action {
-    type             = "redirect"
+    type = "redirect"
     redirect {
       #host            = #{host}
-      path             = "/cpctrain/delegatedTest"
-      port             = 443
-      protocol         = "HTTPS"
+      path     = "/cpctrain/delegatedTest"
+      port     = 443
+      protocol = "HTTPS"
       #query            = #{query}
-      status_code      = "HTTP_302"
+      status_code = "HTTP_302"
     }
   }
 
   condition {
     path_pattern {
-    values = ["/delegated/"]
+      values = ["/delegated/"]
     }
   }
 
@@ -352,20 +352,20 @@ resource "aws_lb_listener_rule" "rewrite_cpc_3" {
   priority     = "70"
 
   action {
-    type             = "redirect"
+    type = "redirect"
     redirect {
       #host            = #{host}
-      path             = "/cpcode/"
-      port             = 443
-      protocol         = "HTTPS"
+      path     = "/cpcode/"
+      port     = 443
+      protocol = "HTTPS"
       #query            = #{query}
-      status_code      = "HTTP_302"
+      status_code = "HTTP_302"
     }
   }
 
   condition {
     path_pattern {
-    values = ["/cpcode"]
+      values = ["/cpcode"]
     }
   }
 
@@ -379,20 +379,20 @@ resource "aws_lb_listener_rule" "rewrite_cpc_4" {
   priority     = "72"
 
   action {
-    type             = "redirect"
+    type = "redirect"
     redirect {
       #host            = #{host}
-      path             = "/cpctrain/"
-      port             = 443
-      protocol         = "HTTPS"
+      path     = "/cpctrain/"
+      port     = 443
+      protocol = "HTTPS"
       #query            = #{query}
-      status_code      = "HTTP_302"
+      status_code = "HTTP_302"
     }
   }
 
   condition {
     path_pattern {
-    values = ["/cpctrain"]
+      values = ["/cpctrain"]
     }
   }
 
@@ -413,7 +413,7 @@ resource "aws_lb_listener_rule" "cpc_proxy1" {
 
   condition {
     path_pattern {
-    values = ["/cpctrain/*"]
+      values = ["/cpctrain/*"]
     }
   }
 
@@ -434,7 +434,7 @@ resource "aws_lb_listener_rule" "cpc_proxy2" {
 
   condition {
     path_pattern {
-    values = ["/cpcode/*"]
+      values = ["/cpcode/*"]
     }
   }
 

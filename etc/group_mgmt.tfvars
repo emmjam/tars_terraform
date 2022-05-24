@@ -141,7 +141,7 @@ readonly_tssops_users = [
 administrators_platform_users = [
 ]
 
- administrators_platform_nonprod_users = [
+administrators_platform_nonprod_users = [
   "tom.bibb@bjss.com",
   "michelle.pike@bjss.com",
   "michael.tribbick@bjss.com",
@@ -150,7 +150,7 @@ administrators_platform_users = [
   "costa.vorontsov@bjss.com",
   "nadeem.khan@bjss.com",
   "ian.davies@bjss.com",
- ]
+]
 readonly_platform_users = [
   "tom.bibb@bjss.com",
   "michelle.pike@bjss.com",
@@ -231,7 +231,7 @@ db_cw_users = [
 
 # TSS Dashboard
 tss_cw_users = [
-"tss-dashboard",
+  "tss-dashboard",
 ]
 
 # Rsis Tif bucket Access

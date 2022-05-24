@@ -5,7 +5,7 @@ resource "aws_cloudwatch_log_group" "lambda_holding_pages" {
   tags = merge(
     local.default_tags,
     tomap({
-      "Name" = "${local.csi}/${var.name}",
+      "Name"   = "${local.csi}/${var.name}",
       "Module" = var.module,
     })
   )

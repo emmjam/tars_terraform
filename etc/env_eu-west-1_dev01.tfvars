@@ -259,7 +259,7 @@ bobj_subnets_cidrs = [
   "10.167.31.0/28",
 ]
 
-prometheus_subnets_cidrs  = [
+prometheus_subnets_cidrs = [
   "10.167.31.16/28",
   "10.167.31.32/28",
   "10.167.31.48/28",
@@ -303,15 +303,15 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 ##
 
 # TARSDB
-tars_rds_username = "tarsdevadmin"
+tars_rds_username          = "tarsdevadmin"
 tars_rds_allocated_storage = "90" # 20 Gigabyte - was 1500GB
-tars_rds_snapshot = "tars-dev01-tars-core-tarsdb-5-4-2019-5-7-0-2"
+tars_rds_snapshot          = "tars-dev01-tars-core-tarsdb-5-4-2019-5-7-0-2"
 
 
 # CPCSDB
-cpc_rds_username = "tarscpcadmin"
+cpc_rds_username          = "tarscpcadmin"
 cpc_rds_allocated_storage = "20" # 20 Gigabyte - was 1500GB
-cpc_rds_snapshot = "tars-dev01-cpc-cpcdb-5-4-2019-5-7-0-2"
+cpc_rds_snapshot          = "tars-dev01-cpc-cpcdb-5-4-2019-5-7-0-2"
 
 
 # IBSDB
@@ -319,17 +319,17 @@ ibs_rds_username = "ibsdevadmin"
 ibs_rds_snapshot = "dev01-ibs-subnet-move"
 
 # MISDB
-mis_rds_username = "misdmsadmin"
+mis_rds_username          = "misdmsadmin"
 mis_rds_allocated_storage = "300"
-mis_rds_snapshot = "tars-dev01-tars-dms-misopdmstg-20180720"
+mis_rds_snapshot          = "tars-dev01-tars-dms-misopdmstg-20180720"
 
 # RSISDB
-rsis_rds_username = "tarsrsisadmin"
-rsis_rds_allocated_storage = "80"
-rsis_rds_snapshot = "tars-dev01-tars-dms-rsisdmssc-20180719"
-rsis_rds_engine_version = "19.0.0.0.ru"
-rsis_rds_parameter_group_name = "rsisdb-19c"
-rsis_rds_option_group_name = "option-group-19c"
+rsis_rds_username                = "tarsrsisadmin"
+rsis_rds_allocated_storage       = "80"
+rsis_rds_snapshot                = "tars-dev01-tars-dms-rsisdmssc-20180719"
+rsis_rds_engine_version          = "19.0.0.0.ru"
+rsis_rds_parameter_group_name    = "rsisdb-19c"
+rsis_rds_option_group_name       = "option-group-19c"
 rsis_allow_major_version_upgrade = true
 
 #############################################################################
@@ -347,8 +347,8 @@ transit_peering_enabled = false
 #############################################################################
 
 ad_peering_enabled = true
-ad_peering_vpc = "vpc-02072cb35506d9b73"
-ad_account = "233824316563"
+ad_peering_vpc     = "vpc-02072cb35506d9b73"
+ad_account         = "233824316563"
 
 # These names will be added to our private zone so we can resolve them.
 dsa-drora-db-rac01 = "10.86.192.16"
@@ -417,7 +417,7 @@ alert_logic = ""
 rds_cw_metric_alarm_enabled = true
 
 # Enable action for RDS CloudWatch Alarm
-rds_cw_metric_alarm_action_enabled = false
+rds_cw_metric_alarm_action_enabled                  = false
 rds_cw_metric_freestoragespace_alarm_action_enabled = true
 
 ## Messaging
@@ -446,7 +446,7 @@ apache_scaleup_desired        = 0
 
 
 api_notify = {
-  handler                = "notify.handleAsync"
+  handler = "notify.handleAsync"
   #s3_key_prefix          = "functions/notify"
   s3_key_prefix          = "lambda-repo/packages/gov-notify/tars-gov-notify"
   memory_size            = 128

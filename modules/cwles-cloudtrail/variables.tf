@@ -35,8 +35,8 @@ variable "s3_bucketlogs_bucket_id" {
 }
 
 variable "custom_metrics" {
-  type        = list(object({
-    name = string
+  type = list(object({
+    name   = string
     filter = string
   }))
   description = "A list of maps containing, name, filter and alarm_description for CloudTrail custom metrics - pushing a metric value of 1 when the log filter is met"

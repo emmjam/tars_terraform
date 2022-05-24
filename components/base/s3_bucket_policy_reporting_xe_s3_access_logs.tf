@@ -1,5 +1,5 @@
 resource "aws_s3_bucket_policy" "reporting_xe_s3_access_logs" {
-  count = var.reporting_xe_count
+  count  = var.reporting_xe_count
   bucket = module.access_logs_bucket[count.index].id
 
   policy = jsonencode({

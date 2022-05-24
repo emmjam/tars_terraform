@@ -8,17 +8,17 @@ resource "aws_launch_template" "tars-mock" {
 
   instance_market_options {
     market_type = "spot"
-      spot_options {
-        max_price   = var.rhel_spot_pricing[var.wildfly-mock_instance_type]
-      }
+    spot_options {
+      max_price = var.rhel_spot_pricing[var.wildfly-mock_instance_type]
+    }
   }
 
   block_device_mappings {
     device_name = "/dev/xvda"
-      ebs {
-        volume_size = 8
-        volume_type = var.lc_volume_type
-      }
+    ebs {
+      volume_size = 8
+      volume_type = var.lc_volume_type
+    }
   }
 
   vpc_security_group_ids = [
@@ -41,11 +41,11 @@ resource "aws_launch_template" "tars-mock" {
       var.default_tags,
       {
         "Name" = format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        "mock",
+          "%s-%s-%s/%s",
+          var.project,
+          var.environment,
+          var.component,
+          "mock",
         )
         "Nodetype" = "mock"
       },

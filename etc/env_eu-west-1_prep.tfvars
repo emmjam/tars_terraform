@@ -264,7 +264,7 @@ bobj_subnets_cidrs = [
   "10.167.143.0/28",
 ]
 
-prometheus_subnets_cidrs  = [
+prometheus_subnets_cidrs = [
   "10.167.143.16/28",
   "10.167.143.32/28",
   "10.167.143.48/28",
@@ -308,28 +308,28 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 ##
 
 # TARSDB
-tars_rds_username = "tarsadmin"
-tars_rds_allocated_storage = "550"
-tars_rds_snapshot = "tars-prod-tars-core-tarsdb-20190228"
+tars_rds_username            = "tarsadmin"
+tars_rds_allocated_storage   = "550"
+tars_rds_snapshot            = "tars-prod-tars-core-tarsdb-20190228"
 tars_rds_skip_final_snapshot = true
 
 # MISDB
-mis_rds_username = "misuatadmin"
-mis_rds_allocated_storage = "500"
-mis_rds_snapshot = "tars-prod1-tars-reporting-misdb-241018"
-mis_rds_skip_final_snapshot = true
+mis_rds_username                = "misuatadmin"
+mis_rds_allocated_storage       = "500"
+mis_rds_snapshot                = "tars-prod1-tars-reporting-misdb-241018"
+mis_rds_skip_final_snapshot     = true
 mis_allow_major_version_upgrade = true
 
 # RSISDB
-rsis_rds_username = "tarsrsisadmin"
-rsis_rds_allocated_storage = "300"
-rsis_rds_snapshot = "tars-prod1-tars-reporting-rsisdb-241018"
+rsis_rds_username            = "tarsrsisadmin"
+rsis_rds_allocated_storage   = "300"
+rsis_rds_snapshot            = "tars-prod1-tars-reporting-rsisdb-241018"
 rsis_rds_skip_final_snapshot = true
 
 # CPCSDB
-cpc_rds_username = "cpcadmin"
-cpc_rds_allocated_storage = "100"
-cpc_rds_snapshot = "rds:tars-prod-cpc-cpcdb-2018-12-17-02-49"
+cpc_rds_username            = "cpcadmin"
+cpc_rds_allocated_storage   = "100"
+cpc_rds_snapshot            = "rds:tars-prod-cpc-cpcdb-2018-12-17-02-49"
 cpc_rds_skip_final_snapshot = true
 
 # IBSDB
@@ -351,8 +351,8 @@ transit_peering_enabled = false
 #############################################################################
 
 ad_peering_enabled = false
-ad_peering_vpc = "vpc-02072cb35506d9b73"
-ad_account = "233824316563"
+ad_peering_vpc     = "vpc-02072cb35506d9b73"
+ad_account         = "233824316563"
 
 # DHCP Scope options for DNS
 
@@ -365,24 +365,24 @@ domain_name_servers = [
 
 private_cert_domain_name = "prep.live.tars.dvsacloud.uk"
 
-cpc_internet_cert       = "tars-prep-cpc-internet"
-cpc_dvsa_internet_cert  = "tars-prep-cpc-dvsa-internet"
-cpc_cert                = "cpc-prep"
-cpc_private_cert        = "*"
-fyndi_cert              = "fyndi-prep-public"
-tars_cert               = "tars-prep-public"
-payments_cert_name      = "payments-prep-public"
-tars_private_cert       = "*"
-tars_pdf_cert           = "*"
-obs_cert                = "obs-prep-public"
-ibs_cert                = "ibs-prep-public"
-irdt_cert               = "irdt-prep-public"
-apache_cert             = "routing-prep-public"
-bobj-server             = "*"
-holding_pages_cert      = "maintenance-prod"
+cpc_internet_cert      = "tars-prep-cpc-internet"
+cpc_dvsa_internet_cert = "tars-prep-cpc-dvsa-internet"
+cpc_cert               = "cpc-prep"
+cpc_private_cert       = "*"
+fyndi_cert             = "fyndi-prep-public"
+tars_cert              = "tars-prep-public"
+payments_cert_name     = "payments-prep-public"
+tars_private_cert      = "*"
+tars_pdf_cert          = "*"
+obs_cert               = "obs-prep-public"
+ibs_cert               = "ibs-prep-public"
+irdt_cert              = "irdt-prep-public"
+apache_cert            = "routing-prep-public"
+bobj-server            = "*"
+holding_pages_cert     = "maintenance-prod"
 
 ## eildly-back prep scaling
-wildfly-back_asg_max_size         = 2
+wildfly-back_asg_max_size = 2
 
 ## wildfly-batch temporary 'off' schedule
 wildfly-batch_asg_min_size         = 0
@@ -411,18 +411,18 @@ sftpplus-svr_scaleup_recurrence   = "00 04 * * 1-5"
 # Temporarily pointed at the app LBs as
 # incapsula won't issue a site without the
 # DNS records already existing. Catch 22.
-dsa_incap_cname              = "routing-prep-public.prod.tars.dvsacloud.uk"
-findnearest_incap_cname      = "fyndi-prep-public.prod.tars.dvsacloud.uk"
-riverpractical_incap_cname   = "ibs-prep-public.prod.tars.dvsacloud.uk"
+dsa_incap_cname            = "routing-prep-public.prod.tars.dvsacloud.uk"
+findnearest_incap_cname    = "fyndi-prep-public.prod.tars.dvsacloud.uk"
+riverpractical_incap_cname = "ibs-prep-public.prod.tars.dvsacloud.uk"
 
-bobj_cert               = "bobj-prep"
+bobj_cert = "bobj-prep"
 
 #RDS Deletion Protection
-tars_rds_delete_protect = false
-cpc_rds_delete_protect = false
+tars_rds_delete_protect      = false
+cpc_rds_delete_protect       = false
 ibsdb_cluster_delete_protect = false
-misdb_rds_delete_protect = false
-risdb_rds_delete_protect = false
+misdb_rds_delete_protect     = false
+risdb_rds_delete_protect     = false
 
 mes_db_cidr_block = [
   "10.201.20.0/28",
@@ -449,7 +449,7 @@ sftpplus_topic_count = "0"
 rds_cw_metric_alarm_enabled = true
 
 # Enable action for RDS CloudWatch Alarm
-rds_cw_metric_alarm_action_enabled = false
+rds_cw_metric_alarm_action_enabled                  = false
 rds_cw_metric_freestoragespace_alarm_action_enabled = true
 
 ## Elasticache
@@ -468,7 +468,7 @@ rsis_rds_instance_class = "db.t3.medium"
 cpc_rds_instance_class = "db.t3.medium"
 
 #Monitoring
-prometheus_asg_min_size = 0
+prometheus_asg_min_size  = 0
 prometheus_instance_type = "m3.medium"
 
 ## wildfly-back
@@ -481,16 +481,16 @@ wildfly-batch_instance_type = "m3.medium"
 wildfly-front_instance_type = "m3.medium"
 
 ## obs
-obs_instance_type        = "m3.medium"
-obs_asg_max_size         = 2
-obs_scaledown_desired    = 2
-obs_scaleup_desired       = 2
+obs_instance_type     = "m3.medium"
+obs_asg_max_size      = 2
+obs_scaledown_desired = 2
+obs_scaleup_desired   = 2
 
 ## ibs
-ibs_instance_type  = "m3.medium"
-ibs_asg_max_size         = 2
-ibs_scaledown_desired    = 2
-ibs_scaleup_desired      = 2
+ibs_instance_type     = "m3.medium"
+ibs_asg_max_size      = 2
+ibs_scaledown_desired = 2
+ibs_scaleup_desired   = 2
 
 #ibsdb
 ibs_rds_instance_class = "db.t2.small"
@@ -532,7 +532,7 @@ aws_autoscaling_enabled = "0"
 ibs_high_cpu_cw_metric_alarm_enabled = false
 
 #Turn off Prometheus
-prometheus_asg_max_size       = 0
+prometheus_asg_max_size = 0
 
 api_notify = {
   handler                = "notify.handleAsync"

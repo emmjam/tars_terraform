@@ -4,16 +4,16 @@ data "cloudinit_config" "sftpplus_svr" {
 
   part {
     content_type = "text/cloud-config"
-    content      = templatefile("${path.module}/templates/cloudinit_common.yaml.tmpl", 
+    content = templatefile("${path.module}/templates/cloudinit_common.yaml.tmpl",
       {
         NODETYPE    = "sftpplus_svr"
         DOMAIN_NAME = local.vpc_domain_name
-      })
+    })
   }
 
   part {
     content_type = "text/x-shellscript"
-    content      = templatefile("${path.module}/templates/sftpplus_svr_setup.sh.tmpl", 
+    content = templatefile("${path.module}/templates/sftpplus_svr_setup.sh.tmpl",
       {
         ENVIRONMENT    = var.environment
         NODETYPE       = var.sftpplus-svr_puppet_nodetype
@@ -22,6 +22,6 @@ data "cloudinit_config" "sftpplus_svr" {
         EFS_ID         = aws_efs_file_system.sftpplus.id
         MOUNT_POINT    = "/efs"
         LOG_GROUP      = local.sftpplus_log
-      })
+    })
   }
 }

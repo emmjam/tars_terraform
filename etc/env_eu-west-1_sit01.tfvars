@@ -256,7 +256,7 @@ bobj_subnets_cidrs = [
   "10.167.23.0/28",
 ]
 
-prometheus_subnets_cidrs  = [
+prometheus_subnets_cidrs = [
   "10.167.23.16/28",
   "10.167.23.32/28",
   "10.167.23.48/28",
@@ -303,41 +303,41 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 #############################################################################
 
 ad_peering_enabled = true
-ad_peering_vpc = "vpc-02072cb35506d9b73"
-ad_account = "233824316563"
+ad_peering_vpc     = "vpc-02072cb35506d9b73"
+ad_account         = "233824316563"
 
 # TARSDB
-tars_rds_username = "tarsuatadmin"
-tars_rds_snapshot = "tars-core-tarsdb-20190410-5-4-0-1"
+tars_rds_username          = "tarsuatadmin"
+tars_rds_snapshot          = "tars-core-tarsdb-20190410-5-4-0-1"
 tars_rds_allocated_storage = "350"
-tars_rds_backup_retention = "21"
+tars_rds_backup_retention  = "21"
 
 # CPCDB
-cpc_rds_username = "cpcadmin"
+cpc_rds_username          = "cpcadmin"
 cpc_rds_allocated_storage = "150"
-cpc_rds_snapshot = "cpc-cpcdb-20190315-5-4-0-1"
-cpc_rds_backup_retention = "21"
+cpc_rds_snapshot          = "cpc-cpcdb-20190315-5-4-0-1"
+cpc_rds_backup_retention  = "21"
 
 # IBSDB
 ibs_rds_username = "ibsuatadmin"
 ibs_rds_snapshot = "sit01-ibs-subnet-move"
 
 # MISDB
-mis_rds_username = "misdmsadmin"
-mis_rds_snapshot = "tars-dev01-tars-dms-misopdmstg-20180720"
+mis_rds_username          = "misdmsadmin"
+mis_rds_snapshot          = "tars-dev01-tars-dms-misopdmstg-20180720"
 mis_rds_allocated_storage = "300"
-mis_rds_autoscale = "False"
-mis_rds_backup_retention = "21"
+mis_rds_autoscale         = "False"
+mis_rds_backup_retention  = "21"
 
 # RSISDB
-rsis_rds_username = "tarsrsisadmin"
-rsis_rds_snapshot = "tars-dev01-tars-dms-rsisdmssc-20180719"
-rsis_rds_allocated_storage = "300"
-rsis_rds_autoscale = "False"
-rsis_rds_backup_retention = "21"
-rsis_rds_engine_version = "19.0.0.0.ru"
-rsis_rds_parameter_group_name = "rsisdb-19c"
-rsis_rds_option_group_name = "option-group-19c"
+rsis_rds_username                = "tarsrsisadmin"
+rsis_rds_snapshot                = "tars-dev01-tars-dms-rsisdmssc-20180719"
+rsis_rds_allocated_storage       = "300"
+rsis_rds_autoscale               = "False"
+rsis_rds_backup_retention        = "21"
+rsis_rds_engine_version          = "19.0.0.0.ru"
+rsis_rds_parameter_group_name    = "rsisdb-19c"
+rsis_rds_option_group_name       = "option-group-19c"
 rsis_allow_major_version_upgrade = true
 
 #############################################################################
@@ -371,7 +371,7 @@ alert_logic = ""
 rds_cw_metric_alarm_enabled = true
 
 # Enable action for RDS CloudWatch Alarm
-rds_cw_metric_alarm_action_enabled = false
+rds_cw_metric_alarm_action_enabled                  = false
 rds_cw_metric_freestoragespace_alarm_action_enabled = true
 
 ## Sizing
@@ -395,10 +395,10 @@ apache_asg_max_size           = 0
 apache_scaleup_desired        = 0
 
 #Turn off Prometheus
-prometheus_asg_max_size       = 0
+prometheus_asg_max_size = 0
 
 api_notify = {
-  handler                = "notify.handleAsync"
+  handler = "notify.handleAsync"
   #s3_key_prefix          = "functions/notify"
   s3_key_prefix          = "lambda-repo/packages/gov-notify/tars-gov-notify"
   memory_size            = 128

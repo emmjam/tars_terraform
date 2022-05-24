@@ -6,7 +6,7 @@
 
 resource "aws_db_parameter_group" "tars-core" {
   count = var.deprecated_rds_compatibility ? 1 : 0
-  
+
   name        = "${local.csi}-tarsdb"
   description = "${local.csi}-tarsdb"
 

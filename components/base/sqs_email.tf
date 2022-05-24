@@ -2,8 +2,8 @@ resource "aws_sqs_queue" "send_gov_notify" {
   name = "${local.csi}-Send-SMSGovNotify.fifo"
 
   receive_wait_time_seconds         = 10
-  fifo_queue                  = true
-  content_based_deduplication = true
+  fifo_queue                        = true
+  content_based_deduplication       = true
   kms_master_key_id                 = aws_kms_alias.email_key_alias.id
   kms_data_key_reuse_period_seconds = 3600
 
@@ -36,7 +36,7 @@ resource "aws_kms_alias" "email_key_alias" {
 resource "aws_sqs_queue" "results_gov_notify" {
   name = "${local.csi}-DocumentBatchUpdate.fifo"
 
-  receive_wait_time_seconds         = 10
+  receive_wait_time_seconds   = 10
   fifo_queue                  = true
   content_based_deduplication = true
 

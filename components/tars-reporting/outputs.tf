@@ -9,7 +9,7 @@ output "rsis-db-sg-id" {
 ## Output the SES user secrets
 
 output "secret" {
-  value = var.ses_user_access_key == true ? aws_iam_access_key.ses_user[0].secret : null
+  value     = var.ses_user_access_key == true ? aws_iam_access_key.ses_user[0].secret : null
   sensitive = true
 }
 
@@ -22,6 +22,6 @@ output "access_key" {
 }
 
 output "ses_smtp_password_v4" {
-  value = var.ses_user_access_key == true ? aws_iam_access_key.ses_user[0].ses_smtp_password_v4 : null
+  value     = var.ses_user_access_key == true ? aws_iam_access_key.ses_user[0].ses_smtp_password_v4 : null
   sensitive = true
 }

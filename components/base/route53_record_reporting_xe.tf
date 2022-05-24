@@ -18,7 +18,7 @@ resource "aws_route53_record" "reporting_xe_private" {
   count = var.reporting_xe_count
 
   name    = "reporting-xe-private"
-  zone_id =  aws_route53_zone.vpc_private.zone_id
+  zone_id = aws_route53_zone.vpc_private.zone_id
   type    = "A"
   records = aws_network_interface.reporting_xe.*.private_ip
   ttl     = "300"
@@ -26,10 +26,10 @@ resource "aws_route53_record" "reporting_xe_private" {
 
 
 resource "aws_route53_record" "reporting_xe_private_prod" {
-  count   = var.environment == "prod" ? "1" : "0"
+  count = var.environment == "prod" ? "1" : "0"
 
   zone_id = data.terraform_remote_state.ctrl.outputs.private_r53_zone[0]
-  name    = "${var.reporting_xe_cert_name}"
+  name    = var.reporting_xe_cert_name
   type    = "A"
 
   alias {

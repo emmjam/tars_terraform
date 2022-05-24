@@ -148,9 +148,9 @@ variable "subnets_route_tables" {
 }
 
 variable "asg_default_tags" {
-  type        = list(object({
-    key = string
-    value = string
+  type = list(object({
+    key                 = string
+    value               = string
     propagate_at_launch = string
   }))
   description = "See code comments"

@@ -26,14 +26,14 @@ output "rt_private_id" {
   value = aws_route_table.private.id
 }
 
-output "vpc_endpoint_s3_prefix_list_id"{
+output "vpc_endpoint_s3_prefix_list_id" {
   value = aws_vpc_endpoint.s3.prefix_list_id
 }
 
 ## Output the SES user secrets
 
 output "secret" {
-  value = aws_iam_access_key.ses_user.secret
+  value     = aws_iam_access_key.ses_user.secret
   sensitive = true
 }
 
@@ -46,7 +46,7 @@ output "access_key" {
 }
 
 output "ses_smtp_password_v4" {
-  value = aws_iam_access_key.ses_user.ses_smtp_password_v4
+  value     = aws_iam_access_key.ses_user.ses_smtp_password_v4
   sensitive = true
 }
 
@@ -85,7 +85,7 @@ output "tars_acct_bucketlogs" {
 }
 
 output "private_r53_zone" {
-value = aws_route53_zone.private_domain.*.id
+  value = aws_route53_zone.private_domain.*.id
 }
 
 output "s3_bucket_resources_arn" {

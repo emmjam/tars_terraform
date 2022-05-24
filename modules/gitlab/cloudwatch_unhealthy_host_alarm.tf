@@ -8,7 +8,7 @@ resource "aws_cloudwatch_metric_alarm" "public_gitlab_unhealthyhost" {
   statistic           = "Sum"
   threshold           = "1"
   alarm_description   = "Unhealthy Hosts Count in the gitlab public ASG"
-  alarm_actions       =  var.gitlab_cw_alarm_failure_actions
+  alarm_actions       = var.gitlab_cw_alarm_failure_actions
   treat_missing_data  = "notBreaching"
 
   dimensions = {

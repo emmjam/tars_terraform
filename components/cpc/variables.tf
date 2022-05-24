@@ -98,9 +98,9 @@ variable "asg_enabled_metrics" {
 }
 
 variable "asg_default_tags" {
-  type        = list(object({
-    key = string
-    value = string
+  type = list(object({
+    key                 = string
+    value               = string
     propagate_at_launch = string
   }))
   description = "See code comments"
@@ -122,7 +122,7 @@ variable "spot_pricing" {
 variable "ami_build_id" {
   type        = string
   description = "AMI build ID"
-  default = ""
+  default     = ""
 }
 
 variable "cpc_ami_id" {
@@ -419,7 +419,7 @@ variable "cpc_allow_major_version_upgrade" {
 variable "unhealthy_host_alarm_count" {
   type        = string
   description = "Number of alarms to have in this account"
-  default = "0"
+  default     = "0"
 }
 
 variable "domain_name" {

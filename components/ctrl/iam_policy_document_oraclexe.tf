@@ -6,13 +6,13 @@ data "aws_iam_policy_document" "oraclexe" {
     actions = [
       "sts:AssumeRole",
     ]
-   resources = [
+    resources = [
       "*",
     ]
   }
   statement {
-    sid     = "AllowS3DeleteGetPutObjectandListBucket"
-    effect  = "Allow"
+    sid    = "AllowS3DeleteGetPutObjectandListBucket"
+    effect = "Allow"
     actions = [
       "s3:DeleteObject",
       "s3:PutObject",

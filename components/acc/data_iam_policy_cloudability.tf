@@ -1,6 +1,6 @@
 data "aws_iam_policy_document" "cloudability" {
   statement {
-    sid = "VerifyRolePermissions"
+    sid    = "VerifyRolePermissions"
     effect = "Allow"
 
     actions = [
@@ -9,10 +9,10 @@ data "aws_iam_policy_document" "cloudability" {
 
     resources = [
       aws_iam_role.cloudabilityRole.arn
-      ]
+    ]
   }
   statement {
-    sid = "CloudabilityMonitorResourcesPolicy"
+    sid    = "CloudabilityMonitorResourcesPolicy"
     effect = "Allow"
 
     actions = [

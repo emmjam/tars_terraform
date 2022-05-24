@@ -10,7 +10,7 @@ resource "aws_cloudwatch_log_group" "main" {
         var.project,
         var.environment,
         var.component,
-        var.name 
+        var.name
       ),
       "Module" = var.module
     })

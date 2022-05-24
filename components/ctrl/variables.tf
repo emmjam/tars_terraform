@@ -48,9 +48,9 @@ variable "jenkins_java_options" {
 }
 
 variable "asg_default_tags" {
-  type        = list(object({
-    key = string
-    value = string
+  type = list(object({
+    key                 = string
+    value               = string
     propagate_at_launch = string
   }))
   description = "See code comments"
@@ -405,7 +405,7 @@ variable "account_environment" {
 }
 
 variable "oraclexe_svr_id" {
-  type = string
+  type        = string
   description = "OracleXE AMI build ID"
   default     = ""
 }
@@ -429,10 +429,10 @@ variable "oraclexe_scaleup_desired" {
 }
 
 variable "oraclexe_subnets_cidrs" {
-   type       = list(string)
-   default    = []
+  type    = list(string)
+  default = []
 }
 
 variable "kms_inspector_count" {
-  type    = number
+  type = number
 }

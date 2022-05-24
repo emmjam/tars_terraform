@@ -1,5 +1,5 @@
 data "aws_iam_policy_document" "rsisbucket_tiff_repo2" {
-  count          = contains(var.rsisbucket_env, var.environment) ? 1 : 0
+  count     = contains(var.rsisbucket_env, var.environment) ? 1 : 0
   policy_id = "${local.csi}-rsisbucket-tiff-repo2-"
 
   statement {
@@ -32,7 +32,7 @@ data "aws_iam_policy_document" "rsisbucket_tiff_repo2" {
 }
 
 resource "aws_iam_policy" "rsisbucket_tiff_repo2" {
-  count          = contains(var.rsisbucket_env, var.environment) ? 1 : 0
+  count       = contains(var.rsisbucket_env, var.environment) ? 1 : 0
   name        = "${local.csi}-rsisbucket_tiff_repo2"
   description = "IAM policy for ${local.csi}-rsisbucket_tiff_repo2"
   policy      = data.aws_iam_policy_document.rsisbucket_tiff_repo2[0].json

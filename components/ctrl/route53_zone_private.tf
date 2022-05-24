@@ -14,7 +14,7 @@ resource "aws_route53_zone" "ctrl" {
 }
 
 resource "aws_route53_zone" "private_domain" {
-  name          = var.public_domain_name
+  name    = var.public_domain_name
   comment = "Private ${var.component} ${var.public_domain_name} hosted zone"
   vpc {
     vpc_region = var.aws_region

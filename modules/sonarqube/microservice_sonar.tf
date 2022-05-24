@@ -21,7 +21,7 @@ module "microservice_sonarqube" {
   asg_size_desired_on_create = var.sq_asg_size_desired
   asg_size_max               = var.sq_asg_size_max
 
-  default_tags = var.default_tags
+  default_tags     = var.default_tags
   asg_default_tags = var.asg_default_tags
 }
 

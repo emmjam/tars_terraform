@@ -1,11 +1,11 @@
 resource "aws_instance" "oraclexe" {
-  count                                 = var.account_environment != "mgmt" ? 1 : 0
-  ami                                   = data.aws_ami.oraclexe.image_id
-  instance_type                         = "t2.medium"
-  iam_instance_profile                  = aws_iam_instance_profile.oraclexe_profile[count.index].id
-  associate_public_ip_address           = true
-  subnet_id                             = module.oraclexe_subnets.subnet_ids[0]
-  user_data_base64                      = data.cloudinit_config.oraclexe.rendered
+  count                       = var.account_environment != "mgmt" ? 1 : 0
+  ami                         = data.aws_ami.oraclexe.image_id
+  instance_type               = "t2.medium"
+  iam_instance_profile        = aws_iam_instance_profile.oraclexe_profile[count.index].id
+  associate_public_ip_address = true
+  subnet_id                   = module.oraclexe_subnets.subnet_ids[0]
+  user_data_base64            = data.cloudinit_config.oraclexe.rendered
 
   vpc_security_group_ids = [
     aws_security_group.oraclexe[count.index].id,

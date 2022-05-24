@@ -1,6 +1,6 @@
 resource "aws_db_option_group" "cpcdb" {
   count = var.deprecated_rds_compatibility ? 1 : 0
-  
+
   name                     = "${local.csi}-option-group"
   option_group_description = "Terraform Option Group"
   engine_name              = "oracle-se2"
@@ -24,7 +24,7 @@ resource "aws_db_option_group" "cpcdb" {
     version     = "2016-04-29.v1"
   }
 
-   option {
+  option {
     option_name = "S3_INTEGRATION"
     version     = "1.0"
   }

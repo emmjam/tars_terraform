@@ -210,7 +210,7 @@ cpc_efs_subnets_cidrs = [
 # ACTIVE_STANDBY_MULTI_AZ requires 2
 awsmq_subnets_cidrs = [
   "10.167.53.208/28",
-#  "10.167.53.224/28",
+  #  "10.167.53.224/28",
 ]
 
 sftpplus_nlb_subnets_cidrs = [
@@ -256,7 +256,7 @@ batch_efs_subnets_cidrs = [
   "10.167.55.80/28",
 ]
 
-prometheus_subnets_cidrs  = [
+prometheus_subnets_cidrs = [
   "10.167.55.96/28",
   "10.167.55.112/28",
   "10.167.55.128/28",
@@ -298,42 +298,42 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 #############################################################################
 
 ad_peering_enabled = false
-ad_peering_vpc = "vpc-02072cb35506d9b73"
-ad_account = "233824316563"
+ad_peering_vpc     = "vpc-02072cb35506d9b73"
+ad_account         = "233824316563"
 
 # TARSDB
-tars_rds_username = "tarsuatadmin"
+tars_rds_username          = "tarsuatadmin"
 tars_rds_allocated_storage = "300"
-tars_rds_snapshot = "tars-core-tarsdb-20190410-5-4-0-1"
-tars_rds_backup_retention = "21"
+tars_rds_snapshot          = "tars-core-tarsdb-20190410-5-4-0-1"
+tars_rds_backup_retention  = "21"
 
 
 # CPCSDB
-cpc_rds_username = "cpcadmin"
+cpc_rds_username          = "cpcadmin"
 cpc_rds_allocated_storage = "100"
-cpc_rds_snapshot = "tars-uat01-cpc-cpcdb-20181108"
-cpc_rds_backup_retention = "21"
+cpc_rds_snapshot          = "tars-uat01-cpc-cpcdb-20181108"
+cpc_rds_backup_retention  = "21"
 
 # IBSDB
 ibs_rds_username = "tarsuatadmin"
 ibs_rds_snapshot = "uat01-ibs-subnet-move"
 
 # MISDB
-mis_rds_username = "misdmsadmin"
+mis_rds_username          = "misdmsadmin"
 mis_rds_allocated_storage = "300"
-mis_rds_snapshot = "tars-uat01-tars-reporting-misdb-20181108"
-mis_rds_autoscale = "False"
-mis_rds_backup_retention = "21"
+mis_rds_snapshot          = "tars-uat01-tars-reporting-misdb-20181108"
+mis_rds_autoscale         = "False"
+mis_rds_backup_retention  = "21"
 
 # RSISDB
-rsis_rds_username = "tarsrsisadmin"
-rsis_rds_allocated_storage = "300"
-rsis_rds_snapshot = "tars-uat01-tars-reporting-rsisdb-20181108"
-rsis_rds_autoscale = "False"
-rsis_rds_backup_retention = "21"
-rsis_rds_engine_version = "19.0.0.0.ru-2022-01.rur-2022-01.r1"
-rsis_rds_parameter_group_name = "rsisdb-19c"
-rsis_rds_option_group_name = "option-group-19c"
+rsis_rds_username                = "tarsrsisadmin"
+rsis_rds_allocated_storage       = "300"
+rsis_rds_snapshot                = "tars-uat01-tars-reporting-rsisdb-20181108"
+rsis_rds_autoscale               = "False"
+rsis_rds_backup_retention        = "21"
+rsis_rds_engine_version          = "19.0.0.0.ru-2022-01.rur-2022-01.r1"
+rsis_rds_parameter_group_name    = "rsisdb-19c"
+rsis_rds_option_group_name       = "option-group-19c"
 rsis_allow_major_version_upgrade = true
 
 #############################################################################
@@ -365,9 +365,9 @@ private_cert_domain_name = "uat02.nonprod.tars.dev-dvsacloud.uk"
 # Temporary allocation -
 # To be removed when overall range is increased
 apache_subnet_cidrs = [
- "10.167.52.224/28",
- "10.167.52.240/28",
- "10.167.53.96/28",
+  "10.167.52.224/28",
+  "10.167.52.240/28",
+  "10.167.53.96/28",
 ]
 
 mes_db_cidr_block = [
@@ -389,7 +389,7 @@ alert_logic = ""
 rds_cw_metric_alarm_enabled = true
 
 # Enable action for RDS CloudWatch Alarm
-rds_cw_metric_alarm_action_enabled = false
+rds_cw_metric_alarm_action_enabled                  = false
 rds_cw_metric_freestoragespace_alarm_action_enabled = true
 
 # IBSDB Concurrent Users Monitoring
@@ -415,9 +415,9 @@ api_notify = {
 }
 
 # reporting xe
-reporting_xe_count = 1
-reporting_xe_asg_min_size = 0
-reporting_xe_asg_max_size = 1
+reporting_xe_count            = 1
+reporting_xe_asg_min_size     = 0
+reporting_xe_asg_max_size     = 1
 reporting_xe_asg_desired_size = 1
 reporting_xe_subnets_cidrs = [
   "10.167.53.240/28",
@@ -430,7 +430,7 @@ reporting_xe_subnet_cidr = ["10.167.53.240/28"]
 
 whitelist = [
   "135.196.73.204/32",  # DVSA Notts
-  "10.201.80.0/21", # DVSA Notts Internal
+  "10.201.80.0/21",     # DVSA Notts Internal
   "10.69.3.64/26",      # DVSA ZPA VPN
   "10.69.131.64/26",    # DVSA ZPA VPN
   "148.253.134.213/32", # BJSS VPN 04/18
@@ -444,25 +444,25 @@ whitelist = [
   "45.64.64.0/22",
   "107.154.0.0/16",
   "45.60.0.0/16",
-  "45.223.0.0/16",      # End Incapsula IPs
-  "54.76.206.25/32",    # Perf01 NATGW IP
-  "52.214.31.165/32",      #Nonprod NATGW IP
-  "10.69.3.15/32",      # Begin DVSA MS-RDS
+  "45.223.0.0/16",    # End Incapsula IPs
+  "54.76.206.25/32",  # Perf01 NATGW IP
+  "52.214.31.165/32", #Nonprod NATGW IP
+  "10.69.3.15/32",    # Begin DVSA MS-RDS
   "10.69.3.16/32",
   "10.69.3.17/32",
   "10.69.3.18/32",
   "10.69.1.70/31",
   "10.84.192.159/32",
-  "10.84.192.161/32",      # End DVSA MS-RDS
-  "85.115.53.201/32",   #DSCALLARDS
-  "80.194.75.82/32",    #DSCALLARDS
-  "34.242.28.119/32",   #MGMT Jenkins for url checks
-  "154.14.88.249/32", # DVSA Notts Corp & Wifi
-  "90.155.48.192/26",   # cyberis IPs for ITHC
-  "81.2.127.144/28",    # cyberis IPs for ITHC
-  "81.187.169.170/32",  # cyberis IPs for ITHC
-  "88.97.60.11/32",     # cyberis IPs for ITHC
-  "3.10.4.97/32",       # cyberis IPs for ITHC
+  "10.84.192.161/32",  # End DVSA MS-RDS
+  "85.115.53.201/32",  #DSCALLARDS
+  "80.194.75.82/32",   #DSCALLARDS
+  "34.242.28.119/32",  #MGMT Jenkins for url checks
+  "154.14.88.249/32",  # DVSA Notts Corp & Wifi
+  "90.155.48.192/26",  # cyberis IPs for ITHC
+  "81.2.127.144/28",   # cyberis IPs for ITHC
+  "81.187.169.170/32", # cyberis IPs for ITHC
+  "88.97.60.11/32",    # cyberis IPs for ITHC
+  "3.10.4.97/32",      # cyberis IPs for ITHC
 ]
 
 # DocumentBatchUpdate - maximum records processed in the Job Polling

@@ -31,7 +31,7 @@ resource "aws_lambda_function" "main" {
   tags = merge(
     local.default_tags,
     tomap({
-      "Name" = "${local.csi}/${var.name}",
+      "Name"    = "${local.csi}/${var.name}",
       "Version" = "${var.lambda_version}",
     }),
   )

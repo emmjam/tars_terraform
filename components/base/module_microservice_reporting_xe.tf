@@ -1,6 +1,6 @@
 module "microservice_reporting_xe" {
   source = "../../modules/microservice"
-  count = var.reporting_xe_count
+  count  = var.reporting_xe_count
 
   name        = "reporting-xe"
   region      = var.aws_region
@@ -23,7 +23,7 @@ module "microservice_reporting_xe" {
   lc_user_data     = data.cloudinit_config.reporting_xe.rendered
   lc_spot_price    = var.spot_pricing[var.reporting_xe_instance_type]
 
-  cwl_names = ["/cloud-init-output"]
+  cwl_names          = ["/cloud-init-output"]
   cwl_retention_days = 30
 
   lifecycle_hook_launching_default_result = "ABANDON"

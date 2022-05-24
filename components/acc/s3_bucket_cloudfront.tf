@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "driverpracticaltest-dvsa-gov-uk-apology" {
-  count = var.cloudfront_enabled
+  count  = var.cloudfront_enabled
   bucket = "${local.csi_global}-apology-page"
   website {
     index_document = "index.html"

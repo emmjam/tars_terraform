@@ -16,10 +16,10 @@ module "bobj" {
 
   lc_ami_id        = data.aws_ami.bobj.image_id
   lc_instance_type = var.bobj_instance_type
-  lc_user_data     = templatefile("${path.module}/templates/bobj_setup.ps1.tmpl", 
-      {
-        SEARCH_SUFFIX = local.vpc_domain_name
-      })
+  lc_user_data = templatefile("${path.module}/templates/bobj_setup.ps1.tmpl",
+    {
+      SEARCH_SUFFIX = local.vpc_domain_name
+  })
 
   asg_target_group_arns = [
     aws_alb_target_group.bobj-8080.arn,

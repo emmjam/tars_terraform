@@ -1,5 +1,5 @@
 data "aws_iam_policy_document" "email_inspector_report" {
-  count       = var.kms_inspector_count
+  count = var.kms_inspector_count
   statement {
     sid    = "GetfromS3"
     effect = "Allow"
@@ -9,13 +9,13 @@ data "aws_iam_policy_document" "email_inspector_report" {
       "s3:ListBucket",
     ]
 
-    resources =  [
+    resources = [
       aws_s3_bucket.inspector_reports[0].arn,
       format(
         "%s%s",
         aws_s3_bucket.inspector_reports[0].arn,
         "/*",
-        )
+      )
     ]
   }
 

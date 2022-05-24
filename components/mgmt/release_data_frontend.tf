@@ -27,19 +27,19 @@ resource "aws_s3_bucket" "envis" {
 
 data "aws_iam_policy_document" "envis_access" {
   statement {
-    sid = "AllowWhitelistAccess"
-    effect = "Allow"
+    sid     = "AllowWhitelistAccess"
+    effect  = "Allow"
     actions = ["s3:GetObject"]
     resources = [
       "arn:aws:s3:::envis.tars.dvsacloud.uk/*"
     ]
     condition {
-      test = "IpAddress"
+      test     = "IpAddress"
       variable = "aws:SourceIp"
-      values = var.whitelist
+      values   = var.whitelist
     }
     principals {
-      type = "*"
+      type        = "*"
       identifiers = ["*"]
     }
   }

@@ -183,7 +183,7 @@ variable "mock_ami_build_id" {
 }
 
 variable "jenkinsctrl_subnets_cidrs" {
-  type        = list
+  type        = list(any)
   description = "jenkins cidrs for mock"
   default     = []
 }

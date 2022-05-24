@@ -56,7 +56,7 @@ resource "aws_s3_bucket" "dbreports_output" {
 
 resource "aws_sns_topic" "dbretention" {
   count = contains(var.efs_dbretention_env, var.environment) ? 1 : 0
-  name = "s3-notification-${var.environment}-dbretention"
+  name  = "s3-notification-${var.environment}-dbretention"
 
   policy = <<POLICY
 {
@@ -85,9 +85,9 @@ resource "aws_s3_bucket_notification" "dbreports_output" {
   }
 }
 
- 
-  resource "aws_s3_bucket_public_access_block" "dbreports_output" {
-  bucket = aws_s3_bucket.dbreports_output.id
+
+resource "aws_s3_bucket_public_access_block" "dbreports_output" {
+  bucket                  = aws_s3_bucket.dbreports_output.id
   block_public_acls       = true
   block_public_policy     = true
   ignore_public_acls      = true

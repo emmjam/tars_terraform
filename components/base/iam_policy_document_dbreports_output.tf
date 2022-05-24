@@ -3,18 +3,18 @@ data "aws_iam_policy_document" "dbreports_output" {
     sid    = "AllowDBtoS3Object"
     effect = "Allow"
 
-    actions   = [
+    actions = [
       "s3:GetObject",
       "s3:PutObject"
     ]
-    
+
     resources = [
       "${aws_s3_bucket.dbreports_output.arn}/*",
     ]
   }
 
   statement {
-    sid = "AllowDBToS3Bucket"
+    sid    = "AllowDBToS3Bucket"
     effect = "Allow"
 
     actions = [

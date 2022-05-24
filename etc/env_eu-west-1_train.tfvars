@@ -256,7 +256,7 @@ bobj_subnets_cidrs = [
   "10.167.151.0/28",
 ]
 
-prometheus_subnets_cidrs  = [
+prometheus_subnets_cidrs = [
   "10.167.151.16/28",
   "10.167.151.32/28",
   "10.167.151.48/28",
@@ -294,30 +294,30 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 ##
 
 # TARSDB
-tars_rds_username = "tarsuatadmin"
+tars_rds_username          = "tarsuatadmin"
 tars_rds_allocated_storage = "300"
-tars_rds_snapshot = ""
+tars_rds_snapshot          = ""
 
 # CPCSDB
 cpc_rds_username = "cpcadmin"
 
 # CPCTSDB
 cpc_rds_allocated_storage = "100" # 20 Gigabyte - was 1500GB
-cpc_rds_snapshot = ""
+cpc_rds_snapshot          = ""
 
 # IBSDB
 ibs_rds_username = "ibsuatadmin"
 ibs_rds_snapshot = "sit01-ibs-subnet-move"
 
 # MISDB
-mis_rds_username = "misdmsadmin"
+mis_rds_username          = "misdmsadmin"
 mis_rds_allocated_storage = "300"
-mis_rds_snapshot = "tars-dev01-tars-dms-misopdmstg-20180720"
+mis_rds_snapshot          = "tars-dev01-tars-dms-misopdmstg-20180720"
 
 # RSISDB
-rsis_rds_username = "tarsrsisadmin"
+rsis_rds_username          = "tarsrsisadmin"
 rsis_rds_allocated_storage = "80"
-rsis_rds_snapshot = "tars-dev01-tars-dms-rsisdmssc-20180719"
+rsis_rds_snapshot          = "tars-dev01-tars-dms-rsisdmssc-20180719"
 
 #############################################################################
 # VPC to DVSA WAN via DX
@@ -334,8 +334,8 @@ transit_peering_enabled = false
 #############################################################################
 
 ad_peering_enabled = false
-ad_peering_vpc = "vpc-02072cb35506d9b73"
-ad_account = "233824316563"
+ad_peering_vpc     = "vpc-02072cb35506d9b73"
+ad_account         = "233824316563"
 
 private_cert_domain_name = "dvsa.tars.dev-dvsacloud.uk"
 
@@ -349,14 +349,14 @@ mes_api_cidr_block = ["10.21.0.0/16"]
 rds_cw_metric_alarm_enabled = true
 
 # Enable action for RDS CloudWatch Alarm
-rds_cw_metric_alarm_action_enabled = false
+rds_cw_metric_alarm_action_enabled                  = false
 rds_cw_metric_freestoragespace_alarm_action_enabled = true
 
 ## Messaging
 wildfly_messaging_id = "release_201902"
 
 #Turn off Prometheus
-prometheus_asg_max_size       = 0
+prometheus_asg_max_size = 0
 
 api_notify = {
   handler                = "notify.handleAsync"

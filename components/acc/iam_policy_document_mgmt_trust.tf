@@ -23,8 +23,8 @@ data "aws_iam_policy_document" "mgmt_trust" {
     condition {
       test     = "StringLike"
       variable = "sts:RoleSessionName"
-      values   = [
-         "$${aws:username}",
+      values = [
+        "$${aws:username}",
       ]
     }
   }

@@ -1,12 +1,12 @@
 # AGS for TARS Mock server
 resource "aws_autoscaling_group" "tars-mock" {
-  name                 = format("%s/%s", local.csi, "mock")
-  max_size             = var.wildfly-mock_asg_max_size
-  min_size             = var.wildfly-mock_asg_min_size
+  name     = format("%s/%s", local.csi, "mock")
+  max_size = var.wildfly-mock_asg_max_size
+  min_size = var.wildfly-mock_asg_min_size
   #launch_configuration = aws_launch_configuration.tars-mock.id
 
   launch_template {
-    id = aws_launch_template.tars-mock.id
+    id      = aws_launch_template.tars-mock.id
     version = "$Latest"
   }
 
@@ -52,7 +52,7 @@ resource "aws_autoscaling_group" "tars-mock" {
 
   lifecycle {
     ignore_changes = [
-      
+
     ]
   }
 }

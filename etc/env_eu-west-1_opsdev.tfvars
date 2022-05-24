@@ -257,7 +257,7 @@ bobj_subnets_cidrs = [
   "10.167.7.0/28",
 ]
 
-prometheus_subnets_cidrs  = [
+prometheus_subnets_cidrs = [
   "10.167.7.16/28",
   "10.167.7.32/28",
   "10.167.7.48/28",
@@ -295,14 +295,14 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 ##
 
 # TARSDB
-tars_rds_username = "tarsdevadmin"
+tars_rds_username          = "tarsdevadmin"
 tars_rds_allocated_storage = "20"
-tars_rds_snapshot = "tars-opsdev-tars-core-tarsdb-5-4-2019-5-7-0-2"
+tars_rds_snapshot          = "tars-opsdev-tars-core-tarsdb-5-4-2019-5-7-0-2"
 
 # CPCSDB
-cpc_rds_username = "cpcdevadmin"
+cpc_rds_username          = "cpcdevadmin"
 cpc_rds_allocated_storage = "50"
-cpc_rds_snapshot = "tars-opsdev-cpc-cpcdb-5-4-2019-5-7-0-2"
+cpc_rds_snapshot          = "tars-opsdev-cpc-cpcdb-5-4-2019-5-7-0-2"
 
 
 # IBSDB
@@ -310,14 +310,14 @@ ibs_rds_username = "ibsuatadmin"
 ibs_rds_snapshot = "sit01-ibs-subnet-move"
 
 # MISDB
-mis_rds_username = "misdmsadmin"
+mis_rds_username          = "misdmsadmin"
 mis_rds_allocated_storage = "300"
-mis_rds_snapshot = "tars-dev01-tars-dms-misopdmstg-20180720"
+mis_rds_snapshot          = "tars-dev01-tars-dms-misopdmstg-20180720"
 
 # RSISDB
-rsis_rds_username = "tarsrsisadmin"
+rsis_rds_username          = "tarsrsisadmin"
 rsis_rds_allocated_storage = "80"
-rsis_rds_snapshot = "tars-dev01-tars-dms-rsisdmssc-20180719"
+rsis_rds_snapshot          = "tars-dev01-tars-dms-rsisdmssc-20180719"
 
 #############################################################################
 # VPC to DVSA WAN via DX
@@ -334,8 +334,8 @@ transit_peering_enabled = false
 #############################################################################
 
 ad_peering_enabled = false
-ad_peering_vpc = "vpc-02072cb35506d9b73"
-ad_account = "233824316563"
+ad_peering_vpc     = "vpc-02072cb35506d9b73"
+ad_account         = "233824316563"
 
 private_cert_domain_name = "dvsa.tars.dev-dvsacloud.uk"
 
@@ -358,27 +358,27 @@ alert_logic = ""
 rds_cw_metric_alarm_enabled = true
 
 # Enable action for RDS CloudWatch Alarm
-rds_cw_metric_alarm_action_enabled = false
+rds_cw_metric_alarm_action_enabled                  = false
 rds_cw_metric_freestoragespace_alarm_action_enabled = true
 
 # Enable action for AmazonMQ Queue CloudWatch Alarm
-velocity_email_cw_metric_alarm_enabled = true
+velocity_email_cw_metric_alarm_enabled           = true
 mq_cw_metric_velocity_email_alarm_action_enabled = true
-email_queue_cw_metric_alarm_enabled = true
-mq_cw_metric_email_queue_alarm_action_enabled = true
-print_queue_cw_metric_alarm_enabled = true
-mq_cw_metric_print_queue_alarm_action_enabled = true
+email_queue_cw_metric_alarm_enabled              = true
+mq_cw_metric_email_queue_alarm_action_enabled    = true
+print_queue_cw_metric_alarm_enabled              = true
+mq_cw_metric_print_queue_alarm_action_enabled    = true
 
 # Enable action for Sftp CPU CloudWatch Alarm
-sftp_cpuutilization_cw_metric_alarm_enabled = true
+sftp_cpuutilization_cw_metric_alarm_enabled        = true
 sftp_cpuutilization_cw_metric_alarm_action_enabled = true
 
 # Enable action for tars-core CPU CloudWatch Alarm
-tars_core_cpuutilization_cw_metric_alarm_enabled = true
+tars_core_cpuutilization_cw_metric_alarm_enabled        = true
 tars_core_cpuutilization_cw_metric_alarm_action_enabled = true
 
 api_notify = {
-  handler                = "notify.handleAsync"
+  handler = "notify.handleAsync"
   #s3_key_prefix          = "functions/notify"
   s3_key_prefix          = "lambda-repo/packages/gov-notify/tars-gov-notify"
   memory_size            = 128
@@ -391,9 +391,9 @@ api_notify = {
 
 # reporting xe
 
-reporting_xe_count = 1
-reporting_xe_asg_min_size = 0
-reporting_xe_asg_max_size = 0
+reporting_xe_count            = 1
+reporting_xe_asg_min_size     = 0
+reporting_xe_asg_max_size     = 0
 reporting_xe_asg_desired_size = 0
 reporting_xe_subnets_cidrs = [
   "10.167.4.176/28",

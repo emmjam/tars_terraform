@@ -75,7 +75,7 @@ resource "aws_route53_record" "bastion" {
 
 resource "aws_route53_record" "bastion-private" {
   name    = "bastion"
-  zone_id = aws_route53_zone.private_domain.id 
+  zone_id = aws_route53_zone.private_domain.id
   type    = "A"
 
   alias {
@@ -99,7 +99,7 @@ resource "aws_route53_record" "grafana" {
 
 resource "aws_route53_record" "grafana-private" {
   name    = "grafana"
-  zone_id = aws_route53_zone.private_domain.id 
+  zone_id = aws_route53_zone.private_domain.id
   type    = "A"
 
   alias {
@@ -111,7 +111,7 @@ resource "aws_route53_record" "grafana-private" {
 
 # Create the R53 record for the XE box
 resource "aws_route53_record" "oraclexe" {
-  count = var.account_environment != "mgmt" ? 1 : 0
+  count   = var.account_environment != "mgmt" ? 1 : 0
   name    = "oraclexe"
   type    = "A"
   zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id

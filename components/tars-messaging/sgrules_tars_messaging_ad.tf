@@ -39,7 +39,7 @@ resource "aws_security_group_rule" "tars_messaging_egress_IRDT_printers" {
 }
 
 resource "aws_security_group_rule" "tars_messaging_egress_DVSA_printers" {
-  count  = length(var.messaging_print) == 0 ? 0 : 1
+  count             = length(var.messaging_print) == 0 ? 0 : 1
   description       = "Allow all TCP/IP to DVSA Printers"
   type              = "egress"
   from_port         = -1

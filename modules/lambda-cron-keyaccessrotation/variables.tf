@@ -24,7 +24,7 @@ variable "module" {
 }
 
 variable "default_tags" {
-  type        = map
+  type        = map(any)
   description = "The map of default tags to apply to all taggable resources in the module alongside resource-specific tags"
   default     = {}
 }
@@ -106,19 +106,19 @@ variable "iam_policy_document" {
 }
 
 variable "lambda_env_vars" {
-  type        = map
+  type        = map(any)
   description = "Lambda environment parameters map (merged with a map containing the current region)"
   default     = {}
 }
 
 variable "subnet_ids" {
-  type        = list
+  type        = list(any)
   description = "Subnet IDs for lambdas in VPCs"
   default     = []
 }
 
 variable "security_group_ids" {
-  type        = list
+  type        = list(any)
   description = "Security group IDs for lambdas in VPCs"
   default     = []
 }

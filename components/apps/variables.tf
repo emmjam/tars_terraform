@@ -12,7 +12,7 @@ variable "account_environment" {
 variable "ami_build_id" {
   type        = string
   description = "AMI build ID"
-  default = ""
+  default     = ""
 }
 
 variable "fyndi_ami_id" {
@@ -81,9 +81,9 @@ variable "apache_subnet_cidrs" {
 }
 
 variable "asg_default_tags" {
-  type        = list(object({
-    key = string
-    value = string
+  type = list(object({
+    key                 = string
+    value               = string
     propagate_at_launch = string
   }))
   description = "See code comments"
@@ -1009,7 +1009,7 @@ variable "ibsdb_monitoring_enabled" {
 variable "unhealthy_host_alarm_count" {
   type        = string
   description = "Number of alarms to have in this account"
-  default = "0"
+  default     = "0"
 }
 
 variable "opsgenie_endpoint" {
@@ -1023,7 +1023,7 @@ variable "cwl_retention_days" {
   default     = "731"
 }
 variable "ibs_high_cpu_cw_metric_alarm_enabled" {
-  type = string
+  type        = string
   description = "Enable or disable cpuutilisation CloudWatch Metrics alarm"
 
 }

@@ -1,20 +1,20 @@
 resource "aws_cloudwatch_metric_alarm" "rds_cpuutilization_average" {
-  count                =  var.rds_cw_metric_alarm_enabled ? 1 : 0
-  alarm_name           = "${local.csi}-rds-cpuutilization-average"
-  comparison_operator  = "GreaterThanOrEqualToThreshold"
-  evaluation_periods   = "3"
-  metric_name          = "CPUUtilization"
-  namespace            = "AWS/RDS"
+  count               = var.rds_cw_metric_alarm_enabled ? 1 : 0
+  alarm_name          = "${local.csi}-rds-cpuutilization-average"
+  comparison_operator = "GreaterThanOrEqualToThreshold"
+  evaluation_periods  = "3"
+  metric_name         = "CPUUtilization"
+  namespace           = "AWS/RDS"
 
-  dimensions  = {
-    DBInstanceIdentifier    = aws_db_instance.tarsdb.id
+  dimensions = {
+    DBInstanceIdentifier = aws_db_instance.tarsdb.id
   }
 
-  period               = "300"
-  statistic            = "Average"
-  threshold            = "90"
-  unit                 = "Percent"
-  alarm_description    = "Alarm when the Average RDS CPU Utilization exceeds 90% for a period of 5 minutes."
-  actions_enabled      = var.rds_cw_metric_alarm_action_enabled
-  alarm_actions        = [data.terraform_remote_state.base.outputs.sns_alerts_arn]
+  period            = "300"
+  statistic         = "Average"
+  threshold         = "90"
+  unit              = "Percent"
+  alarm_description = "Alarm when the Average RDS CPU Utilization exceeds 90% for a period of 5 minutes."
+  actions_enabled   = var.rds_cw_metric_alarm_action_enabled
+  alarm_actions     = [data.terraform_remote_state.base.outputs.sns_alerts_arn]
 }

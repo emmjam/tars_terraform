@@ -2,7 +2,7 @@ resource "aws_sns_topic" "guardduty_opsgenie" {
   name = "${local.csi}-guardduty-opsgenie"
 
   tags = merge(
-   local.default_tags,
+    local.default_tags,
     tomap({
       "Name" = "${local.csi}-guardduty-opsgenie",
     }),

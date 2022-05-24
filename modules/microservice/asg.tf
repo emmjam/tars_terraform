@@ -3,13 +3,13 @@ resource "aws_autoscaling_group" "main" {
   name = format("%s/%s", local.csi, var.name)
 
   launch_template {
-    id = aws_launch_template.main.id
+    id      = aws_launch_template.main.id
     version = "$Latest"
   }
 
   #launch_configuration = aws_launch_configuration.main.id
-  max_size             = var.asg_size_max
-  min_size             = var.asg_size_min
+  max_size                  = var.asg_size_max
+  min_size                  = var.asg_size_min
   wait_for_capacity_timeout = 0
 
   termination_policies = var.asg_termination_policies
@@ -18,7 +18,7 @@ resource "aws_autoscaling_group" "main" {
 
   load_balancers = compact(var.asg_load_balancers)
 
-  enabled_metrics = var.asg_enabled_metrics
+  enabled_metrics   = var.asg_enabled_metrics
   target_group_arns = compact(var.target_group_arns)
 
   # It is 100% acknowledged that this is a horrific awful and horrible

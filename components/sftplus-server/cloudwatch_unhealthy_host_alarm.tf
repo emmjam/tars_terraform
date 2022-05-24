@@ -1,5 +1,5 @@
 resource "aws_cloudwatch_metric_alarm" "sftpplus_unhealthyhost" {
-  alarm_name          = "${local.csi}-sftpplus-unhealthy-host"
+  alarm_name = "${local.csi}-sftpplus-unhealthy-host"
 
   count               = var.unhealthy_host_alarm_count
   comparison_operator = "GreaterThanOrEqualToThreshold"
@@ -20,7 +20,7 @@ resource "aws_cloudwatch_metric_alarm" "sftpplus_unhealthyhost" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "cpc_sftpplus_unhealthyhost" {
-  alarm_name          = "${local.csi}-cpc_sftpplus-unhealthy-host"
+  alarm_name = "${local.csi}-cpc_sftpplus-unhealthy-host"
 
   count               = var.unhealthy_host_alarm_count
   comparison_operator = "GreaterThanOrEqualToThreshold"

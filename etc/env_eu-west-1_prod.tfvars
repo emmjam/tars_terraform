@@ -46,7 +46,7 @@ guardduty_member_enabled = "1"
 ###############################################################################
 # prod
 ###############################################################################
-wildfly-messaging_ebs_vol              = 500
+wildfly-messaging_ebs_vol = 500
 
 # The VPC CIDR Block for this environment
 vpc_cidr = "10.167.128.0/21"
@@ -265,7 +265,7 @@ bobj_subnets_cidrs = [
   "10.167.135.0/28",
 ]
 
-prometheus_subnets_cidrs  = [
+prometheus_subnets_cidrs = [
   "10.167.135.16/28",
   "10.167.135.32/28",
   "10.167.135.48/28",
@@ -371,26 +371,26 @@ rhel_spot_pricing = {
 ##
 
 # TARSDB
-tars_rds_username = "tarsadmin"
+tars_rds_username          = "tarsadmin"
 tars_rds_allocated_storage = "610"
-tars_rds_snapshot = ""
+tars_rds_snapshot          = ""
 
 # MISDB
-mis_rds_username = "misadmin"
+mis_rds_username          = "misadmin"
 mis_rds_allocated_storage = "440"
-mis_rds_autoscale = "False"
-mis_rds_snapshot = ""
+mis_rds_autoscale         = "False"
+mis_rds_snapshot          = ""
 
 # RSISDB
-rsis_rds_username = "rsisadmin"
+rsis_rds_username          = "rsisadmin"
 rsis_rds_allocated_storage = "120"
-rsis_rds_autoscale = "False"
-rsis_rds_snapshot = ""
+rsis_rds_autoscale         = "False"
+rsis_rds_snapshot          = ""
 
 # CPCSDB
-cpc_rds_username = "cpcadmin"
+cpc_rds_username          = "cpcadmin"
 cpc_rds_allocated_storage = "100"
-cpc_rds_snapshot = ""
+cpc_rds_snapshot          = ""
 
 # IBSDB
 ibs_rds_username = "ibsprodadmin"
@@ -411,8 +411,8 @@ transit_peering_enabled = false
 #############################################################################
 
 ad_peering_enabled = true
-ad_peering_vpc = "vpc-02072cb35506d9b73"
-ad_account = "233824316563"
+ad_peering_vpc     = "vpc-02072cb35506d9b73"
+ad_account         = "233824316563"
 
 # DHCP Scope options for DNS
 
@@ -431,21 +431,21 @@ irdt_incapsula  = "zi5ckxk.x.incapdns.net"
 
 private_cert_domain_name = "prod.live.tars.dvsacloud.uk"
 
-cpc_internet_cert       = "tars-prod-cpc-internet"
-cpc_dvsa_internet_cert  = "tars-prod-cpc-dvsa-internet"
-cpc_cert                = "cpc"
-cpc_private_cert        = "*"
-fyndi_cert              = "fyndi-prod-public"
-tars_cert               = "tars-prod-public"
-tars_private_cert       = "*"
-tars_pdf_cert           = "*"
-obs_cert                = "obs-prod-public"
-ibs_cert                = "ibs-prod-public"
-irdt_cert               = "irdt-prod-public"
-apache_cert             = "routing-prod-public"
-bobj_cert               = "bobj-prod"
-holding_pages_cert      = "maintenance-prod"
-reporting_xe_cert_name  = "reporting-xe-prod-public"
+cpc_internet_cert      = "tars-prod-cpc-internet"
+cpc_dvsa_internet_cert = "tars-prod-cpc-dvsa-internet"
+cpc_cert               = "cpc"
+cpc_private_cert       = "*"
+fyndi_cert             = "fyndi-prod-public"
+tars_cert              = "tars-prod-public"
+tars_private_cert      = "*"
+tars_pdf_cert          = "*"
+obs_cert               = "obs-prod-public"
+ibs_cert               = "ibs-prod-public"
+irdt_cert              = "irdt-prod-public"
+apache_cert            = "routing-prod-public"
+bobj_cert              = "bobj-prod"
+holding_pages_cert     = "maintenance-prod"
+reporting_xe_cert_name = "reporting-xe-prod-public"
 
 
 ## wildfly-batch temporary 'off' schedule
@@ -481,11 +481,11 @@ holding_pages_domains = [
 ]
 
 #RDS Deletion Protection
-tars_rds_delete_protect = true
-cpc_rds_delete_protect = true
+tars_rds_delete_protect      = true
+cpc_rds_delete_protect       = true
 ibsdb_cluster_delete_protect = true
-misdb_rds_delete_protect = true
-risdb_rds_delete_protect = true
+misdb_rds_delete_protect     = true
+risdb_rds_delete_protect     = true
 
 mes_db_cidr_block = [
   "10.101.20.0/28",
@@ -506,8 +506,8 @@ mes_api_cidr_block = [
 alert_logic = "true"
 
 tars_rds_backup_retention = "30"
-mis_rds_backup_retention = "30"
-cpc_rds_backup_retention = "30"
+mis_rds_backup_retention  = "30"
+cpc_rds_backup_retention  = "30"
 rsis_rds_backup_retention = "30"
 
 sftpplus_alarm_count = "1"
@@ -517,16 +517,16 @@ sftpplus_topic_count = "1"
 rds_cw_metric_alarm_enabled = true
 
 # Enable action for RDS CloudWatch Alarm
-rds_cw_metric_alarm_action_enabled = true
+rds_cw_metric_alarm_action_enabled                  = true
 rds_cw_metric_freestoragespace_alarm_action_enabled = true
 
 # Enable action for AmazonMQ Queue CloudWatch Alarm
-velocity_email_cw_metric_alarm_enabled = true
+velocity_email_cw_metric_alarm_enabled           = true
 mq_cw_metric_velocity_email_alarm_action_enabled = true
-email_queue_cw_metric_alarm_enabled = true
-mq_cw_metric_email_queue_alarm_action_enabled = true
-print_queue_cw_metric_alarm_enabled = true
-mq_cw_metric_print_queue_alarm_action_enabled = true
+email_queue_cw_metric_alarm_enabled              = true
+mq_cw_metric_email_queue_alarm_action_enabled    = true
+print_queue_cw_metric_alarm_enabled              = true
+mq_cw_metric_print_queue_alarm_action_enabled    = true
 
 # Whether to alert opsgenie on wms unhealthy host
 wms_host_alarm_count = "1"
@@ -538,11 +538,11 @@ unhealthy_host_alarm_count = "1"
 ibsdb_monitoring_enabled = true
 
 # Enable action for Sftp CPU CloudWatch Alarm
-sftp_cpuutilization_cw_metric_alarm_enabled = true
+sftp_cpuutilization_cw_metric_alarm_enabled        = true
 sftp_cpuutilization_cw_metric_alarm_action_enabled = true
 
 # Enable action for tars-core CPU CloudWatch Alarm
-tars_core_cpuutilization_cw_metric_alarm_enabled = true
+tars_core_cpuutilization_cw_metric_alarm_enabled        = true
 tars_core_cpuutilization_cw_metric_alarm_action_enabled = true
 
 # Enable action for tars IBS CPU Cloudwatch alarm
@@ -559,9 +559,9 @@ api_notify = {
 }
 
 # reporting xe
-reporting_xe_count = 1
-reporting_xe_asg_min_size = 1
-reporting_xe_asg_max_size = 1
+reporting_xe_count            = 1
+reporting_xe_asg_min_size     = 1
+reporting_xe_asg_max_size     = 1
 reporting_xe_asg_desired_size = 1
 reporting_xe_subnets_cidrs = [
   "10.167.132.176/28",

@@ -28,7 +28,7 @@ locals {
     var.component,
     "squidnat_0/cloud-init-output",
   )
-    
+
   csi = replace(
     format("%s-%s-%s", var.project, var.environment, var.component),
     "_",

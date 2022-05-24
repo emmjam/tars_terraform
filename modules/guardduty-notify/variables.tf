@@ -21,7 +21,7 @@ variable "module" {
 }
 
 variable "default_tags" {
-  type        = map
+  type        = map(any)
   description = "Default tags to be applied to all taggable resources"
   default     = {}
 }

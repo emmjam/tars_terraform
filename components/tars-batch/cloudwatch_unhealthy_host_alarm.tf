@@ -1,5 +1,5 @@
 resource "aws_cloudwatch_metric_alarm" "batch_unhealthyhost" {
-  alarm_name          = "${local.csi}-batch-unhealthy-host"
+  alarm_name = "${local.csi}-batch-unhealthy-host"
 
   count               = var.unhealthy_host_alarm_count
   comparison_operator = "GreaterThanOrEqualToThreshold"

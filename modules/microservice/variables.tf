@@ -195,9 +195,9 @@ variable "subnets_route_tables" {
 # interpolated tag insertion that works for AWS Autoscaling Groups.
 # Please don't hurt me.
 variable "asg_default_tags" {
-  type        = list(object({
-    key = string
-    value = string
+  type = list(object({
+    key                 = string
+    value               = string
     propagate_at_launch = string
   }))
   description = "See code comments"

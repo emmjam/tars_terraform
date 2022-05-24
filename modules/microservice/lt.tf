@@ -5,7 +5,7 @@ resource "aws_launch_template" "main" {
   instance_type          = var.lc_instance_type
   user_data              = var.lc_user_data
   vpc_security_group_ids = concat(tolist([aws_security_group.main.id]), var.lc_additional_sg_ids)
-  
+
 
   dynamic "instance_market_options" {
     for_each = var.lc_spot_price != "" ? [1] : []
@@ -14,19 +14,19 @@ resource "aws_launch_template" "main" {
 
       dynamic "spot_options" {
         for_each = var.lc_spot_price != "" ? [1] : []
-            content {
-                max_price = var.lc_spot_price
-            }
+        content {
+          max_price = var.lc_spot_price
+        }
       }
     }
   }
 
   block_device_mappings {
     device_name = "/dev/xvda"
-      ebs {
-        volume_size = var.lc_ebs_size
-        volume_type = var.lc_volume_type
-      }
+    ebs {
+      volume_size = var.lc_ebs_size
+      volume_type = var.lc_volume_type
+    }
   }
 
   iam_instance_profile {
@@ -44,13 +44,13 @@ resource "aws_launch_template" "main" {
       var.default_tags,
       {
         "Name" = format(
-        "%s-%s-%s/%s",
-        var.project,
-        var.environment,
-        var.component,
-        var.name,
+          "%s-%s-%s/%s",
+          var.project,
+          var.environment,
+          var.component,
+          var.name,
         )
-        "Module" = var.module
+        "Module"   = var.module
         "Nodetype" = var.name
       },
     )

@@ -1,5 +1,5 @@
 resource "aws_cloudwatch_metric_alarm" "cpc_front_unhealthyhost" {
-  alarm_name          = "${local.csi}-cpc-front-unhealthy-host"
+  alarm_name = "${local.csi}-cpc-front-unhealthy-host"
 
   count               = var.unhealthy_host_alarm_count
   comparison_operator = "GreaterThanOrEqualToThreshold"
@@ -20,7 +20,7 @@ resource "aws_cloudwatch_metric_alarm" "cpc_front_unhealthyhost" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "cpc_back_unhealthyhost" {
-  alarm_name          = "${local.csi}-cpc-back-unhealthy-host"
+  alarm_name = "${local.csi}-cpc-back-unhealthy-host"
 
   count               = var.unhealthy_host_alarm_count
   comparison_operator = "GreaterThanOrEqualToThreshold"
@@ -42,7 +42,7 @@ resource "aws_cloudwatch_metric_alarm" "cpc_back_unhealthyhost" {
 
 
 resource "aws_cloudwatch_metric_alarm" "cpc_front_dvsa_unhealthyhost" {
-  alarm_name          = "${local.csi}-cpc-front-dvsa-unhealthy-host"
+  alarm_name = "${local.csi}-cpc-front-dvsa-unhealthy-host"
 
   count               = var.unhealthy_host_alarm_count
   comparison_operator = "GreaterThanOrEqualToThreshold"
@@ -63,7 +63,7 @@ resource "aws_cloudwatch_metric_alarm" "cpc_front_dvsa_unhealthyhost" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "cpc_front_internal_unhealthyhost" {
-  alarm_name          = "${local.csi}-cpc-front-internal-unhealthy-host"
+  alarm_name = "${local.csi}-cpc-front-internal-unhealthy-host"
 
   count               = var.unhealthy_host_alarm_count
   comparison_operator = "GreaterThanOrEqualToThreshold"

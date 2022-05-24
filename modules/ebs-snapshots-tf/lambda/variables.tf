@@ -60,7 +60,7 @@ variable "publish" {
 }
 
 variable "env_variables" {
-  type        = map
+  type        = map(any)
   description = "Map of environment to pass to Lambda"
   default     = {}
 }
@@ -83,7 +83,7 @@ variable "cwlg_retention_in_days" {
 }
 
 variable "default_tags" {
-  type        = map
+  type        = map(any)
   description = ""
   default     = {}
 }

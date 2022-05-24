@@ -13,11 +13,11 @@ resource "aws_cloudfront_distribution" "holding_pages" {
   }
 
   aliases = concat(
-      [
-        "maintenance-${var.environment}.${data.terraform_remote_state.acc.outputs.public_domain_name}",
-      ],
-      var.holding_pages_domains,
-    )
+    [
+      "maintenance-${var.environment}.${data.terraform_remote_state.acc.outputs.public_domain_name}",
+    ],
+    var.holding_pages_domains,
+  )
 
   restrictions {
     geo_restriction {
@@ -57,7 +57,7 @@ resource "aws_cloudfront_distribution" "holding_pages" {
       event_type = "viewer-request"
       lambda_arn = module.lambda-holding-pages.lambda_holding_pages_lambda_arn
     }
-}
+  }
 
   #Ensure all urls return the maintenance page
   custom_error_response {

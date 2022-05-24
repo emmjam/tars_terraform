@@ -24,8 +24,8 @@ resource "aws_db_option_group" "cpc-19c" {
   }
 
   option {
-  option_name = "S3_INTEGRATION"
-  version     = "1.0"
+    option_name = "S3_INTEGRATION"
+    version     = "1.0"
   }
 
   option {

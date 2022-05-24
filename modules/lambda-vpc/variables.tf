@@ -61,7 +61,7 @@ variable "reserved_concurrent_executions" {
 }
 
 variable "env_variables" {
-  type        = map
+  type        = map(any)
   description = "Map of environment to pass to Lambda"
   default     = {}
 }
@@ -84,14 +84,14 @@ variable "cwlg_retention_in_days" {
 }
 
 variable "default_tags" {
-  type        = map
+  type        = map(any)
   description = "Default tags to apply to all taggable resources"
   default     = {}
 }
 
 variable "lambda_version" {
   type        = string
-  description = "Lambda version deployed" 
+  description = "Lambda version deployed"
   default     = "default"
 }
 
@@ -101,13 +101,13 @@ variable "vpc_id" {
 }
 
 variable "additional_security_groups" {
-  type        = list
+  type        = list(any)
   description = "Additional security groups to assign to Lambda on top of the unique one created by this module"
   default     = []
 }
 
 variable "subnet_ids" {
-  type        = list
+  type        = list(any)
   description = "List of subnet IDs to place the Lambdas"
 }
 

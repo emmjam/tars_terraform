@@ -3,7 +3,7 @@ resource "aws_iam_role" "lambda_guardduty_slack" {
   assume_role_policy = data.aws_iam_policy_document.lambda_assumerole.json
 
   tags = merge(
-   local.default_tags,
+    local.default_tags,
     tomap({
       "Name" = "${local.csi}/${var.module}",
     }),

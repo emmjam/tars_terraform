@@ -11,9 +11,9 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_ecom_refund_request" {
   log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
 
   metric_transformation {
-    name      = "EcomRefundRequestCount"
-    namespace = "${var.environment}/epdq"
-    value     = "1"
+    name          = "EcomRefundRequestCount"
+    namespace     = "${var.environment}/epdq"
+    value         = "1"
     default_value = "0"
   }
 }
@@ -32,9 +32,9 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_ecom_payment_request" {
 
 
   metric_transformation {
-    name      = "EcomPaymentRequestCount"
-    namespace = "${var.environment}/epdq"
-    value     = "1"
+    name          = "EcomPaymentRequestCount"
+    namespace     = "${var.environment}/epdq"
+    value         = "1"
     default_value = "0"
   }
 }
@@ -52,9 +52,9 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_moto_refund_request" {
   log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
 
   metric_transformation {
-    name      = "MotoRefundRequestCount"
-    namespace = "${var.environment}/epdq"
-    value     = "1"
+    name          = "MotoRefundRequestCount"
+    namespace     = "${var.environment}/epdq"
+    value         = "1"
     default_value = "0"
   }
 }
@@ -72,9 +72,9 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_moto_payment_request" {
   log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
 
   metric_transformation {
-    name      = "MotoPaymentRequestCount"
-    namespace = "${var.environment}/epdq"
-    value     = "1"
+    name          = "MotoPaymentRequestCount"
+    namespace     = "${var.environment}/epdq"
+    value         = "1"
     default_value = "0"
   }
 }
@@ -92,9 +92,9 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_card_aauthorisation_error" {
   log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
 
   metric_transformation {
-    name      = "CardAuthError"
-    namespace = "${var.environment}/epdq"
-    value     = "1"
+    name          = "CardAuthError"
+    namespace     = "${var.environment}/epdq"
+    value         = "1"
     default_value = "0"
   }
 }
@@ -112,9 +112,9 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_card_authorisation_decline" {
   log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
 
   metric_transformation {
-    name      = "CardAuthDeclineCount"
-    namespace = "${var.environment}/epdq"
-    value     = "1"
+    name          = "CardAuthDeclineCount"
+    namespace     = "${var.environment}/epdq"
+    value         = "1"
     default_value = "0"
   }
 }
@@ -132,9 +132,9 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_payment_accepted" {
   log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
 
   metric_transformation {
-    name      = "PaymentAcceptedCount"
-    namespace = "${var.environment}/epdq"
-    value     = "1"
+    name          = "PaymentAcceptedCount"
+    namespace     = "${var.environment}/epdq"
+    value         = "1"
     default_value = "0"
   }
 }
@@ -152,9 +152,9 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_payment_challenged" {
   log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
 
   metric_transformation {
-    name      = "PaymentChallengedCount"
-    namespace = "${var.environment}/epdq"
-    value     = "1"
+    name          = "PaymentChallengedCount"
+    namespace     = "${var.environment}/epdq"
+    value         = "1"
     default_value = "0"
   }
 }
@@ -172,9 +172,9 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_payment_challenged_accepted" {
   log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
 
   metric_transformation {
-    name      = "PaymentChallengedAccepted"
-    namespace = "${var.environment}/epdq"
-    value     = "1"
+    name          = "PaymentChallengedAccepted"
+    namespace     = "${var.environment}/epdq"
+    value         = "1"
     default_value = "0"
   }
 }
@@ -192,9 +192,9 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_payment_challenged_declined" {
   log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
 
   metric_transformation {
-    name      = "PaymentChallengedDeclined"
-    namespace = "${var.environment}/epdq"
-    value     = "1"
+    name          = "PaymentChallengedDeclined"
+    namespace     = "${var.environment}/epdq"
+    value         = "1"
     default_value = "0"
   }
 }
@@ -212,9 +212,9 @@ resource "aws_cloudwatch_log_metric_filter" "epdq_refund_accepted" {
   log_group_name = aws_cloudwatch_log_group.tars_back_epdq_timings.name
 
   metric_transformation {
-    name      = "RefundAcceptedCount"
-    namespace = "${var.environment}/epdq"
-    value     = "1"
+    name          = "RefundAcceptedCount"
+    namespace     = "${var.environment}/epdq"
+    value         = "1"
     default_value = "0"
   }
 }

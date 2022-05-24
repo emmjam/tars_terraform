@@ -25,18 +25,18 @@ resource "aws_lambda_function" "lambda_cron" {
     ""
   )
 
-  role                = aws_iam_role.lambda_cron.arn
-  handler             = var.handler
-  runtime             = var.runtime
-  publish             = var.publish
-  memory_size         = var.memory
-  timeout             = var.timeout
+  role        = aws_iam_role.lambda_cron.arn
+  handler     = var.handler
+  runtime     = var.runtime
+  publish     = var.publish
+  memory_size = var.memory
+  timeout     = var.timeout
 
-  s3_bucket         = var.s3_bucket_name
-  s3_key            = var.s3_key
-#  s3_object_version = "${var.s3_object_version}"
+  s3_bucket = var.s3_bucket_name
+  s3_key    = var.s3_key
+  #  s3_object_version = "${var.s3_object_version}"
 
-  vpc_config  {
+  vpc_config {
     subnet_ids         = var.subnet_ids
     security_group_ids = var.security_group_ids
   }
@@ -62,7 +62,7 @@ resource "aws_lambda_function" "lambda_cron" {
         var.function_name
       ),
       "Component" = var.component,
-      "Module" = var.module
+      "Module"    = var.module
     })
   )
   lifecycle {

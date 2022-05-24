@@ -63,7 +63,7 @@ data "aws_ami" "squidnat" {
 }
 
 data "aws_ami" "jmeter" {
-  
+
   most_recent = "true"
 
   owners = [

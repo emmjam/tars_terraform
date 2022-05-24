@@ -1,5 +1,5 @@
 resource "aws_cloudwatch_metric_alarm" "front_unhealthyhost" {
-  alarm_name          = "${local.csi}-front-unhealthy-host"
+  alarm_name = "${local.csi}-front-unhealthy-host"
 
   count               = var.unhealthy_host_alarm_count
   comparison_operator = "GreaterThanOrEqualToThreshold"
@@ -20,7 +20,7 @@ resource "aws_cloudwatch_metric_alarm" "front_unhealthyhost" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "apache_unhealthyhost" {
-  alarm_name          = "${local.csi}-apache-unhealthy-host"
+  alarm_name = "${local.csi}-apache-unhealthy-host"
 
   count               = var.unhealthy_host_alarm_count
   comparison_operator = "GreaterThanOrEqualToThreshold"

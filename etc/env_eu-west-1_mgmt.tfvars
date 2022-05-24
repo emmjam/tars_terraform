@@ -70,13 +70,13 @@ prod_subdomains_name_servers = {
 }
 
 prep_public_domain_name = "prep.live.tars.dvsacloud.uk"
-prep_domains_name_servers = { 
-    prep = "ns-1096.awsdns-09.org,ns-946.awsdns-54.net,ns-492.awsdns-61.com,ns-1981.awsdns-55.co.uk"
+prep_domains_name_servers = {
+  prep = "ns-1096.awsdns-09.org,ns-946.awsdns-54.net,ns-492.awsdns-61.com,ns-1981.awsdns-55.co.uk"
 }
 
 prod_public_dvsa_domain_name = "prod.live.tars.dvsacloud.uk"
 prod_domains_name_servers = {
-    prod = "ns-1935.awsdns-49.co.uk,ns-1297.awsdns-34.org,ns-244.awsdns-30.com,ns-947.awsdns-54.net"
+  prod = "ns-1935.awsdns-49.co.uk,ns-1297.awsdns-34.org,ns-244.awsdns-30.com,ns-947.awsdns-54.net"
 }
 
 # ACM Certname
@@ -113,12 +113,12 @@ guardduty_notify = {
 
 ctrl_peers_xacct = [
   {
-    vpc_id     = "vpc-9f2ba7f9"   # tarsnonprod/ctrl
+    vpc_id     = "vpc-9f2ba7f9" # tarsnonprod/ctrl
     cidr_block = "10.167.60.0/22"
     account_id = "652856684323"
   },
   {
-    vpc_id     = "vpc-01552f67"   # tarsprod/ctrl
+    vpc_id     = "vpc-01552f67" # tarsprod/ctrl
     cidr_block = "10.167.56.0/22"
     account_id = "246976497890"
   },
@@ -127,7 +127,7 @@ ctrl_peers_xacct = [
 # Peers created by the ctrl component, in the same AWS account
 ctrl_peers_local = [
   {
-    vpc_id     = "vpc-ff970799"   # tarsmgmt/ctrl
+    vpc_id     = "vpc-ff970799" # tarsmgmt/ctrl
     cidr_block = "10.167.64.0/22"
     account_id = "645711882182"
   },
@@ -138,62 +138,62 @@ base_peers_local = []
 # Peers created by the base component, in a different AWS account
 base_peers_xacct = [
   {
-    vpc_id     = "vpc-91eab8f7"  # tarsnonprod/opsdev
+    vpc_id     = "vpc-91eab8f7" # tarsnonprod/opsdev
     cidr_block = "10.167.0.0/21"
     account_id = "652856684323"
   },
   {
-    vpc_id     = "vpc-a3fdafc5"  # tarsnonprod/dev01
+    vpc_id     = "vpc-a3fdafc5" # tarsnonprod/dev01
     cidr_block = "10.167.24.0/21"
     account_id = "652856684323"
   },
   {
-    vpc_id     = "vpc-10ecbe76"  # tarsnonprod/sit01
+    vpc_id     = "vpc-10ecbe76" # tarsnonprod/sit01
     cidr_block = "10.167.16.0/21"
     account_id = "652856684323"
   },
   {
-    vpc_id     = "vpc-4be8ba2d"   # tarsnonprod/uat01
+    vpc_id     = "vpc-4be8ba2d" # tarsnonprod/uat01
     cidr_block = "10.167.8.0/21"
     account_id = "652856684323"
   },
   {
-    vpc_id     = "vpc-301d4056"   # tarsnonprod/perf01
+    vpc_id     = "vpc-301d4056" # tarsnonprod/perf01
     cidr_block = "10.167.32.0/21"
     account_id = "652856684323"
   },
   {
-    vpc_id     = "vpc-1c88d57a"   # tarsprod/prod
+    vpc_id     = "vpc-1c88d57a" # tarsprod/prod
     cidr_block = "10.167.128.0/21"
     account_id = "246976497890"
   },
   {
-    vpc_id     = "vpc-0b238d4af5302abf1"   # tarsprod/prep
+    vpc_id     = "vpc-0b238d4af5302abf1" # tarsprod/prep
     cidr_block = "10.167.136.0/21"
     account_id = "246976497890"
   },
   {
-    vpc_id     = "vpc-0d5b870a03ca18430"   # tarsnonprod/train
+    vpc_id     = "vpc-0d5b870a03ca18430" # tarsnonprod/train
     cidr_block = "10.167.144.0/21"
     account_id = "652856684323"
   },
   {
-    vpc_id     = "vpc-07114e08eddc0332a"  # tarsnonprod/dev02
+    vpc_id     = "vpc-07114e08eddc0332a" # tarsnonprod/dev02
     cidr_block = "10.167.40.0/21"
     account_id = "652856684323"
   },
   {
-    vpc_id     = "vpc-04a94878b58a60387"  # tarsnonprod/uat02
+    vpc_id     = "vpc-04a94878b58a60387" # tarsnonprod/uat02
     cidr_block = "10.167.48.0/21"
     account_id = "652856684323"
   },
   {
-    vpc_id     = "vpc-0e7a1dbf9dbe564f3"  # tarsnonprod/sit02
+    vpc_id     = "vpc-0e7a1dbf9dbe564f3" # tarsnonprod/sit02
     cidr_block = "10.167.80.0/21"
     account_id = "652856684323"
   },
   {
-    vpc_id     = "vpc-05c69ca21e975e5b1"  # tarsnonprod/uat03
+    vpc_id     = "vpc-05c69ca21e975e5b1" # tarsnonprod/uat03
     cidr_block = "10.167.88.0/21"
     account_id = "652856684323"
   },
@@ -201,7 +201,7 @@ base_peers_xacct = [
 
 ### CWLES
 
-cwles_curator_max_age = "30"
+cwles_curator_max_age       = "30"
 cwles_data_instance_type    = "m4.large.elasticsearch"
 cwles_data_instance_count   = "2"
 cwles_data_volume_size      = "512"
@@ -295,8 +295,8 @@ alb_public_subnets_cidrs = [
 ]
 
 ## sonarqube
-sonarqube_ami_build_id        = "1267"
-sonarqube_base_ami            = "amzn2"
+sonarqube_ami_build_id = "1267"
+sonarqube_base_ami     = "amzn2"
 sonarqube = {
   sq_asg_size_min             = 1
   sq_asg_size_desired         = 1
@@ -325,9 +325,9 @@ sonarqube = {
 
 
 ## gitlab
-gitlab_instance_type        = "m4.large"
-gitlab_ami_build_id   = "1297"
-gitlab_name           = "gitlabaz2"
+gitlab_instance_type = "m4.large"
+gitlab_ami_build_id  = "1297"
+gitlab_name          = "gitlabaz2"
 
 gitlab_asg_min_size         = 0
 gitlab_asg_max_size         = 1
@@ -337,16 +337,16 @@ gitlab_scaledown_desired    = 0
 gitlab_scaledown_recurrence = "00 19 * * 1-5"
 gitlab_scaleup_desired      = 1
 gitlab_scaleup_recurrence   = "00 07 * * 1-5"
-gitlab_subnets_cidrs = ["10.200.5.0/28"]
+gitlab_subnets_cidrs        = ["10.200.5.0/28"]
 
 gitlab_elb_public_public_port     = 443
 gitlab_elb_public_public_protocol = "HTTPS"
-gitlab_elb_subnets_cidrs = ["10.200.5.16/28"]
-gitlab_elb_private_subnets_cidrs = ["10.200.5.128/28"]
+gitlab_elb_subnets_cidrs          = ["10.200.5.16/28"]
+gitlab_elb_private_subnets_cidrs  = ["10.200.5.128/28"]
 
 gitlab_db_db_name           = "gitlabamzn2"
-gitlab_db_allocated_storage       = "20"
-gitlab_db_storage_type            = "gp2"
+gitlab_db_allocated_storage = "20"
+gitlab_db_storage_type      = "gp2"
 gitlab_db_engine_version    = "12.7"
 
 gitlab_db_instance_class          = "db.t3.medium"
@@ -357,9 +357,9 @@ gitlab_db_backup_retention_period = 14
 gitlab_db_backup_window           = "01:00-02:00"
 gitlab_db_maintenance_window      = "Sun:03:00-Sun:06:00"
 gitlab_db_skip_final_snapshot     = false
-gitlab_db_pg_family          = "postgres12"
+gitlab_db_pg_family               = "postgres12"
 
-gitlab_db_snapshot_id             = "ops-3304-gitlab-13-1-2-pre-13-9"
+gitlab_db_snapshot_id = "ops-3304-gitlab-13-1-2-pre-13-9"
 
 gitlab_db_subnets_cidrs = [
   "10.200.5.32/28",
@@ -367,14 +367,14 @@ gitlab_db_subnets_cidrs = [
   "10.200.5.64/28",
 ]
 
-gitlab_redis_engine_version     = "6.x"
+gitlab_redis_engine_version = "6.x"
 
 gitlab_redis_parameter_group_name     = "default.redis6.x"
 gitlab_redis_node_type                = "cache.m3.medium"
 gitlab_redis_maintenance_window       = "sun:04:00-sun:07:00"
 gitlab_redis_snapshot_window          = "00:00-03:00"
-gitlab_redis_snapshot_retention_limit = 0                                                           # backups turned off
-gitlab_redis_endpoint_address    = "tars-mgmt-mgmtgitlabaz2.pciqxb.0001.euw1.cache.amazonaws.com" # endpoint address is not revealable yet
+gitlab_redis_snapshot_retention_limit = 0                                                              # backups turned off
+gitlab_redis_endpoint_address         = "tars-mgmt-mgmtgitlabaz2.pciqxb.0001.euw1.cache.amazonaws.com" # endpoint address is not revealable yet
 
 gitlab_redis_subnets_cidrs = [
   "10.200.5.80/28",
@@ -464,11 +464,11 @@ ecr_repository_ro_principals = [
 ##
 
 nexus_config = {
-  asg_min       = "0"
-  asg_max       = "1"
-  asg_desired   = "1"
-  instance_type = "t3.medium"
-  listen_port   = "8081"
+  asg_min            = "0"
+  asg_max            = "1"
+  asg_desired        = "1"
+  instance_type      = "t3.medium"
+  listen_port        = "8081"
   nexus_ami_build_id = "1271"
 }
 
@@ -491,18 +491,18 @@ alert_logic = ""
 nexus_domain_name = "www.nexus.mgmt.mgmt.tars.dvsa.aws"
 
 non_prod_jenkins_cidrs = [
-    "10.167.24.0/21",
-    "10.167.40.0/21",
-    "10.167.16.0/21",
-    "10.167.80.0/21",
-    "10.167.8.0/21",
-    "10.167.48.0/21",
-    "10.167.88.0/21",
-    "10.167.32.0/21",
-    "10.167.144.0/21",
-    "10.167.60.16/28",
-    "10.167.60.32/28",
-    "10.167.60.48/28",
+  "10.167.24.0/21",
+  "10.167.40.0/21",
+  "10.167.16.0/21",
+  "10.167.80.0/21",
+  "10.167.8.0/21",
+  "10.167.48.0/21",
+  "10.167.88.0/21",
+  "10.167.32.0/21",
+  "10.167.144.0/21",
+  "10.167.60.16/28",
+  "10.167.60.32/28",
+  "10.167.60.48/28",
 ]
 
 ##
@@ -518,7 +518,7 @@ cloudability_xacct = {
 # Bounced email
 ##
 enable_bounced_email_report = "1"
-bounced_email_domain = "prod.tars.dvsacloud.uk"
+bounced_email_domain        = "prod.tars.dvsacloud.uk"
 ##
 # Access key rotation/notification - runs every day at 06.00 am
 ##

@@ -146,9 +146,9 @@ variable "guardduty_master_enabled" {
 }
 
 variable "guardduty_member_list" {
-  type        = list(object({
+  type = list(object({
     account_id = string
-    email = string
+    email      = string
   }))
   description = "Map of details of Guardduty member accounts for master account"
   default     = []
@@ -172,7 +172,7 @@ variable "cloudfront_enabled" {
 ##
 
 variable "cloudability_xacct" {
-  type        = map
+  type        = map(any)
   description = "The information needed to permit cross account access from Cloudability. Requires aws_account_id and external_id"
   default     = {}
 }
