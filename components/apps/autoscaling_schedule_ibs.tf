@@ -8,6 +8,16 @@ resource "aws_autoscaling_schedule" "ibs_down" {
   autoscaling_group_name = module.ibs.autoscaling_group_id
 }
 
+resource "aws_autoscaling_schedule" "ibs_down_monday" {
+  count                  = var.aws_autoscaling_enabled
+  scheduled_action_name  = "${local.csi}/ibs-down_monday"
+  min_size               = var.ibs_asg_min_size
+  max_size               = var.ibs_asg_max_size
+  desired_capacity       = var.ibs_scaledown_desired
+  recurrence             = "30 7 * * 1"
+  autoscaling_group_name = module.ibs.autoscaling_group_id
+}
+
 resource "aws_autoscaling_schedule" "ibs_up" {
   count                  = var.aws_autoscaling_enabled
   scheduled_action_name  = "${local.csi}/ibs-up"
@@ -17,6 +27,17 @@ resource "aws_autoscaling_schedule" "ibs_up" {
   recurrence             = var.ibs_scaleup_recurrence
   autoscaling_group_name = module.ibs.autoscaling_group_id
 }
+
+resource "aws_autoscaling_schedule" "ibs_up_monday" {
+  count                  = var.aws_autoscaling_enabled
+  scheduled_action_name  = "${local.csi}/ibs-up_monday"
+  min_size               = 10
+  max_size               = var.ibs_asg_max_size
+  desired_capacity       = 10
+  recurrence             = "30 4 * * 1"
+  autoscaling_group_name = module.ibs.autoscaling_group_id
+}
+
 
 resource "aws_autoscaling_policy" "ibs" {
   count                  = var.aws_autoscaling_enabled
