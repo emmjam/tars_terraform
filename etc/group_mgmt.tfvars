@@ -85,6 +85,7 @@ new_all_users = [
   "ian.davies@bjss.com",
   "zawar.shah@bjss.com",
   "andrew.massey@bjss.com",
+  "samantha.burke@bjss.com",
 ]
 
 # TSSOps Access
@@ -150,6 +151,7 @@ administrators_platform_nonprod_users = [
   "costa.vorontsov@bjss.com",
   "nadeem.khan@bjss.com",
   "ian.davies@bjss.com",
+  "samantha.burke@bjss.com",
 ]
 readonly_platform_users = [
   "tom.bibb@bjss.com",
@@ -159,7 +161,8 @@ readonly_platform_users = [
   "rob.whyte@bjss.com",
   "costa.vorontsov@bjss.com",
   "david.giles@bjss.com",
-  "ian.davies@bjss.com"
+  "ian.davies@bjss.com",
+  "samantha.burke@bjss.com",
 ]
 
 # Developer Access
