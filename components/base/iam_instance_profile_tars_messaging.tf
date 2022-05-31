@@ -21,3 +21,8 @@ resource "aws_iam_role_policy_attachment" "messaging_hieradata" {
   policy_arn = data.terraform_remote_state.acc.outputs.hieradata_kms_key_user_policy_arn
 }
 
+
+resource "aws_iam_role_policy_attachment" "aws_ssm_managed_instance_windows" {
+  role       = aws_iam_role.tars-messaging.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+}
