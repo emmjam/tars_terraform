@@ -6,7 +6,7 @@ resource "aws_security_group_rule" "bastion_elb_ingress_whitelist_ssh" {
   protocol          = "tcp"
   security_group_id = aws_security_group.bastion_elb.id
 
-  cidr_blocks = var.whitelist_temp
+  cidr_blocks = var.whitelist
 }
 
 resource "aws_security_group_rule" "bastion_elb_egress_bastion" {

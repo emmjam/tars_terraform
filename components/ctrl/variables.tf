@@ -107,12 +107,6 @@ variable "whitelist" {
   default     = []
 }
 
-variable "whitelist_temp" {
-  type        = list(string)
-  description = ""
-  default     = []
-}
-
 variable "public_domain_name" {
   type        = string
   description = "public domain name for the hosted zone"
