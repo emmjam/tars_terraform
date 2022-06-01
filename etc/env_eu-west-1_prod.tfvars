@@ -574,3 +574,7 @@ reporting_xe_subnet_cidr = ["10.167.132.176/28"]
 
 # DocumentBatchUpdate - maximum records processed in the Job Polling
 dbu_maxrecordsprocessed = 500
+
+#enable rds db encryption
+rsis_rds_encrypted_snapshot     = "__CHANGE_ME__"
+mis_rds_encrypted_snapshot      = "__CHANGE_ME__"

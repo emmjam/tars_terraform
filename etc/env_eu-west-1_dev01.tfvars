@@ -459,3 +459,7 @@ api_notify = {
 
 # DocumentBatchUpdate - maximum records processed in the Job Polling
 dbu_maxrecordsprocessed = 10
+
+#enable rds db encryption
+rsis_rds_encrypted_snapshot     = "__CHANGE_ME__"
+mis_rds_encrypted_snapshot      = "__CHANGE_ME__"

@@ -75,6 +75,11 @@ variable "mis_rds_storage_type" {
   description = "MIS RDS DB Storage Type"
 }
 
+variable "mis_rds_storage_encrypted" {
+  type        = string
+  description = "MIS RDS DB storage encrypted"
+}
+
 variable "mis_rds_engine" {
   type        = string
   description = "MIS RDS DB Engine"
@@ -123,6 +128,11 @@ variable "mis_rds_maint_window" {
 variable "mis_rds_skip_final_snapshot" {
   type        = string
   description = "MIS RDS Final Snapshot required"
+}
+
+variable "mis_rds_encrypted_snapshot" {
+  type        = string
+  description = "MIS RDS encrypted snapshot to use to restore data"
 }
 
 variable "mis_rds_username" {
@@ -180,6 +190,11 @@ variable "rsis_rds_allocated_storage" {
 variable "rsis_rds_storage_type" {
   type        = string
   description = "MIS RDS DB Storage Type"
+}
+
+variable "rsis_rds_storage_encrypted" {
+  type        = string
+  description = "MIS RDS DB encrypted storage type"
 }
 
 variable "rsis_rds_engine" {
@@ -251,6 +266,11 @@ variable "rsis_rds_license_model" {
 variable "rsis_rds_snapshot" {
   type        = string
   description = "MIS RDS Snapshot to use to restore data"
+}
+
+variable "rsis_rds_encrypted_snapshot" {
+  type        = string
+  description = "MIS RDS encrypted snapshot to use to restore data"
 }
 
 variable "rsis_rds_autoscale" {

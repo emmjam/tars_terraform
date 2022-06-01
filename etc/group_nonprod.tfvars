@@ -661,3 +661,7 @@ ses_user_access_key = false
 
 # Whether or not to create old RDS option and parameter groups
 deprecated_rds_compatibility = false
+
+#enable rds db encryption
+rsis_rds_storage_encrypted      = true
+mis_rds_storage_encrypted       = true

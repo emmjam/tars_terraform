@@ -489,3 +489,7 @@ rds_cw_metric_freestoragespace_alarm_action_enabled = true
 
 # DocumentBatchUpdate - maximum records processed in the Job Polling
 dbu_maxrecordsprocessed = 500
+
+#enable rds db encryption
+rsis_rds_encrypted_snapshot     = "__CHANGE_ME__"
+mis_rds_encrypted_snapshot      = "__CHANGE_ME__"
