@@ -422,7 +422,8 @@ rds_cw_metric_freestoragespace_alarm_action_enabled = true
 
 ## Messaging
 # wildfly_messaging_id = "release_202004"
-wildfly-messaging_ebs_vol = 500
+wildfly-messaging_ebs_vol         = 500
+wildfly-messaging_ebs_volume_type = "gp3"
 
 ## Sizing
 wildfly-back_asg_max_size     = 1

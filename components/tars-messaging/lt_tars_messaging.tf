@@ -27,6 +27,7 @@ resource "aws_launch_template" "tars-messaging" {
 
     ebs {
       volume_size = var.wildfly-messaging_ebs_vol
+      volume_type = var.wildfly-messaging_ebs_volume_type
     }
   }
   tag_specifications {

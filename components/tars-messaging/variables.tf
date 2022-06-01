@@ -266,3 +266,8 @@ variable "wildfly-messaging_ebs_vol" {
   description = "EBS Volumes size for messaging instances"
   default     = 50
 }
+
+variable "wildfly-messaging_ebs_volume_type" {
+  type        = string
+  description = "EBS Volumes type to be used"
+}
