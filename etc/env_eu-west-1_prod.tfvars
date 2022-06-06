@@ -574,3 +574,6 @@ reporting_xe_subnet_cidr = ["10.167.132.176/28"]
 
 # DocumentBatchUpdate - maximum records processed in the Job Polling
 dbu_maxrecordsprocessed = 500
+
+# Whether to create obs Register New Business Holding resources
+obs_reg_holding = true

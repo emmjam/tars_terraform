@@ -463,3 +463,6 @@ whitelist = [
 
 # DocumentBatchUpdate - maximum records processed in the Job Polling
 dbu_maxrecordsprocessed = 500
+
+# Whether to create obs Register New Business Holding resources
+obs_reg_holding = true

@@ -626,3 +626,6 @@ ses_user_access_key = true
 
 # Whether or not to create old RDS option and parameter groups
 deprecated_rds_compatibility = true
+
+# Whether to create obs Register New Business Holding resources
+obs_reg_holding = false

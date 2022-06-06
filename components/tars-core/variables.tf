@@ -523,3 +523,10 @@ variable "deprecated_rds_compatibility" {
   default     = false
   description = "Whether or not to create RDS old option and parameter groups. Required in Prod only"
 }
+
+# Whether to create obs Register New Business Holding resources
+variable "obs_reg_holding" {
+  type        = bool
+  default     = false
+  description = "Whether to create obs Register New Business Holding resources. Required in Prod and UAT02"
+}
