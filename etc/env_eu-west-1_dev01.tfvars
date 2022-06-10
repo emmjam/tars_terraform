@@ -327,10 +327,6 @@ mis_rds_snapshot          = "tars-dev01-tars-dms-misopdmstg-20180720"
 rsis_rds_username                = "tarsrsisadmin"
 rsis_rds_allocated_storage       = "80"
 rsis_rds_snapshot                = "tars-dev01-tars-dms-rsisdmssc-20180719"
-rsis_rds_engine_version          = "19.0.0.0.ru"
-rsis_rds_parameter_group_name    = "rsisdb-19c"
-rsis_rds_option_group_name       = "option-group-19c"
-rsis_allow_major_version_upgrade = true
 
 #############################################################################
 # VPC to DVSA WAN via DX

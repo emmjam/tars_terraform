@@ -519,7 +519,6 @@ mis_rds_option_group_name       = "option-group-19c"
 # RSISDB
 rsis_rds_storage_type            = "gp2"
 rsis_rds_engine                  = "oracle-se2"
-rsis_rds_engine_version          = "12.1.0.2"
 rsis_rds_instance_class          = "db.m4.xlarge"
 rsis_rds_port                    = "1521"
 rsis_rds_public                  = "false"
@@ -532,9 +531,10 @@ rsis_rds_apply_immediately       = "true"
 rsis_rds_license_model           = "license-included"
 rsis_rds_autoscale               = "True"
 rsis_rds_sid_name                = "RSISDB"
-rsis_rds_parameter_group_name    = "rsisdb"
-rsis_rds_option_group_name       = "option-group"
-rsis_allow_major_version_upgrade = false
+rsis_rds_engine_version          = "19.0.0.0.ru-2022-01.rur-2022-01.r1"
+rsis_rds_parameter_group_name    = "rsisdb-19c"
+rsis_rds_option_group_name       = "option-group-19c"
+rsis_allow_major_version_upgrade = true
 
 
 # CPCDB
