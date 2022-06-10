@@ -323,7 +323,7 @@ whitelist = [
   "62.254.63.52/32",    # Kainos ZScaler
 ]
 
-ops_team_email = "TARSStabilisation@bjss.com"
+ops_team_email = "tars.platform-team@bjss.com"
 
 # TSS Opsgenie
 opsgenie_endpoint = "https://api.opsgenie.com/v1/json/amazonsns?apiKey=4cb725d3-32c1-47ae-b3b7-e38187fb9202"
