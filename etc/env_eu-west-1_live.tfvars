@@ -43,18 +43,6 @@ asg_default_tags = [
 guardduty_master_enabled = "0"
 guardduty_member_enabled = "0"
 
-#############################################################################
-# CWLES
-#############################################################################
-
-cwles_curator_max_age = "30"
-
-cwles_data_instance_type    = "m4.large.elasticsearch"
-cwles_data_instance_count   = "2"
-cwles_data_volume_size      = "512"
-cwles_master_instance_type  = "t2.small.elasticsearch"
-cwles_master_instance_count = "2"
-
 # Changed due to JIRA OPS-2184 keep bastion AMI current on weekly basis BST
 ## bastion
 bastion_instance_type        = "t2.micro"
