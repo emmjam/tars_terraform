@@ -343,6 +343,7 @@ payments_whitelist = [
   "185.139.244.0/22",
   "212.35.124.164/32", # End Barclays IP
   "154.14.88.249/32",  # DVSA Notts Corp & Wifi
+  "148.253.134.212/32", # BJSS Guest Network
 ]
 
 whitelist = [
@@ -375,6 +376,7 @@ whitelist = [
   "80.194.75.82/32",  #DSCALLARDS
   "34.242.28.119/32", #MGMT Jenkins for url checks
   "154.14.88.249/32", # DVSA Notts Corp & Wifi
+  "148.253.134.212/32", # BJSS Guest Network
 ]
 
 dvsa_dc_whitelist = [
