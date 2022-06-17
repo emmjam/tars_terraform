@@ -6,8 +6,13 @@ resource "aws_alb_listener" "apache-https-public" {
   certificate_arn   = data.aws_acm_certificate.apache.arn
 
   default_action {
-    type             = "forward"
-    target_group_arn = aws_alb_target_group.irdt-frontend2-7443.arn
+    type = "fixed-response"
+
+    fixed_response {
+      content_type = "text/plain"
+      message_body = "Page not found."
+      status_code  = "404"
+    }
   }
 }
 
