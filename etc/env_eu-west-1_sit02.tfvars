@@ -310,12 +310,12 @@ ad_account         = "233824316563"
 # TARSDB
 tars_rds_username          = "tarsuatadmin"
 tars_rds_snapshot          = "tars-core-tarsdb-20190410-5-4-0-1"
-tars_rds_allocated_storage = "500"
+tars_rds_allocated_storage = "610"
 tars_rds_backup_retention  = "21"
 
 # CPCSDB
 cpc_rds_username          = "cpcuatadmin"
-cpc_rds_allocated_storage = "100"
+cpc_rds_allocated_storage = "500"
 cpc_rds_snapshot          = "tars-sit01-cpc-cpcdb-20190226-5-4-0-2"
 cpc_rds_backup_retention  = "21"
 
