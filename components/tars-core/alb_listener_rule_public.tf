@@ -7,7 +7,7 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_1" {
     type = "redirect"
     redirect {
       #host            = #{host}
-      path        = "/DSAWeb"
+      path        = "/DSAWeb/"
       port        = 443
       protocol    = "HTTPS"
       query       = "TYPE=true"
@@ -62,7 +62,7 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_3" {
     type = "redirect"
     redirect {
       #host            = #{host}
-      path        = "/DSAWeb"
+      path        = "/DSAWeb/"
       port        = 443
       protocol    = "HTTPS"
       query       = "TYPE=true"
