@@ -24,5 +24,5 @@ resource "aws_security_group_rule" "ibs_egress_apache_80" {
   from_port                = "80"
   to_port                  = "80"
   security_group_id        = aws_security_group.ibs-alb.id
-  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-apache-sg-id
+  source_security_group_id = module.ibs.security_group_id
 }
