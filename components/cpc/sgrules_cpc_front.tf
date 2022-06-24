@@ -16,7 +16,7 @@ resource "aws_security_group_rule" "cpc-front-ingress-tars-public-alb-9443" {
   to_port                  = "9443"
   security_group_id        = module.cpc-front.security_group_id
   #source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-public-alb-sg-id
-  source_security_group_id = aws_security_group.cpc-front-internal-alb.id
+  source_security_group_id = aws_security_group.cpc-front-dva-alb.id
 }
 
 resource "aws_security_group_rule" "cpc-front-ingress-cpc-front-dvs-alb-7443" {
