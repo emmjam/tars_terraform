@@ -80,7 +80,7 @@ aws_autoscaling_enabled = "0"
 prometheus_asg_min_size          = 0
 prometheus_asg_max_size          = 0
 prometheus_instance_type         = "m3.medium"
-prometheus_ami_build_id          = "1274"
+prometheus_ami_build_id          = "342"
 prometheus_efs_provisioned_mibps = 1
 
 ## jenkins
@@ -275,10 +275,10 @@ jmeter_instance_type              = "t3.micro"
 jmeter_asg_size_desired_on_create = 0
 jmeter_asg_size_max               = 0
 jmeter_asg_size_min               = 0
-jmeter_ami_build_id               = "1305"
+jmeter_ami_build_id               = "331"
 
 ## XE
-oraclexe_svr_id               = "1296"
+oraclexe_svr_id               = "352"
 oraclexe_asg_min_size         = 0
 oraclexe_asg_max_size         = 1
 oraclexe_scaledown_desired    = 0
@@ -291,7 +291,7 @@ mock_ami_build_id = "8498b7ea/261"
 
 
 ## SFTP
-sftpplus_svr_id = "1303"
+sftpplus_svr_id = "367"
 
 bastion_elb_subnets_cidrs = [
   "10.167.60.64/28",
@@ -444,7 +444,7 @@ rsis_samba_server_archive = "10.14.0.142/32"
 
 # squidnat
 squidnat_instance_type = "m3.medium"
-squidnat_ami_build_id  = "1361"
+squidnat_ami_build_id  = "366"
 
 ops_team_email = "tars.platform-team@bjss.com"
 
@@ -650,7 +650,7 @@ notify_lambda_version = "5"
 # reporting-xe
 reporting_xe_instance_type    = "t2.medium"
 reporting_xe_count            = 0
-reporting_xe_ami_build_id     = "1320"
+reporting_xe_ami_build_id     = "354"
 reporting_xe_asg_min_size     = 0
 reporting_xe_asg_max_size     = 0
 reporting_xe_asg_desired_size = 0

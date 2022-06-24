@@ -57,7 +57,7 @@ bastion_scaleup_recurrence   = "00 07 * * 1-5"
 # TODO: smarts: Move AMI IDs to versions file
 ## Grafana
 grafana_instance_type        = "t2.micro"
-grafana_ami_build_id         = "1252"
+grafana_ami_build_id         = "343"
 grafana_asg_min_size         = 1
 grafana_asg_max_size         = 1
 grafana_scaledown_desired    = 1
@@ -72,7 +72,7 @@ grafana_cert_name = "*"
 ## jenkinsctrl
 jenkins_worker_image             = "645711882182.dkr.ecr.eu-west-1.amazonaws.com/tars/run/jenkinsci:1.0.0"
 jenkinsctrl_instance_type        = "m5a.large"
-jenkinsctrl_ami_build_id         = "1346"
+jenkinsctrl_ami_build_id         = "361"
 jenkinsctrl_executors            = 20
 jenkinsctrl_asg_min_size         = 0
 jenkinsctrl_asg_max_size         = 3
