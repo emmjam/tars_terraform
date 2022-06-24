@@ -301,3 +301,63 @@ variable "dbu_maxrecordsprocessed" {
   type        = string
   description = "DocumentBatchUpdate - maximum records processed in the Job Polling"
 }
+
+variable "document_generation_maxbatchrecords" {
+  type        = string
+  description = "Document generation maxbatchrecords"
+}
+
+variable "puca_job_cca_minAgeHours" {
+  type        = string
+  description = "PUCA Job CCA minAgeHours"
+}
+
+variable "puca_job_cca_maxAgeDays" {
+  type        = string
+  description = "PUCA Job CCA maxAgeDays"
+}
+
+variable "puca_job_cca_maxProcessed" {
+  type        = string
+  description = "PUCA Job CCA maxProcessed"
+}
+
+variable "puca_job_cca_communicationError_minAgeHours" {
+  type        = string
+  description = "PUCA Job CCA communication error minAgeHours"
+}
+
+variable "puca_job_cca_communicationError_maxAgeDays" {
+  type        = string
+  description = "PUCA Job CCA communication error maxAgeDays"
+}
+
+variable "puca_job_cca_communicationError_maxProcessed" {
+  type        = string
+  description = "PUCA Job CCA communication error maxProcessed"
+}
+
+variable "puca_job_cca_nonfinalepdqstatus_minAgeHours" {
+  type        = string
+  description = "PUCA Job CCA nonFinal EPDQ Status minAgeHours"
+}
+
+variable "puca_job_cca_nonfinalepdqstatus_maxAgeDays" {
+  type        = string
+  description = "PUCA Job CCA nonFinal EPDQ Status maxAgeDays"
+}
+
+variable "puca_job_cca_nonfinalepdqstatus_maxProcessed" {
+  type        = string
+  description = "PUCA Job CCA nonFinal EPDQ Status maxProcessed"
+}
+
+variable "puca_job_cca_maxRecordsPerJobRun" {
+  type        = string
+  description = "PUCA Job CCA maxRecordsPerJobRun"
+}
+
+variable "transfer_theory_test_extract_file_to_ftts_job_directory" {
+  type        = string
+  description = "Transfer theory test extract file to FTTS job directory"
+}

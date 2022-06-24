@@ -163,3 +163,8 @@ reporting_xe_alb_sg_whitelist_hosts = [
 ]
 
 kms_inspector_count = 0
+
+document_generation_maxbatchrecords = 1000
+
+# Process Unknown Card Authorisations Job - Challenged Card Auth
+transfer_theory_test_extract_file_to_ftts_job_directory = ""

@@ -406,3 +406,16 @@ api_notify = {
 
 # DocumentBatchUpdate - maximum records processed in the Job Polling
 dbu_maxrecordsprocessed = 500
+
+# Process Unknown Card Authorisations Job - Challenged Card Auth
+puca_job_cca_minAgeHours                                = 1
+puca_job_cca_maxAgeDays                                 = 0
+puca_job_cca_maxProcessed                               = 5
+puca_job_cca_communicationError_minAgeHours             = 1
+puca_job_cca_communicationError_maxAgeDays              = 0
+puca_job_cca_communicationError_maxProcessed            = 1
+puca_job_cca_nonfinalepdqstatus_minAgeHours             = 1
+puca_job_cca_nonfinalepdqstatus_maxAgeDays              = 60
+puca_job_cca_nonfinalepdqstatus_maxProcessed            = 2
+puca_job_cca_maxRecordsPerJobRun                        = 5 
+transfer_theory_test_extract_file_to_ftts_job_directory = "/efs/tars/FTP/irdt/eligibility/ftts"
