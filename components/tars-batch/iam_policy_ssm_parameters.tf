@@ -18,6 +18,7 @@ data "aws_iam_policy_document" "ssm_parameters" {
       "arn:aws:ssm:${var.aws_region}:${var.aws_account_id}:parameter/${var.environment}/tars/batch/DocumentGeneration*",
       "arn:aws:ssm:${var.aws_region}:${var.aws_account_id}:parameter/${var.environment}/tars/batch/ProcessUnknownCardAuthorisationsJob*",
       "arn:aws:ssm:${var.aws_region}:${var.aws_account_id}:parameter/${var.environment}/tars/batch/TransferTheoryTestExtractFileToFTTSJob*",
+      "arn:aws:ssm:${var.aws_region}:${var.aws_account_id}:parameter/${var.environment}/tars/batch/GetTheoryTestResultFilesFTTSJob*",
     ]
   }
 }
