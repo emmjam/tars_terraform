@@ -83,6 +83,7 @@ new_all_users = [
   "andrew.massey@bjss.com",
   "samantha.burke@bjss.com",
   "claudio.correia@bjss.com",
+  "moeez.shahid@bjss.com",
 ]
 
 # TSSOps Access
@@ -174,6 +175,7 @@ readonly_developer_users = [
   "tom.bonam@bjss.com",
   "andrew.massey@bjss.com",
   "claudio.correia@bjss.com",
+  "moeez.shahid@bjss.com",
 ]
 
 # DVSA Access
