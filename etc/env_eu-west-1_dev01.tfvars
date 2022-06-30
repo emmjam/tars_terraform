@@ -12,6 +12,7 @@ tf_state_bucket_prefix = "tars-terraformscaffold"
 default_tags = {
   Project     = "tars"
   Environment = "dev01"
+  DVSA_Env    = "dev"
 }
 
 asg_default_tags = [
