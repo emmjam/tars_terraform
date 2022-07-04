@@ -246,7 +246,7 @@ apache_ami_build_id         = "1302"
 ## AWS MQ
 aws_mq_engine_type        = "ActiveMQ"
 aws_mq_engine_version     = "5.15.9"
-aws_mq_host_instance_type = "mq.t2.micro"
+aws_mq_host_instance_type = "mq.t2.micro"jmeter
 aws_mq_deployment_mode    = "SINGLE_INSTANCE"
 
 aws_mq_users_admin_user              = "admin"
@@ -275,7 +275,7 @@ jmeter_instance_type              = "t3.micro"
 jmeter_asg_size_desired_on_create = 0
 jmeter_asg_size_max               = 0
 jmeter_asg_size_min               = 0
-jmeter_ami_build_id               = "331"
+jmeter_ami_build_id               = "332"
 
 ## XE
 oraclexe_svr_id               = "1296"
@@ -291,7 +291,7 @@ mock_ami_build_id = "313ba3a0/251"
 
 
 ## SFTP
-sftpplus_svr_id = "335"
+sftpplus_svr_id = "336"
 
 bastion_elb_subnets_cidrs = [
   "10.167.60.64/28",
@@ -444,7 +444,7 @@ rsis_samba_server_archive = "10.14.0.142/32"
 
 # squidnat
 squidnat_instance_type = "m3.medium"
-squidnat_ami_build_id  = "328"
+squidnat_ami_build_id  = "330"
 
 ops_team_email = "tars.platform-team@bjss.com"
 
@@ -650,7 +650,7 @@ notify_lambda_version = "5"
 # reporting-xe
 reporting_xe_instance_type    = "t2.medium"
 reporting_xe_count            = 0
-reporting_xe_ami_build_id     = "353"
+reporting_xe_ami_build_id     = "354"
 reporting_xe_asg_min_size     = 0
 reporting_xe_asg_max_size     = 0
 reporting_xe_asg_desired_size = 0
