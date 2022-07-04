@@ -168,3 +168,29 @@ resource "aws_ssm_parameter" "transfer_theory_test_extract_file_to_fttsjob_direc
     },
   )
 }
+
+resource "aws_ssm_parameter" "passwordreset_resetcode_codetimeout" {
+  name        = "/${var.environment}/tars/batch/PasswordReset-resetCode-codeTimeout"
+  type        = "String"
+  value       = var.passwordreset_resetcode_codetimeout
+
+  tags = merge(
+    local.default_tags,
+    {
+      "Name" = "${local.csi}/PasswordReset-resetCode-codeTimeout"
+    },
+  )
+}
+
+resource "aws_ssm_parameter" "passwordreset_resetcode_requesttimelimit" {
+  name        = "/${var.environment}/tars/batch/PasswordReset-resetCode-requestTimeLimit"
+  type        = "String"
+  value       = var.passwordreset_resetcode_requesttimelimit
+
+  tags = merge(
+    local.default_tags,
+    {
+      "Name" = "${local.csi}/PasswordReset-resetCode-requestTimeLimit"
+    },
+  )
+}

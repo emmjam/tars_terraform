@@ -361,3 +361,13 @@ variable "transfer_theory_test_extract_file_to_ftts_job_directory" {
   type        = string
   description = "Transfer theory test extract file to FTTS job directory"
 }
+
+variable "passwordreset_resetcode_codetimeout" {
+  type        = string
+  description = "Password Key Reset"
+}
+
+variable "passwordreset_resetcode_requesttimelimit" {
+  type        = string
+  description = "Password Key Reset"
+}
