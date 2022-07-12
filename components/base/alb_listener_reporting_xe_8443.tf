@@ -9,7 +9,12 @@ resource "aws_alb_listener" "reporting_xe_8443" {
   certificate_arn = var.environment == "prod" ? data.aws_acm_certificate.reporting_xe_cert[0].arn : data.aws_acm_certificate.tars_dvsacloud_uk.arn
 
   default_action {
-    type             = "forward"
-    target_group_arn = aws_alb_target_group.reporting_xe_8443[count.index].arn
+    type = "fixed-response"
+
+    fixed_response {
+      content_type = "text/plain"
+      message_body = "Page not found"
+      status_code  = "404"
+    }
   }
 }
