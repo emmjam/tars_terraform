@@ -10,7 +10,7 @@ resource "aws_alb_listener_rule" "reporting_xe_apex" {
 
   condition {
     path_pattern {
-      values = ["/apex*"]
+      values = ["/apex/*"]
     }
   }
 }
@@ -27,7 +27,7 @@ resource "aws_alb_listener_rule" "reporting_xe_i212" {
 
   condition {
     path_pattern {
-      values = ["/212/*"]
+      values = ["/i*"]
     }
   }
 }
