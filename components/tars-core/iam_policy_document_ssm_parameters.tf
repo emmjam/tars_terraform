@@ -9,6 +9,7 @@ data "aws_iam_policy_document" "ssm_parameters" {
     resources = [
       "arn:aws:ssm:${var.aws_region}:${var.aws_account_id}:parameter/tars-${var.environment}-epdq-*",
       "arn:aws:ssm:${var.aws_region}:${var.aws_account_id}:parameter/tars-${var.environment}-passwordReset-*",
+      "arn:aws:ssm:${var.aws_region}:${var.aws_account_id}:parameter/${var.environment}/tars/all/PasswordReset-resetCode*",
     ]
   }
 }
