@@ -256,7 +256,7 @@ grafana_cert_name = "*"
 ## jenkinsctrl
 jenkins_worker_image             = "645711882182.dkr.ecr.eu-west-1.amazonaws.com/tars/run/jenkinsci:1.0.0"
 jenkinsctrl_instance_type        = "t3a.small"
-jenkinsctrl_ami_build_id         = "1346"
+jenkinsctrl_ami_build_id         = "1410"
 jenkinsctrl_executors            = 20
 jenkinsctrl_asg_min_size         = 0
 jenkinsctrl_asg_max_size         = 3
@@ -286,7 +286,7 @@ alb_public_subnets_cidrs = [
 ]
 
 ## sonarqube
-sonarqube_ami_build_id = "1267"
+sonarqube_ami_build_id = "1412"
 sonarqube_base_ami     = "amzn2"
 sonarqube = {
   sq_asg_size_min             = 1
@@ -317,7 +317,7 @@ sonarqube = {
 
 ## gitlab
 gitlab_instance_type = "m4.large"
-gitlab_ami_build_id  = "1297"
+gitlab_ami_build_id  = "1407"
 gitlab_name          = "gitlabaz2"
 
 gitlab_asg_min_size         = 0
@@ -375,7 +375,7 @@ gitlab_redis_subnets_cidrs = [
 
 ## jenkins
 jenkins_instance_type        = "m5a.large"
-jenkins_ami_build_id         = "1351"
+jenkins_ami_build_id         = "1409"
 jenkins_asg_min_size         = 0
 jenkins_asg_max_size         = 1
 jenkins_ebs_volume_type      = "gp3"
@@ -460,7 +460,7 @@ nexus_config = {
   asg_desired        = "1"
   instance_type      = "t3.medium"
   listen_port        = "8081"
-  nexus_ami_build_id = "1271"
+  nexus_ami_build_id = "1411"
 }
 
 nexus_subnets_cidrs = [
