@@ -7,4 +7,3 @@ resource "aws_efs_mount_target" "prometheus-enc" {
     aws_security_group.prometheus-efs.id,
   ]
 }
-

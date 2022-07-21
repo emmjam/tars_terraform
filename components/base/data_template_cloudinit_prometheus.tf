@@ -20,7 +20,7 @@ data "cloudinit_config" "prometheus" {
         KMS_KEY        = data.terraform_remote_state.acc.outputs.hieradata_kms_key_id
         AWS_ACCOUNT_ID = var.aws_account_id
         AWS_REGION     = var.aws_region
-        EFS_ID         = aws_efs_file_system.prometheus.id
+        EFS_ID         = aws_efs_file_system.prometheus-enc.id
         MOUNT_POINT    = "/var/lib/prometheus"
         LOG_GROUP      = local.prometheus_log
         DOMAIN_NAME    = local.vpc_domain_name
