@@ -443,7 +443,7 @@ apache_asg_max_size           = 0
 apache_scaleup_desired        = 0
 
 api_notify = {
-  handler = "uk.gov.dvsa.notify.sms.SMSNotifyHandler"
+  handler = "uk.gov.dvsa.notify.NotifyHandle"
   #s3_key_prefix          = "functions/notify"
   s3_key_prefix          = "lambda-repo/packages/gov-notify/tars-gov-notify"
   memory_size            = 512

@@ -20,7 +20,7 @@ module "lambda_ibsdb_monitoring" {
   additional_security_groups = [data.terraform_remote_state.base.outputs.core_sg_id]
 
   principal_service  = "events"
-  invoker_source_arn = aws_cloudwatch_event_rule.ibsdb_monitoring.arn
+  invoker_source_arn = [aws_cloudwatch_event_rule.ibsdb_monitoring.arn]
 
   env_variables = {
     ENVIRONMENT        = var.environment
