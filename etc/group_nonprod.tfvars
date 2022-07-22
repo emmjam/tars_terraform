@@ -648,7 +648,7 @@ ftts_elig_port = "22"
 notify_lambda_version = "5"
 
 # reporting-xe
-reporting_xe_instance_type    = "t2.medium"
+reporting_xe_instance_type    = "t2.large"
 reporting_xe_count            = 0
 reporting_xe_ami_build_id     = "1404"
 reporting_xe_asg_min_size     = 0
