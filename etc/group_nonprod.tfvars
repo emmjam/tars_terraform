@@ -278,7 +278,7 @@ jmeter_asg_size_min               = 0
 jmeter_ami_build_id               = "1400"
 
 ## XE
-oraclexe_svr_id               = "1296"
+oraclexe_svr_id               = "1413"
 oraclexe_asg_min_size         = 0
 oraclexe_asg_max_size         = 1
 oraclexe_scaledown_desired    = 0
