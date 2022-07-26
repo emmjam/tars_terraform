@@ -73,9 +73,9 @@ variable "principal_service" {
 }
 
 variable "invoker_source_arn" {
-  type        = string
+  type        = list(string)
   description = "The arn of the Principal Service"
-  default     = ""
+  default     = []
 }
 
 variable "cwlg_retention_in_days" {

@@ -443,7 +443,7 @@ dvla_elise_server      = "51.231.10.112/32"
 rsis_samba_server_archive = "10.14.0.142/32"
 
 # squidnat
-squidnat_instance_type = "m3.medium"
+squidnat_instance_type = "c6g.medium"
 squidnat_ami_build_id  = "1361"
 
 ops_team_email = "tars.platform-team@bjss.com"
@@ -645,7 +645,7 @@ ibs_high_cpu_cw_metric_alarm_enabled = false
 ftts_elig_port = "22"
 
 #Lambda Govnotify
-notify_lambda_version = "5"
+notify_lambda_version = "6"
 
 # reporting-xe
 reporting_xe_instance_type    = "t2.medium"

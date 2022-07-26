@@ -34,6 +34,7 @@ spot_pricing = {
   "t3.medium"  = "0.0151"
   "t3a.medium" = "0.0151"
   "m6g.medium" = "0.026"
+  "c6g.medium" = "0.026"
 }
 
 rhel_spot_pricing = {
