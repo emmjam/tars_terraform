@@ -22,6 +22,8 @@ data "cloudinit_config" "prometheus" {
         AWS_REGION     = var.aws_region
         EFS_ID         = aws_efs_file_system.prometheus.id
         MOUNT_POINT    = "/var/lib/prometheus"
+        EFS_ENC_ID      = aws_efs_file_system.prometheus-enc.id
+        MOUNT_POINT_ENC = "/efs_enc"
         LOG_GROUP      = local.prometheus_log
         DOMAIN_NAME    = local.vpc_domain_name
     })
