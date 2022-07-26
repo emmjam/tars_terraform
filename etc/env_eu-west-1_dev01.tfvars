@@ -221,15 +221,6 @@ awsmq_subnets_cidrs = [
   "10.167.29.208/28",
 ]
 
-apache_subnet_cidrs = [
-  "10.167.29.224/28",
-  "10.167.29.240/28",
-  "10.167.30.0/28",
-]
-
-#  "10.167.30.16/28",
-
-
 sftpplus_nlb_subnets_cidrs = [
   "10.167.30.32/28",
   "10.167.30.48/28",
@@ -325,9 +316,9 @@ mis_rds_allocated_storage = "300"
 mis_rds_snapshot          = "tars-dev01-tars-dms-misopdmstg-20180720"
 
 # RSISDB
-rsis_rds_username                = "tarsrsisadmin"
-rsis_rds_allocated_storage       = "80"
-rsis_rds_snapshot                = "tars-dev01-tars-dms-rsisdmssc-20180719"
+rsis_rds_username          = "tarsrsisadmin"
+rsis_rds_allocated_storage = "80"
+rsis_rds_snapshot          = "tars-dev01-tars-dms-rsisdmssc-20180719"
 
 #############################################################################
 # VPC to DVSA WAN via DX
@@ -439,9 +430,6 @@ cpc-back_asg_max_size         = 1
 cpc-back_scaleup_desired      = 1
 cpc-front_asg_max_size        = 1
 cpc-front_scaleup_desired     = 1
-apache_asg_max_size           = 0
-apache_scaleup_desired        = 0
-
 
 api_notify = {
   handler = "notify.handleAsync"
@@ -458,13 +446,13 @@ api_notify = {
 dbu_maxrecordsprocessed = 10
 
 # Process Unknown Card Authorisations Job - Challenged Card Auth
-puca_job_cca_minAgeHours                      = 1
-puca_job_cca_maxAgeDays                       = 2
-puca_job_cca_maxProcessed                     = 500
-puca_job_cca_communicationError_minAgeHours   = 1
-puca_job_cca_communicationError_maxAgeDays    = 2
-puca_job_cca_communicationError_maxProcessed  = 100
-puca_job_cca_nonfinalepdqstatus_minAgeHours   = 1
-puca_job_cca_nonfinalepdqstatus_maxAgeDays    = 2
-puca_job_cca_nonfinalepdqstatus_maxProcessed  = 200
-puca_job_cca_maxRecordsPerJobRun              = 500
+puca_job_cca_minAgeHours                     = 1
+puca_job_cca_maxAgeDays                      = 2
+puca_job_cca_maxProcessed                    = 500
+puca_job_cca_communicationError_minAgeHours  = 1
+puca_job_cca_communicationError_maxAgeDays   = 2
+puca_job_cca_communicationError_maxProcessed = 100
+puca_job_cca_nonfinalepdqstatus_minAgeHours  = 1
+puca_job_cca_nonfinalepdqstatus_maxAgeDays   = 2
+puca_job_cca_nonfinalepdqstatus_maxProcessed = 200
+puca_job_cca_maxRecordsPerJobRun             = 500

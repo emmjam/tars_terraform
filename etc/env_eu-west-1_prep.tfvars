@@ -229,12 +229,6 @@ awsmq_subnets_cidrs = [
   "10.167.141.224/28",
 ]
 
-apache_subnet_cidrs = [
-  "10.167.141.240/28",
-  "10.167.142.0/28",
-  "10.167.142.16/28",
-]
-
 sftpplus_nlb_subnets_cidrs = [
   "10.167.142.32/28",
   "10.167.142.48/28",
@@ -378,7 +372,7 @@ tars_pdf_cert          = "*"
 obs_cert               = "obs-prep-public"
 ibs_cert               = "ibs-prep-public"
 irdt_cert              = "irdt-prep-public"
-apache_cert            = "routing-prep-public"
+public_cert            = "routing-prep-public"
 bobj-server            = "*"
 holding_pages_cert     = "maintenance-prod"
 
@@ -520,9 +514,6 @@ sftpplus-svr_instance_type = "m3.medium"
 ## cpc-batch
 cpc-batch_instance_type = "m3.medium"
 
-## apache
-apache_instance_type = "m3.medium"
-
 ## squid
 squidnat_instance_type = "t3a.medium"
 
@@ -549,13 +540,13 @@ api_notify = {
 dbu_maxrecordsprocessed = 500
 
 # Process Unknown Card Authorisations Job - Challenged Card Auth
-puca_job_cca_minAgeHours                      = 24
-puca_job_cca_maxAgeDays                       = 0
-puca_job_cca_maxProcessed                     = 0
-puca_job_cca_communicationError_minAgeHours   = 1
-puca_job_cca_communicationError_maxAgeDays    = 0
-puca_job_cca_communicationError_maxProcessed  = 0
-puca_job_cca_nonfinalepdqstatus_minAgeHours   = 24
-puca_job_cca_nonfinalepdqstatus_maxAgeDays    = 0
-puca_job_cca_nonfinalepdqstatus_maxProcessed  = 0
-puca_job_cca_maxRecordsPerJobRun              = 0 
+puca_job_cca_minAgeHours                     = 24
+puca_job_cca_maxAgeDays                      = 0
+puca_job_cca_maxProcessed                    = 0
+puca_job_cca_communicationError_minAgeHours  = 1
+puca_job_cca_communicationError_maxAgeDays   = 0
+puca_job_cca_communicationError_maxProcessed = 0
+puca_job_cca_nonfinalepdqstatus_minAgeHours  = 24
+puca_job_cca_nonfinalepdqstatus_maxAgeDays   = 0
+puca_job_cca_nonfinalepdqstatus_maxProcessed = 0
+puca_job_cca_maxRecordsPerJobRun             = 0 

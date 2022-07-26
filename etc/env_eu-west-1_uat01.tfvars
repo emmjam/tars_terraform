@@ -327,11 +327,11 @@ mis_rds_autoscale         = "False"
 mis_rds_backup_retention  = "21"
 
 # RSISDB
-rsis_rds_username                = "tarsrsisadmin"
-rsis_rds_allocated_storage       = "300"
-rsis_rds_snapshot                = "tars-uat01-tars-reporting-rsisdb-20181108"
-rsis_rds_autoscale               = "False"
-rsis_rds_backup_retention        = "21"
+rsis_rds_username          = "tarsrsisadmin"
+rsis_rds_allocated_storage = "300"
+rsis_rds_snapshot          = "tars-uat01-tars-reporting-rsisdb-20181108"
+rsis_rds_autoscale         = "False"
+rsis_rds_backup_retention  = "21"
 
 #############################################################################
 # VPC to DVSA WAN via DX
@@ -358,14 +358,6 @@ domain_name_servers = [
 ]
 
 private_cert_domain_name = "uat01.nonprod.tars.dev-dvsacloud.uk"
-
-# Temporary allocation -
-# To be removed when overall range is increased
-apache_subnet_cidrs = [
-  "10.167.12.224/28",
-  "10.167.12.240/28",
-  "10.167.13.96/28",
-]
 
 mes_api_cidr_block = ["10.21.0.0/16"]
 
@@ -396,14 +388,14 @@ ses_user_access_key = true
 dbu_maxrecordsprocessed = 500
 
 # Process Unknown Card Authorisations Job - Challenged Card Auth
-puca_job_cca_minAgeHours                      = 1
-puca_job_cca_maxAgeDays                       = 0
-puca_job_cca_maxProcessed                     = 5
-puca_job_cca_communicationError_minAgeHours   = 1
-puca_job_cca_communicationError_maxAgeDays    = 0
-puca_job_cca_communicationError_maxProcessed  = 1
-puca_job_cca_nonfinalepdqstatus_minAgeHours   = 1
-puca_job_cca_nonfinalepdqstatus_maxAgeDays    = 60
-puca_job_cca_nonfinalepdqstatus_maxProcessed  = 2
-puca_job_cca_maxRecordsPerJobRun              = 5 
+puca_job_cca_minAgeHours                                = 1
+puca_job_cca_maxAgeDays                                 = 0
+puca_job_cca_maxProcessed                               = 5
+puca_job_cca_communicationError_minAgeHours             = 1
+puca_job_cca_communicationError_maxAgeDays              = 0
+puca_job_cca_communicationError_maxProcessed            = 1
+puca_job_cca_nonfinalepdqstatus_minAgeHours             = 1
+puca_job_cca_nonfinalepdqstatus_maxAgeDays              = 60
+puca_job_cca_nonfinalepdqstatus_maxProcessed            = 2
+puca_job_cca_maxRecordsPerJobRun                        = 5
 transfer_theory_test_extract_file_to_ftts_job_directory = "/efs/tars/FTP/irdt/eligibility/ftts"

@@ -221,14 +221,6 @@ awsmq_subnets_cidrs = [
   "10.167.45.208/28",
 ]
 
-apache_subnet_cidrs = [
-  "10.167.45.224/28",
-  "10.167.45.240/28",
-  "10.167.46.0/28",
-]
-
-#  "10.167.46.16/28",
-
 tars_backend_api_alb_subnets_cidrs = [
   "10.167.46.32/27",
   "10.167.46.64/27",
@@ -307,7 +299,6 @@ cpc_rds_allocated_storage       = "20" # 20 Gigabyte - was 1500GB
 cpc_rds_snapshot                = "tars-dev01-cpc-cpcdb-5-4-2019-5-7-0-2"
 cpc_allow_major_version_upgrade = true
 
-
 # IBSDB
 ibs_rds_username = "ibsdevadmin"
 ibs_rds_snapshot = "dev02-ibs-subnet-move"
@@ -318,9 +309,9 @@ mis_rds_allocated_storage = "300"
 mis_rds_snapshot          = "tars-dev01-tars-dms-misopdmstg-20180720"
 
 # RSISDB
-rsis_rds_username                = "tarsrsisadmin"
-rsis_rds_allocated_storage       = "150"
-rsis_rds_snapshot                = "tars-dev01-tars-dms-rsisdmssc-20180719"
+rsis_rds_username          = "tarsrsisadmin"
+rsis_rds_allocated_storage = "150"
+rsis_rds_snapshot          = "tars-dev01-tars-dms-rsisdmssc-20180719"
 
 #############################################################################
 # VPC to DVSA WAN via DX
@@ -439,8 +430,6 @@ cpc-back_asg_max_size         = 1
 cpc-back_scaleup_desired      = 1
 cpc-front_asg_max_size        = 1
 cpc-front_scaleup_desired     = 1
-apache_asg_max_size           = 0
-apache_scaleup_desired        = 0
 
 api_notify = {
   handler = "uk.gov.dvsa.notify.NotifyHandle"
@@ -457,13 +446,13 @@ api_notify = {
 dbu_maxrecordsprocessed = 500
 
 # Process Unknown Card Authorisations Job - Challenged Card Auth
-puca_job_cca_minAgeHours                      = 0
-puca_job_cca_maxAgeDays                       = 0
-puca_job_cca_maxProcessed                     = 5
-puca_job_cca_communicationError_minAgeHours   = 0
-puca_job_cca_communicationError_maxAgeDays    = 0
-puca_job_cca_communicationError_maxProcessed  = 1 
-puca_job_cca_nonfinalepdqstatus_minAgeHours   = 0
-puca_job_cca_nonfinalepdqstatus_maxAgeDays    = 0
-puca_job_cca_nonfinalepdqstatus_maxProcessed  = 2
-puca_job_cca_maxRecordsPerJobRun              = 5
+puca_job_cca_minAgeHours                     = 0
+puca_job_cca_maxAgeDays                      = 0
+puca_job_cca_maxProcessed                    = 5
+puca_job_cca_communicationError_minAgeHours  = 0
+puca_job_cca_communicationError_maxAgeDays   = 0
+puca_job_cca_communicationError_maxProcessed = 1
+puca_job_cca_nonfinalepdqstatus_minAgeHours  = 0
+puca_job_cca_nonfinalepdqstatus_maxAgeDays   = 0
+puca_job_cca_nonfinalepdqstatus_maxProcessed = 2
+puca_job_cca_maxRecordsPerJobRun             = 5

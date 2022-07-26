@@ -1,7 +1,7 @@
-# TARS Batch AB target group for port 80 Apache
+# TARS Batch AB target group for port 80 ALB
 resource "aws_alb_target_group" "ibs-80" {
   count    = contains(var.ibs1_ibs2_redirect_env, var.environment) ? 1 : 0
-  name     = "${local.csi}-ibs-apache-80"
+  name     = "${local.csi}-ibs-tars-80"
   port     = "80"
   protocol = "HTTP"
   vpc_id   = data.terraform_remote_state.base.outputs.vpc_id

@@ -221,12 +221,6 @@ awsmq_subnets_cidrs = [
   "10.167.149.208/28",
 ]
 
-apache_subnet_cidrs = [
-  "10.167.149.224/28",
-  "10.167.149.240/28",
-  "10.167.150.0/28",
-]
-
 sftpplus_nlb_subnets_cidrs = [
   "10.167.150.32/28",
   "10.167.150.48/28",
@@ -382,5 +376,5 @@ puca_job_cca_communicationError_maxProcessed            = 1
 puca_job_cca_nonfinalepdqstatus_minAgeHours             = 1
 puca_job_cca_nonfinalepdqstatus_maxAgeDays              = 60
 puca_job_cca_nonfinalepdqstatus_maxProcessed            = 2
-puca_job_cca_maxRecordsPerJobRun                        = 5 
+puca_job_cca_maxRecordsPerJobRun                        = 5
 transfer_theory_test_extract_file_to_ftts_job_directory = "/efs/tars/FTP/irdt/eligibility/ftts"

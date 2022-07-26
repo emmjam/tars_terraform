@@ -221,12 +221,6 @@ awsmq_subnets_cidrs = [
   "10.167.21.208/28",
 ]
 
-apache_subnet_cidrs = [
-  "10.167.21.224/28",
-  "10.167.21.240/28",
-  "10.167.22.0/28",
-]
-
 sftpplus_nlb_subnets_cidrs = [
   "10.167.22.32/28",
   "10.167.22.48/28",
@@ -331,11 +325,11 @@ mis_rds_autoscale         = "False"
 mis_rds_backup_retention  = "21"
 
 # RSISDB
-rsis_rds_username                = "tarsrsisadmin"
-rsis_rds_snapshot                = "tars-dev01-tars-dms-rsisdmssc-20180719"
-rsis_rds_allocated_storage       = "300"
-rsis_rds_autoscale               = "False"
-rsis_rds_backup_retention        = "21"
+rsis_rds_username          = "tarsrsisadmin"
+rsis_rds_snapshot          = "tars-dev01-tars-dms-rsisdmssc-20180719"
+rsis_rds_allocated_storage = "300"
+rsis_rds_autoscale         = "False"
+rsis_rds_backup_retention  = "21"
 
 #############################################################################
 # VPC to DVSA WAN via DX
@@ -388,8 +382,6 @@ cpc-back_asg_max_size         = 1
 cpc-back_scaleup_desired      = 1
 cpc-front_asg_max_size        = 1
 cpc-front_scaleup_desired     = 1
-apache_asg_max_size           = 0
-apache_scaleup_desired        = 0
 
 #Turn off Prometheus
 prometheus_asg_max_size = 0
@@ -418,5 +410,5 @@ puca_job_cca_communicationError_maxProcessed            = 1
 puca_job_cca_nonfinalepdqstatus_minAgeHours             = 1
 puca_job_cca_nonfinalepdqstatus_maxAgeDays              = 60
 puca_job_cca_nonfinalepdqstatus_maxProcessed            = 2
-puca_job_cca_maxRecordsPerJobRun                        = 5 
+puca_job_cca_maxRecordsPerJobRun                        = 5
 transfer_theory_test_extract_file_to_ftts_job_directory = "/efs/tars/FTP/irdt/eligibility/ftts"

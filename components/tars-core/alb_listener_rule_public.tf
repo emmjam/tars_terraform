@@ -1,6 +1,6 @@
 resource "aws_lb_listener_rule" "rewrite_dsaweb_1" {
   #   RewriteRule ^/irdta$        https://%{SERVER_NAME}/DSAWeb/?TYPE=true    [R,L]
-  listener_arn = aws_alb_listener.apache-https-public.arn
+  listener_arn = aws_alb_listener.tars-https-public.arn
   priority     = "5"
 
   action {
@@ -27,7 +27,7 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_1" {
 
 resource "aws_lb_listener_rule" "rewrite_dsaweb_2" {
   #   RewriteRule ^/irdta/(.*)    https://%{SERVER_NAME}/DSAWeb/irdta/$1      [R,L]
-  listener_arn = aws_alb_listener.apache-https-public.arn
+  listener_arn = aws_alb_listener.tars-https-public.arn
   priority     = "10"
 
   action {
@@ -55,7 +55,7 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_2" {
 
 resource "aws_lb_listener_rule" "rewrite_dsaweb_3" {
   # RewriteRule ^/DSAWeb/irdta$ https://%{SERVER_NAME}/DSAWeb/?TYPE=true    [R,L]
-  listener_arn = aws_alb_listener.apache-https-public.arn
+  listener_arn = aws_alb_listener.tars-https-public.arn
   priority     = "15"
 
   action {
@@ -83,7 +83,7 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_3" {
 
 resource "aws_lb_listener_rule" "rewrite_dsaweb_4" {
   # RewriteRule ^/irdtatb$      https://%{SERVER_NAME}/DSAWeb/irdtatb       [R,L]
-  listener_arn = aws_alb_listener.apache-https-public.arn
+  listener_arn = aws_alb_listener.tars-https-public.arn
   priority     = "20"
 
   action {
@@ -111,7 +111,7 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_4" {
 
 resource "aws_lb_listener_rule" "rewrite_dsaweb_5" {
   # RewriteRule ^/irdtatb/(.*)  https://%{SERVER_NAME}/DSAWeb/irdtatb/$1    [R,L]
-  listener_arn = aws_alb_listener.apache-https-public.arn
+  listener_arn = aws_alb_listener.tars-https-public.arn
   priority     = "25"
 
   action {
@@ -139,7 +139,7 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_5" {
 
 resource "aws_lb_listener_rule" "rewrite_dsaweb_6" {
   #  RewriteRule ^/irdtm$        https://%{SERVER_NAME}/DSAWeb/irdtm         [R,L]
-  listener_arn = aws_alb_listener.apache-https-public.arn
+  listener_arn = aws_alb_listener.tars-https-public.arn
   priority     = "30"
 
   action {
@@ -167,7 +167,7 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_6" {
 
 resource "aws_lb_listener_rule" "rewrite_dsaweb_7" {
   # RewriteRule ^/irdtm/(.*)    https://%{SERVER_NAME}/DSAWeb/irdtm/$1      [R,L]
-  listener_arn = aws_alb_listener.apache-https-public.arn
+  listener_arn = aws_alb_listener.tars-https-public.arn
   priority     = "35"
 
   action {
@@ -195,7 +195,7 @@ resource "aws_lb_listener_rule" "rewrite_dsaweb_7" {
 
 resource "aws_lb_listener_rule" "irdt_proxy" {
   #  ProxyPassReverse   "http://irdt-internal.opsdev.nonprod.tars.dev-dvsacloud.uk/DSAWeb"
-  listener_arn = aws_alb_listener.apache-https-public.arn
+  listener_arn = aws_alb_listener.tars-https-public.arn
   priority     = "40"
 
   action {
@@ -216,7 +216,7 @@ resource "aws_lb_listener_rule" "irdt_proxy" {
 
 resource "aws_lb_listener_rule" "rewrite_obsweb_1" {
   # RewriteRule ^/obs/(.*)  https://%{SERVER_NAME}/obs-web/$1 [R,L]
-  listener_arn = aws_alb_listener.apache-https-public.arn
+  listener_arn = aws_alb_listener.tars-https-public.arn
   priority     = "45"
 
   action {
@@ -244,7 +244,7 @@ resource "aws_lb_listener_rule" "rewrite_obsweb_1" {
 
 resource "aws_lb_listener_rule" "rewrite_obsweb_2" {
   # RewriteRule ^/obs$      https://%{SERVER_NAME}/obs-web/pages/home [R,L]
-  listener_arn = aws_alb_listener.apache-https-public.arn
+  listener_arn = aws_alb_listener.tars-https-public.arn
   priority     = "50"
 
   action {
@@ -272,7 +272,7 @@ resource "aws_lb_listener_rule" "rewrite_obsweb_2" {
 
 resource "aws_lb_listener_rule" "obs_proxy" {
   #  ProxyPassReverse   "http://obs-internal.opsdev.nonprod.tars.dev-dvsacloud.uk/obs-web"
-  listener_arn = aws_alb_listener.apache-https-public.arn
+  listener_arn = aws_alb_listener.tars-https-public.arn
   priority     = "55"
 
   action {
@@ -293,7 +293,7 @@ resource "aws_lb_listener_rule" "obs_proxy" {
 
 resource "aws_lb_listener_rule" "rewrite_cpc_1" {
   # RewriteRule ^/delegated$        https://%{SERVER_NAME}/cpctrain/delegatedTest    [R,L]
-  listener_arn = aws_alb_listener.apache-https-public.arn
+  listener_arn = aws_alb_listener.tars-https-public.arn
   priority     = "60"
 
   action {
@@ -321,7 +321,7 @@ resource "aws_lb_listener_rule" "rewrite_cpc_1" {
 
 resource "aws_lb_listener_rule" "rewrite_cpc_2" {
   # RewriteRule ^/delegated/(.*)    https://%{SERVER_NAME}/cpctrain/delegatedTest/$1 [R,L]
-  listener_arn = aws_alb_listener.apache-https-public.arn
+  listener_arn = aws_alb_listener.tars-https-public.arn
   priority     = "65"
 
   action {
@@ -348,7 +348,7 @@ resource "aws_lb_listener_rule" "rewrite_cpc_2" {
 }
 
 resource "aws_lb_listener_rule" "rewrite_cpc_3" {
-  listener_arn = aws_alb_listener.apache-https-public.arn
+  listener_arn = aws_alb_listener.tars-https-public.arn
   priority     = "70"
 
   action {
@@ -375,7 +375,7 @@ resource "aws_lb_listener_rule" "rewrite_cpc_3" {
 }
 
 resource "aws_lb_listener_rule" "rewrite_cpc_4" {
-  listener_arn = aws_alb_listener.apache-https-public.arn
+  listener_arn = aws_alb_listener.tars-https-public.arn
   priority     = "72"
 
   action {
@@ -403,7 +403,7 @@ resource "aws_lb_listener_rule" "rewrite_cpc_4" {
 
 resource "aws_lb_listener_rule" "cpc_proxy1" {
   #  ProxyPassReverse   "http://cpc-internal.opsdev.nonprod.tars.dev-dvsacloud.uk/cpctrain"
-  listener_arn = aws_alb_listener.apache-https-public.arn
+  listener_arn = aws_alb_listener.tars-https-public.arn
   priority     = "75"
 
   action {
@@ -424,7 +424,7 @@ resource "aws_lb_listener_rule" "cpc_proxy1" {
 
 resource "aws_lb_listener_rule" "cpc_proxy2" {
   #  ProxyPassReverse   "http:////cpc-internal.opsdev.nonprod.tars.dev-dvsacloud.uk/cpcode"
-  listener_arn = aws_alb_listener.apache-https-public.arn
+  listener_arn = aws_alb_listener.tars-https-public.arn
   priority     = "80"
 
   action {

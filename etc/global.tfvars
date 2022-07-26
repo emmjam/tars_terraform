@@ -171,5 +171,5 @@ document_generation_maxbatchrecords = 1000
 transfer_theory_test_extract_file_to_ftts_job_directory = ""
 
 # Reset Passwords Parameter Values
-passwordreset_resetcode_codetimeout  = 30
-passwordreset_resetcode_requesttimelimit  = 30
+passwordreset_resetcode_codetimeout      = 30
+passwordreset_resetcode_requesttimelimit = 30

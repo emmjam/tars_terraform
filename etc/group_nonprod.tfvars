@@ -233,16 +233,6 @@ cpc-batch_scaleup_desired      = 1
 cpc-batch_scaleup_recurrence   = "00 04 * * 1-5"
 
 
-## apache
-apache_instance_type        = "m3.medium"
-apache_asg_min_size         = 0
-apache_asg_max_size         = 0
-apache_scaledown_desired    = 0
-apache_scaledown_recurrence = "00 19 * * 1-5"
-apache_scaleup_desired      = 0
-apache_scaleup_recurrence   = "00 04 * * 1-5"
-apache_ami_build_id         = "1302"
-
 ## AWS MQ
 aws_mq_engine_type        = "ActiveMQ"
 aws_mq_engine_version     = "5.15.9"
@@ -341,8 +331,8 @@ payments_whitelist = [
   "91.208.214.0/24",
   "185.8.52.0/22",
   "185.139.244.0/22",
-  "212.35.124.164/32", # End Barclays IP
-  "154.14.88.249/32",  # DVSA Notts Corp & Wifi
+  "212.35.124.164/32",  # End Barclays IP
+  "154.14.88.249/32",   # DVSA Notts Corp & Wifi
   "148.253.134.212/32", # BJSS Guest Network
 ]
 
@@ -371,11 +361,11 @@ whitelist = [
   "10.69.3.18/32",
   "10.69.1.70/31",
   "10.84.192.159/32",
-  "10.84.192.161/32", # End DVSA MS-RDS
-  "85.115.53.201/32", #DSCALLARDS
-  "80.194.75.82/32",  #DSCALLARDS
-  "34.242.28.119/32", #MGMT Jenkins for url checks
-  "154.14.88.249/32", # DVSA Notts Corp & Wifi
+  "10.84.192.161/32",   # End DVSA MS-RDS
+  "85.115.53.201/32",   #DSCALLARDS
+  "80.194.75.82/32",    #DSCALLARDS
+  "34.242.28.119/32",   #MGMT Jenkins for url checks
+  "154.14.88.249/32",   # DVSA Notts Corp & Wifi
   "148.253.134.212/32", # BJSS Guest Network
 ]
 
@@ -487,7 +477,7 @@ tars_pdf_cert          = "*"
 obs_cert               = "*"
 ibs_cert               = "*"
 irdt_cert              = "*"
-apache_cert            = "*"
+public_cert            = "*"
 holding_pages_cert     = "*"
 reporting_xe_cert_name = "*"
 

@@ -255,16 +255,6 @@ cpc-batch_scaledown_recurrence = "00 22 * * 1-5"
 cpc-batch_scaleup_desired      = 1
 cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
-## apache
-apache_instance_type        = "m5.xlarge"
-apache_asg_min_size         = 0
-apache_asg_max_size         = 0
-apache_scaledown_desired    = 0
-apache_scaledown_recurrence = "00 22 * * 1-5"
-apache_scaleup_desired      = 0
-apache_scaleup_recurrence   = "00 07 * * 1-5"
-apache_ami_build_id         = "1302"
-
 aws_mq_config_description    = "TARS MQ Configuration"
 aws_mq_config_name           = "tars-awsmq"
 aws_mq_config_engine_type    = "ActiveMQ"

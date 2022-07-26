@@ -47,8 +47,8 @@ guardduty_member_enabled = "1"
 ###############################################################################
 # prod
 ###############################################################################
-wildfly-messaging_ebs_vol              = 500
-wildfly-messaging_ebs_volume_type      = "gp3"
+wildfly-messaging_ebs_vol         = 500
+wildfly-messaging_ebs_volume_type = "gp3"
 
 # The VPC CIDR Block for this environment
 vpc_cidr = "10.167.128.0/21"
@@ -229,12 +229,6 @@ cpc_efs_subnets_cidrs = [
 awsmq_subnets_cidrs = [
   "10.167.133.208/28",
   "10.167.133.224/28",
-]
-
-apache_subnet_cidrs = [
-  "10.167.133.240/28",
-  "10.167.134.0/28",
-  "10.167.134.16/28",
 ]
 
 sftpplus_nlb_subnets_cidrs = [
@@ -444,7 +438,7 @@ tars_pdf_cert          = "*"
 obs_cert               = "obs-prod-public"
 ibs_cert               = "ibs-prod-public"
 irdt_cert              = "irdt-prod-public"
-apache_cert            = "routing-prod-public"
+public_cert            = "routing-prod-public"
 bobj_cert              = "bobj-prod"
 holding_pages_cert     = "maintenance-prod"
 reporting_xe_cert_name = "reporting-xe-prod-public"
@@ -585,10 +579,10 @@ puca_job_cca_minAgeHours                                = 24
 puca_job_cca_maxAgeDays                                 = 0
 puca_job_cca_maxProcessed                               = 150
 puca_job_cca_communicationError_minAgeHours             = 1
-puca_job_cca_communicationError_maxAgeDays              = 0 
+puca_job_cca_communicationError_maxAgeDays              = 0
 puca_job_cca_communicationError_maxProcessed            = 50
 puca_job_cca_nonfinalepdqstatus_minAgeHours             = 24
 puca_job_cca_nonfinalepdqstatus_maxAgeDays              = 0
-puca_job_cca_nonfinalepdqstatus_maxProcessed            = 150 
-puca_job_cca_maxRecordsPerJobRun                        = 250 
+puca_job_cca_nonfinalepdqstatus_maxProcessed            = 150
+puca_job_cca_maxRecordsPerJobRun                        = 250
 transfer_theory_test_extract_file_to_ftts_job_directory = "/efs/tars/FTP/irdt/eligibility/ftts"
