@@ -236,3 +236,25 @@ else
      log 'INFO' 'Arvato Key not changed'
   fi
 fi
+
+#######################################################################
+# Final rsync & reporting
+date > /var/log/efs_rsync.log
+
+# Perform the rsync
+nice -10 rsync -avh /efs_orig/ /efs >> /var/log/efs_rsync.log
+echo >> /var/log/efs_rsync.log
+
+# Give the filesystem time to settle down
+sleep 300
+
+echo "Checking DF :" >> /var/log/efs_rsync.log
+df -kT | grep nfs4 >> /var/log/efs_rsync.log
+echo >> /var/log/efs_rsync.log
+
+echo "Checking DU :" >> /var/log/efs_rsync.log
+du -sh /efs_orig /efs >> /var/log/efs_rsync.log
+echo >> /var/log/efs_rsync.log
+
+echo "Rsync completed." >> /var/log/efs_rsync.log
+date >> /var/log/efs_rsync.log
