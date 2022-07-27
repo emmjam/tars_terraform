@@ -19,10 +19,8 @@ data "cloudinit_config" "sftpplus_svr" {
         NODETYPE       = var.sftpplus-svr_puppet_nodetype
         KMS_KEY        = data.terraform_remote_state.acc.outputs.hieradata_kms_key_id
         AWS_ACCOUNT_ID = var.aws_account_id
-        EFS_ID         = aws_efs_file_system.sftpplus.id
-        MOUNT_POINT    = "/efs"
         EFS_ENC_ID      = aws_efs_file_system.sftpplus-enc.id
-        MOUNT_POINT_ENC = "/efs_enc"
+        MOUNT_POINT_ENC = "/efs"
         LOG_GROUP      = local.sftpplus_log
     })
   }
