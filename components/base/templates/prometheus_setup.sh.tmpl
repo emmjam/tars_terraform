@@ -90,13 +90,15 @@ log 'INFO' 'Configuring prometheus EFS'
 
 # Ensure the directory exists
 mkdir -p ${MOUNT_POINT};
+mkdir -p ${MOUNT_POINT_ENC};
 
-# This is shamelessley borrowed/stolen from Mr Peachey
 # Set mount information in /etc/fstab - we're unlikely to reboot, but it can't hurt to ensure it remains
 echo "${EFS_ID}.efs.${AWS_REGION}.amazonaws.com:/ ${MOUNT_POINT} nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab
+echo "${EFS_ENC_ID}.efs.${AWS_REGION}.amazonaws.com:/ ${MOUNT_POINT_ENC} efs rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,tls 0 0" >> /etc/fstab
 
 # Mount the configured target for Prometheus
-mount /var/lib/prometheus;
+mount ${MOUNT_POINT};
+mount ${MOUNT_POINT_ENC};
 
 # Puppet will restart the prometheus service
 
