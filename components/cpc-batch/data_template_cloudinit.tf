@@ -21,7 +21,9 @@ data "cloudinit_config" "cpc-batch" {
         AWS_ACCOUNT_ID = var.aws_account_id
         KMS_KEY        = data.terraform_remote_state.acc.outputs.hieradata_kms_key_id
         EFS_ID         = aws_efs_file_system.cpc-batch-efs.id
-        MOUNT_POINT    = "/efs"
+        MOUNT_POINT    = "/efs_orig"
+        EFS_ENC_ID      = aws_efs_file_system.cpc-batch-enc.id
+        MOUNT_POINT_ENC = "/efs"
         LOG_GROUP      = local.cpc_batch_log
     })
   }
