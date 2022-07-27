@@ -99,7 +99,8 @@ echo -n 'aws_account: ${AWS_ACCOUNT_ID}' > "$${facts_path}/aws_account.yaml"
 log 'INFO' 'Configuring EFS'
 
 # Ensure the directory exists
-mkdir -p /efs;
+mkdir -p ${MOUNT_POINT};
+mkdir -p ${MOUNT_POINT_ENC};
 
 # Get Region and AZ from AWS EC2 meta-data. We could take region as a template parameter, but why since meta-data is canonical?
 export region="$(curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | jq -r .region)";
@@ -107,10 +108,12 @@ export az="$(curl -s http://169.254.169.254/latest/meta-data/placement/availabil
 
 # TODO: peacheym: Migrate to the AZ-independent URL
 # Set mount information in /etc/fstab - we're unlikely to reboot, but it can't hurt to ensure it remains
-echo "$${az}.${EFS_ID}.efs.$${region}.amazonaws.com:/ /efs nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab
+echo "$${az}.${EFS_ID}.efs.$${region}.amazonaws.com:/ ${MOUNT_POINT} nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab
+echo "$${az}.${EFS_ENC_ID}.efs.$${region}.amazonaws.com:/ ${MOUNT_POINT_ENC} efs rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,tls 0 0" >> /etc/fstab
 
 # Mount the configured target for Batch
-mount /efs
+mount ${MOUNT_POINT};
+mount ${MOUNT_POINT_ENC};
 
 cd /opt/packer-puppet-masterless
 
