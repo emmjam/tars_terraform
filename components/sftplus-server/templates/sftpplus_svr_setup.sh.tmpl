@@ -206,7 +206,7 @@ touch "/efs_enc/rsync.lock"
 date
 
 # Perform the rsync
-nice -10 rsync -ah --progress /efs/ /efs_enc
+nice -10 rsync -avh /efs/ /efs_enc
 
 date
 echo
