@@ -16,7 +16,7 @@ module "lambda_notify" {
   )
 
   runtime        = "java8.al2"
-  handler        = "uk.gov.dvsa.notify.NotifyHandle"
+  handler        = "uk.gov.dvsa.notify.NotifyHandler"
   memory_size    = 512
   timeout        = 5
   lambda_version = var.notify_lambda_version
