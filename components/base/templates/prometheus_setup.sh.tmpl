@@ -203,7 +203,7 @@ touch "/efs_enc/rsync.lock"
 date
 
 # Perform the rsync
-nice -10 rsync -avh /var/lib/prometheus/ /efs_enc
+nice -10 rsync -avhW --progress /var/lib/prometheus/ /efs_enc
 
 date
 echo
