@@ -189,7 +189,7 @@ fi
 date > /var/log/efs_rsync.log
 
 # Perform the rsync
-nice -10 rsync -avh /efs_orig/ /efs >> /var/log/efs_rsync.log
+nice -10 rsync -avhW --progress /efs_orig/ /efs >> /var/log/efs_rsync.log
 echo >> /var/log/efs_rsync.log
 
 # Give the filesystem time to settle down
