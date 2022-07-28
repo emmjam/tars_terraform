@@ -42,7 +42,7 @@ touch "/efs_enc/rsync.lock"
 date
 
 # Perform the rsync
-nice -10 rsync -avh /opt/sonatype-work/nexus3/ /efs_enc
+nice -10 rsync -avhW --progress /opt/sonatype-work/nexus3/ /efs_enc
 
 date
 echo
