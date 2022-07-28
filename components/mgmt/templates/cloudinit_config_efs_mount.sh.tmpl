@@ -24,7 +24,7 @@ chmod 755 /opt/sonatype-work/nexus3
 date > /var/log/efs_rsync.log
 
 # Perform the rsync
-nice -10 rsync -avh /efs_orig/ /opt/sonatype-work/nexus3 >> /var/log/efs_rsync.log
+nice -10 rsync -avhW --progress /efs_orig/ /opt/sonatype-work/nexus3 >> /var/log/efs_rsync.log
 echo >> /var/log/efs_rsync.log
 
 # Give the filesystem time to settle down
