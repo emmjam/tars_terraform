@@ -207,15 +207,17 @@ date
 
 # Perform the rsync
 SRC="/efs"
-DST="/efs_enc/parallel"
+DST="/efs_enc"
 #nice -10 rsync -avhW --progress xSRCx/ xDSTx
 
 #### TESTING ================================
 mkdir -p xSRCx
-# threads=$(($(nproc --all) * 4))   # number of CPUs x4 (CPU = threads per core X cores per socket X sockets)
 threads=xZZZx
 echo "Number of threads: " xTHREADSx
 echo 3 > /proc/sys/vm/drop_caches
+fpsync -n xTHREADSx xSRCx xDSTx
+
+# threads=$(($(nproc --all) * 4))   # number of CPUs x4 (CPU = threads per core X cores per socket X sockets)
 # time find xSRCx/. -type f | parallel --will-cite -jxTHREADSx cp {} xDSTx/
 # time find xSRCx/. -type f -print0 | parallel -0 -jxTHREADSx mkdir -p xSRCx/{//}';' cp {} xDSTx/{//}
 
@@ -225,7 +227,7 @@ echo 3 > /proc/sys/vm/drop_caches
 
 # amazon-linux-extras install epel
 # yum install fpart nload sysstat parallel -y
-# fpsync -n xTHREADSx xSRCx xDSTx
+
 
 #### END TESTING ================================
 
