@@ -310,7 +310,7 @@ tars_rds_snapshot          = "tars-core-tarsdb-20190410-5-4-0-1"
 tars_rds_backup_retention  = "21"
 
 # CPCDB
-cpc_rds_username          = "cpcadmin"
+cpc_rds_username          = "cpcuatadmin"
 cpc_rds_allocated_storage = "100" # 20 Gigabyte - was 1500GB
 #cpc_rds_snapshot          = "tars-uat01-cpc-cpcdb-5-4-2019-5-7-0-2"
 cpc_rds_snapshot          = ""
