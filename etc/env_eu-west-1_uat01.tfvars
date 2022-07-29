@@ -315,6 +315,7 @@ cpc_rds_allocated_storage = "100" # 20 Gigabyte - was 1500GB
 #cpc_rds_snapshot          = "tars-uat01-cpc-cpcdb-5-4-2019-5-7-0-2"
 cpc_rds_snapshot          = "tars-cpc-db-anon2-28072022-do-not-delete"
 cpc_rds_backup_retention  = "21"
+cpc_rds_engine_version    = "19.0.0.0.ru-2022-01.rur-2022-01.r1"
 
 # IBSDB
 ibs_rds_username = "tarsuatadmin"
