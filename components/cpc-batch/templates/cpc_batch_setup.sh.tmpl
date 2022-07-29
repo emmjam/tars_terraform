@@ -208,7 +208,7 @@ date
 # Perform the rsync
 SRC="/efs"
 DST="/efs_enc/parallel"
-#nice -10 rsync -avhW --progress /efs/ /efs_enc/parallel
+#nice -10 rsync -avhW --progress xSRCx/ xDSTx
 
 #### TESTING ================================
 mkdir -p /efs_enc/parallel
@@ -237,6 +237,8 @@ echo
 rm -f "/efs_enc/rsync.lock"
 EOT
 
+sed -i 's/xSRCx/\${SRC}/g' /root/efs_sync.sh
+sed -i 's/xDSTx/\${DST}/g' /root/efs_sync.sh
 chmod +x /root/efs_sync.sh
 
 crontab -l > /tmp/cron_tmp
