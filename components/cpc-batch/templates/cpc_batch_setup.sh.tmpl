@@ -208,7 +208,7 @@ date
 # Perform the rsync
 SRC="/efs"
 DST="/efs_enc/parallel"
-#nice -10 rsync -avhW --progress \${SRC}/ \${SRC}
+#nice -10 rsync -avhW --progress \\${SRC}/ \\${DST}
 
 #### TESTING ================================
 mkdir -p \${DST}
