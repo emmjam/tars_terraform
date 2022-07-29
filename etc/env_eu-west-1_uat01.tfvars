@@ -336,6 +336,7 @@ rsis_rds_allocated_storage       = "300"
 rsis_rds_snapshot                = "tars-rsis-db-anon2-28072022-do-not-delete"
 rsis_rds_autoscale               = "False"
 rsis_rds_backup_retention        = "21"
+rsis_rds_engine_version          = "19.0.0.0.ru-2022-01.rur-2022-01.r1"
 
 #############################################################################
 # VPC to DVSA WAN via DX
