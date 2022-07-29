@@ -331,7 +331,7 @@ mis_rds_backup_retention  = "21"
 
 # RSISDB
 rsis_rds_username                = "rsisuatadmin"
-rsis_rds_allocated_storage       = "300"
+rsis_rds_allocated_storage       = "120"
 #rsis_rds_snapshot                = "tars-uat01-tars-reporting-rsisdb-20181108"
 rsis_rds_snapshot                = "tars-rsis-db-anon2-28072022-do-not-delete"
 rsis_rds_autoscale               = "False"
