@@ -208,23 +208,23 @@ date
 # Perform the rsync
 SRC="/efs"
 DST="/efs_enc/parallel"
-#nice -10 rsync -avhW --progress \\${SRC}/ \\${DST}
+#nice -10 rsync -avhW --progress /efs/ \\${DST}
 
 #### TESTING ================================
-mkdir -p \${DST}
-threads=$(($(nproc --all) * 4))   # number of CPUs x4 (CPU = threads per core X cores per socket X sockets)
-echo "Number of threads: " \$threads
+mkdir -p /efs_enc/parallel
+# threads=$(($(nproc --all) * 4))   # number of CPUs x4 (CPU = threads per core X cores per socket X sockets)
+echo "Number of threads: " $(nproc --all) * 4))
 echo 3 > /proc/sys/vm/drop_caches
-# time find \${SRC}/. -type f | parallel --will-cite -j \${threads} cp {} \${SRC}/
-# time find \${SRC}/. -type f -print0 | parallel -0 -j10 mkdir -p \${SRC}/{//}';' cp {} \${SRC}/{//}
+# time find /efs/. -type f | parallel --will-cite -j10 cp {} /efs_enc/parallel/
+# time find /efs/. -type f -print0 | parallel -0 -j10 mkdir -p /efs/{//}';' cp {} /efs_enc/parallel/{//}
 
-# cd \${SRC}
+# cd /efs
 # time fpart -z -n 1 -o /temp_place .
-# time parallel --will-cite -j \${threads} --pipepart --round-robin --delay .1 --block 1M -a /temp_place/fpart-files-to-transfer.0 sudo "cpio -dpmL \${SRC}"
+# time parallel --will-cite -j10 --pipepart --round-robin --delay .1 --block 1M -a /temp_place/fpart-files-to-transfer.0 sudo "cpio -dpmL /efs_enc/parallel"
 
 # amazon-linux-extras install epel
 # yum install fpart -y
-# fpsync -n X \${SRC} /efs_enc
+# fpsync -n X /efs /efs_enc
 
 #### END TESTING ================================
 
