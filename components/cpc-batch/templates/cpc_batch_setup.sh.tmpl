@@ -211,21 +211,21 @@ DST="/efs_enc/parallel"
 #nice -10 rsync -avhW --progress xSRCx/ xDSTx
 
 #### TESTING ================================
-mkdir -p /efs_enc/parallel
+mkdir -p xSRCx
 # threads=$(($(nproc --all) * 4))   # number of CPUs x4 (CPU = threads per core X cores per socket X sockets)
 threads=xZZZx
 echo "Number of threads: " xTHREADSx
 echo 3 > /proc/sys/vm/drop_caches
-# time find /efs/. -type f | parallel --will-cite -jxTHREADSx cp {} /efs_enc/parallel/
-# time find /efs/. -type f -print0 | parallel -0 -jxTHREADSx mkdir -p /efs/{//}';' cp {} /efs_enc/parallel/{//}
+# time find xSRCx/. -type f | parallel --will-cite -jxTHREADSx cp {} xDSTx/
+# time find xSRCx/. -type f -print0 | parallel -0 -jxTHREADSx mkdir -p xSRCx/{//}';' cp {} xDSTx/{//}
 
-# cd /efs
+# cd xSRCx
 # time fpart -z -n 1 -o /temp_place .
-# time parallel --will-cite -jxTHREADSx --pipepart --round-robin --delay .1 --block 1M -a /temp_place/fpart-files-to-transfer.0 sudo "cpio -dpmL /efs_enc/parallel"
+# time parallel --will-cite -jxTHREADSx --pipepart --round-robin --delay .1 --block 1M -a /temp_place/fpart-files-to-transfer.0 sudo "cpio -dpmL xDSTx"
 
 # amazon-linux-extras install epel
 # yum install fpart nload sysstat parallel -y
-# fpsync -n X /efs /efs_enc
+# fpsync -n xTHREADSx xSRCx xDSTx
 
 #### END TESTING ================================
 
