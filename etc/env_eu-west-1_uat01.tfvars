@@ -322,7 +322,7 @@ ibs_rds_username = "tarsuatadmin"
 ibs_rds_snapshot = "uat01-ibs-subnet-move"
 
 # MISDB
-mis_rds_username          = "misdmsadmin"
+mis_rds_username          = "misuatadmin"
 mis_rds_allocated_storage = "330"
 mis_rds_snapshot          = "tars-uat01-tars-reporting-misdb-20181108"
 mis_rds_snapshot          = "tars-mis-db-anon2-28072022-do-not-delete"
