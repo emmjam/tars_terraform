@@ -193,6 +193,7 @@ PATH="/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/opt/puppetlabs/bin"
 
 # Dont run multiple processes simultainously
 if [ -f "/efs_enc/rsync.lock" ]; then
+  echo "Lock file found: /efs_enc/rsync.lock"
   exit 0
 fi
 
@@ -216,6 +217,7 @@ threads=xZZZx
 echo "Number of threads: " xTHREADSx
 echo 3 > /proc/sys/vm/drop_caches
 #fpsync -n xTHREADSx xSRCx xDSTx
+fpsync -m cpio -n xTHREADSx xSRCx xDSTx
 
 # threads=$(($(nproc --all) * 4))   # number of CPUs x4 (CPU = threads per core X cores per socket X sockets)
 # time find xSRCx/. -type f | parallel --will-cite -jxTHREADSx cp {} xDSTx/
