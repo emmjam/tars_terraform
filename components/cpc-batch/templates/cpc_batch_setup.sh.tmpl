@@ -209,6 +209,7 @@ date
 # Perform the rsync
 SRC="/efs"
 DST="/efs_enc"
+echo "Syncing: xSRCx ==> xDSTx"
 #nice -10 rsync -avhW --progress xSRCx/ xDSTx
 
 #### TESTING ================================
@@ -217,7 +218,8 @@ threads=xZZZx
 echo "Number of threads: " xTHREADSx
 echo 3 > /proc/sys/vm/drop_caches
 #fpsync -n xTHREADSx xSRCx xDSTx
-fpsync -m cpio -n xTHREADSx xSRCx xDSTx
+#fpsync -m cpio -n xTHREADSx xSRCx xDSTx
+fpsync -m cpio -n 8 xSRCx xDSTx
 
 # threads=$(($(nproc --all) * 4))   # number of CPUs x4 (CPU = threads per core X cores per socket X sockets)
 # time find xSRCx/. -type f | parallel --will-cite -jxTHREADSx cp {} xDSTx/
