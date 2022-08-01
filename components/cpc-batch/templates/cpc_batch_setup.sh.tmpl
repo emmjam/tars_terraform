@@ -215,7 +215,7 @@ mkdir -p xSRCx
 threads=xZZZx
 echo "Number of threads: " xTHREADSx
 echo 3 > /proc/sys/vm/drop_caches
-fpsync -n xTHREADSx xSRCx xDSTx
+#fpsync -n xTHREADSx xSRCx xDSTx
 
 # threads=$(($(nproc --all) * 4))   # number of CPUs x4 (CPU = threads per core X cores per socket X sockets)
 # time find xSRCx/. -type f | parallel --will-cite -jxTHREADSx cp {} xDSTx/
