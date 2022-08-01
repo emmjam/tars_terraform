@@ -312,7 +312,6 @@ tars_rds_backup_retention  = "21"
 # CPCDB
 cpc_rds_username          = "cpcuatadmin"
 cpc_rds_allocated_storage = "100" # 20 Gigabyte - was 1500GB
-#cpc_rds_snapshot          = "tars-uat01-cpc-cpcdb-5-4-2019-5-7-0-2"
 cpc_rds_snapshot          = "tars-cpc-db-anon2-28072022-do-not-delete"
 cpc_rds_backup_retention  = "21"
 
@@ -324,7 +323,6 @@ ibs_rds_snapshot = "uat01-ibs-subnet-move"
 # MISDB
 mis_rds_username          = "misuatadmin"
 mis_rds_allocated_storage = "440"
-#mis_rds_snapshot          = "tars-uat01-tars-reporting-misdb-20181108"
 mis_rds_snapshot          = "tars-mis-db-anon2-28072022-do-not-delete"
 mis_rds_autoscale         = "False"
 mis_rds_backup_retention  = "21"
@@ -333,7 +331,6 @@ mis_rds_backup_retention  = "21"
 # RSISDB
 rsis_rds_username                = "rsisuatadmin"
 rsis_rds_allocated_storage       = "120"
-#rsis_rds_snapshot                = "tars-uat01-tars-reporting-rsisdb-20181108"
 rsis_rds_snapshot                = "tars-rsis-db-anon2-28072022-do-not-delete"
 rsis_rds_autoscale               = "False"
 rsis_rds_backup_retention        = "21"
