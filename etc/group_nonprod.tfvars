@@ -635,7 +635,7 @@ ibs_high_cpu_cw_metric_alarm_enabled = false
 ftts_elig_port = "22"
 
 #Lambda Govnotify
-notify_lambda_version = "6"
+notify_lambda_version = "7"
 
 # reporting-xe
 reporting_xe_instance_type    = "t2.medium"
