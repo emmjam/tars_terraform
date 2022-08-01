@@ -328,6 +328,7 @@ mis_rds_allocated_storage = "440"
 mis_rds_snapshot          = "tars-mis-db-anon2-28072022-do-not-delete"
 mis_rds_autoscale         = "False"
 mis_rds_backup_retention  = "21"
+mis_rds_engine_version          = "19.0.0.0.ru-2022-01.rur-2022-01.r1"
 
 # RSISDB
 rsis_rds_username                = "rsisuatadmin"
