@@ -227,7 +227,7 @@ else
   threads=xYYYx
   echo "Number of threads: " xTHREADSx
   touch "xDSTx/.initialsync"
-  fpsync -m cpio -n 8 xSRCx xDSTx
+  fpsync -m cpio -n xTHREADSx xSRCx xDSTx
 fi
 
 date
