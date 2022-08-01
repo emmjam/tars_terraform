@@ -190,50 +190,45 @@ fi
 cat >> /root/efs_sync.sh << EOT
 #!/bin/bash
 PATH="/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/opt/puppetlabs/bin"
+DTE=`date`
 
 # Dont run multiple processes simultainously
 if [ -f "/efs_enc/rsync.lock" ]; then
-  echo "Lock file found: /efs_enc/rsync.lock"
+  echo "Lock file found: /efs_enc/rsync.lock : xDDDx"
   exit 0
 fi
 
 # Check that EFS is mounted
 if [ ! $(df -hT | grep -c nfs4) = 2 ]; then
+  echo "EFS not mounted"
   exit 0
 fi
 
+echo xDDDx
 # Prevent other processes from starting
 touch "/efs_enc/rsync.lock"
-date
 
-# Perform the rsync
+# Perform the sync
 SRC="/efs"
 DST="/efs_enc"
 echo "Syncing: xSRCx ==> xDSTx"
-#nice -10 rsync -avhW --progress xSRCx/ xDSTx
 
-#### TESTING ================================
-mkdir -p xSRCx
 threads=xZZZx
 echo "Number of threads: " xTHREADSx
 echo 3 > /proc/sys/vm/drop_caches
-#fpsync -n xTHREADSx xSRCx xDSTx
-#fpsync -m cpio -n xTHREADSx xSRCx xDSTx
-fpsync -m cpio -n 8 xSRCx xDSTx
 
-# threads=$(($(nproc --all) * 4))   # number of CPUs x4 (CPU = threads per core X cores per socket X sockets)
-# time find xSRCx/. -type f | parallel --will-cite -jxTHREADSx cp {} xDSTx/
-# time find xSRCx/. -type f -print0 | parallel -0 -jxTHREADSx mkdir -p xSRCx/{//}';' cp {} xDSTx/{//}
-
-# cd xSRCx
-# time fpart -z -n 1 -o /temp_place .
-# time parallel --will-cite -jxTHREADSx --pipepart --round-robin --delay .1 --block 1M -a /temp_place/fpart-files-to-transfer.0 sudo "cpio -dpmL xDSTx"
-
-# amazon-linux-extras install epel
-# yum install fpart nload sysstat parallel -y
-
-
-#### END TESTING ================================
+if [ -f "xDSTx/.initialsync" ]; then
+  echo "Performing supplementary sync using RSYNC"
+  threads=xZZZx
+  echo "Number of threads: " xTHREADSx
+  fpsync -m rsync -n xTHREADSx xSRCx xDSTx
+else
+  echo "Performing initial sync using CPIO"
+  threads=xYYYx
+  echo "Number of threads: " xTHREADSx
+  touch "xDSTx/.initialsync"
+  fpsync -m cpio -n 8 xSRCx xDSTx
+fi
 
 date
 echo
@@ -246,8 +241,10 @@ EOT
 
 sed -i 's/xSRCx/\$SRC/g' /root/efs_sync.sh
 sed -i 's/xDSTx/\$DST/g' /root/efs_sync.sh
+sed -i 's/xDDDx/\$DTE/g' /root/efs_sync.sh
 sed -i 's/xTHREADSx/\$threads/g' /root/efs_sync.sh
 sed -i 's/xZZZx/\$((\$(nproc --all) * 4))/g' /root/efs_sync.sh
+sed -i 's/xYYYx/\$(((\$(nproc --all) * 4) * 2))/g' /root/efs_sync.sh
 
 chmod +x /root/efs_sync.sh
 
