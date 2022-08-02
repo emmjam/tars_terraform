@@ -190,7 +190,7 @@ fi
 cat >> /root/efs_sync.sh << EOT
 #!/bin/bash
 PATH="/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/opt/puppetlabs/bin"
-DTE=`date`
+DTE=$(date)
 
 # Dont run multiple processes simultainously
 if [ -f "/efs_enc/rsync.lock" ]; then
@@ -221,7 +221,7 @@ if [ -f "xDSTx/.initialsync" ]; then
   echo "Performing supplementary sync using RSYNC"
   threads=xZZZx
   echo "Number of threads: " xTHREADSx
-  fpsync -m rsync -n xTHREADSx xSRCx xDSTx
+  fpsync -m rsync -o W -n xTHREADSx xSRCx xDSTx
 else
   echo "Performing initial sync using CPIO"
   threads=xYYYx
