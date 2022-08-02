@@ -242,7 +242,7 @@ sed -i 's/xDSTx/\$DST/g' /root/efs_sync.sh
 sed -i 's/xDDDx/\$DTE/g' /root/efs_sync.sh
 sed -i 's/xTHREADSx/\$threads/g' /root/efs_sync.sh
 sed -i 's/xZZZx/\$((\$(nproc --all) * 4))/g' /root/efs_sync.sh
-sed -i 's/xYYYx/\$(((\$(nproc --all) * 4) * 2))/g' /root/efs_sync.sh
+sed -i 's/xYYYx/\$(((\$(nproc --all) * 4) * 4))/g' /root/efs_sync.sh
 
 chmod +x /root/efs_sync.sh
 
