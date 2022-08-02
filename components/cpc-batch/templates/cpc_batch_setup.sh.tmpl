@@ -226,6 +226,8 @@ else
   touch "xDSTx/.initialsync"
   fpsync -m cpio -n xTHREADSx xSRCx xDSTx
   echo "Initial sync using CPIO completed."
+  echo "Checking sizes using DU"
+  du -sh xSRCx xDSTx
 fi
 
 echo
