@@ -212,9 +212,6 @@ touch "/efs_enc/rsync.lock"
 SRC="/efs"
 DST="/efs_enc"
 echo "Syncing: xSRCx ==> xDSTx"
-
-threads=xZZZx
-echo "Number of threads: " xTHREADSx
 echo 3 > /proc/sys/vm/drop_caches
 
 if [ -f "xDSTx/.initialsync" ]; then
