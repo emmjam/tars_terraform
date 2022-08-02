@@ -217,14 +217,14 @@ if [ -f "xDSTx/.initialsync" ]; then
   echo "Performing supplementary sync using RSYNC"
   threads=xZZZx
   echo "Number of threads: " xTHREADSx
-  fpsync -m rsync -o W -n xTHREADSx xSRCx xDSTx
+  time fpsync -m rsync -o W -n xTHREADSx xSRCx xDSTx
   echo "Supplementary sync using RSYNC completed"
 else
   echo "Performing initial sync using CPIO"
   threads=xYYYx
   echo "Number of threads: " xTHREADSx
   touch "xDSTx/.initialsync"
-  fpsync -m cpio -n xTHREADSx xSRCx xDSTx
+  time fpsync -m cpio -n xTHREADSx xSRCx xDSTx
   echo "Initial sync using CPIO completed."
   echo "Checking sizes using DU"
   du -sh xSRCx xDSTx
