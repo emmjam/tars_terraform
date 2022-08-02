@@ -200,7 +200,7 @@ fi
 
 # Check that EFS is mounted
 if [ ! $(df -hT | grep -c nfs4) = 2 ]; then
-  echo "EFS not mounted"
+  echo "EFS not mounted : xDDDx"
   exit 0
 fi
 
@@ -211,6 +211,7 @@ touch "/efs_enc/rsync.lock"
 # Perform the sync
 SRC="/efs"
 DST="/efs_enc"
+echo "xDDDx"
 echo "Syncing: xSRCx ==> xDSTx"
 echo 3 > /proc/sys/vm/drop_caches
 
