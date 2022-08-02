@@ -190,7 +190,7 @@ fi
 cat >> /root/efs_sync.sh << EOT
 #!/bin/bash
 PATH="/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/opt/puppetlabs/bin"
-DTE=$(date)
+DTE=`date`
 
 # Dont run multiple processes simultainously
 if [ -f "/efs_enc/rsync.lock" ]; then
