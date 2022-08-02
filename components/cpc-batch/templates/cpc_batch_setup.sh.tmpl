@@ -190,28 +190,26 @@ fi
 cat >> /root/efs_sync.sh << EOT
 #!/bin/bash
 PATH="/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/opt/puppetlabs/bin"
-DTE=`date`
+date
 
 # Dont run multiple processes simultainously
 if [ -f "/efs_enc/rsync.lock" ]; then
-  echo "Lock file found: /efs_enc/rsync.lock : xDDDx"
+  echo "Lock file found - Aborting !/efs_enc/rsync.lock "
   exit 0
 fi
 
 # Check that EFS is mounted
 if [ ! $(df -hT | grep -c nfs4) = 2 ]; then
-  echo "EFS not mounted : xDDDx"
+  echo "EFS not mounted - Aborting !"
   exit 0
 fi
 
-echo xDDDx
 # Prevent other processes from starting
 touch "/efs_enc/rsync.lock"
 
 # Perform the sync
 SRC="/efs"
 DST="/efs_enc"
-echo "xDDDx"
 echo "Syncing: xSRCx ==> xDSTx"
 echo 3 > /proc/sys/vm/drop_caches
 
@@ -220,16 +218,18 @@ if [ -f "xDSTx/.initialsync" ]; then
   threads=xZZZx
   echo "Number of threads: " xTHREADSx
   fpsync -m rsync -o W -n xTHREADSx xSRCx xDSTx
+  echo "Supplementary sync using RSYNC completed"
 else
   echo "Performing initial sync using CPIO"
   threads=xYYYx
   echo "Number of threads: " xTHREADSx
   touch "xDSTx/.initialsync"
   fpsync -m cpio -n xTHREADSx xSRCx xDSTx
+  echo "Initial sync using CPIO completed."
 fi
 
-date
 echo
+date
 echo " #############################################################"
 echo
 
@@ -239,7 +239,6 @@ EOT
 
 sed -i 's/xSRCx/\$SRC/g' /root/efs_sync.sh
 sed -i 's/xDSTx/\$DST/g' /root/efs_sync.sh
-sed -i 's/xDDDx/\$DTE/g' /root/efs_sync.sh
 sed -i 's/xTHREADSx/\$threads/g' /root/efs_sync.sh
 sed -i 's/xZZZx/\$((\$(nproc --all) * 4))/g' /root/efs_sync.sh
 sed -i 's/xYYYx/\$(((\$(nproc --all) * 4) * 4))/g' /root/efs_sync.sh
