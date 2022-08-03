@@ -5,38 +5,13 @@
 
 # Ensure the directory exists
 mkdir -p "${MOUNT_POINT}";
-mount -p "${MOUNT_POINT_ENC}";
 
 # Set mount information in /etc/fstab - we're unlikely to reboot, but it can't hurt to ensure it remains
 echo "${EFS_ID}.efs.${AWS_REGION}.amazonaws.com:/ ${MOUNT_POINT} nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab;
-echo "$${az}.${EFS_ENC_ID}.efs.$${region}.amazonaws.com:/ ${MOUNT_POINT_ENC} efs rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,tls 0 0" >> /etc/fstab
 
 # Mount the configured target for Grafana
 mount ${MOUNT_POINT};
-mount ${MOUNT_POINT_ENC};
 
 # Make sure the nexus user owns /opt as that's it home dir
 chown nexus:nexus /opt;
 chmod 755 /opt/sonatype-work/nexus3
-
-#######################################################################
-# Final rsync & reporting
-date > /var/log/efs_rsync.log
-
-# Perform the rsync
-nice -10 rsync -avhW --progress /efs_orig/ /opt/sonatype-work/nexus3 >> /var/log/efs_rsync.log
-echo >> /var/log/efs_rsync.log
-
-# Give the filesystem time to settle down
-sleep 300
-
-echo "Checking DF :" >> /var/log/efs_rsync.log
-df -kT | grep nfs4 >> /var/log/efs_rsync.log
-echo >> /var/log/efs_rsync.log
-
-echo "Checking DU :" >> /var/log/efs_rsync.log
-du -sh /efs_orig /opt/sonatype-work/nexus3 >> /var/log/efs_rsync.log
-echo >> /var/log/efs_rsync.log
-
-echo "Synchronisation completed." >> /var/log/efs_rsync.log
-date >> /var/log/efs_rsync.log
