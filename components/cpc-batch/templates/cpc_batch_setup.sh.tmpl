@@ -205,6 +205,7 @@ if [ -f "/efs_enc/sync.lock" ]; then
 else 
   # Prevent other processes from starting
   touch "/efs_enc/sync.lock"
+  echo xDTEx
 fi
 
 # Perform the sync
