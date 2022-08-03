@@ -85,6 +85,7 @@ new_all_users = [
   "claudio.correia@bjss.com",
   "moeez.shahid@bjss.com",
   "michael.mackintosh@bjss.com",
+  "haris.hassan@bjss.com",
 ]
 
 # TSSOps Access
@@ -106,6 +107,7 @@ administrators_tssops_users = [
   "aamir.soni@bjss.com",
   "zawar.shah@bjss.com",
   "richard.teasdale@bjss.com",
+  "haris.hassan@bjss.com",
 ]
 
 readonly_tssops_users = [
@@ -128,6 +130,7 @@ readonly_tssops_users = [
   "raj.bharaj@bjss.com",
   "aamir.soni@bjss.com",
   "zawar.shah@bjss.com",
+  "haris.hassan@bjss.com",
 ]
 
 # TARS Platform Access
