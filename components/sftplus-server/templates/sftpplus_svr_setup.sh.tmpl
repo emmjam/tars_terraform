@@ -184,45 +184,76 @@ else
 fi
 
 
-
 ## TEMPORARY WORK TO GET EFS ENCRYPTED
 
 cat >> /root/efs_sync.sh << EOT
 #!/bin/bash
 PATH="/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/opt/puppetlabs/bin"
 
-# Dont run multiple processes simultainously
-if [ -f "/efs_enc/rsync.lock" ]; then
-  exit 0
-fi
-
 # Check that EFS is mounted
 if [ ! $(df -hT | grep -c nfs4) = 2 ]; then
+  echo "EFS not mounted - Aborting !"
   exit 0
 fi
 
-# Prevent other processes from starting
-touch "/efs_enc/rsync.lock"
-date
+# Dont run multiple processes simultainously
+if [ -f "/efs_enc/sync.lock" ]; then
+  DTE=xDTCx
+  echo "   ==> Lock file found (/efs_enc/sync.lock) - Wont start a new sync job : " xDTEx
+  exit 0
+else 
+  # Prevent other processes from starting
+  touch "/efs_enc/sync.lock"
+fi
 
-# Perform the rsync
-nice -10 rsync -avhW --progress /efs/ /efs_enc
-
+# Perform the sync
+SRC="/efs"
+DST="/efs_enc"
 date
+echo "Syncing: xSRCx ==> xDSTx"
+echo 3 > /proc/sys/vm/drop_caches
+
+if [ -f "xDSTx/.initialsync" ]; then
+  echo "Performing supplementary sync using RSYNC"
+  THREADS=xZZZx
+  echo "Number of threads: " xTHREADSx
+  time fpsync -m rsync -o W -n xTHREADSx xSRCx xDSTx
+  echo "Supplementary sync using RSYNC completed"
+else
+  echo "Performing initial sync using CPIO"
+  THREADS=xYYYx
+  echo "Number of threads: " xTHREADSx
+  touch "xDSTx/.initialsync"
+  time fpsync -m cpio -n xTHREADSx xSRCx xDSTx
+  date
+  echo "Initial sync using CPIO completed."
+  echo "Checking sizes using DU"
+  du -sh xSRCx xDSTx
+fi
+
 echo
-echo " #############################################################"
+date
+echo "#####################################################"
 echo
 
 # Remove the lock
-rm -f "/efs_enc/rsync.lock"
+rm -f "/efs_enc/sync.lock"
 EOT
+
+sed -i 's/xSRCx/\$SRC/g' /root/efs_sync.sh
+sed -i 's/xDSTx/\$DST/g' /root/efs_sync.sh
+sed -i 's/xDTEx/\$DTE/g' /root/efs_sync.sh
+sed -i 's/xDTCx/\$(date +%d%h%Y:%H%M)/g' /root/efs_sync.sh 
+sed -i 's/xTHREADSx/\$THREADS/g' /root/efs_sync.sh
+sed -i 's/xZZZx/\$((\$(nproc --all) * 4))/g' /root/efs_sync.sh         # 4 threads
+sed -i 's/xYYYx/\$(((\$(nproc --all) * 4) * 16))/g' /root/efs_sync.sh  # 64 threads
 
 chmod +x /root/efs_sync.sh
 
 crontab -l > /tmp/cron_tmp
 echo >> /tmp/cron_tmp
 echo "# Temporary cron for keeping EFS in sync" >> /tmp/cron_tmp
-echo "00 4,10,16,22 * * * /root/efs_sync.sh >> /var/log/efs_rsync.log 2>&1 >/dev/null" >> /tmp/cron_tmp
+echo "00 4,10,16,22 * * * /root/efs_sync.sh >> /var/log/efs_rsync.log 2>&1" >> /tmp/cron_tmp
 crontab /tmp/cron_tmp
 rm -f /tmp/cron_tmp
 
