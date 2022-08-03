@@ -84,6 +84,7 @@ new_all_users = [
   "samantha.burke@bjss.com",
   "claudio.correia@bjss.com",
   "moeez.shahid@bjss.com",
+  "michael.mackintosh@bjss.com",
 ]
 
 # TSSOps Access
@@ -143,6 +144,7 @@ administrators_platform_nonprod_users = [
   "nadeem.khan@bjss.com",
   "ian.davies@bjss.com",
   "samantha.burke@bjss.com",
+  "michael.mackintosh@bjss.com",
 ]
 readonly_platform_users = [
   "tom.bibb@bjss.com",

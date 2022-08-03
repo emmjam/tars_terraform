@@ -355,7 +355,7 @@ whitelist = [
   "10.69.1.70/31",
   "10.84.192.159/32",
   "10.84.192.161/32", # End DVSA MS-RDS
-  "85.115.53.201/32",
+  "85.115.53.201/32", #DSCALLARDS
   "80.194.75.82/32",  #DSCALLARDS
   "34.242.28.119/32", #MGMT Jenkins for url checks
   "154.14.88.249/32", # DVSA Notts Corp & Wifi
