@@ -243,7 +243,7 @@ EOT
 sed -i 's/xSRCx/\$SRC/g' /root/efs_sync.sh
 sed -i 's/xDSTx/\$DST/g' /root/efs_sync.sh
 sed -i 's/xDTEx/\$DTE/g' /root/efs_sync.sh
-sed -i 's/xDTCx/\$((\$(date +%d%h%Y:%H%M))/g' /root/efs_sync.sh 
+sed -i 's/xDTCx/\\$(date +%d%h%Y:%H%M)/g' /root/efs_sync.sh 
 sed -i 's/xTHREADSx/\$THREADS/g' /root/efs_sync.sh
 sed -i 's/xZZZx/\$((\$(nproc --all) * 4))/g' /root/efs_sync.sh         # 4 threads
 #sed -i 's/xYYYx/\$(((\$(nproc --all) * 4) * 2))/g' /root/efs_sync.sh   # 8 threads
