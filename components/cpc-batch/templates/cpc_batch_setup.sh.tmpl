@@ -205,12 +205,12 @@ if [ -f "/efs_enc/sync.lock" ]; then
 else 
   # Prevent other processes from starting
   touch "/efs_enc/sync.lock"
-  echo xDTEx
 fi
 
 # Perform the sync
 SRC="/efs"
 DST="/efs_enc"
+date
 echo "Syncing: xSRCx ==> xDSTx"
 echo 3 > /proc/sys/vm/drop_caches
 
