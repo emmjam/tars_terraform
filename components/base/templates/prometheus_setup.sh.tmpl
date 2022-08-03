@@ -182,22 +182,22 @@ fi
 
 #######################################################################
 # Final rsync & reporting
-date > /var/log/efs_rsync.log
+date > /var/log/efs_sync.log
 
 # Perform the rsync
-nice -10 rsync -avhW --progress /efs_orig/ /var/lib/prometheus >> /var/log/efs_rsync.log
-echo >> /var/log/efs_rsync.log
+nice -10 rsync -avhW --progress /efs_orig/ /var/lib/prometheus >> /var/log/efs_sync.log
+echo >> /var/log/efs_sync.log
 
 # Give the filesystem time to settle down
 sleep 300
 
-echo "Checking DF :" >> /var/log/efs_rsync.log
-df -kT | grep nfs4 >> /var/log/efs_rsync.log
-echo >> /var/log/efs_rsync.log
+echo "Checking DF :" >> /var/log/efs_sync.log
+df -kT | grep nfs4 >> /var/log/efs_sync.log
+echo >> /var/log/efs_sync.log
 
-echo "Checking DU :" >> /var/log/efs_rsync.log
+echo "Checking DU :" >> /var/log/efs_sync.log
 du -sh /efs_orig /var/lib/prometheus >> /var/log/efs_rsync.log
-echo >> /var/log/efs_rsync.log
+echo >> /var/log/efs_sync.log
 
-echo "Synchronisation completed." >> /var/log/efs_rsync.log
-date >> /var/log/efs_rsync.log
+echo "Synchronisation completed." >> /var/log/efs_sync.log
+date >> /var/log/efs_sync.log
