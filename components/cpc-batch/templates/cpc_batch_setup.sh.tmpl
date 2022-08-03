@@ -246,7 +246,8 @@ sed -i 's/xTHREADSx/\$threads/g' /root/efs_sync.sh
 sed -i 's/xZZZx/\$((\$(nproc --all) * 4))/g' /root/efs_sync.sh         # 4 threads
 #sed -i 's/xYYYx/\$(((\$(nproc --all) * 4) * 2))/g' /root/efs_sync.sh   # 8 threads
 #sed -i 's/xYYYx/\$(((\$(nproc --all) * 4) * 4))/g' /root/efs_sync.sh   # 16 threads
-sed -i 's/xYYYx/\$(((\$(nproc --all) * 4) * 6))/g' /root/efs_sync.sh   # 24 threads
+#sed -i 's/xYYYx/\$(((\$(nproc --all) * 4) * 6))/g' /root/efs_sync.sh   # 24 threads
+sed -i 's/xYYYx/\$(((\$(nproc --all) * 4) * 8))/g' /root/efs_sync.sh   # 24 threads
 
 chmod +x /root/efs_sync.sh
 
