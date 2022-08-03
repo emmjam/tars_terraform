@@ -748,6 +748,11 @@ variable "reporting_xe_instance_type" {
   description = "ec2 instance type to be used for aws_instance.reporting_xe"
 }
 
+variable "reporting_xe_ebs_size" {
+  type        = number
+  description = "ebs volume size for instance to be used for aws_instance.reporting_xe"
+}
+
 variable "reporting_xe_alb_sg_whitelist_hosts" {
   type        = list(any)
   description = "List of cidr blocks to whitelist in sg"
