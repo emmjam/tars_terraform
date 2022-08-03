@@ -9,9 +9,7 @@ data "cloudinit_config" "nexus" {
       {
         AWS_REGION      = var.aws_region
         EFS_ID          = aws_efs_file_system.nexus.id
-        MOUNT_POINT     = "/efs_orig"
-        EFS_ID_ENC      = aws_efs_file_system.nexus-enc.id
-        MOUNT_POINT_ENC = "/opt/sonatype-work/nexus3"
+        MOUNT_POINT     = "/opt/sonatype-work/nexus3"
     })
   }
 
