@@ -7,9 +7,9 @@ data "cloudinit_config" "nexus" {
     content_type = "text/x-shellscript"
     content = templatefile("${path.module}/templates/cloudinit_config_efs_mount.sh.tmpl",
       {
-        AWS_REGION      = var.aws_region
-        EFS_ID          = aws_efs_file_system.nexus.id
-        MOUNT_POINT     = "/opt/sonatype-work/nexus3"
+        AWS_REGION  = var.aws_region
+        EFS_ID      = aws_efs_file_system.nexus.id
+        MOUNT_POINT = "/opt/sonatype-work/nexus3"
     })
   }
 
