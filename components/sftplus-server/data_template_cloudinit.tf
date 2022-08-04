@@ -15,13 +15,13 @@ data "cloudinit_config" "sftpplus_svr" {
     content_type = "text/x-shellscript"
     content = templatefile("${path.module}/templates/sftpplus_svr_setup.sh.tmpl",
       {
-        ENVIRONMENT    = var.environment
-        NODETYPE       = var.sftpplus-svr_puppet_nodetype
-        KMS_KEY        = data.terraform_remote_state.acc.outputs.hieradata_kms_key_id
-        AWS_ACCOUNT_ID = var.aws_account_id
+        ENVIRONMENT     = var.environment
+        NODETYPE        = var.sftpplus-svr_puppet_nodetype
+        KMS_KEY         = data.terraform_remote_state.acc.outputs.hieradata_kms_key_id
+        AWS_ACCOUNT_ID  = var.aws_account_id
         EFS_ENC_ID      = aws_efs_file_system.sftpplus-enc.id
         MOUNT_POINT_ENC = "/efs"
-        LOG_GROUP      = local.sftpplus_log
+        LOG_GROUP       = local.sftpplus_log
     })
   }
 }
