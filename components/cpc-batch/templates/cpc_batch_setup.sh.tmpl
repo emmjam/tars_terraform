@@ -199,6 +199,9 @@ echo "Sleeping for 5 mins..." >> /var/log/efs_sync.log
 echo >> /var/log/efs_sync.log
 sleep 300
 
+echo "#####################################################"
+echo >> /var/log/efs_sync.log
+
 # Perform the rsync again (Should show no updates)
 date >> /var/log/efs_sync.log
 echo "Running 2nd RSYNC - should show no changes" >> /var/log/efs_sync.log
@@ -210,6 +213,9 @@ echo >> /var/log/efs_sync.log
 echo "Sleeping for 5 mins..." >> /var/log/efs_sync.log
 echo >> /var/log/efs_sync.log
 sleep 300
+
+echo "#####################################################"
+echo >> /var/log/efs_sync.log
 
 echo "Checking DF :" >> /var/log/efs_sync.log
 df -kT | grep nfs4 >> /var/log/efs_sync.log
