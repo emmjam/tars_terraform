@@ -186,7 +186,7 @@ date > /var/log/efs_sync.log
 
 # Perform the rsync
 echo "Runing 1st RSYNC - should sync any deltas" >> /var/log/efs_sync.log
-nice -10 rsync -avhW --progress /efs_orig/ /var/lib/prometheus >> /var/log/efs_rsync.log
+rsync -avhW --progress /efs_orig/ /var/lib/prometheus >> /var/log/efs_rsync.log
 echo >> /var/log/efs_sync.log
 
 # Give the filesystem time to settle down
@@ -194,7 +194,7 @@ sleep 300
 
 # Perform the rsync again (Should show no updates)
 echo "Runing 2nd RSYNC - should show no changes">> /var/log/efs_sync.log
-nice -10 rsync -avhW --progress /efs_orig/ /var/lib/prometheus >> /var/log/efs_rsync.log
+rsync -avhW --progress /efs_orig/ /var/lib/prometheus >> /var/log/efs_rsync.log
 echo >> /var/log/efs_sync.log
 
 echo "Checking DF :" >> /var/log/efs_sync.log
