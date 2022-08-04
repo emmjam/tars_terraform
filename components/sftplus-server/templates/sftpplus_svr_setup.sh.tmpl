@@ -202,7 +202,11 @@ date >> /var/log/efs_sync.log
 echo "Runing 2nd RSYNC - should show no changes" >> /var/log/efs_sync.log
 rsync -avhW --progress /efs_orig/ /efs >> /var/log/efs_sync.log
 date >> /var/log/efs_sync.log
+echo "Sleeping for 5 mins..." >> /var/log/efs_sync.log
 echo >> /var/log/efs_sync.log
+
+# Give the filesystem time to settle down
+sleep 300
 
 echo "Checking DF :" >> /var/log/efs_sync.log
 df -kT | grep nfs4 >> /var/log/efs_sync.log
