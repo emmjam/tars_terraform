@@ -186,7 +186,7 @@ date > /var/log/efs_sync.log
 
 # Perform the rsync
 echo "Runing 1st RSYNC - should sync any deltas" >> /var/log/efs_sync.log
-rsync -avhW --progress /efs_orig/ /var/lib/prometheus >> /var/log/efs_rsync.log
+rsync -avhW --progress /efs_orig/ /var/lib/prometheus >> /var/log/efs_sync.log
 date > /var/log/efs_sync.log
 echo >> /var/log/efs_sync.log
 
@@ -196,7 +196,7 @@ sleep 300
 # Perform the rsync again (Should show no updates)
 date > /var/log/efs_sync.log
 echo "Runing 2nd RSYNC - should show no changes">> /var/log/efs_sync.log
-rsync -avhW --progress /efs_orig/ /var/lib/prometheus >> /var/log/efs_rsync.log
+rsync -avhW --progress /efs_orig/ /var/lib/prometheus >> /var/log/efs_sync.log
 date > /var/log/efs_sync.log
 cho >> /var/log/efs_sync.log
 
@@ -205,7 +205,7 @@ df -kT | grep nfs4 >> /var/log/efs_sync.log
 echo >> /var/log/efs_sync.log
 
 echo "Checking DU :" >> /var/log/efs_sync.log
-du -sh /efs_orig /var/lib/prometheus >> /var/log/efs_rsync.log
+du -sh /efs_orig /var/lib/prometheus >> /var/log/efs_sync.log
 echo >> /var/log/efs_sync.log
 
 echo "Synchronisation completed." >> /var/log/efs_sync.log
