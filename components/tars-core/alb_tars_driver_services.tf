@@ -1,5 +1,5 @@
 resource "aws_alb" "tars_alb_drv_svc" {
-  name = format("%s-%s", local.csi, "drv_svc")
+  name = format("%s-%s", local.csi, "drv-svc")
 
   internal     = "false"
   idle_timeout = 300
