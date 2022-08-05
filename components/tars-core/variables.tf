@@ -371,6 +371,11 @@ variable "payments_cert_name" {
   description = "ACM cert name"
 }
 
+variable "driver_service_cert" {
+  type        = string
+  description = "ACM cert name"
+}
+
 variable "irdt_cert" {
   type        = string
   description = "ACM cert name"

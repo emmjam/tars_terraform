@@ -39,3 +39,10 @@ data "aws_acm_certificate" "payments_nonprod_tars_dvsacloud_uk" {
   ]
 }
 
+data "aws_acm_certificate" "driver_services_cert" {
+  domain = "${var.driver_service_cert}.${data.terraform_remote_state.acc.outputs.public_domain_name}"
+
+  statuses = [
+    "ISSUED",
+  ]
+}
