@@ -8,8 +8,10 @@ resource "aws_alb_listener" "tars_drv_svc_443" {
 
   default_action {
     type        = "redirect"
-    status_code = "HTTP_301"
-    host        = "drivers-services.dvsa.gov.uk"
+    redirect {
+      status_code = "HTTP_301"
+      host        = "drivers-services.dvsa.gov.uk"
+    } 
   }
 }
 
