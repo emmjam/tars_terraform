@@ -1,0 +1,13 @@
+resource "aws_security_group" "tars_alb_drv_svc" {
+  name        = "${local.csi}-tars-alb-public"
+  description = "TARS ALB Driver Services"
+  vpc_id      = data.terraform_remote_state.base.outputs.vpc_id
+
+  tags = merge(
+    local.default_tags,
+    {
+      "Name" = "${local.csi}/tars-drv-svc"
+    },
+  )
+}
+
