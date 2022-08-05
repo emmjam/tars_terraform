@@ -9,7 +9,7 @@ module "envis" {
   }
 
   s3_bucket = "tars-645711882182-eu-west-1-mgmt-mgmt-artefacts"
-  s3_key    = "lambda-repo/packages/envis/envis-1.zip"
+  s3_key    = "lambda-repo/packages/envis/envis-2.zip"
 
   name        = "envis"
   runtime     = "python3.8"
