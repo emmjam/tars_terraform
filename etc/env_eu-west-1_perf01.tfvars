@@ -354,8 +354,8 @@ rsis_rds_autoscale           = "True"
 
 # IBSDB
 ibs_rds_username       = "ibsuatadmin"
-ibs_rds_snapshot       = "perf01-ibsdb-with-users-and-geo-data"
-ibs_rds_instance_class = "db.r3.large"
+ibs_rds_snapshot       = "perf01-ibsdb-0-final-snapshot-8-8-22"
+ibs_rds_instance_class = "db.r5.large"
 
 ## wildfly
 
