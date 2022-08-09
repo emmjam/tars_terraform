@@ -146,7 +146,8 @@ resource "aws_route53_record" "incapsula-frontend-private" {
 }
 
 resource "aws_route53_record" "driver-services" {
-  name = format("%s-%s-%s", var.project, var.environment, "driver_services")
+  # tars-opsdev-driver-services.dvsa.tars.dev-dvsacloud.uk
+  name = format("%s-%s-%s", var.project, var.environment, "driver-services")
 
   zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
   type    = "A"
