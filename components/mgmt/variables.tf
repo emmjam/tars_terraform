@@ -161,7 +161,7 @@ variable "jenkins_green_version" {
   default     = "latest"
 }
 
-variable "jenkins_elb_subnets_cidrs" {
+variable "jenkins_alb_subnets_cidrs" {
   type        = list(string)
   description = ""
   default     = []

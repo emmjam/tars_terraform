@@ -131,72 +131,72 @@ variable "private_route_table_ids" {
   description = "A list of private route tables ids for subnets association"
 }
 
-variable "elb_internal" {
+variable "alb_internal" {
   type        = string
-  description = "If true, ELB will be an internal ELB"
+  description = "If true, ALB will be an internal ALB"
   default     = true
 }
 
-variable "elb_subnets_cidrs" {
+variable "alb_subnets_cidrs" {
   type        = list(string)
-  description = "A list of CIDR blocks used for ELB subnets creation"
+  description = "A list of CIDR blocks used for ALB subnets creation"
 }
 
-variable "elb_idle_timeout" {
+variable "alb_idle_timeout" {
   type        = string
   description = "The time in seconds that the connection is allowed to be idle"
   default     = 400
 }
 
-variable "elb_connection_draining" {
+variable "alb_connection_draining" {
   type        = string
   description = "Boolean to enable connection draining"
   default     = true
 }
 
-variable "elb_connection_draining_timeout" {
+variable "alb_connection_draining_timeout" {
   type        = string
   description = "The time in seconds to allow for connections to drain"
   default     = 30
 }
 
-variable "elb_cross_zone_load_balancing" {
+variable "alb_cross_zone_load_balancing" {
   type        = string
   description = "Enable cross-zone load balancing"
   default     = true
 }
 
-variable "elb_port" {
+variable "alb_port" {
   type        = string
   description = "The port to listen on for the load balancer"
   default     = "80"
 }
 
-variable "elb_protocol" {
+variable "alb_protocol" {
   type        = string
   description = "The protocol to listen on. Valid values are HTTP, HTTPS, TCP, or SSL"
   default     = "HTTP"
 }
 
-variable "elb_healthy_threshold" {
+variable "alb_healthy_threshold" {
   type        = string
   description = "The number of checks before the instance is declared health"
   default     = 3
 }
 
-variable "elb_unhealthy_threshold" {
+variable "alb_unhealthy_threshold" {
   type        = string
   description = "The number of checks before the instance is declared unhealthy"
   default     = 2
 }
 
-variable "elb_healthcheck_timeout" {
+variable "alb_healthcheck_timeout" {
   type        = string
   description = "The length of time before the check times out"
   default     = 10
 }
 
-variable "elb_healthcheck_interval" {
+variable "alb_healthcheck_interval" {
   type        = string
   description = "The interval between checks"
   default     = 30
@@ -221,7 +221,7 @@ variable "ebs_device_name" {
 
 variable "hosted_zone_id" {
   type        = string
-  description = "The ID of a hosted zone in which the ELB alias record should be created"
+  description = "The ID of a hosted zone in which the ALB alias record should be created"
 }
 
 variable "domain_name" {
