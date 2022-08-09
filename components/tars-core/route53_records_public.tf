@@ -145,7 +145,6 @@ resource "aws_route53_record" "incapsula-frontend-private" {
 
 }
 
-# Create the R53 record for the driver services ALB
 resource "aws_route53_record" "driver-services" {
   name = format("%s-%s-%s", var.project, var.environment, "driver_services")
 
