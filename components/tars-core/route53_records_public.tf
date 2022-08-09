@@ -144,3 +144,17 @@ resource "aws_route53_record" "incapsula-frontend-private" {
   records = ["wahy2a6.x.incapdns.net"]
 
 }
+
+# Create the R53 record for the driver services ALB
+resource "aws_route53_record" "driver-services" {
+  name = format("%s-%s-%s", var.project, var.environment, "driver_services")
+
+  zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
+  type    = "A"
+
+  alias {
+    name                   = aws_alb.tars_alb_drv_svc.dns_name
+    zone_id                = aws_alb.tars_alb_drv_svc.zone_id
+    evaluate_target_health = true
+  }
+}
