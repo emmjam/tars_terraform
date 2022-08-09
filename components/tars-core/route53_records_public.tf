@@ -155,8 +155,8 @@ resource "aws_route53_record" "driver-services" {
   type    = "A"
 
   alias {
-    name                   = aws_alb.tars_alb_drv_svc.dns_name
-    zone_id                = aws_alb.tars_alb_drv_svc.zone_id
+    name                   = aws_alb.tars_alb_drv_svc[1].dns_name
+    zone_id                = aws_alb.tars_alb_drv_svc[1].zone_id
     evaluate_target_health = true
   }
 }
