@@ -1,6 +1,6 @@
 # TARS Public DVSA ALB Listener for port 443
 resource "aws_alb_listener" "tars_drv_svc_443" {
-  count             = var.drv_svc_enabled == true ? 0 : 1
+  count = var.drv_svc_enabled ? 1 : 0
 
   load_balancer_arn = aws_alb.tars_alb_drv_svc[0].arn
   port              = "443"

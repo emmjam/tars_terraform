@@ -1,5 +1,5 @@
 resource "aws_alb" "tars_alb_drv_svc" {
-  count = var.drv_svc_enabled == true ? 0 : 1
+  count = var.drv_svc_enabled ? 1 : 0
 
   name = format("%s-%s", local.csi, "drv-svc")
 

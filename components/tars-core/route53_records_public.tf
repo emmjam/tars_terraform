@@ -147,7 +147,7 @@ resource "aws_route53_record" "incapsula-frontend-private" {
 
 resource "aws_route53_record" "driver-services" {
   # tars-opsdev-driver-services.dvsa.tars.dev-dvsacloud.uk
-  count = var.drv_svc_enabled == true ? 0 : 1
+  count = var.drv_svc_enabled ? 1 : 0
 
   name = format("%s-%s-%s", var.project, var.environment, "driver-services")
 

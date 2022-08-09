@@ -1,5 +1,5 @@
 resource "aws_security_group" "tars_alb_drv_svc" {
-  count = var.drv_svc_enabled == true ? 0 : 1
+  count = var.drv_svc_enabled ? 1 : 0
 
   name        = "${local.csi}-tars-alb-drv-svc"
   description = "TARS ALB Driver Services"
