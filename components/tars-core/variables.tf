@@ -491,3 +491,9 @@ variable "obs_reg_holding" {
   description = "Whether to create obs Register New Business Holding resources. Required in Prod and UAT02"
 }
 
+# Whether to create Driver Services resources
+variable "drv_svc_enabled" {
+  type        = bool
+  default     = false
+  description = "Whether to create Driver Services resources. Required in Prod and UAT02"
+}
