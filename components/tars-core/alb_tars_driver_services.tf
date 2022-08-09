@@ -7,7 +7,7 @@ resource "aws_alb" "tars_alb_drv_svc" {
   idle_timeout = 300
 
   security_groups = [
-    aws_security_group.tars_alb_drv_svc[1].id,
+    aws_security_group.tars_alb_drv_svc[0].id,
   ]
 
   subnets = data.terraform_remote_state.base.outputs.subnets_alb_public
