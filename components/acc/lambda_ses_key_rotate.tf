@@ -80,7 +80,7 @@ resource "aws_cloudwatch_event_target" "ses_key_rotate" {
   arn  = aws_lambda_function.ses_key_rotate.arn
 }
 
-resource "aws_lambda_permission" "allow_cloudwatch" {
+resource "aws_lambda_permission" "allow_ses_rotate_cloudwatch" {
   statement_id  = "AllowExecutionFromCloudWatch"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.ses_key_rotate.function_name
