@@ -49,11 +49,11 @@ resource "aws_lambda_function" "ses_key_rotate" {
   filename         = "${path.module}/files/ses_keys_rotate.zip"
   source_code_hash = filebase64sha256("${path.module}/files/ses_keys_rotate.zip")
 
-  function_name = "${local.csi}-ses_key_rotate"
+  function_name = "ses_key_rotate"
 
   role        = aws_iam_role.iam_role_for_lambda.arn
   handler     = "ses_key_rotate.lambda_handler"
-  runtime     = "python3.6"
+  runtime     = "python3.8"
   timeout     = "10"
   memory_size = "128"
 
@@ -69,8 +69,8 @@ resource "aws_lambda_function" "ses_key_rotate" {
 # --------------------------------------------------------------------------- #
 
 resource "aws_cloudwatch_event_rule" "ses_key_rotate_trigger" {
-  name        = "${local.csi}-ses_key_rotate"
-  description = "${local.csi}-ses_key_rotate"
+  name        = "ses_key_rotate"
+  description = "ses_key_rotate"
   # Run on the 1st of every 3rd month (roughly every 90 days)
   schedule_expression = "cron(0 12 1 */3 * *)"
 }
