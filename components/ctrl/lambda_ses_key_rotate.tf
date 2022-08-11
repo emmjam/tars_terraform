@@ -33,7 +33,7 @@ resource "aws_iam_role" "iam_ses_lambda" {
 resource "aws_cloudwatch_log_group" "ses_key_rotate" {
   count             = var.account_environment != "mgmt" ? 1 : 0
   name              = "/aws/lambda/${aws_lambda_function.ses_key_rotate.function_name}"
-  retention_in_days = "90"
+  retention_in_days = "187"
 
   tags = merge(
     local.default_tags,
@@ -54,7 +54,7 @@ resource "aws_lambda_function" "ses_key_rotate" {
 
   function_name = "ses_key_rotate"
 
-  role        = aws_iam_role.iam_ses_lambda.arn[0]
+  role        = aws_iam_role.iam_ses_lambda[count.index].arn
   handler     = "ses_key_rotate.lambda_handler"
   runtime     = "python3.8"
   timeout     = "10"
@@ -75,15 +75,15 @@ resource "aws_cloudwatch_event_rule" "ses_key_rotate_trigger" {
 
 resource "aws_cloudwatch_event_target" "ses_key_rotate" {
   count = var.account_environment != "mgmt" ? 1 : 0
-  rule  = aws_cloudwatch_event_rule.ses_key_rotate_trigger.name
-  arn   = aws_lambda_function.ses_key_rotate.arn
+  rule  = aws_cloudwatch_event_rule.ses_key_rotate_trigger[count.index].name
+  arn   = aws_lambda_function.ses_key_rotate[count.index].arn
 }
 
 resource "aws_lambda_permission" "allow_ses_rotate_cloudwatch" {
   count         = var.account_environment != "mgmt" ? 1 : 0
   statement_id  = "AllowExecutionFromCloudWatch"
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.ses_key_rotate.function_name
+  function_name = aws_lambda_function.ses_key_rotate[count.index].function_name
   principal     = "events.amazonaws.com"
-  source_arn    = aws_cloudwatch_event_rule.ses_key_rotate_trigger.arn
+  source_arn    = aws_cloudwatch_event_rule.ses_key_rotate_trigger[count.index].arn
 }
