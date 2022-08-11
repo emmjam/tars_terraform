@@ -84,6 +84,7 @@ new_all_users = [
   "samantha.burke@bjss.com",
   "claudio.correia@bjss.com",
   "moeez.shahid@bjss.com",
+  "tomasz.chrost@bjss.com",
   "michael.mackintosh@bjss.com",
   "haris.hassan@bjss.com",
 ]
@@ -181,6 +182,7 @@ readonly_developer_users = [
   "andrew.massey@bjss.com",
   "claudio.correia@bjss.com",
   "moeez.shahid@bjss.com",
+  "tomasz.chrost@bjss.com",
 ]
 
 # DVSA Access
