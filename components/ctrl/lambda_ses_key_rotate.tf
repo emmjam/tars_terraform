@@ -54,7 +54,7 @@ resource "aws_lambda_function" "ses_key_rotate" {
 
   function_name = "ses_key_rotate"
 
-  role        = aws_iam_role.iam_ses_lambda.arn
+  role        = aws_iam_role.iam_ses_lambda.arn[0]
   handler     = "ses_key_rotate.lambda_handler"
   runtime     = "python3.8"
   timeout     = "10"
