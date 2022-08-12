@@ -23,10 +23,6 @@ module "ses_key_rotate" {
   cwlg_retention_in_days = "90"
 }
 
-# --------------------------------------------------------------------------- #
-# Cloudwatch Events Rule
-# --------------------------------------------------------------------------- #
-
 resource "aws_cloudwatch_event_rule" "ses_key_rotate_trigger" {
   # Run at 11am on the 1st day of every 3rd month (~roughly every 90 days)
   count       = var.account_environment != "mgmt" ? 1 : 0
