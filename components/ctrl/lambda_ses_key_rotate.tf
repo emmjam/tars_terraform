@@ -1,7 +1,7 @@
 resource "aws_lambda_function" "ses_keys_rotate" {
   count = var.account_environment != "mgmt" ? 1 : 0
 
-  function_name = "ses-keys-rotate"
+  function_name = "lambda_handler"
   runtime       = "python3.8"
   memory_size   = "128"
   handler       = "ses_keys_rotate.lambda_handler"
