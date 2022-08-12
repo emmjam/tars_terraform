@@ -19,11 +19,10 @@ resource "aws_lambda_function" "ses_keys_rotate" {
 }
 
 resource "aws_cloudwatch_event_rule" "ses_keys_rotate_trigger" {
-  # Run at 11am on the 1st day of every 3rd month (~roughly every 90 days)
   count               = var.account_environment != "mgmt" ? 1 : 0
   name                = "ses_keys_rotate"
   description         = "ses_keys_rotate"
-  schedule_expression = "cron(0 11 1 * 3 *)"
+  schedule_expression = "rate(90 days)"
 }
 
 resource "aws_cloudwatch_event_target" "ses_keys_rotate" {
