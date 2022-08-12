@@ -10,8 +10,6 @@ resource "aws_lambda_function" "ses_keys_rotate" {
   s3_bucket     = "tars-nonprod-ctrl-resources"
   s3_key        = "lambda-repo/packages/ses_keys_rotate/ses_keys_rotate.zip"
 
-  cwlg_retention_in_days = "90"
-
   environment {
     variables = {
       ENVIRONMENT = var.environment
