@@ -21,6 +21,10 @@ module "ses_keys_rotate" {
   publish     = false
 
   cwlg_retention_in_days = "90"
+  
+  output "ses_keys_rotate_lambda" {
+    value = ses_keys_rotate.arn
+  }
 }
 
 resource "aws_cloudwatch_event_rule" "ses_keys_rotate_trigger" {
