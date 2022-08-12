@@ -1,29 +1,21 @@
-module "ses_keys_rotate" {
-  source = "../../modules/lambda"
-
+resource "aws_lambda_function" "ses_keys_rotate" {
   count = var.account_environment != "mgmt" ? 1 : 0
 
-  project     = var.project
-  component   = var.component
-  environment = var.environment
-  env_variables = {
-    ENVIRONMENT = var.environment
-  }
-
-  s3_bucket = "tars-nonprod-ctrl-resources"
-  s3_key    = "lambda-repo/packages/ses_keys_rotate/ses_keys_rotate.zip"
-
-  name        = "ses-keys-rotate"
-  runtime     = "python3.10"
-  memory_size = "128"
-  handler     = "ses_keys_rotate.lambda_handler"
-  timeout     = "10"
-  publish     = false
+  function_name = "ses-keys-rotate"
+  runtime       = "python3.10"
+  memory_size   = "128"
+  handler       = "ses_keys_rotate.lambda_handler"
+  timeout       = "60"
+  publish       = false
+  s3_bucket     = "tars-nonprod-ctrl-resources"
+  s3_key        = "lambda-repo/packages/ses_keys_rotate/ses_keys_rotate.zip"
 
   cwlg_retention_in_days = "90"
-  
-  output "ses_keys_rotate_lambda" {
-    value = ses_keys_rotate.arn
+
+  environment {
+    variables = {
+      ENVIRONMENT = var.environment
+    }
   }
 }
 
