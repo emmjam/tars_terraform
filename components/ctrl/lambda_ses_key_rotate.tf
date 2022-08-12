@@ -2,7 +2,7 @@ resource "aws_lambda_function" "ses_keys_rotate" {
   count = var.account_environment != "mgmt" ? 1 : 0
 
   function_name = "ses-keys-rotate"
-  runtime       = "python3.10"
+  runtime       = "python3.9"
   memory_size   = "128"
   handler       = "ses_keys_rotate.lambda_handler"
   timeout       = "60"
@@ -10,7 +10,7 @@ resource "aws_lambda_function" "ses_keys_rotate" {
   s3_bucket     = "tars-nonprod-ctrl-resources"
   s3_key        = "lambda-repo/packages/ses_keys_rotate/ses_keys_rotate.zip"
   role          = aws_iam_role.ses_keys_rotate
-  
+
   environment {
     variables = {
       ENVIRONMENT = var.environment
