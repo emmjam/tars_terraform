@@ -9,7 +9,7 @@ resource "aws_lambda_function" "ses_keys_rotate" {
   publish       = false
   s3_bucket     = "tars-nonprod-ctrl-resources"
   s3_key        = "lambda-repo/packages/ses_keys_rotate/ses_keys_rotate.zip"
-  role          = aws_iam_role.ses_keys_rotate
+  role          = aws_iam_role.ses_keys_rotate.arn
 
   environment {
     variables = {
