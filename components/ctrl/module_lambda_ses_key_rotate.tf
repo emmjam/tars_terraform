@@ -32,9 +32,11 @@ resource "aws_cloudwatch_event_rule" "ses_keys_rotate_trigger" {
 }
 
 resource "aws_cloudwatch_event_target" "ses_keys_rotate" {
-  count = var.account_environment != "mgmt" ? 1 : 0
-  rule  = aws_cloudwatch_event_rule.ses_keys_rotate_trigger[count.index].name
-  arn   = aws_lambda_function.ses_keys_rotate[count.index].arn
+  #count = var.account_environment != "mgmt" ? 1 : 0
+  #rule  = aws_cloudwatch_event_rule.ses_keys_rotate_trigger[count.index].name
+  #arn   = aws_lambda_function.ses_keys_rotate[count.index].arn
+  rule  = aws_cloudwatch_event_rule.ses_keys_rotate_trigger.name
+  arn   = aws_lambda_function.ses_keys_rotate.arn
 }
 
 resource "aws_lambda_permission" "allow_ses_rotate_cloudwatch" {
