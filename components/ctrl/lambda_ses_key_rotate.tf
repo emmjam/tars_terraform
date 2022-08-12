@@ -23,7 +23,7 @@ resource "aws_cloudwatch_event_rule" "ses_keys_rotate_trigger" {
   count               = var.account_environment != "mgmt" ? 1 : 0
   name                = "ses_keys_rotate"
   description         = "ses_keys_rotate"
-  schedule_expression = "cron(0 11 1 * */3 *)"
+  schedule_expression = "cron(0 11 1 * 3 *)"
 }
 
 resource "aws_cloudwatch_event_target" "ses_keys_rotate" {
