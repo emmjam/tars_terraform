@@ -11,12 +11,7 @@ data "aws_iam_policy_document" "ses_keys_rotate" {
     ]
 
     resources = [
-      aws_s3_bucket.ses_keys_rotate[count.index].arn,
-      format(
-        "%s%s",
-        aws_s3_bucket.ses_keys_rotate[count.index].arn,
-        "/*",
-      )
+      "*",
     ]
   }
 
