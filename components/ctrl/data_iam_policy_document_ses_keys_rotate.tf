@@ -20,13 +20,13 @@ data "aws_iam_policy_document" "ses_keys_rotate" {
     effect = "Allow"
 
     actions = [
-       "iam:ListUsers",
-       "iam:CreateAccessKey",
-       "iam:DeleteAccessKey",
-       "iam:GetAccessKeyLastUsed",
-       "iam:GetUser",
-       "iam:ListAccessKeys",
-       "iam:UpdateAccessKey"
+      "iam:ListUsers",
+      "iam:CreateAccessKey",
+      "iam:DeleteAccessKey",
+      "iam:GetAccessKeyLastUsed",
+      "iam:GetUser",
+      "iam:ListAccessKeys",
+      "iam:UpdateAccessKey"
     ]
 
     resources = [
@@ -39,13 +39,13 @@ data "aws_iam_policy_document" "ses_keys_rotate" {
     effect = "Allow"
 
     actions = [
-       "ssm:PutParameter",
-       "ssm:DeleteParameter",
-       "ssm:DescribeParameters",
-       "ssm:GetParametersByPath",
-       "ssm:GetParameters",
-       "ssm:GetParameter",
-       "ssm:DeleteParameters"
+      "ssm:PutParameter",
+      "ssm:DeleteParameter",
+      "ssm:DescribeParameters",
+      "ssm:GetParametersByPath",
+      "ssm:GetParameters",
+      "ssm:GetParameter",
+      "ssm:DeleteParameters"
     ]
 
     resources = [
