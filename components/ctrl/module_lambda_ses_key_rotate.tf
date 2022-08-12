@@ -45,3 +45,4 @@ resource "aws_lambda_permission" "allow_ses_rotate_cloudwatch" {
   principal     = "events.amazonaws.com"
   source_arn    = aws_cloudwatch_event_rule.ses_keys_rotate_trigger[count.index].arn
 }
+
