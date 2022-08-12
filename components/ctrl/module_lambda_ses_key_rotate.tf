@@ -13,7 +13,7 @@ module "ses_keys_rotate" {
   s3_bucket = "tars-nonprod-ctrl-resources"
   s3_key    = "lambda-repo/packages/ses_keys_rotate/ses_keys_rotate.zip"
 
-  name        = "ses-key-rotate"
+  name        = "ses-keys-rotate"
   runtime     = "python3.10"
   memory_size = "128"
   handler     = "ses_keys_rotate.lambda_handler"
