@@ -56,7 +56,6 @@ resource "aws_cloudwatch_log_group" "ses_keys_rotate" {
         var.component,
         var.name,
       )
-      "Module" = var.module
     },
   )
 }
