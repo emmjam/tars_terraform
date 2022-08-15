@@ -52,4 +52,19 @@ data "aws_iam_policy_document" "ses_keys_rotate" {
       "*",
     ]
   }
+
+  statement {
+    sid    = "AllowLoggingToCloudwatch"
+    effect = "Allow"
+
+    actions = [
+      "logs:CreateLogStream",
+      "logs:CreateLogDelivery",
+      "logs:PutLogEvents"
+    ]
+
+    resources = [
+      "arn:aws:logs:*:*:*",
+    ]
+  }
 }
