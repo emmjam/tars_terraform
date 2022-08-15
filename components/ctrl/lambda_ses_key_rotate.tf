@@ -43,7 +43,7 @@ resource "aws_lambda_permission" "allow_ses_rotate_cloudwatch" {
 
 
 resource "aws_cloudwatch_log_group" "ses_keys_rotate" {
-  name              = "/aws/lambda/${aws_lambda_function.ses_keys_rotate.function_name}"
+  name              = "/aws/lambda/${aws_lambda_function.ses_keys_rotate[count.index].function_name}"
   retention_in_days = var.cwlg_retention_in_days
 
   tags = merge(
