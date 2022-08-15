@@ -50,11 +50,10 @@ resource "aws_cloudwatch_log_group" "ses_keys_rotate" {
     var.default_tags,
     {
       "Name" = format(
-        "%s-%s-%s/%s",
+        "%s-%s/%s",
         var.project,
         var.environment,
-        var.component,
-        var.name,
+        "ses_keys_rotate"
       )
     },
   )
