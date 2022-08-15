@@ -6,7 +6,7 @@ resource "aws_lambda_function" "ses_keys_rotate" {
   runtime       = "python3.8"
   memory_size   = "128"
   handler       = "ses_keys_rotate.lambda_handler"
-  timeout       = "60"
+  timeout       = "120"
   publish       = false
   s3_bucket     = "tars-nonprod-ctrl-resources"
   s3_key        = "lambda-repo/packages/ses_keys_rotate/ses_keys_rotate.zip"
@@ -46,7 +46,7 @@ resource "aws_cloudwatch_log_group" "ses_keys_rotate" {
   count             = var.account_environment != "mgmt" ? 1 : 0
   name              = "/aws/lambda/${aws_lambda_function.ses_keys_rotate[count.index].function_name}"
   retention_in_days = 180
-  
+
   tags = merge(
     var.default_tags,
     {
