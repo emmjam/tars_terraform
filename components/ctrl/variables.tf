@@ -430,16 +430,3 @@ variable "oraclexe_subnets_cidrs" {
 variable "kms_inspector_count" {
   type = number
 }
-
-variable "ses_rotate_send_email" {
-  type        = string
-  description = "Email address to send job reports to"
-  default     = ""
-}
-
-
-variable "ses_rotate_days" {
-  type        = string
-  description = "Number of days between rotating credentials"
-  default     = "90"
-}

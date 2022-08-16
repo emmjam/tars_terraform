@@ -660,8 +660,3 @@ obs_reg_holding = false
 
 # Whether to create Driver Services resources
 drv_svc_enabled = false
-
-# SES Key rotation lambda options
-#ses_rotate_send_email = "Tars-Platform-Team@bjss.com"
-ses_rotate_send_email = "ian.davies@bjss.com"
-ses_rotate_days = 90
