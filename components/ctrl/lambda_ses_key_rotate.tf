@@ -15,6 +15,8 @@ resource "aws_lambda_function" "ses_keys_rotate" {
   environment {
     variables = {
       ENVIRONMENT = var.environment
+      SEND_EMAIL = var.ses_rotate_send_email
+      SES_RENEWAL_DAYS = var.ses_rotate_days
     }
   }
 }
