@@ -67,4 +67,18 @@ data "aws_iam_policy_document" "ses_keys_rotate" {
       "arn:aws:logs:*:*:*",
     ]
   }
+
+  statement {
+    sid    = "AllowSendingEmail"
+    effect = "Allow"
+
+    actions = [
+      "ses:SendEmail",
+      "ses:SendRawEmail"
+    ]
+
+    resources = [
+      "*",
+    ]
+  }
 }
