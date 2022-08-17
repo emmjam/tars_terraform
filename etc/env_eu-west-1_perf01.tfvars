@@ -430,6 +430,36 @@ cpc-front_scaledown_recurrence = "00 16 * * 1-7"
 cpc-front_scaleup_desired      = 2
 cpc-front_scaleup_recurrence   = "00 04 * * 1-7"
 
+## cpc-batch
+cpc-batch_instance_type        = "m4.large"
+cpc-batch_puppet_nodetype      = "cpc-batch"
+cpc-batch_asg_min_size         = 0
+cpc-batch_asg_max_size         = 1
+cpc-batch_scaledown_desired    = 1
+cpc-batch_scaledown_recurrence = "00 16 * * 1-7"
+cpc-batch_scaleup_desired      = 1
+cpc-batch_scaleup_recurrence   = "00 04 * * 1-7"
+
+## fyndi-f
+fyndi-f_instance_type        = "m4.large"
+fyndi-f_puppet_nodetype      = "fyndi-front"
+fyndi-f_asg_min_size         = 0
+fyndi-f_asg_max_size         = 2
+fyndi-f_scaledown_desired    = 2
+fyndi-f_scaledown_recurrence = "00 16 * * 1-7"
+fyndi-f_scaleup_desired      = 2
+fyndi-f_scaleup_recurrence   = "00 04 * * 1-7"
+
+## fyndi_back
+fyndi-b_instance_type        = "m4.large"
+fyndi-b_puppet_nodetype      = "fyndi-back"
+fyndi-b_asg_min_size         = 0
+fyndi-b_asg_max_size         = 2
+fyndi-b_scaledown_desired    = 2
+fyndi-b_scaledown_recurrence = "00 16 * * 1-7"
+fyndi-b_scaleup_desired      = 2
+fyndi-b_scaleup_recurrence   = "00 04 * * 1-7"
+
 ## AWS MQ
 aws_mq_host_instance_type = "mq.t2.micro"
 aws_mq_deployment_mode    = "SINGLE_INSTANCE"
