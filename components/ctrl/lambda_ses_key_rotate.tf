@@ -15,6 +15,7 @@ resource "aws_lambda_function" "ses_keys_rotate" {
   environment {
     variables = {
       ENVIRONMENT = var.environment
+      SES_FILTER  = var.ses_filter
     }
   }
 }

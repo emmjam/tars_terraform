@@ -430,3 +430,9 @@ variable "oraclexe_subnets_cidrs" {
 variable "kms_inspector_count" {
   type = number
 }
+
+variable "ses_filter" {
+  type        = string
+  description = ""
+  default     = ""
+}

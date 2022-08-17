@@ -660,3 +660,6 @@ obs_reg_holding = false
 
 # Whether to create Driver Services resources
 drv_svc_enabled = false
+
+# Regex filter for SES accounts for credential rotating.
+ses_filter = "-ses-user$"
