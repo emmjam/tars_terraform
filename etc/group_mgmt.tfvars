@@ -353,3 +353,9 @@ unattached_ebs_vols_lambda_version = "1"
 
 # Expiring Certificates Lambda
 ssl_cert_expiry_lambda_version = 2
+
+# Route53 DNS endpoint resolver IPs
+mgmt_dns_endpoint_ip_0 = "10.200.1.60"
+mgmt_dns_endpoint_ip_1 = "10.200.1.75"
+mgmt_dns_endpoint_ip_2 = "10.200.1.90"
+
