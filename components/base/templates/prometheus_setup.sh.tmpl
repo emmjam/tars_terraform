@@ -222,10 +222,10 @@ else
   echo "Performing initial sync using CPIO"
   THREADS=xYYYx
   echo "Number of threads: " xTHREADSx
-  touch "xDSTx/.initialsync"
   time fpsync -m cpio -n xTHREADSx xSRCx xDSTx
   date
   echo "Initial sync using CPIO completed."
+  touch "xDSTx/.initialsync"
   echo "Checking sizes using DU"
   du -sh xSRCx xDSTx
 fi
