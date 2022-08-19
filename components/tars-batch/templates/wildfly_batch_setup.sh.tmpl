@@ -214,7 +214,7 @@ export host=$(awk '/server/{print $3}' /opt/SFTPPlus-client/conf/Payord_Put.conf
 
 if [ $${host} == "tars-mock-sftp" ]; then
   log 'INFO' 'Using SFTP Mock'
-  exit
+  #exit
 else
   # make batch connection that will end if any user input required, i.e. password if sshkey present, or sshkey if changed
   result=$(/opt/SFTPPlus-client/bin/psftp $${user}@$${host} -batch 2>&1)
