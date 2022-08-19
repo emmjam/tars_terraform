@@ -189,7 +189,7 @@ df -kT | grep nfs4 >> /var/log/efs_sync.log
 echo >> /var/log/efs_sync.log
 
 echo "The encrypted filesystem (127.0.0.1) is now the live target" >> /var/log/efs_sync.log
-echo "Synchronisation will now take place from /efs_orig --> /efs" >> /var/log/efs_sync.log
+echo "Synchronisation will now take place from /efs_orig --> /var/lib/prometheus" >> /var/log/efs_sync.log
 echo >> /var/log/efs_sync.log
 
 # Perform the rsync
