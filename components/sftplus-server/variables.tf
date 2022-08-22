@@ -240,7 +240,7 @@ variable "sftp_cpuutilization_cw_metric_alarm_action_enabled" {
   description = "Enable or disable email queue CloudWatch Metrics Alarm"
 }
 
-variable "sftpplus_svr_id" {
+variable "sftp_ami_build_id" {
   type        = string
   description = "Sftp AMI build ID"
 }
