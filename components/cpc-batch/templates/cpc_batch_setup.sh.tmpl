@@ -255,7 +255,7 @@ chmod +x /root/efs_sync.sh
 crontab -l > /tmp/cron_tmp
 echo >> /tmp/cron_tmp
 echo "# Temporary cron for keeping EFS in sync" >> /tmp/cron_tmp
-echo "00 4,10,16,22 * * * /root/efs_sync.sh >> /var/log/efs_rsync.log 2>&1" >> /tmp/cron_tmp
+echo "00 4,10,16,22 * * * /root/efs_sync.sh >> /var/log/efs_sync.log 2>&1" >> /tmp/cron_tmp
 crontab /tmp/cron_tmp
 rm -f /tmp/cron_tmp
 
