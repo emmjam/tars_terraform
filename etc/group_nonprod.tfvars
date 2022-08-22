@@ -281,7 +281,7 @@ mock_ami_build_id = "02f54c88/262"
 
 
 ## SFTP
-sftpplus_svr_id = "1303"
+sftp_ami_build_id = "1303"
 
 bastion_elb_subnets_cidrs = [
   "10.167.60.64/28",
