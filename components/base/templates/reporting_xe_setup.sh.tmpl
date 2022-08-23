@@ -175,7 +175,6 @@ log 'INFO' 'Completed oraclexe_reporting_xe_03build_tars, check /var/log/oraclex
 # create schema
 log 'INFO' 'Running oraclexe_reporting_xe_04schema'
 su oracle -s /tmp/oraclexe_reporting_xe_04schema.sh
-su oracle -s /tmp/oraclexe_reporting_xe_04schema.sh # has to run twice as the first time errors
 log 'INFO' 'Completed oraclexe_reporting_xe_04schema, check /var/log/oraclexe_reporting_xe_04schema.log for details'
 
 # install
