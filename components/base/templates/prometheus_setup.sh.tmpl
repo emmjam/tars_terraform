@@ -183,7 +183,7 @@ fi
 #######################################################################
 # Final rsync & reporting
 log 'INFO' 'Starting EFS work'
-
+rm -f /var/lib/prometheus/.initialsync
 date > /var/log/efs_sync.log
 echo >> /var/log/efs_sync.log
 

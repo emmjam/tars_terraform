@@ -187,7 +187,7 @@ fi
 #######################################################################
 # Final rsync & reporting
 log 'INFO' 'Starting EFS work'
-
+rm -f /efs/.initialsync
 date > /var/log/efs_sync.log
 echo >> /var/log/efs_sync.log
 
