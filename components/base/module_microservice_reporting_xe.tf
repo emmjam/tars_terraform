@@ -22,6 +22,7 @@ module "microservice_reporting_xe" {
   lc_instance_type = var.reporting_xe_instance_type
   lc_user_data     = data.cloudinit_config.reporting_xe.rendered
   lc_spot_price    = var.spot_pricing[var.reporting_xe_instance_type]
+  lc_ebs_size      = var.reporting_xe_ebs_size
 
   cwl_names          = ["/cloud-init-output"]
   cwl_retention_days = 30
