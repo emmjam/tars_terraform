@@ -252,13 +252,13 @@ if [ ! $(df -hT | grep -c nfs4) = 2 ]; then
 fi
 
 # Dont run multiple processes simultainously
-if [ -f "/efs_enc/sync.lock" ]; then
+if [ -f "/tmp/sync.lock" ]; then
   DTE=xDTCx
-  echo "   ==> Lock file found (/efs_enc/sync.lock) - Wont start a new sync job : " xDTEx
+  echo "   ==> Lock file found (/tmp/sync.lock) - Wont start a new sync job : " xDTEx
   exit 0
 else 
   # Prevent other processes from starting
-  touch "/efs_enc/sync.lock"
+  touch "/tmp/sync.lock"
 fi
 
 # Perform the sync
@@ -292,7 +292,7 @@ echo "#####################################################"
 echo
 
 # Remove the lock
-rm -f "/efs_enc/sync.lock"
+rm -f "/tmp/sync.lock"
 EOT
 
 sed -i 's/xSRCx/\$SRC/g' /root/efs_sync.sh
