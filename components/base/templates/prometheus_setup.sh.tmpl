@@ -226,10 +226,17 @@ else
   time fpsync -m rsync -o "--whole-file" -n xTHREADSx xSRCx xDSTx
   date
   echo "Initial sync using RSYNC completed."
-  touch "xDSTx/.initialsync"
-  echo "Checking sizes using DU"
-  du -sh xSRCx xDSTx
 fi
+
+date
+echo
+echo "Checking sizes using DU"
+du -sh xSRCx xDSTx
+echo "Checking file counts:"
+s=`find xSRCx -type f| wc -l`
+echo "xSRCx: $s"
+d=`find xDSTx -type f| wc -l`
+echo "xSRCx: $d"
 
 echo
 date

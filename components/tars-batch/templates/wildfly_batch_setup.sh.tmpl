@@ -272,19 +272,27 @@ if [ -f "xDSTx/.initialsync" ]; then
   echo "Performing supplementary sync using RSYNC"
   THREADS=xZZZx
   echo "Number of threads: " xTHREADSx
-  time fpsync -m rsync -n xTHREADSx xSRCx xDSTx
+  fpsync -m rsync -n xTHREADSx xSRCx xDSTx
   echo "Supplementary sync using RSYNC completed"
 else
   echo "Performing initial sync using RSYNC"
   THREADS=xYYYx
   echo "Number of threads: " xTHREADSx
-  time fpsync -m rsync -o "--whole-file" -n xTHREADSx xSRCx xDSTx
+  fpsync -m rsync -o "--whole-file" -n xTHREADSx xSRCx xDSTx
   date
   touch "xDSTx/.initialsync"
   echo "Initial sync using RSYNC completed."
-  echo "Checking sizes using DU"
-  du -sh xSRCx xDSTx
 fi
+
+date
+echo
+echo "Checking sizes using DU"
+du -sh xSRCx xDSTx
+echo "Checking file counts:"
+s=`find xSRCx -type f| wc -l`
+echo "xSRCx: $s"
+d=`find xDSTx -type f| wc -l`
+echo "xSRCx: $d"
 
 echo
 date
