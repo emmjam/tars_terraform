@@ -223,7 +223,7 @@ else
   echo "Performing initial sync using RSYNC"
   THREADS=xYYYx
   echo "Number of threads: " xTHREADSx
-  time fpsync -m rsync -o "-W" -n xTHREADSx xSRCx xDSTx
+  time fpsync -m rsync -o "--whole-file" -n xTHREADSx xSRCx xDSTx
   date
   echo "Initial sync using RSYNC completed."
   touch "xDSTx/.initialsync"
