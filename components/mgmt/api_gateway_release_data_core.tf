@@ -1,3 +1,4 @@
+/*
 resource "aws_api_gateway_rest_api" "release_data" {
   name = "${local.csi}-release-data"
 
@@ -56,4 +57,4 @@ resource "aws_api_gateway_stage" "mgmt" {
     }
   )
 }
-
+*/

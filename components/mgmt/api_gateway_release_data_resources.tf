@@ -1,3 +1,4 @@
+/*
 resource "aws_api_gateway_resource" "environment" {
   rest_api_id = aws_api_gateway_rest_api.release_data.id
   parent_id   = aws_api_gateway_rest_api.release_data.root_resource_id
@@ -33,4 +34,4 @@ resource "aws_api_gateway_resource" "version_latest" {
   parent_id   = aws_api_gateway_resource.version.id
   path_part   = "latest"
 }
-
+*/

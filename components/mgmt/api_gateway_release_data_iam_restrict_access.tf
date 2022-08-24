@@ -1,3 +1,4 @@
+/*
 data "aws_iam_policy_document" "release_data_api_resource_policy" {
   statement {
     sid       = "AllowlistAccessOnly"
@@ -17,8 +18,9 @@ data "aws_iam_policy_document" "release_data_api_resource_policy" {
   }
 }
 
+
 resource "aws_api_gateway_rest_api_policy" "release_data" {
   rest_api_id = aws_api_gateway_rest_api.release_data.id
   policy      = data.aws_iam_policy_document.release_data_api_resource_policy.json
 }
-
+*/

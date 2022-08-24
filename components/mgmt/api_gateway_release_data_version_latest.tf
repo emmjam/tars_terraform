@@ -1,3 +1,4 @@
+/*
 resource "aws_api_gateway_method" "version_latest_get" {
   rest_api_id   = aws_api_gateway_rest_api.release_data.id
   resource_id   = aws_api_gateway_resource.version_latest.id
@@ -48,5 +49,5 @@ resource "aws_api_gateway_method_response" "version_latest_get" {
     "application/json" = "Empty"
   }
 }
-
+*/
 
