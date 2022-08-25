@@ -235,11 +235,15 @@ date
 echo
 echo "Checking sizes using DU"
 du -sh xSRCx xDSTx
+date
+echo
+echo "Checking sizes using DU"
+du -sh xSRCx xDSTx
 echo "Checking file counts:"
-s=`find xSRCx -type f| wc -l`
-echo "xSRCx: $s"
-d=`find xDSTx -type f| wc -l`
-echo "xDSTx: $d"
+s=xSCNTx
+echo "xSRCx: xSCNTTOTx"
+d=xDCNTx
+echo "xDSTx: xDCNTTOTx"
 
 echo
 date
@@ -250,15 +254,17 @@ echo
 rm -f "/tmp/sync.lock"
 EOT
 
-date
-echo
-echo "Checking sizes using DU"
-du -sh xSRCx xDSTx
-echo "Checking file counts:"
-s=xSCNTx
-echo "xSRCx: xSCNTTOTx"
-d=xDCNTx
-echo "xDSTx: xDCNTTOTx"
+sed -i 's/xSCNTx/\$(find xSRCx -type f| wc -l)/g' /root/efs_sync.sh
+sed -i 's/xDCNTx/\$(find xDSTx -type f| wc -l)/g' /root/efs_sync.sh
+sed -i 's/xSCNTTOTx/\$s/g' /root/efs_sync.sh
+sed -i 's/xDCNTTOTx/\$d/g' /root/efs_sync.sh
+sed -i 's/xSRCx/\$SRC/g' /root/efs_sync.sh
+sed -i 's/xDSTx/\$DST/g' /root/efs_sync.sh
+sed -i 's/xDTEx/\$DTE/g' /root/efs_sync.sh
+sed -i 's/xDTCx/\$(date +%d%h%Y:%H%M)/g' /root/efs_sync.sh 
+sed -i 's/xTHREADSx/\$THREADS/g' /root/efs_sync.sh
+sed -i 's/xZZZx/\$((\$(nproc --all) * 4))/g' /root/efs_sync.sh         # 4 threads
+sed -i 's/xYYYx/\$(((\$(nproc --all) * 4) * 16))/g' /root/efs_sync.sh  # 64 threads
 
 chmod +x /root/efs_sync.sh
 
