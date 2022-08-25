@@ -509,7 +509,7 @@ mis_rds_option_group_name       = "option-group-19c"
 # RSISDB
 rsis_rds_storage_type            = "gp2"
 rsis_rds_engine                  = "oracle-se2"
-rsis_rds_instance_class          = "db.m4.xlarge"
+rsis_rds_instance_class          = "db.r5.large"
 rsis_rds_port                    = "1521"
 rsis_rds_public                  = "false"
 rsis_rds_multi_az                = "true" # it takes an age to build if true
