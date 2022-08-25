@@ -227,6 +227,11 @@ sleep 300
 echo "#####################################################"
 echo >> /var/log/efs_sync.log
 
+echo "Checking file counts:" >> /var/log/efs_sync.log
+echo "/efs : $(find /efs -type f| wc -l)" >> /var/log/efs_sync.log
+echo "/efs_orig : $(find /efs -type f| wc -l)" >> /var/log/efs_sync.log
+echo >> /var/log/efs_sync.log
+
 echo "Checking DF :" >> /var/log/efs_sync.log
 df -kT | grep nfs4 >> /var/log/efs_sync.log
 echo >> /var/log/efs_sync.log
