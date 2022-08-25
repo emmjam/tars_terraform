@@ -274,7 +274,7 @@ if [ -f "xDSTx/.initialsync" ]; then
   echo "Number of threads: " xTHREADSx
   time fpsync -m rsync -n xTHREADSx xSRCx xDSTx
   echo "Supplementary sync using RSYNC completed"
-elif [ -f "xDSTx/.metadatasync"]; then
+elif [ -f "xDSTx/.metadatasync" ]; then
   echo "Performing Metadata sync using RSYNC"
   THREADS=xZZZx
   echo "Number of threads: " xTHREADSx
