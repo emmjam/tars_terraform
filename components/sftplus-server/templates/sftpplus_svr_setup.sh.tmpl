@@ -213,6 +213,7 @@ DST="/efs_enc"
 date
 echo "Syncing: xSRCx ==> xDSTx"
 echo 3 > /proc/sys/vm/drop_caches
+echo
 
 if [ -f "xDSTx/.initialsync" ]; then
   echo "Performing supplementary sync using RSYNC"
