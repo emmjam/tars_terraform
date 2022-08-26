@@ -7,7 +7,7 @@ module "guardduty-notify" {
   default_tags = local.default_tags
 
   name        = "guardduty-slack"
-  runtime     = "python3.6"
+  runtime     = "python3.8"
   handler     = "lambda_function.lambda_handler"
   timeout     = 3
   memory_size = 128
