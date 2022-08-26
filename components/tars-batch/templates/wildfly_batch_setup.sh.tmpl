@@ -240,8 +240,10 @@ fi
 #######################################################################
 # Final rsync & reporting
 log 'INFO' 'Starting EFS work'
-rm -f /efs/.initialsync
+NICE="10"
+rm -f /tmp/.initialsync
 date > /var/log/efs_sync.log
+echo "Nice level: $NICE" >> /var/log/efs_sync.log
 echo >> /var/log/efs_sync.log
 
 df -kT | grep nfs4 >> /var/log/efs_sync.log
@@ -253,7 +255,7 @@ echo >> /var/log/efs_sync.log
 
 # Perform the rsync
 echo "Running 1st RSYNC - should sync any deltas" >> /var/log/efs_sync.log
-rsync -avhW --progress /efs_orig/ /efs >> /var/log/efs_sync.log
+nice -n $NICE rsync -avhW --progress /efs_orig/ /efs >> /var/log/efs_sync.log
 date >> /var/log/efs_sync.log
 echo >> /var/log/efs_sync.log
 
@@ -268,7 +270,7 @@ echo >> /var/log/efs_sync.log
 # Perform the rsync again (Should show no updates)
 date >> /var/log/efs_sync.log
 echo "Running 2nd RSYNC - should show no changes" >> /var/log/efs_sync.log
-rsync -avhW --progress /efs_orig/ /efs >> /var/log/efs_sync.log
+nice -n $NICE rsync -avhW --progress /efs_orig/ /efs >> /var/log/efs_sync.log
 date >> /var/log/efs_sync.log
 echo >> /var/log/efs_sync.log
 
