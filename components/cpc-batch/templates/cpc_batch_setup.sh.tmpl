@@ -224,6 +224,14 @@ if [ -f "/tmp/.initialsync" ]; then
   echo "Number of threads: " xTHREADSx
   time nice -n xNICEx fpsync  -m rsync -n xTHREADSx xSRCx xDSTx
   echo "Supplementary sync using RSYNC completed"
+  echo "Checking sizes using DU"
+  nice -n xNICEx du -sh xSRCx xDSTx
+  echo
+  echo "Checking file counts:"
+  s=xSCNTx
+  echo "xSRCx: xSCNTTOTx"
+  d=xDCNTx
+  echo "xDSTx: xDCNTTOTx"
 elif [ -f "/tmp/.metadatasync" ]; then
   echo "Performing Metadata sync using RSYNC"
   THREADS=xZZZx
@@ -243,14 +251,8 @@ fi
 
 date
 echo
-echo "Checking sizes using DU"
-nice -n xNICEx du -sh xSRCx xDSTx
-echo
-echo "Checking file counts:"
-s=xSCNTx
-echo "xSRCx: xSCNTTOTx"
-d=xDCNTx
-echo "xDSTx: xDCNTTOTx"
+echo "Checking sizes using DF"
+df -khT| grep nfs4
 
 echo
 date
