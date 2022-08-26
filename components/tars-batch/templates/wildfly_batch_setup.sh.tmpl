@@ -271,26 +271,26 @@ echo "Nice level: xNICEx"
 echo 3 > /proc/sys/vm/drop_caches
 echo
 
-if [ -f "xDSTx/.initialsync" ]; then
+if [ -f "/tmp/.initialsync" ]; then
   echo "Performing supplementary sync using RSYNC"
   THREADS=xZZZx
   echo "Number of threads: " xTHREADSx
   time nice -n xNICEx fpsync  -m rsync -n xTHREADSx xSRCx xDSTx
   echo "Supplementary sync using RSYNC completed"
-elif [ -f "xDSTx/.metadatasync" ]; then
+elif [ -f "/tmp/.metadatasync" ]; then
   echo "Performing Metadata sync using RSYNC"
   THREADS=xZZZx
   echo "Number of threads: " xTHREADSx
   time nice -n xNICEx fpsync  -m rsync -o "--archive --size-only" -n xTHREADSx xSRCx xDSTx
   echo "Supplementary Metadata sync using RSYNC completed"
-  rm "xDSTx/.metadatasync"
-  touch "xDSTx/.initialsync"
+  rm "/tmp/.metadatasync"
+  touch "/tmp/.initialsync"
 else
   echo "Performing initial sync using CPIO"
   THREADS=xYYYx
   echo "Number of threads: " xTHREADSx
   time nice -n xNICEx fpsync  -m cpio -n xTHREADSx xSRCx xDSTx
-  touch "xDSTx/.metadatasync"
+  touch "/tmp/.metadatasync"
   echo "Initial sync using CPIO completed."
 fi
 
