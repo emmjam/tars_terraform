@@ -297,7 +297,7 @@ fi
 date
 echo
 echo "Checking sizes using DU"
-du -sh xSRCx xDSTx
+nice -n xNICEx du -sh xSRCx xDSTx
 echo
 echo "Checking file counts:"
 s=xSCNTx
@@ -314,8 +314,8 @@ echo
 rm -f "/tmp/sync.lock"
 EOT
 
-sed -i 's/xSCNTx/\$(find xSRCx -type f| wc -l)/g' /root/efs_sync.sh
-sed -i 's/xDCNTx/\$(find xDSTx -type f| wc -l)/g' /root/efs_sync.sh
+sed -i 's/xSCNTx/\$(nice -n xNICEx find xSRCx -type f| wc -l)/g' /root/efs_sync.sh
+sed -i 's/xDCNTx/\$(nice -n xNICEx find xDSTx -type f| wc -l)/g' /root/efs_sync.sh
 sed -i 's/xSCNTTOTx/\$s/g' /root/efs_sync.sh
 sed -i 's/xDCNTTOTx/\$d/g' /root/efs_sync.sh
 sed -i 's/xSRCx/\$SRC/g' /root/efs_sync.sh
