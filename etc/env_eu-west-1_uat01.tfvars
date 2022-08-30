@@ -399,3 +399,6 @@ puca_job_cca_nonfinalepdqstatus_maxAgeDays              = 60
 puca_job_cca_nonfinalepdqstatus_maxProcessed            = 2
 puca_job_cca_maxRecordsPerJobRun                        = 5
 transfer_theory_test_extract_file_to_ftts_job_directory = "/efs/tars/FTP/irdt/eligibility/ftts"
+
+# squidnat
+squidnat_instance_type = "t3.small"
