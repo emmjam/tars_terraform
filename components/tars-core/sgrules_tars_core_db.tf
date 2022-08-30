@@ -88,3 +88,30 @@ resource "aws_security_group_rule" "reporting_xe_ingress_tarsdb_1521" {
   security_group_id        = data.terraform_remote_state.base.outputs.reporting_xe_sg_id
   source_security_group_id = aws_security_group.tars-core-db.id
 }
+
+resource "aws_security_group_rule" "mock_gov_gw_accounts_processor_ingress_tarsdb_1521" {
+  count       = var.mock_gov_gw_accounts_processor == true ? 1 : 0
+  description = "Allow TCP/1521 from mock gov gateway accounts processor lambda"
+  type        = "ingress"
+
+  protocol  = "tcp"
+  from_port = 1521
+  to_port   = 1521
+
+  security_group_id        = aws_security_group.tars-core-db.id
+  source_security_group_id = data.terraform_remote_state.base.outputs.lambda_mock_gov_gw_accounts_processor_sg_id
+}
+
+
+resource "aws_security_group_rule" "mock_gov_gw_accounts_processor_egress_tarsdb_1521" {
+  count       = var.mock_gov_gw_accounts_processor == true ? 1 : 0
+  description = "Allow TCP/1521 to TARS DB"
+  type        = "egress"
+
+  protocol  = "tcp"
+  from_port = 1521
+  to_port   = 1521
+
+  security_group_id        = data.terraform_remote_state.base.outputs.lambda_mock_gov_gw_accounts_processor_sg_id
+  source_security_group_id = aws_security_group.tars-core-db.id
+}

@@ -52,3 +52,24 @@ resource "aws_security_group_rule" "squidnat_ingress_govnotify" {
   source_security_group_id = module.lambda_notify.security_group_id
 }
 
+resource "aws_security_group_rule" "squidnat_ingress_mock_gov_gw_accounts_processor" {
+  count       = var.mock_gov_gw_accounts_processor == true ? 1 : 0
+
+  type                     = "ingress"
+  protocol                 = "tcp"
+  from_port                = "443"
+  to_port                  = "443"
+  security_group_id        = module.squidnat.security_group_id
+  source_security_group_id = module.lambda_mock_gov_gw_accounts_processor[count.index].security_group_id
+}
+
+resource "aws_security_group_rule" "squidnat_egress_mock_gov_gw_accounts_processor" {
+  count                    = var.mock_gov_gw_accounts_processor == true ? 1 : 0
+
+  type                     = "egress"
+  protocol                 = "tcp"
+  from_port                = "443"
+  to_port                  = "443"
+  source_security_group_id = module.squidnat.security_group_id
+  security_group_id        = module.lambda_mock_gov_gw_accounts_processor[count.index].security_group_id
+}
