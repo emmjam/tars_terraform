@@ -460,6 +460,3 @@ puca_job_cca_nonfinalepdqstatus_minAgeHours  = 1
 puca_job_cca_nonfinalepdqstatus_maxAgeDays   = 2
 puca_job_cca_nonfinalepdqstatus_maxProcessed = 200
 puca_job_cca_maxRecordsPerJobRun             = 500
-
-# squidnat
-squidnat_instance_type = "t3.small"
