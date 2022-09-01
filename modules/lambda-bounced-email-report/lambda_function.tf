@@ -39,7 +39,7 @@ resource "aws_lambda_function" "ses_report" {
   function_name = "ses-bounced-email-report"
   role          = aws_iam_role.sesreport_lambda_basic_execution[count.index].arn
   handler       = "bounced_email_report.handler"
-  runtime       = "python3.6"
+  runtime       = "python3.8"
   publish       = false
   s3_bucket     = var.bounced_email_s3_bucket
   s3_key        = var.bounced_email_report_s3_key

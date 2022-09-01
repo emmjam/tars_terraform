@@ -433,7 +433,7 @@ dvla_elise_server      = "51.231.10.112/32"
 rsis_samba_server_archive = "10.14.0.142/32"
 
 # squidnat
-squidnat_instance_type = "t3.medium"
+squidnat_instance_type = "t3.small"
 squidnat_ami_build_id  = "1426"
 
 ops_team_email = "tars.platform-team@bjss.com"
