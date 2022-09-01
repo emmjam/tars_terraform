@@ -276,7 +276,7 @@ oraclexe_scaleup_desired      = 1
 oraclexe_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## SFTP
-sftp_ami_build_id = "1303"
+sftp_ami_build_id = "1452"
 
 bastion_elb_subnets_cidrs = [
   "10.167.56.64/28",

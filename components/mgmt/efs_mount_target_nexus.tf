@@ -7,4 +7,3 @@ resource "aws_efs_mount_target" "nexus" {
     aws_security_group.nexus_efs.id,
   ]
 }
-
