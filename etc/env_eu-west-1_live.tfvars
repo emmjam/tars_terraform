@@ -47,7 +47,7 @@ guardduty_member_enabled = "0"
 # Changed due to JIRA OPS-2184 keep bastion AMI current on weekly basis BST
 ## bastion
 bastion_instance_type        = "t2.micro"
-bastion_ami_build_id         = "1421"
+bastion_ami_build_id         = "1463"
 bastion_asg_min_size         = 1
 bastion_asg_max_size         = 3
 bastion_scaledown_desired    = 1
