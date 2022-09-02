@@ -308,7 +308,7 @@ tars_rds_allocated_storage = "610"
 tars_rds_backup_retention  = "21"
 
 # CPCDB
-cpc_rds_username          = "cpcadmin"
+cpc_rds_username          = "cpcuatadmin"
 cpc_rds_allocated_storage = "150"
 cpc_rds_snapshot          = "cpc-cpcdb-20190315-5-4-0-1"
 cpc_rds_backup_retention  = "21"
