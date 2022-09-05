@@ -318,18 +318,20 @@ ibs_rds_username = "ibsuatadmin"
 ibs_rds_snapshot = "sit01-ibs-subnet-move"
 
 # MISDB
-mis_rds_username          = "misdmsadmin"
-mis_rds_snapshot          = "tars-dev01-tars-dms-misopdmstg-20180720"
+mis_rds_username          = "misuatadmin"
+mis_rds_snapshot          = "tars-sit01-tars-reporting-misdb-02-09-22-obfuscation-do-not-delete"
 mis_rds_allocated_storage = "440"
 mis_rds_autoscale         = "False"
 mis_rds_backup_retention  = "21"
+mis_rds_engine_version    = "19.0.0.0.ru-2022-01.rur-2022-01.r1"
 
 # RSISDB
-rsis_rds_username          = "tarsrsisadmin"
-rsis_rds_snapshot          = "tars-dev01-tars-dms-rsisdmssc-20180719"
+rsis_rds_username          = "rsisuatadmin"
+rsis_rds_snapshot          = "tars-sit01-tars-reporting-rsisdb-02-09-22-obfuscation-do-not-delete"
 rsis_rds_allocated_storage = "300"
 rsis_rds_autoscale         = "False"
 rsis_rds_backup_retention  = "21"
+rsis_rds_engine_version    = "19.0.0.0.ru-2022-01.rur-2022-01.r1"
 
 #############################################################################
 # VPC to DVSA WAN via DX
