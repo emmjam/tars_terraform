@@ -12,6 +12,7 @@ default_tags = {
 # All Users
 
 new_all_users = [
+  "mohamed.roble@bjss.com",
   "talha.ozleblebici@bjss.com",
   "tom.bibb@bjss.com",
   "adam.hall@bjss.com",
@@ -92,6 +93,7 @@ new_all_users = [
 # TSSOps Access
 
 administrators_tssops_users = [
+  "mohamed.roble@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
@@ -112,6 +114,7 @@ administrators_tssops_users = [
 ]
 
 readonly_tssops_users = [
+  "mohamed.roble@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
