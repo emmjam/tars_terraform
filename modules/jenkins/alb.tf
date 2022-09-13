@@ -3,7 +3,7 @@ resource "aws_alb" "jenkins" {
   internal                         = var.elb_internal
   idle_timeout                     = var.elb_idle_timeout
   enable_cross_zone_load_balancing = var.elb_cross_zone_load_balancing
-  security_groups                  = [aws_security_group.elb.id]
+  security_groups                  = [aws_security_group.alb.id]
   subnets                          = module.alb_subnets.subnet_ids
 
   tags = merge(
