@@ -391,7 +391,7 @@ jenkins_blue_subnets_cidrs = ["10.200.3.0/28"]
 jenkins_blue_version = "2.332.3"
 
 jenkins_elb_subnets_cidrs = ["10.200.3.32/28"]
-jenkins_alb_subnets_cidrs = ["10.200.3.32/28", "10.200.3.128/28"]
+jenkins_alb_subnets_cidrs = ["10.200.6.0/28", "10.200.6.16/28"]
 
 ## jenkinsnode
 #jenkinsnode = {
