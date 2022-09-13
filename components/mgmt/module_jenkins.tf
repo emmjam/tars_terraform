@@ -25,7 +25,7 @@ module "jenkins" {
   ]
 
   elb_subnets_cidrs = var.jenkins_elb_subnets_cidrs
-  nlb_subnets_cidrs = var.jenkins_nlb_subnets_cidrs
+  #nlb_subnets_cidrs = var.jenkins_nlb_subnets_cidrs
 
   ebs_volume_type = var.jenkins_ebs_volume_type
   ebs_volume_size = var.jenkins_ebs_volume_size
