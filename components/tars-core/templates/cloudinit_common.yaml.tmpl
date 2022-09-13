@@ -9,8 +9,8 @@ runcmd:
   - "echo '[INFO] Applying runcmd...'"
   - "file1=/etc/redhat-release"
   - 'if [ -f "$file1" ]; then'
-  - "/etc/init.d/iptables stop"
-  - "/sbin/chkconfig iptables off"
+  - "  /etc/init.d/iptables stop"
+  - "  /sbin/chkconfig iptables off"
   - "fi"
 preserve_hostname: true
 final_message: "[INFO] System configuration finished!"

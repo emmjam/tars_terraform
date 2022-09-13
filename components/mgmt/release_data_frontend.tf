@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "envis" {
   bucket = "envis.tars.dvsacloud.uk"
-  acl    = "public-read"
+  acl    = "private"
   policy = data.aws_iam_policy_document.envis_access.json
 
   website {

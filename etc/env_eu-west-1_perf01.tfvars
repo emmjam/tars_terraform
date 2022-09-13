@@ -12,6 +12,7 @@ tf_state_bucket_prefix = "tars-terraformscaffold"
 default_tags = {
   Project     = "tars"
   Environment = "perf01"
+  DVSA_Env    = "dev"
 }
 
 asg_default_tags = [
@@ -220,12 +221,6 @@ awsmq_subnets_cidrs = [
   "10.167.37.208/28",
 ]
 
-apache_subnet_cidrs = [
-  "10.167.37.224/28",
-  "10.167.37.240/28",
-  "10.167.38.0/28",
-]
-
 sftpplus_nlb_subnets_cidrs = [
   "10.167.38.32/28",
   "10.167.38.48/28",
@@ -359,8 +354,8 @@ rsis_rds_autoscale           = "True"
 
 # IBSDB
 ibs_rds_username       = "ibsuatadmin"
-ibs_rds_snapshot       = "perf01-ibsdb-with-users-and-geo-data"
-ibs_rds_instance_class = "db.r3.large"
+ibs_rds_snapshot       = "perf01-ibsdb-0-final-snapshot-8-8-22"
+ibs_rds_instance_class = "db.r5.large"
 
 ## wildfly
 
@@ -435,6 +430,36 @@ cpc-front_scaledown_recurrence = "00 16 * * 1-7"
 cpc-front_scaleup_desired      = 2
 cpc-front_scaleup_recurrence   = "00 04 * * 1-7"
 
+## cpc-batch
+cpc-batch_instance_type        = "m4.large"
+cpc-batch_puppet_nodetype      = "cpc-batch"
+cpc-batch_asg_min_size         = 0
+cpc-batch_asg_max_size         = 1
+cpc-batch_scaledown_desired    = 1
+cpc-batch_scaledown_recurrence = "00 16 * * 1-7"
+cpc-batch_scaleup_desired      = 1
+cpc-batch_scaleup_recurrence   = "00 04 * * 1-7"
+
+## fyndi-f
+fyndi-f_instance_type        = "m4.large"
+fyndi-f_puppet_nodetype      = "fyndi-front"
+fyndi-f_asg_min_size         = 0
+fyndi-f_asg_max_size         = 2
+fyndi-f_scaledown_desired    = 2
+fyndi-f_scaledown_recurrence = "00 16 * * 1-7"
+fyndi-f_scaleup_desired      = 2
+fyndi-f_scaleup_recurrence   = "00 04 * * 1-7"
+
+## fyndi_back
+fyndi-b_instance_type        = "m4.large"
+fyndi-b_puppet_nodetype      = "fyndi-back"
+fyndi-b_asg_min_size         = 0
+fyndi-b_asg_max_size         = 2
+fyndi-b_scaledown_desired    = 2
+fyndi-b_scaledown_recurrence = "00 16 * * 1-7"
+fyndi-b_scaleup_desired      = 2
+fyndi-b_scaleup_recurrence   = "00 04 * * 1-7"
+
 ## AWS MQ
 aws_mq_host_instance_type = "mq.t2.micro"
 aws_mq_deployment_mode    = "SINGLE_INSTANCE"
@@ -458,16 +483,6 @@ wildfly-mock_scaledown_desired    = 1
 wildfly-mock_scaledown_recurrence = "00 16 * * 1-7"
 wildfly-mock_scaleup_desired      = 1
 wildfly-mock_scaleup_recurrence   = "00 04 * * 1-7"
-
-## apache
-apache_instance_type        = "m4.large"
-apache_asg_min_size         = 0
-apache_asg_max_size         = 0
-apache_scaledown_desired    = 0
-apache_scaledown_recurrence = "00 22 * * 1-5"
-apache_scaleup_desired      = 0
-apache_scaleup_recurrence   = "00 07 * * 1-5"
-
 
 ##  JMeter
 jmeter_instance_type              = "m5d.large"
@@ -508,3 +523,15 @@ api_notify = {
 
 # DocumentBatchUpdate - maximum records processed in the Job Polling
 dbu_maxrecordsprocessed = 500
+
+# Process Unknown Card Authorisations Job - Challenged Card Auth
+puca_job_cca_minAgeHours                     = 0
+puca_job_cca_maxAgeDays                      = 0
+puca_job_cca_maxProcessed                    = 5
+puca_job_cca_communicationError_minAgeHours  = 0
+puca_job_cca_communicationError_maxAgeDays   = 0
+puca_job_cca_communicationError_maxProcessed = 1
+puca_job_cca_nonfinalepdqstatus_minAgeHours  = 0
+puca_job_cca_nonfinalepdqstatus_maxAgeDays   = 0
+puca_job_cca_nonfinalepdqstatus_maxProcessed = 2
+puca_job_cca_maxRecordsPerJobRun             = 5 

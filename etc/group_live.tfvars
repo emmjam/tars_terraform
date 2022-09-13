@@ -110,9 +110,9 @@ wildfly-back_puppet_nodetype      = "tars-back"
 wildfly-back_asg_min_size         = 0
 wildfly-back_asg_max_size         = 4
 wildfly-back_scaledown_desired    = 3
-wildfly-back_scaledown_recurrence = "0 */2 * * *"
+wildfly-back_scaledown_recurrence = "1 6,18 * * *"
 wildfly-back_scaleup_desired      = 4
-wildfly-back_scaleup_recurrence   = "0 1-23/2 * * *"
+wildfly-back_scaleup_recurrence   = "1 12,00 * * *"
 
 ## wildfly-batch
 wildfly-batch_instance_type        = "m4.large"
@@ -255,16 +255,6 @@ cpc-batch_scaledown_recurrence = "00 22 * * 1-5"
 cpc-batch_scaleup_desired      = 1
 cpc-batch_scaleup_recurrence   = "00 07 * * 1-5"
 
-## apache
-apache_instance_type        = "m5.xlarge"
-apache_asg_min_size         = 0
-apache_asg_max_size         = 0
-apache_scaledown_desired    = 0
-apache_scaledown_recurrence = "00 22 * * 1-5"
-apache_scaleup_desired      = 0
-apache_scaleup_recurrence   = "00 07 * * 1-5"
-apache_ami_build_id         = "1302"
-
 aws_mq_config_description    = "TARS MQ Configuration"
 aws_mq_config_name           = "tars-awsmq"
 aws_mq_config_engine_type    = "ActiveMQ"
@@ -286,7 +276,7 @@ oraclexe_scaleup_desired      = 1
 oraclexe_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## SFTP
-sftpplus_svr_id = "1303"
+sftp_ami_build_id = "1452"
 
 bastion_elb_subnets_cidrs = [
   "10.167.56.64/28",
@@ -365,7 +355,7 @@ whitelist = [
   "10.69.1.70/31",
   "10.84.192.159/32",
   "10.84.192.161/32", # End DVSA MS-RDS
-  "85.115.53.201/32",
+  "85.115.53.201/32", #DSCALLARDS
   "80.194.75.82/32",  #DSCALLARDS
   "34.242.28.119/32", #MGMT Jenkins for url checks
   "154.14.88.249/32", # DVSA Notts Corp & Wifi
@@ -442,7 +432,7 @@ rsis_samba_server_archive = "10.14.0.142/32"
 
 # squidnat
 squidnat_instance_type = "m5.large"
-squidnat_ami_build_id  = "1361"
+squidnat_ami_build_id  = "1426"
 
 ops_team_email = "tars.platform-team@bjss.com"
 
@@ -500,7 +490,7 @@ tars_rds_sid_name                           = "TARSDB"
 mis_rds_storage_type            = "gp2"
 mis_rds_engine                  = "oracle-se2"
 mis_rds_engine_version          = "19.0.0.0.ru"
-mis_rds_instance_class          = "db.m4.xlarge"
+mis_rds_instance_class          = "db.r5.large"
 mis_rds_port                    = "1521"
 mis_rds_public                  = "false"
 mis_rds_multi_az                = "true" # it takes an age to build if true
@@ -519,7 +509,7 @@ mis_rds_option_group_name       = "option-group-19c"
 # RSISDB
 rsis_rds_storage_type            = "gp2"
 rsis_rds_engine                  = "oracle-se2"
-rsis_rds_instance_class          = "db.m4.xlarge"
+rsis_rds_instance_class          = "db.r5.large"
 rsis_rds_port                    = "1521"
 rsis_rds_public                  = "false"
 rsis_rds_multi_az                = "true" # it takes an age to build if true
@@ -531,7 +521,7 @@ rsis_rds_apply_immediately       = "true"
 rsis_rds_license_model           = "license-included"
 rsis_rds_autoscale               = "True"
 rsis_rds_sid_name                = "RSISDB"
-rsis_rds_engine_version          = "19.0.0.0.ru-2022-01.rur-2022-01.r1"
+rsis_rds_engine_version          = "19.0.0.0.ru"
 rsis_rds_parameter_group_name    = "rsisdb-19c"
 rsis_rds_option_group_name       = "option-group-19c"
 rsis_allow_major_version_upgrade = true
@@ -610,12 +600,13 @@ power_bi_cidr = "10.164.216.0/22"
 ftts_elig_port = "18079"
 
 #Lambda Govnotify
-notify_lambda_version = "5"
+notify_lambda_version = "9"
 
 # reporting-xe
 reporting_xe_instance_type    = "t2.medium"
 reporting_xe_count            = 0
-reporting_xe_ami_build_id     = "1320"
+reporting_xe_ami_build_id     = "1447"
+reporting_xe_ebs_size         = "40"
 reporting_xe_asg_min_size     = 0
 reporting_xe_asg_max_size     = 0
 reporting_xe_asg_desired_size = 0
@@ -629,3 +620,6 @@ deprecated_rds_compatibility = true
 
 # Whether to create obs Register New Business Holding resources
 obs_reg_holding = false
+
+# Whether to create Driver Services resources
+drv_svc_enabled = false

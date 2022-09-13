@@ -12,6 +12,7 @@ tf_state_bucket_prefix = "tars-terraformscaffold"
 default_tags = {
   Project     = "tars"
   Environment = "live"
+  DVSA_Env    = "prod"
 }
 
 asg_default_tags = [
@@ -46,7 +47,7 @@ guardduty_member_enabled = "0"
 # Changed due to JIRA OPS-2184 keep bastion AMI current on weekly basis BST
 ## bastion
 bastion_instance_type        = "t2.micro"
-bastion_ami_build_id         = "1358"
+bastion_ami_build_id         = "1474"
 bastion_asg_min_size         = 1
 bastion_asg_max_size         = 3
 bastion_scaledown_desired    = 1
@@ -69,7 +70,7 @@ grafana_scaleup_recurrence   = "00 07 * * 1-5"
 ## jenkinsctrl
 jenkins_worker_image             = "645711882182.dkr.ecr.eu-west-1.amazonaws.com/tars/run/jenkinsci:1.0.0"
 jenkinsctrl_instance_type        = "m5a.large"
-jenkinsctrl_ami_build_id         = "1346"
+jenkinsctrl_ami_build_id         = "1472"
 jenkinsctrl_executors            = 20
 jenkinsctrl_asg_min_size         = 0
 jenkinsctrl_asg_max_size         = 3

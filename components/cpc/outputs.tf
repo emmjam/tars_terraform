@@ -19,10 +19,6 @@ output "cpc-front-sg-id" {
   value = module.cpc-front.security_group_id
 }
 
-output "cpc-alb-target-group-internet-frontend" {
-  value = aws_alb_target_group.cpc-front-internal-9443.arn
-}
-
 output "cpc_dvsa_internet_sg_id" {
   value = aws_security_group.cpc-front-dvsa-internet-alb.id
 }

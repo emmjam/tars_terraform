@@ -1,4 +1,4 @@
-# Create the R53 record for the public Apache ALB
+# Create the R53 record for the public public ALB
 resource "aws_route53_record" "obs-front" {
   name = format("%s-%s-%s", "obs", var.environment, "public")
 
@@ -6,8 +6,8 @@ resource "aws_route53_record" "obs-front" {
   type    = "A"
 
   alias {
-    name                   = data.terraform_remote_state.tars-core.outputs.tars-apache-dns-name
-    zone_id                = data.terraform_remote_state.tars-core.outputs.tars-apache-dns-zone-id
+    name                   = data.terraform_remote_state.tars-core.outputs.tars-public-dns-name
+    zone_id                = data.terraform_remote_state.tars-core.outputs.tars-public-dns-zone-id
     evaluate_target_health = true
   }
 }
@@ -18,8 +18,8 @@ resource "aws_route53_record" "obs-front_private" {
   type    = "A"
 
   alias {
-    name                   = data.terraform_remote_state.tars-core.outputs.tars-apache-dns-name
-    zone_id                = data.terraform_remote_state.tars-core.outputs.tars-apache-dns-zone-id
+    name                   = data.terraform_remote_state.tars-core.outputs.tars-public-dns-name
+    zone_id                = data.terraform_remote_state.tars-core.outputs.tars-public-dns-zone-id
     evaluate_target_health = true
   }
 }

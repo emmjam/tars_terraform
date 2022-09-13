@@ -7,7 +7,8 @@ resource "aws_autoscaling_group" "tars-messaging" {
 
   launch_template {
     id      = aws_launch_template.tars-messaging.id
-    version = "$Latest"
+    #version = "$Latest"
+    version = "${aws_launch_template.tars-messaging.latest_version}"
   }
 
   termination_policies = var.asg_termination_policies

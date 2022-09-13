@@ -12,6 +12,7 @@ tf_state_bucket_prefix = "tars-terraformscaffold"
 default_tags = {
   Project     = "tars"
   Environment = "mgmt"
+  DVSA_Env    = "mgmt"
 }
 
 asg_default_tags = [
@@ -229,7 +230,7 @@ natgw_subnets_cidr = [
 # TODO: smarts: Move AMI IDs to versions file
 ## bastion
 bastion_instance_type        = "t2.micro"
-bastion_ami_build_id         = "1358"
+bastion_ami_build_id         = "1474"
 bastion_asg_min_size         = 0
 bastion_asg_max_size         = 3
 bastion_scaledown_desired    = 1
@@ -255,7 +256,7 @@ grafana_cert_name = "*"
 ## jenkinsctrl
 jenkins_worker_image             = "645711882182.dkr.ecr.eu-west-1.amazonaws.com/tars/run/jenkinsci:1.0.0"
 jenkinsctrl_instance_type        = "t3a.small"
-jenkinsctrl_ami_build_id         = "1346"
+jenkinsctrl_ami_build_id         = "1472"
 jenkinsctrl_executors            = 20
 jenkinsctrl_asg_min_size         = 0
 jenkinsctrl_asg_max_size         = 3
@@ -390,6 +391,7 @@ jenkins_blue_subnets_cidrs = ["10.200.3.0/28"]
 jenkins_blue_version = "2.332.3"
 
 jenkins_elb_subnets_cidrs = ["10.200.3.32/28"]
+jenkins_alb_subnets_cidrs = ["10.200.6.0/28", "10.200.6.16/28"]
 
 ## jenkinsnode
 #jenkinsnode = {

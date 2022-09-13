@@ -2,6 +2,7 @@ resource "aws_launch_template" "tars-messaging" {
   name_prefix   = "${local.csi}-wf-messaging-"
   image_id      = data.aws_ami.wildfly-messaging.image_id
   instance_type = var.wildfly-messaging_instance_type
+  update_default_version = true
   user_data = base64encode(templatefile("${path.module}/templates/messaging_setup.ps1.tmpl",
     {
       SEARCH_SUFFIX = local.vpc_domain_name

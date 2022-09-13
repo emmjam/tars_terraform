@@ -39,28 +39,28 @@ resource "aws_route53_record" "tars-core-private" {
   }
 }
 
-resource "aws_route53_record" "apache_public" {
+resource "aws_route53_record" "tars_public" {
   name = format("%s-%s-%s", "routing", var.environment, "public")
 
   zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
   type    = "A"
 
   alias {
-    name                   = aws_alb.apache_public.dns_name
-    zone_id                = aws_alb.apache_public.zone_id
+    name                   = aws_alb.tars_alb_public.dns_name
+    zone_id                = aws_alb.tars_alb_public.zone_id
     evaluate_target_health = true
   }
 }
 
-resource "aws_route53_record" "apache_private" {
+resource "aws_route53_record" "tars_private" {
   name = format("%s-%s-%s", "routing", var.environment, "public")
 
   zone_id = data.terraform_remote_state.ctrl.outputs.private_r53_zone[0]
   type    = "A"
 
   alias {
-    name                   = aws_alb.apache_public.dns_name
-    zone_id                = aws_alb.apache_public.zone_id
+    name                   = aws_alb.tars_alb_public.dns_name
+    zone_id                = aws_alb.tars_alb_public.zone_id
     evaluate_target_health = true
   }
 }
@@ -73,8 +73,8 @@ resource "aws_route53_record" "irdt-public" {
   type    = "A"
 
   alias {
-    name                   = aws_alb.apache_public.dns_name
-    zone_id                = aws_alb.apache_public.zone_id
+    name                   = aws_alb.tars_alb_public.dns_name
+    zone_id                = aws_alb.tars_alb_public.zone_id
     evaluate_target_health = true
   }
 }
@@ -85,8 +85,8 @@ resource "aws_route53_record" "irdt-private" {
   type    = "A"
 
   alias {
-    name                   = aws_alb.apache_public.dns_name
-    zone_id                = aws_alb.apache_public.zone_id
+    name                   = aws_alb.tars_alb_public.dns_name
+    zone_id                = aws_alb.tars_alb_public.zone_id
     evaluate_target_health = true
   }
 }
@@ -143,4 +143,20 @@ resource "aws_route53_record" "incapsula-frontend-private" {
 
   records = ["wahy2a6.x.incapdns.net"]
 
+}
+
+resource "aws_route53_record" "driver-services" {
+  # tars-opsdev-driver-services.dvsa.tars.dev-dvsacloud.uk
+  count = var.drv_svc_enabled ? 1 : 0
+
+  name = format("%s-%s-%s", var.project, var.environment, "driver-services")
+
+  zone_id = data.terraform_remote_state.acc.outputs.public_domain_name_zone_id
+  type    = "A"
+
+  alias {
+    name                   = aws_alb.tars_alb_drv_svc[0].dns_name
+    zone_id                = aws_alb.tars_alb_drv_svc[0].zone_id
+    evaluate_target_health = true
+  }
 }

@@ -12,6 +12,7 @@ tf_state_bucket_prefix = "tars-terraformscaffold"
 default_tags = {
   Project     = "mes"
   Environment = "sit02"
+  DVSA_Env    = "dev"
 }
 
 asg_default_tags = [
@@ -220,12 +221,6 @@ awsmq_subnets_cidrs = [
   "10.167.85.208/28",
 ]
 
-apache_subnet_cidrs = [
-  "10.167.85.224/28",
-  "10.167.85.240/28",
-  "10.167.86.0/28",
-]
-
 sftpplus_nlb_subnets_cidrs = [
   "10.167.86.32/28",
   "10.167.86.48/28",
@@ -388,8 +383,6 @@ cpc-back_asg_max_size         = 1
 cpc-back_scaleup_desired      = 1
 cpc-front_asg_max_size        = 1
 cpc-front_scaleup_desired     = 1
-apache_asg_max_size           = 0
-apache_scaleup_desired        = 0
 
 #Turn off Prometheus
 prometheus_asg_max_size = 0
@@ -407,3 +400,15 @@ api_notify = {
 
 # DocumentBatchUpdate - maximum records processed in the Job Polling
 dbu_maxrecordsprocessed = 500
+
+# Process Unknown Card Authorisations Job - Challenged Card Auth
+puca_job_cca_minAgeHours                     = 1
+puca_job_cca_maxAgeDays                      = 0
+puca_job_cca_maxProcessed                    = 5
+puca_job_cca_communicationError_minAgeHours  = 1
+puca_job_cca_communicationError_maxAgeDays   = 0
+puca_job_cca_communicationError_maxProcessed = 1
+puca_job_cca_nonfinalepdqstatus_minAgeHours  = 1
+puca_job_cca_nonfinalepdqstatus_maxAgeDays   = 60
+puca_job_cca_nonfinalepdqstatus_maxProcessed = 2
+puca_job_cca_maxRecordsPerJobRun             = 5 

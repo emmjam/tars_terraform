@@ -1,6 +1,6 @@
 resource "aws_sqs_queue" "lettergovnotify" {
-  name       = "${local.csi}-Queue-LetterGovNotify.fifo"
- 
+  name = "${local.csi}-Queue-LetterGovNotify.fifo"
+
   receive_wait_time_seconds         = 10
   fifo_queue                        = true
   content_based_deduplication       = true

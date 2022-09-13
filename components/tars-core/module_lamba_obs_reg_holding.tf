@@ -1,6 +1,6 @@
 module "obs_reg_holding" {
   source = "../../modules/lambda"
-  count       = var.obs_reg_holding == true ? 1 : 0
+  count  = var.obs_reg_holding == true ? 1 : 0
 
   project     = var.project
   component   = var.component

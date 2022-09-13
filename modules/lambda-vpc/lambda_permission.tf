@@ -4,5 +4,5 @@ resource "aws_lambda_permission" "allow_invoke" {
   function_name = aws_lambda_function.main.function_name
   action        = "lambda:InvokeFunction"
   principal     = "${var.principal_service}.amazonaws.com"
-  source_arn    = var.invoker_source_arn
+  source_arn    = element(var.invoker_source_arn, count.index)
 }

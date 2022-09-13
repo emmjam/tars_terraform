@@ -9,7 +9,7 @@ resource "aws_elb" "jenkins" {
 
   subnets = module.elb_subnets.subnet_ids
 
-  listener {
+  listener { 
     instance_port     = 8080
     instance_protocol = "HTTP"
     lb_port           = var.elb_port

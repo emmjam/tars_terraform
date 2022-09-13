@@ -15,28 +15,20 @@ output "tars-core-db-sg-id" {
   value = aws_security_group.tars-core-db.id
 }
 
-output "tars-core-apache-sg-id" {
-  value = module.apache.security_group_id
-}
-
 output "tars-core-public-alb-sg-id" {
-  value = aws_security_group.apache_alb_public.id
+  value = aws_security_group.tars_alb_public.id
 }
 
 output "tars-core-alb-target-group-irdt-frontend" {
-  value = aws_alb_target_group.irdt-frontend-7443.arn
+  value = aws_alb_target_group.irdt-frontend2-7443.arn
 }
 
-output "tars-apache-dns-name" {
-  value = aws_alb.apache_public.dns_name
+output "tars-public-dns-name" {
+  value = aws_alb.tars_alb_public.dns_name
 }
 
-output "tars-apache-dns-zone-id" {
-  value = aws_alb.apache_public.zone_id
-}
-
-output "tars-apache-autoscaling-group-name" {
-  value = module.apache.autoscaling_group_name
+output "tars-public-dns-zone-id" {
+  value = aws_alb.tars_alb_public.zone_id
 }
 
 output "alb-tg-obs2-8080" {

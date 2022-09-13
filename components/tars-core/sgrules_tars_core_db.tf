@@ -63,27 +63,27 @@ resource "aws_security_group_rule" "oracle_db_ingress_jemkinsctrl" {
 }
 
 # reporting xe to rds DB
-resource "aws_security_group_rule" "tars_rds_egress_reporting_xe_1521" {  
-  count = var.reporting_xe_count
+resource "aws_security_group_rule" "tars_rds_egress_reporting_xe_1521" {
+  count       = var.reporting_xe_count
   description = "Allow TCP/1521 to Reporting XE"
-  type = "egress"
+  type        = "egress"
 
-  protocol = "tcp"
+  protocol  = "tcp"
   from_port = 1521
-  to_port = 1521
+  to_port   = 1521
 
   security_group_id        = aws_security_group.tars-core-db.id
   source_security_group_id = data.terraform_remote_state.base.outputs.reporting_xe_sg_id
 }
 
 resource "aws_security_group_rule" "reporting_xe_ingress_tarsdb_1521" {
-  count = var.reporting_xe_count
+  count       = var.reporting_xe_count
   description = "Allow TCP/1521 from TARSDB"
-  type = "ingress"
+  type        = "ingress"
 
-  protocol = "tcp"
+  protocol  = "tcp"
   from_port = 1521
-  to_port = 1521
+  to_port   = 1521
 
   security_group_id        = data.terraform_remote_state.base.outputs.reporting_xe_sg_id
   source_security_group_id = aws_security_group.tars-core-db.id

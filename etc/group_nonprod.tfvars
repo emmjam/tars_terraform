@@ -78,9 +78,9 @@ aws_autoscaling_enabled = "0"
 
 #Monitoring
 prometheus_asg_min_size          = 0
-prometheus_asg_max_size          = 0
+prometheus_asg_max_size          = 1
 prometheus_instance_type         = "m3.medium"
-prometheus_ami_build_id          = "1274"
+prometheus_ami_build_id          = "1450"
 prometheus_efs_provisioned_mibps = 1
 
 ## jenkins
@@ -90,7 +90,7 @@ jenkinsctrl_subnets_cidrs = [
   "10.167.60.48/28",
 ]
 
-wildfly-back_instance_type        = "m3.large"
+wildfly-back_instance_type        = "m5.large"
 wildfly-back_puppet_nodetype      = "tars-back"
 wildfly-back_asg_min_size         = 0
 wildfly-back_asg_max_size         = 2
@@ -101,7 +101,7 @@ wildfly-back_scaleup_desired      = 2
 wildfly-back_scaleup_recurrence = "00 04 * * 1-5"
 
 ## wildfly-batch
-wildfly-batch_instance_type        = "m3.medium"
+wildfly-batch_instance_type        = "t3.medium"
 wildfly-batch_puppet_nodetype      = "tars-batch"
 wildfly-batch_asg_min_size         = 0
 wildfly-batch_asg_max_size         = 1
@@ -111,7 +111,7 @@ wildfly-batch_scaleup_desired      = 1
 wildfly-batch_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## obs
-obs_instance_type        = "m3.medium"
+obs_instance_type        = "t3.medium"
 obs_puppet_nodetype      = "obs"
 obs_asg_min_size         = 0
 obs_asg_max_size         = 2
@@ -121,7 +121,7 @@ obs_scaleup_desired      = 2
 obs_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## ibs
-ibs_instance_type        = "m3.medium"
+ibs_instance_type        = "t3.medium"
 ibs_puppet_nodetype      = "ibs"
 ibs_asg_min_size         = 0
 ibs_asg_max_size         = 2
@@ -131,7 +131,7 @@ ibs_scaleup_desired      = 2
 ibs_scaleup_recurrence   = "10 04 * * 1-5"
 
 ## fyndi-f
-fyndi-f_instance_type        = "m3.medium"
+fyndi-f_instance_type        = "t3.medium"
 fyndi-f_puppet_nodetype      = "fyndi-front"
 fyndi-f_asg_min_size         = 0
 fyndi-f_asg_max_size         = 2
@@ -141,7 +141,7 @@ fyndi-f_scaleup_desired      = 2
 fyndi-f_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## fyndi_back
-fyndi-b_instance_type        = "m3.medium"
+fyndi-b_instance_type        = "t3.medium"
 fyndi-b_puppet_nodetype      = "fyndi-back"
 fyndi-b_asg_min_size         = 0
 fyndi-b_asg_max_size         = 2
@@ -151,7 +151,7 @@ fyndi-b_scaleup_desired      = 2
 fyndi-b_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## wildfly-front
-wildfly-front_instance_type        = "m3.medium"
+wildfly-front_instance_type        = "t3.medium"
 wildfly-front_puppet_nodetype      = "tars-front"
 wildfly-front_asg_min_size         = 0
 wildfly-front_asg_max_size         = 2
@@ -187,7 +187,7 @@ mock_db_image                     = "645711882182.dkr.ecr.eu-west-1.amazonaws.co
 gov_gateway_image                 = "645711882182.dkr.ecr.eu-west-1.amazonaws.com/tars-government-gateway-mock:latest"
 
 ## cpc-back
-cpc-back_instance_type        = "m3.medium"
+cpc-back_instance_type        = "t3.medium"
 cpc-back_puppet_nodetype      = "cpc-back"
 cpc-back_asg_min_size         = 0
 cpc-back_asg_max_size         = 2
@@ -197,7 +197,7 @@ cpc-back_scaleup_desired      = 2
 cpc-back_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## cpc-front
-cpc-front_instance_type        = "m3.medium"
+cpc-front_instance_type        = "t3.medium"
 cpc-front_puppet_nodetype      = "cpc-front"
 cpc-front_asg_min_size         = 0
 cpc-front_asg_max_size         = 2
@@ -223,7 +223,7 @@ bobj_instance_type = "m5.xlarge"
 
 
 ## cpc-batch
-cpc-batch_instance_type        = "m3.medium"
+cpc-batch_instance_type        = "t3.medium"
 cpc-batch_puppet_nodetype      = "cpc-batch"
 cpc-batch_asg_min_size         = 0
 cpc-batch_asg_max_size         = 1
@@ -232,16 +232,6 @@ cpc-batch_scaledown_recurrence = "00 19 * * 1-5"
 cpc-batch_scaleup_desired      = 1
 cpc-batch_scaleup_recurrence   = "00 04 * * 1-5"
 
-
-## apache
-apache_instance_type        = "m3.medium"
-apache_asg_min_size         = 0
-apache_asg_max_size         = 0
-apache_scaledown_desired    = 0
-apache_scaledown_recurrence = "00 19 * * 1-5"
-apache_scaleup_desired      = 0
-apache_scaleup_recurrence   = "00 04 * * 1-5"
-apache_ami_build_id         = "1302"
 
 ## AWS MQ
 aws_mq_engine_type        = "ActiveMQ"
@@ -287,11 +277,11 @@ oraclexe_scaleup_desired      = 1
 oraclexe_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## Mock
-mock_ami_build_id = "313ba3a0/251"
+mock_ami_build_id = "02f54c88/262"
 
 
 ## SFTP
-sftpplus_svr_id = "1303"
+sftp_ami_build_id = "1452"
 
 bastion_elb_subnets_cidrs = [
   "10.167.60.64/28",
@@ -341,8 +331,8 @@ payments_whitelist = [
   "91.208.214.0/24",
   "185.8.52.0/22",
   "185.139.244.0/22",
-  "212.35.124.164/32", # End Barclays IP
-  "154.14.88.249/32",  # DVSA Notts Corp & Wifi
+  "212.35.124.164/32",  # End Barclays IP
+  "154.14.88.249/32",   # DVSA Notts Corp & Wifi
   "148.253.134.212/32", # BJSS Guest Network
 ]
 
@@ -371,11 +361,11 @@ whitelist = [
   "10.69.3.18/32",
   "10.69.1.70/31",
   "10.84.192.159/32",
-  "10.84.192.161/32", # End DVSA MS-RDS
-  "85.115.53.201/32", #DSCALLARDS
-  "80.194.75.82/32",  #DSCALLARDS
-  "34.242.28.119/32", #MGMT Jenkins for url checks
-  "154.14.88.249/32", # DVSA Notts Corp & Wifi
+  "10.84.192.161/32",   # End DVSA MS-RDS
+  "85.115.53.201/32",   #DSCALLARDS
+  "80.194.75.82/32",    #DSCALLARDS
+  "34.242.28.119/32",   #MGMT Jenkins for url checks
+  "154.14.88.249/32",   # DVSA Notts Corp & Wifi
   "148.253.134.212/32", # BJSS Guest Network
 ]
 
@@ -443,8 +433,8 @@ dvla_elise_server      = "51.231.10.112/32"
 rsis_samba_server_archive = "10.14.0.142/32"
 
 # squidnat
-squidnat_instance_type = "m3.medium"
-squidnat_ami_build_id  = "1361"
+squidnat_instance_type = "t3.small"
+squidnat_ami_build_id  = "1426"
 
 ops_team_email = "tars.platform-team@bjss.com"
 
@@ -487,9 +477,10 @@ tars_pdf_cert          = "*"
 obs_cert               = "*"
 ibs_cert               = "*"
 irdt_cert              = "*"
-apache_cert            = "*"
+public_cert            = "*"
 holding_pages_cert     = "*"
 reporting_xe_cert_name = "*"
+driver_service_cert    = "*"
 
 # Deployer pub key
 deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVSO8uKpdbwww94azylwjnFxsFGcmXG4ObL1oOFibHMN0x+SsSwjfC1DEziWPK3m/Crmar0+ad/68nQC+iWo/MYclh8h3bkKlv9dO4Xtv/0H6uDRW3l3bBO0rWYbt46fMAOCqX96N3LRTfUlPuzsVAd0NGZZlSSAZF0AMl4xE/tZl2m+Dqylrjp3qLT4UxEIrAuvPW06PqkGy63hZznjCjQDaadOAUpY19ZaA71JBueyGBnZ8pSVzr5hT1TpNw/cXxA6WLj4CCipIVm0M64OT/ArqcnQMX9Htf4Gp5apXZ3f6MerfjgHnkrm1t6JNuhSjVB deployer@mgmt.tars.dvsa.aws"
@@ -549,7 +540,7 @@ rsis_rds_apply_immediately       = "true"
 rsis_rds_license_model           = "license-included"
 rsis_rds_autoscale               = "True"
 rsis_rds_sid_name                = "RSISDB"
-rsis_rds_engine_version          = "19.0.0.0.ru-2022-01.rur-2022-01.r1"
+rsis_rds_engine_version          = "19.0.0.0.ru"
 rsis_rds_parameter_group_name    = "rsisdb-19c"
 rsis_rds_option_group_name       = "option-group-19c"
 rsis_allow_major_version_upgrade = true
@@ -645,12 +636,13 @@ ibs_high_cpu_cw_metric_alarm_enabled = false
 ftts_elig_port = "22"
 
 #Lambda Govnotify
-notify_lambda_version = "5"
+notify_lambda_version = "9"
 
 # reporting-xe
 reporting_xe_instance_type    = "t2.medium"
 reporting_xe_count            = 0
-reporting_xe_ami_build_id     = "1320"
+reporting_xe_ami_build_id     = "1447"
+reporting_xe_ebs_size         = "32"
 reporting_xe_asg_min_size     = 0
 reporting_xe_asg_max_size     = 0
 reporting_xe_asg_desired_size = 0
@@ -666,3 +658,6 @@ deprecated_rds_compatibility = false
 
 # Whether to create obs Register New Business Holding resources
 obs_reg_holding = false
+
+# Whether to create Driver Services resources
+drv_svc_enabled = false

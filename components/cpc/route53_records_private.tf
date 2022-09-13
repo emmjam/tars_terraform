@@ -47,16 +47,3 @@ resource "aws_route53_record" "cpc-dvsa" {
     evaluate_target_health = true
   }
 }
-
-resource "aws_route53_record" "cpc-internal" {
-  name    = "cpc-internal"
-  zone_id = data.terraform_remote_state.base.outputs.private_zone_id
-  type    = "A"
-
-  alias {
-    name                   = aws_alb.cpc-front-internal.dns_name
-    zone_id                = aws_alb.cpc-front-internal.zone_id
-    evaluate_target_health = true
-  }
-}
-

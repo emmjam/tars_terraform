@@ -371,6 +371,11 @@ variable "payments_cert_name" {
   description = "ACM cert name"
 }
 
+variable "driver_service_cert" {
+  type        = string
+  description = "ACM cert name"
+}
+
 variable "irdt_cert" {
   type        = string
   description = "ACM cert name"
@@ -386,53 +391,8 @@ variable "tars_private_cert" {
   description = "TARS Private ACM cert name"
 }
 
-variable "apache_asg_max_size" {
+variable "public_cert" {
   type        = string
-  description = ""
-}
-
-variable "apache_asg_min_size" {
-  type        = string
-  description = ""
-}
-
-variable "apache_scaledown_desired" {
-  type        = string
-  description = ""
-}
-
-variable "apache_scaleup_desired" {
-  type        = string
-  description = ""
-}
-
-variable "apache_scaledown_recurrence" {
-  type        = string
-  description = ""
-}
-
-variable "apache_scaleup_recurrence" {
-  type        = string
-  description = ""
-}
-
-variable "apache_instance_type" {
-  type        = string
-  description = ""
-}
-
-variable "apache_ami_build_id" {
-  type        = string
-  description = ""
-}
-
-variable "apache_cert" {
-  type        = string
-  description = ""
-}
-
-variable "apache_subnet_cidrs" {
-  type        = list(string)
   description = ""
 }
 
@@ -529,4 +489,11 @@ variable "obs_reg_holding" {
   type        = bool
   default     = false
   description = "Whether to create obs Register New Business Holding resources. Required in Prod and UAT02"
+}
+
+# Whether to create Driver Services resources
+variable "drv_svc_enabled" {
+  type        = bool
+  default     = false
+  description = "Whether to create Driver Services resources. Required in Prod and UAT02"
 }

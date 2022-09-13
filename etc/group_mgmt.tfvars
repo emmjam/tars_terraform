@@ -12,6 +12,7 @@ default_tags = {
 # All Users
 
 new_all_users = [
+  "mohamed.roble@bjss.com",
   "talha.ozleblebici@bjss.com",
   "tom.bibb@bjss.com",
   "adam.hall@bjss.com",
@@ -33,7 +34,6 @@ new_all_users = [
   "michael.tribbick@bjss.com",
   "raman.kapoor@bjss.com",
   "rob.whyte@bjss.com",
-  "costa.vorontsov@bjss.com",
   "michelle.pike@bjss.com",
   "mike.peachey@bjss.com",
   "prashant.kumar@bjss.com",
@@ -84,11 +84,16 @@ new_all_users = [
   "andrew.massey@bjss.com",
   "samantha.burke@bjss.com",
   "claudio.correia@bjss.com",
+  "moeez.shahid@bjss.com",
+  "tomasz.chrost@bjss.com",
+  "michael.mackintosh@bjss.com",
+  "haris.hassan@bjss.com",
 ]
 
 # TSSOps Access
 
 administrators_tssops_users = [
+  "mohamed.roble@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
@@ -105,9 +110,11 @@ administrators_tssops_users = [
   "aamir.soni@bjss.com",
   "zawar.shah@bjss.com",
   "richard.teasdale@bjss.com",
+  "haris.hassan@bjss.com",
 ]
 
 readonly_tssops_users = [
+  "mohamed.roble@bjss.com",
   "saul.kashani@bjss.com",
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
@@ -127,6 +134,7 @@ readonly_tssops_users = [
   "raj.bharaj@bjss.com",
   "aamir.soni@bjss.com",
   "zawar.shah@bjss.com",
+  "haris.hassan@bjss.com",
 ]
 
 # TARS Platform Access
@@ -140,10 +148,10 @@ administrators_platform_nonprod_users = [
   "michael.tribbick@bjss.com",
   "raman.kapoor@bjss.com",
   "rob.whyte@bjss.com",
-  "costa.vorontsov@bjss.com",
   "nadeem.khan@bjss.com",
   "ian.davies@bjss.com",
   "samantha.burke@bjss.com",
+  "michael.mackintosh@bjss.com",
 ]
 readonly_platform_users = [
   "tom.bibb@bjss.com",
@@ -151,7 +159,6 @@ readonly_platform_users = [
   "michael.tribbick@bjss.com",
   "raman.kapoor@bjss.com",
   "rob.whyte@bjss.com",
-  "costa.vorontsov@bjss.com",
   "david.giles@bjss.com",
   "ian.davies@bjss.com",
   "samantha.burke@bjss.com",
@@ -177,6 +184,8 @@ readonly_developer_users = [
   "tom.bonam@bjss.com",
   "andrew.massey@bjss.com",
   "claudio.correia@bjss.com",
+  "moeez.shahid@bjss.com",
+  "tomasz.chrost@bjss.com",
 ]
 
 # DVSA Access

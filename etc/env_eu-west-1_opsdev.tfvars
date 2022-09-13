@@ -12,6 +12,7 @@ tf_state_bucket_prefix = "tars-terraformscaffold"
 default_tags = {
   Project     = "tars"
   Environment = "opsdev"
+  DVSA_Env    = "dev"
 }
 
 asg_default_tags = [
@@ -221,12 +222,6 @@ awsmq_subnets_cidrs = [
   "10.167.5.208/28",
 ]
 
-apache_subnet_cidrs = [
-  "10.167.5.224/28",
-  "10.167.5.240/28",
-  "10.167.6.0/28",
-]
-
 sftpplus_nlb_subnets_cidrs = [
   "10.167.6.32/28",
   "10.167.6.48/28",
@@ -407,3 +402,15 @@ dbu_maxrecordsprocessed = 500
 
 # Whether to create obs Register New Business Holding resources
 obs_reg_holding = true
+
+# Process Unknown Card Authorisations Job - Challenged Card Auth
+puca_job_cca_minAgeHours                     = 0
+puca_job_cca_maxAgeDays                      = 0
+puca_job_cca_maxProcessed                    = 5
+puca_job_cca_communicationError_minAgeHours  = 0
+puca_job_cca_communicationError_maxAgeDays   = 0
+puca_job_cca_communicationError_maxProcessed = 1
+puca_job_cca_nonfinalepdqstatus_minAgeHours  = 0
+puca_job_cca_nonfinalepdqstatus_maxAgeDays   = 0
+puca_job_cca_nonfinalepdqstatus_maxProcessed = 2
+puca_job_cca_maxRecordsPerJobRun             = 5 

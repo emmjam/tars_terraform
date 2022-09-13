@@ -11,4 +11,3 @@ module "elb_subnets" {
   cidrs              = var.elb_subnets_cidrs
   route_tables       = var.private_route_table_ids
 }
-

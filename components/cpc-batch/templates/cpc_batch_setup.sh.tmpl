@@ -91,7 +91,8 @@ BOOTSTRAP_SUCCESS=1
 sed -E -i "s/'[a-z0-9]{8}\-[a-z0-9]{4}\-[a-z0-9]{4}\-[a-f0-9]{4}\-[a-z0-9]{12}'/'${KMS_KEY}'/g" /etc/eyaml/config.yaml
 
 # Ensure the directory exists
-mkdir -p /efs;
+mkdir -p ${MOUNT_POINT};
+mkdir -p ${MOUNT_POINT_ENC};
 
 # Get Region and AZ from AWS EC2 meta-data. We could take region as a template parameter, but why since meta-data is canonical?
 export region="$(curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | jq -r .region)";
@@ -100,9 +101,11 @@ export az="$(curl -s http://169.254.169.254/latest/meta-data/placement/availabil
 # TODO: peacheym: Convert to AZ-independent URL
 # Set mount information in /etc/fstab - we're unlikely to reboot, but it can't hurt to ensure it remains
 echo "$${az}.${EFS_ID}.efs.$${region}.amazonaws.com:/ /efs nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab
+echo "$${az}.${EFS_ENC_ID}.efs.$${region}.amazonaws.com:/ ${MOUNT_POINT_ENC} efs rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,tls 0 0" >> /etc/fstab
 
 # Mount the configured target for Batch
-mount /efs
+mount ${MOUNT_POINT};
+mount ${MOUNT_POINT_ENC};
 
 # Shift this to cloud-init config yaml
 facts_path="/opt/puppetlabs/facter/facts.d"
@@ -180,4 +183,108 @@ else
     --auto-scaling-group-name "$${asg_name}" \
     || error 'Failed to complete lifecycle hook';
 fi
+
+
+## TEMPORARY WORK TO GET EFS ENCRYPTED
+log 'INFO' 'Starting EFS work'
+
+cat >> /root/efs_sync.sh << EOT
+#!/bin/bash
+PATH="/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/opt/puppetlabs/bin"
+
+# Check that EFS is mounted
+if [ ! $(df -hT | grep -c nfs4) = 2 ]; then
+  echo "EFS not mounted - Aborting !"
+  exit 0
+fi
+
+# Dont run multiple processes simultainously
+if [ -f "/tmp/sync.lock" ]; then
+  DTE=xDTCx
+  echo "   ==> Lock file found (/tmp/sync.lock) - Wont start a new sync job : " xDTEx
+  exit 0
+else 
+  # Prevent other processes from starting
+  touch "/tmp/sync.lock"
+fi
+
+# Perform the sync
+SRC="/efs"
+DST="/efs_enc"
+NICE="10"
+date
+echo "Syncing: xSRCx ==> xDSTx"
+echo "Nice level: xNICEx"
+echo 3 > /proc/sys/vm/drop_caches
+echo
+
+if [ -f "/tmp/.initialsync" ]; then
+  echo "Performing supplementary sync using RSYNC"
+  THREADS=xZZZx
+  echo "Number of threads: " xTHREADSx
+  time nice -n xNICEx fpsync  -m rsync -n xTHREADSx xSRCx xDSTx
+  echo "Supplementary sync using RSYNC completed"
+  echo "Checking sizes using DU"
+  nice -n xNICEx du -sh xSRCx xDSTx
+  echo
+  echo "Checking file counts:"
+  s=xSCNTx
+  echo "xSRCx: xSCNTTOTx"
+  d=xDCNTx
+  echo "xDSTx: xDCNTTOTx"
+elif [ -f "/tmp/.metadatasync" ]; then
+  echo "Performing Metadata sync using RSYNC"
+  THREADS=xZZZx
+  echo "Number of threads: " xTHREADSx
+  time nice -n xNICEx fpsync  -m rsync -o "--archive --size-only" -n xTHREADSx xSRCx xDSTx
+  echo "Supplementary Metadata sync using RSYNC completed"
+  rm "/tmp/.metadatasync"
+  touch "/tmp/.initialsync"
+else
+  echo "Performing initial sync using CPIO"
+  THREADS=xYYYx
+  echo "Number of threads: " xTHREADSx
+  time nice -n xNICEx fpsync  -m cpio -n xTHREADSx xSRCx xDSTx
+  touch "/tmp/.metadatasync"
+  echo "Initial sync using CPIO completed."
+fi
+
+date
+echo
+echo "Checking sizes using DF"
+df -khT| grep nfs4
+
+echo
+date
+echo "#####################################################"
+echo
+
+# Remove the lock
+rm -f "/tmp/sync.lock"
+EOT
+
+sed -i 's/xSCNTx/\$(nice -n xNICEx find xSRCx -type f| wc -l)/g' /root/efs_sync.sh
+sed -i 's/xDCNTx/\$(nice -n xNICEx find xDSTx -type f| wc -l)/g' /root/efs_sync.sh
+sed -i 's/xSCNTTOTx/\$s/g' /root/efs_sync.sh
+sed -i 's/xDCNTTOTx/\$d/g' /root/efs_sync.sh
+sed -i 's/xSRCx/\$SRC/g' /root/efs_sync.sh
+sed -i 's/xDSTx/\$DST/g' /root/efs_sync.sh
+sed -i 's/xDTEx/\$DTE/g' /root/efs_sync.sh
+sed -i 's/xNICEx/\$NICE/g' /root/efs_sync.sh
+sed -i 's/xDTCx/\$(date +%d%h%Y:%H%M)/g' /root/efs_sync.sh 
+sed -i 's/xTHREADSx/\$THREADS/g' /root/efs_sync.sh
+sed -i 's/xZZZx/\$((\$(nproc --all) * 4))/g' /root/efs_sync.sh         # 4 threads
+sed -i 's/xYYYx/\$(((\$(nproc --all) * 4) * 16))/g' /root/efs_sync.sh  # 64 threads
+
+chmod +x /root/efs_sync.sh
+
+crontab -l > /tmp/cron_tmp
+echo >> /tmp/cron_tmp
+echo "# Temporary cron for keeping EFS in sync" >> /tmp/cron_tmp
+echo "00 4,10,16,22 * * * /root/efs_sync.sh >> /var/log/efs_sync.log 2>&1" >> /tmp/cron_tmp
+#echo "*/15 */1 * * * /root/efs_sync.sh >> /var/log/efs_sync.log 2>&1" >> /tmp/cron_tmp
+crontab /tmp/cron_tmp
+rm -f /tmp/cron_tmp
+
+/root/efs_sync.sh >> /var/log/efs_sync.log
 
