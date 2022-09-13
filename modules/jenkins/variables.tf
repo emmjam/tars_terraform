@@ -144,7 +144,7 @@ variable "elb_subnets_cidrs" {
 
 variable "nlb_subnets_cidrs" {
   type        = list(string)
-  description = "A list of CIDR blocks used for ALB subnets creation"
+  description = "A list of CIDR blocks used for NLB subnets creation"
 }
 
 variable "elb_idle_timeout" {
