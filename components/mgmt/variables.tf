@@ -167,7 +167,7 @@ variable "jenkins_elb_subnets_cidrs" {
   default     = []
 }
 
-variable "jenkins_alb_subnets_cidrs" {
+variable "jenkins_nlb_subnets_cidrs" {
   type        = list(string)
   description = ""
   default     = []
