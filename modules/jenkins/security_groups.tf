@@ -40,6 +40,26 @@ resource "aws_security_group_rule" "jenkins_ingress_elb_49187" {
   source_security_group_id = aws_security_group.elb.id
 }
 
+resource "aws_security_group_rule" "jenkins_ingress_alb_8080" {
+  description              = "Allow TCP/8080 from ALB"
+  type                     = "ingress"
+  from_port                = 8080
+  to_port                  = 8080
+  protocol                 = "tcp"
+  security_group_id        = aws_security_group.jenkins.id
+  source_security_group_id = aws_security_group.alb.id
+}
+
+resource "aws_security_group_rule" "jenkins_ingress_alb_49187" {
+  description              = "Allow TCP/49187 from ALB"
+  type                     = "ingress"
+  from_port                = 49187
+  to_port                  = 49187
+  protocol                 = "tcp"
+  security_group_id        = aws_security_group.jenkins.id
+  source_security_group_id = aws_security_group.alb.id
+}
+
 resource "aws_security_group_rule" "jenkins_egress_all_https" {
   description       = "Allow TCP/443 to Internet"
   type              = "egress"
@@ -109,3 +129,22 @@ resource "aws_security_group_rule" "elb_egress_jenkins_49187" {
   source_security_group_id = aws_security_group.jenkins.id
 }
 
+resource "aws_security_group_rule" "alb_egress_jenkins_8080" {
+  description              = "Allow TCP/8080 to Jenkins"
+  type                     = "egress"
+  from_port                = 8080
+  to_port                  = 8080
+  protocol                 = "tcp"
+  security_group_id        = aws_security_group.alb.id
+  source_security_group_id = aws_security_group.jenkins.id
+}
+
+resource "aws_security_group_rule" "alb_egress_jenkins_49187" {
+  description              = "Allow TCP/49187 to Jenkins"
+  type                     = "egress"
+  from_port                = 49187
+  to_port                  = 49187
+  protocol                 = "tcp"
+  security_group_id        = aws_security_group.alb.id
+  source_security_group_id = aws_security_group.jenkins.id
+}
