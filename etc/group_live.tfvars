@@ -621,5 +621,6 @@ deprecated_rds_compatibility = true
 # Whether to create obs Register New Business Holding resources
 obs_reg_holding = false
 
-# Whether to create Driver Services resources
-drv_svc_enabled = false
+# Whether to create Driver Services resources (false by default, enable in env file)
+drv_svc_enabled     = false
+driver_service_cert = "dsa.dft.gov.uk"

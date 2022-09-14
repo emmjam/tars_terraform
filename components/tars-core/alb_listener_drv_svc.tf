@@ -9,11 +9,11 @@ resource "aws_alb_listener" "tars_drv_svc_443" {
   certificate_arn   = data.aws_acm_certificate.driver_services_cert[0].arn
 
   default_action {
-    type        = "redirect"
+    type = "redirect"
     redirect {
       status_code = "HTTP_301"
       host        = "drivers-services.dvsa.gov.uk"
-    } 
+    }
   }
 }
 
