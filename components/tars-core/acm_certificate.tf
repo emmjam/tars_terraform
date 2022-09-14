@@ -23,14 +23,6 @@ data "aws_acm_certificate" "tars_dvsacloud_uk" {
   ]
 }
 
-data "aws_acm_certificate" "dsa_dft_gov_uk" {
-  domain = "${local.driver_services_domain}"
-
-  statuses = [
-    "ISSUED",
-  ]
-}
-
 data "aws_acm_certificate" "tars-core-private_tars_dvsa_aws" {
   domain = "${var.tars_private_cert}.${var.private_cert_domain_name}"
 
@@ -50,7 +42,7 @@ data "aws_acm_certificate" "payments_nonprod_tars_dvsacloud_uk" {
 data "aws_acm_certificate" "driver_services_cert" {
   count = var.drv_svc_enabled ? 1 : 0
 
-  domain = "${var.driver_service_cert}.${data.terraform_remote_state.acc.outputs.public_domain_name}"
+  domain = "${local.driver_services_domain}"
 
   statuses = [
     "ISSUED",
