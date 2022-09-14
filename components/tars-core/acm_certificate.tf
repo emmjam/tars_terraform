@@ -16,7 +16,7 @@ data "aws_acm_certificate" "tars_public" {
 }
 
 data "aws_acm_certificate" "tars_dvsacloud_uk" {
-  domain = "${var.tars_cert}.${data.terraform_remote_state.acc.outputs.public_domain_name}"
+  domain = "dsa.dft.gov.uk"
 
   statuses = [
     "ISSUED",
