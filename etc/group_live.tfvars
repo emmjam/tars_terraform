@@ -20,7 +20,7 @@ domain_name = "tars.dvsacloud.uk"
 cert_name              = "tars-prod-public"
 payments_cert_name     = "payments-prod-public"
 reporting_xe_cert_name = "*"
-
+driver_service_cert    = "*" # this will need to be updated TSCI-7573
 
 default_tags = {
   Group = "live"
