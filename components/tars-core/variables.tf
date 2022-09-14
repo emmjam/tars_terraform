@@ -497,3 +497,8 @@ variable "drv_svc_enabled" {
   default     = false
   description = "Whether to create Driver Services resources. Required in Prod and UAT02"
 }
+
+variable "driver_services_domain" {
+  type        = string
+  description = "tars_alb_drv_svc ALB domain name"
+}

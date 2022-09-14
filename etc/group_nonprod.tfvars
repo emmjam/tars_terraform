@@ -661,3 +661,4 @@ obs_reg_holding = false
 
 # Whether to create Driver Services resources
 drv_svc_enabled = false
+driver_services_domain = "${var.public_cert}.${data.terraform_remote_state.acc.outputs.public_domain_name}"

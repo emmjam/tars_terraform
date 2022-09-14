@@ -624,3 +624,4 @@ obs_reg_holding = false
 
 # Whether to create Driver Services resources (false by default, enable in env file)
 drv_svc_enabled = false
+driver_services_domain = "dsa.dft.gov.uk"
