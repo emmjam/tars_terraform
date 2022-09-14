@@ -660,4 +660,4 @@ obs_reg_holding = false
 
 # Whether to create Driver Services resources
 drv_svc_enabled = true
-driver_service_cert    = "qwerty"
+driver_service_cert    = "*"
