@@ -42,7 +42,7 @@ data "aws_acm_certificate" "payments_nonprod_tars_dvsacloud_uk" {
 data "aws_acm_certificate" "driver_services_cert" {
   count = var.drv_svc_enabled ? 1 : 0
 
-  domain = "${local.driver_services_domain}"
+  domain = local.driver_services_domain
 
   statuses = [
     "ISSUED",

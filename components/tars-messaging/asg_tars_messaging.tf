@@ -6,9 +6,9 @@ resource "aws_autoscaling_group" "tars-messaging" {
   #launch_configuration = aws_launch_configuration.tars-messaging.id
 
   launch_template {
-    id      = aws_launch_template.tars-messaging.id
+    id = aws_launch_template.tars-messaging.id
     #version = "$Latest"
-    version = "${aws_launch_template.tars-messaging.latest_version}"
+    version = aws_launch_template.tars-messaging.latest_version
   }
 
   termination_policies = var.asg_termination_policies
