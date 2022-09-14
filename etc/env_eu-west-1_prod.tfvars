@@ -442,7 +442,7 @@ public_cert            = "routing-prod-public"
 bobj_cert              = "bobj-prod"
 holding_pages_cert     = "maintenance-prod"
 reporting_xe_cert_name = "reporting-xe-prod-public"
-driver_service_cert    = "tars-prod-public"
+#driver_service_cert    = ""
 
 
 ## wildfly-batch temporary 'off' schedule
@@ -575,7 +575,7 @@ dbu_maxrecordsprocessed = 500
 obs_reg_holding = true
 
 # Whether to create Driver Services resources
-drv_svc_enabled = true
+drv_svc_enabled = false
 
 # Process Unknown Card Authorisations Job - Challenged Card Auth
 puca_job_cca_minAgeHours                                = 24
