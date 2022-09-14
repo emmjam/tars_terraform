@@ -38,7 +38,3 @@ output "alb-tg-obs2-8080" {
 output "alb-tg-cpc2-9443" {
   value = aws_alb_target_group.cpc2-9443.arn
 }
-
-output "driver_services_domain" {
-  value = aws_acm_certificate.dsa_dft_gov_uk.domain
-}
