@@ -88,6 +88,7 @@ new_all_users = [
   "tomasz.chrost@bjss.com",
   "michael.mackintosh@bjss.com",
   "haris.hassan@bjss.com",
+  "banafsheh.shahzaman@bjss.com",
 ]
 
 # TSSOps Access
@@ -162,6 +163,7 @@ readonly_platform_users = [
   "david.giles@bjss.com",
   "ian.davies@bjss.com",
   "samantha.burke@bjss.com",
+  "banafsheh.shahzaman@bjss.com",
 ]
 
 # Developer Access
@@ -232,6 +234,7 @@ readonly_qaengineer_users = [
 
 db_cw_users = [
   "david.giles@bjss.com",
+  "banafsheh.shahzaman@bjss.com",
 ]
 
 # TSS Dashboard
