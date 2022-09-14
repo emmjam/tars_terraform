@@ -20,7 +20,6 @@ domain_name = "tars.dvsacloud.uk"
 cert_name              = "tars-prod-public"
 payments_cert_name     = "payments-prod-public"
 reporting_xe_cert_name = "*"
-driver_service_cert    = "dsa.dft.gov.uk"
 
 default_tags = {
   Group = "live"
@@ -624,3 +623,4 @@ obs_reg_holding = false
 
 # Whether to create Driver Services resources (false by default, enable in env file)
 drv_svc_enabled = false
+driver_service_cert    = "dsa.dft.gov.uk"
