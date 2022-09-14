@@ -24,7 +24,7 @@ data "aws_acm_certificate" "tars_dvsacloud_uk" {
 }
 
 data "aws_acm_certificate" "dsa_dft_gov_uk" {
-  domain = "${var.driver_services_domain}"
+  domain = "${local.driver_services_domain}"
 
   statuses = [
     "ISSUED",
