@@ -506,9 +506,6 @@ mis_rds_backup_retention  = "30"
 cpc_rds_backup_retention  = "30"
 rsis_rds_backup_retention = "30"
 
-sftpplus_alarm_count = "1"
-sftpplus_topic_count = "1"
-
 # RDS CloudWatch Monitoring
 rds_cw_metric_alarm_enabled = true
 

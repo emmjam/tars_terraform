@@ -437,9 +437,6 @@ mes_api_cidr_block = [
 # Enable the shipping of cloud watch logs to Alert Logic.  Empty value equals false
 alert_logic = "true"
 
-sftpplus_alarm_count = "0"
-sftpplus_topic_count = "0"
-
 # RDS CloudWatch Monitoring
 rds_cw_metric_alarm_enabled = true
 
