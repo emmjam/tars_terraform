@@ -131,7 +131,7 @@ ibs_scaleup_desired      = 2
 ibs_scaleup_recurrence   = "10 04 * * 1-5"
 
 ## fyndi-f
-fyndi-f_instance_type        = "t3.medium"
+fyndi-f_instance_type        = "t3.small"
 fyndi-f_puppet_nodetype      = "fyndi-front"
 fyndi-f_asg_min_size         = 0
 fyndi-f_asg_max_size         = 2
@@ -141,7 +141,7 @@ fyndi-f_scaleup_desired      = 2
 fyndi-f_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## fyndi_back
-fyndi-b_instance_type        = "t3.medium"
+fyndi-b_instance_type        = "t3.small"
 fyndi-b_puppet_nodetype      = "fyndi-back"
 fyndi-b_asg_min_size         = 0
 fyndi-b_asg_max_size         = 2
