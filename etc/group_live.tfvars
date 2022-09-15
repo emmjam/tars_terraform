@@ -601,7 +601,7 @@ power_bi_cidr = "10.164.216.0/22"
 ftts_elig_port = "18079"
 
 #Lambda Govnotify
-notify_lambda_version = "5"
+notify_lambda_version = "9"
 
 # reporting-xe
 reporting_xe_instance_type    = "t2.medium"
