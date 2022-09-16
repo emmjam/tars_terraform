@@ -101,7 +101,7 @@ variable "asg_default_tags" {
   default     = []
 }
 
-variable "rhel_spot_pricing" {
+variable "spot_pricing" {
   type        = map(string)
   description = "A map containing the the spot instance price (USD) for each instance type"
   default     = {}

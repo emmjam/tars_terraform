@@ -9,7 +9,7 @@ resource "aws_launch_template" "tars-mock" {
   instance_market_options {
     market_type = "spot"
     spot_options {
-      max_price = var.rhel_spot_pricing[var.wildfly-mock_instance_type]
+      max_price = var.spot_pricing[var.wildfly-mock_instance_type]
     }
   }
 
