@@ -11,7 +11,7 @@ module "create_inspector_report" {
   }
 
   s3_bucket = "tars-nonprod-ctrl-resources"
-  s3_key    = "lambda-repo/packages/inspector-report/inspector_create_report.zip"
+  s3_key    = "lambda-repo/packages/inspector-report/inspector-create-report-${var.create_inspector_report_lambda_version}.zip"
 
   name        = "create-inspector-report"
   runtime     = "python3.8"

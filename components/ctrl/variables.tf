@@ -430,3 +430,13 @@ variable "oraclexe_subnets_cidrs" {
 variable "kms_inspector_count" {
   type = number
 }
+
+variable "create_inspector_report_lambda_version"{
+  type        = string
+  description = "Lambda version"
+}
+
+variable "email_inspector_report_lambda_version"{
+  type        = string
+  description = "Lambda version"
+}

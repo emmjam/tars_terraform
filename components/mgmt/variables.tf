@@ -830,3 +830,8 @@ variable "prod_domains_name_servers" {
   description = "Map of accounts with NS records in a form: '<record_name> = <comma seperated list of NS addresses>'"
   default     = {}
 }
+
+variable "envis_lambda_version"{
+  type        = string
+  description = "Lambda version"
+}

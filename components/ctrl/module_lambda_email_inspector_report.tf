@@ -11,7 +11,7 @@ module "email_inspector_report" {
   }
 
   s3_bucket = "tars-nonprod-ctrl-resources"
-  s3_key    = "lambda-repo/packages/inspector-report/inspector_email_report.zip"
+  s3_key    = "lambda-repo/packages/inspector-report/inspector-email-report-${var.email_inspector_report_lambda_version}.zip"
 
   name        = "email-inspector-report"
   runtime     = "python3.8"

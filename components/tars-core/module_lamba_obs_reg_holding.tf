@@ -10,7 +10,8 @@ module "obs_reg_holding" {
   }
 
   s3_bucket = "tars-645711882182-eu-west-1-mgmt-mgmt-artefacts"
-  s3_key    = "lambda-repo/packages/obs-reg-holding/obs_reg_holding_1.zip"
+  s3_key    = "lambda-repo/packages/obs-reg-holding/obs-reg-holding-${var.obs_reg_holding_lambda_version}.zip"
+
 
   name        = "obsregholding"
   runtime     = "python3.8"

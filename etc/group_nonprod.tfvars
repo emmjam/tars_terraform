@@ -647,6 +647,8 @@ reporting_xe_subnet_cidr      = [""]
 ssm_kms_key_id = "5fc7cd0f-a4d7-4d2e-b32f-f28391249a00"
 
 kms_inspector_count = 1
+create_inspector_report_lambda_version = 1
+email_inspector_report_lambda_version = 1
 ses_user_access_key = false
 
 # Whether or not to create old RDS option and parameter groups
@@ -654,6 +656,7 @@ deprecated_rds_compatibility = false
 
 # Whether to create obs Register New Business Holding resources
 obs_reg_holding = false
+obs_reg_holding_lambda_version = 1
 
 # Whether to create Driver Services resources
 drv_svc_enabled     = true
