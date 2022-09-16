@@ -350,3 +350,9 @@ variable "passwordreset_resetcode_requesttimelimit" {
   type        = string
   description = "Password Key Reset"
 }
+
+variable "spot_pricing" {
+  type        = map(string)
+  description = "A map containing the the spot instance price (USD) for each instance type"
+  default     = {}
+}
