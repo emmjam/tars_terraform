@@ -360,12 +360,6 @@ variable "cert_name" {
   description = "ACM cert name"
 }
 
-variable "rhel_spot_pricing" {
-  type        = map(string)
-  description = "A map containing the the spot instance price (USD) for each instance type"
-  default     = {}
-}
-
 variable "payments_cert_name" {
   type        = string
   description = "ACM cert name"
