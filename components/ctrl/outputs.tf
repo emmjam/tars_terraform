@@ -95,3 +95,7 @@ output "s3_bucket_resources_arn" {
 output "tars_acct_bucketlog_arn" {
   value = aws_s3_bucket.acc-bucketlogs.arn
 }
+
+output "vpc_endpoint_api_execute_id" {
+  value = var.environment == "nonprod" ? aws_vpc_endpoint.execute_api[0].id : null
+}

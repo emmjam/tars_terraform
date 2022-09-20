@@ -111,3 +111,8 @@ variable "subnet_ids" {
   description = "List of subnet IDs to place the Lambdas"
 }
 
+variable "api_private_access_logs" {
+  type        = string
+  description = "cloud watch api gateway access logs"
+  default     = "gw-access-logs"
+}
