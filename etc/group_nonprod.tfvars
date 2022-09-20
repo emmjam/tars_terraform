@@ -79,7 +79,7 @@ aws_autoscaling_enabled = "0"
 #Monitoring
 prometheus_asg_min_size          = 0
 prometheus_asg_max_size          = 1
-prometheus_instance_type         = "m3.medium"
+prometheus_instance_type         = "t3.medium"
 prometheus_ami_build_id          = "1450"
 prometheus_efs_provisioned_mibps = 1
 
@@ -131,7 +131,7 @@ ibs_scaleup_desired      = 2
 ibs_scaleup_recurrence   = "10 04 * * 1-5"
 
 ## fyndi-f
-fyndi-f_instance_type        = "t3.medium"
+fyndi-f_instance_type        = "t3.small"
 fyndi-f_puppet_nodetype      = "fyndi-front"
 fyndi-f_asg_min_size         = 0
 fyndi-f_asg_max_size         = 2
@@ -141,7 +141,7 @@ fyndi-f_scaleup_desired      = 2
 fyndi-f_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## fyndi_back
-fyndi-b_instance_type        = "t3.medium"
+fyndi-b_instance_type        = "t3.small"
 fyndi-b_puppet_nodetype      = "fyndi-back"
 fyndi-b_asg_min_size         = 0
 fyndi-b_asg_max_size         = 2
@@ -608,9 +608,6 @@ dlm_time = "08:00"
 # TSS Opsgenie
 opsgenie_endpoint = "https://api.opsgenie.com/v1/json/amazonsns?apiKey=b7ee3dc7-99be-4094-846c-e44f223291b3"
 
-sftpplus_alarm_count = "0"
-sftpplus_topic_count = "0"
-
 # Enable action for AmazonMQ Queue CloudWatch Alarm
 velocity_email_cw_metric_alarm_enabled           = false
 mq_cw_metric_velocity_email_alarm_action_enabled = false
@@ -661,3 +658,6 @@ obs_reg_holding = false
 # Whether to create Driver Services resources
 drv_svc_enabled     = true
 driver_service_cert = "*"
+
+# mock gov gateway accounts processor
+mock_gov_gw_accounts_processor_lambda_version = "2"

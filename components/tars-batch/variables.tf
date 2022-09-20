@@ -248,21 +248,6 @@ variable "opsgenie_endpoint" {
   description = "The opsgenie endpoint to send alerts to TSS"
 }
 
-variable "sftpplus_client_log_group_name" {
-  type        = string
-  description = "Log group name for SFTPPlus-client"
-}
-
-variable "sftpplus_alarm_count" {
-  type        = string
-  description = "Number of alarms to have in this account"
-}
-
-variable "sftpplus_topic_count" {
-  type        = string
-  description = "Number of topics to have in this account"
-}
-
 variable "lc_spot_price" {
   type        = string
   description = "The price to use for reserving spot instances"

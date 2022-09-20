@@ -799,3 +799,14 @@ variable "module" {
   description = "The name of this module. This is a special variable, it should be set only here and never overridden."
   default     = "base"
 }
+
+variable "mock_gov_gw_accounts_processor" {
+  type        = bool
+  description = "Whether to create resources for mock gov gateway"
+  default     = false
+}
+
+variable "mock_gov_gw_accounts_processor_lambda_version" {
+  type        = string
+  description = "Lambda version"
+}

@@ -535,3 +535,6 @@ puca_job_cca_nonfinalepdqstatus_minAgeHours  = 0
 puca_job_cca_nonfinalepdqstatus_maxAgeDays   = 0
 puca_job_cca_nonfinalepdqstatus_maxProcessed = 2
 puca_job_cca_maxRecordsPerJobRun             = 5 
+
+# Whether to create resources for mock gov gateway accounts processor
+mock_gov_gw_accounts_processor = true

@@ -79,3 +79,28 @@ resource "aws_security_group_rule" "tars_alb_private_egress_mock_epdq" {
   source_security_group_id = module.mock_fargate.sg_epdq
 }
 
+resource "aws_security_group_rule" "mock_gov_gw_accounts_processor_ingress_443" {
+  count       = var.mock_gov_gw_accounts_processor == true ? 1 : 0
+  description = "Allow TCP/443 from mock gov gateway accounts processor lambda"
+  type        = "ingress"
+
+  protocol  = "tcp"
+  from_port = 443
+  to_port   = 443
+
+  security_group_id        = aws_security_group.tars-alb-mock.id
+  source_security_group_id = data.terraform_remote_state.base.outputs.lambda_mock_gov_gw_accounts_processor_sg_id
+}
+
+resource "aws_security_group_rule" "mock_gov_gw_accounts_processor_egress_443" {
+  count       = var.mock_gov_gw_accounts_processor == true ? 1 : 0
+  description = "Allow TCP/443 to mock gov gateway private alb"
+  type        = "egress"
+
+  protocol  = "tcp"
+  from_port = 443
+  to_port   = 443
+
+  security_group_id        = data.terraform_remote_state.base.outputs.lambda_mock_gov_gw_accounts_processor_sg_id
+  source_security_group_id = aws_security_group.tars-alb-mock.id
+}
