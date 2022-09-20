@@ -497,3 +497,9 @@ variable "drv_svc_enabled" {
   default     = false
   description = "Whether to create Driver Services resources. Required in Prod and UAT02"
 }
+
+variable "mock_gov_gw_accounts_processor" {
+  type        = bool
+  description = "Whether to create resources for mock gov gateway accounts processor"
+  default     = false
+}

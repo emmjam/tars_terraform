@@ -193,3 +193,9 @@ variable "lc_volume_type" {
   description = "Volume type gp2 gp3"
   default     = "gp3"
 }
+
+variable "mock_gov_gw_accounts_processor" {
+  type        = bool
+  description = "Whether to create resources for mock gov gateway accounts processor"
+  default     = false
+}

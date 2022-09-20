@@ -437,9 +437,6 @@ mes_api_cidr_block = [
 # Enable the shipping of cloud watch logs to Alert Logic.  Empty value equals false
 alert_logic = "true"
 
-sftpplus_alarm_count = "0"
-sftpplus_topic_count = "0"
-
 # RDS CloudWatch Monitoring
 rds_cw_metric_alarm_enabled = true
 
@@ -464,25 +461,25 @@ cpc_rds_instance_class = "db.t3.medium"
 
 #Monitoring
 prometheus_asg_min_size  = 0
-prometheus_instance_type = "m3.medium"
+prometheus_instance_type = "t3.medium"
 
 ## wildfly-back
-wildfly-back_instance_type = "m3.large"
+wildfly-back_instance_type = "t3.large"
 
 ## wildfly-batch
-wildfly-batch_instance_type = "m3.medium"
+wildfly-batch_instance_type = "t3.medium"
 
 ## wildfly-front
-wildfly-front_instance_type = "m3.medium"
+wildfly-front_instance_type = "t3.medium"
 
 ## obs
-obs_instance_type     = "m3.medium"
+obs_instance_type     = "t3.medium"
 obs_asg_max_size      = 2
 obs_scaledown_desired = 2
 obs_scaleup_desired   = 2
 
 ## ibs
-ibs_instance_type     = "m3.medium"
+ibs_instance_type     = "t3.medium"
 ibs_asg_max_size      = 2
 ibs_scaledown_desired = 2
 ibs_scaleup_desired   = 2
@@ -491,10 +488,10 @@ ibs_scaleup_desired   = 2
 ibs_rds_instance_class = "db.t2.small"
 
 ## fyndi-f
-fyndi-f_instance_type = "m3.medium"
+fyndi-f_instance_type = "t3.medium"
 
 ## fyndi_back
-fyndi-b_instance_type = "m3.medium"
+fyndi-b_instance_type = "t3.medium"
 
 ## wildfly-messaging
 wildfly-messaging_instance_type = "t3.medium"
@@ -503,16 +500,16 @@ wildfly-messaging_instance_type = "t3.medium"
 aws_mq_host_instance_type = "mq.t2.micro"
 
 ## cpc-back
-cpc-back_instance_type = "m3.medium"
+cpc-back_instance_type = "t3.medium"
 
 ## cpc-front
-cpc-front_instance_type = "m3.medium"
+cpc-front_instance_type = "t3.medium"
 
 ## sftpplus-svr
-sftpplus-svr_instance_type = "m3.medium"
+sftpplus-svr_instance_type = "t3.medium"
 
 ## cpc-batch
-cpc-batch_instance_type = "m3.medium"
+cpc-batch_instance_type = "t3.medium"
 
 ## squid
 squidnat_instance_type = "t3a.medium"

@@ -12,7 +12,7 @@ resource "aws_cloudwatch_log_group" "main" {
 }
 
 resource "aws_cloudwatch_log_group" "api_private_access_logs" {
-  name = "/aws/apigateway/${local.csi}/gw-access-logs"
+  name = "/aws/apigateway/${local.csi}/${var.api_private_access_logs}"
 
   retention_in_days = var.cwlg_retention_in_days
 
