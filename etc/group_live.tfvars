@@ -620,6 +620,7 @@ deprecated_rds_compatibility = true
 
 # Whether to create obs Register New Business Holding resources
 obs_reg_holding = false
+obs_reg_holding_lambda_version = 1
 
 # Whether to create Driver Services resources (false by default, enable in env file)
 drv_svc_enabled     = false

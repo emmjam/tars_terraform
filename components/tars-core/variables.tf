@@ -491,6 +491,11 @@ variable "obs_reg_holding" {
   description = "Whether to create obs Register New Business Holding resources. Required in Prod and UAT02"
 }
 
+variable "obs_reg_holding_lambda_version"{
+  type        = string
+  description = "Lambda version"
+}
+
 # Whether to create Driver Services resources
 variable "drv_svc_enabled" {
   type        = bool

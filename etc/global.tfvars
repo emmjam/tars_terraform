@@ -163,6 +163,8 @@ reporting_xe_alb_sg_whitelist_hosts = [
 ]
 
 kms_inspector_count = 0
+create_inspector_report_lambda_version = 1
+email_inspector_report_lambda_version = 1
 
 document_generation_maxbatchrecords = 1000
 
