@@ -89,6 +89,7 @@ new_all_users = [
   "michael.mackintosh@bjss.com",
   "haris.hassan@bjss.com",
   "banafsheh.shahzaman@bjss.com",
+  "callum.walmesley@bjss.com",
 ]
 
 # TSSOps Access
@@ -209,6 +210,7 @@ readonly_appsupport_users = [
   "steven.millington@bjss.com",
   "andrew.malcolm@bjss.com",
   "chris.peska@bjss.com",
+  "callum.walmesley@bjss.com",
 ]
 
 # QA Engineer Access
