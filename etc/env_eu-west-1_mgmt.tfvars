@@ -522,3 +522,10 @@ lambda_access_key_rotation_config = {
   cw_rule_schedule_expression       = "cron(00 06 * * ? *)"
   enabled                           = "1"
 }
+
+# Change to '1' to delete any unattached EBS volumes that do not have the tag :  "protected":"do-not-delete"
+ebs_housekeeping_enabled = "1"
+# Delete volumes, or run in test mode (yes to delete)?
+ebs_volume_delete = "no"
+# Only delete volumes that were detached over X days ago
+ebs_volume_days = "30"
