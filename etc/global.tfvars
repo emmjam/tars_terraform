@@ -32,6 +32,7 @@ spot_pricing = {
   "t3.micro"   = "0.0048"
   "t3.small"   = "0.0125"
   "t3.medium"  = "0.0200"
+  "t3.large"   = "0.0329"
   "t3a.micro"  = "0.0131"
   "t3a.small"  = "0.0166"
   "t3a.medium" = "0.0151"

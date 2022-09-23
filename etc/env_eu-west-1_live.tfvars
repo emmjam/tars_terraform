@@ -107,6 +107,7 @@ spot_pricing = {
   "t3.micro"   = ""
   "t3.small"   = ""
   "t3.medium"  = ""
+  "t3.large"   = ""
 }
 
 # Alert Logic

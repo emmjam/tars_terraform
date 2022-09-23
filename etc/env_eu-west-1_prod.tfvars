@@ -332,6 +332,7 @@ spot_pricing = {
   "t3.micro"   = ""
   "t3.small"   = ""
   "t3.medium"  = ""
+  "t3.large"   = ""
 }
 
 rhel_spot_pricing = {
@@ -360,6 +361,7 @@ rhel_spot_pricing = {
   "t3.micro"   = ""
   "t3.small"   = ""
   "t3.medium"  = ""
+  "t3.large"   = ""
 }
 
 ##
