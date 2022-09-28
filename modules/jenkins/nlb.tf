@@ -1,4 +1,4 @@
-resource "aws_lb" "jenkins" {
+resource "aws_lb" "jenkins_nlb" {
   name                             = "${var.project}-${var.environment}-${var.component}-${var.name}-nlb"
   load_balancer_type               = "network"
   internal                         = var.elb_internal
