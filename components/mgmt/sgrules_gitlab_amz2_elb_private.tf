@@ -93,3 +93,14 @@ resource "aws_security_group_rule" "gitlab-amzn2_elb_private_ingress_jenkins_ssh
   source_security_group_id = module.jenkins.jenkins_sg_id
 }
 
+#Builder to Gitlab
+
+resource "aws_security_group_rule" "gitlab-amzn2_elb_private_ingress_builder_https" {
+  description              = "Allow TCP/443 from Builder"
+  type                     = "ingress"
+  from_port                = 443
+  to_port                  = 443
+  protocol                 = "tcp"
+  security_group_id        = module.gitlab-amzn2.elb_private_sg_id
+  source_security_group_id = module.builder.security_group_id
+}
