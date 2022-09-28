@@ -240,7 +240,7 @@ bastion_scaleup_recurrence   = "00 07 * * 1-5"
 
 # TODO: smarts: Move AMI IDs to versions file
 ## Grafana
-grafana_instance_type        = "t2.micro"
+grafana_instance_type        = "t3a.micro"
 grafana_ami_build_id         = "1252"
 grafana_asg_min_size         = 0
 grafana_asg_max_size         = 0
@@ -460,7 +460,7 @@ nexus_config = {
   asg_desired        = "1"
   instance_type      = "t3.medium"
   listen_port        = "8081"
-  nexus_ami_build_id = "1271"
+  nexus_ami_build_id = "1494"
 }
 
 nexus_subnets_cidrs = [
