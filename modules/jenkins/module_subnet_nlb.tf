@@ -8,7 +8,7 @@ module "nlb_subnets" {
 
   vpc_id             = var.vpc_id
   availability_zones = var.availability_zones
-  cidrs              = var.nlb_subnets_cidrs
+  cidrs              = var.alb_subnets_cidrs
   route_tables       = var.private_route_table_ids
 }
 
