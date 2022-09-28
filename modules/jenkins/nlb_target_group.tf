@@ -1,4 +1,4 @@
-resource "aws_alb_target_group" "jenkins" {
+resource "aws_lb_target_group" "jenkins" {
   name     = "${var.project}-${var.environment}-${var.component}-${var.name}"
   port     = "8080"
   protocol = "HTTP"
