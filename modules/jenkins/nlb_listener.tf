@@ -1,4 +1,4 @@
-resource "aws_lb_listener" "jenkins-8080" {
+resource "aws_lb_listener" "jenkins-nlb-8080" {
   load_balancer_arn = aws_lb.jenkins_nlb.arn
   port              = "8080"
   protocol          = "HTTP"
@@ -9,7 +9,7 @@ resource "aws_lb_listener" "jenkins-8080" {
   }
 }
 
-resource "aws_lb_listener" "jenkins-49187" {
+resource "aws_lb_listener" "jenkins-nlb-49187" {
   load_balancer_arn = aws_lb.jenkins_nlb.arn
   port              = "49187"
   protocol          = "TCP"
