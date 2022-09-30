@@ -1,7 +1,7 @@
 resource "aws_lb_listener" "jenkins-nlb-8080" {
   load_balancer_arn = aws_lb.jenkins_nlb.arn
   port              = "8080"
-  protocol          = "HTTP"
+  protocol          = "TCP"
 
   default_action {
     type             = "forward"
