@@ -3,3 +3,8 @@ resource "aws_iam_role_policy_attachment" "nexus_describe_efs" {
   policy_arn = aws_iam_policy.describe_efs.arn
 }
 
+resource "aws_iam_role_policy_attachment" "nexus_push_logs" {
+  role       = module.microservice_nexus.iam_role_name
+  policy_arn = "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
+}
+
