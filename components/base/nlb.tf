@@ -4,6 +4,7 @@ resource "aws_lb" "jenkins_nlb" {
   environment = var.environment
   component   = var.component
   private_route_table_ids = aws_route_table.private_nat.*.id
+   alb_subnets_cidrs = jenkins_alb_subnets_cidrs
 
   vpc_id               = var.vpc_id
   availability_zones   = slice(var.availability_zones, 0, length(var.availability_zones))
