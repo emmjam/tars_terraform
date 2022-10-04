@@ -230,7 +230,7 @@ natgw_subnets_cidr = [
 # TODO: smarts: Move AMI IDs to versions file
 ## bastion
 bastion_instance_type        = "t2.micro"
-bastion_ami_build_id         = "1474"
+bastion_ami_build_id         = "1496"
 bastion_asg_min_size         = 0
 bastion_asg_max_size         = 3
 bastion_scaledown_desired    = 1
@@ -522,3 +522,10 @@ lambda_access_key_rotation_config = {
   cw_rule_schedule_expression       = "cron(00 06 * * ? *)"
   enabled                           = "1"
 }
+
+# Change to '1' to delete any unattached EBS volumes that do not have the tag :  "protected":"do-not-delete"
+ebs_housekeeping_enabled = "1"
+# Delete volumes, or run in test mode (yes to delete)?
+ebs_volume_delete = "no"
+# Only delete volumes that were detached over X days ago
+ebs_volume_days = "30"
