@@ -859,7 +859,3 @@ variable "elb_unhealthy_threshold" {
   default     = 2
 }
 
-variable "alb_subnets_cidrs" {
-  type        = list(string)
-  description = "A list of CIDR blocks used for ALB subnets creation"
-}
