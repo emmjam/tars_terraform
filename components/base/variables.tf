@@ -810,3 +810,9 @@ variable "mock_gov_gw_accounts_processor_lambda_version" {
   type        = string
   description = "Lambda version"
 }
+
+variable "jenkins_alb_subnets_cidrs" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
