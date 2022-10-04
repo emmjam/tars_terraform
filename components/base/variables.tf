@@ -864,23 +864,3 @@ variable "name" {
   description = "A common name for resources used in this module"
   default     = "jenkins"
 }
-
-variable "vpc_id" {
-  type        = string
-  description = "The VPC id"
-}
-
-variable "availability_zones" {
-  type        = list(string)
-  description = "A list of availablity zones for subnets creation"
-}
-
-variable "alb_subnets_cidrs" {
-  type        = list(string)
-  description = "A list of CIDR blocks used for ALB subnets creation"
-}
-
-variable "private_route_table_ids" {
-  type        = list(string)
-  description = "A list of private route tables ids for subnets association"
-}
