@@ -1,8 +1,8 @@
 resource "aws_lb_target_group" "jenkins_nlb" {
-  name     = "${var.project}-${var.environment}-${var.component}-${var.name}"
+  name     = "${var.project}-${var.environment}-${var.component}-nlb"
   port     = "8080"
   protocol = "TCP"
-  vpc_id   = var.vpc_id
+  vpc_id   = aws_vpc.vpc.id
 
   health_check {
     protocol            = "HTTPS"

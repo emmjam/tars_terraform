@@ -858,3 +858,8 @@ variable "elb_unhealthy_threshold" {
   description = "The number of checks before the instance is declared unhealthy"
   default     = 2
 }
+
+variable "alb_subnets_cidrs" {
+  type        = list(string)
+  description = "A list of CIDR blocks used for ALB subnets creation"
+}
