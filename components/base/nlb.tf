@@ -1,5 +1,4 @@
 resource "aws_lb" "jenkins_nlb" {
-  xname        = "${var.module}-b"
   project     = var.project
   environment = var.environment
   component   = var.component
@@ -12,7 +11,7 @@ resource "aws_lb" "jenkins_nlb" {
   subnets_route_tables = var.private_route_table_ids
 
 
-  name                             = "${var.project}-${var.environment}-${var.component}-${var.xname}-nlb"
+  name                             = "${var.project}-${var.environment}-${var.component}-${var.name}-nlb"
   load_balancer_type               = "network"
   internal                         = var.elb_internal
   enable_cross_zone_load_balancing = var.elb_cross_zone_load_balancing
