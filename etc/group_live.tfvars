@@ -599,8 +599,8 @@ power_bi_cidr = "10.164.216.0/22"
 
 ftts_elig_port = "18079"
 
-#Lambda Govnotify - Short Commit version now required taken from Job Console.
-notify_lambda_version = "9a8d23be3"
+#Lambda Govnotify
+notify_lambda_version = "9"
 
 # reporting-xe
 reporting_xe_instance_type    = "t3.large"

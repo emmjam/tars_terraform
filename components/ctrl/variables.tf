@@ -440,21 +440,3 @@ variable "email_inspector_report_lambda_version"{
   type        = string
   description = "Lambda version"
 }
-
-variable "ebs_volume_delete" {
-  type        = string
-  description = "Delete unattached EBS volumes, yes or no"
-  default     = "no"
-}
-
-variable "ebs_volume_days" {
-  type        = string
-  description = "Delete unattached EBS volumes older than X days"
-  default     = "30"
-}
-
-variable "ebs_housekeeping_enabled" {
-  type        = bool
-  default     = false
-  description = "Whether or not to perform EBS housekeeping"
-}

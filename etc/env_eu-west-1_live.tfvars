@@ -47,7 +47,7 @@ guardduty_member_enabled = "0"
 # Changed due to JIRA OPS-2184 keep bastion AMI current on weekly basis BST
 ## bastion
 bastion_instance_type        = "t2.micro"
-bastion_ami_build_id         = "1496"
+bastion_ami_build_id         = "1474"
 bastion_asg_min_size         = 1
 bastion_asg_max_size         = 3
 bastion_scaledown_desired    = 1
@@ -125,10 +125,3 @@ cloudability_xacct = {
   aws_account_id = "165736516723"
   external_id    = "742a928c-22e0-41b3-8028-9cc56330473d"
 }
-
-# Change to '1' to delete any unattached EBS volumes that do not have the tag :  "protected":"do-not-delete"
-ebs_housekeeping_enabled = "1"
-# Delete volumes, or run in test mode (yes to delete)?
-ebs_volume_delete = "no"
-# Only delete volumes that were detached over X days ago
-ebs_volume_days = "30"
