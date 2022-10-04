@@ -846,3 +846,15 @@ variable "jenkins_elb_subnets_cidrs" {
   description = ""
   default     = []
 }
+
+variable "elb_healthy_threshold" {
+  type        = string
+  description = "The number of checks before the instance is declared health"
+  default     = 3
+}
+
+variable "elb_unhealthy_threshold" {
+  type        = string
+  description = "The number of checks before the instance is declared unhealthy"
+  default     = 2
+}
