@@ -414,3 +414,24 @@ puca_job_cca_nonfinalepdqstatus_minAgeHours  = 0
 puca_job_cca_nonfinalepdqstatus_maxAgeDays   = 0
 puca_job_cca_nonfinalepdqstatus_maxProcessed = 2
 puca_job_cca_maxRecordsPerJobRun             = 5 
+
+
+## jenkins
+jenkins_instance_type        = "m5a.large"
+jenkins_ami_build_id         = "1351"
+jenkins_asg_min_size         = 0
+jenkins_asg_max_size         = 1
+jenkins_ebs_volume_type      = "gp3"
+jenkins_ebs_volume_size      = 100
+jenkins_blue_nodes_number    = 1
+jenkins_scaledown_desired    = 1
+jenkins_scaledown_recurrence = "00 19 * * 1-5"
+jenkins_scaleup_desired      = 1
+jenkins_scaleup_recurrence   = "00 07 * * 1-5"
+
+jenkins_blue_subnets_cidrs = ["10.200.3.0/28"]
+
+jenkins_blue_version = "2.332.3"
+
+jenkins_elb_subnets_cidrs = ["10.200.3.32/28"]
+jenkins_alb_subnets_cidrs = ["10.200.6.0/28", "10.200.6.16/28"]
