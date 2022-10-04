@@ -816,3 +816,39 @@ variable "jenkins_alb_subnets_cidrs" {
   description = ""
   default     = []
 }
+
+
+variable "jenkins_blue_subnets_cidrs" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
+
+variable "jenkins_blue_version" {
+  type        = string
+  description = ""
+}
+
+variable "jenkins_green_subnets_cidrs" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
+
+variable "jenkins_green_version" {
+  type        = string
+  description = ""
+  default     = "latest"
+}
+
+variable "jenkins_elb_subnets_cidrs" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
+
+variable "jenkinsnode_subnets_cidrs" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
