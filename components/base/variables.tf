@@ -846,9 +846,3 @@ variable "jenkins_elb_subnets_cidrs" {
   description = ""
   default     = []
 }
-
-variable "jenkinsnode_subnets_cidrs" {
-  type        = list(string)
-  description = ""
-  default     = []
-}
