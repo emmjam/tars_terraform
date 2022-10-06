@@ -12,7 +12,7 @@ resource "aws_sns_topic_subscription" "nexus_opsgenie" {
   count                  = var.environment == "mgmt" ? 1 : 0
   topic_arn              = aws_sns_topic.nexus_opsgenie[0].arn
   protocol               = "https"
-  endpoint               = var.opsgenie_endpoint #needs to be changes
+  endpoint               = var.opsgenie_endpoint
   endpoint_auto_confirms = "true"
 }
 
