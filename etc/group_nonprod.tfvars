@@ -279,7 +279,7 @@ oraclexe_scaleup_desired      = 1
 oraclexe_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## Mock
-mock_ami_build_id = "02f54c88/262"
+mock_ami_build_id = "34690f42/268"
 
 
 ## SFTP
