@@ -628,3 +628,6 @@ driver_service_cert = "dsa.dft.gov.uk"
 
 # mock gov gateway accounts processor
 mock_gov_gw_accounts_processor_lambda_version = "2"
+
+# lambda ebs housekeeping
+unattached_ebs_vols_lambda_version = "1"

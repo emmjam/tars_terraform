@@ -1,8 +1,3 @@
-data "aws_s3_bucket_object" "ebs_housekeeping_zip" {
-  bucket = "tars-nonprod-ctrl-resources"
-  key    = "lambda-repo/packages/unattached-ebs-vols/unattached-ebs-vols.zip"
-}
-
 resource "aws_lambda_function" "ebs_housekeeping" {
   count = var.ebs_housekeeping_enabled ? 1 : 0
 
@@ -13,9 +8,8 @@ resource "aws_lambda_function" "ebs_housekeeping" {
   handler           = "unattached-ebs-vols.lambda_handler"
   timeout           = "120"
   publish           = false
-  s3_bucket         = "tars-nonprod-ctrl-resources"
-  s3_key            = "lambda-repo/packages/unattached-ebs-vols/unattached-ebs-vols.zip"
-  s3_object_version = data.aws_s3_bucket_object.ebs_housekeeping_zip.version_id
+  s3_bucket         = "tars-645711882182-eu-west-1-mgmt-mgmt-artefacts"
+  s3_key            = "lambda-repo/packages/unattached-ebs-vols/unattached-ebs-vols-${var.unattached_ebs_vols_lambda_version}.zip"
   role              = aws_iam_role.ebs_housekeeping.arn
 
   environment {

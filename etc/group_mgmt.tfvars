@@ -343,3 +343,6 @@ ops_team_email = "tars.platform-team@bjss.com"
 opsgenie_endpoint = "https://api.opsgenie.com/v1/json/amazonsns?apiKey=4cb725d3-32c1-47ae-b3b7-e38187fb9202"
 
 envis_lambda_version = 2
+
+# lambda ebs housekeeping
+unattached_ebs_vols_lambda_version = "1"

@@ -458,3 +458,8 @@ variable "ebs_housekeeping_enabled" {
   default     = false
   description = "Whether or not to perform EBS housekeeping"
 }
+
+variable "unattached_ebs_vols_lambda_version"{
+  type        = string
+  description = "Lambda version"
+}
