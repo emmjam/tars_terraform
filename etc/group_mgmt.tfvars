@@ -328,6 +328,8 @@ jenkinsctrl_subnets_cidrs = [
   "10.167.64.48/28",
 ]
 
+jenkinsctrl_ebs_size              = 16
+
 whitelist = [
   "135.196.73.204/32",  # DVSA Notts
   "148.253.134.213/32", # BJSS VPN 04/18

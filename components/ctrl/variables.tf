@@ -179,6 +179,11 @@ variable "jenkinsctrl_scaleup_recurrence" {
   description = ""
 }
 
+variable "jenkinsctrl_ebs_size" {
+  type        = number
+  description = "jenkins ctrl ebs size"
+}
+
 variable "mgmt_aws_account_id" {
   type        = string
   description = ""
