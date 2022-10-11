@@ -46,7 +46,7 @@ variable "aws_autoscaling_enabled" {
   description = "Enable or not the built in AWS autocaling scaling group scheduled actions"
 }
 
-variable "rhel_spot_pricing" {
+variable "spot_pricing" {
   type        = map(string)
   description = "A map containing the the spot instance price (USD) for each instance type"
   default     = {}

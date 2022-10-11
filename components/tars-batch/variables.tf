@@ -25,12 +25,6 @@ variable "release_version" {
   description = "Version of infrastructure deployed"
 }
 
-variable "rhel_spot_pricing" {
-  type        = map(string)
-  description = "A map containing the the spot instance price (USD) for each instance type"
-  default     = {}
-}
-
 variable "aws_autoscaling_enabled" {
   type        = string
   default     = "1"
@@ -355,4 +349,10 @@ variable "passwordreset_resetcode_codetimeout" {
 variable "passwordreset_resetcode_requesttimelimit" {
   type        = string
   description = "Password Key Reset"
+}
+
+variable "spot_pricing" {
+  type        = map(string)
+  description = "A map containing the the spot instance price (USD) for each instance type"
+  default     = {}
 }
