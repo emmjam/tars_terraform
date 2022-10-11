@@ -79,7 +79,7 @@ aws_autoscaling_enabled = "0"
 #Monitoring
 prometheus_asg_min_size          = 0
 prometheus_asg_max_size          = 1
-prometheus_instance_type         = "t3.medium"
+prometheus_instance_type         = "t3a.medium"
 prometheus_ami_build_id          = "1450"
 prometheus_efs_provisioned_mibps = 1
 
@@ -90,7 +90,9 @@ jenkinsctrl_subnets_cidrs = [
   "10.167.60.48/28",
 ]
 
-wildfly-back_instance_type        = "m5.large"
+jenkinsctrl_ebs_size              = 20
+
+wildfly-back_instance_type        = "m5a.large"
 wildfly-back_puppet_nodetype      = "tars-back"
 wildfly-back_asg_min_size         = 0
 wildfly-back_asg_max_size         = 2
@@ -101,7 +103,7 @@ wildfly-back_scaleup_desired      = 2
 wildfly-back_scaleup_recurrence = "00 04 * * 1-5"
 
 ## wildfly-batch
-wildfly-batch_instance_type        = "t3.medium"
+wildfly-batch_instance_type        = "t3a.medium"
 wildfly-batch_puppet_nodetype      = "tars-batch"
 wildfly-batch_asg_min_size         = 0
 wildfly-batch_asg_max_size         = 1
@@ -111,7 +113,7 @@ wildfly-batch_scaleup_desired      = 1
 wildfly-batch_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## obs
-obs_instance_type        = "t3.medium"
+obs_instance_type        = "t3a.medium"
 obs_puppet_nodetype      = "obs"
 obs_asg_min_size         = 0
 obs_asg_max_size         = 2
@@ -121,7 +123,7 @@ obs_scaleup_desired      = 2
 obs_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## ibs
-ibs_instance_type        = "t3.medium"
+ibs_instance_type        = "t3a.medium"
 ibs_puppet_nodetype      = "ibs"
 ibs_asg_min_size         = 0
 ibs_asg_max_size         = 2
@@ -131,7 +133,7 @@ ibs_scaleup_desired      = 2
 ibs_scaleup_recurrence   = "10 04 * * 1-5"
 
 ## fyndi-f
-fyndi-f_instance_type        = "t3.small"
+fyndi-f_instance_type        = "t3a.small"
 fyndi-f_puppet_nodetype      = "fyndi-front"
 fyndi-f_asg_min_size         = 0
 fyndi-f_asg_max_size         = 2
@@ -141,7 +143,7 @@ fyndi-f_scaleup_desired      = 2
 fyndi-f_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## fyndi_back
-fyndi-b_instance_type        = "t3.small"
+fyndi-b_instance_type        = "t3a.small"
 fyndi-b_puppet_nodetype      = "fyndi-back"
 fyndi-b_asg_min_size         = 0
 fyndi-b_asg_max_size         = 2
@@ -151,7 +153,7 @@ fyndi-b_scaleup_desired      = 2
 fyndi-b_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## wildfly-front
-wildfly-front_instance_type        = "t3.medium"
+wildfly-front_instance_type        = "t3a.medium"
 wildfly-front_puppet_nodetype      = "tars-front"
 wildfly-front_asg_min_size         = 0
 wildfly-front_asg_max_size         = 2
@@ -161,7 +163,7 @@ wildfly-front_scaleup_desired      = 2
 wildfly-front_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## wildfly-messaging
-wildfly-messaging_instance_type        = "t3.large"
+wildfly-messaging_instance_type        = "t3a.large"
 wildfly-messaging_puppet_nodetype      = "tars-messaging"
 wildfly-messaging_asg_min_size         = 0
 wildfly-messaging_asg_max_size         = 1
@@ -174,7 +176,7 @@ wildfly-messaging_ebs_vol              = 50
 wildfly-messaging_ebs_volume_type      = "gp3"
 
 ## wildfly-mock
-wildfly-mock_instance_type        = "t3.medium"
+wildfly-mock_instance_type        = "t3a.medium"
 wildfly-mock_puppet_nodetype      = "mock"
 wildfly-mock_asg_min_size         = 0
 wildfly-mock_asg_max_size         = 1
@@ -187,7 +189,7 @@ mock_db_image                     = "645711882182.dkr.ecr.eu-west-1.amazonaws.co
 gov_gateway_image                 = "645711882182.dkr.ecr.eu-west-1.amazonaws.com/tars-government-gateway-mock:latest"
 
 ## cpc-back
-cpc-back_instance_type        = "t3.medium"
+cpc-back_instance_type        = "t3a.medium"
 cpc-back_puppet_nodetype      = "cpc-back"
 cpc-back_asg_min_size         = 0
 cpc-back_asg_max_size         = 2
@@ -197,7 +199,7 @@ cpc-back_scaleup_desired      = 2
 cpc-back_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## cpc-front
-cpc-front_instance_type        = "t3.medium"
+cpc-front_instance_type        = "t3a.medium"
 cpc-front_puppet_nodetype      = "cpc-front"
 cpc-front_asg_min_size         = 0
 cpc-front_asg_max_size         = 2
@@ -207,7 +209,7 @@ cpc-front_scaleup_desired      = 2
 cpc-front_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## sftpplus-svr
-sftpplus-svr_instance_type        = "t2.medium"
+sftpplus-svr_instance_type        = "t3a.medium"
 sftpplus-svr_puppet_nodetype      = "sftpplus-svr"
 sftpplus-svr_asg_min_size         = 0
 sftpplus-svr_asg_max_size         = 1
@@ -223,7 +225,7 @@ bobj_instance_type = "m5.xlarge"
 
 
 ## cpc-batch
-cpc-batch_instance_type        = "t3.medium"
+cpc-batch_instance_type        = "t3a.medium"
 cpc-batch_puppet_nodetype      = "cpc-batch"
 cpc-batch_asg_min_size         = 0
 cpc-batch_asg_max_size         = 1
@@ -261,7 +263,7 @@ aws_mq_config_engine_type    = "ActiveMQ"
 aws_mq_config_engine_version = "5.15.9"
 
 ##  JMeter
-jmeter_instance_type              = "t3.micro"
+jmeter_instance_type              = "t3a.micro"
 jmeter_asg_size_desired_on_create = 0
 jmeter_asg_size_max               = 0
 jmeter_asg_size_min               = 0
@@ -277,7 +279,7 @@ oraclexe_scaleup_desired      = 1
 oraclexe_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## Mock
-mock_ami_build_id = "02f54c88/262"
+mock_ami_build_id = "41097d03/269"
 
 
 ## SFTP
@@ -433,7 +435,7 @@ dvla_elise_server      = "51.231.10.112/32"
 rsis_samba_server_archive = "10.14.0.142/32"
 
 # squidnat
-squidnat_instance_type = "t3.small"
+squidnat_instance_type = "t3a.small"
 squidnat_ami_build_id  = "1426"
 
 ops_team_email = "tars.platform-team@bjss.com"
@@ -631,11 +633,11 @@ ibs_high_cpu_cw_metric_alarm_enabled = false
 
 ftts_elig_port = "22"
 
-#Lambda Govnotify
-notify_lambda_version = "9"
+#Lambda Govnotify - Short Commit version now required taken from Job Console.
+notify_lambda_version = "a8d23be3"
 
 # reporting-xe
-reporting_xe_instance_type    = "t2.medium"
+reporting_xe_instance_type    = "t3a.medium"
 reporting_xe_count            = 0
 reporting_xe_ami_build_id     = "1447"
 reporting_xe_ebs_size         = "32"
@@ -647,6 +649,8 @@ reporting_xe_subnet_cidr      = [""]
 ssm_kms_key_id = "5fc7cd0f-a4d7-4d2e-b32f-f28391249a00"
 
 kms_inspector_count = 1
+create_inspector_report_lambda_version = 1
+email_inspector_report_lambda_version = 1
 ses_user_access_key = false
 
 # Whether or not to create old RDS option and parameter groups
@@ -654,6 +658,7 @@ deprecated_rds_compatibility = false
 
 # Whether to create obs Register New Business Holding resources
 obs_reg_holding = false
+obs_reg_holding_lambda_version = 1
 
 # Whether to create Driver Services resources
 drv_svc_enabled     = true
@@ -661,3 +666,6 @@ driver_service_cert = "*"
 
 # mock gov gateway accounts processor
 mock_gov_gw_accounts_processor_lambda_version = "2"
+
+# lambda ebs housekeeping
+unattached_ebs_vols_lambda_version = "1"
