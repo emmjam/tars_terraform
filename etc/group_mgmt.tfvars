@@ -36,7 +36,6 @@ new_all_users = [
   "rob.whyte@bjss.com",
   "michelle.pike@bjss.com",
   "mike.peachey@bjss.com",
-  "prashant.kumar@bjss.com",
   "richard.freitas@bjss.com",
   "saul.kashani@bjss.com",
   "steven.millington@bjss.com",
@@ -87,7 +86,6 @@ new_all_users = [
   "moeez.shahid@bjss.com",
   "tomasz.chrost@bjss.com",
   "michael.mackintosh@bjss.com",
-  "haris.hassan@bjss.com",
   "banafsheh.shahzaman@bjss.com",
   "callum.walmesley@bjss.com",
 ]
@@ -100,7 +98,6 @@ administrators_tssops_users = [
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
   "christopher.swanson@bjss.com",
-  "prashant.kumar@bjss.com",
   "damian.skiba@bjss.com",
   "ibrar.akram@bjss.com",
   "mike.peachey@bjss.com",
@@ -112,7 +109,6 @@ administrators_tssops_users = [
   "aamir.soni@bjss.com",
   "zawar.shah@bjss.com",
   "richard.teasdale@bjss.com",
-  "haris.hassan@bjss.com",
 ]
 
 readonly_tssops_users = [
@@ -121,7 +117,6 @@ readonly_tssops_users = [
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
   "christopher.swanson@bjss.com",
-  "prashant.kumar@bjss.com",
   "damian.skiba@bjss.com",
   "ibrar.akram@bjss.com",
   "irfan.sidat@bjss.com",
@@ -136,7 +131,6 @@ readonly_tssops_users = [
   "raj.bharaj@bjss.com",
   "aamir.soni@bjss.com",
   "zawar.shah@bjss.com",
-  "haris.hassan@bjss.com",
 ]
 
 # TARS Platform Access
