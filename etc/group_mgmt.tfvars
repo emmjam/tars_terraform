@@ -88,6 +88,7 @@ new_all_users = [
   "michael.mackintosh@bjss.com",
   "banafsheh.shahzaman@bjss.com",
   "callum.walmesley@bjss.com",
+  "jamie.kelly@bjss.com",
 ]
 
 # TSSOps Access
@@ -148,6 +149,7 @@ administrators_platform_nonprod_users = [
   "ian.davies@bjss.com",
   "samantha.burke@bjss.com",
   "michael.mackintosh@bjss.com",
+  "jamie.kelly@bjss.com",
 ]
 readonly_platform_users = [
   "tom.bibb@bjss.com",
@@ -159,6 +161,7 @@ readonly_platform_users = [
   "ian.davies@bjss.com",
   "samantha.burke@bjss.com",
   "banafsheh.shahzaman@bjss.com",
+  "jamie.kelly@bjss.com",
 ]
 
 # Developer Access
