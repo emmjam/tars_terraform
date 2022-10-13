@@ -179,6 +179,11 @@ variable "jenkinsctrl_scaleup_recurrence" {
   description = ""
 }
 
+variable "jenkinsctrl_ebs_size" {
+  type        = number
+  description = "jenkins ctrl ebs size"
+}
+
 variable "mgmt_aws_account_id" {
   type        = string
   description = ""
@@ -457,4 +462,9 @@ variable "ebs_housekeeping_enabled" {
   type        = bool
   default     = false
   description = "Whether or not to perform EBS housekeeping"
+}
+
+variable "unattached_ebs_vols_lambda_version"{
+  type        = string
+  description = "Lambda version"
 }
