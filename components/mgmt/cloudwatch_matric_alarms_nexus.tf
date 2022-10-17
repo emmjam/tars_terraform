@@ -1,6 +1,26 @@
 # CloudWatch monitoring Nexus AL2
 
-# A cloudwatch metric will also need to be added for ebs utilisation for the nexus instance. This will be done as part of OPS-4468
+resource "aws_cloudwatch_metric_alarm" "ebs_utilization_nexus" {
+  alarm_name = (format(
+    "%s-%s-%s-%s",
+    var.project,
+    var.environment,
+    var.component,
+    "nexus-ebs-utilization"
+  ))
+
+  alarm_description   = "This alarms if the EBS of the Nexus EC2 instance is exceeding 90%"
+  comparison_operator = "GreaterThanOrEqualToThreshold"
+  namespace           = "tars-mgmt-nexus/nexus-custom-stats"
+  metric_name         = "DiskUse"
+  evaluation_periods  = "15"
+  threshold           = "90"
+  statistic           = "Average"
+  period              = "900"
+
+  treat_missing_data = "notBreaching"
+  alarm_actions      = ["${aws_sns_topic.nexus_opsgenie[0].arn}"]
+}
 
 resource "aws_cloudwatch_metric_alarm" "cpu_utilization_nexus" {
   alarm_name = (format(

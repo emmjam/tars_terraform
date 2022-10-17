@@ -90,6 +90,8 @@ jenkinsctrl_subnets_cidrs = [
   "10.167.60.48/28",
 ]
 
+jenkinsctrl_ebs_size              = 20
+
 wildfly-back_instance_type        = "m5a.large"
 wildfly-back_puppet_nodetype      = "tars-back"
 wildfly-back_asg_min_size         = 0
@@ -277,7 +279,7 @@ oraclexe_scaleup_desired      = 1
 oraclexe_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## Mock
-mock_ami_build_id = "02f54c88/262"
+mock_ami_build_id = "41097d03/269"
 
 
 ## SFTP
@@ -631,8 +633,8 @@ ibs_high_cpu_cw_metric_alarm_enabled = false
 
 ftts_elig_port = "22"
 
-#Lambda Govnotify
-notify_lambda_version = "9"
+#Lambda Govnotify - Short Commit version now required taken from Job Console.
+notify_lambda_version = "a8d23be3"
 
 # reporting-xe
 reporting_xe_instance_type    = "t2.medium"
@@ -664,3 +666,6 @@ driver_service_cert = "*"
 
 # mock gov gateway accounts processor
 mock_gov_gw_accounts_processor_lambda_version = "2"
+
+# lambda ebs housekeeping
+unattached_ebs_vols_lambda_version = "1"

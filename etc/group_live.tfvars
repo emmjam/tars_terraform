@@ -105,6 +105,8 @@ jenkinsctrl_subnets_cidrs = [
   "10.167.56.48/28",
 ]
 
+jenkinsctrl_ebs_size              = 16
+
 wildfly-back_instance_type        = "m4.xlarge"
 wildfly-back_puppet_nodetype      = "tars-back"
 wildfly-back_asg_min_size         = 0
@@ -599,8 +601,8 @@ power_bi_cidr = "10.164.216.0/22"
 
 ftts_elig_port = "18079"
 
-#Lambda Govnotify
-notify_lambda_version = "9"
+#Lambda Govnotify - Short Commit version now required taken from Job Console.
+notify_lambda_version = "a8d23be3"
 
 # reporting-xe
 reporting_xe_instance_type    = "t3.large"
@@ -628,3 +630,6 @@ driver_service_cert = "dsa.dft.gov.uk"
 
 # mock gov gateway accounts processor
 mock_gov_gw_accounts_processor_lambda_version = "2"
+
+# lambda ebs housekeeping
+unattached_ebs_vols_lambda_version = "1"
