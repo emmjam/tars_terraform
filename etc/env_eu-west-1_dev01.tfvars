@@ -307,8 +307,9 @@ cpc_rds_snapshot          = "tars-dev01-cpc-cpcdb-5-4-2019-5-7-0-2"
 
 
 # IBSDB
-ibs_rds_username = "ibsdevadmin"
-ibs_rds_snapshot = "dev01-ibs-subnet-move"
+ibs_rds_username          = "ibsdevadmin"
+ibs_rds_snapshot          = "dev01-ibs-subnet-move"
+ibs_rds_engine_version    = "5.7.mysql_aurora.2.10.2"
 
 # MISDB
 mis_rds_username          = "misdmsadmin"
