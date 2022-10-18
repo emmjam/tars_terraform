@@ -15,7 +15,7 @@ resource "aws_rds_cluster" "ibsdb_cluster" {
   snapshot_identifier             = var.ibs_rds_snapshot
   final_snapshot_identifier       = "${local.csi}-ibsdb-final"
   deletion_protection             = var.ibsdb_cluster_delete_protect
-  db_cluster_parameter_group_name = aws_rds_cluster_parameter_group.ibs-cluster-parameter-group-2020-04-17.name
+  db_cluster_parameter_group_name = "${local.csi}-${var.ibs_rds_parameter_group_name}"
   iam_roles                       = [aws_iam_role.ibs_rds_role.arn]
   apply_immediately               = var.ibs_rds_apply_immediately
   engine_version                  = var.ibs_rds_engine_version
@@ -43,7 +43,7 @@ resource "aws_rds_cluster_instance" "ibsdb_instance" {
   instance_class          = var.ibs_rds_instance_class
   db_subnet_group_name    = aws_db_subnet_group.ibsdb.name
   publicly_accessible     = false
-  db_parameter_group_name = aws_db_parameter_group.ibs-cluster-writer-par-group-2020-04-17.name
+  db_parameter_group_name = "${local.csi}-${var.ibs_rdswriter_group_name}"
   apply_immediately       = var.ibs_rds_apply_immediately
 
   tags = merge(

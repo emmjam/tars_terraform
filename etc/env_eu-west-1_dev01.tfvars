@@ -307,10 +307,12 @@ cpc_rds_snapshot          = "tars-dev01-cpc-cpcdb-5-4-2019-5-7-0-2"
 
 
 # IBSDB
-ibs_rds_username          = "ibsdevadmin"
-ibs_rds_snapshot          = "dev01-ibs-subnet-move"
-ibs_rds_engine_version    = "5.6.mysql_aurora.1.22.2"
-ibs_rds_major_version_upgrade   = false
+ibs_rds_username              = "ibsdevadmin"
+ibs_rds_snapshot              = "dev01-ibs-subnet-move"
+ibs_rds_engine_version        = "5.6.mysql_aurora.1.22.2"
+ibs_rds_major_version_upgrade = false
+ibs_rds_parameter_group_name  = "cluster-parameter-group-2020-04-17"
+ibs_rdswriter_group_name      = "writer-parameter-group-2020-04-17"
 
 # MISDB
 mis_rds_username          = "misdmsadmin"

@@ -538,6 +538,16 @@ variable "ibs_rds_major_version_upgrade" {
   description = "Allow DB Version Update"
 }
 
+variable "ibs_rds_parameter_group_name" {
+  type        = string
+  description = "Parameter group name date"
+}
+
+variable "ibs_rdswriter_group_name" {
+  type        = string
+  description = "Writer group name date"
+}
+
 variable "ibs_scaledown_desired" {
   type        = string
   description = ""
