@@ -118,8 +118,9 @@ mount ${MOUNT_POINT_ENC};
 
 ###### update passwords from parameter store
 log 'INFO' 'starting secret updates before puppet run'
-log 'INFO' 'offline.properties has placeholder password'
-cat /opt/wildfly/CONF/offline.properties | grep TransferDTCSExtractFileToRSISJob.password
+log 'INFO' 'env offline.properties has placeholder password'
+# cat /opt/wildfly/CONF/offline.properties | grep TransferDTCSExtractFileToRSISJob.password # doesn't exist until puppet run
+cat /opt/tars-batch-config/opsdev-batch/CONF/offline.properties | grep TransferDTCSExtractFileToRSISJob.password
 
 log 'INFO' "Getting 'transfer rsis password'"
 transfer_rsis_password=$($${aws} ssm get-parameter --name "/raman-test/hiera-ssm-parameter" --with-decryption --query 'Parameter.Value' --output text)
@@ -132,12 +133,13 @@ transfer_rsis_password=$($${aws} ssm get-parameter --name "/raman-test/hiera-ssm
 #sed -i "s/TransferDTCSExtractFileToRSISJob_password/$transfer_rsis_password/g" /opt/wildfly/CONF/offline.properties
 
 # this file will be env specific
-log 'INFO' 'Updating transfer rsis password in /opt/tars-batch-config/opsdev-batch/CONF/offline.properties'
+log 'INFO' 'Updating transfer rsis password for opsdev in /opt/tars-batch-config/opsdev-batch/CONF/offline.properties'
 sed -i "s/TransferDTCSExtractFileToRSISJob_password/$transfer_rsis_password/g" /opt/tars-batch-config/opsdev-batch/CONF/offline.properties
 
 log 'INFO' 'env batch config offline.properties after placeholder password has been updated (this is dummy password)'
 #cat /opt/wildfly/CONF/offline.properties | grep TransferDTCSExtractFileToRSISJob.password # does not exist yet
 cat /opt/tars-batch-config/opsdev-batch/CONF/offline.properties | grep TransferDTCSExtractFileToRSISJob.password
+# /opt/tars-batch-config/opsdev-batch/CONF/offline.properties will get copied to /opt/wildfly/CONF/offline.properties during puppet run
 ###### end of update passwords from parameter store
 
 cd /opt/packer-puppet-masterless
