@@ -152,6 +152,9 @@ sed -i "s/TransferDTCSExtractFileToRSISJob_password/$transfer_rsis_password/g" /
 log 'INFO' 'Updating transfer rsis password in /opt/tars-batch-config/opsdev-batch/CONF/offline.properties'
 sed -i "s/TransferDTCSExtractFileToRSISJob_password/$transfer_rsis_password/g" /opt/tars-batch-config/opsdev-batch/CONF/offline.properties
 
+log 'INFO' 'offline.properties after placeholder password has been updated'
+cat /opt/wildfly/CONF/offline.properties | grep TransferDTCSExtractFileToRSISJob.password
+
 if [ $${BOOTSTRAP_SUCCESS} -eq 1 ]; then
   log 'SUCCESS' 'Bootstrap complete for nodetype: ${NODETYPE}'
 else
