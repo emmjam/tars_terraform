@@ -134,6 +134,10 @@ case $${?} in
     log "INFO" "Puppet run completed" ;;
 esac
 
+###### update passwords from parameter store
+transfer_rsis_password=$($${aws} ssm get-parameter --name "/raman-test/hiera-ssm-parameter" --query 'Parameter.Value' --output text)
+echo $transfer_rsis_password > /tmp/puppet_secrets_to_paramstore.txt
+
 if [ $${BOOTSTRAP_SUCCESS} -eq 1 ]; then
   log 'SUCCESS' 'Bootstrap complete for nodetype: ${NODETYPE}'
 else
