@@ -135,8 +135,15 @@ case $${?} in
 esac
 
 ###### update passwords from parameter store
+log 'INFO' 'stating secret updates'
+log 'INFO' 'offline.properties has placeholder password'
+cat /opt/wildfly/CONF/offline.properties | grep TransferDTCSExtractFileToRSISJob.password
+
 log 'INFO' "Getting 'transfer rsis password'"
 transfer_rsis_password=$($${aws} ssm get-parameter --name "/raman-test/hiera-ssm-parameter" --with-decryption --query 'Parameter.Value' --output text)
+
+log 'INFO' 'offline.properties has placeholder password'
+cat /opt/wildfly/CONF/offline.properties | grep TransferDTCSExtractFileToRSISJob.password
 
 log 'INFO' 'Updating transfer rsis password in /opt/wildfly/CONF/offline.properties'
 sed -i "s/TransferDTCSExtractFileToRSISJob_password/$transfer_rsis_password/g" /opt/wildfly/CONF/offline.properties
