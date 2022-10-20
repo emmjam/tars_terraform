@@ -122,7 +122,7 @@ log 'INFO' '/opt/tars-batch-config/${ENVIRONMENT}-batch/CONF/offline.properties 
 cat /opt/tars-batch-config/${ENVIRONMENT}-batch/CONF/offline.properties | grep TransferDTCSExtractFileToRSISJob.password
 
 log 'INFO' "Getting 'transfer rsis password' from parameter store"
-transfer_rsis_password=$($${aws} ssm get-parameter --name "/raman-test/hiera-ssm-parameter" --with-decryption --query 'Parameter.Value' --output text)
+transfer_rsis_password=$(aws ssm get-parameter --name "/raman-test/hiera-ssm-parameter" --with-decryption --query 'Parameter.Value' --output text)
 
 # this file will be env specific
 log 'INFO' "Updating transfer rsis password for ${ENVIRONMENT} in /opt/tars-batch-config/${ENVIRONMENT}-batch/CONF/offline.properties"
