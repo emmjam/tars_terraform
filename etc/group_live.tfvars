@@ -93,8 +93,8 @@ ctrl_mgmt_tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote s
 #Monitoring
 prometheus_asg_min_size          = 1
 prometheus_asg_max_size          = 1
-prometheus_instance_type         = "t3.medium"
-prometheus_ami_build_id          = "1274"
+prometheus_instance_type         = "t3a.medium"
+prometheus_ami_build_id          = "1450"
 prometheus_efs_provisioned_mibps = 5
 
 
@@ -107,7 +107,7 @@ jenkinsctrl_subnets_cidrs = [
 
 jenkinsctrl_ebs_size              = 16
 
-wildfly-back_instance_type        = "m4.xlarge"
+wildfly-back_instance_type        = "m5a.xlarge"
 wildfly-back_puppet_nodetype      = "tars-back"
 wildfly-back_asg_min_size         = 0
 wildfly-back_asg_max_size         = 4
@@ -117,7 +117,7 @@ wildfly-back_scaleup_desired      = 4
 wildfly-back_scaleup_recurrence   = "1 12,00 * * *"
 
 ## wildfly-batch
-wildfly-batch_instance_type        = "m4.large"
+wildfly-batch_instance_type        = "m5a.large"
 wildfly-batch_puppet_nodetype      = "tars-batch"
 wildfly-batch_asg_min_size         = 0
 wildfly-batch_asg_max_size         = 1
@@ -127,7 +127,7 @@ wildfly-batch_scaleup_desired      = 1
 wildfly-batch_scaleup_recurrence   = "00 08 * * 1-5"
 
 ## wildfly-front
-wildfly-front_instance_type        = "m4.large"
+wildfly-front_instance_type        = "m5a.large"
 wildfly-front_puppet_env           = "opsdev"
 wildfly-front_puppet_nodetype      = "tars-front"
 wildfly-front_asg_min_size         = 0
@@ -138,7 +138,7 @@ wildfly-front_scaleup_desired      = 2
 wildfly-front_scaleup_recurrence   = "00 08 * * 1-5"
 
 ## obs
-obs_instance_type        = "m4.large"
+obs_instance_type        = "m5a.large"
 obs_puppet_nodetype      = "obs"
 obs_asg_min_size         = 0
 obs_asg_max_size         = 2
@@ -148,7 +148,7 @@ obs_scaleup_desired      = 2
 obs_scaleup_recurrence   = "00 08 * * 1-5"
 
 ## ibs
-ibs_instance_type        = "m4.large"
+ibs_instance_type        = "m5a.large"
 ibs_puppet_nodetype      = "ibs"
 ibs_asg_min_size         = 0
 ibs_asg_max_size         = 6
@@ -163,9 +163,13 @@ ibs_rds_backup_retention_period = "7"
 ibs_rds_backup_window           = "02:38-03:08"
 ibs_rds_maint_window            = "sun:03:16-sun:03:46"
 ibs_rds_apply_immediately       = "true"
+ibs_rds_engine_version          = "5.6.mysql_aurora.1.22.2"
+ibs_rds_major_version_upgrade   = false
+ibs_rds_parameter_group_name  = "cluster-parameter-group-2020-04-17"
+ibs_rdswriter_group_name      = "writer-parameter-group-2020-04-17"
 
 ## fyndi-f
-fyndi-f_instance_type        = "m4.large"
+fyndi-f_instance_type        = "m5a.large"
 fyndi-f_puppet_nodetype      = "fyndi-front"
 fyndi-f_asg_min_size         = 0
 fyndi-f_asg_max_size         = 2
@@ -175,7 +179,7 @@ fyndi-f_scaleup_desired      = 2
 fyndi-f_scaleup_recurrence   = "00 08 * * 1-5"
 
 ## fyndi_back
-fyndi-b_instance_type        = "m4.large"
+fyndi-b_instance_type        = "m5a.large"
 fyndi-b_puppet_nodetype      = "fyndi-back"
 fyndi-b_asg_min_size         = 0
 fyndi-b_asg_max_size         = 2
@@ -218,7 +222,7 @@ aws_mq_users_cpc_batch_password      = "password123456"
 aws_mq_users_cpc_batch_group         = "cpc_batch"
 
 ## cpc-back
-cpc-back_instance_type        = "m4.large"
+cpc-back_instance_type        = "m5a.large"
 cpc-back_puppet_nodetype      = "cpc-back"
 cpc-back_asg_min_size         = 0
 cpc-back_asg_max_size         = 2
@@ -228,7 +232,7 @@ cpc-back_scaleup_desired      = 2
 cpc-back_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## cpc-front
-cpc-front_instance_type        = "m4.large"
+cpc-front_instance_type        = "m5a.large"
 cpc-front_puppet_nodetype      = "cpc-front"
 cpc-front_asg_min_size         = 0
 cpc-front_asg_max_size         = 2
@@ -238,7 +242,7 @@ cpc-front_scaleup_desired      = 2
 cpc-front_scaleup_recurrence   = "00 07 * * 1-5"
 
 ## sftpplus-svr
-sftpplus-svr_instance_type        = "t2.medium"
+sftpplus-svr_instance_type        = "t3a.medium"
 sftpplus-svr_puppet_nodetype      = "sftpplus-svr"
 sftpplus-svr_asg_min_size         = 0
 sftpplus-svr_asg_max_size         = 1
@@ -248,7 +252,7 @@ sftpplus-svr_scaleup_desired      = 1
 sftpplus-svr_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## cpc-batch
-cpc-batch_instance_type        = "m4.large"
+cpc-batch_instance_type        = "m5a.large"
 cpc-batch_puppet_nodetype      = "cpc-batch"
 cpc-batch_asg_min_size         = 0
 cpc-batch_asg_max_size         = 1
@@ -263,7 +267,7 @@ aws_mq_config_engine_type    = "ActiveMQ"
 aws_mq_config_engine_version = "5.15.9"
 
 ##  JMeter
-jmeter_instance_type              = "t3.micro"
+jmeter_instance_type              = "t3a.micro"
 jmeter_asg_size_desired_on_create = 0
 jmeter_asg_size_max               = 0
 jmeter_asg_size_min               = 0
@@ -605,7 +609,7 @@ ftts_elig_port = "18079"
 notify_lambda_version = "a8d23be3"
 
 # reporting-xe
-reporting_xe_instance_type    = "t3.large"
+reporting_xe_instance_type    = "t3a.large"
 reporting_xe_count            = 0
 reporting_xe_ami_build_id     = "1447"
 reporting_xe_ebs_size         = "40"

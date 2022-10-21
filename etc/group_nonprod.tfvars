@@ -573,6 +573,10 @@ ibs_rds_backup_retention_period = "7"
 ibs_rds_backup_window           = "02:38-03:08"
 ibs_rds_maint_window            = "sun:03:16-sun:03:46"
 ibs_rds_apply_immediately       = "true"
+ibs_rds_engine_version          = "5.6.mysql_aurora.1.22.2"
+ibs_rds_major_version_upgrade   = false
+ibs_rds_parameter_group_name  = "cluster-parameter-group-2020-04-17"
+ibs_rdswriter_group_name      = "writer-parameter-group-2020-04-17"
 
 # DC Gateway details
 dc_gateway_name    = "Tars-NonProd-DirCon"
@@ -637,7 +641,7 @@ ftts_elig_port = "22"
 notify_lambda_version = "a8d23be3"
 
 # reporting-xe
-reporting_xe_instance_type    = "t2.medium"
+reporting_xe_instance_type    = "t3a.medium"
 reporting_xe_count            = 0
 reporting_xe_ami_build_id     = "1447"
 reporting_xe_ebs_size         = "32"
