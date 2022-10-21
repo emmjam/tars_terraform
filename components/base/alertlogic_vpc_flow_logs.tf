@@ -10,9 +10,15 @@ resource "aws_s3_bucket" "alertlogic_vpc_logs" {
     target_bucket = aws_s3_bucket.bucketlogs.id
     target_prefix = "${local.csi_global}-vpc-logs/"
   }
-  versioning {
-    enabled = true
+}
+
+resource "aws_s3_bucket_versioning" "alertlogic_vpc_logs" {
+  count  = length(var.alert_logic) == 0 ? 0 : 1
+  bucket = aws_s3_bucket.alertlogic_vpc_logs[count.index].id
+  versioning_configuration {
+    status = "Enabled"
   }
+
 }
 
 ## IAM Role for this account's Firehose to access/write to S3

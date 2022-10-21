@@ -93,5 +93,11 @@ resource "aws_db_parameter_group" "tars-core-12-2" {
     value        = "14400"
     apply_method = "immediate"
   }
+
+  # after updating to TF1.2 and aws provider 4.36.0 this resource is always showing as needing a change in a plans even after applies
+  # this parameter group will not change as 19c is currently in use but is needed for snapshots so adding a ignore changes lifecycle rule
+  lifecycle {
+    ignore_changes = [parameter]
+  }
 }
 

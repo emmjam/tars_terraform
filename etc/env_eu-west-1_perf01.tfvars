@@ -315,12 +315,14 @@ ad_account         = "233824316563"
 tars_rds_username          = "tarsuatadmin"
 tars_rds_allocated_storage = "610"
 tars_rds_snapshot          = "tars-perf01-tars-core-tarsdb-2019-01-28-12-2"
+tars_rds_engine_version    = "19.0.0.0.ru-2021-10.rur-2021-10.r1" # specific version required when updating to aws provider 4.36.0, can be removed after an apply
 
 # CPCDB
 cpc_rds_username          = "tarscpcadmin"
 cpc_rds_snapshot          = ""
 cpc_rds_allocated_storage = "100"
 cpc_rds_backup_retention  = "21"
+cpc_rds_engine_version    = "19.0.0.0.ru-2021-10.rur-2021-10.r1" # specific version required when updating to aws provider 4.36.0, can be removed after an apply
 
 # MISDB
 mis_rds_username            = "misdmsadmin"

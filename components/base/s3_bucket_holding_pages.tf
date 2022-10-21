@@ -1,17 +1,6 @@
 resource "aws_s3_bucket" "holding_pages" {
   bucket = "${local.csi_global}-holding-pages"
   tags   = local.default_tags
-
-  website {
-    index_document = "index.html"
-  }
-  logging {
-    target_bucket = aws_s3_bucket.bucketlogs.id
-    target_prefix = "${local.csi_global}-holding-pages/"
-  }
-  versioning {
-    enabled = true
-  }
 }
 
 resource "aws_s3_bucket_public_access_block" "holding_pages" {
@@ -22,3 +11,25 @@ resource "aws_s3_bucket_public_access_block" "holding_pages" {
   restrict_public_buckets = true
 }
 
+# provider resource updates
+resource "aws_s3_bucket_website_configuration" "holding_pages" {
+  bucket = aws_s3_bucket.holding_pages.bucket
+
+  index_document {
+    suffix = "index.html"
+  }
+}
+
+resource "aws_s3_bucket_logging" "holding_pages" {
+  bucket = aws_s3_bucket.holding_pages.id
+
+  target_bucket = aws_s3_bucket.bucketlogs.id
+  target_prefix = "${local.csi_global}-holding-pages/"
+}
+
+resource "aws_s3_bucket_versioning" "holding_pages" {
+  bucket = aws_s3_bucket.holding_pages.id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}

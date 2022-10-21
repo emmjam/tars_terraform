@@ -22,26 +22,43 @@ resource "aws_autoscaling_group" "tars-messaging" {
 
   enabled_metrics = var.asg_enabled_metrics
 
-  tags = concat(
-    var.asg_default_tags,
-    [
-      {
-        "key"                 = "Name"
-        "value"               = "${local.csi}/wf-messaging"
-        "propagate_at_launch" = "true"
-      },
-      {
-        "key"                 = "Nodetype"
-        "value"               = "wildfly"
-        "propagate_at_launch" = "true"
-      },
-      {
-        "key"                 = "Component"
-        "value"               = var.component
-        "propagate_at_launch" = "true"
-      },
-    ],
-  )
+  # add default tags loop here
+  tag {
+    key                 = var.asg_default_tags[0].key
+    value               = var.asg_default_tags[0].value
+    propagate_at_launch = var.asg_default_tags[0].propagate_at_launch
+  }
+
+  tag {
+    key                 = var.asg_default_tags[1].key
+    value               = var.asg_default_tags[1].value
+    propagate_at_launch = var.asg_default_tags[1].propagate_at_launch
+  }
+
+  tag {
+    key                 = var.asg_default_tags[2].key
+    value               = var.asg_default_tags[2].value
+    propagate_at_launch = var.asg_default_tags[2].propagate_at_launch
+  }
+  # end of loop
+
+  tag {
+    key                 = "Name"
+    value               = "${local.csi}/wf-messaging"
+    propagate_at_launch = true
+  }
+
+  tag {
+    key                 = "Nodetype"
+    value               = "wildfly"
+    propagate_at_launch = true
+  }
+
+  tag {
+    key                 = "Component"
+    value               = var.component
+    propagate_at_launch = true
+  }
 
   # Spin up max desired messaging servers
   # Spin up max desired messaging servers

@@ -325,6 +325,7 @@ mis_rds_allocated_storage = "440"
 mis_rds_snapshot          = "tars-mis-db-anon2-28072022-do-not-delete"
 mis_rds_autoscale         = "False"
 mis_rds_backup_retention  = "21"
+mis_rds_engine_version    = "19.0.0.0.ru-2021-10.rur-2021-10.r1" # specific version required when updating to aws provider 4.36.0, can be removed after an apply
 
 # RSISDB
 rsis_rds_username          = "rsisuatadmin"

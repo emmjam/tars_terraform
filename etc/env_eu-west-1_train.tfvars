@@ -292,9 +292,11 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 tars_rds_username          = "tarsuatadmin"
 tars_rds_allocated_storage = "300"
 tars_rds_snapshot          = ""
+tars_rds_engine_version    = "19.0.0.0.ru-2021-10.rur-2021-10.r1" # specific version required when updating to aws provider 4.36.0, can be removed after an apply
 
 # CPCSDB
 cpc_rds_username = "cpcadmin"
+cpc_rds_engine_version    = "19.0.0.0.ru-2021-10.rur-2021-10.r1" # specific version required when updating to aws provider 4.36.0, can be removed after an apply
 
 # CPCTSDB
 cpc_rds_allocated_storage = "100" # 20 Gigabyte - was 1500GB
