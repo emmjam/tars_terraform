@@ -15,6 +15,18 @@ resource "aws_s3_bucket" "alertlogic_vpc_logs" {
   }
 }
 
+# s3 bucket version syntax deprecated, uppdated code
+/*
+resource "aws_s3_bucket_versioning" "alertlogic_vpc_logs_versioning" {
+  count  = length(var.alert_logic) == 0 ? 0 : 1
+  bucket = aws_s3_bucket.alertlogic_vpc_logs[count.index].id
+  versioning_configuration {
+    status = "Enabled"
+  }
+
+}
+*/
+
 ## IAM Role for this account's Firehose to access/write to S3
 data "aws_iam_policy_document" "firehose_to_al_vpc_s3_trustpolicy" {
   count = length(var.alert_logic) == 0 ? 0 : 1
