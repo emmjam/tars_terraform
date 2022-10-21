@@ -10,7 +10,7 @@ resource "aws_db_instance" "tarsdb" {
   allocated_storage               = var.tars_rds_allocated_storage
   storage_type                    = var.tars_rds_storage_type
   engine                          = var.tars_rds_engine
-  engine_version                  = var.tars_rds_engine_version
+  #engine_version                  = var.tars_rds_engine_version # enable when doing a major upgrade and ensure the current version is specified in group tfvars first
   allow_major_version_upgrade     = var.tars_rds_allow_major_engine_version_upgrade
   instance_class                  = var.tars_rds_instance_class
   username                        = var.tars_rds_username
@@ -26,7 +26,7 @@ resource "aws_db_instance" "tarsdb" {
   snapshot_identifier             = var.tars_rds_snapshot
   parameter_group_name            = "${local.csi}-${var.tars_rds_parameter_group_name}"
   option_group_name               = "${local.csi}-${var.tars_rds_option_group_name}"
-  name                            = var.tars_rds_sid_name
+  db_name                         = var.tars_rds_sid_name
   deletion_protection             = var.tars_rds_delete_protect
   enabled_cloudwatch_logs_exports = ["alert", "listener"]
 

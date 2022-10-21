@@ -11,7 +11,7 @@ resource "aws_db_instance" "sonarqube" {
   db_subnet_group_name   = aws_db_subnet_group.sonarqube.name
   parameter_group_name   = aws_db_parameter_group.sonarqube.name
 
-  name                    = var.rds_db_name
+  db_name                 = var.rds_db_name
   allocated_storage       = var.rds_allocated_storage
   storage_type            = var.rds_storage_type
   engine                  = var.rds_engine

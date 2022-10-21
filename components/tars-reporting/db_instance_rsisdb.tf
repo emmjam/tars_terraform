@@ -10,7 +10,7 @@ resource "aws_db_instance" "rsisdb" {
   allocated_storage               = var.rsis_rds_allocated_storage
   storage_type                    = var.rsis_rds_storage_type
   engine                          = var.rsis_rds_engine
-  engine_version                  = var.rsis_rds_engine_version
+  #engine_version                  = var.rsis_rds_engine_version
   instance_class                  = var.rsis_rds_instance_class
   username                        = var.rsis_rds_username
   password                        = data.aws_ssm_parameter.rsis_rds_password.value
@@ -25,7 +25,7 @@ resource "aws_db_instance" "rsisdb" {
   snapshot_identifier             = var.rsis_rds_snapshot
   parameter_group_name            = "${local.csi}-${var.rsis_rds_parameter_group_name}"
   option_group_name               = "tars-rsis-reporting-${var.environment}-${var.rsis_rds_option_group_name}"
-  name                            = var.rsis_rds_sid_name
+  db_name                         = var.rsis_rds_sid_name
   deletion_protection             = var.risdb_rds_delete_protect
   enabled_cloudwatch_logs_exports = ["alert", "listener"]
   allow_major_version_upgrade     = var.rsis_allow_major_version_upgrade

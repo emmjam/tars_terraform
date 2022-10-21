@@ -27,6 +27,15 @@ locals {
     },
   )
 
+  asg_default_tags = merge(
+    var.asg_default_tags,
+      {
+        Name                  = "${local.csi}/wf-messaging"
+        Nodetype              = "wildfly"
+        Component             = var.component
+      },
+  )
+
   vpc_domain_name = "${var.environment}.${var.private_domain_name}"
 }
 

@@ -12,5 +12,14 @@ locals {
       "Module" = var.module
     },
   )
+
+  asg_default_tags = merge (
+    var.asg_default_tags,
+    {
+      Name = format("%s/%s", local.csi, var.name)
+      Nodetype = var.name
+      Module = var.module
+    }
+  )
 }
 

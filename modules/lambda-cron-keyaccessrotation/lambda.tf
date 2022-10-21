@@ -65,12 +65,6 @@ resource "aws_lambda_function" "lambda_cron" {
       "Module"    = var.module
     })
   )
-  lifecycle {
-    ignore_changes = [
-      qualified_arn,
-      version,
-    ]
-  }
 }
 
 resource "aws_lambda_permission" "lambda_cron_allow_cloudwatchevents" {

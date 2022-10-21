@@ -22,26 +22,15 @@ resource "aws_autoscaling_group" "tars-messaging" {
 
   enabled_metrics = var.asg_enabled_metrics
 
-  tags = concat(
-    var.asg_default_tags,
-    [
-      {
-        "key"                 = "Name"
-        "value"               = "${local.csi}/wf-messaging"
-        "propagate_at_launch" = "true"
-      },
-      {
-        "key"                 = "Nodetype"
-        "value"               = "wildfly"
-        "propagate_at_launch" = "true"
-      },
-      {
-        "key"                 = "Component"
-        "value"               = var.component
-        "propagate_at_launch" = "true"
-      },
-    ],
-  )
+  dynamic "tag" {
+    for_each = local.asg_default_tags
+    content {
+      key   = tag.key
+      value = tag.value
+
+      propagate_at_launch = true
+    }
+  }
 
   # Spin up max desired messaging servers
   # Spin up max desired messaging servers

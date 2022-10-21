@@ -15,23 +15,11 @@ default_tags = {
   DVSA_Env    = "preprod"
 }
 
-asg_default_tags = [
-  {
-    "key"                 = "Project"
-    "value"               = "tars"
-    "propagate_at_launch" = "true"
-  },
-  {
-    "key"                 = "Environment"
-    "value"               = "prep"
-    "propagate_at_launch" = "true"
-  },
-  {
-    "key"                 = "Group"
-    "value"               = "live"
-    "propagate_at_launch" = "true"
-  }
-]
+asg_default_tags = {
+  Project     = "tars"
+  Environment = "prep"
+  Group       = "live"
+}
 
 ###############################################################################
 # CTRL
@@ -47,6 +35,7 @@ guardduty_member_enabled = "0"
 ###############################################################################
 # prep
 ###############################################################################
+wildfly-messaging_ebs_volume_type = "gp3"
 
 wildfly-messaging_ebs_vol         = 50
 wildfly-messaging_ebs_volume_type = "gp3"

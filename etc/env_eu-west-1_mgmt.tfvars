@@ -15,23 +15,11 @@ default_tags = {
   DVSA_Env    = "mgmt"
 }
 
-asg_default_tags = [
-  {
-    "key"                 = "Project"
-    "value"               = "tars"
-    "propagate_at_launch" = "true"
-  },
-  {
-    "key"                 = "Environment"
-    "value"               = "mgmt"
-    "propagate_at_launch" = "true"
-  },
-  {
-    "key"                 = "Group"
-    "value"               = "mgmt"
-    "propagate_at_launch" = "true"
-  }
-]
+asg_default_tags = {
+  Project     = "tars"
+  Environment = "mgmt"
+  Group       = "mgmt"
+}
 
 private_domain_name = "tars.dvsa.aws"
 
@@ -299,7 +287,7 @@ sonarqube = {
   rds_storage_type            = "gp2"
   rds_allocated_storage       = "20"
   rds_engine                  = "postgres"
-  rds_engine_version          = "10"
+  rds_engine_version          = "10.21"
   rds_pg_family               = "postgres10"
   rds_instance_class          = "db.t3.medium"
   rds_multi_az                = false

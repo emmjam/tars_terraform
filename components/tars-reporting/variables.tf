@@ -314,13 +314,12 @@ variable "whitelist" {
 }
 
 variable "asg_default_tags" {
-  type = list(object({
-    key                 = string
-    value               = string
-    propagate_at_launch = string
-  }))
-  description = "See code comments"
-  default     = []
+  type        = map(string)
+  description = "Default tag map"
+
+  default = {
+    Component = "tars-reporting"
+  }
 }
 
 variable "bobj_cert" {

@@ -15,23 +15,11 @@ default_tags = {
   DVSA_Env    = "dev"
 }
 
-asg_default_tags = [
-  {
-    "key"                 = "Project"
-    "value"               = "tars"
-    "propagate_at_launch" = "true"
-  },
-  {
-    "key"                 = "Environment"
-    "value"               = "perf01"
-    "propagate_at_launch" = "true"
-  },
-  {
-    "key"                 = "Group"
-    "value"               = "nonprod"
-    "propagate_at_launch" = "true"
-  }
-]
+asg_default_tags = {
+  Project     = "tars"
+  Environment = "perf01"
+  Group       = "nonprod"
+}
 
 ###############################################################################
 # CTRL
@@ -316,11 +304,13 @@ tars_rds_username          = "tarsuatadmin"
 tars_rds_allocated_storage = "610"
 tars_rds_snapshot          = "tars-perf01-tars-core-tarsdb-2019-01-28-12-2"
 
+
 # CPCDB
 cpc_rds_username          = "tarscpcadmin"
 cpc_rds_snapshot          = ""
 cpc_rds_allocated_storage = "100"
 cpc_rds_backup_retention  = "21"
+
 
 # MISDB
 mis_rds_username            = "misdmsadmin"

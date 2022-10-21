@@ -1,35 +1,7 @@
 resource "aws_s3_bucket" "inspector_reports" {
   count         = var.kms_inspector_count
   bucket        = "${local.csi_global}-inspector-reports"
-  acl           = "private"
   force_destroy = "true"
-
-  server_side_encryption_configuration {
-    rule {
-      apply_server_side_encryption_by_default {
-        sse_algorithm = "aws:kms"
-      }
-    }
-  }
-
-  logging {
-    target_bucket = aws_s3_bucket.acc-bucketlogs.id
-    target_prefix = "${local.csi}-inspector-reports/"
-  }
-
-  versioning {
-    enabled = false
-  }
-
-  lifecycle_rule {
-    id      = "wholebucket"
-    prefix  = "/"
-    enabled = "true"
-
-    expiration {
-      days = 1825
-    }
-  }
 
   tags = merge(
     local.default_tags,
@@ -79,3 +51,55 @@ resource "aws_s3_bucket_policy" "inspector_reports" {
   policy = data.aws_iam_policy_document.inspector_reports[0].json
 }
 
+resource "aws_s3_bucket_acl" "inspector_reports" {
+  count  = var.kms_inspector_count
+  bucket = aws_s3_bucket.inspector_reports[count.index].id
+  acl    = "private"
+}
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "inspector_reports" {
+  count  = var.kms_inspector_count
+  bucket = aws_s3_bucket.inspector_reports[count.index].id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm     = "aws:kms"
+    }
+  }
+}
+
+resource "aws_s3_bucket_logging" "inspector_reports" {
+  count         = var.kms_inspector_count
+  bucket        = aws_s3_bucket.inspector_reports[count.index].id
+
+  target_bucket = aws_s3_bucket.acc-bucketlogs.id
+  target_prefix = "${local.csi}-inspector-reports/"
+}
+
+resource "aws_s3_bucket_versioning" "inspector_reports" {
+  count    = var.kms_inspector_count
+  bucket   = aws_s3_bucket.inspector_reports[count.index].id
+
+  versioning_configuration {
+    status = "Suspended"
+  }
+}
+
+resource "aws_s3_bucket_lifecycle_configuration" "inspector_reports" {
+  count  = var.kms_inspector_count
+  bucket = aws_s3_bucket.inspector_reports[count.index].id
+
+  rule {
+    id = "wholebucket"
+
+    filter {
+      prefix = "/"
+    }
+
+    expiration {
+      days = 1825
+    }
+
+    status = "Enabled"
+  }
+}

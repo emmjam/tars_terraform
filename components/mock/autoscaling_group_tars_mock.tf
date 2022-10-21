@@ -23,26 +23,16 @@ resource "aws_autoscaling_group" "tars-mock" {
 
   enabled_metrics = var.asg_enabled_metrics
 
-  tags = concat(
-    var.asg_default_tags,
-    [
-      {
-        "key"                 = "Name"
-        "value"               = format("%s/%s", local.csi, "mock")
-        "propagate_at_launch" = "true"
-      },
-      {
-        "key"                 = "Nodetype"
-        "value"               = "wildfly-mock"
-        "propagate_at_launch" = "true"
-      },
-      {
-        "key"                 = "Component"
-        "value"               = var.component
-        "propagate_at_launch" = "true"
-      },
-    ],
-  )
+  dynamic "tag" {
+    for_each = local.asg_default_tags
+    content {
+      key   = tag.key
+      value = tag.value
+
+      propagate_at_launch = true
+    }
+  }
+
 
   # Spin up mock servers to the max defined
   # Spin up mock servers to the max defined
