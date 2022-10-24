@@ -4,7 +4,7 @@ data "aws_iam_policy_document" "sftpplus_describe_efs" {
     effect = "Allow"
 
     actions = [
-      "elasticfilesystem:DescribeFileSystems",
+      "elasticfilesystem:DescribeMountTargets",
     ]
 
     resources = [
