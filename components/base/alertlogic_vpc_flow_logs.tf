@@ -10,14 +10,9 @@ resource "aws_s3_bucket" "alertlogic_vpc_logs" {
     target_bucket = aws_s3_bucket.bucketlogs.id
     target_prefix = "${local.csi_global}-vpc-logs/"
   }
-  versioning {
-    enabled = true
-  }
 }
 
-# s3 bucket version syntax deprecated, uppdated code
-/*
-resource "aws_s3_bucket_versioning" "alertlogic_vpc_logs_versioning" {
+resource "aws_s3_bucket_versioning" "alertlogic_vpc_logs" {
   count  = length(var.alert_logic) == 0 ? 0 : 1
   bucket = aws_s3_bucket.alertlogic_vpc_logs[count.index].id
   versioning_configuration {
@@ -25,7 +20,6 @@ resource "aws_s3_bucket_versioning" "alertlogic_vpc_logs_versioning" {
   }
 
 }
-*/
 
 ## IAM Role for this account's Firehose to access/write to S3
 data "aws_iam_policy_document" "firehose_to_al_vpc_s3_trustpolicy" {
