@@ -111,7 +111,7 @@ EFS_IP_ENC=$(aws efs describe-mount-targets --file-system-id ${EFS_ENC_ID} --que
 EFS_IP=$(aws efs describe-mount-targets --file-system-id ${EFS_ID} --query "MountTargets[?AvailabilityZoneName == '$${az}'].IpAddress" --output text)
 
 echo "$${EFS_IP}:/ ${MOUNT_POINT} nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0 # $${az}.${EFS_ID}.efs.$${region}.amazonaws.com" >> /etc/fstab
-echo "$${EFS_IP_ENC}:/ ${MOUNT_POINT_ENC} efs rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,tls 0 0 # $${az}.${EFS_ENC_ID}.efs.$${region}.amazonaws.com" >> /etc/fstab
+echo "$${EFS_IP_ENC}:/ ${MOUNT_POINT_ENC} nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0 # $${az}.${EFS_ENC_ID}.efs.$${region}.amazonaws.com" >> /etc/fstab
 
 ##### END OF TEMPORRARY FIX !!! ######################################
 ######################################################################
