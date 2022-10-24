@@ -20,6 +20,6 @@ resource "aws_iam_policy" "sftpplus_describe_efs" {
 }
 
 resource "aws_iam_role_policy_attachment" "sftpplus_describe_efs" {
-  role       = module.sftpplus_srv.iam_role_name
+  role       = module.sftpplus_svr.iam_role_name
   policy_arn = aws_iam_policy.sftpplus_describe_efs.arn
 }
