@@ -34,3 +34,8 @@ resource "aws_iam_role_policy_attachment" "receive_sqs_message" {
   role       = module.tars_batch.iam_role_name
   policy_arn = aws_iam_policy.receive_sqs_message.arn
 }
+
+resource "aws_iam_role_policy_attachment" "tars_batch_describe_efs" {
+  role       = module.tars_batch.iam_role_name
+  policy_arn = aws_iam_policy.tars_batch_describe_efs.arn
+}
