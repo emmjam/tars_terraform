@@ -108,8 +108,22 @@ export az="$(curl -s http://169.254.169.254/latest/meta-data/placement/availabil
 
 # TODO: peacheym: Migrate to the AZ-independent URL
 # Set mount information in /etc/fstab - we're unlikely to reboot, but it can't hurt to ensure it remains
-echo "$${az}.${EFS_ID}.efs.$${region}.amazonaws.com:/ ${MOUNT_POINT} nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab
-echo "$${az}.${EFS_ENC_ID}.efs.$${region}.amazonaws.com:/ ${MOUNT_POINT_ENC} efs rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,tls 0 0" >> /etc/fstab
+
+# echo "$${az}.${EFS_ID}.efs.$${region}.amazonaws.com:/ ${MOUNT_POINT} nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab
+# echo "$${az}.${EFS_ENC_ID}.efs.$${region}.amazonaws.com:/ ${MOUNT_POINT_ENC} efs rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,tls 0 0" >> /etc/fstab
+
+######################################################################
+##### TEMPORRARY FIX !!! #############################################
+# This to use IP addresses until such time as the DNS issue is fixed and the above fstab will work in a self-heal scenario
+
+EFS_IP_ENC=$(aws efs describe-mount-targets --file-system-id ${EFS_ENC_ID} --query "MountTargets[?AvailabilityZoneName == '$${az}'].IpAddress" --output text)
+EFS_IP=$(aws efs describe-mount-targets --file-system-id ${EFS_ID} --query "MountTargets[?AvailabilityZoneName == '$${az}'].IpAddress" --output text)
+
+echo "$${EFS_IP}:/ ${MOUNT_POINT} nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab
+echo "$${EFS_IP_ENC}:/ ${MOUNT_POINT_ENC} efs rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,tls 0 0" >> /etc/fstab
+
+##### END OF TEMPORRARY FIX !!! ######################################
+######################################################################
 
 # Mount the configured target for Batch
 mount ${MOUNT_POINT};
