@@ -11,6 +11,6 @@ resource "aws_efs_file_system" "prometheus-enc" {
   )
 
   lifecycle {
-    ignore_changes = ["provisioned_throughput_in_mibps"]
+    ignore_changes = [provisioned_throughput_in_mibps]
   }
 }
