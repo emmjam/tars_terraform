@@ -9,3 +9,7 @@ resource "aws_iam_role_policy_attachment" "prometheus" {
   policy_arn = aws_iam_policy.prometheus.arn
 }
 
+resource "aws_iam_role_policy_attachment" "prometheus_describe_efs" {
+  role       = module.prometheus.iam_role_name
+  policy_arn = aws_iam_policy.prometheus_describe_efs.arn
+}
