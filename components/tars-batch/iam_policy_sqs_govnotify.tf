@@ -37,6 +37,3 @@ resource "aws_iam_policy" "send_recieve_sqs_message" {
   policy      = data.aws_iam_policy_document.send_recieve_sqs_message.json
 }
 
-data "aws_iam_policy_document" "receive_sqs_message" {
-
-}
