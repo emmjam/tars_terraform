@@ -26,7 +26,7 @@ resource "aws_db_instance" "tarsdb" {
   snapshot_identifier             = var.tars_rds_snapshot
   parameter_group_name            = "${local.csi}-${var.tars_rds_parameter_group_name}"
   option_group_name               = "${local.csi}-${var.tars_rds_option_group_name}"
-  name                            = var.tars_rds_sid_name
+  db_name                         = var.tars_rds_sid_name
   deletion_protection             = var.tars_rds_delete_protect
   enabled_cloudwatch_logs_exports = ["alert", "listener"]
 
