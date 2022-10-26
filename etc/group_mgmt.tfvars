@@ -89,6 +89,7 @@ new_all_users = [
   "banafsheh.shahzaman@bjss.com",
   "callum.walmesley@bjss.com",
   "jamie.kelly@bjss.com",
+  "steve.maguire@bjss.com",
 ]
 
 # TSSOps Access
@@ -110,6 +111,7 @@ administrators_tssops_users = [
   "aamir.soni@bjss.com",
   "zawar.shah@bjss.com",
   "richard.teasdale@bjss.com",
+  "steve.maguire@bjss.com",
 ]
 
 readonly_tssops_users = [
@@ -132,6 +134,7 @@ readonly_tssops_users = [
   "raj.bharaj@bjss.com",
   "aamir.soni@bjss.com",
   "zawar.shah@bjss.com",
+  "steve.maguire@bjss.com",
 ]
 
 # TARS Platform Access
