@@ -25,7 +25,7 @@ resource "aws_db_instance" "cpcdb" {
   snapshot_identifier             = var.cpc_rds_snapshot
   parameter_group_name            = "${local.csi}-${var.cpc_rds_parameter_group_name}"
   option_group_name               = "${local.csi}-${var.cpc_rds_option_group_name}"
-  name                            = var.cpc_rds_sid_name
+  db_name                         = var.cpc_rds_sid_name
   deletion_protection             = var.cpc_rds_delete_protect
   enabled_cloudwatch_logs_exports = ["alert", "listener"]
   allow_major_version_upgrade     = var.cpc_allow_major_version_upgrade
