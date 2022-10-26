@@ -112,9 +112,9 @@ wildfly-back_puppet_nodetype      = "tars-back"
 wildfly-back_asg_min_size         = 0
 wildfly-back_asg_max_size         = 4
 wildfly-back_scaledown_desired    = 3
-wildfly-back_scaledown_recurrence = "1 6,18 * * *"
+wildfly-back_scaledown_recurrence = "1 12 * * *"
 wildfly-back_scaleup_desired      = 4
-wildfly-back_scaleup_recurrence   = "1 12,00 * * *"
+wildfly-back_scaleup_recurrence   = "1 00 * * *"
 
 ## wildfly-batch
 wildfly-batch_instance_type        = "m5a.large"
@@ -604,9 +604,6 @@ tars_core_cpuutilization_cw_metric_alarm_action_enabled = false
 power_bi_cidr = "10.164.216.0/22"
 
 ftts_elig_port = "18079"
-
-#Lambda Govnotify - Short Commit version now required taken from Job Console.
-notify_lambda_version = "a8d23be3"
 
 # reporting-xe
 reporting_xe_instance_type    = "t3a.large"
