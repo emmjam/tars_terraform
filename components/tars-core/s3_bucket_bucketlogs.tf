@@ -30,7 +30,7 @@ resource "aws_s3_bucket_versioning" "bucketlogs" {
   }
 }
 
- # Enable Logging to Self
+# Enable Logging to Self
 resource "aws_s3_bucket_logging" "bucketlogs" {
   bucket = aws_s3_bucket.bucketlogs.id
 
