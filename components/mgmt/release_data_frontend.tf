@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "envis" {
   bucket = "envis.tars.dvsacloud.uk"
-  acl    = "private"
+  /*acl    = "private"
   policy = data.aws_iam_policy_document.envis_access.json
 
   website {
@@ -15,7 +15,7 @@ resource "aws_s3_bucket" "envis" {
 
   versioning {
     enabled = true
-  }
+  }*/
 
   tags = merge(
     local.default_tags,
@@ -44,3 +44,43 @@ data "aws_iam_policy_document" "envis_access" {
     }
   }
 }
+
+resource "aws_s3_bucket_acl" "envis" {
+  bucket = aws_s3_bucket.envis.id
+  acl    = "private"
+}
+
+resource "aws_s3_bucket_policy" "envis" {
+  bucket = aws_s3_bucket.envis.id
+  policy = data.aws_iam_policy_document.envis_access.json
+}
+
+resource "aws_s3_bucket_website_configuration" "envis" {
+  bucket = aws_s3_bucket.envis.bucket
+
+  index_document {
+    suffix = "index.html"
+  }
+
+  error_document {
+    key = "error.html"
+  }
+}
+
+resource "aws_s3_bucket_logging" "envis" {
+  bucket = aws_s3_bucket.envis.id
+
+  target_bucket = aws_s3_bucket.bucketlogs.id
+  target_prefix = "${local.csi_global}-envis-frontend"
+}
+
+# Enable versioning
+resource "aws_s3_bucket_versioning" "envis" {
+  bucket = aws_s3_bucket.envis.id
+  
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+

@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "artefacts" {
   bucket = "${local.csi_global}-artefacts"
-  acl    = "private"
+  /*acl    = "private"
 
   logging {
     target_bucket = "${local.csi_global}-bucketlogs"
@@ -19,7 +19,7 @@ resource "aws_s3_bucket" "artefacts" {
     expiration {
       days = 90
     }
-  }
+  }*/
 
   tags = merge(
     local.default_tags,
@@ -70,4 +70,43 @@ data "aws_iam_policy_document" "artefacts" {
 resource "aws_s3_bucket_policy" "artefacts" {
   bucket = aws_s3_bucket.artefacts.id
   policy = data.aws_iam_policy_document.artefacts.json
+}
+
+resource "aws_s3_bucket_acl" "artefacts" {
+  bucket = aws_s3_bucket.artefacts.id
+  acl    = "private"
+}
+
+
+resource "aws_s3_bucket_logging" "artefacts" {
+  bucket = aws_s3_bucket.envis.id
+
+  target_bucket = aws_s3_bucket.bucketlogs.id # check this is the right bucket
+  target_prefix = "${local.csi_global}-artefacts"
+}
+
+resource "aws_s3_bucket_versioning" "artefacts" {
+  bucket = aws_s3_bucket.artefacts.id
+  
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+resource "aws_s3_bucket_lifecycle_configuration" "artefacts" {
+  bucket = aws_s3_bucket.artefacts.id
+
+  rule {
+    id = "wars_file_90_days_rentention"
+
+    filter {
+      prefix = "release-candidates/applications/"
+    }
+
+    expiration {
+      days = 1825
+    }
+
+    status = "Enabled"
+  }
 }
