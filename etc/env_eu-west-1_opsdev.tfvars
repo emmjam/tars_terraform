@@ -415,4 +415,4 @@ puca_job_cca_nonfinalepdqstatus_maxAgeDays   = 0
 puca_job_cca_nonfinalepdqstatus_maxProcessed = 2
 puca_job_cca_maxRecordsPerJobRun             = 5 
 
-notify_lambda_version = "a8d23be3"
+GOV_NOTIFY_VERSION = "a8d23be3"
