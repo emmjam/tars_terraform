@@ -304,14 +304,14 @@ ad_account         = "233824316563"
 
 # TARSDB
 tars_rds_username          = "tarsuatadmin"
-tars_rds_snapshot          = "tars-core-tarsdb-20190410-5-4-0-1"
+tars_rds_snapshot          = "tars-sit02-core-tarsdb-28-10-22-obfuscation-do-not-delete"
 tars_rds_allocated_storage = "610"
 tars_rds_backup_retention  = "21"
 
 # CPCSDB
 cpc_rds_username          = "cpcuatadmin"
 cpc_rds_allocated_storage = "500"
-cpc_rds_snapshot          = "tars-sit01-cpc-cpcdb-20190226-5-4-0-2"
+cpc_rds_snapshot          = "tars-sit02-cpc-cpcdb-28-10-22-obfuscation-do-not-delete"
 cpc_rds_backup_retention  = "21"
 
 # IBSDB
@@ -320,14 +320,14 @@ ibs_rds_snapshot = "sit02-ibs-subnet-move"
 
 # MISDB
 mis_rds_username          = "misuatadmin"
-mis_rds_snapshot          = "tars-dev01-tars-dms-misopdmstg-20180720"
+mis_rds_snapshot          = "tars-sit02-tars-reporting-misdb-28-10-22-obfuscation-do-not-delete"
 mis_rds_allocated_storage = "400"
 mis_rds_autoscale         = "False"
 mis_rds_backup_retention  = "21"
 
 # RSISDB
 rsis_rds_username          = "rsisuatadmin"
-rsis_rds_snapshot          = "tars-dev01-tars-dms-rsisdmssc-20180719"
+rsis_rds_snapshot          = "tars-sit02-tars-reporting-rsisdb-28-10-22-obfuscation-do-not-delete"
 rsis_rds_allocated_storage = "300"
 rsis_rds_autoscale         = "False"
 rsis_rds_backup_retention  = "21"
