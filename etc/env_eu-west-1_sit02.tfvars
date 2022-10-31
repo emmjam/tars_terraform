@@ -322,15 +322,15 @@ ibs_rds_snapshot = "sit02-ibs-subnet-move"
 
 # MISDB
 mis_rds_username          = "misuatadmin"
-mis_rds_snapshot          = "tars-sit02-tars-reporting-misdb-28-10-22-obfuscation-do-not-delete"
-mis_rds_allocated_storage = "400"
+mis_rds_snapshot          = ""
+mis_rds_allocated_storage = "440"
 mis_rds_autoscale         = "False"
 mis_rds_backup_retention  = "21"
 mis_rds_engine_version    = "19.0.0.0.ru-2022-01.rur-2022-01.r1"
 
 # RSISDB
 rsis_rds_username          = "rsisuatadmin"
-rsis_rds_snapshot          = "tars-sit02-tars-reporting-rsisdb-28-10-22-obfuscation-do-not-delete"
+rsis_rds_snapshot          = ""
 rsis_rds_allocated_storage = "300"
 rsis_rds_autoscale         = "False"
 rsis_rds_backup_retention  = "21"
