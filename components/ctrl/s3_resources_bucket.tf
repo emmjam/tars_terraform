@@ -48,7 +48,7 @@ resource "aws_s3_bucket_public_access_block" "resources" {
 }
 
 resource "aws_s3_bucket_acl" "resources" {
-  bucket = aws_s3_bucket.acc-bucketlogs.id
+  bucket = aws_s3_bucket.resources.id
   acl    = "private"
 }
 
@@ -78,7 +78,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "resources" {
     }
 
     noncurrent_version_transition {
-      noncurrent_days = "60"
+      noncurrent_days = 60
       storage_class   = "GLACIER"
     }
 
