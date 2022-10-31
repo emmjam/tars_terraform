@@ -1,21 +1,5 @@
 resource "aws_s3_bucket" "envis" {
   bucket = "envis.tars.dvsacloud.uk"
-  /*acl    = "private"
-  policy = data.aws_iam_policy_document.envis_access.json
-
-  website {
-    index_document = "index.html"
-    error_document = "error.html"
-  }
-
-  logging {
-    target_bucket = "${local.csi_global}-bucketlogs"
-    target_prefix = "${local.csi_global}-envis-frontend"
-  }
-
-  versioning {
-    enabled = true
-  }*/
 
   tags = merge(
     local.default_tags,
