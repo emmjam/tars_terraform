@@ -314,12 +314,11 @@ cpc_rds_username          = "cpcuatadmin"
 cpc_rds_allocated_storage = "500"
 cpc_rds_snapshot          = "tars-sit02-cpc-cpcdb-28-10-22-obfuscation-do-not-delete"
 cpc_rds_backup_retention  = "21"
-mis_rds_engine_version    = "19.0.0.0.ru-2022-01.rur-2022-01.r1"
+cpc_rds_engine_version    = "19.0.0.0.ru-2022-01.rur-2022-01.r1"
 
 # IBSDB
 ibs_rds_username = "ibsuatadmin"
 ibs_rds_snapshot = "sit02-ibs-subnet-move"
-mis_rds_engine_version    = "19.0.0.0.ru-2022-01.rur-2022-01.r1"
 
 # MISDB
 mis_rds_username          = "misuatadmin"
@@ -335,7 +334,7 @@ rsis_rds_snapshot          = "tars-sit02-tars-reporting-rsisdb-28-10-22-obfuscat
 rsis_rds_allocated_storage = "300"
 rsis_rds_autoscale         = "False"
 rsis_rds_backup_retention  = "21"
-mis_rds_engine_version     = "19.0.0.0.ru-2022-01.rur-2022-01.r1"
+rsis_rds_engine_version     = "19.0.0.0.ru-2022-01.rur-2022-01.r1"
 
 #############################################################################
 # VPC to DVSA WAN via DX
