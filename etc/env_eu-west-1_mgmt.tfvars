@@ -230,7 +230,7 @@ natgw_subnets_cidr = [
 # TODO: smarts: Move AMI IDs to versions file
 ## bastion
 bastion_instance_type        = "t2.micro"
-bastion_ami_build_id         = "1474"
+bastion_ami_build_id         = "1501"
 bastion_asg_min_size         = 0
 bastion_asg_max_size         = 3
 bastion_scaledown_desired    = 1
@@ -460,7 +460,7 @@ nexus_config = {
   asg_desired        = "1"
   instance_type      = "t3.medium"
   listen_port        = "8081"
-  nexus_ami_build_id = "1271"
+  nexus_ami_build_id = "1494"
 }
 
 nexus_subnets_cidrs = [

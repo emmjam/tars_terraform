@@ -528,6 +528,26 @@ variable "ibs_rds_username" {
   description = "The ID's of the VPC subnets that the RDS cluster instances will be created in"
 }
 
+variable "ibs_rds_engine_version" {
+  type        = string
+  description = "Version of Mysql used for IBSDB RDS Cluster"
+}
+
+variable "ibs_rds_major_version_upgrade" {
+  type        = string
+  description = "Allow DB Version Update"
+}
+
+variable "ibs_rds_parameter_group_name" {
+  type        = string
+  description = "Parameter group name date"
+}
+
+variable "ibs_rdswriter_group_name" {
+  type        = string
+  description = "Writer group name date"
+}
+
 variable "ibs_scaledown_desired" {
   type        = string
   description = ""

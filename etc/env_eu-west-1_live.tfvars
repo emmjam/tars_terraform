@@ -47,7 +47,7 @@ guardduty_member_enabled = "0"
 # Changed due to JIRA OPS-2184 keep bastion AMI current on weekly basis BST
 ## bastion
 bastion_instance_type        = "t2.micro"
-bastion_ami_build_id         = "1474"
+bastion_ami_build_id         = "1501"
 bastion_asg_min_size         = 1
 bastion_asg_max_size         = 3
 bastion_scaledown_desired    = 1
@@ -95,7 +95,9 @@ spot_pricing = {
   "m4.2xlarge" = ""
   "m4.4xlarge" = ""
   "m5.large"   = ""
+  "m5a.large"  = ""
   "m5.xlarge"  = ""
+  "m5a.xlarge" = ""
   "m5d.large"  = ""
   "r4.xlarge"  = ""
   "r4.2xlarge" = ""
@@ -105,8 +107,13 @@ spot_pricing = {
   "t2.large"   = ""
   "t3.nano"    = ""
   "t3.micro"   = ""
+  "t3a.micro"  = ""
   "t3.small"   = ""
+  "t3a.small"  = ""
   "t3.medium"  = ""
+  "t3a.medium" = ""
+  "t3.large"   = ""
+  "t3a.large"  = ""
 }
 
 # Alert Logic

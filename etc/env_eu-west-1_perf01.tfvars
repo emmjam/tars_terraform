@@ -356,10 +356,11 @@ rsis_rds_autoscale           = "True"
 ibs_rds_username       = "ibsuatadmin"
 ibs_rds_snapshot       = "perf01-ibsdb-0-final-snapshot-8-8-22"
 ibs_rds_instance_class = "db.r5.large"
+ibs_rds_engine_version = "5.6.mysql_aurora.1.22.5"
 
 ## wildfly
 
-wildfly-back_instance_type        = "m4.xlarge"
+wildfly-back_instance_type        = "m5a.xlarge"
 wildfly-back_asg_min_size         = 0
 wildfly-back_asg_max_size         = 3
 wildfly-back_scaledown_desired    = 3
@@ -368,7 +369,7 @@ wildfly-back_scaleup_desired      = 3
 wildfly-back_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## wildfly-batch
-wildfly-batch_instance_type        = "m4.large"
+wildfly-batch_instance_type        = "m5a.large"
 wildfly-batch_asg_min_size         = 0
 wildfly-batch_asg_max_size         = 1
 wildfly-batch_scaledown_desired    = 1
@@ -377,7 +378,7 @@ wildfly-batch_scaleup_desired      = 1
 wildfly-batch_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## obs
-obs_instance_type        = "m4.large"
+obs_instance_type        = "m5a.large"
 obs_asg_min_size         = 0
 obs_asg_max_size         = 2
 obs_scaledown_desired    = 2
@@ -386,7 +387,7 @@ obs_scaleup_desired      = 2
 obs_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## ibs
-ibs_instance_type        = "m4.large"
+ibs_instance_type        = "m5a.large"
 ibs_asg_min_size         = 0
 ibs_asg_max_size         = 10
 ibs_scaledown_desired    = 5
@@ -395,7 +396,7 @@ ibs_scaleup_desired      = 6
 ibs_scaleup_recurrence   = "10 04 * * 1-7"
 
 ## wildfly-front
-wildfly-front_instance_type        = "m4.large"
+wildfly-front_instance_type        = "m5a.large"
 wildfly-front_asg_min_size         = 0
 wildfly-front_asg_max_size         = 2
 wildfly-front_scaledown_desired    = 2
@@ -413,7 +414,7 @@ wildfly-messaging_scaleup_desired      = 1
 wildfly-messaging_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## cpc-back
-cpc-back_instance_type        = "m4.large"
+cpc-back_instance_type        = "m5a.large"
 cpc-back_asg_min_size         = 0
 cpc-back_asg_max_size         = 2
 cpc-back_scaledown_desired    = 2
@@ -422,7 +423,7 @@ cpc-back_scaleup_desired      = 2
 cpc-back_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## cpc-front
-cpc-front_instance_type        = "m4.large"
+cpc-front_instance_type        = "m5a.large"
 cpc-front_asg_min_size         = 0
 cpc-front_asg_max_size         = 2
 cpc-front_scaledown_desired    = 2
@@ -431,7 +432,7 @@ cpc-front_scaleup_desired      = 2
 cpc-front_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## cpc-batch
-cpc-batch_instance_type        = "m4.large"
+cpc-batch_instance_type        = "m5a.large"
 cpc-batch_puppet_nodetype      = "cpc-batch"
 cpc-batch_asg_min_size         = 0
 cpc-batch_asg_max_size         = 1
@@ -441,7 +442,7 @@ cpc-batch_scaleup_desired      = 1
 cpc-batch_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## fyndi-f
-fyndi-f_instance_type        = "m4.large"
+fyndi-f_instance_type        = "m5a.large"
 fyndi-f_puppet_nodetype      = "fyndi-front"
 fyndi-f_asg_min_size         = 0
 fyndi-f_asg_max_size         = 2
@@ -451,7 +452,7 @@ fyndi-f_scaleup_desired      = 2
 fyndi-f_scaleup_recurrence   = "00 04 * * 1-7"
 
 ## fyndi_back
-fyndi-b_instance_type        = "m4.large"
+fyndi-b_instance_type        = "m5a.large"
 fyndi-b_puppet_nodetype      = "fyndi-back"
 fyndi-b_asg_min_size         = 0
 fyndi-b_asg_max_size         = 2
@@ -476,7 +477,7 @@ tars_rds_skip_final_snapshot = true
 tars_rds_apply_immediately   = "true"
 
 ## wildfly-mock
-wildfly-mock_instance_type        = "t2.medium"
+wildfly-mock_instance_type        = "t3a.medium"
 wildfly-mock_asg_min_size         = 0
 wildfly-mock_asg_max_size         = 1
 wildfly-mock_scaledown_desired    = 1
@@ -485,13 +486,13 @@ wildfly-mock_scaleup_desired      = 1
 wildfly-mock_scaleup_recurrence   = "00 04 * * 1-7"
 
 ##  JMeter
-jmeter_instance_type              = "m5d.large"
+jmeter_instance_type              = "m5a.large"
 jmeter_asg_size_desired_on_create = 0
 jmeter_asg_size_max               = 6
 jmeter_asg_size_min               = 0
 
 # squidnat
-squidnat_instance_type = "m5d.large"
+squidnat_instance_type = "m5a.large"
 
 private_cert_domain_name = "perf01.nonprod.tars.dev-dvsacloud.uk"
 

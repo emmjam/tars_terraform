@@ -90,6 +90,8 @@ jenkinsctrl_subnets_cidrs = [
   "10.167.60.48/28",
 ]
 
+jenkinsctrl_ebs_size              = 20
+
 wildfly-back_instance_type        = "m5a.large"
 wildfly-back_puppet_nodetype      = "tars-back"
 wildfly-back_asg_min_size         = 0
@@ -131,7 +133,7 @@ ibs_scaleup_desired      = 2
 ibs_scaleup_recurrence   = "10 04 * * 1-5"
 
 ## fyndi-f
-fyndi-f_instance_type        = "t3a.small"
+fyndi-f_instance_type        = "t3a.medium"
 fyndi-f_puppet_nodetype      = "fyndi-front"
 fyndi-f_asg_min_size         = 0
 fyndi-f_asg_max_size         = 2
@@ -141,7 +143,7 @@ fyndi-f_scaleup_desired      = 2
 fyndi-f_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## fyndi_back
-fyndi-b_instance_type        = "t3a.small"
+fyndi-b_instance_type        = "t3a.medium"
 fyndi-b_puppet_nodetype      = "fyndi-back"
 fyndi-b_asg_min_size         = 0
 fyndi-b_asg_max_size         = 2
@@ -277,7 +279,7 @@ oraclexe_scaleup_desired      = 1
 oraclexe_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## Mock
-mock_ami_build_id = "02f54c88/262"
+mock_ami_build_id = "41097d03/269"
 
 
 ## SFTP
@@ -571,6 +573,10 @@ ibs_rds_backup_retention_period = "7"
 ibs_rds_backup_window           = "02:38-03:08"
 ibs_rds_maint_window            = "sun:03:16-sun:03:46"
 ibs_rds_apply_immediately       = "true"
+ibs_rds_engine_version          = "5.6.mysql_aurora.1.22.2"
+ibs_rds_major_version_upgrade   = false
+ibs_rds_parameter_group_name  = "cluster-parameter-group-2020-04-17"
+ibs_rdswriter_group_name      = "writer-parameter-group-2020-04-17"
 
 # DC Gateway details
 dc_gateway_name    = "Tars-NonProd-DirCon"
@@ -631,11 +637,8 @@ ibs_high_cpu_cw_metric_alarm_enabled = false
 
 ftts_elig_port = "22"
 
-#Lambda Govnotify
-notify_lambda_version = "9"
-
 # reporting-xe
-reporting_xe_instance_type    = "t2.medium"
+reporting_xe_instance_type    = "t3a.medium"
 reporting_xe_count            = 0
 reporting_xe_ami_build_id     = "1447"
 reporting_xe_ebs_size         = "32"
@@ -664,3 +667,44 @@ driver_service_cert = "*"
 
 # mock gov gateway accounts processor
 mock_gov_gw_accounts_processor_lambda_version = "2"
+
+# lambda ebs housekeeping
+unattached_ebs_vols_lambda_version = "1"
+
+spot_pricing = {
+  "c4.large"   = "0.0360"
+  "c4.xlarge"  = "0.0720"
+  "c4.2xlarge" = "0.1467"
+  "c5.large"   = "0.0511"
+  "c5.xlarge"  = "0.0881"
+  "c5.2xlarge" = "0.1934"
+  "m3.medium"  = "0.0101"
+  "m3.large"   = "0.0360"
+  "m4.large"   = "0.0750"
+  "m4.2xlarge" = "0.1531"
+  "m4.4xlarge" = "0.3023"
+  "m5.large"   = "0.0500"
+  "m5d.large"  = "0.0510"
+  "m5.xlarge"  = "0.0865"
+  "r4.xlarge"  = "0.0901"
+  "r4.2xlarge" = "0.1711"
+  "t2.micro"   = "0.0042"
+  "t2.small"   = "0.0083"
+  "t2.medium"  = "0.0165"
+  "t2.large"   = "0.0333"
+  "t3.nano"    = "0.0019"
+  "t3.micro"   = "0.0048"
+  "t3.small"   = "0.0125"
+  "t3.medium"  = "0.0200"
+  "t3.large"   = "0.0329"
+  "t3a.micro"  = "0.0131"
+  "t3a.small"  = ""
+  "t3a.medium" = "0.0151"
+  "t3a.large"  = "0.0454"
+  "t4g.small"  = "0.0055"
+  "t4g.medium"  = "0.011"
+  "m5a.large"  = "0.0500"
+  "m5a.xlarge" = "0.1198"
+  "m6g.medium" = "0.026"
+  "c6g.medium" = "0.026"
+}

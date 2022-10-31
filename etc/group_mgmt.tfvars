@@ -36,7 +36,6 @@ new_all_users = [
   "rob.whyte@bjss.com",
   "michelle.pike@bjss.com",
   "mike.peachey@bjss.com",
-  "prashant.kumar@bjss.com",
   "richard.freitas@bjss.com",
   "saul.kashani@bjss.com",
   "steven.millington@bjss.com",
@@ -87,9 +86,10 @@ new_all_users = [
   "moeez.shahid@bjss.com",
   "tomasz.chrost@bjss.com",
   "michael.mackintosh@bjss.com",
-  "haris.hassan@bjss.com",
   "banafsheh.shahzaman@bjss.com",
   "callum.walmesley@bjss.com",
+  "jamie.kelly@bjss.com",
+  "steve.maguire@bjss.com",
 ]
 
 # TSSOps Access
@@ -100,7 +100,6 @@ administrators_tssops_users = [
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
   "christopher.swanson@bjss.com",
-  "prashant.kumar@bjss.com",
   "damian.skiba@bjss.com",
   "ibrar.akram@bjss.com",
   "mike.peachey@bjss.com",
@@ -112,7 +111,7 @@ administrators_tssops_users = [
   "aamir.soni@bjss.com",
   "zawar.shah@bjss.com",
   "richard.teasdale@bjss.com",
-  "haris.hassan@bjss.com",
+  "steve.maguire@bjss.com",
 ]
 
 readonly_tssops_users = [
@@ -121,7 +120,6 @@ readonly_tssops_users = [
   "arthur.coombes@bjss.com",
   "adam.hall@bjss.com",
   "christopher.swanson@bjss.com",
-  "prashant.kumar@bjss.com",
   "damian.skiba@bjss.com",
   "ibrar.akram@bjss.com",
   "irfan.sidat@bjss.com",
@@ -136,7 +134,7 @@ readonly_tssops_users = [
   "raj.bharaj@bjss.com",
   "aamir.soni@bjss.com",
   "zawar.shah@bjss.com",
-  "haris.hassan@bjss.com",
+  "steve.maguire@bjss.com",
 ]
 
 # TARS Platform Access
@@ -154,6 +152,7 @@ administrators_platform_nonprod_users = [
   "ian.davies@bjss.com",
   "samantha.burke@bjss.com",
   "michael.mackintosh@bjss.com",
+  "jamie.kelly@bjss.com",
 ]
 readonly_platform_users = [
   "tom.bibb@bjss.com",
@@ -165,6 +164,7 @@ readonly_platform_users = [
   "ian.davies@bjss.com",
   "samantha.burke@bjss.com",
   "banafsheh.shahzaman@bjss.com",
+  "jamie.kelly@bjss.com",
 ]
 
 # Developer Access
@@ -328,6 +328,8 @@ jenkinsctrl_subnets_cidrs = [
   "10.167.64.48/28",
 ]
 
+jenkinsctrl_ebs_size              = 16
+
 whitelist = [
   "135.196.73.204/32",  # DVSA Notts
   "148.253.134.213/32", # BJSS VPN 04/18
@@ -343,3 +345,6 @@ ops_team_email = "tars.platform-team@bjss.com"
 opsgenie_endpoint = "https://api.opsgenie.com/v1/json/amazonsns?apiKey=4cb725d3-32c1-47ae-b3b7-e38187fb9202"
 
 envis_lambda_version = 2
+
+# lambda ebs housekeeping
+unattached_ebs_vols_lambda_version = "1"
