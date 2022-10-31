@@ -307,12 +307,14 @@ tars_rds_username          = "tarsuatadmin"
 tars_rds_snapshot          = "tars-sit02-core-tarsdb-28-10-22-obfuscation-do-not-delete"
 tars_rds_allocated_storage = "610"
 tars_rds_backup_retention  = "21"
+tars_rds_engine_version    = "19.0.0.0.ru-2022-01.rur-2022-01.r1"
 
 # CPCSDB
 cpc_rds_username          = "cpcuatadmin"
 cpc_rds_allocated_storage = "500"
 cpc_rds_snapshot          = "tars-sit02-cpc-cpcdb-28-10-22-obfuscation-do-not-delete"
 cpc_rds_backup_retention  = "21"
+cpc_rds_engine_version    = "19.0.0.0.ru-2022-01.rur-2022-01.r1"
 
 # IBSDB
 ibs_rds_username = "ibsuatadmin"
@@ -324,6 +326,7 @@ mis_rds_snapshot          = "tars-sit02-tars-reporting-misdb-28-10-22-obfuscatio
 mis_rds_allocated_storage = "400"
 mis_rds_autoscale         = "False"
 mis_rds_backup_retention  = "21"
+mis_rds_engine_version    = "19.0.0.0.ru-2022-01.rur-2022-01.r1"
 
 # RSISDB
 rsis_rds_username          = "rsisuatadmin"
@@ -331,6 +334,7 @@ rsis_rds_snapshot          = "tars-sit02-tars-reporting-rsisdb-28-10-22-obfuscat
 rsis_rds_allocated_storage = "300"
 rsis_rds_autoscale         = "False"
 rsis_rds_backup_retention  = "21"
+rsis_rds_engine_version     = "19.0.0.0.ru-2022-01.rur-2022-01.r1"
 
 #############################################################################
 # VPC to DVSA WAN via DX
