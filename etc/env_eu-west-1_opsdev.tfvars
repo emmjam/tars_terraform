@@ -293,11 +293,15 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 tars_rds_username          = "tarsdevadmin"
 tars_rds_allocated_storage = "20"
 tars_rds_snapshot          = "tars-opsdev-tars-core-tarsdb-5-4-2019-5-7-0-2"
+tars_rds_engine_version    = "19.0.0.0.ru-2021-10.rur-2021-10.r1" # specific version required when updating to aws provider 4.36.0, can be removed after an apply
+
 
 # CPCSDB
 cpc_rds_username          = "cpcdevadmin"
 cpc_rds_allocated_storage = "50"
 cpc_rds_snapshot          = "tars-opsdev-cpc-cpcdb-5-4-2019-5-7-0-2"
+cpc_rds_engine_version    = "19.0.0.0.ru-2021-10.rur-2021-10.r1" # specific version required when updating to aws provider 4.36.0, can be removed after an apply
+
 
 
 # IBSDB
@@ -308,6 +312,7 @@ ibs_rds_snapshot = "sit01-ibs-subnet-move"
 mis_rds_username          = "misdmsadmin"
 mis_rds_allocated_storage = "300"
 mis_rds_snapshot          = "tars-dev01-tars-dms-misopdmstg-20180720"
+mis_rds_engine_version    = "19.0.0.0.ru-2021-10.rur-2021-10.r1" # specific version required when updating to aws provider 4.36.0, can be removed after an apply
 
 # RSISDB
 rsis_rds_username          = "tarsrsisadmin"

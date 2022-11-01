@@ -489,7 +489,7 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 # TARSDB
 tars_rds_storage_type                       = "gp2"
 tars_rds_engine                             = "oracle-se2"
-tars_rds_engine_version                     = "19.0.0.0.ru"
+tars_rds_engine_version                     = "19.0.0.0.ru-2022-01.rur-2022-01.r1"   # specific version required when updating to aws provider 4.36.0, can be set to wildcard after an apply in all env
 tars_rds_allow_major_engine_version_upgrade = false
 tars_rds_parameter_group_name               = "tarsdb-19c"
 tars_rds_option_group_name                  = "option-group-19c"
@@ -509,7 +509,7 @@ tars_rds_sid_name                           = "TARSDB"
 # MISDB
 mis_rds_storage_type            = "gp2"
 mis_rds_engine                  = "oracle-se2"
-mis_rds_engine_version          = "19.0.0.0.ru"
+mis_rds_engine_version          = "19.0.0.0.ru-2022-01.rur-2022-01.r1"  # specific version required when updating to aws provider 4.36.0, can be set to wildcard after an apply in all env
 mis_rds_instance_class          = "db.t3.medium" # was "db.m4.4xlarge"
 mis_rds_port                    = "1521"
 mis_rds_public                  = "false"
@@ -541,7 +541,7 @@ rsis_rds_apply_immediately       = "true"
 rsis_rds_license_model           = "license-included"
 rsis_rds_autoscale               = "True"
 rsis_rds_sid_name                = "RSISDB"
-rsis_rds_engine_version          = "19.0.0.0.ru"
+rsis_rds_engine_version          = "19.0.0.0.ru-2022-01.rur-2022-01.r1"   # specific version required when updating to aws provider 4.36.0, can be set to wildcard after an apply in all env
 rsis_rds_parameter_group_name    = "rsisdb-19c"
 rsis_rds_option_group_name       = "option-group-19c"
 rsis_allow_major_version_upgrade = true
@@ -549,7 +549,7 @@ rsis_allow_major_version_upgrade = true
 # CPCDB
 cpc_rds_storage_type            = "gp2"
 cpc_rds_engine                  = "oracle-se2"
-cpc_rds_engine_version          = "19.0.0.0.ru"
+cpc_rds_engine_version          = "19.0.0.0.ru-2022-01.rur-2022-01.r1"  # specific version required when updating to aws provider 4.36.0, can be set to wildcard after an apply in all env
 cpc_rds_parameter_group_name    = "cpcdb-19c"
 cpc_rds_option_group_name       = "option-group-19c"
 cpc_rds_instance_class          = "db.t3.medium" # was "db.m4.4xlarge"

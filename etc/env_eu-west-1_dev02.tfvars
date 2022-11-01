@@ -307,6 +307,7 @@ ibs_rds_snapshot = "dev02-ibs-subnet-move"
 mis_rds_username          = "misdmsadmin"
 mis_rds_allocated_storage = "300"
 mis_rds_snapshot          = "tars-dev01-tars-dms-misopdmstg-20180720"
+mis_rds_engine_version    = "19.0.0.0.ru-2021-10.rur-2021-10.r1" # specific version required when updating to aws provider 4.36.0, can be removed after an apply
 
 # RSISDB
 rsis_rds_username          = "tarsrsisadmin"

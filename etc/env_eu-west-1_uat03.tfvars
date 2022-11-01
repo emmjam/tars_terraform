@@ -305,12 +305,14 @@ ad_account         = "233824316563"
 tars_rds_username          = "tarsuatadmin"
 tars_rds_allocated_storage = "610"
 tars_rds_snapshot          = "tars-uat03-core-tarsdb-08-01-2022-obfuscation-do-not-delete"
+tars_rds_engine_version    = "19.0.0.0.ru-2021-10.rur-2021-10.r1" # specific version required when updating to aws provider 4.36.0, can be removed after an apply
 
 
 # CPCSDB
 cpc_rds_username          = "cpcuatadmin"
 cpc_rds_allocated_storage = "100"
 cpc_rds_snapshot          = "tars-uat03-cpc-cpcdb-08-01-2022-obfuscation-do-not-delete"
+cpc_rds_engine_version    = "19.0.0.0.ru-2021-10.rur-2021-10.r1" # specific version required when updating to aws provider 4.36.0, can be removed after an apply
 
 # IBSDB
 ibs_rds_username = "tarsuatadmin"
