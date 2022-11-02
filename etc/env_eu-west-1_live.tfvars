@@ -132,7 +132,8 @@ cloudability_xacct = {
   external_id    = "742a928c-22e0-41b3-8028-9cc56330473d"
 }
 
-# Change to '1' to delete any unattached EBS volumes that do not have the tag :  "protected":"do-not-delete"
+## EBS VOLUME HOUSEKEEPING LAMBDA
+# Change to '1' to enable lambda to delete any unattached EBS volumes that do not have the tag :  "protected":"do-not-delete"
 ebs_housekeeping_enabled = "1"
 # Delete volumes, or run in test mode (yes to delete)?
 ebs_volume_delete = "no"

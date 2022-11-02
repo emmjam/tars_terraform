@@ -523,7 +523,8 @@ lambda_access_key_rotation_config = {
   enabled                           = "1"
 }
 
-# Change to '1' to delete any unattached EBS volumes that do not have the tag :  "protected":"do-not-delete"
+## EBS VOLUME HOUSEKEEPING LAMBDA
+# Change to '1' to enable lambda to delete any unattached EBS volumes that do not have the tag :  "protected":"do-not-delete"
 ebs_housekeeping_enabled = "1"
 # Delete volumes, or run in test mode (yes to delete)?
 ebs_volume_delete = "no"
