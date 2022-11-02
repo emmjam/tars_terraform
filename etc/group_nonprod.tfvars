@@ -489,8 +489,8 @@ deployer_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhudeCEOKgq7jteyQjvVS
 # TARSDB
 tars_rds_storage_type                       = "gp2"
 tars_rds_engine                             = "oracle-se2"
-tars_rds_engine_version                     = "19.0.0.0.ru-2022-01.rur-2022-01.r1"   # specific version required when updating to aws provider 4.36.0, can be set to wildcard after an apply in all env
-tars_rds_allow_major_engine_version_upgrade = false
+tars_rds_engine_version                     = "19.0.0.0.ru-2022-01.rur-2022-01.r1"   # set to current version, when doing a major upgrade set the engine version for the env tfvars file
+tars_rds_allow_major_engine_version_upgrade = false # this should always be false in group tfvars files
 tars_rds_parameter_group_name               = "tarsdb-19c"
 tars_rds_option_group_name                  = "option-group-19c"
 tars_rds_instance_class                     = "db.t3.medium" # was "db.m4.4xlarge"
@@ -564,7 +564,7 @@ cpc_rds_apply_immediately       = "true"
 cpc_rds_license_model           = "license-included"
 cpc_rds_autoscale               = "True"
 cpc_rds_sid_name                = "CPCDB"
-cpc_allow_major_version_upgrade = false
+cpc_allow_major_version_upgrade = false # this should always be false
 
 # IBSDB
 # value is overridden for perf to match prod & prep

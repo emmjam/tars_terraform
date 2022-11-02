@@ -10,7 +10,7 @@ resource "aws_db_instance" "rsisdb" {
   allocated_storage               = var.rsis_rds_allocated_storage
   storage_type                    = var.rsis_rds_storage_type
   engine                          = var.rsis_rds_engine
-  engine_version                  = var.rsis_rds_engine_version
+  #engine_version                  = var.rsis_rds_engine_version
   instance_class                  = var.rsis_rds_instance_class
   username                        = var.rsis_rds_username
   password                        = data.aws_ssm_parameter.rsis_rds_password.value

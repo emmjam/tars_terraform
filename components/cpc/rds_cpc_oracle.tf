@@ -10,7 +10,7 @@ resource "aws_db_instance" "cpcdb" {
   allocated_storage               = var.cpc_rds_allocated_storage
   storage_type                    = var.cpc_rds_storage_type
   engine                          = var.cpc_rds_engine
-  engine_version                  = var.cpc_rds_engine_version
+  #engine_version                  = var.cpc_rds_engine_version
   instance_class                  = var.cpc_rds_instance_class
   username                        = var.cpc_rds_username
   password                        = data.aws_ssm_parameter.cpc_rds_password.value

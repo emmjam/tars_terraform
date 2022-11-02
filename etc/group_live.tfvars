@@ -476,9 +476,9 @@ bobj_instance_type = "m5.xlarge"
 # TARSDB
 tars_rds_storage_type                       = "gp2"
 tars_rds_engine                             = "oracle-se2"
-tars_rds_engine_version                     = "19.0.0.0.ru-2022-01.rur-2022-01.r1"   # specific version required when updating to aws provider 4.36.0, can be set to wildcard after an apply in all env
+tars_rds_engine_version                     = "19.0.0.0.ru-2022-01.rur-2022-01.r1"  # set to current version, when doing a major upgrade set the engine version for the env tfvars file
 tars_rds_instance_class                     = "db.m4.2xlarge"
-tars_rds_allow_major_engine_version_upgrade = false
+tars_rds_allow_major_engine_version_upgrade = false # this should always be false in group tfvars files
 tars_rds_parameter_group_name               = "tarsdb-19c"
 tars_rds_option_group_name                  = "option-group-19c"
 tars_rds_port                               = "1521"

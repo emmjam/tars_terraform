@@ -10,7 +10,7 @@ resource "aws_db_instance" "misdb" {
   allocated_storage               = var.mis_rds_allocated_storage
   storage_type                    = var.mis_rds_storage_type
   engine                          = var.mis_rds_engine
-  engine_version                  = var.mis_rds_engine_version
+  #engine_version                  = var.mis_rds_engine_version
   instance_class                  = var.mis_rds_instance_class
   username                        = var.mis_rds_username
   password                        = data.aws_ssm_parameter.mis_rds_password.value
