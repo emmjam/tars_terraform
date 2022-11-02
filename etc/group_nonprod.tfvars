@@ -176,7 +176,7 @@ wildfly-messaging_ebs_vol              = 50
 wildfly-messaging_ebs_volume_type      = "gp3"
 
 ## wildfly-mock
-wildfly-mock_instance_type        = "t3a.medium"
+wildfly-mock_instance_type        = "t3a.small"
 wildfly-mock_puppet_nodetype      = "mock"
 wildfly-mock_asg_min_size         = 0
 wildfly-mock_asg_max_size         = 1
