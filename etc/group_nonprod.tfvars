@@ -102,8 +102,8 @@ wildfly-back_scaleup_desired      = 2
 
 wildfly-back_scaleup_recurrence = "00 04 * * 1-5"
 
-## wildfly-batch
-wildfly-batch_instance_type        = "t3a.medium"
+## wildfly-batch (tars-batch)
+wildfly-batch_instance_type        = "t3a.small"
 wildfly-batch_puppet_nodetype      = "tars-batch"
 wildfly-batch_asg_min_size         = 0
 wildfly-batch_asg_max_size         = 1
