@@ -1,4 +1,4 @@
-esource "aws_efs_file_system" "tars-batch-enc" {
+resource "aws_efs_file_system" "tars-batch-enc" {
   encrypted = true
 
   tags = merge(
