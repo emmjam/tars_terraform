@@ -267,7 +267,7 @@ jmeter_instance_type              = "t3a.micro"
 jmeter_asg_size_desired_on_create = 0
 jmeter_asg_size_max               = 0
 jmeter_asg_size_min               = 0
-jmeter_ami_build_id               = "1305"
+jmeter_ami_build_id               = "1505"
 
 ## XE
 oraclexe_svr_id               = "1296"
