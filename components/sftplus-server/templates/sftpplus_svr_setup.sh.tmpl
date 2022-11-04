@@ -91,7 +91,6 @@ BOOTSTRAP_SUCCESS=1
 sed -E -i "s/'[a-z0-9]{8}\-[a-z0-9]{4}\-[a-z0-9]{4}\-[a-f0-9]{4}\-[a-z0-9]{12}'/'${KMS_KEY}'/g" /etc/eyaml/config.yaml
 
 # Ensure the EFS directory exists
-mkdir -p ${MOUNT_POINT};
 mkdir -p ${MOUNT_POINT_ENC};
 
 # Get Region and AZ from AWS EC2 meta-data. We could take region as a template parameter, but why since meta-data is canonical?
@@ -114,7 +113,6 @@ echo "$${EFS_IP_ENC}:/ ${MOUNT_POINT_ENC} nfs4 nfsvers=4.1,rsize=1048576,wsize=1
 ######################################################################
 
 # Mount the configured target for Batch
-mount ${MOUNT_POINT};
 mount ${MOUNT_POINT_ENC};
 
 # Shift this to cloud-init config yaml
