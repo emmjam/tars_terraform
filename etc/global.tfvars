@@ -46,7 +46,6 @@ spot_pricing = {
 }
 
 efs_backup_env = [
-  "opsdev",
   "sit01",
   "sit02",
   "uat01",
