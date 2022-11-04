@@ -7,7 +7,7 @@ resource "aws_backup_selection" "tars_aws_backup" {
   selection_tag {
     type  = "STRINGEQUALS"
     key   = "Name"
-    value = "tars-${var.environment}-base/prometheus"
+    value = "tars-${var.environment}-base/prometheus-enc"
   }
 }
 
