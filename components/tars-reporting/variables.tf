@@ -375,7 +375,3 @@ variable "rsis_allow_major_version_upgrade" {
   description = "RSIS RDS DB Major Engine Version Upgrade"
 }
 
-variable "ses_user_access_key" {
-  type        = bool
-  description = "Create access key for SES user"
-}
