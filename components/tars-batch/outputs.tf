@@ -4,5 +4,5 @@ output "tars-batch-sg-id" {
 }
 
 output "batch_efs_id" {
-  value = aws_efs_file_system.batch.id
+  value = aws_efs_file_system.tars-batch-enc.id
 }
