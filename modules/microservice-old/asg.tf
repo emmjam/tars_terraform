@@ -21,7 +21,7 @@ resource "aws_autoscaling_group" "main" {
   target_group_arns    = var.asg_target_group_arns
   enabled_metrics      = var.asg_enabled_metrics
 
-  # add default tags
+  /*# add default tags
   tag {
     key                 = var.asg_default_tags[0].key
     value               = var.asg_default_tags[0].value
@@ -38,7 +38,7 @@ resource "aws_autoscaling_group" "main" {
     key                 = var.asg_default_tags[2].key
     value               = var.asg_default_tags[2].value
     propagate_at_launch = var.asg_default_tags[2].propagate_at_launch
-  }
+  }*/
 
   tag {
     key                 = "Name"
