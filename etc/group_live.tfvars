@@ -354,6 +354,7 @@ whitelist = [
   "107.154.0.0/16",
   "45.60.0.0/16",
   "45.223.0.0/16", # End Incapsula IPs
+  "54.246.192.151/32", # Live ctrl natgw
   "10.69.3.15/32", # Begin DVSA MS-RDS
   "10.69.3.16/32",
   "10.69.3.17/32",
@@ -616,7 +617,6 @@ reporting_xe_asg_desired_size = 0
 reporting_xe_subnet_cidr      = [""]
 
 ssm_kms_key_id      = "e6d167b6-b8a0-4acb-b982-9846429c79a5"
-ses_user_access_key = true
 
 # Whether or not to create old RDS option and parameter groups
 deprecated_rds_compatibility = true

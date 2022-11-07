@@ -100,6 +100,9 @@ mkdir -p ${MOUNT_POINT_ENC};
 ######################################################################
 ##### TEMPORRARY FIX !!! #############################################
 # This to use IP addresses until such time as the DNS issue is fixed and the above fstab will work in a self-heal scenario
+# Get Region and AZ from AWS EC2 meta-data. We could take region as a template parameter, but why since meta-data is canonical?
+export region="$(curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | jq -r .region)";
+export az="$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone)";
 
 EFS_IP_ENC=$(aws efs describe-mount-targets --file-system-id ${EFS_ENC_ID} --query "MountTargets[?AvailabilityZoneName == '$${az}'].IpAddress" --output text)
 echo "$${EFS_IP_ENC}:/ ${MOUNT_POINT_ENC} nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0 # $${az}.${EFS_ENC_ID}.efs.$${region}.amazonaws.com" >> /etc/fstab

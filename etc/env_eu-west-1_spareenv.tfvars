@@ -432,7 +432,6 @@ tars_rds_skip_final_snapshot = true
 tars_rds_apply_immediately   = "true"
 
 ## wildfly-mock
-wildfly-mock_instance_type        = "t2.medium"
 wildfly-mock_asg_min_size         = 0
 wildfly-mock_asg_max_size         = 0
 wildfly-mock_scaledown_desired    = 0
