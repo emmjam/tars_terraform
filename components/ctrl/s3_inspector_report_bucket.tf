@@ -112,7 +112,7 @@ resource "aws_s3_bucket_versioning" "inspector_reports" {
   bucket   = aws_s3_bucket.inspector_reports[count.index].id
 
   versioning_configuration {
-    status = "Enabled"
+    status = "Suspended"
   }
 }
 

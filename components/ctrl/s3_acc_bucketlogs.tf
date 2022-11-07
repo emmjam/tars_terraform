@@ -49,6 +49,7 @@ resource "aws_s3_bucket_acl" "acc-bucketlogs" {
   acl    = "log-delivery-write"
 }
 
+
 # Enable versioning
 resource "aws_s3_bucket_versioning" "acc-bucketlogs" {
   bucket = aws_s3_bucket.acc-bucketlogs.id
