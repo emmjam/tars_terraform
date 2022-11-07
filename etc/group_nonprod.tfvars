@@ -176,7 +176,7 @@ wildfly-messaging_ebs_vol              = 50
 wildfly-messaging_ebs_volume_type      = "gp3"
 
 ## wildfly-mock
-wildfly-mock_instance_type        = "t3a.medium"
+wildfly-mock_instance_type        = "t3a.small"
 wildfly-mock_puppet_nodetype      = "mock"
 wildfly-mock_asg_min_size         = 0
 wildfly-mock_asg_max_size         = 1
@@ -652,7 +652,6 @@ ssm_kms_key_id = "5fc7cd0f-a4d7-4d2e-b32f-f28391249a00"
 kms_inspector_count = 1
 create_inspector_report_lambda_version = 1
 email_inspector_report_lambda_version = 1
-ses_user_access_key = false
 
 # Whether or not to create old RDS option and parameter groups
 deprecated_rds_compatibility = false

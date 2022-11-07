@@ -46,7 +46,7 @@ guardduty_member_enabled = "1"
 # TODO: smarts: Move AMI IDs to versions file
 ## bastion
 bastion_instance_type        = "t3a.micro"
-bastion_ami_build_id         = "1502"
+bastion_ami_build_id         = "1504"
 bastion_asg_min_size         = 0
 bastion_asg_max_size         = 3
 bastion_scaledown_desired    = 1
@@ -94,9 +94,10 @@ cloudability_xacct = {
   external_id    = "c00c5476-64f0-49db-81e8-02fc7811d0e0"
 }
 
-# Change to '1' to delete any unattached EBS volumes that do not have the tag :  "protected":"do-not-delete"
+## EBS VOLUME HOUSEKEEPING LAMBDA
+# Change to '1' enable the lambda to delete any unattached EBS volumes that do not have the tag :  "protected":"do-not-delete"
 ebs_housekeeping_enabled = "1"
 # Delete volumes, or run in test mode (yes to delete)?
-ebs_volume_delete = "no"
+ebs_volume_delete = "yes"
 # Only delete volumes that were detached over X days ago
 ebs_volume_days = "30"
