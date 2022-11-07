@@ -1,38 +1,7 @@
 resource "aws_s3_bucket" "inspector_reports" {
   count         = var.kms_inspector_count
   bucket        = "${local.csi_global}-inspector-reports"
-  #acl           = "private"
   force_destroy = "true"
-
-  /*
-  server_side_encryption_configuration {
-    rule {
-      apply_server_side_encryption_by_default {
-        sse_algorithm = "aws:kms"
-      }
-    }
-  }
-
-  
-  logging {
-    target_bucket = aws_s3_bucket.acc-bucketlogs.id
-    target_prefix = "${local.csi}-inspector-reports/"
-  }
-
-  versioning {
-    enabled = false
-  }
-
-  lifecycle_rule {
-    id      = "wholebucket"
-    prefix  = "/"
-    enabled = "true"
-
-    expiration {
-      days = 1825
-    }
-  }
-  */
 
   tags = merge(
     local.default_tags,

@@ -57,7 +57,7 @@ resource "aws_autoscaling_group" "main" {
   )
   */
 
-  # change to loop
+  # default tags replacement
   tag {
     key                 = var.asg_default_tags[0].key
     value               = var.asg_default_tags[0].value
@@ -75,7 +75,7 @@ resource "aws_autoscaling_group" "main" {
     value               = var.asg_default_tags[2].value
     propagate_at_launch = var.asg_default_tags[2].propagate_at_launch
   }
-  # end of loop
+  
 
 
   tag {

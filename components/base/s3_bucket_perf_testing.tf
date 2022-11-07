@@ -1,6 +1,5 @@
 resource "aws_s3_bucket" "perf-testing" {
   bucket        = "${local.csi_global}-perf-testing"
-  # acl           = "private" # removed due to provider update
   force_destroy = "true"
 
   tags = merge(
