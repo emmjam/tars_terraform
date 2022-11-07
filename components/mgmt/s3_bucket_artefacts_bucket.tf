@@ -59,7 +59,7 @@ resource "aws_s3_bucket_acl" "artefacts" {
 
 
 resource "aws_s3_bucket_logging" "artefacts" {
-  bucket = aws_s3_bucket.envis.id
+  bucket = aws_s3_bucket.artefacts.id
 
   target_bucket = aws_s3_bucket.bucketlogs.id # check this is the right bucket
   target_prefix = "${local.csi_global}-artefacts"
@@ -84,7 +84,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "artefacts" {
     }
 
     expiration {
-      days = 1825
+      days = 90
     }
 
     status = "Enabled"
