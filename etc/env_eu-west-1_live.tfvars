@@ -47,7 +47,7 @@ guardduty_member_enabled = "0"
 # Changed due to JIRA OPS-2184 keep bastion AMI current on weekly basis BST
 ## bastion
 bastion_instance_type        = "t2.micro"
-bastion_ami_build_id         = "1501"
+bastion_ami_build_id         = "1504"
 bastion_asg_min_size         = 1
 bastion_asg_max_size         = 3
 bastion_scaledown_desired    = 1
@@ -133,7 +133,7 @@ cloudability_xacct = {
 }
 
 ## EBS VOLUME HOUSEKEEPING LAMBDA
-# Change to '1' to enable lambda to delete any unattached EBS volumes that do not have the tag :  "protected":"do-not-delete"
+# Change to '1' enable the lambda to delete any unattached EBS volumes that do not have the tag :  "protected":"do-not-delete"
 ebs_housekeeping_enabled = "1"
 # Delete volumes, or run in test mode (yes to delete)?
 ebs_volume_delete = "no"

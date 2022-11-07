@@ -14,7 +14,6 @@ default_tags = {
 new_all_users = [
   "mohamed.roble@bjss.com",
   "talha.ozleblebici@bjss.com",
-  "tom.bibb@bjss.com",
   "adam.hall@bjss.com",
   "alice.haws@dvsa.gov.uk",
   "andrew.malcolm@bjss.com",
@@ -144,7 +143,6 @@ administrators_platform_users = [
 ]
 
 administrators_platform_nonprod_users = [
-  "tom.bibb@bjss.com",
   "michelle.pike@bjss.com",
   "michael.tribbick@bjss.com",
   "raman.kapoor@bjss.com",
@@ -156,7 +154,6 @@ administrators_platform_nonprod_users = [
   "jamie.kelly@bjss.com",
 ]
 readonly_platform_users = [
-  "tom.bibb@bjss.com",
   "michelle.pike@bjss.com",
   "michael.tribbick@bjss.com",
   "raman.kapoor@bjss.com",
