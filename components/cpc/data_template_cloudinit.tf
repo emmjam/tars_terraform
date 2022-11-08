@@ -15,12 +15,13 @@ data "cloudinit_config" "cpc-front" {
     content_type = "text/x-shellscript"
     content = templatefile("${path.module}/templates/cpc_front_setup.sh.tmpl",
       {
-        ENVIRONMENT    = var.environment
-        NODETYPE       = var.cpc-front_puppet_nodetype
-        PRIVATE_DOMAIN = var.private_domain_name
-        AWS_ACCOUNT_ID = var.aws_account_id
-        KMS_KEY        = data.terraform_remote_state.acc.outputs.hieradata_kms_key_id
-        LOG_GROUP      = local.cpc_front_log
+        ENVIRONMENT        = var.environment
+        NODETYPE           = var.cpc-front_puppet_nodetype
+        PRIVATE_DOMAIN     = var.private_domain_name
+        AWS_ACCOUNT_ID     = var.aws_account_id
+        KMS_KEY            = data.terraform_remote_state.acc.outputs.hieradata_kms_key_id
+        LOG_GROUP          = local.cpc_front_log
+        ACCOUNT_ENVIRONMENT = var.account_environment
     })
   }
 }
@@ -42,12 +43,13 @@ data "cloudinit_config" "cpc-back" {
     content_type = "text/x-shellscript"
     content = templatefile("${path.module}/templates/cpc_back_setup.sh.tmpl",
       {
-        ENVIRONMENT    = var.environment
-        NODETYPE       = var.cpc-back_puppet_nodetype
-        PRIVATE_DOMAIN = var.private_domain_name
-        AWS_ACCOUNT_ID = var.aws_account_id
-        KMS_KEY        = data.terraform_remote_state.acc.outputs.hieradata_kms_key_id
-        LOG_GROUP      = local.cpc_back_log
+        ENVIRONMENT         = var.environment
+        NODETYPE            = var.cpc-back_puppet_nodetype
+        PRIVATE_DOMAIN      = var.private_domain_name
+        AWS_ACCOUNT_ID      = var.aws_account_id
+        KMS_KEY             = data.terraform_remote_state.acc.outputs.hieradata_kms_key_id
+        LOG_GROUP           = local.cpc_back_log
+        ACCOUNT_ENVIRONMENT = var.account_environment
     })
   }
 }

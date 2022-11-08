@@ -23,6 +23,7 @@ data "cloudinit_config" "cpc-batch" {
         EFS_ENC_ID      = aws_efs_file_system.cpc-batch-enc.id
         MOUNT_POINT_ENC = "/efs"
         LOG_GROUP       = local.cpc_batch_log
+        ACCOUNT_ENVIRONMENT = var.account_environment
     })
   }
 }
