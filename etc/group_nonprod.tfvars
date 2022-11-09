@@ -703,8 +703,8 @@ spot_pricing = {
   "t3a.large"  = "0.0454"
   "t4g.small"  = "0.0055"
   "t4g.medium"  = "0.011"
-  "m5a.large"  = "0.0500"
-  "m5a.xlarge" = "0.1198"
+  "m5a.large"  = "0.0600"
+  "m5a.xlarge" = "0.1498"
   "m6g.medium" = "0.026"
   "c6g.medium" = "0.026"
 }
