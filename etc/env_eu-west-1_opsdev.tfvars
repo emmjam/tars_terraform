@@ -414,3 +414,17 @@ puca_job_cca_nonfinalepdqstatus_minAgeHours  = 0
 puca_job_cca_nonfinalepdqstatus_maxAgeDays   = 0
 puca_job_cca_nonfinalepdqstatus_maxProcessed = 2
 puca_job_cca_maxRecordsPerJobRun             = 5 
+
+# Instance size check tsci-7961
+wildfly-back_instance_type    = "m5.large"
+wildfly-front_instance_type   = "t3.medium"
+wildfly-batch_instance_type   = "t3.medium"
+obs_instance_type             = "t3.medium"
+ibs_instance_type             = "t3.medium"
+fyndi-f_instance_type         = "t3.medium"
+fyndi-b_instance_type         = "t3.medium"
+cpc-back_instance_type        = "t3.medium"
+cpc-front_instance_type       = "t3.medium"
+sftpplus-svr_instance_type    = "t3.medium"
+cpc-batch_instance_type       = "t3.medium"
+squidnat_instance_type        = "t2.small"
