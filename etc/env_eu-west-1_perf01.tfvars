@@ -467,7 +467,7 @@ aws_mq_deployment_mode    = "SINGLE_INSTANCE"
 
 # TARSDB
 tars_rds_storage_type        = "gp2"
-tars_rds_instance_class      = "db.m4.xlarge" # was "db.m4.4xlarge"
+tars_rds_instance_class      = "db.m5.xlarge" # was "db.m4.4xlarge"
 tars_rds_public              = "false"
 tars_rds_multi_az            = "false" # it takes an age to build if true
 tars_rds_backup_retention    = "7"
