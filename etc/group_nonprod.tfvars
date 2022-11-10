@@ -79,7 +79,7 @@ aws_autoscaling_enabled = "0"
 #Monitoring
 prometheus_asg_min_size          = 0
 prometheus_asg_max_size          = 1
-prometheus_instance_type         = "t3a.medium"
+prometheus_instance_type         = "t3.medium"
 prometheus_ami_build_id          = "1450"
 prometheus_efs_provisioned_mibps = 1
 
@@ -103,7 +103,7 @@ wildfly-back_scaleup_desired      = 2
 wildfly-back_scaleup_recurrence = "00 04 * * 1-5"
 
 ## wildfly-batch
-wildfly-batch_instance_type        = "t3a.medium"
+wildfly-batch_instance_type        = "t3.medium"
 wildfly-batch_puppet_nodetype      = "tars-batch"
 wildfly-batch_asg_min_size         = 0
 wildfly-batch_asg_max_size         = 1
@@ -113,7 +113,7 @@ wildfly-batch_scaleup_desired      = 1
 wildfly-batch_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## obs
-obs_instance_type        = "t3a.medium"
+obs_instance_type        = "t3.medium"
 obs_puppet_nodetype      = "obs"
 obs_asg_min_size         = 0
 obs_asg_max_size         = 2
@@ -123,7 +123,7 @@ obs_scaleup_desired      = 2
 obs_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## ibs
-ibs_instance_type        = "t3a.medium"
+ibs_instance_type        = "t3.medium"
 ibs_puppet_nodetype      = "ibs"
 ibs_asg_min_size         = 0
 ibs_asg_max_size         = 2
@@ -133,7 +133,7 @@ ibs_scaleup_desired      = 2
 ibs_scaleup_recurrence   = "10 04 * * 1-5"
 
 ## fyndi-f
-fyndi-f_instance_type        = "t3a.medium"
+fyndi-f_instance_type        = "t3.medium"
 fyndi-f_puppet_nodetype      = "fyndi-front"
 fyndi-f_asg_min_size         = 0
 fyndi-f_asg_max_size         = 2
@@ -143,7 +143,7 @@ fyndi-f_scaleup_desired      = 2
 fyndi-f_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## fyndi_back
-fyndi-b_instance_type        = "t3a.medium"
+fyndi-b_instance_type        = "t3.medium"
 fyndi-b_puppet_nodetype      = "fyndi-back"
 fyndi-b_asg_min_size         = 0
 fyndi-b_asg_max_size         = 2
@@ -153,7 +153,7 @@ fyndi-b_scaleup_desired      = 2
 fyndi-b_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## wildfly-front
-wildfly-front_instance_type        = "t3a.medium"
+wildfly-front_instance_type        = "t3.medium"
 wildfly-front_puppet_nodetype      = "tars-front"
 wildfly-front_asg_min_size         = 0
 wildfly-front_asg_max_size         = 2
@@ -189,7 +189,7 @@ mock_db_image                     = "645711882182.dkr.ecr.eu-west-1.amazonaws.co
 gov_gateway_image                 = "645711882182.dkr.ecr.eu-west-1.amazonaws.com/tars-government-gateway-mock:latest"
 
 ## cpc-back
-cpc-back_instance_type        = "t3a.medium"
+cpc-back_instance_type        = "t3.medium"
 cpc-back_puppet_nodetype      = "cpc-back"
 cpc-back_asg_min_size         = 0
 cpc-back_asg_max_size         = 2
@@ -199,7 +199,7 @@ cpc-back_scaleup_desired      = 2
 cpc-back_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## cpc-front
-cpc-front_instance_type        = "t3a.medium"
+cpc-front_instance_type        = "t3.medium"
 cpc-front_puppet_nodetype      = "cpc-front"
 cpc-front_asg_min_size         = 0
 cpc-front_asg_max_size         = 2
@@ -209,7 +209,7 @@ cpc-front_scaleup_desired      = 2
 cpc-front_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## sftpplus-svr
-sftpplus-svr_instance_type        = "t3a.medium"
+sftpplus-svr_instance_type        = "t3.medium"
 sftpplus-svr_puppet_nodetype      = "sftpplus-svr"
 sftpplus-svr_asg_min_size         = 0
 sftpplus-svr_asg_max_size         = 1
@@ -225,7 +225,7 @@ bobj_instance_type = "m5.xlarge"
 
 
 ## cpc-batch
-cpc-batch_instance_type        = "t3a.medium"
+cpc-batch_instance_type        = "t3.medium"
 cpc-batch_puppet_nodetype      = "cpc-batch"
 cpc-batch_asg_min_size         = 0
 cpc-batch_asg_max_size         = 1
