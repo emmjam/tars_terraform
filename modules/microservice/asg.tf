@@ -28,7 +28,7 @@ resource "aws_autoscaling_group" "main" {
   # this is the only way I can think of to provide a single source of
   # interpolated tag insertion that works for AWS Autoscaling Groups.
   # Please don't hurt me.
-  /*
+  
   # removed due to provider update
   tags = concat(
     var.asg_default_tags,
@@ -55,8 +55,8 @@ resource "aws_autoscaling_group" "main" {
       },
     ],
   )
-  */
-
+  
+  /*
   # default tags replacement
   tag {
     key                 = var.asg_default_tags[0].key
@@ -100,7 +100,7 @@ resource "aws_autoscaling_group" "main" {
     key                 = "Module"
     value               = var.module
     propagate_at_launch = true
-  }
+  }*/
 
   provisioner "local-exec" {
     command = "aws autoscaling update-auto-scaling-group --auto-scaling-group-name ${aws_autoscaling_group.main.name} --desired-capacity ${var.asg_size_desired_on_create} --region ${var.region}"
