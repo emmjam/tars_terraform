@@ -617,6 +617,7 @@ reporting_xe_asg_desired_size = 0
 reporting_xe_subnet_cidr      = [""]
 
 ssm_kms_key_id      = "e6d167b6-b8a0-4acb-b982-9846429c79a5"
+ses_user_access_key = true
 
 # Whether or not to create old RDS option and parameter groups
 deprecated_rds_compatibility = true
