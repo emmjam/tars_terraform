@@ -4,6 +4,6 @@ output "cpc-batch-sg-id" {
 }
 
 output "cpc-batch_efs_id" {
-  value = aws_efs_file_system.cpc-batch-efs.id
+  value = aws_efs_file_system.cpc-batch-enc.id
 }
 
