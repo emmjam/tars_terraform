@@ -18,7 +18,7 @@ module "sonarqube" {
   sq_asg_size_max        = var.sonarqube["sq_asg_size_max"]
   sq_ami_id              = data.aws_ami.sonarqube.image_id
   sq_instance_type       = var.sonarqube["sq_instance_type"]
-  asg_default_tags       = var.asg_default_tags
+  asg_default_tags       = local.asg_default_tags
   ebs_volume_size        = 50
 
   lc_additional_sg_ids = [

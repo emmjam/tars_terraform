@@ -14,7 +14,7 @@ module "squidnat" {
 
   default_tags = local.default_tags
 
-  asg_default_tags = var.asg_default_tags
+  asg_default_tags = local.asg_default_tags
 
   instance_type    = var.squidnat_instance_type
   root_domain_name = var.private_domain_name

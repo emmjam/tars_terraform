@@ -15,23 +15,11 @@ default_tags = {
   DVSA_Env    = "mgmt"
 }
 
-asg_default_tags = [
-  {
-    "key"                 = "Project"
-    "value"               = "tars"
-    "propagate_at_launch" = "true"
-  },
-  {
-    "key"                 = "Environment"
-    "value"               = "mgmt"
-    "propagate_at_launch" = "true"
-  },
-  {
-    "key"                 = "Group"
-    "value"               = "mgmt"
-    "propagate_at_launch" = "true"
-  }
-]
+asg_default_tags = {
+  Project     = "tars"
+  Environment = "mgmt"
+  Group       = "mgmt"
+}
 
 private_domain_name = "tars.dvsa.aws"
 

@@ -17,6 +17,6 @@ resource "aws_alb_target_group" "cpc-back-8080" {
 
 resource "aws_autoscaling_attachment" "cpc-back" {
   autoscaling_group_name = module.cpc-back.autoscaling_group_id
-  lb_target_group_arn    = aws_alb_target_group.cpc-back-8080.arn
+  alb_target_group_arn   = aws_alb_target_group.cpc-back-8080.arn
 }
 

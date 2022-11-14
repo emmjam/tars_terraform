@@ -27,15 +27,11 @@ locals {
     },
   )
 
-  asg_default_tags = concat(
+  asg_default_tags = merge(
     var.asg_default_tags,
-    [
       {
-        "key"                 = "Component"
-        "value"               = var.component
-        "propagate_at_launch" = "true"
+        "Component" = var.component
       },
-    ],
   )
 
   # TODO: peacheym: Lots of tech debt here. Some things think the domain

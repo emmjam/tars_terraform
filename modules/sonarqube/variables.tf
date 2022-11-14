@@ -72,13 +72,12 @@ variable "sq_asg_size_desired" {
 }
 
 variable "asg_default_tags" {
-  type = list(object({
-    key                 = string
-    value               = string
-    propagate_at_launch = string
-  }))
+  type        = map(string)
   description = ""
-  default     = []
+
+  default = {
+    Component = ""
+  }
 }
 
 variable "sq_asg_size_max" {

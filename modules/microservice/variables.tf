@@ -194,13 +194,23 @@ variable "subnets_route_tables" {
 # this is the only way I can think of to provide a single source of
 # interpolated tag insertion that works for AWS Autoscaling Groups.
 # Please don't hurt me.
-variable "asg_default_tags" {
+# removed as changed to dynamic tags
+/*variable "asg_default_tags" {
   type = list(object({
     key                 = string
     value               = string
     propagate_at_launch = string
   }))
   description = "See code comments"
+}*/
+
+variable "asg_default_tags" {
+  type        = map(string)
+  description = "Default tag map"
+
+  default = {
+    Component = "microservice"
+  }
 }
 
 variable "default_tags" {

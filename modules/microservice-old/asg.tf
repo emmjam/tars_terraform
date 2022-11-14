@@ -21,34 +21,14 @@ resource "aws_autoscaling_group" "main" {
   target_group_arns    = var.asg_target_group_arns
   enabled_metrics      = var.asg_enabled_metrics
 
-  tag {
-    key                 = "Name"
-    value               = format(
-                            "%s-%s-%s/%s",
-                            var.project,
-                            var.environment,
-                            var.component,
-                            var.name,
-                          )
-    propagate_at_launch = true
-  }
+  dynamic "tag" {
+    for_each = local.asg_default_tags
+    content {
+      key   = tag.key
+      value = tag.value
 
-  tag {
-    key                 = "Nodetype"
-    value               = var.name
-    propagate_at_launch = true
-  }
-
-  tag {
-    key                 = "Component"
-    value               = var.component
-    propagate_at_launch = true
-  }
-
-  tag {
-    key                 = "Module"
-    value               = var.module
-    propagate_at_launch = true
+      propagate_at_launch = true
+    }
   }
 
 

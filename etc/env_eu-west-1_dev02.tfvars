@@ -15,23 +15,11 @@ default_tags = {
   DVSA_Env    = "dev"
 }
 
-asg_default_tags = [
-  {
-    "key"                 = "Project"
-    "value"               = "mes"
-    "propagate_at_launch" = "true"
-  },
-  {
-    "key"                 = "Environment"
-    "value"               = "dev02"
-    "propagate_at_launch" = "true"
-  },
-  {
-    "key"                 = "Group"
-    "value"               = "nonprod"
-    "propagate_at_launch" = "true"
-  }
-]
+asg_default_tags = {
+  Project     = "tars"
+  Environment = "dev02"
+  Group       = "nonprod"
+}
 
 ###############################################################################
 # CTRL
