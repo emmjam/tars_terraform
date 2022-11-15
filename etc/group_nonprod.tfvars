@@ -661,10 +661,6 @@ deprecated_rds_compatibility = false
 obs_reg_holding = false
 obs_reg_holding_lambda_version = 1
 
-# Whether to create Driver Services resources
-drv_svc_enabled     = true
-driver_service_cert = "*"
-
 # mock gov gateway accounts processor
 mock_gov_gw_accounts_processor_lambda_version = "2"
 

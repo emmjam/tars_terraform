@@ -57,5 +57,4 @@ locals {
     "front/cloud-init-output",
   )
 
-  driver_services_domain = var.environment == "prod" ? "${var.driver_service_cert}" : (var.environment != "prod" ? "${var.driver_service_cert}.${data.terraform_remote_state.acc.outputs.public_domain_name}" : "${var.driver_service_cert}.${data.terraform_remote_state.acc.outputs.public_domain_name}")
 }
