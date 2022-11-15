@@ -207,7 +207,10 @@ output "subnets_reporting_xe" {
   value = module.microservice_reporting_xe.*.subnet_ids
 }
 
-
 output "lambda_mock_gov_gw_accounts_processor_sg_id" {
   value = var.mock_gov_gw_accounts_processor == true ? module.lambda_mock_gov_gw_accounts_processor[0].security_group_id : null
+}
+
+output "prometheus_efs_id" {
+  value = aws_efs_file_system.prometheus-enc.id
 }
