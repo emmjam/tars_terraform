@@ -317,7 +317,7 @@ mis_allow_major_version_upgrade = true
 rsis_rds_username          = "rsisuatadmin"
 rsis_rds_allocated_storage = "120"
 rsis_rds_snapshot          = "tars-uat03-tars-reporting-rsisdb-08-01-2022-obfuscation-do-not-delete"
-rsis_rds_autoscale         = "False""
+rsis_rds_autoscale         = "False"
 
 #############################################################################
 # VPC to DVSA WAN via DX
