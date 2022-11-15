@@ -20,8 +20,6 @@ data "cloudinit_config" "wildfly-batch" {
         AWS_ACCOUNT_ID   = var.aws_account_id
         PRIVATE_DOMAIN   = var.private_domain_name
         KMS_KEY          = data.terraform_remote_state.acc.outputs.hieradata_kms_key_id
-        EFS_ID           = aws_efs_file_system.batch.id
-        MOUNT_POINT      = "/efs_orig"
         EFS_ENC_ID       = aws_efs_file_system.tars-batch-enc.id
         MOUNT_POINT_ENC  = "/efs"
         DVSA_DNS_SERVERS = join(",", var.dvsa_dns_servers)

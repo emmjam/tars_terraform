@@ -99,7 +99,6 @@ echo -n 'aws_account: ${AWS_ACCOUNT_ID}' > "$${facts_path}/aws_account.yaml"
 log 'INFO' 'Configuring EFS'
 
 # Ensure the directory exists
-mkdir -p ${MOUNT_POINT};
 mkdir -p ${MOUNT_POINT_ENC};
 
 # Get Region and AZ from AWS EC2 meta-data. We could take region as a template parameter, but why since meta-data is canonical?
@@ -109,7 +108,6 @@ export az="$(curl -s http://169.254.169.254/latest/meta-data/placement/availabil
 # TODO: peacheym: Migrate to the AZ-independent URL
 # Set mount information in /etc/fstab - we're unlikely to reboot, but it can't hurt to ensure it remains
 
-# echo "$${az}.${EFS_ID}.efs.$${region}.amazonaws.com:/ ${MOUNT_POINT} nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab
 # echo "$${az}.${EFS_ENC_ID}.efs.$${region}.amazonaws.com:/ ${MOUNT_POINT_ENC} efs rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,tls 0 0" >> /etc/fstab
 
 ######################################################################
@@ -117,16 +115,12 @@ export az="$(curl -s http://169.254.169.254/latest/meta-data/placement/availabil
 # This to use IP addresses until such time as the DNS issue is fixed and the above fstab will work in a self-heal scenario
 
 EFS_IP_ENC=$(aws efs describe-mount-targets --file-system-id ${EFS_ENC_ID} --query "MountTargets[?AvailabilityZoneName == '$${az}'].IpAddress" --output text)
-EFS_IP=$(aws efs describe-mount-targets --file-system-id ${EFS_ID} --query "MountTargets[?AvailabilityZoneName == '$${az}'].IpAddress" --output text)
-
-echo "$${EFS_IP}:/ ${MOUNT_POINT} nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0 # $${az}.${EFS_ID}.efs.$${region}.amazonaws.com" >> /etc/fstab
 echo "$${EFS_IP_ENC}:/ ${MOUNT_POINT_ENC} nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0 # $${az}.${EFS_ENC_ID}.efs.$${region}.amazonaws.com" >> /etc/fstab
 
 ##### END OF TEMPORRARY FIX !!! ######################################
 ######################################################################
 
 # Mount the configured target for Batch
-mount ${MOUNT_POINT};
 mount ${MOUNT_POINT_ENC};
 
 cd /opt/packer-puppet-masterless
@@ -228,7 +222,7 @@ export host=$(awk '/server/{print $3}' /opt/SFTPPlus-client/conf/Payord_Put.conf
 
 if [ $${host} == "tars-mock-sftp" ]; then
   log 'INFO' 'Using SFTP Mock'
-  #exit
+  exit
 else
   # make batch connection that will end if any user input required, i.e. password if sshkey present, or sshkey if changed
   result=$(/opt/SFTPPlus-client/bin/psftp $${user}@$${host} -batch 2>&1)
@@ -250,64 +244,3 @@ else
      log 'INFO' 'Arvato Key not changed'
   fi
 fi
-
-#######################################################################
-# Final rsync & reporting
-log 'INFO' 'Starting EFS work'
-NICE="10"
-rm -f /tmp/.initialsync
-date > /var/log/efs_sync.log
-echo "Nice level: $NICE" >> /var/log/efs_sync.log
-echo "" >> /var/log/efs_sync.log
-
-df -kT | grep nfs4 >> /var/log/efs_sync.log
-echo "" >> /var/log/efs_sync.log
-
-echo "The encrypted filesystem (127.0.0.1) is now the live target" >> /var/log/efs_sync.log
-echo "Synchronisation will now take place from /efs_orig --> /efs" >> /var/log/efs_sync.log
-echo "" >> /var/log/efs_sync.log
-
-# Perform the rsync
-echo "Running 1st RSYNC - should sync any deltas" >> /var/log/efs_sync.log
-nice -n $NICE rsync -avhW --progress /efs_orig/ /efs >> /var/log/efs_sync.log
-date >> /var/log/efs_sync.log
-echo "" >> /var/log/efs_sync.log
-
-# Give the filesystem time to settle down
-echo "Sleeping for 5 mins..." >> /var/log/efs_sync.log
-echo "" >> /var/log/efs_sync.log
-sleep 300
-
-echo "#####################################################"
-echo "" >> /var/log/efs_sync.log
-
-# Perform the rsync again (Should show no updates)
-date >> /var/log/efs_sync.log
-echo "Running 2nd RSYNC - should show no changes" >> /var/log/efs_sync.log
-nice -n $NICE rsync -avhW --progress /efs_orig/ /efs >> /var/log/efs_sync.log
-date >> /var/log/efs_sync.log
-echo "" >> /var/log/efs_sync.log
-
-# Give the filesystem time to settle down
-echo "Sleeping for 5 mins..." >> /var/log/efs_sync.log
-echo "" >> /var/log/efs_sync.log
-sleep 300
-
-echo "#####################################################"
-echo "" >> /var/log/efs_sync.log
-
-echo "Checking file counts:" >> /var/log/efs_sync.log
-echo "/efs : $(find /efs -type f| wc -l)" >> /var/log/efs_sync.log
-echo "/efs_orig : $(find /efs -type f| wc -l)" >> /var/log/efs_sync.log
-echo "" >> /var/log/efs_sync.log
-
-echo "Checking DF :" >> /var/log/efs_sync.log
-df -kT | grep nfs4 >> /var/log/efs_sync.log
-echo "" >> /var/log/efs_sync.log
-
-echo "Checking DU :" >> /var/log/efs_sync.log
-du -sh /efs_orig /efs >> /var/log/efs_sync.log
-echo "" >> /var/log/efs_sync.log
-
-echo "Synchronisation completed." >> /var/log/efs_sync.log
-date >> /var/log/efs_sync.log
