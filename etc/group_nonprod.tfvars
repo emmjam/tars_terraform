@@ -176,7 +176,7 @@ wildfly-messaging_ebs_vol              = 50
 wildfly-messaging_ebs_volume_type      = "gp3"
 
 ## wildfly-mock
-wildfly-mock_instance_type        = "t3a.small"
+wildfly-mock_instance_type        = "t3.medium"
 wildfly-mock_puppet_nodetype      = "mock"
 wildfly-mock_asg_min_size         = 0
 wildfly-mock_asg_max_size         = 1
@@ -435,7 +435,7 @@ dvla_elise_server      = "51.231.10.112/32"
 rsis_samba_server_archive = "10.14.0.142/32"
 
 # squidnat
-squidnat_instance_type = "t3a.small"
+squidnat_instance_type = "t2.small"
 squidnat_ami_build_id  = "1426"
 
 ops_team_email = "tars.platform-team@bjss.com"
