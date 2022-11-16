@@ -48,6 +48,9 @@ guardduty_member_enabled = "0"
 # prep
 ###############################################################################
 
+wildfly-messaging_ebs_vol         = 50
+wildfly-messaging_ebs_volume_type = "gp3"
+
 # The VPC CIDR Block for this environment
 vpc_cidr = "10.167.136.0/21"
 
