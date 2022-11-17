@@ -365,11 +365,6 @@ variable "payments_cert_name" {
   description = "ACM cert name"
 }
 
-variable "driver_service_cert" {
-  type        = string
-  description = "ACM cert name"
-}
-
 variable "irdt_cert" {
   type        = string
   description = "ACM cert name"
@@ -488,13 +483,6 @@ variable "obs_reg_holding" {
 variable "obs_reg_holding_lambda_version"{
   type        = string
   description = "Lambda version"
-}
-
-# Whether to create Driver Services resources
-variable "drv_svc_enabled" {
-  type        = bool
-  default     = false
-  description = "Whether to create Driver Services resources. Required in Prod and UAT02"
 }
 
 variable "mock_gov_gw_accounts_processor" {

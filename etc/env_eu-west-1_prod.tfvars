@@ -549,9 +549,6 @@ dbu_maxrecordsprocessed = 500
 # Whether to create obs Register New Business Holding resources
 obs_reg_holding = true
 
-# Whether to create Driver Services resources
-drv_svc_enabled = true
-
 # Process Unknown Card Authorisations Job - Challenged Card Auth
 puca_job_cca_minAgeHours                                = 24
 puca_job_cca_maxAgeDays                                 = 0
