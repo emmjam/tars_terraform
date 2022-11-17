@@ -162,17 +162,17 @@ $FileContent = @'
 {
 	"logs": {
 		"logs_collected": {
-            "files": {
-                "collect_list": [
-                   {
-                        "file_path": "/opt/wildfly/logs/current_diagnosis.json",
-                        "log_group_name": "/aws/ec2/tars-${ENVIRONMENT}-messaging/current_diagnosis.json",
-                        "log_stream_name": "current_diagnosis.json",
-                        "timezone": "Local"
-                    }
-                ]
-            },
-			"windows_events": {
+        "files": {
+            "collect_list": [
+                {
+                  "file_path": "/opt/wildfly/logs/current_diagnosis.json",
+                  "log_group_name": "/aws/ec2/tars-${ENVIRONMENT}-messaging/current_diagnosis.json",
+                  "log_stream_name": "current_diagnosis.json",
+                  "timezone": "Local"
+                }
+            ]
+        },
+		"windows_events": {
 				"collect_list": [
 					{
 						"event_format": "xml",
@@ -224,5 +224,5 @@ Invoke-Expression ".\amazon-cloudwatch-agent-ctl.ps1 -a fetch-config -m ec2 -c f
 Write-Log-Line "Starting the Wildfly service" "INFO"
 Start-Process -FilePath "C:\opt\wildfly\bin\service\service.bat" -ArgumentList @("start") 
 Write-Log-Line "Job done." "INFO"
-Write-Log-Line "V1" "INFO"
+Write-Log-Line "V2" "INFO"
 </powershell>
