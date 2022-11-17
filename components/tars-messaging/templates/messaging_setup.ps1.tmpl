@@ -224,4 +224,5 @@ Invoke-Expression ".\amazon-cloudwatch-agent-ctl.ps1 -a fetch-config -m ec2 -c f
 Write-Log-Line "Starting the Wildfly service" "INFO"
 Start-Process -FilePath "C:\opt\wildfly\bin\service\service.bat" -ArgumentList @("start") 
 Write-Log-Line "Job done." "INFO"
+Write-Log-Line "V1" "INFO"
 </powershell>
