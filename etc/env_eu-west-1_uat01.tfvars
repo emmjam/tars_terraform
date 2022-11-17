@@ -399,3 +399,14 @@ puca_job_cca_nonfinalepdqstatus_maxAgeDays              = 60
 puca_job_cca_nonfinalepdqstatus_maxProcessed            = 2
 puca_job_cca_maxRecordsPerJobRun                        = 5
 transfer_theory_test_extract_file_to_ftts_job_directory = "/efs/tars/FTP/irdt/eligibility/ftts"
+
+
+
+# reporting xe
+
+reporting_xe_count            = 1
+reporting_xe_asg_min_size     = 0
+reporting_xe_asg_max_size     = 0
+reporting_xe_asg_desired_size = 0
+
+reporting_xe_subnet_cidr = ["10.167.13.240/28"]
