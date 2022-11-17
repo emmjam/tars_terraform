@@ -406,7 +406,7 @@ transfer_theory_test_extract_file_to_ftts_job_directory = "/efs/tars/FTP/irdt/el
 
 reporting_xe_count            = 1
 reporting_xe_asg_min_size     = 0
-reporting_xe_asg_max_size     = 0
-reporting_xe_asg_desired_size = 0
+reporting_xe_asg_max_size     = 1
+reporting_xe_asg_desired_size = 1
 
 reporting_xe_subnet_cidr = ["10.167.13.240/28"]
