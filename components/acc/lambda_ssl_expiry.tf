@@ -141,7 +141,7 @@ resource "aws_lambda_function" "ssl_cert_expiry" {
 
   role        = aws_iam_role.iam_role_for_lambda.arn
   handler     = "expiring_certificates.lambda_handler"
-  runtime     = "python3.6"
+  runtime     = "python3.8"
   timeout     = "10"
   memory_size = "128"
 
