@@ -436,7 +436,7 @@ rsis_samba_server_archive = "10.14.0.142/32"
 
 # squidnat
 squidnat_instance_type = "t2.small"
-squidnat_ami_build_id  = "1426"
+squidnat_ami_build_id  = "1508"
 
 ops_team_email = "tars.platform-team@bjss.com"
 
@@ -660,10 +660,6 @@ deprecated_rds_compatibility = false
 # Whether to create obs Register New Business Holding resources
 obs_reg_holding = false
 obs_reg_holding_lambda_version = 1
-
-# Whether to create Driver Services resources
-drv_svc_enabled     = true
-driver_service_cert = "*"
 
 # mock gov gateway accounts processor
 mock_gov_gw_accounts_processor_lambda_version = "2"
