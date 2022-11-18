@@ -271,6 +271,7 @@ jmeter_instance_type              = "t3a.micro"
 jmeter_asg_size_desired_on_create = 0
 jmeter_asg_size_max               = 0
 jmeter_asg_size_min               = 0
+jmeter_ami_build_id               = "1505"
 
 ## XE
 oraclexe_svr_id               = "1259"
@@ -582,9 +583,6 @@ dc_vif_asn = "64515"
 
 # TSS Opsgenie
 opsgenie_endpoint = "https://api.opsgenie.com/v1/json/amazonsns?apiKey=4cb725d3-32c1-47ae-b3b7-e38187fb9202"
-
-#Jmeter
-jmeter_ami_build_id = "1266"
 
 # Enable action for AmazonMQ Queue CloudWatch Alarm
 velocity_email_cw_metric_alarm_enabled           = false
