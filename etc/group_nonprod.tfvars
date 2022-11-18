@@ -267,7 +267,7 @@ jmeter_instance_type              = "t3a.micro"
 jmeter_asg_size_desired_on_create = 0
 jmeter_asg_size_max               = 0
 jmeter_asg_size_min               = 0
-jmeter_ami_build_id               = "1305"
+jmeter_ami_build_id               = "1505"
 
 ## XE
 oraclexe_svr_id               = "1296"
@@ -638,7 +638,7 @@ ibs_high_cpu_cw_metric_alarm_enabled = false
 ftts_elig_port = "22"
 
 # reporting-xe
-reporting_xe_instance_type    = "t3a.medium"
+reporting_xe_instance_type    = "t3.medium"
 reporting_xe_count            = 0
 reporting_xe_ami_build_id     = "1447"
 reporting_xe_ebs_size         = "32"
