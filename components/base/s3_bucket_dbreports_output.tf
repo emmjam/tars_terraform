@@ -20,7 +20,6 @@ resource "aws_s3_bucket" "dbreports_output" {
   # Delete after 2 years
   lifecycle_rule {
     id      = "wholebucket"
-    prefix  = "/"
     enabled = "true"
 
     transition {
@@ -34,7 +33,7 @@ resource "aws_s3_bucket" "dbreports_output" {
     }
 
     expiration {
-      days = "1825"
+      days = "732"
     }
 
     noncurrent_version_transition {
@@ -48,7 +47,7 @@ resource "aws_s3_bucket" "dbreports_output" {
     }
 
     noncurrent_version_expiration {
-      days = "1825"
+      days = "732"
     }
   }
 
