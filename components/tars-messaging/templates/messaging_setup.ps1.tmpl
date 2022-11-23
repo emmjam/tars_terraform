@@ -147,6 +147,7 @@ if (-Not (Get-ItemProperty -Path $regPath -Name "OMS" -ErrorAction SilentlyConti
 } else {
   Write-Log-Entry "Stage 2 - Install OMS agent skipped" "INFO"
 }
+<<<<<<< HEAD
 
 # Configure Cloudwatch logging
 $logFile = "C:\Program Files\Amazon\AmazonCloudWatchAgent\cw-log-$(gc env:computername).log"
@@ -225,4 +226,6 @@ Write-Log-Line "Starting the Wildfly service" "INFO"
 Start-Process -FilePath "C:\opt\wildfly\bin\service\service.bat" -ArgumentList @("start") 
 Write-Log-Line "Job done." "INFO"
 Write-Log-Line "V2" "INFO"
+=======
+>>>>>>> release
 </powershell>
