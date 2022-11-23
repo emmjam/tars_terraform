@@ -1,5 +1,5 @@
 <powershell>
-# all logging settins are here on top
+# all logging settings are here on top
 $logFile = "e:\log-$(gc env:computername).log"
 $logLevel = "DEBUG" # ("DEBUG","INFO","WARN","ERROR","FATAL")
 $logSize = 1mb # 30kb
@@ -147,81 +147,4 @@ if (-Not (Get-ItemProperty -Path $regPath -Name "OMS" -ErrorAction SilentlyConti
 } else {
   Write-Log-Entry "Stage 2 - Install OMS agent skipped" "INFO"
 }
-
-# Configure Cloudwatch logging
-$logFile = "C:\Program Files\Amazon\AmazonCloudWatchAgent\cw-log-$(gc env:computername).log"
-$cwfile = "C:\Program Files\Amazon\AmazonCloudWatchAgent\config.json"
-Write-Log-Line "Stopping the Wildfly service" "INFO"
-Start-Process -FilePath "C:\opt\wildfly\bin\service\service.bat" -ArgumentList @("stop") 
-Write-Log-Line "Starting CloudWatch configuration" "INFO"
-Set-Location -Path "C:\Program Files\Amazon\AmazonCloudWatchAgent"
-chdir "C:\Program Files\Amazon\AmazonCloudWatchAgent"
-Write-Log-Line "Backing up original config.json" "INFO"
-Rename-Item $cwfile 'config.json.bak'
-$FileContent = @'
-{
-	"logs": {
-		"logs_collected": {
-            "files": {
-                "collect_list": [
-                   {
-                        "file_path": "/opt/wildfly/logs/current_diagnosis.json",
-                        "log_group_name": "/aws/ec2/tars-${ENVIRONMENT}-messaging/current_diagnosis.json",
-                        "log_stream_name": "current_diagnosis.json",
-                        "timezone": "Local"
-                    }
-                ]
-            },
-			"windows_events": {
-				"collect_list": [
-					{
-						"event_format": "xml",
-						"event_levels": [
-							"VERBOSE",
-							"INFORMATION",
-							"WARNING",
-							"ERROR",
-							"CRITICAL"
-						],
-						"event_name": "System",
-						"log_group_name": "System"
-					}
-				]
-			}
-		}
-	},
-	"metrics": {
-		"append_dimensions": {
-			"AutoScalingGroupName": "$${aws:AutoScalingGroupName}",
-			"ImageId": "$${aws:ImageId}",
-			"InstanceId": "$${aws:InstanceId}",
-			"InstanceType": "$${aws:InstanceType}"
-		},
-		"metrics_collected": {
-			"Memory": {
-				"measurement": [
-					"% Committed Bytes In Use"
-				],
-				"metrics_collection_interval": 60
-			},
-			"Paging File": {
-				"measurement": [
-					"% Usage"
-				],
-				"metrics_collection_interval": 60,
-				"resources": [
-					"*"
-				]
-			}
-		}
-	}
-}
-'@
-Write-Log-Line "Writing out new config.json" "INFO"
-$FileContent | Out-File $cwfile
-Write-Log-Line "Applying new CloudWatch configuration" "INFO"
-Invoke-Expression ".\amazon-cloudwatch-agent-ctl.ps1 -a fetch-config -m ec2 -c file:./config.json -s"
-Write-Log-Line "Starting the Wildfly service" "INFO"
-Start-Process -FilePath "C:\opt\wildfly\bin\service\service.bat" -ArgumentList @("start") 
-Write-Log-Line "Job done." "INFO"
 </powershell>
