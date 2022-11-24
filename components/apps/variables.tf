@@ -532,6 +532,11 @@ variable "ibs_rds_engine_version" {
   description = "Version of Mysql used for IBSDB RDS Cluster"
 }
 
+variable "ibs_aurora_engine" {
+  type        = string
+  description = "Version of Mysql used for IBSDB RDS Cluster"
+}
+
 variable "ibs_rds_major_version_upgrade" {
   type        = string
   description = "Allow DB Version Update"

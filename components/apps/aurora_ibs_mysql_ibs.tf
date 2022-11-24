@@ -19,6 +19,7 @@ resource "aws_rds_cluster" "ibsdb_cluster" {
   iam_roles                       = [aws_iam_role.ibs_rds_role.arn]
   apply_immediately               = var.ibs_rds_apply_immediately
   engine_version                  = var.ibs_rds_engine_version
+  engine                          = var.ibs_aurora_engine
   allow_major_version_upgrade     = var.ibs_rds_major_version_upgrade
   vpc_security_group_ids = [
     aws_security_group.ibs_aurora.id,
@@ -45,6 +46,7 @@ resource "aws_rds_cluster_instance" "ibsdb_instance" {
   publicly_accessible     = false
   db_parameter_group_name = "${local.csi}-${var.ibs_rdswriter_group_name}"
   apply_immediately       = var.ibs_rds_apply_immediately
+  engine                  = var.ibs_aurora_engine
 
   tags = merge(
     local.default_tags,

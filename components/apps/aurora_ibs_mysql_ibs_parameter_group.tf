@@ -29,4 +29,8 @@ resource "aws_rds_cluster_parameter_group" "ibs-cluster-parameter-group-2020-04-
     name  = "event_scheduler"
     value = "ON"
   }
+
+  #lifecycle {
+  #  ignore_changes = [parameter]
+  #}
 }
