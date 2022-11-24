@@ -29,15 +29,15 @@ locals {
     },
   )
 
-  asg_default_tags = concat(
+  asg_default_tags = merge(
     var.asg_default_tags,
-    [
       {
-        "key"                 = "Component"
-        "value"               = var.component
-        "propagate_at_launch" = "true"
+        Name                  = format("%s/%s", local.csi, "mock")
+        Nodetype              = "wildfly-mock"
+        Component             = var.component
       },
-    ],
   )
+
 }
+
 

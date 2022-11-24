@@ -15,23 +15,11 @@ default_tags = {
   DVSA_Env    = "dev"
 }
 
-asg_default_tags = [
-  {
-    "key"                 = "Project"
-    "value"               = "mes"
-    "propagate_at_launch" = "true"
-  },
-  {
-    "key"                 = "Environment"
-    "value"               = "dev02"
-    "propagate_at_launch" = "true"
-  },
-  {
-    "key"                 = "Group"
-    "value"               = "nonprod"
-    "propagate_at_launch" = "true"
-  }
-]
+asg_default_tags = {
+  Project     = "tars"
+  Environment = "dev02"
+  Group       = "nonprod"
+}
 
 ###############################################################################
 # CTRL
@@ -297,7 +285,7 @@ tars_rds_snapshot          = "tars-dev01-tars-core-tarsdb-5-4-2019-5-7-0-2"
 cpc_rds_username                = "tarscpcadmin"
 cpc_rds_allocated_storage       = "20" # 20 Gigabyte - was 1500GB
 cpc_rds_snapshot                = "tars-dev01-cpc-cpcdb-5-4-2019-5-7-0-2"
-cpc_allow_major_version_upgrade = true
+
 
 # IBSDB
 ibs_rds_username = "ibsdevadmin"
@@ -307,6 +295,7 @@ ibs_rds_snapshot = "dev02-ibs-subnet-move"
 mis_rds_username          = "misdmsadmin"
 mis_rds_allocated_storage = "300"
 mis_rds_snapshot          = "tars-dev01-tars-dms-misopdmstg-20180720"
+
 
 # RSISDB
 rsis_rds_username          = "tarsrsisadmin"

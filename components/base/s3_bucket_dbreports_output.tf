@@ -8,20 +8,35 @@ resource "aws_s3_bucket" "dbreports_output" {
   )
 
   force_destroy = "false"
-  logging {
-    target_bucket = aws_s3_bucket.bucketlogs.id
-    target_prefix = "${local.csi_global}-dbreports-output/"
-  }
-  versioning {
-    enabled = true
-  }
+}
 
-  # Rotate files out to cheaper storage
-  # Delete after 2 years
-  lifecycle_rule {
-    id      = "wholebucket"
-    prefix  = "/"
-    enabled = "true"
+# provider resource updates
+resource "aws_s3_bucket_logging" "dbreports_output" {
+  bucket = aws_s3_bucket.dbreports_output.id
+
+  target_bucket = aws_s3_bucket.bucketlogs.id
+  target_prefix = "${local.csi_global}-dbreports-output/"
+}
+
+resource "aws_s3_bucket_versioning" "dbreports_output" {
+  bucket = aws_s3_bucket.dbreports_output.id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+
+# Rotate logs out to cheaper storage
+# Delete after 2 years
+resource "aws_s3_bucket_lifecycle_configuration" "dbreports_output" {
+  bucket = aws_s3_bucket.dbreports_output.id
+
+  rule {
+    id = "wholebucket"
+
+    filter {
+      prefix = "/"
+    }
 
     transition {
       days          = "30"
@@ -36,23 +51,25 @@ resource "aws_s3_bucket" "dbreports_output" {
     expiration {
       days = "1825"
     }
-
+    
     noncurrent_version_transition {
-      days          = "30"
-      storage_class = "STANDARD_IA"
+      noncurrent_days = "30"
+      storage_class   = "STANDARD_IA"
     }
 
     noncurrent_version_transition {
-      days          = "60"
-      storage_class = "GLACIER"
+      noncurrent_days = "60"
+      storage_class   = "GLACIER"
     }
 
     noncurrent_version_expiration {
-      days = "1825"
+      noncurrent_days = "1825"
     }
-  }
 
+    status = "Enabled"
+  }
 }
+
 
 resource "aws_sns_topic" "dbretention" {
   count = contains(var.efs_dbretention_env, var.environment) ? 1 : 0

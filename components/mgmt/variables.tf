@@ -74,12 +74,12 @@ variable "s3_yum_ro_principals" {
 }
 
 variable "asg_default_tags" {
-  type = list(object({
-    key                 = string
-    value               = string
-    propagate_at_launch = string
-  }))
-  description = ""
+  type        = map(string)
+  description = "Default tag map"
+
+  default = {
+    Component = "mgmt"
+  }
 }
 
 variable "aws_account_alias" {

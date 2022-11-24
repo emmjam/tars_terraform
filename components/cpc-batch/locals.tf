@@ -27,15 +27,12 @@ locals {
     },
   )
 
-  asg_default_tags = concat(
+ 
+  asg_default_tags = merge(
     var.asg_default_tags,
-    [
       {
-        "key"                 = "Component"
-        "value"               = var.component
-        "propagate_at_launch" = "true"
+        "Component" = var.component
       },
-    ],
   )
 
   vpc_domain_name   = "${var.environment}.${var.private_domain_name}"

@@ -15,23 +15,11 @@ default_tags = {
   DVSA_Env    = "staging"
 }
 
-asg_default_tags = [
-  {
-    "key"                 = "Project"
-    "value"               = "tars"
-    "propagate_at_launch" = "true"
-  },
-  {
-    "key"                 = "Environment"
-    "value"               = "uat01"
-    "propagate_at_launch" = "true"
-  },
-  {
-    "key"                 = "Group"
-    "value"               = "nonprod"
-    "propagate_at_launch" = "true"
-  }
-]
+asg_default_tags = {
+  Project     = "tars"
+  Environment = "uat01"
+  Group       = "nonprod"
+}
 
 ###############################################################################
 # CTRL
@@ -325,6 +313,7 @@ mis_rds_allocated_storage = "440"
 mis_rds_snapshot          = "tars-mis-db-anon2-28072022-do-not-delete"
 mis_rds_autoscale         = "False"
 mis_rds_backup_retention  = "21"
+
 
 # RSISDB
 rsis_rds_username          = "rsisuatadmin"

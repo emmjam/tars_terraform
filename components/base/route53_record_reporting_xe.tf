@@ -26,7 +26,7 @@ resource "aws_route53_record" "reporting_xe_private" {
 
 
 resource "aws_route53_record" "reporting_xe_private_prod" {
-  count = var.environment == "prod" ? "1" : "0"
+  count = var.reporting_xe_count
 
   zone_id = data.terraform_remote_state.ctrl.outputs.private_r53_zone[0]
   name    = var.reporting_xe_cert_name

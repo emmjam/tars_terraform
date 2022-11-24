@@ -15,23 +15,11 @@ default_tags = {
   DVSA_Env    = "dev"
 }
 
-asg_default_tags = [
-  {
-    "key"                 = "Project"
-    "value"               = "tars"
-    "propagate_at_launch" = "true"
-  },
-  {
-    "key"                 = "Environment"
-    "value"               = "opsdev"
-    "propagate_at_launch" = "true"
-  },
-  {
-    "key"                 = "Group"
-    "value"               = "nonprod"
-    "propagate_at_launch" = "true"
-  }
-]
+asg_default_tags = {
+  Project     = "tars"
+  Environment = "opsdev"
+  Group       = "nonprod"
+}
 
 ###############################################################################
 # CTRL
@@ -299,7 +287,6 @@ cpc_rds_username          = "cpcdevadmin"
 cpc_rds_allocated_storage = "50"
 cpc_rds_snapshot          = "tars-opsdev-cpc-cpcdb-5-4-2019-5-7-0-2"
 
-
 # IBSDB
 ibs_rds_username = "ibsuatadmin"
 ibs_rds_snapshot = "sit01-ibs-subnet-move"
@@ -388,8 +375,8 @@ api_notify = {
 
 reporting_xe_count            = 1
 reporting_xe_asg_min_size     = 0
-reporting_xe_asg_max_size     = 0
-reporting_xe_asg_desired_size = 0
+reporting_xe_asg_max_size     = 0 
+reporting_xe_asg_desired_size = 0 
 reporting_xe_subnets_cidrs = [
   "10.167.4.176/28",
   "10.167.4.192/28",

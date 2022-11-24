@@ -15,23 +15,11 @@ default_tags = {
   DVSA_Env    = "training"
 }
 
-asg_default_tags = [
-  {
-    "key"                 = "Project"
-    "value"               = "tars"
-    "propagate_at_launch" = "true"
-  },
-  {
-    "key"                 = "Environment"
-    "value"               = "train"
-    "propagate_at_launch" = "true"
-  },
-  {
-    "key"                 = "Group"
-    "value"               = "nonprod"
-    "propagate_at_launch" = "true"
-  }
-]
+asg_default_tags = {
+  Project     = "tars"
+  Environment = "train"
+  Group       = "nonprod"
+}
 
 ###############################################################################
 # CTRL
@@ -293,8 +281,10 @@ tars_rds_username          = "tarsuatadmin"
 tars_rds_allocated_storage = "300"
 tars_rds_snapshot          = ""
 
+
 # CPCSDB
 cpc_rds_username = "cpcadmin"
+
 
 # CPCTSDB
 cpc_rds_allocated_storage = "100" # 20 Gigabyte - was 1500GB

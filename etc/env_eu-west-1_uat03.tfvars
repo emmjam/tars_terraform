@@ -15,23 +15,11 @@ default_tags = {
   DVSA_Env    = "staging"
 }
 
-asg_default_tags = [
-  {
-    "key"                 = "Project"
-    "value"               = "tars"
-    "propagate_at_launch" = "true"
-  },
-  {
-    "key"                 = "Environment"
-    "value"               = "uat03"
-    "propagate_at_launch" = "true"
-  },
-  {
-    "key"                 = "Group"
-    "value"               = "nonprod"
-    "propagate_at_launch" = "true"
-  }
-]
+asg_default_tags = {
+  Project     = "tars"
+  Environment = "uat03"
+  Group       = "nonprod"
+}
 
 ###############################################################################
 # CTRL
@@ -307,10 +295,12 @@ tars_rds_allocated_storage = "610"
 tars_rds_snapshot          = "tars-uat03-core-tarsdb-08-01-2022-obfuscation-do-not-delete"
 
 
+
 # CPCSDB
 cpc_rds_username          = "cpcuatadmin"
 cpc_rds_allocated_storage = "100"
 cpc_rds_snapshot          = "tars-uat03-cpc-cpcdb-08-01-2022-obfuscation-do-not-delete"
+
 
 # IBSDB
 ibs_rds_username = "tarsuatadmin"

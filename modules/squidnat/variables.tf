@@ -22,12 +22,18 @@ variable "default_tags" {
   description = "A map of default tags to apply to all taggable resources within the module"
 }
 
-variable "asg_default_tags" {
+# removed as changing to dynamic tag
+/*variable "asg_default_tags" {
   type = list(object({
     key                 = string
     value               = string
     propagate_at_launch = string
   }))
+  description = "A map of default tags to apply to all taggable resources within the module"
+}*/
+
+variable "asg_default_tags" {
+  type        = map(string)
   description = "A map of default tags to apply to all taggable resources within the module"
 }
 

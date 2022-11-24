@@ -36,3 +36,4 @@ resource "aws_s3_bucket_object" "snapshot_lambda" {
   source = "${path.module}/artefacts/snapshot_lambda.zip"
 }
 
+

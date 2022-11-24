@@ -15,23 +15,11 @@ default_tags = {
   DVSA_Env    = "dev"
 }
 
-asg_default_tags = [
-  {
-    "key"                 = "Project"
-    "value"               = "tars"
-    "propagate_at_launch" = "true"
-  },
-  {
-    "key"                 = "Environment"
-    "value"               = "dev01"
-    "propagate_at_launch" = "true"
-  },
-  {
-    "key"                 = "Group"
-    "value"               = "nonprod"
-    "propagate_at_launch" = "true"
-  }
-]
+asg_default_tags = {
+  Project     = "tars"
+  Environment = "dev01"
+  Group       = "nonprod"
+}
 
 ###############################################################################
 # CTRL
@@ -318,6 +306,7 @@ ibs_rdswriter_group_name      = "writer-parameter-group-2020-04-17"
 mis_rds_username          = "misdmsadmin"
 mis_rds_allocated_storage = "300"
 mis_rds_snapshot          = "tars-dev01-tars-dms-misopdmstg-20180720"
+
 
 # RSISDB
 rsis_rds_username          = "tarsrsisadmin"
