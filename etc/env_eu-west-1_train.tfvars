@@ -337,9 +337,6 @@ rds_cw_metric_alarm_enabled = true
 rds_cw_metric_alarm_action_enabled                  = false
 rds_cw_metric_freestoragespace_alarm_action_enabled = true
 
-## Messaging
-wildfly_messaging_id = "release_201902"
-
 #Turn off Prometheus
 prometheus_asg_max_size = 0
 
