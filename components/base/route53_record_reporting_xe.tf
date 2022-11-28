@@ -29,7 +29,7 @@ resource "aws_route53_record" "reporting_xe_private_prod" {
   count = var.reporting_xe_count
 
   zone_id = data.terraform_remote_state.ctrl.outputs.private_r53_zone[0]
-  name    = var.reporting_xe_cert_name
+  name    = "reporting-xe-${var.environment}-public"
   type    = "A"
 
   alias {
