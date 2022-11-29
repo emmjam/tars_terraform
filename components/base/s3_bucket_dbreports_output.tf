@@ -26,17 +26,15 @@ resource "aws_s3_bucket_versioning" "dbreports_output" {
 }
 
 
+# if env is not Prod
 # Rotate logs out to cheaper storage
-# Delete after 2 years
+# Delete after 90 days
 resource "aws_s3_bucket_lifecycle_configuration" "dbreports_output" {
+  count = var.environment != "prod" ? 1 : 0 # apply when env is not prod
   bucket = aws_s3_bucket.dbreports_output.id
 
   rule {
     id = "wholebucket"
-
-    filter {
-      prefix = "/"
-    }
 
     transition {
       days          = "30"
@@ -49,21 +47,43 @@ resource "aws_s3_bucket_lifecycle_configuration" "dbreports_output" {
     }
 
     expiration {
-      days = "1825"
+      days = "90"
     }
     
-    noncurrent_version_transition {
-      noncurrent_days = "30"
-      storage_class   = "STANDARD_IA"
+    noncurrent_version_expiration {
+      noncurrent_days = "7"
     }
 
-    noncurrent_version_transition {
-      noncurrent_days = "60"
-      storage_class   = "GLACIER"
+    status = "Enabled"
+  }
+}
+
+# Prod only
+# Rotate logs out to cheaper storage
+# Delete after 2 years
+resource "aws_s3_bucket_lifecycle_configuration" "prod_dbreports_output" {
+  count = var.environment == "prod" ? 1 : 0 # if env is prod
+  bucket = aws_s3_bucket.dbreports_output.id
+
+  rule {
+    id = "wholebucket"
+
+    transition {
+      days          = "30"
+      storage_class = "STANDARD_IA"
+    }
+
+    transition {
+      days          = "60"
+      storage_class = "GLACIER"
+    }
+
+    expiration {
+      days = "732"
     }
 
     noncurrent_version_expiration {
-      noncurrent_days = "1825"
+      noncurrent_days = "7"
     }
 
     status = "Enabled"
