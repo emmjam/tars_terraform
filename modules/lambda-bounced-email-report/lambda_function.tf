@@ -44,12 +44,13 @@ resource "aws_lambda_function" "ses_report" {
   s3_bucket     = var.bounced_email_s3_bucket
   s3_key        = var.bounced_email_report_s3_key
 
-  environment {
-    variables = {
-      to_address          = "dvsa.alerts@bjss.com"
-      dynamodb_table_name = aws_dynamodb_table.bounced_email_report[count.index].name
-      days_to_query       = "7"
-    }
+   environment {
+    variables = merge(
+      tomap({
+        "dynamodb_table_name" = aws_dynamodb_table.bounced_email_report[0].name
+    }),
+      var.ses_report_lambda_env_vars,
+    )
   }
 
   tags = merge(

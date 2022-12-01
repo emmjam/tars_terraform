@@ -90,3 +90,9 @@ variable "enable_bounced_email" {
   description = "whether to enable module or not"
   # default = "0"
 }
+
+variable "ses_report_lambda_env_vars" {
+  type        = map
+  description = "Lambda environment parameters map"
+  default     = {}
+}

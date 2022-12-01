@@ -835,3 +835,8 @@ variable "envis_lambda_version"{
   type        = string
   description = "Lambda version"
 }
+
+  variable "lambda_bounce_email_config" {
+  type        = map
+  description = "Map of config information for ses reporting lambda"
+}

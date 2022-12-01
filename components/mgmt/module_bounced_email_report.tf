@@ -17,7 +17,14 @@ module "lambda-bounced-email-report" {
   range_key                          = "SnsPublishTime"
   table_name                         = "bounced_emails_table"
   bounced_email_s3_bucket            = "${local.csi_global}-lambda-platform"
-  bounced_email_report_s3_key        = "bounced-email-artefacts/SESBounceReport.zip"
+  bounced_email_report_s3_key        = "bounced-email-artefacts/SESBounceReportUpdate20102022.zip"
   bounced_email_notifications_s3_key = "bounced-email-artefacts/SESNotifications.zip"
   enable_bounced_email               = var.enable_bounced_email_report
+
+   ses_report_lambda_env_vars = {
+      to_address=lookup(var.lambda_bounce_email_config, "to_address")
+      days_to_query=lookup(var.lambda_bounce_email_config, "days_to_query")
+      noreply_email=lookup(var.lambda_bounce_email_config, "noreply_email")
+      ses_domainname =lookup(var.lambda_bounce_email_config, "ses_domainname")
+  }
 }
