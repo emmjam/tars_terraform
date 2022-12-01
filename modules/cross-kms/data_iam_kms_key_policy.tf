@@ -26,8 +26,8 @@ data "aws_iam_policy_document" "key" {
         ),
         "arn:aws:iam::652856684323:role/tars-nonprod-ctrl-jenkinsctrl-20180403122511377400000002",
         "arn:aws:iam::246976497890:role/tars-live-ctrl-jenkinsctrl-20181025153328009900000001",
-        "arn:aws:iam::652856684323:role/tars-nonprod-ctrl-jenkins-fargate",
-        "arn:aws:iam::645711882182:role/tars-mgmt-ctrl-jenkins-fargate",
+        "arn:aws:iam::652856684323:role/tars-nonprod-ctrl-jenkins-jenkins_worker",
+        "arn:aws:iam::246976497890:role/tars-live-ctrl-jenkins-jenkins_worker",
       ]
     }
 
