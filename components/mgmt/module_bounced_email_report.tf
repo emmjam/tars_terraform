@@ -20,6 +20,7 @@ module "lambda-bounced-email-report" {
   bounced_email_report_s3_key        = "bounced-email-artefacts/SESBounceReportUpdate20102022.zip"
   bounced_email_notifications_s3_key = "bounced-email-artefacts/SESNotifications.zip"
   enable_bounced_email               = var.enable_bounced_email_report
+  bounced_email_domain               = var.bounced_email_domain
 
    ses_report_lambda_env_vars = {
       to_address=lookup(var.lambda_bounce_email_config, "to_address")

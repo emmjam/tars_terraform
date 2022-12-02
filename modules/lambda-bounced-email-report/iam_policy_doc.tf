@@ -47,7 +47,7 @@ data "aws_iam_policy_document" "sesreport_lambda_policy" {
       "ses:SendRawEmail",
     ]
     resources = [
-      "arn:aws:ses:eu-west-1:${var.aws_account_id}:identity/prod.tars.dvsacloud.uk"
+      "arn:aws:ses:eu-west-1:${var.aws_account_id}:identity/${var.bounced_email_domain}"
     ]
   }
   statement {

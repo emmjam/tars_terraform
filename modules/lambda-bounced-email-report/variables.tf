@@ -96,3 +96,8 @@ variable "ses_report_lambda_env_vars" {
   description = "Lambda environment parameters map"
   default     = {}
 }
+
+variable "bounced_email_domain" {
+  type        = string
+  description = "bounced email domain"
+}
