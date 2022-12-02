@@ -32,8 +32,9 @@ data "aws_iam_policy_document" "sesnotification_lambda_policy" {
     ]
 
     resources = [
-      aws_dynamodb_table.bounced_email_report[count.index].arn
-    ]
+      "${aws_dynamodb_table.bounced_email_report[count.index].arn}",
+      "${aws_dynamodb_table.bounced_email_report[count.index].arn}/*"
+      ]
   }
 }
 
@@ -71,10 +72,10 @@ data "aws_iam_policy_document" "sesreport_lambda_policy" {
       "dynamodb:List*",
       "dynamodb:Desc*",
     ]
-    resources = flatten([
-      aws_dynamodb_table.bounced_email_report[count.index][*].arn,
-      aws_dynamodb_table.bounced_email_report[count.index].arn
-    ])
+    resources = [
+      "${aws_dynamodb_table.bounced_email_report[count.index].arn}",
+      "${aws_dynamodb_table.bounced_email_report[count.index].arn}/*"
+      ]
   }
 }
 
