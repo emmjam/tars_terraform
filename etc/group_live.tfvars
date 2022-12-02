@@ -440,7 +440,7 @@ rsis_samba_server_archive = "10.14.0.142/32"
 
 # squidnat
 squidnat_instance_type = "m5.large"
-squidnat_ami_build_id  = "1508"
+squidnat_ami_build_id  = "1426"
 
 ops_team_email = "tars.platform-team@bjss.com"
 
@@ -607,7 +607,7 @@ ftts_elig_port = "18079"
 # reporting-xe
 reporting_xe_instance_type    = "t3a.large"
 reporting_xe_count            = 0
-reporting_xe_ami_build_id     = "1527"
+reporting_xe_ami_build_id     = "1447"
 reporting_xe_ebs_size         = "40"
 reporting_xe_asg_min_size     = 0
 reporting_xe_asg_max_size     = 0
