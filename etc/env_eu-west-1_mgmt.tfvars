@@ -497,13 +497,13 @@ cloudability_xacct = {
 # Bounced email
 ##
 enable_bounced_email_report = "1"
-bounced_email_domain        = "prod.tars.dvsacloud.uk"
+bounced_email_domain        = "tars.dvsacloud.uk"
 #
 lambda_bounce_email_config = {
       to_address           = "dvsa.tss-support@bjss.com"
       days_to_query        = "7"
-      noreply_email        = "noreply@prod.tars.dvsacloud.uk"
-      ses_domainname       = "prod.tars.dvsacloud.uk"
+      noreply_email        = "noreply@tars.dvsacloud.uk"
+      ses_domainname       = "tars.dvsacloud.uk"
     }
 ##
 # Access key rotation/notification - runs every day at 06.00 am
@@ -512,7 +512,7 @@ lambda_access_key_rotation_config = {
   key_age_max_days                  = 90
   warning_period_days               = 10
   tss_email                         = "dvsa.alerts@bjss.com"
-  verified_email                    = "info@prod.tars.dvsacloud.uk"
+  verified_email                    = "info@tars.dvsacloud.uk"
   lambda_access_key_rotation_s3_key = "lambda-access-key-rotation/lambda_access_key_rotation.zip"
   cw_rule_schedule_expression       = "cron(00 06 * * ? *)"
   enabled                           = "1"
