@@ -90,6 +90,8 @@ new_all_users = [
   "jamie.kelly@bjss.com",
   "steve.maguire@bjss.com",
   "michael.gilchrist@bjss.com",
+  "vaishali.jain@bjss.com",
+  "dave.awcock@bjss.com",
 ]
 
 # TSSOps Access
@@ -188,6 +190,8 @@ readonly_developer_users = [
   "moeez.shahid@bjss.com",
   "tomasz.chrost@bjss.com",
   "michael.gilchrist@bjss.com",
+  "vaishali.jain@bjss.com",
+  "dave.awcock@bjss.com",
 ]
 
 # DVSA Access
