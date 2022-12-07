@@ -94,7 +94,7 @@ ctrl_mgmt_tf_state_bucket_prefix = "tars-terraformscaffold" # TODO: use remote s
 prometheus_asg_min_size          = 1
 prometheus_asg_max_size          = 1
 prometheus_instance_type         = "t3a.medium"
-prometheus_ami_build_id          = "1450"
+prometheus_ami_build_id          = "1530"
 prometheus_efs_provisioned_mibps = 5
 
 

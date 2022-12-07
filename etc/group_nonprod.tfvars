@@ -80,7 +80,7 @@ aws_autoscaling_enabled = "0"
 prometheus_asg_min_size          = 0
 prometheus_asg_max_size          = 1
 prometheus_instance_type         = "t3.medium"
-prometheus_ami_build_id          = "1450"
+prometheus_ami_build_id          = "1530"
 prometheus_efs_provisioned_mibps = 1
 
 ## jenkins
