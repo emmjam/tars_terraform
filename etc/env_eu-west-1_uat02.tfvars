@@ -292,7 +292,7 @@ ad_account         = "233824316563"
 
 # TARSDB
 tars_rds_username          = "tarsuatadmin"
-tars_rds_allocated_storage = "300"
+tars_rds_allocated_storage = "330"
 tars_rds_snapshot          = "tars-core-tarsdb-20190410-5-4-0-1"
 tars_rds_backup_retention  = "21"
 
