@@ -4,7 +4,7 @@ resource "aws_ebs_volume" "gitlab" {
   type = var.ebs_volume_type
   size = var.ebs_volume_size
 
-  encrypted = "false"
+  encrypted = "true"
 
   tags = merge(
     var.default_tags,
