@@ -151,15 +151,21 @@ if (-Not (Get-ItemProperty -Path $regPath -Name "OMS" -ErrorAction SilentlyConti
 $xDATE = Get-Date
 $logFile = "C:\Program Files\Amazon\AmazonCloudWatchAgent\cw-log-$(gc env:computername).log"
 $cwfile = "C:\Program Files\Amazon\AmazonCloudWatchAgent\config.json"
+$cwfile2 = "C:\ProgramData\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent.json"
 Write-Log-Line "$xDATE" " INFO"
-Write-Log-Line "Configuring CloudWatch" "INFO"
+Write-Log-Line "Stopping the Wildfly service" "INFO"
+Start-Process -FilePath "C:\opt\wildfly\bin\service\service.bat" -ArgumentList @("stop") 
 Write-Log-Line "Stopping the CloudwatchAgent" "INFO"
 chdir "C:\Program Files\Amazon\AmazonCloudWatchAgent"
 Invoke-Expression ".\amazon-cloudwatch-agent-ctl.ps1  -m ec2 -a stop"
 Start-Sleep -s 5
+Write-Log-Line "Deleting old files" "INFO"
+Remove-Item $cwfile
+Remove-Item $cwfile2
+Remove-Item 'C:\opt\wildfly\logs\current_diagnosis.json'
+Remove-Item 'C:\ProgramData\Amazon\AmazonCloudWatchAgent\Configs\*'
+Remove-Item 'C:\ProgramData\Amazon\AmazonCloudWatchAgent\Logs\*.log'
 Set-Location -Path "C:\Program Files\Amazon\AmazonCloudWatchAgent"
-Write-Log-Line "Backing up original config.json" "INFO"
-Rename-Item $cwfile 'config.json.bak'
 Write-Log-Line "Configuring CloudWatch config.json" "INFO"
 $FileContent = @'
 {
@@ -199,6 +205,15 @@ $FileContent = @'
 			"InstanceType": "$${aws:InstanceType}"
 		},
 		"metrics_collected": {
+      "LogicalDisk": {
+        "measurement": [
+          "% Free Space"
+          ],
+          "metrics_collection_interval": 60,
+          "resources": [
+                  "*"
+          ]
+      },
 			"Memory": {
 				"measurement": [
 					"% Committed Bytes In Use"
@@ -229,10 +244,16 @@ $FileContent = @'
 	}
 }
 '@
-$FileContent | Out-File $cwfile
+$FileContent | Out-File $cwfile -Encoding Ascii -Force
+Start-Sleep -s 2
+Write-Log-Line "Starting the Wildfly service" "INFO"
+Start-Process -FilePath "C:\opt\wildfly\bin\service\service.bat" -ArgumentList @("start")
+chdir "C:\ProgramData\Amazon\AmazonCloudWatchAgent"
+Copy-Item $cwfile -Destination $cwfile2
 Start-Sleep -s 2
 Write-Log-Line "Starting the CloudWatchAgent" "INFO"
-Invoke-Expression ".\amazon-cloudwatch-agent-ctl.ps1  -m ec2 -a start"
+chdir "C:\Program Files\Amazon\AmazonCloudWatchAgent"
+Invoke-Expression ".\amazon-cloudwatch-agent-ctl.ps1  -m ec2 -a start" 
 Write-Log-Line "Job done." "INFO"
-Write-Log-Line "V9" "INFO"
 </powershell>
+<persist>true</persist>

@@ -406,7 +406,7 @@ print_queue_cw_metric_alarm_enabled           = true
 mq_cw_metric_print_queue_alarm_action_enabled = true
 
 ## Messaging
-# wildfly_messaging_id = "release_202004"
+# wildfly_messaging_id              = "release_202301"
 wildfly-messaging_ebs_vol         = 500
 wildfly-messaging_ebs_volume_type = "gp3"
 
