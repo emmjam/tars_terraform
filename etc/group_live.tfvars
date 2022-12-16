@@ -406,8 +406,6 @@ dvsa_dns_servers = [
 # This will need changing when we know what the DVA IP is
 dva_whitelist = [
   "148.253.134.213/32", # BJSS VPN 04/18
-  "194.32.31.1/32",     # DVA IP
-  "194.32.29.1/32",     # DVA IP
   "139.180.249.137/32",    # DVA IP
   "137.83.209.19/32",     # DVA IP
   "139.180.249.14/32",     # DVA IP
