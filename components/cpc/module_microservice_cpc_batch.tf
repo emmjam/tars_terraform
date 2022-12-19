@@ -16,7 +16,7 @@ module "cpc_batch" {
   #  collapse is implmented then it is probably safer to
   #  leave the subnets in base and alter the microservice
   #  module to accept pre-existing subnets.
-  subnets_ids = data.terraform_remote_state.cpc.outputs.subnet_cidrs_cpc_backend
+  subnets_ids = module.cpc-back.subnet_ids
 
   subnets_route_tables = data.terraform_remote_state.base.outputs.private_nat_route_table_id
 

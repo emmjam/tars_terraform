@@ -437,3 +437,41 @@ variable "tars_front_high_cpu_cw_metric_alarm_enabled" {
   description = "Enable or disable cpuutilisation CloudWatch Metrics alarm for Tars-front"
   default     = "0"
 }
+
+variable "cpc-batch_puppet_nodetype" {
+  type        = string
+  description = ""
+}
+
+variable "cpc-batch_asg_max_size" {
+  type        = string
+  description = ""
+}
+
+variable "cpc-batch_asg_min_size" {
+  type        = string
+  description = ""
+}
+
+variable "cpc-batch_instance_type" {
+  type        = string
+  description = ""
+}
+
+variable "cpc_sftp_subnets_cidrs" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
+
+variable "cpc_efs_subnets_cidrs" {
+  type        = list(string)
+  description = "CPC EFS subnets list"
+  default     = []
+}
+
+variable "efs_backup_env" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
