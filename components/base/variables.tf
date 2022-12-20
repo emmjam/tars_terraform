@@ -809,3 +809,9 @@ variable "mock_gov_gw_accounts_processor_lambda_version" {
   type        = string
   description = "Lambda version"
 }
+
+variable "rsisbucket_env" {
+  type        = list(string)
+  description = ""
+  default     = []
+}
