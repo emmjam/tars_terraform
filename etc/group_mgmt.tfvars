@@ -27,7 +27,6 @@ new_all_users = [
   "ibrar.akram@bjss.com",
   "irfan.sidat@bjss.com",
   "isaac.phillip@bjss.com",
-  "ali.mohammed@bjss.com",
   "john.morley@bjss.com",
   "john.reynolds@bjss.com",
   "matthew.bell@dvsa.gov.uk",
@@ -93,6 +92,8 @@ new_all_users = [
   "michael.gilchrist@bjss.com",
   "vaishali.jain@bjss.com",
   "dave.awcock@bjss.com",
+  "ali.mohammed@bjss.com",
+  "paul.beckett@bjss.com",
 ]
 
 # TSSOps Access
@@ -150,7 +151,6 @@ administrators_platform_nonprod_users = [
   "michael.tribbick@bjss.com",
   "raman.kapoor@bjss.com",
   "rob.whyte@bjss.com",
-  "ali.mohammed@bjss.com",
   "nadeem.khan@bjss.com",
   "ian.davies@bjss.com",
   "samantha.burke@bjss.com",
@@ -194,6 +194,7 @@ readonly_developer_users = [
   "michael.gilchrist@bjss.com",
   "vaishali.jain@bjss.com",
   "dave.awcock@bjss.com",
+  "paul.beckett@bjss.com",
 ]
 
 # DVSA Access
@@ -228,6 +229,7 @@ qaengineer_users = [
   "john.morley@bjss.com",
   "winston.coleman@bjss.com",
   "nikolaj.bilgrau@bjss.com",
+  "ali.mohammed@bjss.com",
 ]
 
 readonly_qaengineer_users = [
@@ -235,6 +237,7 @@ readonly_qaengineer_users = [
   "isaac.phillip@bjss.com",
   "john.reynolds@bjss.com",
   "winston.coleman@bjss.com",
+  "ali.mohammed@bjss.com",
 ]
 
 # DBA Access
