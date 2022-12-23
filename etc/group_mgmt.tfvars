@@ -93,6 +93,7 @@ new_all_users = [
   "dave.awcock@bjss.com",
   "ali.mohammed@bjss.com",
   "paul.beckett@bjss.com",
+  "peter.sen@dvsa.gov.uk",
 ]
 
 # TSSOps Access
@@ -205,6 +206,7 @@ readonly_dvsa_users = [
 # Billing Dashboard Access
 
 billing_users = [
+  "peter.sen@dvsa.gov.uk",
 ]
 
 # Application Support Access
