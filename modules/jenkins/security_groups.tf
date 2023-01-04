@@ -108,4 +108,3 @@ resource "aws_security_group_rule" "elb_egress_jenkins_49187" {
   security_group_id        = aws_security_group.elb.id
   source_security_group_id = aws_security_group.jenkins.id
 }
-
