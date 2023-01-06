@@ -641,7 +641,7 @@ ftts_elig_port = "22"
 # reporting-xe
 reporting_xe_instance_type    = "t3a.large"
 reporting_xe_count            = 0
-reporting_xe_ami_build_id     = "1550"
+reporting_xe_ami_build_id     = "1553"
 reporting_xe_ebs_size         = "32"
 reporting_xe_asg_min_size     = 0
 reporting_xe_asg_max_size     = 0
