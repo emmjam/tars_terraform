@@ -402,7 +402,7 @@ jenkinsnode_subnets_cidrs = [
 
 # EBS backup lambda
 ebs_snapshot_is_enabled                       = true
-ebs_snapshot_s3_key                           = "lambda/ebs_snapshot_lambda.py.zip"
+ebs_snapshot_s3_key                           = "lambda-repo/packages/ebs/ebs-snapshot-lambda-1.zip"
 ebs_snapshot_memory_size                      = 128
 ebs_snapshot_timeout                          = 60
 ebs_snapshot_publish                          = true
@@ -414,7 +414,7 @@ ebs_snapshot_cw_alarm_namespace               = "ebs-snapshot-lambda"
 
 # EBS cleanup Lambda
 ebs_snapshot_cleanup_is_enabled                       = true
-ebs_snapshot_cleanup_s3_key                           = "lambda/ebs_cleanup_lambda.py.zip"
+ebs_snapshot_cleanup_s3_key                           = "lambda-repo/packages/ebs/ebs-cleanup-lambda-1.zip"
 ebs_snapshot_cleanup_memory_size                      = 128
 ebs_snapshot_cleanup_timeout                          = 120
 ebs_snapshot_cleanup_publish                          = true

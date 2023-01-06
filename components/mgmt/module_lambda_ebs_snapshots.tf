@@ -12,7 +12,7 @@ module "ebs-snapshots" {
   publish     = var.ebs_snapshot_publish
   timeout     = var.ebs_snapshot_timeout
 
-  snapshot_s3_bucket = module.snapshots_bucket.id
+  snapshot_s3_bucket = aws_s3_bucket.artefacts.arn
   snapshot_s3_key    = var.ebs_snapshot_s3_key
 
   cwlg_retention = var.ebs_snapshot_cloudwatch_log_retention_in_days
@@ -42,7 +42,7 @@ module "ebs-snapshots" {
   cleanup_publish     = var.ebs_snapshot_cleanup_publish
   cleanup_timeout     = var.ebs_snapshot_cleanup_timeout
 
-  cleanup_s3_bucket = module.snapshots_bucket.id
+  cleanup_s3_bucket = aws_s3_bucket.artefacts.arn
   cleanup_s3_key    = var.ebs_snapshot_cleanup_s3_key
 
   cleanup_cwlg_retention = var.ebs_snapshot_cleanup_cloudwatch_log_retention_in_days
