@@ -44,7 +44,7 @@ exports.handler = (event, context, callback) => {
     console.log("Domain: " + domain);
 
 
-    // Replace based on domain to correct origin destination - this code replaces as well based on uri which can be later removed and matches domain names for uat02 as well to much all possible as is not conditional depending on tf env
+    // Replace based on domain to correct origin destination - this code replaces as well based on uri which can be later removed and matches domain names for uat02 as well to match all possible as is not conditional depending on tf env
     if (olduri.indexOf('dsa-dft-gov-uk') > -1 || domain.indexOf('dsa.dft.gov.uk') > -1 || domain.indexOf('incapsula-uat02-public.dvsa.tars.dev-dvsacloud.uk') > -1){
         var newuri = '/dsa/index.html';
     }
@@ -55,7 +55,7 @@ exports.handler = (event, context, callback) => {
         var newuri = '/driverpracticaltest/index.html';
     }
     else {
-        var newuri = olduri
+        var newuri = '/index.html'; //this catches new domain and any other requests coming in
     }
 
 

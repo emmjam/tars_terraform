@@ -441,6 +441,7 @@ holding_pages_domains = [
   "dsa.dft.gov.uk",
   "finddrivinginstructor.dvsa.gov.uk",
   "driverpracticaltest.dvsa.gov.uk",
+  "driver-services.dvsa.gov.uk",
 ]
 
 #RDS Deletion Protection
