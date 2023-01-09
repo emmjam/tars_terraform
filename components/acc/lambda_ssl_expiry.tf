@@ -134,8 +134,8 @@ resource "aws_cloudwatch_log_group" "ssl_cert_expiry" {
 # --------------------------------------------------------------------------- #
 
 resource "aws_lambda_function" "ssl_cert_expiry" {
-  filename         = "${path.module}/files/expiring_certificates.zip"
-  source_code_hash = filebase64sha256("${path.module}/files/expiring_certificates.zip")
+  s3_bucket  = "tars-645711882182-eu-west-1-mgmt-mgmt-artefacts"
+  s3_key     = "lambda-repo/packages/expiring-certificates/expiring-certificates-${var.ssl_cert_expiry_lambda_version}.zip"
 
   function_name = "${local.csi}-ssl_cert_expiry"
 
