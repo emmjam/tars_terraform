@@ -15,7 +15,6 @@ new_all_users = [
   "mohamed.roble@bjss.com",
   "talha.ozleblebici@bjss.com",
   "adam.hall@bjss.com",
-  "alice.haws@dvsa.gov.uk",
   "andrew.malcolm@bjss.com",
   "arthur.coombes@bjss.com",
   "balkar.bains@bjss.com",
@@ -196,7 +195,6 @@ readonly_developer_users = [
 # DVSA Access
 
 readonly_dvsa_users = [
-  "alice.haws@dvsa.gov.uk",
   "matthew.bell@dvsa.gov.uk",
 ]
 
