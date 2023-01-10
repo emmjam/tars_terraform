@@ -669,4 +669,4 @@ mock_gov_gw_accounts_processor_lambda_version = "2"
 unattached_ebs_vols_lambda_version = "1"
 
 # Expiring Certificates Lambda
-ssl_cert_expiry_lambda_version = 1
+ssl_cert_expiry_lambda_version = 2

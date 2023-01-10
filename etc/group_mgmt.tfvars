@@ -352,4 +352,4 @@ envis_lambda_version = 3
 unattached_ebs_vols_lambda_version = "1"
 
 # Expiring Certificates Lambda
-ssl_cert_expiry_lambda_version = 1
+ssl_cert_expiry_lambda_version = 2
