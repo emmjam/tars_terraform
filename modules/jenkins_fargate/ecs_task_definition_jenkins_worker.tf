@@ -4,7 +4,7 @@ resource "aws_ecs_task_definition" "jenkins_worker" {
     {
       region             = var.region
       java_options       = var.jenkins_java_options
-      image              = var.jenkins_worker_image
+      image              = "${var.jenkins_worker_image}:${var.jenkins_worker_tag}"
       log_group          = aws_cloudwatch_log_group.main.name
       stream_prefix      = "${var.project}-jenkins_worker"
       name               = "jenkins_worker"

@@ -72,6 +72,11 @@ variable "jenkins_worker_image" {
   description = "Jenkins node worker image to run"
 }
 
+variable jenkins_worker_tag {
+  type        = string
+  description = "Jenkins node worker image tag to deploy"
+}
+
 variable "cwl_retention_days" {
   type        = string
   description = "Default Cloadwatch Logs retention in days"

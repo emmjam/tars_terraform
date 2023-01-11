@@ -52,9 +52,14 @@ variable "jenkins_java_options" {
 variable "jenkins_worker_image" {
   type        = string
   description = "image to pass throug hto jenkins worker task"
-  default     = "jenkinsci/jnlp-slave"
+  default     = "645711882182.dkr.ecr.eu-west-1.amazonaws.com/tars/run/jenkinsci"
 }
 
+variable "jenkins_worker_tag" {
+  type        = string
+  description = "image tag to use as source image"
+  default     = ""
+}
 variable "worker_iam_policy_arn" {
   type        = string
   description = "Policy arn for jenkins workers to execute with, typical administrator"

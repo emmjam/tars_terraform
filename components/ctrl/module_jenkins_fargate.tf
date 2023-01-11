@@ -11,6 +11,6 @@ module "jenkins_fargate" {
 
   worker_iam_policy_arn = aws_iam_policy.jenkinsnode.arn
   jenkins_worker_image  = var.jenkins_worker_image
-
+  jenkins_worker_tag    = var.jenkins_worker_tag
 }
 

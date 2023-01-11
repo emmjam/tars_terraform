@@ -240,9 +240,9 @@ grafana_scaleup_recurrence   = "00 07 * * 1-5"
 #Due to there being no wildcard cert in prod this is used.
 grafana_cert_name = "*"
 
-# TODO: smarts: Move AMI IDs to versions file
 ## jenkinsctrl
-jenkins_worker_image             = "645711882182.dkr.ecr.eu-west-1.amazonaws.com/tars/run/jenkinsci:1.0.0"
+jenkins_worker_image             = "645711882182.dkr.ecr.eu-west-1.amazonaws.com/tars/run/jenkinsci"
+jenkins_worker_tag               = "1.0.0"
 jenkinsctrl_instance_type        = "t3a.small"
 jenkinsctrl_ami_build_id         = "1472"
 jenkinsctrl_executors            = 20
