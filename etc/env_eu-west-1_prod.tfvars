@@ -357,7 +357,6 @@ cpc_rds_snapshot          = ""
 
 # IBSDB
 ibs_rds_username = "ibsprodadmin"
-ibs_rds_snapshot = "tars-prod-ibsdb-pre-release-5-10-0-3"
 
 #############################################################################
 # VPC to DVSA WAN via DX

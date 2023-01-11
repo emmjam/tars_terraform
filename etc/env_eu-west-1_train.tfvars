@@ -292,7 +292,6 @@ cpc_rds_snapshot          = ""
 
 # IBSDB
 ibs_rds_username = "ibsuatadmin"
-ibs_rds_snapshot = "sit01-ibs-subnet-move"
 
 # MISDB
 mis_rds_username          = "misdmsadmin"

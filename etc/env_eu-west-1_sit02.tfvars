@@ -306,7 +306,6 @@ cpc_rds_engine_version    = "19.0.0.0.ru-2022-01.rur-2022-01.r1"
 
 # IBSDB
 ibs_rds_username = "ibsuatadmin"
-ibs_rds_snapshot = "sit02-ibs-subnet-move"
 
 # MISDB
 mis_rds_username          = "misuatadmin"

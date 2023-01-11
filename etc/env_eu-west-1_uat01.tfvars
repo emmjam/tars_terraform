@@ -305,7 +305,6 @@ cpc_rds_backup_retention  = "21"
 
 # IBSDB
 ibs_rds_username = "tarsuatadmin"
-ibs_rds_snapshot = "tars-uat01-ibs-ibsdb-cluster-5-7-aurora2-10-2-do-not-delete"
 ibs_rds_engine_version        = "5.7.mysql_aurora.2.10.2"
 ibs_rds_major_version_upgrade = true
 ibs_rds_parameter_group_name  = "cluster-parameter-group-2022-10-18"

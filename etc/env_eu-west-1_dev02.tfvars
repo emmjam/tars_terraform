@@ -289,7 +289,6 @@ cpc_rds_snapshot                = "tars-dev01-cpc-cpcdb-5-4-2019-5-7-0-2"
 
 # IBSDB
 ibs_rds_username = "ibsdevadmin"
-ibs_rds_snapshot = "dev02-ibs-subnet-move"
 
 # MISDB
 mis_rds_username          = "misdmsadmin"

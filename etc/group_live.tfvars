@@ -168,6 +168,7 @@ ibs_rds_major_version_upgrade   = false
 ibs_rds_parameter_group_name    = "cluster-parameter-group-2020-04-17"
 ibs_rdswriter_group_name        = "writer-parameter-group-2020-04-17"
 ibs_aurora_engine               = "aurora"
+ibs_rds_snapshot                = ""
 
 ## fyndi-f
 fyndi-f_instance_type        = "m5a.large"

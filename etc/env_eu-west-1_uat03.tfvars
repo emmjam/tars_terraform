@@ -304,7 +304,6 @@ cpc_rds_snapshot          = "tars-uat03-cpc-cpcdb-08-01-2022-obfuscation-do-not-
 
 # IBSDB
 ibs_rds_username = "tarsuatadmin"
-ibs_rds_snapshot = "uat01-ibs-subnet-move"
 
 # MISDB
 mis_rds_username                = "misuatadmin"

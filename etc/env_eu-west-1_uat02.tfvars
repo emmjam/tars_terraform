@@ -305,7 +305,6 @@ cpc_rds_backup_retention  = "21"
 
 # IBSDB
 ibs_rds_username = "tarsuatadmin"
-ibs_rds_snapshot = "uat01-ibs-subnet-move"
 
 # MISDB
 mis_rds_username          = "misdmsadmin"

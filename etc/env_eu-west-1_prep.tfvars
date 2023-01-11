@@ -319,7 +319,6 @@ cpc_rds_skip_final_snapshot = true
 
 # IBSDB
 ibs_rds_username = "ibsprepadmin"
-ibs_rds_snapshot = "prep-ibsdb-19-06-18-comp-collapse"
 
 #############################################################################
 # VPC to DVSA WAN via DX
