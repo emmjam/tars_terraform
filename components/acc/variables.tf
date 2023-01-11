@@ -23,6 +23,11 @@ variable "component" {
   default     = "acc"
 }
 
+variable "account_environment" {
+  type        = string
+  description = "The environment name for the account level scope for the account in which this component is deployed"
+}
+
 variable "release_version" {
   type        = string
   default     = "Not provided"

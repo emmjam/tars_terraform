@@ -1,4 +1,6 @@
 resource "aws_iam_role" "rsis_tif_access" {
+  count = var.account_environment == "live" ? 1 : 0
+  
   name = "DVSATifAccess"
 
   max_session_duration = "28800"
