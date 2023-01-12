@@ -1,5 +1,4 @@
 data "aws_iam_policy_document" "assume_rsis_tif_access_role" {
-  count = var.account_environment == "live" ? 1 : 0
 
   statement {
     sid    = "AllowAssumeDVSATifAccessRole"
