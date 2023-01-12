@@ -356,8 +356,12 @@ cpc_rds_allocated_storage = "100"
 cpc_rds_snapshot          = ""
 
 # IBSDB
-ibs_rds_username = "ibsprodadmin"
-ibs_rds_snapshot = "tars-prod-ibsdb-pre-release-5-10-0-3"
+ibs_rds_username              = "ibsprodadmin"
+ibs_rds_engine_version        = "5.7.mysql_aurora.2.10.2"
+ibs_rds_major_version_upgrade = false
+ibs_rds_parameter_group_name  = "cluster-parameter-group-2022-10-18"
+ibs_rdswriter_group_name      = "writer-parameter-group-2022-10-18"
+ibs_aurora_engine             = "aurora-mysql"
 
 #############################################################################
 # VPC to DVSA WAN via DX

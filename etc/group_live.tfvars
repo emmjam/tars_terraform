@@ -165,8 +165,9 @@ ibs_rds_maint_window            = "sun:03:16-sun:03:46"
 ibs_rds_apply_immediately       = "true"
 ibs_rds_engine_version          = "5.6.mysql_aurora.1.22.2"
 ibs_rds_major_version_upgrade   = false
-ibs_rds_parameter_group_name  = "cluster-parameter-group-2020-04-17"
-ibs_rdswriter_group_name      = "writer-parameter-group-2020-04-17"
+ibs_rds_parameter_group_name    = "cluster-parameter-group-2020-04-17"
+ibs_rdswriter_group_name        = "writer-parameter-group-2020-04-17"
+ibs_rds_snapshot                = ""
 
 ## fyndi-f
 fyndi-f_instance_type        = "m5a.large"

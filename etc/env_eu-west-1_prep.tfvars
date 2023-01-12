@@ -318,8 +318,12 @@ cpc_rds_snapshot            = "rds:tars-prod-cpc-cpcdb-2018-12-17-02-49"
 cpc_rds_skip_final_snapshot = true
 
 # IBSDB
-ibs_rds_username = "ibsprepadmin"
-ibs_rds_snapshot = "prep-ibsdb-19-06-18-comp-collapse"
+ibs_rds_username              = "ibsprepadmin"
+ibs_rds_engine_version        = "5.7.mysql_aurora.2.10.2"
+ibs_rds_major_version_upgrade = false
+ibs_rds_parameter_group_name  = "cluster-parameter-group-2022-10-18"
+ibs_rdswriter_group_name      = "writer-parameter-group-2022-10-18"
+ibs_aurora_engine             = "aurora-mysql"
 
 #############################################################################
 # VPC to DVSA WAN via DX

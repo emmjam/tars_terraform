@@ -329,9 +329,13 @@ cpc_rds_allocated_storage = "100" # 20 Gigabyte - was 1500GB
 cpc_rds_snapshot          = ""
 
 # IBSDB
-ibs_rds_username = "ibsuatadmin"
-ibs_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
-ibs_rds_snapshot = ""
+ibs_rds_username              = "ibsuatadmin"
+ibs_rds_password              = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
+ibs_rds_engine_version        = "5.7.mysql_aurora.2.10.2"
+ibs_rds_major_version_upgrade = true
+ibs_rds_parameter_group_name  = "cluster-parameter-group-2022-10-18"
+ibs_rdswriter_group_name      = "writer-parameter-group-2022-10-18"
+ibs_aurora_engine             = "aurora-mysql"
 
 wildfly-back_instance_type        = "m4.large"
 wildfly-back_asg_min_size         = 0
