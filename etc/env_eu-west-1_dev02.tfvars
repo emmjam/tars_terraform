@@ -294,7 +294,7 @@ ibs_rds_username              = "ibsdevadmin"
 #ibs_rdswriter_group_name      = "writer-parameter-group-2022-10-18"
 #ibs_aurora_engine             = "aurora-mysql"
 #ibs_rds_snapshot              = "tars-dev02-ibs-ibsdb-cluster-13-01-23"
-ibs_rds_snapshot              = "tars-dev02-ibs-ibsdb-cluster-11-01-23-do-not-delete"
+ibs_rds_snapshot              = ""
 
 # MISDB
 mis_rds_username          = "misdmsadmin"
