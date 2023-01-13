@@ -288,12 +288,12 @@ cpc_rds_snapshot                = "tars-dev01-cpc-cpcdb-5-4-2019-5-7-0-2"
 
 # IBSDB
 ibs_rds_username              = "ibsdevadmin"
-ibs_rds_engine_version        = "5.7.mysql_aurora.2.10.2"
-ibs_rds_major_version_upgrade = true
-ibs_rds_parameter_group_name  = "cluster-parameter-group-2022-10-18"
-ibs_rdswriter_group_name      = "writer-parameter-group-2022-10-18"
-ibs_aurora_engine             = "aurora"
-#ibs_rds_snapshot              = "tars-dev02-ibs-ibsdb-cluster-13-01-23"
+#ibs_rds_engine_version        = "5.7.mysql_aurora.2.10.2"
+#ibs_rds_major_version_upgrade = true
+#ibs_rds_parameter_group_name  = "cluster-parameter-group-2022-10-18"
+#ibs_rdswriter_group_name      = "writer-parameter-group-2022-10-18"
+#ibs_aurora_engine             = "aurora-mysql"
+ibs_rds_snapshot              = "tars-dev02-ibs-ibsdb-cluster-13-01-23"
 #ibs_rds_snapshot              = ""
 
 # MISDB
