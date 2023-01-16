@@ -1,11 +1,11 @@
 module "jenkins_fargate" {
   source = "../../modules/jenkins_fargate"
 
-  name        = "jenkins"
-  region      = var.aws_region
-  project     = var.project
-  environment = var.environment
-  component   = var.component
+  name            = "jenkins"
+  region          = var.aws_region
+  project         = var.project
+  environment     = var.environment
+  component       = var.component
 
   default_tags = local.default_tags
 
