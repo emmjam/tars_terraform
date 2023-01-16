@@ -45,6 +45,7 @@ resource "aws_rds_cluster_instance" "ibsdb_instance" {
   db_subnet_group_name    = aws_db_subnet_group.ibsdb.name
   publicly_accessible     = false
   db_parameter_group_name = "${local.csi}-${var.ibs_rdswriter_group_name}"
+  engine                  = var.ibs_aurora_engine
   apply_immediately       = var.ibs_rds_apply_immediately
 
   tags = merge(
