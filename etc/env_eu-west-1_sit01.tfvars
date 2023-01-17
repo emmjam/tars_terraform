@@ -303,11 +303,6 @@ cpc_rds_backup_retention  = "21"
 
 # IBSDB
 ibs_rds_username              = "ibsuatadmin"
-ibs_rds_engine_version        = "5.7.mysql_aurora.2.10.2"
-ibs_rds_major_version_upgrade = true
-ibs_rds_parameter_group_name  = "cluster-parameter-group-2022-10-18"
-ibs_rdswriter_group_name      = "writer-parameter-group-2022-10-18"
-ibs_aurora_engine             = "aurora-mysql"
 
 # MISDB
 mis_rds_username          = "misuatadmin"

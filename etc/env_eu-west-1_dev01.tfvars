@@ -287,27 +287,18 @@ tars_rds_username          = "tarsdevadmin"
 tars_rds_allocated_storage = "90" # 20 Gigabyte - was 1500GB
 tars_rds_snapshot          = "tars-dev01-tars-core-tarsdb-5-4-2019-5-7-0-2"
 
-
 # CPCSDB
 cpc_rds_username          = "tarscpcadmin"
 cpc_rds_allocated_storage = "20" # 20 Gigabyte - was 1500GB
 cpc_rds_snapshot          = "tars-dev01-cpc-cpcdb-5-4-2019-5-7-0-2"
 
-
 # IBSDB
-ibs_rds_username              = "ibsdevadmin"
-ibs_rds_engine_version        = "5.7.mysql_aurora.2.10.2"
-ibs_rds_major_version_upgrade = true
-ibs_rds_parameter_group_name  = "cluster-parameter-group-2022-10-18"
-ibs_rdswriter_group_name      = "writer-parameter-group-2022-10-18"
-ibs_aurora_engine             = "aurora-mysql"
-
+ibs_rds_username          = "ibsdevadmin"
 
 # MISDB
 mis_rds_username          = "misdmsadmin"
 mis_rds_allocated_storage = "300"
 mis_rds_snapshot          = "tars-dev01-tars-dms-misopdmstg-20180720"
-
 
 # RSISDB
 rsis_rds_username          = "tarsrsisadmin"

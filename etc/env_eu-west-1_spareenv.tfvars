@@ -331,7 +331,6 @@ cpc_rds_snapshot          = ""
 # IBSDB
 ibs_rds_username = "ibsuatadmin"
 ibs_rds_password = "Bwk3H<f'-S}KyYqmQ*Ma>9>8~}}x$<"
-ibs_rds_snapshot = ""
 
 wildfly-back_instance_type        = "m4.large"
 wildfly-back_asg_min_size         = 0
