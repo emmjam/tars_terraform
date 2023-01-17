@@ -293,7 +293,6 @@ ibs_rds_major_version_upgrade = true
 ibs_rds_parameter_group_name  = "cluster-parameter-group-2022-10-18"
 ibs_rdswriter_group_name      = "writer-parameter-group-2022-10-18"
 ibs_aurora_engine             = "aurora-mysql"
-#ibs_rds_snapshot              = "tars-dev02-ibs-ibsdb-cluster-13-01-23"
 
 # MISDB
 mis_rds_username          = "misdmsadmin"
