@@ -13,6 +13,7 @@ data "aws_ami" "wildfly-messaging" {
   owners = [
     data.aws_caller_identity.current.account_id,
     var.mgmt_aws_account_id,
+    var.nonprod_aws_account_id,
   ]
 
   filter {
