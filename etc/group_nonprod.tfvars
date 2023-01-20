@@ -2,8 +2,8 @@
 
 account_environment = "nonprod"
 
-aws_account_id = "652856684323"
-
+aws_account_id         = "652856684323"
+nonprod_aws_account_id = "652856684323"
 
 ###############################################################################
 # ACCOUNT

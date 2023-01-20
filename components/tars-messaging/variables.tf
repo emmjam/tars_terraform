@@ -123,6 +123,10 @@ variable "mgmt_aws_account_id" {
   type        = string
   description = ""
 }
+variable "nonprod_aws_account_id" {
+  type        = string
+  description = ""
+}
 
 variable "wildfly-messaging_asg_max_size" {
   type        = string
