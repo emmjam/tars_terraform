@@ -509,6 +509,9 @@ aws_autoscaling_enabled = "0"
 # Enable action for tars IBS CPU Cloudwatch alarm
 ibs_high_cpu_cw_metric_alarm_enabled = false
 
+# Enable action for tars front CPU Cloudwatch alarm
+tars_front_high_cpu_cw_metric_alarm_enabled = "1"
+
 #Turn off Prometheus
 prometheus_asg_max_size = 0
 
