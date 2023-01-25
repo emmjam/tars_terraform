@@ -508,6 +508,9 @@ tars_core_cpuutilization_cw_metric_alarm_action_enabled = true
 # Enable action for tars IBS CPU Cloudwatch alarm
 ibs_high_cpu_cw_metric_alarm_enabled = true
 
+# Enable action for tars front CPU Cloudwatch alarm
+tars_front_high_cpu_cw_metric_alarm_enabled = "1"
+
 api_notify = {
   handler                = "notify.handleAsync"
   s3_key_prefix          = "lambda-repo/packages/gov-notify/tars-gov-notify"
