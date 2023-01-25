@@ -431,3 +431,9 @@ variable "deprecated_rds_compatibility" {
   default     = false
   description = "Whether or not to create RDS old option and parameter groups. Required in Prod only"
 }
+
+variable "tars_front_high_cpu_cw_metric_alarm_enabled" {
+  type        = string
+  description = "Enable or disable cpuutilisation CloudWatch Metrics alarm for Tars-front"
+  default     = "0"
+}
