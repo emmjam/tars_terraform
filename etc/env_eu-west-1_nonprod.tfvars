@@ -34,7 +34,7 @@ guardduty_member_enabled = "1"
 # TODO: smarts: Move AMI IDs to versions file
 ## bastion
 bastion_instance_type        = "t3a.micro"
-bastion_ami_build_id         = "1557"
+bastion_ami_build_id         = "1560"
 bastion_asg_min_size         = 0
 bastion_asg_max_size         = 3
 bastion_scaledown_desired    = 1
