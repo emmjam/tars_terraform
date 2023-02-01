@@ -199,7 +199,7 @@ wildfly-messaging_scaledown_desired    = 2
 wildfly-messaging_scaledown_recurrence = "00 19 * * 1-5"
 wildfly-messaging_scaleup_desired      = 2
 wildfly-messaging_scaleup_recurrence   = "00 07 * * 1-5"
-wildfly_messaging_id                   = "release_202301"
+wildfly_messaging_id                   = "release_202109"
 
 ## AWS MQ
 aws_mq_engine_type        = "ActiveMQ"
