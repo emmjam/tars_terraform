@@ -1,5 +1,5 @@
 <powershell>
-# all logging settings are here on top
+# all logging settins are here on top
 $logFile = "e:\log-$(gc env:computername).log"
 $logLevel = "DEBUG" # ("DEBUG","INFO","WARN","ERROR","FATAL")
 $logSize = 1mb # 30kb
@@ -48,7 +48,6 @@ Function Write-Log-Entry {
 }
 
 # Remove MQ Failover for nonProd envs
-Write-Log-Line "Running UserData script"
 Write-Log-Line "Env is [${ENVIRONMENT}]"
 if (-Not ("${ENVIRONMENT}" -eq "prod" -Or "${ENVIRONMENT}" -eq "prep")) {
   ((Get-Content -path C:\opt\wildfly\jboss.properties -Raw) -replace "failover:\(ssl://tars-awsmq-1:61617,ssl://tars-awsmq-2:61617\)\?randomize=false", "ssl://tars-awsmq-1:61617" | Set-Content -Path C:\opt\wildfly\jboss.properties)
@@ -147,4 +146,5 @@ if (-Not (Get-ItemProperty -Path $regPath -Name "OMS" -ErrorAction SilentlyConti
 } else {
   Write-Log-Entry "Stage 2 - Install OMS agent skipped" "INFO"
 }
+
 </powershell>
