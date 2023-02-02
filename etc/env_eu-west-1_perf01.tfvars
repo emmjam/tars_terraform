@@ -377,10 +377,10 @@ obs_scaleup_recurrence   = "00 04 * * 1-7"
 ## ibs
 ibs_instance_type        = "m5a.large"
 ibs_asg_min_size         = 0
-ibs_asg_max_size         = 10
-ibs_scaledown_desired    = 5
+ibs_asg_max_size         = 5
+ibs_scaledown_desired    = 2
 ibs_scaledown_recurrence = "00 16 * * 1-7"
-ibs_scaleup_desired      = 6
+ibs_scaleup_desired      = 3
 ibs_scaleup_recurrence   = "10 04 * * 1-7"
 
 ## wildfly-front
