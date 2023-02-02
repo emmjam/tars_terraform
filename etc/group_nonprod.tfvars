@@ -172,7 +172,7 @@ wildfly-messaging_scaledown_recurrence = "00 19 * * 1-5"
 wildfly-messaging_scaleup_desired      = 1
 wildfly-messaging_scaleup_recurrence   = "00 04 * * 1-5"
 wildfly_messaging_id                   = "release_202109_2"
-wildfly-messaging_ebs_vol              = 50
+wildfly-messaging_ebs_vol              = 500
 wildfly-messaging_ebs_volume_type      = "gp3"
 
 ## wildfly-mock
