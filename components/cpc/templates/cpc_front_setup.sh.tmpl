@@ -148,64 +148,96 @@ log 'INFO' "Account_environment is ${ACCOUNT_ENVIRONMENT}"
 if [ "${ACCOUNT_ENVIRONMENT}" == "nonprod" ]; then
   cpc_certificate_name="cpc-nonprod-dvsa-gov-uk"
   pk12_name="testelise"
+  jssecacerts_keystore="testelise"
 else
   cpc_certificate_name="cpc-dvsa-gov-uk"
   pk12_name="prodelise"
+  jssecacerts_keystore="productionelise"
 fi
 
 # elise keystore configuration#
-# limit to only run in non prod#
-# when live is added, most of the code in the if block can be moved outside of the if statement and then the if statement can be used to do anything custom required for the account
+log 'INFO' 'Beginning ${ACCOUNT_ENVIRONMENT} elise certificate keystore configuration'
+log 'INFO' 'Creating temporary directory to store keystores'
+certificate_directory="/tmp/cert"
+cpc_prop_home="/opt/wildfly/cpc_prop_home"
+java_path="/usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64/bin"
+mkdir -p "$${certificate_directory}/keystores"
+
+log 'INFO' 'Retrieving ${ACCOUNT_ENVIRONMENT} elise passwords'
+cpc_keystore_password=$(aws ssm get-parameter --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/keystore/cpc-password" --with-decryption --query 'Parameter.Value' --output text)
+elise_keystore_password=$(aws ssm get-parameter --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/keystore/elise-jssecacerts" --with-decryption --query 'Parameter.Value' --output text)
+elise_pk12_password=$(aws ssm get-parameter --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/elise-pk12-password" --with-decryption --query 'Parameter.Value' --output text)
+
+log 'INFO' "Retrieving ${ACCOUNT_ENVIRONMENT} cpc certificate"
+aws ssm get-parameter --with-decryption --query 'Parameter.Value' --output text --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/cpc-crt"  > "$${certificate_directory}/$${cpc_certificate_name}.crt"
+aws ssm get-parameter --with-decryption --query 'Parameter.Value' --output text --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/cpc-private-key"  > "$${certificate_directory}/$${cpc_certificate_name}-private.key"
+
+log 'INFO' "Retrieving ${ACCOUNT_ENVIRONMENT} Trusted Root and Intermediate certificates"
+aws ssm get-parameter --with-decryption --query 'Parameter.Value' --output text --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/trusted/TrustedRoot-crt"  > "$${certificate_directory}/TrustedRoot-crt.pem"
+aws ssm get-parameter --with-decryption --query 'Parameter.Value' --output text --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/trusted/IntermediateCA-crt" > "$${certificate_directory}/IntermediateCA-crt.pem"
+
+log 'INFO' "Creating certificate chain"
+cat "/$${certificate_directory}/$${cpc_certificate_name}.crt" "$${certificate_directory}/TrustedRoot-crt.pem" "$${certificate_directory}/IntermediateCA-crt.pem" > "$${certificate_directory}/ca-chain-bundle.cert.pem"
+
+log 'INFO' "Converting certificate to pk12"
+openssl pkcs12 -export -inkey "$${certificate_directory}/$${cpc_certificate_name}-private.key" -in "$${certificate_directory}/$${cpc_certificate_name}.crt" -certfile "$${certificate_directory}/ca-chain-bundle.cert.pem" -name "$${pk12_name}" -out "$${certificate_directory}/$${pk12_name}.p12" -passout pass:$elise_pk12_password
+
+log 'INFO' "Adding $${pk12_name} certificate to ${ACCOUNT_ENVIRONMENT} cpc wildfly keystore"
+"$${java_path}/keytool" -importkeystore -srckeystore "$${certificate_directory}/$${pk12_name}.p12" -srcstoretype pkcs12 -destkeystore "$${certificate_directory}/keystores/cpc-wildfly-keystore.jks" -deststorepass $cpc_keystore_password -srcstorepass $elise_pk12_password
+
+log 'INFO' "Adding $${pk12_name} certificate to ${ACCOUNT_ENVIRONMENT} $${jssecacerts_keystore}-jssecacerts keystore"
+"$${java_path}/keytool" -importkeystore -srckeystore "$${certificate_directory}/$${pk12_name}.p12" -srcstoretype pkcs12 -destkeystore "$${certificate_directory}/keystores/$${jssecacerts_keystore}-jssecacerts" -deststorepass $elise_keystore_password -srcstorepass $elise_pk12_password
+
+log 'INFO' "Retrieving trusted certificates for ${ACCOUNT_ENVIRONMENT} cpc wildfly truststore"
+aws ssm get-parameter --with-decryption --query 'Parameter.Value' --output text --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/trusted/censysactivemqca" > "$${certificate_directory}/censysactivemqca.pem"
+aws ssm get-parameter --with-decryption --query 'Parameter.Value' --output text --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/trusted/digicertroot" > "$${certificate_directory}/digicertroot.pem"
+aws ssm get-parameter --with-decryption --query 'Parameter.Value' --output text --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/trusted/digicertintermediate" > "$${certificate_directory}/digicertintermediate.pem"
+
+
+log 'INFO' "Adding trusted certificates to ${ACCOUNT_ENVIRONMENT} cpc wildfly truststore"
+log 'INFO' "Adding censysactivemqca trusted certificate to ${ACCOUNT_ENVIRONMENT} cpc wildfly truststore"
+"$${java_path}/keytool" -importcert -trustcacerts -keystore "$${certificate_directory}/keystores/cpc-wildfly-truststore.jks" -deststorepass $cpc_keystore_password -noprompt -file "$${certificate_directory}/censysactivemqca.pem" -alias censysactivemqca
+
+log 'INFO' "Adding digicertroot trusted certificate to ${ACCOUNT_ENVIRONMENT} cpc wildfly truststore"
+"$${java_path}/keytool" -importcert -trustcacerts -keystore "$${certificate_directory}/keystores/cpc-wildfly-truststore.jks" -deststorepass $cpc_keystore_password -noprompt -file "$${certificate_directory}/digicertroot.pem" -alias digicertroot
+
+log 'INFO' "Adding digicertintermediate trusted certificate to ${ACCOUNT_ENVIRONMENT} cpc wildfly truststore"
+"$${java_path}/keytool" -importcert -trustcacerts -keystore "$${certificate_directory}/keystores/cpc-wildfly-truststore.jks" -deststorepass $cpc_keystore_password -noprompt -file "$${certificate_directory}/digicertintermediate.pem" -alias digicertintermediate
+
 if [ "${ACCOUNT_ENVIRONMENT}" == "nonprod" ]; then
-  log 'INFO' 'Beginning ${ACCOUNT_ENVIRONMENT} elise certificate keystore configuration'
-  log 'INFO' 'Creating temporary directory to store keystores'
-  certificate_directory="/tmp/cert"
-  cpc_prop_home="/opt/wildfly/cpc_prop_home"
-  java_path="/usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64/bin"
-  mkdir -p "$${certificate_directory}/keystores"
-  
-  log 'INFO' 'Retrieving ${ACCOUNT_ENVIRONMENT} elise passwords'
-  cpc_keystore_password=$(aws ssm get-parameter --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/keystore/cpc-password" --with-decryption --query 'Parameter.Value' --output text)
-  elise_keystore_password=$(aws ssm get-parameter --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/keystore/elise-jssecacerts" --with-decryption --query 'Parameter.Value' --output text)
-  elise_pk12_password=$(aws ssm get-parameter --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/elise-pk12-password" --with-decryption --query 'Parameter.Value' --output text)
-
-  log 'INFO' "Retrieving ${ACCOUNT_ENVIRONMENT} cpc certificate"
-  aws ssm get-parameter --with-decryption --query 'Parameter.Value' --output text --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/cpc-crt"  > "$${certificate_directory}/$${cpc_certificate_name}.crt"
-  aws ssm get-parameter --with-decryption --query 'Parameter.Value' --output text --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/cpc-private-key"  > "$${certificate_directory}/$${cpc_certificate_name}-private.key"
-
-  log 'INFO' "Retrieving ${ACCOUNT_ENVIRONMENT} Trusted Root and Intermediate certificates"
-  aws ssm get-parameter --with-decryption --query 'Parameter.Value' --output text --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/trusted/TrustedRoot-crt"  > "$${certificate_directory}/TrustedRoot-crt.pem"
-  aws ssm get-parameter --with-decryption --query 'Parameter.Value' --output text --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/trusted/IntermediateCA-crt" > "$${certificate_directory}/IntermediateCA-crt.pem"
-
-  log 'INFO' "Creating certificate chain"
-  cat "/$${certificate_directory}/$${cpc_certificate_name}.crt" "$${certificate_directory}/TrustedRoot-crt.pem" "$${certificate_directory}/IntermediateCA-crt.pem" > "$${certificate_directory}/ca-chain-bundle.cert.pem"
-
-  log 'INFO' "Converting certificate to pk12"
-  openssl pkcs12 -export -inkey "$${certificate_directory}/$${cpc_certificate_name}-private.key" -in "$${certificate_directory}/$${cpc_certificate_name}.crt" -certfile "$${certificate_directory}/ca-chain-bundle.cert.pem" -name "$${pk12_name}" -out "$${certificate_directory}/$${pk12_name}.p12" -passout pass:$elise_pk12_password
-  
-  log 'INFO' "Adding $${pk12_name} certificate to ${ACCOUNT_ENVIRONMENT} cpc wildfly keystore"
-  "$${java_path}/keytool" -importkeystore -srckeystore "$${certificate_directory}/$${pk12_name}.p12" -srcstoretype pkcs12 -destkeystore "$${certificate_directory}/keystores/cpc-wildfly-keystore.jks" -deststorepass $cpc_keystore_password -srcstorepass $elise_pk12_password
-
-  log 'INFO' "Adding $${pk12_name} certificate to ${ACCOUNT_ENVIRONMENT} $${pk12_name}-jssecacerts keystore"
-  "$${java_path}/keytool" -importkeystore -srckeystore "$${certificate_directory}/$${pk12_name}.p12" -srcstoretype pkcs12 -destkeystore "$${certificate_directory}/keystores/$${pk12_name}-jssecacerts" -deststorepass $elise_keystore_password -srcstorepass $elise_pk12_password
-
-  log 'INFO' "Retrieving trusted certificates for ${ACCOUNT_ENVIRONMENT} cpc wildfly truststore"
-  aws ssm get-parameter --with-decryption --query 'Parameter.Value' --output text --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/trusted/censysactivemqca" > "$${certificate_directory}/censysactivemqca.pem"
-  aws ssm get-parameter --with-decryption --query 'Parameter.Value' --output text --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/trusted/digicertroot" > "$${certificate_directory}/digicertroot.pem"
-  aws ssm get-parameter --with-decryption --query 'Parameter.Value' --output text --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/trusted/digicertintermediate" > "$${certificate_directory}/digicertintermediate.pem"
+  log 'INFO' "Retrieving additional trusted certificates for ${ACCOUNT_ENVIRONMENT} cpc wildfly truststore"
   aws ssm get-parameter --with-decryption --query 'Parameter.Value' --output text --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/trusted/ua-services03-root" > "$${certificate_directory}/ua_services03_root.pem"
   aws ssm get-parameter --with-decryption --query 'Parameter.Value' --output text --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/trusted/ua-services04-intermediate" > "$${certificate_directory}/ua_services04_intermediate.pem"
 
-  log 'INFO' "Adding trusted certificates to ${ACCOUNT_ENVIRONMENT} cpc wildfly truststore"
-  "$${java_path}/keytool" -importcert -trustcacerts -keystore "$${certificate_directory}/keystores/cpc-wildfly-truststore.jks" -deststorepass $cpc_keystore_password -noprompt -file "$${certificate_directory}/censysactivemqca.pem" -alias censysactivemqca
-  "$${java_path}/keytool" -importcert -trustcacerts -keystore "$${certificate_directory}/keystores/cpc-wildfly-truststore.jks" -deststorepass $cpc_keystore_password -noprompt -file "$${certificate_directory}/digicertroot.pem" -alias digicertroot
-  "$${java_path}/keytool" -importcert -trustcacerts -keystore "$${certificate_directory}/keystores/cpc-wildfly-truststore.jks" -deststorepass $cpc_keystore_password -noprompt -file "$${certificate_directory}/digicertintermediate.pem" -alias digicertintermediate
+  log 'INFO' "Adding additional trusted certificates to ${ACCOUNT_ENVIRONMENT} cpc wildfly truststore"
+  log 'INFO' "Adding ua_services03_root trusted certificate to ${ACCOUNT_ENVIRONMENT} cpc wildfly truststore"
   "$${java_path}/keytool" -importcert -trustcacerts -keystore "$${certificate_directory}/keystores/cpc-wildfly-truststore.jks" -deststorepass $cpc_keystore_password -noprompt -file "$${certificate_directory}/ua_services03_root.pem" -alias ua_services03_root
+  log 'INFO' "Adding ua_services04_intermediate trusted certificate to ${ACCOUNT_ENVIRONMENT} cpc wildfly truststore"
   "$${java_path}/keytool" -importcert -trustcacerts -keystore "$${certificate_directory}/keystores/cpc-wildfly-truststore.jks" -deststorepass $cpc_keystore_password -noprompt -file "$${certificate_directory}/ua_services04_intermediate.pem" -alias ua_services04_intermediate
+fi
+  
+  if [ "${ACCOUNT_ENVIRONMENT}" == "live" ]; then
+    # if any additional trusted certs are needed for live, they can be added here
+    # the certficates listed below may not be needed
+    log 'INFO' "Retrieving additional trusted certificates for ${ACCOUNT_ENVIRONMENT} $${jssecacerts_keystore}-jssecacert"
+    aws ssm get-parameter --with-decryption --query 'Parameter.Value' --output text --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/trusted/quovadisintermediate" > "$${certificate_directory}/quovadisintermediate.pem"
+    aws ssm get-parameter --with-decryption --query 'Parameter.Value' --output text --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/trusted/quovadisroot" > "$${certificate_directory}/quovadisroot.pem"
+    aws ssm get-parameter --with-decryption --query 'Parameter.Value' --output text --name "/${ACCOUNT_ENVIRONMENT}/cpc/all/certificates/elise/trusted/root" > "$${certificate_directory}/root.pem"
 
-
+    log 'INFO' "Adding additional trusted certificates to ${ACCOUNT_ENVIRONMENT} $${jssecacerts_keystore}-jssecacert"
+    log 'INFO' "Adding quovadisintermediate trusted certificate to ${ACCOUNT_ENVIRONMENT} $${jssecacerts_keystore}-jssecacert"
+    "$${java_path}/keytool" -importcert -trustcacerts -keystore "$${certificate_directory}/keystores/$${jssecacerts_keystore}-jssecacerts" -deststorepass $elise_keystore_password -noprompt -file "$${certificate_directory}/quovadisintermediate.pem" -alias quovadisintermediate
+    log 'INFO' "Adding quovadisroot trusted certificate to ${ACCOUNT_ENVIRONMENT} $${jssecacerts_keystore}-jssecacert"
+    "$${java_path}/keytool" -importcert -trustcacerts -keystore "$${certificate_directory}/keystores/$${jssecacerts_keystore}-jssecacerts" -deststorepass $elise_keystore_password -noprompt -file "$${certificate_directory}/quovadisroot.pem" -alias quovadisroot
+    log 'INFO' "Adding root trusted certificate to ${ACCOUNT_ENVIRONMENT} $${jssecacerts_keystore}-jssecacert"
+    "$${java_path}/keytool" -importcert -trustcacerts -keystore "$${certificate_directory}/keystores/$${jssecacerts_keystore}-jssecacerts" -deststorepass $elise_keystore_password -noprompt -file "$${certificate_directory}/root.pem" -alias root
+  fi
+  
+# only copy keystores created from parameter store for nonprod, the if block can be removed when ready to copy for live account
+if [ "${ACCOUNT_ENVIRONMENT}" == "nonprod" ]; then
   # keystores are currently in app repo so will get copied to cipher folders, take a back up if the keystores exist in cipher folders
   # when live is added, copying of keystore is to be moved after if [ "${ACCOUNT_ENVIRONMENT}" == "nonprod" ]; then statement block
+  log 'INFO' "Preparing to copy keystores"
   log 'INFO' "Checking if keystores already existing and backing up if they do"
   if [ -f "$${cpc_prop_home}/wildfly-cipher/cpc-wildfly-keystore.jks" ]; then
     log 'INFO' "Backing up $${cpc_prop_home}/wildfly-cipher/cpc-wildfly-keystore.jks"
@@ -215,18 +247,18 @@ if [ "${ACCOUNT_ENVIRONMENT}" == "nonprod" ]; then
     log 'INFO' "Backing up $${cpc_prop_home}/wildfly-cipher/cpc-wildfly-truststore.jks"
     mv "$${cpc_prop_home}/wildfly-cipher/cpc-wildfly-truststore.jks" "$${cpc_prop_home}/wildfly-cipher/cpc-wildfly-truststore-original.jks"
   fi
-  if [ -f "$${cpc_prop_home}/cipher/testelise-jssecacerts" ]; then
-    log 'INFO' "Backing up $${cpc_prop_home}/cipher/testelise-jssecacerts"
-    mv "$${cpc_prop_home}/cipher/testelise-jssecacerts" "$${cpc_prop_home}/cipher/testelise-jssecacerts-original"
+  if [ -f "$${cpc_prop_home}/cipher/$${jssecacerts_keystore}-jssecacerts" ]; then # test this change in opsdev
+    log 'INFO' "Backing up $${cpc_prop_home}/cipher/$${jssecacerts_keystore}-jssecacerts" # test this change in opsdev
+    mv "$${cpc_prop_home}/cipher/$${jssecacerts_keystore}-jssecacerts" "$${cpc_prop_home}/cipher/$${jssecacerts_keystore}-jssecacerts-original" # test this change in opsdev
   fi
 
   log 'INFO' "Copying keystores to /opt/wildfly/cpc_prop_home/wildfly-cipher"
   cp "$${certificate_directory}/keystores/cpc-wildfly-keystore.jks" "$${cpc_prop_home}/wildfly-cipher/"
   cp "$${certificate_directory}/keystores/cpc-wildfly-truststore.jks" "$${cpc_prop_home}/wildfly-cipher/"
-  cp "$${certificate_directory}/keystores/testelise-jssecacerts" "$${cpc_prop_home}/cipher/testelise-jssecacerts"
-  chown wildfly:wildfly "$${cpc_prop_home}/wildfly-cipher/cpc-wildfly-keystore.jks"
-  chown wildfly:wildfly "$${cpc_prop_home}/wildfly-cipher/cpc-wildfly-truststore.jks"
-  chown wildfly:wildfly "$${cpc_prop_home}/cipher/testelise-jssecacerts"
+  cp "$${certificate_directory}/keystores/$${jssecacerts_keystore}-jssecacerts" "$${cpc_prop_home}/cipher/$${jssecacerts_keystore}-jssecacerts" # test this change in opsdev
+  chown wildfly:wildfly "$${cpc_prop_home}/wildfly-cipher/cpc-wildfly-keystore.jks" # test this change in opsdev
+  chown wildfly:wildfly "$${cpc_prop_home}/wildfly-cipher/cpc-wildfly-truststore.jks" # test this change in opsdev
+  chown wildfly:wildfly "$${cpc_prop_home}/cipher/$${jssecacerts_keystore}-jssecacerts" # test this change in opsdev
 
   log 'INFO' 'Cleaning up temporary directory used to store keystores'
   rm -Rf "$${certificate_directory}"
@@ -235,9 +267,7 @@ if [ "${ACCOUNT_ENVIRONMENT}" == "nonprod" ]; then
   systemctl restart wildfly.service
 
 else
-  log 'INFO' 'account is not nonprod so not retrieving elise certificate keystore configuration from parameter store'
-  # when live is configured this else statement can be used for any additional config for live
-  # as live currently has additional trusted certs added to keystores which nonprod does not
+  log 'INFO' "account is live so retrieved certificates from parameter store and placed into $${certificate_directory} only"
 fi
 
 

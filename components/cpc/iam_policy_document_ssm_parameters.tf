@@ -7,7 +7,8 @@ data "aws_iam_policy_document" "cpc_ssm_parameters" {
       "ssm:GetParameters"
     ]
     resources = [
-      "arn:aws:ssm:${var.aws_region}:${var.aws_account_id}:parameter/${var.account_environment}/cpc/all/*"
+      "arn:aws:ssm:${var.aws_region}:${var.aws_account_id}:parameter/${var.account_environment}/cpc/all/*",
+      "arn:aws:ssm:${var.aws_region}:${var.aws_account_id}:parameter/live/cpc/all/*" # test line
     ]
   }
 }
