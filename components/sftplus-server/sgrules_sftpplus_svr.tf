@@ -53,5 +53,7 @@ resource "aws_security_group_rule" "sftpplus_egress_sftpplus-7000" {
   from_port                = "7000"
   to_port                  = "7000"
   security_group_id        = module.obs.security_group_id
-  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-backend-alb-sg-id
+
+ source_security_group_id = data.terraform_remote_state.apps.outputs.obs-sg-id
+  
 }
