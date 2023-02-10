@@ -92,6 +92,7 @@ new_all_users = [
   "ali.mohammed@bjss.com",
   "peter.sen@dvsa.gov.uk",
   "poonam.singh@bjss.com",
+  "stephen.mccoy@bjss.com",
 ]
 
 # TSSOps Access
@@ -190,6 +191,7 @@ readonly_developer_users = [
   "vaishali.jain@bjss.com",
   "dave.awcock@bjss.com",
   "poonam.singh@bjss.com",
+  "stephen.mccoy@bjss.com",
 ]
 
 # DVSA Access
