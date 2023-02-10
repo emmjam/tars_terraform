@@ -46,3 +46,12 @@ resource "aws_security_group_rule" "sftpplus_egress_sftpplus_efs_nfs" {
   source_security_group_id = aws_security_group.sftpplus_efs.id
 }
 
+#add sg rule to allow egress port 7000 for sftpplus to obs security group
+resource "aws_security_group_rule" "sftpplus_egress_sftpplus-7000" {
+  type                     = "egress"
+  protocol                 = "tcp"
+  from_port                = "7000"
+  to_port                  = "7000"
+  security_group_id        = module.obs.security_group_id
+  source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-backend-alb-sg-id
+}
