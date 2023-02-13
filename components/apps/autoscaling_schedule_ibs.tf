@@ -13,8 +13,8 @@ resource "aws_autoscaling_schedule" "ibs_down_monday" {
   scheduled_action_name  = "${local.csi}/ibs-down_monday"
   min_size               = var.ibs_asg_min_size
   max_size               = var.ibs_asg_max_size
-  desired_capacity       = var.ibs_scaledown_desired
-  recurrence             = "30 7 * * 1"
+  desired_capacity       = var.ibs_scaleup_desired
+  recurrence             = "30 9 * * 1"
   autoscaling_group_name = module.ibs.autoscaling_group_id
 }
 
