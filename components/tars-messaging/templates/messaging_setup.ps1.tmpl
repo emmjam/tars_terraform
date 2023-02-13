@@ -105,7 +105,7 @@ if (-Not (Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain) {
 
       Write-Log-Entry "Stage 1 - Reboot" "INFO"
 
-      Restart-Computer
+      Restart-Computer -Force
   }
 
   Catch{
@@ -158,7 +158,7 @@ Start-Process -FilePath "C:\opt\wildfly\bin\service\service.bat" -ArgumentList @
 Write-Log-Line "Stopping the CloudwatchAgent" "INFO"
 chdir "C:\Program Files\Amazon\AmazonCloudWatchAgent"
 Invoke-Expression ".\amazon-cloudwatch-agent-ctl.ps1  -m ec2 -a stop"
-Start-Sleep -s 5
+Start-Sleep -s 15
 Write-Log-Line "Deleting old files" "INFO"
 Remove-Item $cwfile
 Remove-Item $cwfile2
@@ -256,4 +256,3 @@ chdir "C:\Program Files\Amazon\AmazonCloudWatchAgent"
 Invoke-Expression ".\amazon-cloudwatch-agent-ctl.ps1  -m ec2 -a start" 
 Write-Log-Line "Job done." "INFO"
 </powershell>
-<persist>true</persist>
