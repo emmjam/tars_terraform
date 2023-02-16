@@ -472,3 +472,13 @@ variable "unattached_ebs_vols_lambda_version"{
   type        = string
   description = "Lambda version"
 }
+
+# Lambda Access Key Rotation
+variable "lambda_access_key_rotation_config" {
+  description = "Map of config information for lambda access_key_rotation"
+  type        = map(any)
+}
+
+variable "access_key_count" {
+  type = number
+}

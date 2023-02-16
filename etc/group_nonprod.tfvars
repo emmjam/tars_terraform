@@ -671,3 +671,19 @@ unattached_ebs_vols_lambda_version = "1"
 
 # Expiring Certificates Lambda
 ssl_cert_expiry_lambda_version = 2
+
+##
+# Access key rotation/notification - runs every day at 06.00 am
+##
+lambda_access_key_rotation_config = {
+  key_age_max_days                  = 90
+  warning_period_days               = 10
+  tss_email                         = "dvsa.alerts@bjss.com"
+  verified_email                    = "info@tars.dvsacloud.uk"
+  lambda_access_key_rotation_s3_key = "lambda-access-key-rotation/lambda_access_key_rotation.zip"
+  cw_rule_schedule_expression       = "cron(00 06 * * ? *)"
+  enabled                           = "1"
+}
+
+#Access key lambda notification
+access_key_count = 1
