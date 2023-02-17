@@ -8,6 +8,7 @@ resource "aws_security_group_rule" "obs-ingress-public-alb-8080" {
   source_security_group_id = data.terraform_remote_state.tars-core.outputs.tars-core-public-alb-sg-id
 }
 
+
 resource "aws_security_group_rule" "obs-egress-tars-back-8080" {
   type                     = "egress"
   protocol                 = "tcp"
