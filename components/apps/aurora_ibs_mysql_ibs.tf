@@ -18,7 +18,7 @@ resource "aws_rds_cluster" "ibsdb_cluster" {
   db_cluster_parameter_group_name = "${local.csi}-${var.ibs_rds_parameter_group_name}"
   iam_roles                       = [aws_iam_role.ibs_rds_role.arn]
   apply_immediately               = var.ibs_rds_apply_immediately
-  engine_version                  = var.ibs_rds_engine_version
+  # engine_version                  = var.ibs_rds_engine_version
   engine                          = var.ibs_aurora_engine
   allow_major_version_upgrade     = var.ibs_rds_major_version_upgrade
   vpc_security_group_ids = [
