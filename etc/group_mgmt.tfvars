@@ -83,7 +83,6 @@ new_all_users = [
   "tomasz.chrost@bjss.com",
   "michael.mackintosh@bjss.com",
   "banafsheh.shahzaman@bjss.com",
-  "callum.walmesley@bjss.com",
   "steve.maguire@bjss.com",
   "michael.gilchrist@bjss.com",
   "vaishali.jain@bjss.com",
@@ -210,7 +209,6 @@ readonly_appsupport_users = [
   "steven.millington@bjss.com",
   "andrew.malcolm@bjss.com",
   "chris.peska@bjss.com",
-  "callum.walmesley@bjss.com",
 ]
 
 # QA Engineer Access
