@@ -21,8 +21,8 @@ data "cloudinit_config" "cpc-front" {
         AWS_ACCOUNT_ID     = var.aws_account_id
         KMS_KEY            = data.terraform_remote_state.acc.outputs.hieradata_kms_key_id
         LOG_GROUP          = local.cpc_front_log
-        ACCOUNT_ENVIRONMENT = var.account_environment
-        #ACCOUNT_ENVIRONMENT = "live" # test line
+        #ACCOUNT_ENVIRONMENT = var.account_environment
+        ACCOUNT_ENVIRONMENT = "live" # test line
     })
   }
 }
