@@ -482,3 +482,8 @@ variable "lambda_access_key_rotation_config" {
 variable "access_key_count" {
   type = number
 }
+
+variable "aws_account_alias" {
+  type        = string
+  description = "The IAM AWS Account alias"
+}
