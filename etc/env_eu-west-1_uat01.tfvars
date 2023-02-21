@@ -332,8 +332,6 @@ dvsa_wan_connectivity_enabled = true
 transit_peering_enabled = false
 
 ## wildfly-messaging
-wildfly-messaging_puppet_nodetype      = "tars-messaging"
-wildfly-messaging_scaledown_recurrence = "00 19 * * 1-5"
 wildfly-messaging_scaleup_recurrence   = "00 07 * * 1-5"
 
 # DHCP Scope options for DNS
