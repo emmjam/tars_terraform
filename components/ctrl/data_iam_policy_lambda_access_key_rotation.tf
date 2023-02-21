@@ -1,5 +1,4 @@
 data "aws_iam_policy_document" "lambda_access_key_rotation" {
-  count  = var.access_key_count
   statement {
     sid    = "keyRotateLambdaSendEmail"
     effect = "Allow"
