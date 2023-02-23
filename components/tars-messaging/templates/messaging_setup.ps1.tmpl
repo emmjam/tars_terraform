@@ -69,37 +69,80 @@ if (-Not (Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain) {
     $instanceID = invoke-restmethod -uri http://169.254.169.254/latest/meta-data/instance-id
   }
 
+  #Set DNS Search suffix
+  Write-Log-Entry "Stage 1 - Set dns search suffix" "INFO"
+  Set-DnsClientGlobalSetting -SuffixSearchList @("${SEARCH_SUFFIX}","dsa.gsi.gov.uk","eu-west-1.ec2-utilities.amazonaws.com","us-east-1.ec2-utilities.amazonaws.com","eu-west-1.compute.internal")
+
+  # set dns to vpc dns via dhcp
+  Write-Log-Entry "Stage 1 - Set dns servers to DHCP settings" "INFO"
+  Get-NetAdapter | Set-DnsClientServerAddress -ResetServerAddresses
+
+  Write-Log-Entry "Stage 1 - Getting Parameter Values from Parameter Store" "INFO"
+  Try {
+    Write-Log-Entry "Stage 1 - Getting AD-DNS-List Parameter Value from Parameter Store" "INFO"
+    $dnslist = (Get-SSMParameterValue -Name "AD-DNS-List").Parameters[0].Value
+    Write-Log-Entry "Stage 1 - Successfully retrieved AD-DNS-List Parameter Value from Parameter Store" "INFO"
+  }
+  Catch {
+    Write-Log-Entry "Stage 1 - Failed to get AD-DNS-List Parameter Value from Parameter Store" "ERROR"
+  }
+
+
+  # Get Domain and OU information that stored in the ssm parameter store
+  Try {
+    Write-Log-Entry "Stage 1 - Getting AD-domainName Parameter Value from Parameter Store" "INFO"
+    $DomainName = (Get-SSMParameterValue -Name AD-domainName).Parameters[0].Value
+    Write-Log-Entry "Stage 1 - Successfully retrieved AD-domainName Parameter Value from Parameter Store" "INFO"
+  }
+  Catch {
+    Write-Log-Entry "Stage 1 - Failed to get AD-domainName Parameter Value from Parameter Store" "ERROR"
+  }
+
+  Try {
+    Write-Log-Entry "Stage 1 - Getting AD-Base-OU Parameter Value from Parameter Store" "INFO"
+    $BaseOU = (Get-SSMParameterValue -Name AD-Base-OU).Parameters[0].Value
+    Write-Log-Entry "Stage 1 - Successfully retrieved AD-Base-OU Parameter Value from Parameter Store" "INFO"
+  }
+  Catch {
+    Write-Log-Entry "Stage 1 - Failed to get AD-Base-OU Parameter Value from Parameter Store" "ERROR"
+  }
+
+  # Get AD credentials that are stored in the ssm parameter store
+  Try {
+    Write-Log-Entry "Stage 1 - Getting AD-domainpassword Value from Parameter Store" "INFO"
+    $username = $DomainName + "\" + (Get-SSMParameterValue -Name AD-domainJoinUserName).Parameters[0].Value
+    $password = (Get-SSMParameterValue -Name AD-domainpassword -WithDecryption $True).Parameters[0].Value |
+                  ConvertTo-SecureString -asPlainText -Force
+    Write-Log-Entry "Stage 1 - Successfully retrieved AD-domainpassword Value from Parameter Store" "INFO"
+  }
+  Catch {
+    Write-Log-Entry "Stage 1 - Failed to get AD-domainpassword Value from Parameter Store" "ERROR"
+  }
+
+  # Create PS credential from previously pulling in the credentials from the ssm parameter store
+  $cred = New-Object System.Management.Automation.PSCredential($username,$password)
+
+  #Set DNS servers
   $dnsIp = Get-DnsClientServerAddress | Select-Object –ExpandProperty ServerAddresses -Unique -First 1
   Write-Log-Entry "Stage 1 - DNS IP before $${dnsIp}" "INFO"
 
-  #Set DNS servers
-  $dnslist = (Get-SSMParameterValue -Name AD-DNS-List).Parameters[0].Value
   Write-Log-Entry "Stage 1 - DNS list $${dnslist}" "INFO"
   Get-NetAdapter | Set-DnsClientServerAddress -ServerAddresses $dnslist
 
   $dnsIp = Get-DnsClientServerAddress | Select-Object –ExpandProperty ServerAddresses -Unique -First 1
   Write-Log-Entry "Stage 1 - DNS IP after $${dnsIp}" "INFO"
 
+
   #Set DNS Search suffix
-  Set-DnsClientGlobalSetting -SuffixSearchList @("${SEARCH_SUFFIX}","dsa.gsi.gov.uk","eu-west-1.ec2-utilities.amazonaws.com","us-east-1.ec2-utilities.amazonaws.com","eu-west-1.compute.internal")
-
-  # Get Domain and OU information that stored in the ssm parameter store
-  $DomainName = (Get-SSMParameterValue -Name AD-domainName).Parameters[0].Value
-  $BaseOU = (Get-SSMParameterValue -Name AD-Base-OU).Parameters[0].Value
-
-  # Get AD credentials that are stored in the ssm parameter store
-  $username = $DomainName + "\" + (Get-SSMParameterValue -Name AD-domainJoinUserName).Parameters[0].Value
-  $password = (Get-SSMParameterValue -Name AD-domainpassword -WithDecryption $True).Parameters[0].Value |
-                  ConvertTo-SecureString -asPlainText -Force
-
-  # Create PS credential from previously pulling in the credentials from the ssm parameter store
-  $cred = New-Object System.Management.Automation.PSCredential($username,$password)
+  #Set-DnsClientGlobalSetting -SuffixSearchList @("${SEARCH_SUFFIX}","dsa.gsi.gov.uk","eu-west-1.ec2-utilities.amazonaws.com","us-east-1.ec2-utilities.amazonaws.com","eu-west-1.compute.internal")
 
   Try {
       #Join-Machine to AD Domain
+      Write-Log-Entry "Stage 1 - Attempting to join domain" "INFO"
       Add-Computer -Domain $DomainName -Credential $cred -OUPath $BaseOU  -ErrorAction 'Stop' -Options "JoinWithNewName, AccountCreate"
 
       Write-Verbose -Message "Succesfully joined domain."
+      Write-Log-Entry "Stage 1 - Successfully joined domain" "INFO"
       Write-Log-Entry "Stage 1 - Re-run userdata" "INFO"
       C:\ProgramData\Amazon\EC2-Windows\Launch\Scripts\InitializeInstance.ps1 -Schedule
 
@@ -110,12 +153,9 @@ if (-Not (Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain) {
 
   Catch{
       Write-Host $_.Exception | Out-File c:\error-joindomain.txt -Append
-      Write-Log-Entry "Stage 1 - Join Domain failed using R53 DNS" "INFO"
+      Write-Log-Entry "Stage 1 - Join Domain failed, reverting to using R53 DNS" "INFO"
       # Update the DNS IP so that it reverts back to R53
-      $macAddress = invoke-restmethod -uri http://169.254.169.254/latest/meta-data/network/interfaces/macs
-      $cidrBlock = invoke-restmethod -uri http://169.254.169.254/latest/meta-data/network/interfaces/macs/$macAddress/vpc-ipv4-cidr-blocks
-      $dnsIP = $cidrBlock.Substring(0,$cidrBlock.Length-3) -replace(".\d{1,2}$",".2")
-      Get-NetAdapter | Set-DnsClientServerAddress -ServerAddresses $dnsIP
+      Get-NetAdapter | Set-DnsClientServerAddress -ResetServerAddresses
   }
 } else {
   Write-Log-Entry "Stage 1 - Join Domain skipped" "INFO"
