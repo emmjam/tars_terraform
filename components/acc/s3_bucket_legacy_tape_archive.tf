@@ -55,3 +55,11 @@ resource "aws_s3_bucket_logging" "legacy-tape-archive" {
   target_bucket = aws_s3_bucket.bucketlogs.id
   target_prefix = "${local.csi_global}-legacy-tape-archive/"
 }
+
+resource "aws_s3_bucket_public_access_block" "legacy-tape-archive" {
+  bucket                  = aws_s3_bucket.legacy-tape-archive.id
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}

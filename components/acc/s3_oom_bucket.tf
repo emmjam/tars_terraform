@@ -55,3 +55,11 @@ resource "aws_s3_bucket_logging" "oom-logs" {
   target_bucket = aws_s3_bucket.bucketlogs.id
   target_prefix = "${local.csi_global}--oom-logs/"
 }
+
+resource "aws_s3_bucket_public_access_block" "oom-logs" {
+  bucket                  = aws_s3_bucket.oom-logs.id
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}

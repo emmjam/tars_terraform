@@ -72,3 +72,11 @@ resource "aws_s3_bucket_logging" "perf-testing" {
   target_bucket = aws_s3_bucket.bucketlogs.id
   target_prefix = "${local.csi_global}-perf-testing/"
 }
+
+resource "aws_s3_bucket_public_access_block" "perf-testing" {
+  bucket                  = aws_s3_bucket.perf-testing.id
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}

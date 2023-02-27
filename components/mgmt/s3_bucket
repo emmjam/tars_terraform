@@ -61,3 +61,11 @@ resource "aws_s3_bucket_policy" "lambda-repository" {
   bucket = aws_s3_bucket.lambda-repository.id
   policy = data.aws_iam_policy_document.lambda-repository.json
 }
+
+resource "aws_s3_bucket_public_access_block" "lambda-repository" {
+  bucket                  = aws_s3_bucket.lambda-repository.id
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}
