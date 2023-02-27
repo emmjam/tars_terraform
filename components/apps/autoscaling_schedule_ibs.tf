@@ -14,7 +14,7 @@ resource "aws_autoscaling_schedule" "ibs_down_monday" {
   min_size               = var.ibs_asg_min_size
   max_size               = var.ibs_asg_max_size
   desired_capacity       = var.ibs_scaleup_desired
-  recurrence             = "30 9 * * 1"
+  recurrence             = "30 8 * * 1"
   autoscaling_group_name = module.ibs.autoscaling_group_id
 }
 
@@ -31,9 +31,9 @@ resource "aws_autoscaling_schedule" "ibs_up" {
 resource "aws_autoscaling_schedule" "ibs_up_monday" {
   count                  = var.aws_autoscaling_enabled
   scheduled_action_name  = "${local.csi}/ibs-up_monday"
-  min_size               = 8
-  max_size               = 8
-  desired_capacity       = 8
+  min_size               = 10
+  max_size               = 10
+  desired_capacity       = 10
   recurrence             = "30 4 * * 1"
   autoscaling_group_name = module.ibs.autoscaling_group_id
 }
