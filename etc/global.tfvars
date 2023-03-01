@@ -115,7 +115,6 @@ reporting_xe_alb_sg_whitelist_hosts = [
   "10.201.80.0/21",     # DVSA Notts Internal
   "10.69.3.64/26",      # DVSA ZPA VPN
   "10.69.131.64/26",    # DVSA ZPA VPN
-  "148.253.134.213/32", # BJSS VPN 04/18
   "54.72.37.158/32",    # Selenium Elasticgrid Proxy
   "199.83.128.0/21",    # Begin Incapsula IPs
   "198.143.32.0/19",
