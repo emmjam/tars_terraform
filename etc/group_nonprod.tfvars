@@ -113,7 +113,7 @@ wildfly-batch_scaleup_desired      = 1
 wildfly-batch_scaleup_recurrence   = "00 04 * * 1-5"
 
 ## obs
-obs_instance_type        = "t3.medium"
+obs_instance_type        = "t3.large"
 obs_puppet_nodetype      = "obs"
 obs_asg_min_size         = 0
 obs_asg_max_size         = 2
@@ -171,7 +171,7 @@ wildfly-messaging_scaledown_desired    = 1
 wildfly-messaging_scaledown_recurrence = "00 19 * * 1-5"
 wildfly-messaging_scaleup_desired      = 1
 wildfly-messaging_scaleup_recurrence   = "00 04 * * 1-5"
-wildfly_messaging_id                   = "release_202301"
+wildfly_messaging_id                   = "release_202109_2"
 wildfly-messaging_ebs_vol              = 500
 wildfly-messaging_ebs_volume_type      = "gp3"
 
@@ -575,7 +575,7 @@ ibs_rds_maint_window            = "sun:03:16-sun:03:46"
 ibs_rds_apply_immediately       = "true"
 ibs_rds_major_version_upgrade   = false
 ibs_rds_snapshot                = ""
-ibs_rds_engine_version          = ""
+ibs_rds_engine_version          = "5.7.mysql_aurora.2.10.2"
 ibs_rds_parameter_group_name    = "cluster-parameter-group-2022-10-18"
 ibs_rdswriter_group_name        = "writer-parameter-group-2022-10-18"
 ibs_aurora_engine               = "aurora-mysql"
