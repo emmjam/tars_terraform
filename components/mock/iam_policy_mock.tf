@@ -8,13 +8,27 @@ data "aws_iam_policy_document" "mock" {
       "*",
     ]
   }
+  statement  {
+      
+        sid = "AllowSSMGetParameter"
+        effect = "Allow"
+        actions = [ "ssm:GetParameter" ,
+        ]
+        resources = [ "arn:aws:ssm:${var.aws_region}:${var.aws_account_id}:parameter/${var.environment}/alim/test", 
+
+        ]
+      }
+    
 }
 
 resource "aws_iam_policy" "mock" {
   name   = "${local.csi}-mock"
   path   = "/"
   policy = data.aws_iam_policy_document.mock.json
+
+
 }
+
 
 
 data "aws_iam_policy_document" "mock-lifecycle" {

@@ -125,3 +125,10 @@ else
     --auto-scaling-group-name "$${asg_name}" \
     || error 'Failed to complete lifecycle hook';
 fi
+
+
+# Retrieve parameter from AWS Systems Manager Parameter Store
+PARAMETER_VALUE=$(aws ssm get-parameter --name "/alim/test" --query "Parameter.Value" --output text)
+
+# Use the parameter value in your script
+echo "Parameter value is: $${PARAMETER_VALUE}"
