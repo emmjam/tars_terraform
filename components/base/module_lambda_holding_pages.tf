@@ -7,7 +7,7 @@ module "lambda-holding-pages" {
   default_tags = local.default_tags
 
   name                   = "lambda-holding-pages"
-  runtime                = "nodejs12.x"
+  runtime                = "nodejs16.x"
   handler                = "index.handler"
   timeout                = 3
   memory_size            = 128
