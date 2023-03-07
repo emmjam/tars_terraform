@@ -126,6 +126,103 @@ fi
 sed -i -e "s|production|${ENVIRONMENT}|g" /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.toml
 /etc/init.d/cloudwatch restart
 
+# begin d90 certificate retrieval
+# limited to just opsdev to start with
+if [ "${ENVIRONMENT}" == "opsdev" ]; then
+  log "INFO" "Environment is opsdev, beginning d90 cert retrieval from parameter store"
+
+  # set variables
+  certificate_directory="/tmp/cert"
+  java_path="/usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64/bin"
+  if [ "${ACCOUNT_ENVIRONMENT}" == "nonprod" ]; then
+    d90_soap_client="d90-soap-test-client-jks"
+    services04_crt="dvla-UASERVICES04-CA-crt"
+    services03_crt="dvla-UASERVICES03-CA-crt"
+    d90_soap_crt="D90-SOAP-TEST-crt"
+    d90_soap_private_key="D90-SOAP-TEST-private-key"
+    d90_soap="d90_soap_test"
+    d90_keystore="d90_soap_test_client"
+  else
+    d90_soap_client="d90-soap-prod-client-jks"
+    services04_crt="dvla-SERVICES04-CA-crt"
+    services03_crt="dvla-SERVICES03-CA-crt"
+    d90_soap_crt="D90-SOAP-PROD-crt"
+    d90_soap_private_key="D90-SOAP-PROD-private-key"
+    d90_soap="d90_soap_prod"
+    d90_keystore="d90_soap_prod_client"
+  fi
+
+  log 'INFO' "services04_crt is $${services04_crt}"
+  log 'INFO' "services03_crt is $${services03_crt}"
+  log 'INFO' 'Creating temporary directory to store keystores'
+  mkdir -p "$${certificate_directory}/keystores"
+
+  log 'INFO' "Retrieving ${ACCOUNT_ENVIRONMENT} d90 passwords"
+  d90_key_store_password=$($${aws} ssm get-parameter --name "/${ACCOUNT_ENVIRONMENT}/tars/d90/certificates/keystore/passwords/$${d90_soap_client}" --with-decryption --query 'Parameter.Value' --output text)
+  d90_trust_store_password=$($${aws} ssm get-parameter --name "/${ACCOUNT_ENVIRONMENT}/tars/d90/certificates/shared/keystore/passwords/d90-trust-store-jks" --with-decryption --query 'Parameter.Value' --output text)
+
+  log 'INFO' "Retrieving ${ACCOUNT_ENVIRONMENT} $${d90_soap} certificate"
+  $${aws} ssm get-parameter --name /${ACCOUNT_ENVIRONMENT}/tars/d90/certificates/$${d90_soap_crt} --with-decryption --query 'Parameter.Value' --output text > $${certificate_directory}/$${d90_soap_crt}.crt
+  log 'INFO' "Retrieving ${ACCOUNT_ENVIRONMENT} $${d90_soap} certificate private key"
+  $${aws} ssm get-parameter --name /${ACCOUNT_ENVIRONMENT}/tars/d90/certificates/$${d90_soap_private_key} --with-decryption --query 'Parameter.Value' --output text > $${certificate_directory}/$${d90_soap_private_key}.key
+
+  log 'INFO' "Retrieving ${ACCOUNT_ENVIRONMENT} $${d90_soap} root and intermediate certificates"
+  $${aws} ssm get-parameter --name /${ACCOUNT_ENVIRONMENT}/tars/d90/certificates/$${services03_crt} --with-decryption --query 'Parameter.Value' --output text > $${certificate_directory}/$${services03_crt}.crt
+  $${aws} ssm get-parameter --name /${ACCOUNT_ENVIRONMENT}/tars/d90/certificates/$${services04_crt} --with-decryption --query 'Parameter.Value' --output text > $${certificate_directory}/$${services04_crt}.crt
+  
+  log 'INFO' "Creating ${ACCOUNT_ENVIRONMENT} $${d90_soap} certificate chain"
+  cat $${certificate_directory}/$${d90_soap_crt}.crt $${certificate_directory}/$${services04_crt}.crt $${certificate_directory}/$${services03_crt}.crt > $${certificate_directory}/d90-chain.pem
+  
+  log 'INFO' "Creating ${ACCOUNT_ENVIRONMENT} $${d90_soap} pk12"
+  openssl pkcs12 -export -inkey $${certificate_directory}/$${d90_soap_private_key}.key -in $${certificate_directory}/$${d90_soap_crt}.crt -certfile $${certificate_directory}/d90-chain.pem -name $${d90_soap} -out $${certificate_directory}/$${d90_soap}.p12 -passout pass:$d90_key_store_password
+
+  log 'INFO' "Creating ${ACCOUNT_ENVIRONMENT} $${d90_keystore}.jks keystore and importing $${certificate_directory}/$${d90_soap}.p12"
+  $${java_path}/keytool -importkeystore -srckeystore $${certificate_directory}/$${d90_soap}.p12 -srcstoretype pkcs12 -destkeystore $${certificate_directory}/keystores/$${d90_keystore}.jks -deststorepass $d90_key_store_password -srcstorepass $d90_key_store_password
+
+  log 'INFO' "Retrieving ${ACCOUNT_ENVIRONMENT} d90 trusted certificates"
+  $${aws} ssm get-parameter --name /${ACCOUNT_ENVIRONMENT}/tars/d90/certificates/shared/INTERMEDIATE-DigiCert-SHA2-Extended-Validation-Server-CA-crt --with-decryption --query 'Parameter.Value' --output text > $${certificate_directory}/INTERMEDIATE-DigiCert-SHA2-Extended-Validation-Server-CA.crt
+  $${aws} ssm get-parameter --name /${ACCOUNT_ENVIRONMENT}/tars/d90/certificates/shared/ROOT-DigiCert-High-Assurance-EV-Root-CA-crt --with-decryption --query 'Parameter.Value' --output text > $${certificate_directory}/ROOT-DigiCert-High-Assurance-EV-Root-CA.crt
+  $${aws} ssm get-parameter --name /${ACCOUNT_ENVIRONMENT}/tars/d90/certificates/shared/dvla-UASERVICES03-CA-crt --with-decryption --query 'Parameter.Value' --output text > $${certificate_directory}/dvla-UASERVICES03-CA-crt-shared.crt
+  $${aws} ssm get-parameter --name /${ACCOUNT_ENVIRONMENT}/tars/d90/certificates/shared/dvla-UASERVICES04-CA-crt --with-decryption --query 'Parameter.Value' --output text > $${certificate_directory}/dvla-UASERVICES04-CA-crt-shared.crt
+  $${aws} ssm get-parameter --name /${ACCOUNT_ENVIRONMENT}/tars/d90/certificates/shared/quovadis-ev-ssl-ica-g1-crt --with-decryption --query 'Parameter.Value' --output text > $${certificate_directory}/QuoVadisEVSSLICAG1.crt
+  $${aws} ssm get-parameter --name /${ACCOUNT_ENVIRONMENT}/tars/d90/certificates/shared/QuoVadisRoot-crt --with-decryption --query 'Parameter.Value' --output text > $${certificate_directory}/QuoVadisRoot.pem.crt
+  $${aws} ssm get-parameter --name /${ACCOUNT_ENVIRONMENT}/tars/d90/certificates/shared/quovadis-root-ca-2-g3-crt --with-decryption --query 'Parameter.Value' --output text > $${certificate_directory}/quovadis-root-ca-2-g3.crt
+  $${aws} ssm get-parameter --name /${ACCOUNT_ENVIRONMENT}/tars/d90/certificates/shared/quovadis-europe-ev-ssl-ca-g1-crt --with-decryption --query 'Parameter.Value' --output text > $${certificate_directory}/quovadis-europe-ev-ssl-ca-g1.crt
+
+  log 'INFO' "Creating ${ACCOUNT_ENVIRONMENT} d90 truststore and importing trusted certificates"
+  $${java_path}/keytool -importcert -trustcacerts -keystore $${certificate_directory}/keystores/d90_trust_store.jks -deststorepass $d90_trust_store_password -noprompt -file $${certificate_directory}/INTERMEDIATE-DigiCert-SHA2-Extended-Validation-Server-CA.crt -alias "digitcertroot20281022"
+  $${java_path}/keytool -importcert -trustcacerts -keystore $${certificate_directory}/keystores/d90_trust_store.jks -deststorepass $d90_trust_store_password -noprompt -file $${certificate_directory}/ROOT-DigiCert-High-Assurance-EV-Root-CA.crt -alias "digitcertroot20311110"
+  $${java_path}/keytool -importcert -trustcacerts -keystore $${certificate_directory}/keystores/d90_trust_store.jks -deststorepass $d90_trust_store_password -noprompt -file $${certificate_directory}/dvla-UASERVICES03-CA-crt-shared.crt -alias "dvla-uaservices03-ca"
+  $${java_path}/keytool -importcert -trustcacerts -keystore $${certificate_directory}/keystores/d90_trust_store.jks -deststorepass $d90_trust_store_password -noprompt -file $${certificate_directory}/dvla-UASERVICES04-CA-crt-shared.crt -alias "dvla-uaservices04-ca"
+  $${java_path}/keytool -importcert -trustcacerts -keystore $${certificate_directory}/keystores/d90_trust_store.jks -deststorepass $d90_trust_store_password -noprompt -file $${certificate_directory}/QuoVadisEVSSLICAG1.crt -alias "quovadis-ev-ssl-ica-g1"
+  $${java_path}/keytool -importcert -trustcacerts -keystore $${certificate_directory}/keystores/d90_trust_store.jks -deststorepass $d90_trust_store_password -noprompt -file $${certificate_directory}/QuoVadisRoot.pem.crt -alias "quovadis-root-ca-2"
+  $${java_path}/keytool -importcert -trustcacerts -keystore $${certificate_directory}/keystores/d90_trust_store.jks -deststorepass $d90_trust_store_password -noprompt -file $${certificate_directory}/quovadis-root-ca-2-g3.crt -alias "quovadis-root-ca2-g3"
+  $${java_path}/keytool -importcert -trustcacerts -keystore $${certificate_directory}/keystores/d90_trust_store.jks -deststorepass $d90_trust_store_password -noprompt -file $${certificate_directory}/quovadis-europe-ev-ssl-ca-g1.crt -alias "quovadis-ssl-ica-g3-new"
+
+  if [ -f "/opt/d90wrapper/conf/$${d90_keystore}.jks" ]; then
+    log 'INFO' "Backing up /opt/d90wrapper/conf/$${d90_keystore}.jks"
+    mv /opt/d90wrapper/conf/$${d90_keystore}.jks /opt/d90wrapper/conf/$${d90_keystore}-original.jks
+  fi
+
+  if [ -f "/opt/d90wrapper/conf/d90_trust_store.jks" ]; then
+    log 'INFO' "Backing up /opt/d90wrapper/conf/d90_trust_store.jks"
+    mv /opt/d90wrapper/conf/d90_trust_store.jks /opt/d90wrapper/conf/d90_trust_store-original.jks
+  fi
+
+  log 'INFO' "Copying $${d90_keystore}.jks keystore to /opt/d90wrapper/conf/$${d90_keystore}.jks"
+  cp $${certificate_directory}/keystores/$${d90_keystore}.jks /opt/d90wrapper/conf
+  log 'INFO' "Copying d90_trust_store.jks to /opt/d90wrapper/conf"
+  cp $${certificate_directory}/keystores/d90_trust_store.jks /opt/d90wrapper/conf/d90_trust_store.jks
+
+  chown d90wrapper:d90wrapper /opt/d90wrapper/conf/$${d90_keystore}.jks
+  chown d90wrapper:d90wrapper /opt/d90wrapper/conf/d90_trust_store.jks
+  chmod 750 /opt/d90wrapper/conf/$${d90_keystore}.jks
+  chmod 750 /opt/d90wrapper/conf/d90_trust_store.jks
+
+  log 'INFO' 'Deleting temporary directory to store keystores'
+  rm -fR $${certificate_directory}
+fi
+
 /etc/init.d/d90wrapper restart
 
 # Sure would be lovely if date could give unix time 
