@@ -126,6 +126,7 @@ reporting_xe_alb_sg_whitelist_hosts = [
   "45.64.64.0/22",
   "107.154.0.0/16",
   "45.60.0.0/16",
+  "131.125.128.0/17",# Incapsula New OPS-4858
   "45.223.0.0/16",   # End Incapsula IPs
   "54.76.206.25/32", # Perf01 NATGW IP
   "10.69.3.15/32",   # Begin DVSA MS-RDS

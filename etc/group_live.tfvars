@@ -356,6 +356,7 @@ whitelist = [
   "45.64.64.0/22",
   "107.154.0.0/16",
   "45.60.0.0/16",
+  "131.125.128.0/17",# Incapsula New OPS-4858
   "45.223.0.0/16", # End Incapsula IPs
   "54.246.192.151/32", # Live ctrl natgw
   "10.69.3.15/32", # Begin DVSA MS-RDS
