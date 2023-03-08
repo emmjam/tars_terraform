@@ -97,7 +97,7 @@ data "aws_ami" "oraclexe" {
     var.project,
     "amzn2",
     "oraclexe",
-    var.oraclexe_svr_id,
+    var.oraclexe_ami_build_id,
   )
 
   most_recent = "true"

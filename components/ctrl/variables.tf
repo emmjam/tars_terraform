@@ -407,7 +407,7 @@ variable "account_environment" {
   default     = ""
 }
 
-variable "oraclexe_svr_id" {
+variable "oraclexe_ami_build_id" {
   type        = string
   description = "OracleXE AMI build ID"
   default     = ""
