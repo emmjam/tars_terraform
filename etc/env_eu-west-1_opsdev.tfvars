@@ -310,6 +310,9 @@ dvsa_wan_connectivity_enabled = true
 # Old World
 transit_peering_enabled = false
 
+## wildfly-messaging
+wildfly-messaging_ebs_vol   = 50
+
 #############################################################################
 # DVSA AD VPC peering
 #############################################################################
