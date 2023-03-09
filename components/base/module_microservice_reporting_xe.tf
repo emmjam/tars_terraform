@@ -33,7 +33,7 @@ module "microservice_reporting_xe" {
   failed_lifecycle_action_sns_topic       = aws_sns_topic.alerts.arn
 
   asg_size_min               = var.reporting_xe_asg_min_size
-  asg_size_desired_on_create = var.reporting_xe_asg_min_size
+  asg_size_desired_on_create = var.reporting_xe_asg_desired_size
   asg_size_max               = var.reporting_xe_asg_max_size
 
   default_tags = local.default_tags

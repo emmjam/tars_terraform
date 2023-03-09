@@ -377,8 +377,8 @@ api_notify = {
 
 reporting_xe_count            = 1
 reporting_xe_asg_min_size     = 0
-reporting_xe_asg_max_size     = 0 
-reporting_xe_asg_desired_size = 0 
+reporting_xe_asg_max_size     = 0
+reporting_xe_asg_desired_size = 0
 reporting_xe_subnets_cidrs = [
   "10.167.4.176/28",
   "10.167.4.192/28",
